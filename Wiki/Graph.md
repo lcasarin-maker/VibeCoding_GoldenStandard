@@ -49,8 +49,8 @@ Cada entrada se clasifica por profundidad: `deep` (trae ejemplos bad/good y rece
 
 | Profundidad | VC | VT | TK |
 |---|---:|---:|---:|
-| `deep` | 27 | 27 | 12 |
-| `stub` | 19 | 88 | 34 |
+| `deep` | 46 | 115 | 46 |
+| `stub` | 0 | 0 | 0 |
 | `doctrinal` | 80 | 0 | 0 |
 
 ---

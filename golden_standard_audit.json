@@ -99,11 +99,16 @@
     "action": "validate_golden_standard_catalogs.py --check-wiki verifies that the Memory and Headroom tokenomics surface is published and linked from the canonical index.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Nueva sesion reinicia todo: se reexplica el estado desde cero.\n",
+    "example_good": "# Cerrar con checkpoint fisico (STATUS.md) para reanudar sin reconstruir.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Sesiones que arrancan sin un checkpoint de cierre previo reutilizable.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-002": {
@@ -122,11 +127,16 @@
     "action": "Tokenomics topology validation keeps the canonical memory surfaces visible, so chat is not treated as the only durable store.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El estado vive en el hilo de chat; cambiar de hilo lo pierde.\n",
+    "example_good": "# Estado fuera del chat (STATUS.md) como fuente principal.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Usar la memoria del chat como fuente de verdad del estado en vez de un artefacto externo.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-003": {
@@ -145,11 +155,16 @@
     "action": "validate_golden_standard_catalogs.py --check-wiki keeps the memory/headroom surface linked so project switches must pass through the canonical layout.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Se cambia de objetivo sin cerrar; los contextos se contaminan.\n",
+    "example_good": "# Checkpoint del proyecto actual antes de cambiar de objetivo.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Cambio de objetivo/proyecto sin checkpoint de cierre del anterior.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-004": {
@@ -168,11 +183,16 @@
     "action": "Tokenomics topology validation ensures the canonical memory/headroom entry points remain published instead of being reconstructed ad hoc each session.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Cada sesion gasta tokens reexplicando como arrancar el entorno.\n",
+    "example_good": "# Ficha minima de arranque (BOOT.md): comandos, puertos, salud.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Reconstruir el setup del entorno cada sesion en vez de una ficha de arranque estable.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-005": {
@@ -191,11 +211,16 @@
     "action": "Handoff atómico: STATUS.md debe tener secciones estructuradas; detector falla ante prosa cruda.",
     "validating_mechanism": "test_tk005_status_md_has_required_sections",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Handoff en prosa larga: continuar exige leer toda la historia.\n",
+    "example_good": "# Handoff atomico: objetivo | estado | evidencia | riesgos | siguiente accion.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Handoffs en prosa extensa sin una estructura atomica de campos clave.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-006": {
@@ -214,11 +239,16 @@
     "action": "validate_golden_standard_catalogs.py --check-wiki keeps the canonical tokenomics map and memory lenses linked so history is not merged blindly.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Resolver el conflicto de historial releyendo todo el texto bruto.\n",
+    "example_good": "# Fusionar por decisiones e invariantes, no por texto linea a linea.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Merge de historial/estado por texto bruto en vez de por decisiones e invariantes.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-007": {
@@ -237,11 +267,16 @@
     "action": "The canonical Tokenomics map and index are now enforced as the visible source of truth for this category.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Dos copias contradictorias del estado se releen una y otra vez.\n",
+    "example_good": "# Un nucleo canonico; las copias se archivan como evidencia, no se consultan.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Multiples fuentes de verdad que obligan a releer copias contradictorias.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-008": {
@@ -260,11 +295,16 @@
     "action": "Memory/headroom topology validation keeps the stable/volatile split represented as its own canonical lens.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Se reprocesan especificaciones estables en cada turno.\n",
+    "example_good": "# Separar Nucleo Inmutable (estable) y compactar el Buffer Transicional (volatil).\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Reprocesar directrices estables junto al contexto volatil sin segregar memoria.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-009": {
@@ -367,11 +407,16 @@
     "action": "Input-retrieval topology validation now keeps the reading paths and map surfaces canonical instead of free-form exploration.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "cat src/**/*.py | head -3000   # muchos tokens antes de actuar\n",
+    "example_good": "ctags -R src/ && grep -n 'def target' tags   # indice + lectura dirigida\n",
+    "example_lang": "bash",
+    "detection": "Gastar muchos tokens explorando a ciegas antes de actuar, sin indices ni mapas.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-013": {
@@ -390,11 +435,16 @@
     "action": "Automation-tooling topology validation keeps the tooling surface explicit so unused tools do not become invisible context debt.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "tools = load_all_tools()        # esquemas de 40 tools no usados ocupan contexto\n",
+    "example_good": "tools = load_tools_for(task)    # carga diferida segun necesidad\n",
+    "example_lang": "python",
+    "detection": "Cargar esquemas de herramientas no usadas en el contexto en vez de carga diferida.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-014": {
@@ -469,11 +519,16 @@
     "action": "Output-compaction topology validation keeps the output discipline lens canonical and linked.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Un prompt pide refactor + tests + docs + deploy a la vez.\n",
+    "example_good": "# Una tarea concreta por ciclo; el modelo no reparte atencion.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Prompts multiobjetivo que dispersan la atencion en vez de una tarea por ciclo.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-017": {
@@ -520,11 +575,16 @@
     "action": "Backlog externalizado (.protocol/review_queue.json) verificado por detector + repo-guard.",
     "validating_mechanism": "test_tk018_external_backlog_exists",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Ideas laterales se acumulan en la ventana activa del objetivo.\n",
+    "example_good": "# Side findings -> cola externa (backlog); la ventana queda para el objetivo.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Backlog/ideas laterales mezclados con el objetivo en la ventana activa.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-019": {
@@ -571,11 +631,16 @@
     "action": "Output-compaction topology validation keeps the output budget lens canonical in the vault.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# \"Explica en detalle...\" -> respuestas largas por defecto.\n",
+    "example_good": "# Definir presupuesto y formato de salida explicitos.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Salida sin presupuesto ni formato definido, larga por defecto.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-021": {
@@ -594,11 +659,16 @@
     "action": "Output-compaction topology validation keeps the compaction lens and its index published.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "resp = call(model, prompt)              # formato de salida variable\n",
+    "example_good": "resp = call(model, prompt, prefill=\"{\\\"result\\\":\")  # estructura predefinida\n",
+    "example_lang": "python",
+    "detection": "Salida sin prefilling/estructura predefinida cuando el formato debe ser estable.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-022": {
@@ -617,11 +687,16 @@
     "action": "Output-compaction topology validation keeps the compaction lens visible so example bloat is tracked instead of hidden.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# 12 ejemplos few-shot casi identicos saturan el prompt.\n",
+    "example_good": "# Pocos ejemplos minimos, diversos y densos.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Few-shot redundante (ejemplos similares) en vez de pocos, diversos y densos.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-023": {
@@ -640,11 +715,16 @@
     "action": "D10 enforces that all major background loop and orchestrator scripts import and wrap execution inside OutputCompressor.",
     "validating_mechanism": "audit_d10_tokenomics",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "pytest -v                       # vuelca miles de lineas crudas al contexto\n",
+    "example_good": "pytest -q | tail -20            # filtrar/comprimir antes de entregar al agente\n",
+    "example_lang": "bash",
+    "detection": "Salida cruda de comandos volcada al contexto sin filtrar ni comprimir.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-024": {
@@ -663,11 +743,16 @@
     "action": "Output-compaction topology validation keeps the summary/compactness lens canonical and linked.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El resumen de cierre omite las decisiones y los proximos pasos.\n",
+    "example_good": "# Compactar preservando hechos criticos, decisiones y next steps.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Compactacion/resumen que pierde decisiones criticas y proximos pasos.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-025": {
@@ -686,11 +771,16 @@
     "action": "Measurement-telemetry topology validation keeps the reporting lens visible so audit output cannot drift into verbosity theater.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El hallazgo de auditoria se pierde entre parrafos de relleno.\n",
+    "example_good": "# Reportar: hallazgo | evidencia | accion. Sin relleno.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Reportes de auditoria verbosos donde el hallazgo se diluye en ruido.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-026": {
@@ -709,11 +799,16 @@
     "action": "Measurement-telemetry topology validation keeps the observability lens explicit and linked from the tokenomics index.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Logs extensos desplazan el problema fuera de la ventana.\n",
+    "example_good": "# Resumen causal en contexto; detalle bajo demanda.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Observabilidad ruidosa que desplaza el problema en vez de un resumen causal.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-027": {
@@ -732,11 +827,16 @@
     "action": "Measurement-telemetry topology validation keeps the diagnostic-compression lens published and linked.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Trazas de error repetitivas (mismo frame x500) saturan el contexto.\n",
+    "example_good": "# Elision controlada de redundancia lexica en las trazas.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Trazas de error verbosas/repetitivas sin compresion lexica (elision).\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-028": {
@@ -755,11 +855,16 @@
     "action": "Memory/headroom topology validation keeps the cache/stability lens canonical so the category does not dissolve into prose.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "call(model, system=STABLE_SPEC + turn)   # se reprocesa el bloque estable\n",
+    "example_good": "call(model, system=[{\"text\": STABLE_SPEC, \"cache_control\": {\"type\":\"ephemeral\"}}, turn])\n",
+    "example_lang": "python",
+    "detection": "Bloques reutilizables no marcados como cacheables, reprocesados en cada turno.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-029": {
@@ -834,11 +939,16 @@
     "action": "Output-compaction topology validation keeps the compaction lens and its linked page visible from the canonical index.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Sesion larga: la calidad se degrada por exceso de contexto.\n",
+    "example_good": "# Resumir el estado y reiniciar con continuidad (compactacion).\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Sesiones largas sin compactacion periodica que degradan la calidad.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-032": {
@@ -857,11 +967,16 @@
     "action": "Memory/headroom topology validation keeps the cache/stability lens canonical instead of hidden in prose.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Una pausa larga invalida la cache y se vuelve a pagar todo.\n",
+    "example_good": "# Gestionar reanudacion y checkpoints para no caer del cache cliff.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Pausas que invalidan el beneficio de cache sin gestion de reanudacion.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-033": {
@@ -880,11 +995,16 @@
     "action": "Memory/headroom topology validation keeps the headroom lens explicit and linked from the tokenomics index.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El contexto colapsa de golpe al llenarse, sin aviso.\n",
+    "example_good": "# Mantener presupuesto con zona de seguridad (headroom).\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Operar sin headroom: el contexto colapsa silenciosamente al saturarse.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-034": {
@@ -903,11 +1023,16 @@
     "action": "Measurement-telemetry topology validation keeps the rollback-cost lens linked so it cannot hide in an orphaned note.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Loops de fix/revert consumen la sesion sin registrar su costo.\n",
+    "example_good": "# Registrar el costo de rollback para hacerlo visible.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Costo de reversion (fix/revert) invisible, sin telemetria que lo registre.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-035": {
@@ -926,11 +1051,16 @@
     "action": "Automation-tooling topology validation keeps the execution-tool lens visible and linked.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Se usa el contexto caro de ejecucion para deliberar decisiones.\n",
+    "example_good": "# Separar pensar / ejecutar / revisar en espacios distintos.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Deliberar usando el contexto caro de ejecucion en vez de separar fases.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-036": {
@@ -949,11 +1079,16 @@
     "action": "Output-compaction topology validation keeps mode discipline surfaced as a canonical tokenomics lens.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El agente no sabe si debe pensar o ejecutar; mezcla ambos.\n",
+    "example_good": "# Enrutar por fase explicita: pensar -> ejecutar -> revisar.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Respuestas sin modo declarado (pensar vs ejecutar vs revisar).\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-037": {
@@ -972,11 +1107,16 @@
     "action": "Measurement-telemetry topology validation keeps the monitoring lens canonical and visible from the index.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El usuario cuenta mensajes a mano para saber cuando compactar.\n",
+    "example_good": "# Umbrales visibles y automatizables de uso de contexto.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Monitoreo de contexto manual/olvidable en vez de umbrales visibles.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-038": {
@@ -995,11 +1135,16 @@
     "action": "D10 manifest size gate validates that AGENT.md <= 150 lines, STATUS.md <= 200 lines, and SPEC.md <= 500 lines.",
     "validating_mechanism": "audit_d10_tokenomics",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "ctx = read_full_state()         # cada turno arrastra el estado completo\n",
+    "example_good": "ctx = read_state_fields(['goal','blockers'])   # campos pequenos\n",
+    "example_lang": "python",
+    "detection": "Releer el estado completo cada turno en vez de campos pequenos.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-039": {
@@ -1018,11 +1163,16 @@
     "action": "D10 check extracts and verifies that all python scripts referenced in TOKEN_BUDGET.md or AGENT.md exist on disk.",
     "validating_mechanism": "audit_d10_tokenomics",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Existen estrategias de ahorro pero no estan en la ruta activa.\n",
+    "example_good": "# Cada optimizacion debe estar cableada en el flujo que se ejecuta.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Herramientas/estrategias de optimizacion existentes pero no integradas en la ruta activa.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-040": {
@@ -1041,11 +1191,16 @@
     "action": "Measurement-telemetry topology validation requires the savings lens to remain published and linked.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# \"Reducimos 40% de tokens\" declarado sin telemetria.\n",
+    "example_good": "# Medir antes y despues; el ahorro se prueba, no se afirma.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Ahorro de tokens declarado sin telemetria que lo mida antes/despues.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-041": {
@@ -1064,11 +1219,16 @@
     "action": "Memory/headroom topology validation keeps quota awareness tied to the canonical tokenomics surfaces.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# La sesion se corta por limites de cuota no presupuestados.\n",
+    "example_good": "# Incluir limites, backoff y degradacion en el plan.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Cuotas/limites no presupuestados que cortan la sesion por sorpresa.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-042": {
@@ -1087,11 +1247,16 @@
     "action": "D10 manifest size gate validates that AGENT.md <= 150 lines, STATUS.md <= 200 lines, and SPEC.md <= 500 lines.",
     "validating_mechanism": "audit_d10_tokenomics",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# AGENT.md / STATUS.md crecen sin control y saturan la ventana.\n",
+    "example_good": "# Compuerta de tamano: los manifiestos de gobernanza tienen limite.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Manifiestos de gobernanza (AGENT.md, STATUS.md, SPEC.md) sin limite de tamano.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
     "doctrinal": false
   },
   "TK-043": {
@@ -1110,11 +1275,16 @@
     "action": "Tokenomics cleanup validation now rejects orphan markdown files in Wiki/Vices and Wiki/Tokenomics so residual docs cannot linger unnoticed.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# El refactor deja residuo; el gate aprueba porque el archivo 'existe'.\ngit mv old.py new.py        # old import muerto, backup y doc duplicado quedan vivos\n",
+    "example_good": "# Reemplazar = borrar + crear en el MISMO commit; cazar huerfanos como compuerta.\nvulture src/ && git rm old.py backups/old.py docs/old.md && git add new.py\n",
+    "example_lang": "bash",
+    "detection": "Compuerta de salida: dead-code (vulture), allowlists sin archivo, directorios sin\npolitica de retencion y docs de proposito duplicado; falla si un refactor deja residuo.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el residuo no podado infla el contexto y el costo; la gobernanza de salida es tan necesaria como la de entrada."
+      }
+    ],
     "doctrinal": false
   },
   "VT-001": {
@@ -1189,11 +1359,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "def classify(s): return \"spam\" if s == \"BUY NOW\" else \"ham\"  # solo el input del test\n",
+    "example_good": "def classify(s): return model.predict(s)   # generaliza; el test usa varias entradas\n",
+    "example_lang": "python",
+    "detection": "Implementacion que solo acierta para el input exacto del test (memoriza el caso).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-004": {
@@ -1212,11 +1387,16 @@
     "action": "Audited as oracle-contamination in test fixtures or implementation glue; separate from stale-spec mismatches.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "EXPECTED = compute(x)\nassert compute(x) == EXPECTED   # el esperado sale del propio SUT\n",
+    "example_good": "assert compute(x) == spec_value(x)   # esperado de una especificacion externa\n",
+    "example_lang": "python",
+    "detection": "El valor esperado se deriva del propio SUT en vez de una fuente independiente.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-005": {
@@ -1291,11 +1471,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert os.path.exists(\"out.csv\")   # existe, pero no se valida el contenido\n",
+    "example_good": "assert read_csv(\"out.csv\").rows == 3   # efecto observable\n",
+    "example_lang": "python",
+    "detection": "Tests que afirman existencia de un artefacto sin validar su efecto/contenido.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-008": {
@@ -1314,11 +1499,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert \"approved\" in output   # busca el texto de aprobado\n",
+    "example_good": "assert order.status == Status.APPROVED   # estado final estructurado\n",
+    "example_lang": "python",
+    "detection": "Asertar sobre texto de aprobacion en vez del estado final estructurado.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-009": {
@@ -1365,11 +1555,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert obj._helper.call_count == 1   # acopla al detalle interno\n",
+    "example_good": "assert obj.result() == 42   # comportamiento observable\n",
+    "example_lang": "python",
+    "detection": "Tests que afirman sobre detalles internos (llamadas privadas) en vez de comportamiento.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-011": {
@@ -1388,11 +1583,16 @@
     "action": "Audited as stale-oracle mismatch; separate from copied-expected contamination.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert tax(100) == 7   # la spec cambio a 8%, el test sigue en 7\n",
+    "example_good": "assert tax(100) == SPEC.rate * 100\n",
+    "example_lang": "python",
+    "detection": "Oraculo que ya no coincide con la especificacion vigente.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-012": {
@@ -1467,11 +1667,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert auditor.audit(auditor) == \"ok\"   # se evalua a si mismo\n",
+    "example_good": "assert auditor.audit(subject) == expected_from_spec\n",
+    "example_lang": "python",
+    "detection": "El sujeto bajo prueba es tambien su propio oraculo (auto-aprobacion).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-015": {
@@ -1490,11 +1695,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "def test_everything(): assert run_whole_app() == \"ok\"   # no localiza la falla\n",
+    "example_good": "# tests focales por unidad: test_parse, test_validate, test_render\n",
+    "example_lang": "python",
+    "detection": "Un test monolitico que cubre todo el pipeline y no localiza la falla a una unidad.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-016": {
@@ -1541,11 +1751,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "def run(): return {\"outcome\": \"success\"}   # constante\n",
+    "example_good": "def run(): return {\"outcome\": verify().status}\n",
+    "example_lang": "python",
+    "detection": "Outcome/veredicto constante en vez de derivado de verificacion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-018": {
@@ -1564,11 +1779,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert str(err) == \"Error: code 42 at line 7\"   # rompe si cambia el texto\n",
+    "example_good": "assert err.code == 42\n",
+    "example_lang": "python",
+    "detection": "Comparacion contra mensajes de texto exactos en vez de estados estructurados.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-019": {
@@ -1587,11 +1807,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "data = read()\nassert data   # data == \"UNREADABLE\" pasa como verdadero\n",
+    "example_good": "data = read()\nassert data not in SENTINELS   # fallo explicito ante error\n",
+    "example_lang": "python",
+    "detection": "Sentinelas de error (UNREADABLE/ERROR/N/A) tratados como datos validos.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-020": {
@@ -1610,11 +1835,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# tests vacios anadidos solo para llegar a 100% de cobertura\n",
+    "example_good": "# 100% es consecuencia de cubrir comportamiento, no la meta\n",
+    "example_lang": "python",
+    "detection": "Crear tests para alcanzar 100% de cobertura como objetivo en si mismo.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-021": {
@@ -1633,11 +1863,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# se arregla BUG-9 pero no se deja test que lo discrimine\n",
+    "example_good": "def test_bug9(): assert safe_divide(1, 0) is None   # centinela de regresion\n",
+    "example_lang": "python",
+    "detection": "Defecto corregido sin un test discriminante que impida su reaparicion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-022": {
@@ -1684,11 +1919,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "api = Mock(); api.charge.return_value = True   # nunca falla\n",
+    "example_good": "# contract test contra el comportamiento real, incluidos sus fallos\n",
+    "example_lang": "python",
+    "detection": "Mock que siempre devuelve exito, sin calibrar contra integracion real.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-024": {
@@ -1707,11 +1947,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "class FakeDB:\n    def get(self, k): return {\"a\": 1}[k]   # solo el caso facil\n",
+    "example_good": "# fake que respeta los mismos invariantes y errores que el real\n",
+    "example_lang": "python",
+    "detection": "Fake/double que omite casos dificiles (errores, limites) del sistema real.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-025": {
@@ -1730,11 +1975,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "requests_mock.get(url, json=OLD_SNAPSHOT)   # respuesta grabada obsoleta\n",
+    "example_good": "# contract test vivo contra el esquema actual del proveedor\n",
+    "example_lang": "python",
+    "detection": "Stub de red con respuesta grabada obsoleta sin contract test vigente.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-026": {
@@ -1753,11 +2003,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# sqlite en test, postgres en prod -> constraints difieren\n",
+    "example_good": "# probar contra un motor equivalente al de produccion\n",
+    "example_lang": "python",
+    "detection": "Base de datos de test con reglas/constraints distintas a produccion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-027": {
@@ -1776,11 +2031,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "now = datetime(2020, 1, 1)   # siempre la misma fecha\n",
+    "example_good": "# probar fronteras: fin de mes, ano bisiesto, cambio de DST\n",
+    "example_lang": "python",
+    "detection": "Reloj fijo en tests que no ejercita fronteras temporales.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-028": {
@@ -1799,11 +2059,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "random.seed(0); assert sample()[0] == 0.844   # un solo draw fijado\n",
+    "example_good": "# validar propiedades estadisticas (media, rango) sobre N draws\n",
+    "example_lang": "python",
+    "detection": "Fijar la semilla y afirmar un valor concreto en vez de propiedades estadisticas.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-029": {
@@ -1822,11 +2087,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "fs = FakeFS()   # nunca lanza PermissionError ni ENOSPC\n",
+    "example_good": "# usar un directorio temporal real: IO con errores reales\n",
+    "example_lang": "python",
+    "detection": "FS falso que no reproduce errores reales de IO (permisos, espacio).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-030": {
@@ -1845,11 +2115,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "monkeypatch.setattr(mod, \"validate\", lambda x: True)   # parchea lo que se prueba\n",
+    "example_good": "# limitar parches a dependencias externas, nunca al sujeto\n",
+    "example_lang": "python",
+    "detection": "Monkeypatch que reemplaza la propia funcion bajo prueba.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-031": {
@@ -1868,11 +2143,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "run = Mock()   # no se verifica el efecto externo del comando\n",
+    "example_good": "# ejecutar en sandbox y verificar el efecto (archivo creado, exit code)\n",
+    "example_lang": "python",
+    "detection": "Stub de comandos/subprocess sin verificar su efecto externo.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-032": {
@@ -1891,11 +2171,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "scanner = Mock(); scanner.scan.return_value = [\"a\"]   # dominio parcial\n",
+    "example_good": "# escanear el dominio activo completo\n",
+    "example_lang": "python",
+    "detection": "Mock de un escaner que cubre solo parte del dominio real.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-033": {
@@ -1914,11 +2199,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "def safe_audit(x):\n    try: return audit(x)\n    except: return 'ok'   # adapta el juez\n",
+    "example_good": "# reparar la causa en el sujeto, no envolver al auditor\n",
+    "example_lang": "python",
+    "detection": "Wrapper que adapta el evaluador para ocultar el fallo en vez de corregir el sujeto.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-034": {
@@ -1937,11 +2227,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert result == \"TODO\"   # se aprueba el placeholder\n",
+    "example_good": "assert result == real_expected\n",
+    "example_lang": "python",
+    "detection": "Aprobar un valor placeholder como si fuera comportamiento observable.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-035": {
@@ -2016,11 +2311,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "if 1 == 2:\n    assert check()   # rama muerta: nunca corre\n",
+    "example_good": "assert check()\n",
+    "example_lang": "python",
+    "detection": "Aserciones tras una condicion imposible (rama muerta) que nunca se ejecuta.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-038": {
@@ -2039,11 +2339,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# test_b depende del estado dejado por test_a\n",
+    "example_good": "# cada test crea y limpia su propio estado (independiente)\n",
+    "example_lang": "python",
+    "detection": "Tests que dependen del orden de ejecucion (estado compartido entre tests).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-039": {
@@ -2062,11 +2367,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "start(); time.sleep(1); assert done()   # flaky por wall-clock\n",
+    "example_good": "# control explicito del tiempo o espera por condicion\n",
+    "example_lang": "python",
+    "detection": "Tests que dependen de sleeps/wall-clock en vez de control explicito del tiempo.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-040": {
@@ -2113,11 +2423,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "out = run(); assert \"ok\" in out.stdout   # ignora stderr y exit code\n",
+    "example_good": "r = run(); assert r.returncode == 0 and not r.stderr\n",
+    "example_lang": "python",
+    "detection": "Tests que ignoran stderr o el codigo de salida del proceso.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-042": {
@@ -2136,11 +2451,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "log(\"done\"); save()   # log de exito antes de verificar\n",
+    "example_good": "save(); assert persisted(); log(\"done\")   # log tras verificar\n",
+    "example_lang": "python",
+    "detection": "Registrar exito antes de verificar el resultado.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-043": {
@@ -2159,11 +2479,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "run_checks(); sys.exit(0)   # exit 0 pase lo que pase\n",
+    "example_good": "sys.exit(0 if all_ok else 1)\n",
+    "example_lang": "python",
+    "detection": "Exit code 0 incondicional que no refleja el estado real.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-044": {
@@ -2182,11 +2507,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "process(data)   # no se asierta el retorno\n",
+    "example_good": "assert process(data).count == 3\n",
+    "example_lang": "python",
+    "detection": "Llamar la funcion bajo prueba sin asertar su valor de retorno.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-045": {
@@ -2205,11 +2535,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "def test(): assert div(10, 2) == 5   # solo caso feliz\n",
+    "example_good": "# incluir div(1, 0), negativos, overflow\n",
+    "example_lang": "python",
+    "detection": "Cobertura solo del happy path; faltan casos adversos.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-046": {
@@ -2228,11 +2563,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert f(7) == 49   # un solo dato magico\n",
+    "example_good": "# parametrizar con variaciones representativas\n",
+    "example_lang": "python",
+    "detection": "Un unico dato magico en vez de variaciones representativas.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-047": {
@@ -2279,11 +2619,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert total([1, 2]) == 3   # nunca prueba [], [0], None\n",
+    "example_good": "# cubrir [], [0], None y valores limite\n",
+    "example_lang": "python",
+    "detection": "Faltan casos limite vacio/nulo/cero.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-049": {
@@ -2302,11 +2647,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert slug(\"hola\") == \"hola\"   # nunca prueba acentos/emojis/espacios\n",
+    "example_good": "assert slug(\"Hola Munro!\") == \"hola-munro\"\n",
+    "example_lang": "python",
+    "detection": "Faltan entradas con caracteres especiales/unicode.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-050": {
@@ -2353,11 +2703,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# CI muestra fallos pero el merge no se bloquea\n- run: pytest || true\n",
+    "example_good": "- run: pytest   # un fallo critico bloquea el merge (required check)\n",
+    "example_lang": "yaml",
+    "detection": "CI que reporta pero no bloquea el merge ante fallos criticos.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-052": {
@@ -2404,11 +2759,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Los tests viven en una carpeta que CI no ejecuta.\n",
+    "example_good": "# Integrados en la ruta activa de CI.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Tests que existen pero no se ejecutan en la rama/ruta activa de CI.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-054": {
@@ -2427,11 +2787,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "@pytest.mark.optional   # se saltan cuando hay prisa\n",
+    "example_good": "# obligatorios segun riesgo (sin marca optional)\n",
+    "example_lang": "python",
+    "detection": "Tests marcados opcionales que cubren riesgo y se omiten bajo presion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-055": {
@@ -2450,11 +2815,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# La alerta de test roto va a un canal que nadie lee.\n",
+    "example_good": "# Alertas con dueno explicito y SLA de atencion.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Alertas de fallos sin dueno asignado que las atienda.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-056": {
@@ -2473,11 +2843,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# se escribe el test despues del fix; nunca estuvo en rojo\n",
+    "example_good": "# primero reproducir en rojo, luego arreglar a verde\n",
+    "example_lang": "python",
+    "detection": "Test de regresion que nunca fallo: no se verifico que detecta el bug.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-057": {
@@ -2524,11 +2899,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# el test corre con flag OFF; produccion corre con flag ON\n",
+    "example_good": "# probar las combinaciones reales de feature flags\n",
+    "example_lang": "python",
+    "detection": "Tests que cubren un valor de feature flag distinto al de produccion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-059": {
@@ -2547,11 +2927,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "if os.getenv(\"TEST\"): skip_validation()   # la validacion difiere en test\n",
+    "example_good": "# configuracion equivalente: misma ruta de validacion\n",
+    "example_lang": "python",
+    "detection": "Variables de entorno que alteran la ruta de validacion en tests.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-060": {
@@ -2570,11 +2955,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "def setup(): db.reset(); db.seed_perfect()   # nunca prueba estado sucio\n",
+    "example_good": "# probar tambien estados sucios/parciales realistas\n",
+    "example_lang": "python",
+    "detection": "Setup que sanea el estado de forma que nunca se prueban estados sucios.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-061": {
@@ -2593,11 +2983,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert screenshot_diff() < 0.01   # solo delta visual, no valida flujo\n",
+    "example_good": "# validar flujos criticos: click -> estado -> resultado\n",
+    "example_lang": "python",
+    "detection": "Tests de UI que solo comparan delta visual sin ejercitar flujos.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-062": {
@@ -2616,11 +3011,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# test_x.py lleno de tests pero ningun runner lo recoge.\n",
+    "example_good": "# asegurar que el archivo se descubre y ejecuta.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Archivos de test con contenido que no son recogidos/ejecutados por el runner.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-063": {
@@ -2639,11 +3039,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# se prueba api.v2() que solo existe en los docs\n",
+    "example_good": "# probar la interfaz publica realmente implementada\n",
+    "example_lang": "python",
+    "detection": "Tests sobre una interfaz documentada pero no implementada.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-064": {
@@ -2662,11 +3067,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Los tests que fallan se excluyen del run y nadie lo nota.\n",
+    "example_good": "# Suite completa activa; un test roto es visible y bloquea.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Tests rotos excluidos silenciosamente de la suite.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-065": {
@@ -2685,11 +3095,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# un patch global no se revierte y contamina otros tests\n",
+    "example_good": "# aislar efectos por test (teardown / fixture con scope)\n",
+    "example_lang": "python",
+    "detection": "Captura/patch global que no se revierte y filtra efectos entre tests.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-066": {
@@ -2736,11 +3151,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "def f(): \"assert que valida X\"   # el auditor cuenta el docstring como assert\n",
+    "example_good": "# analisis estructural (AST), no por texto\n",
+    "example_lang": "python",
+    "detection": "Deteccion de calidad enganada por texto en docstrings en vez de analisis estructural.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-068": {
@@ -2759,11 +3179,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# *.bak tratados como 'deprecated' y excluidos de auditoria.\n",
+    "example_good": "# tipologia explicita: backup != deprecated != activo.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Artefactos backup mal clasificados que escapan a la auditoria.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-069": {
@@ -2782,11 +3207,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "def test_handles_timeout(): assert add(1, 1) == 2   # nombre != conducta\n",
+    "example_good": "# el nombre del test refleja el comportamiento que verifica\n",
+    "example_lang": "python",
+    "detection": "Nombre de test que no corresponde al comportamiento que ejercita.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-070": {
@@ -2833,11 +3263,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El checkpoint no incluye lo necesario para reanudar desde cero.\n",
+    "example_good": "# probar continuidad reanudando desde un checkpoint ajeno\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Handoff/checkpoint que no permite reanudar el trabajo sin contexto previo.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-072": {
@@ -2856,11 +3291,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# \"rollback: restaurar backup\" documentado pero nunca probado.\n",
+    "example_good": "# verificar el retorno real antes de aceptar el cambio destructivo\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Procedimiento de rollback documentado pero no verificado empiricamente.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-073": {
@@ -2879,11 +3319,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Se cambia la API sin probar los consumidores existentes.\n",
+    "example_good": "# suite de consumidores vigentes en CI\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Cambios de contrato sin una suite que pruebe consumidores vigentes.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-074": {
@@ -2902,11 +3347,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# nadie verifica que un fallo produzca un log accionable\n",
+    "example_good": "def test_failure_logs(): with fail(): assert log_has(\"cause\")\n",
+    "example_lang": "python",
+    "detection": "Falta de test que verifique que los fallos producen evidencia accionable.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-075": {
@@ -2925,11 +3375,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# tests/ no cubre fisicamente todos los modulos de src/.\n",
+    "example_good": "# auditoria de coincidencia fisica archivo-a-archivo\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Descubrimiento de pruebas que no cubre fisicamente todos los modulos del sujeto.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-076": {
@@ -2948,11 +3403,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert path == \"/tmp/x\"   # solo posix\n",
+    "example_good": "# matriz de entornos (windows / linux / mac)\n",
+    "example_lang": "python",
+    "detection": "Tests acoplados a un sistema operativo sin matriz de entornos.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-077": {
@@ -2971,11 +3431,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "@timeout(30)   # 30s arbitrarios ocultan lentitud real\n",
+    "example_good": "# limites funcionales justificados (p95 < X)\n",
+    "example_lang": "python",
+    "detection": "Timeouts arbitrarios que enmascaran lentitud en vez de limites funcionales.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-078": {
@@ -2994,11 +3459,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Pasa en la maquina del autor; no es reproducible.\n",
+    "example_good": "# reproducible en contenedor / CI limpio\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Tests reproducibles solo en la maquina local del autor.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-079": {
@@ -3017,11 +3487,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# nunca se prueba que el sandbox bloquea accesos prohibidos\n",
+    "example_good": "# probar violaciones controladas de frontera (deben fallar)\n",
+    "example_lang": "python",
+    "detection": "Sandbox/seguridad sin tests que ejerciten violaciones de frontera.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-080": {
@@ -3068,11 +3543,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El autor escribe el codigo y su unico revisor es el mismo.\n",
+    "example_good": "# revision independiente (otro actor o modelo)\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Implementacion revisada/probada solo por su autor, sin oraculo independiente.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-082": {
@@ -3091,11 +3571,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Se aprueba el PR sin mirar si los tests prueban algo.\n",
+    "example_good": "# la revision incluye la calidad de las pruebas\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Revisiones que aprueban codigo sin evaluar sus tests.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-083": {
@@ -3114,11 +3599,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "EXPECTED = run(inp)   # el esperado sale del SUT\n",
+    "example_good": "# derivar el esperado de una especificacion independiente\n",
+    "example_lang": "python",
+    "detection": "Valor esperado derivado del SUT en vez de una especificacion independiente.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-084": {
@@ -3137,11 +3627,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "APPROVED = True   # aprobacion fija\n",
+    "example_good": "APPROVED = evidence_reproducible()\n",
+    "example_lang": "python",
+    "detection": "Aprobacion hardcodeada en vez de basada en evidencia reproducible.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-085": {
@@ -3160,11 +3655,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Se regenera el golden file cada vez que falla, sin revisar.\n",
+    "example_good": "# regenerar golden solo tras revision semantica del cambio\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Golden files regenerados automaticamente sin revision semantica.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-086": {
@@ -3211,11 +3711,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# los warnings de tests se acumulan sin elevar a fallo\n",
+    "example_good": "filterwarnings = error   # hasta resolver la causa\n",
+    "example_lang": "python",
+    "detection": "Warnings en tests tolerados en vez de elevados a fallo.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-088": {
@@ -3262,11 +3767,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# se prueba helper_simple() que oculta la complejidad real\n",
+    "example_good": "# probar la interfaz real sin envoltorio simplificador\n",
+    "example_lang": "python",
+    "detection": "Tests que ejercitan un wrapper de conveniencia en vez de la interfaz real.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-090": {
@@ -3313,11 +3823,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El dominio D7 esta documentado pero no tiene ejecutor.\n",
+    "example_good": "# cada dominio declarado tiene un ejecutor que corre\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Dominios de auditoria documentados sin un ejecutor real.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-092": {
@@ -3336,11 +3851,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert \"## Security\" in readme   # la seccion existe = \"cumple\"\n",
+    "example_good": "# validar contenido y efecto, no la mera presencia de la seccion\n",
+    "example_lang": "python",
+    "detection": "Tratar la presencia de una seccion como cumplimiento sin validar su contenido.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-093": {
@@ -3359,11 +3879,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert func.__doc__   # tiene docstring = 'calidad'\n",
+    "example_good": "# cruzar uso, llamada y prueba real del simbolo\n",
+    "example_lang": "python",
+    "detection": "Contar docstrings como senal de calidad sin verificar comportamiento.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-094": {
@@ -3382,11 +3907,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert \"try\" in source   # \"maneja errores\" porque aparece la palabra try\n",
+    "example_good": "# inducir un error real y verificar el manejo\n",
+    "example_lang": "python",
+    "detection": "Verificar manejo de errores por presencia de palabras clave en el codigo fuente.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-095": {
@@ -3405,11 +3935,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Se corre la suite del protocolo, no la del sujeto auditado.\n",
+    "example_good": "# ejecutar la suite del sujeto real bajo auditoria\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Ejecutar tests del arnes/protocolo en vez de los del sujeto bajo auditoria.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-096": {
@@ -3428,11 +3963,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Se reutiliza evidencia de una version anterior.\n",
+    "example_good": "# evidencia ligada a la version/commit actual\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Evidencia de auditoria no ligada a la version vigente.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-097": {
@@ -3451,11 +3991,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# se 'falla' un mock, no un componente real\n",
+    "example_good": "# fallar componentes reales (matar pod, cortar red)\n",
+    "example_lang": "python",
+    "detection": "Pruebas de caos que afectan componentes simulados, no reales.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-098": {
@@ -3474,11 +4019,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El reporte dice 'passed' para dominios que se saltaron.\n",
+    "example_good": "# reportar solo los dominios realmente ejecutados\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Reportes que marcan 'passed' dominios omitidos o saltados.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-099": {
@@ -3497,11 +4047,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert __version__ == \"1.0\"   # fuente de version obsoleta\n",
+    "example_good": "# fuente unica y vigente de version\n",
+    "example_lang": "python",
+    "detection": "Aserciones de version contra una fuente obsoleta o duplicada.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-100": {
@@ -3520,11 +4075,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "assert can_read(admin)   # solo casos positivos\n",
+    "example_good": "assert can_read(admin) and not can_read(guest)   # positivos y negativos\n",
+    "example_lang": "python",
+    "detection": "Tests de permisos que solo cubren accesos permitidos, no los denegados.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-101": {
@@ -3543,11 +4103,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# no se prueban casos limite de la decision de ruteo\n",
+    "example_good": "# probar ruteo con casos limite: ambiguo, vacio, conflicto\n",
+    "example_lang": "python",
+    "detection": "Decisiones de ruteo sin tests de casos limite.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-102": {
@@ -3566,11 +4131,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "APPROVED = {\"a\", \"b\"}   # lista fija nunca revalidada\n",
+    "example_good": "# toda aprobacion revalida propiedades activas\n",
+    "example_lang": "python",
+    "detection": "Allowlist de aprobacion estatica que no revalida propiedades vigentes.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-103": {
@@ -3589,11 +4159,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El evaluador conoce el esperado: generador == juez.\n",
+    "example_good": "# separar generador, sujeto y juez en roles distintos\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "El evaluador contiene el valor esperado: no hay separacion de roles.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-104": {
@@ -3612,11 +4187,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "score = failures   # los warnings no cuentan en el score\n",
+    "example_good": "# warnings cuentan como fallo hasta clasificacion explicita\n",
+    "example_lang": "python",
+    "detection": "Score de calidad que excluye warnings sin clasificarlos.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-105": {
@@ -3719,11 +4299,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# 'auditor_12d' declara 12 dominios pero implementa 8.\n",
+    "example_good": "# centinela compara nombre, count de dominios y version\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Nombre/declaracion formal desalineado con la implementacion real.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-109": {
@@ -3770,11 +4355,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# .audit/ .cerberus/ .protocol/ dispersos sin consolidar.\n",
+    "example_good": "# consolidar la metadata bajo un unico directorio oculto\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Metadata fragmentada en multiples dot-directories sin consolidar.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-111": {
@@ -3793,11 +4383,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Se marca 'diferido' sin registrar un item ejecutable.\n",
+    "example_good": "# todo 'diferido' abre una incidencia con ID rastreable\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Clasificar algo como diferido sin registrarlo como item rastreable.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-112": {
@@ -3816,11 +4411,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# requirements lista libs que ya no se usan y faltan otras.\n",
+    "example_good": "# compuerta deptry / AST: imports usados == declarados\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Deriva entre dependencias declaradas y realmente usadas, sin compuerta.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-113": {
@@ -3839,11 +4439,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Ninguna mutacion del codigo hace fallar la suite.\n",
+    "example_good": "# mutation testing: la suite debe matar mutantes\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Suite sin validacion mutacional: no se prueba que detecta defectos inyectados.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-114": {
@@ -3862,11 +4467,16 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El protocolo en el repo-hijo difiere del central sin deteccion.\n",
+    "example_good": "# compuerta de drift detection multi-repo\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Deriva entre copias de un protocolo en multiples repos sin deteccion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
+      }
+    ],
     "doctrinal": false
   },
   "VT-115": {
@@ -4388,11 +4998,16 @@
     "action": "validate_golden_standard_catalogs.py --check-wiki keeps the canonical surfaces, link graph, and coverage counts aligned so a partial close fails the gate.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "def fix():\n    patch_login()        # arregla el bug principal\n    # el log revela ademas un KeyError secundario -> se ignora y se cierra\n",
+    "example_good": "def fix():\n    patch_login()\n    assert not scan_logs().errors   # cierra la cadena completa de defectos\n",
+    "example_lang": "python",
+    "detection": "Cerrar una tarea cuando los logs/CI aun muestran errores secundarios revelados por el propio fix.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-022": {
@@ -4526,11 +5141,16 @@
     "action": "validate_gs_topology.py checks that Inbox is published, linked from Home, and backed by the ingestion protocol and templates.",
     "validating_mechanism": "validate_gs_topology.py",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El plan de 6 pasos vive solo en el chat; al compactar se pierde.\n",
+    "example_good": "# PLAN.md versionado: pasos, estado y done-criteria fuera del chat.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Trabajo multi-paso sin un artefacto de plan persistente (PLAN.md / issue) fuera del chat.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-028": {
@@ -4595,11 +5215,16 @@
     "action": "Regenerated audit artifacts and topology checks prevent the Home, graph, and index surfaces from drifting away from the YAML catalogs.",
     "validating_mechanism": "generate_golden_audit.py + validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Ediciones masivas sucesivas sin checkpoint -> el estado real diverge del esperado.\n",
+    "example_good": "# Cortes verificables + checkpoint (git commit) entre ediciones.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Series de ediciones grandes sin commits/checkpoints intermedios que permitan reanudar.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-031": {
@@ -4766,11 +5391,16 @@
     "action": "generate_golden_audit.py forces a fresh rebuild of the vault before validation, so blind replacement cannot masquerade as a finished state.",
     "validating_mechanism": "generate_golden_audit.py + validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "# Se reemplaza la funcion entera sin diagnosticar por que fallaba.\ndef parse(x): return brand_new_impl(x)   # 'regenerar hasta que pase'\n",
+    "example_good": "# Diagnostico primero: reproducir, aislar causa, corregir minimo.\ndef parse(x): return x.strip() or DEFAULT   # fix dirigido a la causa\n",
+    "example_lang": "python",
+    "detection": "Reemplazo total de una unidad que fallaba sin evidencia de diagnostico (repro/causa) previa.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-038": {
@@ -5024,11 +5654,16 @@
     "action": "validate_gs_topology.py checks that GS exposes separate canonical surfaces for Vices, Tokenomics, Project Insights, and the graph instead of one monolithic knowledge page.",
     "validating_mechanism": "validate_gs_topology.py",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Un solo CONTEXT.md mezcla nucleo, estado activo, patrones e historia.\n",
+    "example_good": "# Separados por vida util: CORE.md (inmutable), STATUS.md (activo), PATTERNS.md, HISTORY.md.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Un unico archivo de memoria que mezcla capas con vidas distintas (estable vs volatil).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-049": {
@@ -5384,11 +6019,16 @@
     "action": "validate_golden_standard_catalogs.py --check-wiki now enforces link integrity and Home count parity so documentation cannot drift away from the generated state.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# README dice \"soporta OAuth\" pero el codigo no lo implementa.\n",
+    "example_good": "# Doc subordinada a ejecucion: un test verifica cada claim declarado en el README.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Afirmaciones de capacidad en docs sin codigo/test que las respalde (divergencia doc-codigo).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-064": {
@@ -5522,11 +6162,16 @@
     "action": "The wiki graph and link validator enforce that the canonical surfaces are mapped and resolved instead of being assumed.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "git mv core/auth.py util/        # sin saber quien lo importa -> rompe lejos\n",
+    "example_good": "grep -rn \"import core.auth\" .     # mapear dependientes ANTES de mover\ngit mv core/auth.py util/\n",
+    "example_lang": "bash",
+    "detection": "Mover/renombrar simbolos sin un mapa previo de referencias entrantes.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-070": {
@@ -5739,11 +6384,16 @@
     "action": "Detectado por D2 (completeness) vía AST: cuerpos de función vacíos, stub docstrings y pass-only functions son rechazados. D9 (test purity) rechaza tests que no tienen aserciones activas. Upgrade 2026-06-04: VC-078 deja DOC_ONLY porque D2 y D9 cubren el patrón mecánicamente en scripts/ y tests/.",
     "validating_mechanism": "audit_d2_completeness",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "API_KEY = \"REPLACE_ME\"           # placeholder que llega a produccion\n",
+    "example_good": "API_KEY = os.environ[\"API_KEY\"]  # falla si falta; sin placeholder\n",
+    "example_lang": "python",
+    "detection": "Literales placeholder (REPLACE_ME / XXX / changeme / foo) en rutas de produccion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-079": {
@@ -5864,11 +6514,16 @@
     "action": "Detectado por D1 audit_d1_integrity: escanea todos los archivos de código (excluyendo no-code por extensión) y falla con \"Archivo no registrado (Zombi)\" si el archivo no está en la whitelist ni es un test legítimo. Upgrade 2026-06-04: VC-083 deja DOC_ONLY porque D1 ya lo verifica mecánicamente.",
     "validating_mechanism": "audit_d1_integrity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# old_server.py, server_v2_backup.py conviven sin declararse ni usarse.\n",
+    "example_good": "# Cada artefacto esta autorizado, clasificado o eliminado (inventario explicito).\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Archivos no referenciados por imports/build ni declarados en un inventario = zombies.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-084": {
@@ -5956,11 +6611,16 @@
     "action": "D6 (_check_file_anti_slop) detecta filterwarnings(\"ignore\") sin comentario justificativo en scripts/ (excluyendo tests). Upgrade 2026-06-04: VC-087 promovido a PREVENTED con detección estática en audit_d6_anti_slop. Patrón permitido: filterwarnings(\"ignore\")  # VC-087-OK: <razón específica>.",
     "validating_mechanism": "audit_d6_anti_slop",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "warnings.filterwarnings(\"ignore\")   # se silencian todos, sin justificar\n",
+    "example_good": "warnings.filterwarnings(\"ignore\", category=DeprecationWarning)  # solo este, ver BUG-30\n",
+    "example_lang": "python",
+    "detection": "filterwarnings(\"ignore\") global o acumulacion de warnings sin justificacion en rutas de salud.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-088": {
@@ -6025,11 +6685,16 @@
     "action": "validate_gs_topology.py checks that the canonical memory surfaces are linked from Home, so the GS ledger can be loaded on entry.",
     "validating_mechanism": "validate_gs_topology.py",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# La sesion arranca sin leer el ledger -> repite un error ya resuelto.\n",
+    "example_good": "# El arranque carga decisiones vigentes (STATUS.md / DECISIONS.md) antes de actuar.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Inicio de trabajo sin cargar el ledger de decisiones/errores previos.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-091": {
@@ -6048,11 +6713,16 @@
     "action": "Broken-link validation now fails if canonical markdown or wiki targets do not resolve on disk.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "echo \"no existe config.yaml\"      # tras mirar solo el cwd\n",
+    "example_good": "find . -name \"config*.y*ml\"        # agotar busqueda estructural antes de declarar\n",
+    "example_lang": "bash",
+    "detection": "Declarar inexistencia de un archivo sin una busqueda recursiva/estructural previa.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-092": {
@@ -6071,11 +6741,16 @@
     "action": "Home count parity and topology checks ensure the canonical surfaces are all represented instead of only a partial slice.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# \"auditoria completa OK\" cubriendo solo src/, omitiendo migrations/ y scripts/.\n",
+    "example_good": "# Declarar las superficies auditables y cubrirlas todas antes de decir 'total'.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Reporte de auditoria 'total' que no enumera ni cubre todas las superficies criticas.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-093": {
@@ -6357,11 +7032,16 @@
     "action": "The audit workflow is now a visible, validated surface and must include both the compiler and the wiki checker so infra cannot be ignored.",
     "validating_mechanism": ".github/workflows/audit.yml + validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Pasa local con python 3.12; prod corre 3.9 -> rompe. Runtime no modelado.\n",
+    "example_good": "# CI/tests corren contra la infraestructura efectiva (misma version/imagen que prod).\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Supuestos de runtime (version, OS, servicios) que difieren del entorno real de ejecucion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-105": {
@@ -6380,11 +7060,16 @@
     "action": "Topology validation now checks the canonical Home, Vices, Tokenomics, Graph, and Inbox surfaces so missing components fail the gate.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Se audita el backend; HTML, startup y build quedan sin revisar.\n",
+    "example_good": "# Checklist de superficies (frontend, build, startup, infra) antes de cerrar.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Auditoria sin checklist de superficies que omite componentes no-backend.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-106": {
@@ -6403,11 +7088,16 @@
     "action": "Inbox topology validation requires the ingestion protocol, knowledge sources contract, and templates to exist before new findings can be accepted.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "open('./data/cache.db')          # asume que ./data existe; en entorno limpio falla\n",
+    "example_good": "Path('./data').mkdir(exist_ok=True)   # preflight: validar/crear requisitos antes de operar\nopen('./data/cache.db', 'a')\n",
+    "example_lang": "python",
+    "detection": "Codigo que presupone directorios/servicios/variables sin validarlos al arrancar.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-107": {
@@ -6500,11 +7190,16 @@
     "action": "validate_gs_topology.py checks that Tokenomics exposes its subindices and map from the index surface before the category can be treated as complete.",
     "validating_mechanism": "validate_gs_topology.py",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "for i in range(10000): call_api(i)   # revienta por rate limit, sin manejo\n",
+    "example_good": "for i in range(10000):\n    call_with_backoff(call_api, i)   # 429 -> retry/backoff modelado\n",
+    "example_lang": "python",
+    "detection": "Llamadas a APIs con limites sin backoff/retry/degradacion modelados de antemano.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-111": {
@@ -6602,11 +7297,16 @@
     "action": "Inbox topology validation enforces the ingestion path, template surface, and protocol docs required for a remediable finding.",
     "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Se detecta un bug en sesion y solo se menciona; no entra al plan.\n",
+    "example_good": "# Cada hallazgo -> item con ID, evidencia, fix propuesto y done-criteria en el plan activo.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Defectos detectados en sesion que no se convierten en items ejecutables del plan activo.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   },
   "VC-115": {
@@ -6926,11 +7626,16 @@
     "action": "CONTRIBUTING.md now requires a preflight with scope, impacts and out-of-scope follow-ups before execution; post-execution suggestions must be captured in backlog first.",
     "validating_mechanism": "CONTRIBUTING.md execution hygiene rule + issue-template preflight",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Tras terminar la tarea surgen mejoras nuevas y el turno se vuelve infinito.\n",
+    "example_good": "# Preflight define alcance; mejoras nuevas -> backlog, no se ejecutan en el turno.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Sugerencias post-ejecucion fuera del alcance acordado que no se derivan a backlog.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
     "doctrinal": false
   }
 }
