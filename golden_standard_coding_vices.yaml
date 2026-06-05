@@ -3102,3 +3102,164 @@ items:
   evidence:
   - source: "arxiv:2603.28592"
     claim: "la coordinacion multiagente sin protocolo introduce condiciones de carrera y perdida de trabajo."
+- id: VC-135
+  title: Uso de API obsoleta o alucinada de una libreria real
+  symptom: |
+    El modelo llama a un metodo, parametro o endpoint de una libreria que SI existe, pero que no existe en la version fijada (deprecado, renombrado o inventado por conocimiento desactualizado).
+  cause: |
+    El conocimiento del modelo va desfasado respecto a la version instalada; nadie verifica la firma contra la API real.
+  solution: |
+    Fijar la version y verificar cada simbolo contra la API real (docs up-to-date, MCP de documentacion, o import + inspeccion); rechazar llamadas que no resuelven.
+  status: DOC_ONLY
+  severity: high
+  tags:
+  - vibe-coding
+  - ai-native
+  - dependencies
+  action: |
+    Documentado; enforcement downstream. Distinto de VC-129 (paquete inexistente): aqui el paquete existe pero el simbolo no. Mitigacion: docs up-to-date via context7 (PI-032).
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  example_lang: python
+  example_bad: |
+    # pandas 2.x elimino DataFrame.append; el modelo lo sigue usando.
+    df = df.append(row)            # AttributeError en la version instalada
+  example_good: |
+    # Verificar contra la API real de la version fijada y usar el reemplazo vigente.
+    df = pd.concat([df, pd.DataFrame([row])], ignore_index=True)
+  detection: |
+    Resolver cada simbolo llamado (metodo/atributo/kwarg/endpoint) contra la API de la version instalada; un simbolo ausente = API alucinada u obsoleta. Sin detector self-contained (necesita la libreria); ver VC-129 y VC-056.
+  evidence:
+  - source: "context7 (upstash, verificado)"
+    claim: "existe para dar a los LLMs documentacion up-to-date precisamente porque generan llamadas a APIs obsoletas o inexistentes."
+  - source: "arxiv:2603.28592"
+    claim: "las APIs alucinadas figuran entre los patrones recurrentes del codigo AI-generado."
+- id: VC-136
+  title: Memoria persistente envenenada o stale (cross-session)
+  symptom: |
+    Un hecho erroneo u obsoleto persiste en la memoria durable del agente (ledger, archivo o MCP de memoria) y contamina sesiones futuras, o la memoria queda desincronizada del estado real.
+  cause: |
+    La memoria persistente se escribe sin verificacion, sin fuente y sin fecha/version; no se reconcilia con la fuente de verdad al cargarla.
+  solution: |
+    Escribir a memoria solo hechos verificados, con fuente y verified_at; reconciliar contra el estado real al cargar; expirar o invalidar lo stale.
+  status: DOC_ONLY
+  severity: high
+  tags:
+  - vibe-coding
+  - ai-native
+  - context
+  action: |
+    Documentado; enforcement downstream. Extiende VC-128 (envenenamiento en contexto) a la memoria DURABLE entre sesiones. Mitigacion: capas de memoria como byterover / claude-context-memsearch (PI-033).
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  example_lang: python
+  example_bad: |
+    # Se persiste un dato sin verificar; 3 sesiones despues sigue contaminando.
+    memory.write("endpoint = /v2/pay")    # nunca se verifico; era /v1/pay
+  example_good: |
+    # Solo hechos verificados, con fuente y fecha; se reconcilia al cargar.
+    memory.write_fact("endpoint=/v1/pay", source="openapi.json", verified_at=today())
+  detection: |
+    Entradas de memoria persistente sin source/verified_at/version, o que contradicen el estado actual del repo al cargarse. Sin detector self-contained (necesita el store); ver VC-128, VC-090 y VC-047.
+  evidence:
+  - source: "byterover-cli / zilliztech claude-context (verificados)"
+    claim: "existen como 'memory layer' persistente para agentes; su modo de fallo es la memoria stale o envenenada que cruza sesiones."
+  - source: "OWASP Top 10 for Agents 2026"
+    claim: "el envenenamiento de memoria persistente es un riesgo agentico reconocido."
+- id: VC-137
+  title: Recuperacion (RAG) que alimenta contexto erroneo
+  symptom: |
+    La recuperacion devuelve fragmentos irrelevantes, obsoletos (indice stale) o cortados sin semantica, y el agente construye sobre contexto equivocado.
+  cause: |
+    Indice de embeddings desactualizado respecto al codigo, chunking no-semantico, o recuperacion por similitud sin verificar relevancia.
+  solution: |
+    Reindexar ante cambios, chunkear por limites semanticos/simbolo, y verificar la relevancia del fragmento antes de usarlo.
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - vibe-coding
+  - ai-native
+  - context
+  action: |
+    Documentado; enforcement downstream. Mitigacion: retrieval a nivel de simbolo (serena) o code-search MCP (claude-context) (PI-034).
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  example_lang: python
+  example_bad: |
+    # Indice stale + chunk a ciegas: recupera una version vieja de la funcion.
+    ctx = index.search("refund logic")    # el indice no se reconstruyo tras el ultimo commit
+  example_good: |
+    # Reindexar ante cambios y recuperar por limites de simbolo, verificando relevancia.
+    if index.stale(): index.rebuild()
+    ctx = index.search_symbol("refund", verify_relevance=True)
+  detection: |
+    Indice de recuperacion mas viejo que el ultimo commit del codigo; chunks que cruzan limites de funcion/clase; fragmento recuperado usado sin verificar relevancia. Sin detector self-contained (necesita indice/repo); ver VC-072 y TK-010.
+  evidence:
+  - source: "oraios/serena (verificado)"
+    claim: "provee retrieval semantico a nivel de simbolo precisamente porque la recuperacion por texto crudo alimenta contexto erroneo."
+  - source: "zilliztech/claude-context (verificado)"
+    claim: "code-search MCP para que el contexto recuperado sea correcto y actualizado."
+- id: VC-138
+  title: Codigo generado inseguro por defecto
+  symptom: |
+    El modelo genera codigo con defaults inseguros: debug activado, CORS abierto, verificacion TLS desactivada, hashing debil o bind a todas las interfaces sin auth.
+  cause: |
+    El modelo optimiza por 'que funcione' y emite los defaults mas permisivos; nadie endurece la configuracion antes de mergear.
+  solution: |
+    Endurecer los defaults; revisar la configuracion de seguridad del codigo generado contra una checklist; bloquear patrones inseguros conocidos en CI.
+  status: DOC_ONLY
+  severity: high
+  tags:
+  - vibe-coding
+  - ai-native
+  - security
+  action: |
+    Documentado; enforcement downstream. Firma estatica: detector local en scripts/detectors.py probado contra los ejemplos. Ver VC-101 y VC-095.
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  detector: vc138_insecure_defaults
+  example_lang: python
+  example_bad: |
+    app.run(host="0.0.0.0", debug=True)        # debug en prod, bind a todo
+    requests.get(url, verify=False)            # TLS sin verificar
+  example_good: |
+    app.run(host="127.0.0.1", debug=False)
+    requests.get(url)                          # verify=True por defecto
+  detection: |
+    Patrones estaticos de default inseguro: debug=True, verify=False, CORS origins='*', hashlib.md5( para passwords, host='0.0.0.0'. Detectable estaticamente (regex/AST); complementan bandit/semgrep.
+  evidence:
+  - source: "OWASP Top 10 for Agents 2026"
+    claim: "la configuracion insegura por defecto es un vector frecuente en codigo AI-generado."
+  - source: "PyCQA/bandit"
+    claim: "detecta varios de estos patrones (B201 flask debug, B501 verify=False, B303 md5)."
+- id: VC-139
+  title: Confianza ciega en la salida del LLM (Insecure Output Handling)
+  symptom: |
+    La salida del modelo (SQL, HTML, comando, ruta o codigo) se ejecuta, renderiza o usa en un sink sin sanitizar, asumiendo que es segura.
+  cause: |
+    Se trata la salida del LLM como confiable; no hay frontera entre 'texto generado' y 'accion ejecutada'.
+  solution: |
+    Tratar la salida del LLM como NO confiable: parametrizar (SQL), escapar (HTML), allowlist (comandos/rutas) y validar contra esquema antes de ejecutar.
+  status: DOC_ONLY
+  severity: high
+  tags:
+  - vibe-coding
+  - ai-native
+  - security
+  action: |
+    Documentado; enforcement downstream. Es el lado OUTPUT de VC-074 (input). Mitigacion via taint analysis: semgrep / CodeQL.
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  example_lang: python
+  example_bad: |
+    sql = model.generate("query for user " + uid)   # salida del LLM
+    cursor.execute(sql)                              # ejecutada sin sanitizar -> inyeccion
+  example_good: |
+    # Nunca ejecutar la salida cruda: derivar parametros validados y parametrizar.
+    filters = validate_schema(model.generate_json(...))
+    cursor.execute("SELECT * FROM t WHERE owner = ?", (filters['uid'],))
+  detection: |
+    Salida del modelo que fluye a un sink peligroso (cursor.execute con string, os.system, eval/exec, innerHTML) sin sanitizacion. Flow-dependent -> delega a semgrep/CodeQL (taint). Ver VC-074, VC-115, VC-127.
+  evidence:
+  - source: "OWASP Top 10 for LLM Applications"
+    claim: "LLM02: Insecure Output Handling -- la salida del modelo usada sin validacion en un sink downstream."

@@ -30,7 +30,7 @@ _Lecciones transversales que cambian cómo se trabaja._ (16)
 
 ## 🔧 Herramientas y técnicas de referencia
 
-_Punteros a herramientas externas verificadas y patrones reutilizables._ (11)
+_Punteros a herramientas externas verificadas y patrones reutilizables._ (14)
 
 *   [[Project_Insights/PI-001|PI-001]] — Deptry – reconciliación de imports contra dependencias declaradas para detectar faltantes, no usadas, transitivas, dev mal ubicadas y stdlib declaradas como dependencias.
 *   [[Project_Insights/PI-002|PI-002]] — Aserciones diagnósticas – cuando un test falla, el mensaje debe explicar la discrepancia con claridad accionable. Tools reales verificados: assertion rewriting nativo de pytest, pytest-clarity / pytest-icdiff para diffs legibles, flake8-assertive para métodos de aserción correctos. (Corrige una referencia previa a un paquete inexistente — ver VC-129 dependencia alucinada.)
@@ -43,6 +43,9 @@ _Punteros a herramientas externas verificadas y patrones reutilizables._ (11)
 *   [[Project_Insights/PI-029|PI-029]] — vibecheck (yuvrajangadsingh/vibecheck, verificado) – ESLint para AI slop: linter local que detecta code smells de codigo generado por IA (secretos hardcodeados, eval, catch vacio); evidencia de que los vicios del catalogo son detectables estaticamente.
 *   [[Project_Insights/PI-030|PI-030]] — viberails (refractionPOINT/viberails, verificado) – AI Firewall que intercepta operaciones riesgosas de agentes (Claude Code, Cursor, Gemini CLI) via hooks; capa de enforcement comparable conceptualmente a Cerberus (sin relacion con el homonimo philips-software/cerberus).
 *   [[Project_Insights/PI-031|PI-031]] — ratelimit (tomasbasham/ratelimit, verificado) – decorador de rate limiting (@limits + sleep_and_retry) como control concreto contra VC-110 (cuota como sorpresa) y la deuda de tokenomics (TK-044).
+*   [[Project_Insights/PI-032|PI-032]] — context7 (upstash/context7, verificado) -- entrega a los LLMs documentacion de codigo up-to-date para evitar llamadas a APIs obsoletas o inexistentes; mitigacion directa de VC-135.
+*   [[Project_Insights/PI-033|PI-033]] — Capa de memoria persistente (byterover-cli / zilliztech claude-context-memsearch, verificados) -- memoria durable entre sesiones para agentes; su disciplina (fuente, fecha, reconciliacion) mitiga VC-136.
+*   [[Project_Insights/PI-034|PI-034]] — serena (oraios/serena, verificado) -- retrieval y edicion a nivel de simbolo (semantico) para que el contexto recuperado sea correcto; mitiga VC-137 frente al chunking ciego.
 
 ---
 

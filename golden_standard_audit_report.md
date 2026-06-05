@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.5 | Date: 2026-06-05 | Total Audited Items: 296**
+**Golden Standard V0.5 | Date: 2026-06-05 | Total Audited Items: 301**
 
 This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -8,9 +8,9 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 115 | 27 | 88 | 100% |
-| **Vibe Coding** | 134 | 31 | 103 | 100% |
+| **Vibe Coding** | 139 | 31 | 108 | 100% |
 | **Tokenomics & Context** | 47 | 34 | 13 | 100% |
-| **Total** | 296 | 92 | 204 | 100% |
+| **Total** | 301 | 92 | 209 | 100% |
 
 ---
 
@@ -136,7 +136,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VT-114` | Deriva de Sincronización Multirepositorio (Multi-Repository Sync Drift) | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
 | `VT-115` | Falso Positivo de Drift por Fin de Línea (CRLF/LF Hash Mismatch) | **high** | **REMEDIATED** | `none` | Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry. | `test_setup_validation` |
 
-### Vibe Coding (134 items)
+### Vibe Coding (139 items)
 
 | ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |
 |---|---|---|---|---|---|---|
@@ -274,6 +274,11 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-132` | Cascada de ambiguedad de especificacion (Spec Ambiguity Cascade) | **medium** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: confirmar interpretacion en puntos de bifurcacion antes de construir sobre ella.  | `DOC_ONLY` |
 | `VC-133` | Fallo de tool call no manejado en bucle de agente | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: verificar exito de cada tool call, backoff con limite, y abortar/degradar tras N fallos (ver VC-120).  | `DOC_ONLY` |
 | `VC-134` | Coordinacion multiagente sin protocolo | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: declarar ownership por area, serializar el acceso al estado compartido y exigir handoff estructurado.  | `DOC_ONLY` |
+| `VC-135` | Uso de API obsoleta o alucinada de una libreria real | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Distinto de VC-129 (paquete inexistente): aqui el paquete existe pero el simbolo no. Mitigacion: docs up-to-date via context7 (PI-032).  | `DOC_ONLY` |
+| `VC-136` | Memoria persistente envenenada o stale (cross-session) | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Extiende VC-128 (envenenamiento en contexto) a la memoria DURABLE entre sesiones. Mitigacion: capas de memoria como byterover / claude-context-memsearch (PI-033).  | `DOC_ONLY` |
+| `VC-137` | Recuperacion (RAG) que alimenta contexto erroneo | **medium** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Mitigacion: retrieval a nivel de simbolo (serena) o code-search MCP (claude-context) (PI-034).  | `DOC_ONLY` |
+| `VC-138` | Codigo generado inseguro por defecto | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Firma estatica: detector local en scripts/detectors.py probado contra los ejemplos. Ver VC-101 y VC-095.  | `DOC_ONLY` |
+| `VC-139` | Confianza ciega en la salida del LLM (Insecure Output Handling) | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Es el lado OUTPUT de VC-074 (input). Mitigacion via taint analysis: semgrep / CodeQL.  | `DOC_ONLY` |
 
 ### Tokenomics & Context (47 items)
 
@@ -364,6 +369,9 @@ These entries are preserved as project-agnostic knowledge extracted from externa
 | `PI-029` | vibecheck (yuvrajangadsingh/vibecheck, verificado) – ESLint para AI slop: linter local que detecta code smells de codigo generado por IA (secretos hardcodeados, eval, catch vacio); evidencia de que los vicios del catalogo son detectables estaticamente. |
 | `PI-030` | viberails (refractionPOINT/viberails, verificado) – AI Firewall que intercepta operaciones riesgosas de agentes (Claude Code, Cursor, Gemini CLI) via hooks; capa de enforcement comparable conceptualmente a Cerberus (sin relacion con el homonimo philips-software/cerberus). |
 | `PI-031` | ratelimit (tomasbasham/ratelimit, verificado) – decorador de rate limiting (@limits + sleep_and_retry) como control concreto contra VC-110 (cuota como sorpresa) y la deuda de tokenomics (TK-044). |
+| `PI-032` | context7 (upstash/context7, verificado) -- entrega a los LLMs documentacion de codigo up-to-date para evitar llamadas a APIs obsoletas o inexistentes; mitigacion directa de VC-135. |
+| `PI-033` | Capa de memoria persistente (byterover-cli / zilliztech claude-context-memsearch, verificados) -- memoria durable entre sesiones para agentes; su disciplina (fuente, fecha, reconciliacion) mitiga VC-136. |
+| `PI-034` | serena (oraios/serena, verificado) -- retrieval y edicion a nivel de simbolo (semantico) para que el contexto recuperado sea correcto; mitiga VC-137 frente al chunking ciego. |
 
 ## Project Insight Recommendations by Domain
 

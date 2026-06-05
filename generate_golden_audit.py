@@ -789,7 +789,7 @@ def write_tokenomics_subindices_md(wiki_dir: Path, mapped_database: dict):
 # system-meta commentary (addresses the audit critique that PIs were self-referential).
 PI_KIND = {
     "tool": {"PI-001", "PI-002", "PI-003", "PI-004", "PI-005", "PI-020", "PI-021",
-             "PI-028", "PI-029", "PI-030", "PI-031"},
+             "PI-028", "PI-029", "PI-030", "PI-031", "PI-032", "PI-033", "PI-034"},
     "meta": {"PI-006", "PI-007", "PI-014", "PI-018"},
 }
 

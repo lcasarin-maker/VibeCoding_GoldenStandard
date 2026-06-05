@@ -191,8 +191,19 @@ def vt043_unconditional_exit_zero(code: str) -> bool:
     return False
 
 
+# --- VC-138: insecure-by-default patterns in generated code ---
+_INSECURE_DEFAULT = re.compile(
+    r"""(debug\s*=\s*True|verify\s*=\s*False|origins\s*=\s*['"]\*['"]|hashlib\.md5\(|host\s*=\s*['"]0\.0\.0\.0['"])"""
+)
+
+
+def vc138_insecure_defaults(code: str) -> bool:
+    return bool(_INSECURE_DEFAULT.search(code))
+
+
 # Registry: catalog id -> detector. Keep in sync with the entries' `detector` field.
 DETECTORS = {
+    "VC-138": vc138_insecure_defaults,
     "VC-005": vc005_untracked_prototype,
     "VC-036": vc036_destructive_without_dryrun,
     "VC-061": vc061_constant_stub,
