@@ -41,7 +41,7 @@ Bienvenido a la bóveda Obsidian del **Golden Standard** (GS). Esta base de cono
 | Vibe Coding | `VC-xxx` | 134 | [[Vices_Index|Abrir índice]] |
 | Testing & Evaluation | `VT-xxx` | 115 | [[Vices_Index|Abrir índice]] |
 | Tokenomics | `TK-xxx` | 47 | [[Tokenomics_Index|Abrir índice]] |
-| Project Insights | `PI-xxx` | 27 | [[Project_Insights_Index|Abrir índice]] |
+| Project Insights | `PI-xxx` | 31 | [[Project_Insights_Index|Abrir índice]] |
 
 ---
 
