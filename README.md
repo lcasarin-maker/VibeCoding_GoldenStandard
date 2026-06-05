@@ -196,12 +196,19 @@ The Golden Standard grows through real experience. If you've encountered a vibe 
 See **[CONTRIBUTING.md](CONTRIBUTING.md)** for the full guide.
 
 Quick version:
-1. Check the [Inbox/](Inbox/) folder for similar proposed entries
-2. Check the YAML catalogs to avoid duplicates
-3. Open an Issue using the **"New Vice" template**
-4. Or submit a PR directly with the entry in YAML + a Wiki article
+1. Check the [Inbox/](Inbox/) folder and the YAML catalogs for similar/duplicate entries.
+2. Open an Issue using the **"New Vice" template**, or submit a PR with the entry in YAML + a Wiki article.
+3. Make the entry meet the **Definition of Done** (below). CI checks the rest.
 
-When adding or changing VC/VT/TK entries, choose `downstream_verification` explicitly (`required` or `none`) so `DOC_ONLY` never gets treated as "test exempt".
+### Definition of Done for a new entry
+
+An entry is only merged when it is **falsifiable** or **honestly doctrinal** — never a bare stub:
+
+- **Deep (falsifiable):** ships `example_bad`, `example_good`, a concrete `detection` recipe, and at least one `evidence` reference. If the signature is statically checkable on a snippet, also add a detector to [`scripts/detectors.py`](scripts/detectors.py) — `scripts/test_detectors.py` proves it fires on your `example_bad` and stays silent on your `example_good`.
+- **Doctrinal:** if it's a behavioral/epistemic principle with no static signature, mark `doctrinal: true` explicitly. Fabricating example code for these is not allowed.
+- Choose `downstream_verification` explicitly (`required` or `none`) so `DOC_ONLY` is never read as "test exempt".
+
+The live `stubs` badge must stay at **0**, and all numbers (entries, deep %, detectors) are generated from the YAML by [`scripts/metrics.py`](scripts/metrics.py) — they can't be inflated by hand. Run `python generate_golden_audit.py` before committing; CI fails if generated artifacts, the wiki, or the badges are out of sync.
 
 ---
 
