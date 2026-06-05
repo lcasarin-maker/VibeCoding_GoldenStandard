@@ -26,7 +26,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-F02": {
     "id": "TK-F02",
@@ -55,7 +56,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-F03": {
     "id": "TK-F03",
@@ -84,7 +86,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-001": {
     "id": "TK-001",
@@ -113,7 +116,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-002": {
     "id": "TK-002",
@@ -142,7 +146,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-003": {
     "id": "TK-003",
@@ -171,7 +176,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-004": {
     "id": "TK-004",
@@ -200,7 +206,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-005": {
     "id": "TK-005",
@@ -229,7 +236,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-006": {
     "id": "TK-006",
@@ -258,7 +266,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-007": {
     "id": "TK-007",
@@ -287,7 +296,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-008": {
     "id": "TK-008",
@@ -316,7 +326,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-009": {
     "id": "TK-009",
@@ -345,7 +356,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-010": {
     "id": "TK-010",
@@ -374,7 +386,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-011": {
     "id": "TK-011",
@@ -403,7 +416,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-012": {
     "id": "TK-012",
@@ -432,7 +446,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-013": {
     "id": "TK-013",
@@ -461,7 +476,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-014": {
     "id": "TK-014",
@@ -490,7 +506,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-015": {
     "id": "TK-015",
@@ -519,7 +536,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-016": {
     "id": "TK-016",
@@ -548,7 +566,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-017": {
     "id": "TK-017",
@@ -577,7 +596,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-018": {
     "id": "TK-018",
@@ -606,7 +626,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-019": {
     "id": "TK-019",
@@ -635,7 +656,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-020": {
     "id": "TK-020",
@@ -664,7 +686,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-021": {
     "id": "TK-021",
@@ -693,7 +716,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-022": {
     "id": "TK-022",
@@ -722,7 +746,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-023": {
     "id": "TK-023",
@@ -751,7 +776,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-024": {
     "id": "TK-024",
@@ -780,7 +806,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-025": {
     "id": "TK-025",
@@ -809,7 +836,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-026": {
     "id": "TK-026",
@@ -838,7 +866,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-027": {
     "id": "TK-027",
@@ -867,7 +896,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-028": {
     "id": "TK-028",
@@ -896,7 +926,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-029": {
     "id": "TK-029",
@@ -925,7 +956,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-030": {
     "id": "TK-030",
@@ -954,7 +986,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-031": {
     "id": "TK-031",
@@ -983,7 +1016,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-032": {
     "id": "TK-032",
@@ -1012,7 +1046,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-033": {
     "id": "TK-033",
@@ -1041,7 +1076,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-034": {
     "id": "TK-034",
@@ -1070,7 +1106,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-035": {
     "id": "TK-035",
@@ -1099,7 +1136,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-036": {
     "id": "TK-036",
@@ -1128,7 +1166,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-037": {
     "id": "TK-037",
@@ -1157,7 +1196,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-038": {
     "id": "TK-038",
@@ -1186,7 +1226,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-039": {
     "id": "TK-039",
@@ -1215,7 +1256,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-040": {
     "id": "TK-040",
@@ -1244,7 +1286,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-041": {
     "id": "TK-041",
@@ -1273,7 +1316,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-042": {
     "id": "TK-042",
@@ -1302,7 +1346,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-043": {
     "id": "TK-043",
@@ -1331,7 +1376,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "TK-044": {
     "id": "TK-044",
@@ -1360,7 +1406,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-001": {
     "id": "VT-001",
@@ -1389,7 +1436,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-002": {
     "id": "VT-002",
@@ -1418,7 +1466,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-003": {
     "id": "VT-003",
@@ -1447,7 +1496,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-004": {
     "id": "VT-004",
@@ -1476,7 +1526,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-005": {
     "id": "VT-005",
@@ -1505,7 +1556,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vt005_assert_true"
   },
   "VT-006": {
     "id": "VT-006",
@@ -1534,7 +1586,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vt006_test_without_assert"
   },
   "VT-007": {
     "id": "VT-007",
@@ -1563,7 +1616,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-008": {
     "id": "VT-008",
@@ -1592,7 +1646,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-009": {
     "id": "VT-009",
@@ -1621,7 +1676,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vt009_tautological_assert"
   },
   "VT-010": {
     "id": "VT-010",
@@ -1650,7 +1706,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-011": {
     "id": "VT-011",
@@ -1679,7 +1736,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-012": {
     "id": "VT-012",
@@ -1708,7 +1766,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-013": {
     "id": "VT-013",
@@ -1737,7 +1796,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-014": {
     "id": "VT-014",
@@ -1766,7 +1826,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-015": {
     "id": "VT-015",
@@ -1795,7 +1856,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-016": {
     "id": "VT-016",
@@ -1824,7 +1886,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-017": {
     "id": "VT-017",
@@ -1853,7 +1916,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-018": {
     "id": "VT-018",
@@ -1882,7 +1946,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-019": {
     "id": "VT-019",
@@ -1911,7 +1976,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-020": {
     "id": "VT-020",
@@ -1940,7 +2006,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-021": {
     "id": "VT-021",
@@ -1969,7 +2036,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-022": {
     "id": "VT-022",
@@ -1998,7 +2066,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-023": {
     "id": "VT-023",
@@ -2027,7 +2096,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-024": {
     "id": "VT-024",
@@ -2056,7 +2126,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-025": {
     "id": "VT-025",
@@ -2085,7 +2156,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-026": {
     "id": "VT-026",
@@ -2114,7 +2186,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-027": {
     "id": "VT-027",
@@ -2143,7 +2216,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-028": {
     "id": "VT-028",
@@ -2172,7 +2246,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-029": {
     "id": "VT-029",
@@ -2201,7 +2276,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-030": {
     "id": "VT-030",
@@ -2230,7 +2306,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-031": {
     "id": "VT-031",
@@ -2259,7 +2336,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-032": {
     "id": "VT-032",
@@ -2288,7 +2366,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-033": {
     "id": "VT-033",
@@ -2317,7 +2396,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-034": {
     "id": "VT-034",
@@ -2346,7 +2426,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-035": {
     "id": "VT-035",
@@ -2375,7 +2456,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-036": {
     "id": "VT-036",
@@ -2404,7 +2486,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-037": {
     "id": "VT-037",
@@ -2433,7 +2516,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vt037_impossible_condition"
   },
   "VT-038": {
     "id": "VT-038",
@@ -2462,7 +2546,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-039": {
     "id": "VT-039",
@@ -2491,7 +2576,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-040": {
     "id": "VT-040",
@@ -2520,7 +2606,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vt040_blind_except"
   },
   "VT-041": {
     "id": "VT-041",
@@ -2549,7 +2636,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-042": {
     "id": "VT-042",
@@ -2578,7 +2666,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-043": {
     "id": "VT-043",
@@ -2607,7 +2696,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vt043_unconditional_exit_zero"
   },
   "VT-044": {
     "id": "VT-044",
@@ -2636,7 +2726,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-045": {
     "id": "VT-045",
@@ -2665,7 +2756,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-046": {
     "id": "VT-046",
@@ -2694,7 +2786,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-047": {
     "id": "VT-047",
@@ -2723,7 +2816,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-048": {
     "id": "VT-048",
@@ -2752,7 +2846,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-049": {
     "id": "VT-049",
@@ -2781,7 +2876,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-050": {
     "id": "VT-050",
@@ -2810,7 +2906,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-051": {
     "id": "VT-051",
@@ -2839,7 +2936,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-052": {
     "id": "VT-052",
@@ -2868,7 +2966,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-053": {
     "id": "VT-053",
@@ -2897,7 +2996,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-054": {
     "id": "VT-054",
@@ -2926,7 +3026,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-055": {
     "id": "VT-055",
@@ -2955,7 +3056,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-056": {
     "id": "VT-056",
@@ -2984,7 +3086,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-057": {
     "id": "VT-057",
@@ -3013,7 +3116,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-058": {
     "id": "VT-058",
@@ -3042,7 +3146,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-059": {
     "id": "VT-059",
@@ -3071,7 +3176,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-060": {
     "id": "VT-060",
@@ -3100,7 +3206,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-061": {
     "id": "VT-061",
@@ -3129,7 +3236,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-062": {
     "id": "VT-062",
@@ -3158,7 +3266,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-063": {
     "id": "VT-063",
@@ -3187,7 +3296,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-064": {
     "id": "VT-064",
@@ -3216,7 +3326,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-065": {
     "id": "VT-065",
@@ -3245,7 +3356,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-066": {
     "id": "VT-066",
@@ -3274,7 +3386,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-067": {
     "id": "VT-067",
@@ -3303,7 +3416,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-068": {
     "id": "VT-068",
@@ -3332,7 +3446,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-069": {
     "id": "VT-069",
@@ -3361,7 +3476,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-070": {
     "id": "VT-070",
@@ -3390,7 +3506,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-071": {
     "id": "VT-071",
@@ -3419,7 +3536,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-072": {
     "id": "VT-072",
@@ -3448,7 +3566,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-073": {
     "id": "VT-073",
@@ -3477,7 +3596,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-074": {
     "id": "VT-074",
@@ -3506,7 +3626,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-075": {
     "id": "VT-075",
@@ -3535,7 +3656,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-076": {
     "id": "VT-076",
@@ -3564,7 +3686,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-077": {
     "id": "VT-077",
@@ -3593,7 +3716,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-078": {
     "id": "VT-078",
@@ -3622,7 +3746,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-079": {
     "id": "VT-079",
@@ -3651,7 +3776,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-080": {
     "id": "VT-080",
@@ -3680,7 +3806,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-081": {
     "id": "VT-081",
@@ -3709,7 +3836,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-082": {
     "id": "VT-082",
@@ -3738,7 +3866,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-083": {
     "id": "VT-083",
@@ -3767,7 +3896,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-084": {
     "id": "VT-084",
@@ -3796,7 +3926,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-085": {
     "id": "VT-085",
@@ -3825,7 +3956,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-086": {
     "id": "VT-086",
@@ -3854,7 +3986,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-087": {
     "id": "VT-087",
@@ -3883,7 +4016,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-088": {
     "id": "VT-088",
@@ -3912,7 +4046,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-089": {
     "id": "VT-089",
@@ -3941,7 +4076,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-090": {
     "id": "VT-090",
@@ -3970,7 +4106,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-091": {
     "id": "VT-091",
@@ -3999,7 +4136,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-092": {
     "id": "VT-092",
@@ -4028,7 +4166,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-093": {
     "id": "VT-093",
@@ -4057,7 +4196,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-094": {
     "id": "VT-094",
@@ -4086,7 +4226,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-095": {
     "id": "VT-095",
@@ -4115,7 +4256,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-096": {
     "id": "VT-096",
@@ -4144,7 +4286,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-097": {
     "id": "VT-097",
@@ -4173,7 +4316,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-098": {
     "id": "VT-098",
@@ -4202,7 +4346,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-099": {
     "id": "VT-099",
@@ -4231,7 +4376,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-100": {
     "id": "VT-100",
@@ -4260,7 +4406,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-101": {
     "id": "VT-101",
@@ -4289,7 +4436,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-102": {
     "id": "VT-102",
@@ -4318,7 +4466,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-103": {
     "id": "VT-103",
@@ -4347,7 +4496,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-104": {
     "id": "VT-104",
@@ -4376,7 +4526,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-105": {
     "id": "VT-105",
@@ -4405,7 +4556,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-106": {
     "id": "VT-106",
@@ -4434,7 +4586,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-107": {
     "id": "VT-107",
@@ -4463,7 +4616,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-108": {
     "id": "VT-108",
@@ -4492,7 +4646,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-109": {
     "id": "VT-109",
@@ -4521,7 +4676,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-110": {
     "id": "VT-110",
@@ -4550,7 +4706,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-111": {
     "id": "VT-111",
@@ -4579,7 +4736,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-112": {
     "id": "VT-112",
@@ -4608,7 +4766,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-113": {
     "id": "VT-113",
@@ -4637,7 +4796,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-114": {
     "id": "VT-114",
@@ -4666,7 +4826,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VT-115": {
     "id": "VT-115",
@@ -4695,7 +4856,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-001": {
     "id": "VC-001",
@@ -4719,7 +4881,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-002": {
     "id": "VC-002",
@@ -4743,7 +4906,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-003": {
     "id": "VC-003",
@@ -4772,7 +4936,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-004": {
     "id": "VC-004",
@@ -4796,7 +4961,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-005": {
     "id": "VC-005",
@@ -4825,7 +4991,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vc005_untracked_prototype"
   },
   "VC-006": {
     "id": "VC-006",
@@ -4849,7 +5016,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-007": {
     "id": "VC-007",
@@ -4873,7 +5041,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-008": {
     "id": "VC-008",
@@ -4897,7 +5066,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-009": {
     "id": "VC-009",
@@ -4921,7 +5091,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-010": {
     "id": "VC-010",
@@ -4945,7 +5116,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-011": {
     "id": "VC-011",
@@ -4969,7 +5141,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-012": {
     "id": "VC-012",
@@ -4993,7 +5166,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-013": {
     "id": "VC-013",
@@ -5017,7 +5191,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-014": {
     "id": "VC-014",
@@ -5041,7 +5216,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-015": {
     "id": "VC-015",
@@ -5065,7 +5241,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-016": {
     "id": "VC-016",
@@ -5094,7 +5271,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-017": {
     "id": "VC-017",
@@ -5123,7 +5301,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-018": {
     "id": "VC-018",
@@ -5147,7 +5326,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-019": {
     "id": "VC-019",
@@ -5171,7 +5351,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-020": {
     "id": "VC-020",
@@ -5195,7 +5376,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-021": {
     "id": "VC-021",
@@ -5224,7 +5406,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-022": {
     "id": "VC-022",
@@ -5248,7 +5431,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-023": {
     "id": "VC-023",
@@ -5272,7 +5456,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-024": {
     "id": "VC-024",
@@ -5296,7 +5481,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-025": {
     "id": "VC-025",
@@ -5320,7 +5506,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-026": {
     "id": "VC-026",
@@ -5344,7 +5531,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-027": {
     "id": "VC-027",
@@ -5373,7 +5561,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-028": {
     "id": "VC-028",
@@ -5397,7 +5586,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": false,
-    "alias_of": "VC-024"
+    "alias_of": "VC-024",
+    "detector": ""
   },
   "VC-029": {
     "id": "VC-029",
@@ -5426,7 +5616,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-030": {
     "id": "VC-030",
@@ -5455,7 +5646,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-031": {
     "id": "VC-031",
@@ -5484,7 +5676,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-032": {
     "id": "VC-032",
@@ -5508,7 +5701,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-033": {
     "id": "VC-033",
@@ -5532,7 +5726,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-034": {
     "id": "VC-034",
@@ -5556,7 +5751,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-035": {
     "id": "VC-035",
@@ -5580,7 +5776,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-036": {
     "id": "VC-036",
@@ -5609,7 +5806,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vc036_destructive_without_dryrun"
   },
   "VC-037": {
     "id": "VC-037",
@@ -5638,7 +5836,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-038": {
     "id": "VC-038",
@@ -5662,7 +5861,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-039": {
     "id": "VC-039",
@@ -5691,7 +5891,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-040": {
     "id": "VC-040",
@@ -5715,7 +5916,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-041": {
     "id": "VC-041",
@@ -5739,7 +5941,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-042": {
     "id": "VC-042",
@@ -5763,7 +5966,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-043": {
     "id": "VC-043",
@@ -5787,7 +5991,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-044": {
     "id": "VC-044",
@@ -5811,7 +6016,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-045": {
     "id": "VC-045",
@@ -5840,7 +6046,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-046": {
     "id": "VC-046",
@@ -5864,7 +6071,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-047": {
     "id": "VC-047",
@@ -5888,7 +6096,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-048": {
     "id": "VC-048",
@@ -5917,7 +6126,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-049": {
     "id": "VC-049",
@@ -5941,7 +6151,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-050": {
     "id": "VC-050",
@@ -5965,7 +6176,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-051": {
     "id": "VC-051",
@@ -5989,7 +6201,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-052": {
     "id": "VC-052",
@@ -6013,7 +6226,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-053": {
     "id": "VC-053",
@@ -6037,7 +6251,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-054": {
     "id": "VC-054",
@@ -6061,7 +6276,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-055": {
     "id": "VC-055",
@@ -6085,7 +6301,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-056": {
     "id": "VC-056",
@@ -6109,7 +6326,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-057": {
     "id": "VC-057",
@@ -6138,7 +6356,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-058": {
     "id": "VC-058",
@@ -6167,7 +6386,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-059": {
     "id": "VC-059",
@@ -6191,7 +6411,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-060": {
     "id": "VC-060",
@@ -6215,7 +6436,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-061": {
     "id": "VC-061",
@@ -6244,7 +6466,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vc061_constant_stub"
   },
   "VC-062": {
     "id": "VC-062",
@@ -6273,7 +6496,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-063": {
     "id": "VC-063",
@@ -6302,7 +6526,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-064": {
     "id": "VC-064",
@@ -6326,7 +6551,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-065": {
     "id": "VC-065",
@@ -6350,7 +6576,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-066": {
     "id": "VC-066",
@@ -6374,7 +6601,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-067": {
     "id": "VC-067",
@@ -6398,7 +6626,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-068": {
     "id": "VC-068",
@@ -6422,7 +6651,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-069": {
     "id": "VC-069",
@@ -6451,7 +6681,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-070": {
     "id": "VC-070",
@@ -6480,7 +6711,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vc070_blind_shell_edit"
   },
   "VC-071": {
     "id": "VC-071",
@@ -6504,7 +6736,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-072": {
     "id": "VC-072",
@@ -6528,7 +6761,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-073": {
     "id": "VC-073",
@@ -6552,7 +6786,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-074": {
     "id": "VC-074",
@@ -6581,7 +6816,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-075": {
     "id": "VC-075",
@@ -6605,7 +6841,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-076": {
     "id": "VC-076",
@@ -6634,7 +6871,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-077": {
     "id": "VC-077",
@@ -6658,7 +6896,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": false,
-    "alias_of": "VC-076"
+    "alias_of": "VC-076",
+    "detector": ""
   },
   "VC-078": {
     "id": "VC-078",
@@ -6687,7 +6926,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vc078_placeholder"
   },
   "VC-079": {
     "id": "VC-079",
@@ -6716,7 +6956,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-080": {
     "id": "VC-080",
@@ -6745,7 +6986,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-081": {
     "id": "VC-081",
@@ -6769,7 +7011,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-082": {
     "id": "VC-082",
@@ -6798,7 +7041,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-083": {
     "id": "VC-083",
@@ -6827,7 +7071,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-084": {
     "id": "VC-084",
@@ -6851,7 +7096,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-085": {
     "id": "VC-085",
@@ -6875,7 +7121,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-086": {
     "id": "VC-086",
@@ -6899,7 +7146,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-087": {
     "id": "VC-087",
@@ -6928,7 +7176,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vc087_blanket_filterwarnings"
   },
   "VC-088": {
     "id": "VC-088",
@@ -6952,7 +7201,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-089": {
     "id": "VC-089",
@@ -6976,7 +7226,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-090": {
     "id": "VC-090",
@@ -7005,7 +7256,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-091": {
     "id": "VC-091",
@@ -7034,7 +7286,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-092": {
     "id": "VC-092",
@@ -7063,7 +7316,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-093": {
     "id": "VC-093",
@@ -7087,7 +7341,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-094": {
     "id": "VC-094",
@@ -7111,7 +7366,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-095": {
     "id": "VC-095",
@@ -7140,7 +7396,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vc095_hardcoded_secret"
   },
   "VC-096": {
     "id": "VC-096",
@@ -7169,7 +7426,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-097": {
     "id": "VC-097",
@@ -7193,7 +7451,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-098": {
     "id": "VC-098",
@@ -7217,7 +7476,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-099": {
     "id": "VC-099",
@@ -7241,7 +7501,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-100": {
     "id": "VC-100",
@@ -7265,7 +7526,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-101": {
     "id": "VC-101",
@@ -7289,7 +7551,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-102": {
     "id": "VC-102",
@@ -7313,7 +7576,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-103": {
     "id": "VC-103",
@@ -7337,7 +7601,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-104": {
     "id": "VC-104",
@@ -7366,7 +7631,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-105": {
     "id": "VC-105",
@@ -7395,7 +7661,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-106": {
     "id": "VC-106",
@@ -7424,7 +7691,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-107": {
     "id": "VC-107",
@@ -7453,7 +7721,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-108": {
     "id": "VC-108",
@@ -7477,7 +7746,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-109": {
     "id": "VC-109",
@@ -7506,7 +7776,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vc109_hardcoded_path"
   },
   "VC-110": {
     "id": "VC-110",
@@ -7535,7 +7806,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-111": {
     "id": "VC-111",
@@ -7564,7 +7836,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-112": {
     "id": "VC-112",
@@ -7593,7 +7866,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-113": {
     "id": "VC-113",
@@ -7622,7 +7896,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-114": {
     "id": "VC-114",
@@ -7651,7 +7926,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-115": {
     "id": "VC-115",
@@ -7680,7 +7956,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": "vc115_unsafe_eval"
   },
   "VC-116": {
     "id": "VC-116",
@@ -7709,7 +7986,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-117": {
     "id": "VC-117",
@@ -7738,7 +8016,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-118": {
     "id": "VC-118",
@@ -7767,7 +8046,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-119": {
     "id": "VC-119",
@@ -7791,7 +8071,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-120": {
     "id": "VC-120",
@@ -7815,7 +8096,8 @@
     "detection": "",
     "evidence": [],
     "doctrinal": true,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-121": {
     "id": "VC-121",
@@ -7844,7 +8126,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-122": {
     "id": "VC-122",
@@ -7873,7 +8156,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-123": {
     "id": "VC-123",
@@ -7902,7 +8186,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-124": {
     "id": "VC-124",
@@ -7932,7 +8217,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-125": {
     "id": "VC-125",
@@ -7962,7 +8248,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-126": {
     "id": "VC-126",
@@ -7992,7 +8279,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-127": {
     "id": "VC-127",
@@ -8022,7 +8310,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-128": {
     "id": "VC-128",
@@ -8052,7 +8341,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-129": {
     "id": "VC-129",
@@ -8083,7 +8373,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-130": {
     "id": "VC-130",
@@ -8112,7 +8403,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-131": {
     "id": "VC-131",
@@ -8142,7 +8434,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-132": {
     "id": "VC-132",
@@ -8171,7 +8464,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-133": {
     "id": "VC-133",
@@ -8200,7 +8494,8 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   },
   "VC-134": {
     "id": "VC-134",
@@ -8230,6 +8525,7 @@
       }
     ],
     "doctrinal": false,
-    "alias_of": ""
+    "alias_of": "",
+    "detector": ""
   }
 }

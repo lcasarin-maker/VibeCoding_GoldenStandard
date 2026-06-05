@@ -116,6 +116,7 @@ items:
   - source: "arxiv:2602.00409"
     claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
 - id: VT-005
+  detector: vt005_assert_true
   title: Assert trivial
   symptom: Siempre verdadero
   cause: Tautología
@@ -145,6 +146,7 @@ items:
   - source: "arxiv:2602.00409"
     claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-006
+  detector: vt006_test_without_assert
   title: Test sin assert
   symptom: Corre sin verificar
   cause: Oráculo ausente
@@ -226,6 +228,7 @@ items:
   - source: "arxiv:2602.00409"
     claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
 - id: VT-009
+  detector: vt009_tautological_assert
   title: Tautología
   symptom: Verifica ley universal
   cause: Predicado inútil
@@ -920,6 +923,7 @@ items:
   - source: "arxiv:2602.00409"
     claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-037
+  detector: vt037_impossible_condition
   title: Condición imposible
   symptom: Rama de test nunca entra
   cause: Control inválido
@@ -990,6 +994,7 @@ items:
   - source: "arxiv:2602.00409"
     claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
 - id: VT-040
+  detector: vt040_blind_except
   title: Excepción absorbida
   symptom: Error desaparece
   cause: Fallo colapsado
@@ -1068,6 +1073,7 @@ items:
   - source: "arxiv:2602.00409"
     claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
 - id: VT-043
+  detector: vt043_unconditional_exit_zero
   title: Exit exitoso incondicional
   symptom: Pipeline verde
   cause: Código de salida falso
