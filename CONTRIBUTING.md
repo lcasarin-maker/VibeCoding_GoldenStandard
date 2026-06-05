@@ -60,7 +60,10 @@ Each entry in the YAML files follows this structure:
 - `severity` is mandatory and must be one of `critical`, `high`, `medium`, or `low`.
 - `status` is the canonical operativity field in the catalog and must be one of `DOC_ONLY`, `AUDITED`, `PREVENTED`, or `REMEDIATED`.
 - `tags` is mandatory, must be a list of at least two normalized slugs, and should include at least one domain tag plus one lifecycle tag.
+- `downstream_verification` is mandatory metadata on VC/VT/TK catalog entries. Use `required` when the entry is documented in GS but still expects downstream verification in the consumer repo, and `none` when no consumer-side test is expected.
+- Every new VC/VT/TK issue, PR, or catalog edit must choose `downstream_verification` explicitly before merge; `DOC_ONLY` is never a shortcut for "test exempt".
 - `operativity_status` is intentionally not part of the canonical YAML schema to avoid duplicating the meaning already carried by `status`.
+- Technical names, IDs, slugs, and filenames must use ASCII only; prose may keep normal human language, including accents.
 
 ### For Wiki Articles
 
@@ -120,7 +123,7 @@ Check the current max IDs in:
 → Open a PR directly. No issue needed.
 
 ### New entries
-1. Check the [Inbox/](../Inbox/) folder for similar proposals
+1. Check the [Inbox](Inbox/README.md) folder for similar proposals
 2. Check the YAML to avoid duplicates
 3. Open an Issue using the **"New Vice"** template
 4. After discussion, submit a PR with:
@@ -149,6 +152,24 @@ Check the current max IDs in:
 - `low` = Style or efficiency concern
 
 **Examples:** Real code, not pseudocode.
+
+**Execution hygiene:** keep edits and validation small, deterministic, and auditable.
+- Prefer the simplest command that proves the point.
+- Split large operations into smaller verified steps.
+- Use patches or direct edits before temporary scripts.
+- Keep text output in UTF-8 when possible.
+- Treat elevated permissions as an exception, not a habit.
+- Delete temporary helpers unless they are reusable and documented.
+- Keep technical identifiers ASCII-only to avoid encoding and portability issues.
+- Keep the canonical GS surface pure: no wrapper layers, shim layers, fake bridges, or ceremonial stubs in executable or schema logic; only document real behavior and real relationships.
+- Link new live knowledge to the graph on purpose: active VC/VT/TK/PI entries should point to an index, map, or related page so they do not become accidental orphans.
+- If a file is intentionally isolated, keep it in `Inbox/templates/` or `deprecated/` and say so explicitly.
+- Prefer graph connections that carry meaning over decorative cross-links; every link should help navigation, coverage, or impact analysis.
+- When writing protocol prose, prefer explicit confidence labels for claims that are not directly verified by logs or tests.
+- Before any execution, do a preflight that names scope, likely impacts, explicit out-of-scope follow-ups, and any runner or loader that must change when the topology changes; do not introduce new non-blocking suggestions after execution unless they are moved to backlog first.
+- If a change touches the audit topology, the preflight must name the corresponding consumer runner/script and the exact file-order or filename impact before any edit lands.
+- After execution, do not reopen scope with "next natural step" style suggestions; any new improvement must first be logged to backlog and only then reintroduced as a new task.
+- Every issue and PR that changes VC/VT/TK knowledge must carry a completed preflight checklist in the template; if the checklist is missing or incomplete, treat the submission as not ready.
 
 ---
 

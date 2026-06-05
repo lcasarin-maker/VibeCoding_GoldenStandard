@@ -50,3 +50,40 @@ project_insights:
     discriminación; cada guardia debe aislar el fallo que dice proteger.'
   PI-018: 'Ingesta canónica de aprendizajes – normalizar, deduplicar y registrar nuevas lecciones
     satélite antes de incorporarlas al conocimiento central.'
+  PI-019: 'Higiene de ejecución y tooling – preferir comandos simples, ediciones declarativas, UTF-8,
+    evidencia auditable y permisos elevados solo como excepción; los helpers temporales deben desaparecer
+    salvo que sean reutilizables y documentados.'
+  PI-020: 'Confidence Tags (Graphify pattern) – toda afirmación de estado en documentos de protocolo
+    debe llevar nivel de confianza explícito: VERIFIED (respaldado por log de terminal o test), INFERRED
+    (deducido de evidencia indirecta), ASSUMED (sin evidencia, supuesto razonable). Afirmaciones sin tag
+    se tratan como ASSUMED. Aplica especialmente a SPEC.md, HISTORIAL.md y comentarios de decisiones
+    arquitectónicas. Origen: safishamsi/graphify confidence tag system para knowledge graphs.'
+  PI-021: 'Wiki-Lint semántico (Karpathy LLM Wiki pattern) – los documentos de protocolo deben
+    auditarse periódicamente para detectar: contradicciones entre secciones, referencias a archivos
+    inexistentes, mandatos mencionados en un doc pero ausentes en otro, y afirmaciones de versión
+    inconsistentes. El Lint no es sintáctico (eso lo hace sync_binding.py) sino semántico: ¿dos
+    documentos afirman cosas incompatibles sobre el mismo estado? Origen: gist Karpathy LLM Wiki,
+    operación Lint del framework de wiki mantenida por agente.'
+  PI-022: 'Lista de incertidumbre operativa – cada sesión o documento de protocolo debe declarar qué
+    subsistemas, rutas o afirmaciones no fueron verificados mecánicamente en ese turno. La ausencia de
+    lista equivale a verificación incompleta. Origen: Cerberus B12 / B25 y control de anti-alucinación.'
+  PI-023: 'Conciencia de sesión dual – antes de tocar fuentes compartidas, el agente debe verificar estado
+    y últimos commits para no pisar trabajo concurrente. Si hay cambios ajenos, se analiza impacto antes de
+    editar. Origen: Cerberus S21 / B15 / disciplina de coexistencia multiagente.'
+  PI-024: 'Revisión basada en hubs – los nodos con mayor fan-in o grado de impacto deben revisarse primero
+    cuando cambia un catálogo o índice. El grafo no es decorativo: prioriza riesgo y ordena la auditoría.
+    Origen: Cerberus graph report y heurística de hub-first review.'
+  PI-025: 'Retrospectiva exportable – cada sesión debe cerrar con una retrospectiva estructurada y
+    parseable que se persista en un ledger durable antes de COMPACT/CLEAR. El chat no es memoria confiable
+    y el conocimiento nuevo debe sobrevivir al reset de contexto. Origen: Cerberus export_retrospective.py
+    y la disciplina de HISTORIAL como fuente de continuidad.'
+  PI-026: 'Preflight exhaustivo y no reabrir alcance post-ejecución – antes de ejecutar cualquier cambio,
+    el agente debe declarar scope, impactos previsibles, follow-ups fuera de alcance y el runner/loader
+    que se vería afectado si la topología cambia. Si después de ejecutar surge una mejora nueva, se
+    registra primero en backlog; no se ofrece como sugerencia post-ejecución. Origen: Cerberus /
+    GS execution hygiene y la separación formal de auditorías entre conocimiento y consumo.'
+  PI-027: 'Serialización de operaciones Git – los comandos Git deben ejecutarse de forma serializada
+    dentro de automatizaciones y orquestadores para evitar bloqueos de índice, carreras de estado y
+    resultados inconsistentes. Cuando exista coordinación o tooling concurrente, la disciplina segura
+    es un único flujo Git a la vez con reintentos controlados, no paralelismo oportunista. Origen:
+    Cerberus global learning sobre race conditions y bloqueo de .git/index.lock.'

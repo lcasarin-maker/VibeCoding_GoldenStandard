@@ -1,6 +1,9 @@
 # CODERCERBERUS  
 ## Marco conceptual, filosofía operativa y arquitectura funcional
 
+> Deprecated as canonical GS source. The live Golden Standard source of truth is `CONCEPTUAL_FRAMEWORK.md`.
+> This file is preserved as historical lineage and should not be extended as the primary doctrine.
+
 ## 1. Idea rectora
 
 CoderCerberus toma su nombre de Cerbero, el guardián del Inframundo. Su función simbólica era impedir el paso de quienes no cumplían los requisitos para ingresar.
@@ -196,7 +199,7 @@ El objetivo es que los tests demuestren que el software funciona de verdad.
 
 ### 4.3. Tokenomics
 
-Tokenomics es el dominio relativo al uso eficiente de tokens durante el desarrollo.
+Tokenomics es un dominio de gobernanza separado de los vicios. No describe antipatrón, sino eficiencia, headroom y gestión de contexto durante el desarrollo.
 
 Debe considerarse importante, pero subordinado a la pureza del código.
 
@@ -434,6 +437,10 @@ Un repositorio desordenado es deuda técnica visible. Aunque el código funcione
 
 La limpieza del repositorio debe considerarse un principio operativo de primer nivel.
 
+Esta doctrina se expone también como una capa de navegación dedicada dentro del vault, enlazada desde Home y desde la documentación raíz, para que la higiene no quede enterrada dentro de un bloque largo de marco conceptual.
+
+GS define la norma; Cerberus debe ejecutar la vigilancia, la evidencia y la consecuencia operativa en los repositorios que consume.
+
 ### 11.1. Principio de repositorio limpio
 
 Todo proyecto vigilado por CoderCerberus debe mantener una estructura clara, mínima, legible y justificable.
@@ -624,6 +631,29 @@ Debe incorporarse a Golden Standard un mandato específico de higiene estructura
 > Todo repositorio vigilado por CoderCerberus debe mantenerse limpio, plano en lo razonable, descriptivo en su nomenclatura, libre de basura temporal, sin copias manuales que sustituyan Git, sin carpetas ceremoniales y con evidencia verificable de organización funcional.
 
 Este mandato debe tener regla ejecutable, prueba asociada, evidencia generada y consecuencia definida.
+
+### 11.10. Higiene de ejecución y tooling
+
+La calidad del Golden Standard no depende solo del contenido, sino también de cómo se inspecciona, edita y valida.
+
+Toda interacción con herramientas debe seguir una disciplina de ejecución mínima, estable y reproducible:
+
+- preferir el comando más simple que resuelva el problema;
+- dividir tareas grandes en pasos pequeños y verificables;
+- usar ediciones declarativas y parches antes que scripts improvisados;
+- evitar comandos largos, frágiles o innecesariamente encadenados;
+- mantener la codificación y la salida en UTF-8 cuando haya texto internacional;
+- no crear scripts temporales si el cambio puede resolverse de forma directa y auditable;
+- conservar solo helpers reutilizables o documentados;
+- registrar evidencia cuando un comando forme parte de una validación o auditoría;
+- tratar la elevación de permisos como excepción, no como rutina;
+- preferir operar dentro del workspace de GS antes de cruzar a otros repositorios o rutas externas.
+
+Si una operación falla por complejidad, entorno o sintaxis, la respuesta correcta es simplificar el flujo, no añadir complejidad adicional.
+
+Cuando una herramienta no sea estable o no sea necesaria, GS debe favorecer la alternativa más determinista, legible y reproducible.
+
+Esta regla queda formalizada como `PI-019` para que ejecución e higiene se puedan rastrear como insight satélite y no solo como texto doctrinal.
 
 ## 12. Validación funcional real
 

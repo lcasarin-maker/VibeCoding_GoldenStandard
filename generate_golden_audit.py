@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 generate_golden_audit.py — Compile and map Golden Standard compliance database.
-Parses the split Golden Standard catalogs, mapping each flaw to Cerberus guards/tests,
+Parses the split Golden Standard catalogs, mapping each flaw to GS guards/tests,
 and auto-generates a fully cross-linked Obsidian Markdown Wiki vault.
 """
 
 import json
+import re
 import shutil
 import sys
 from collections import Counter
@@ -16,7 +17,7 @@ import yaml
 
 _ROOT = Path(__file__).resolve().parent
 
-# Detect if we are inside Cerberus (submodule configuration)
+# Detect if we are inside the legacy parent workspace configuration
 parent_dir = _ROOT.parent
 if (parent_dir / ".protocol" / "metadata").is_dir():
     JSON_OUTPUT = parent_dir / ".protocol" / "metadata" / "golden_standard_audit.json"
@@ -29,6 +30,15 @@ else:
     VERSION_FILE = _ROOT / "VERSION.txt"
 
 WIKI_DIR = _ROOT / "Wiki"
+GRAPH_OUTPUT = JSON_OUTPUT.with_name("golden_standard_graph.json")
+GRAPH_MARKDOWN = WIKI_DIR / "Graph.md"
+CONCEPTUAL_FRAMEWORK_SRC = _ROOT / "CONCEPTUAL_FRAMEWORK.md"
+LEGACY_CONCEPTUAL_SRC = _ROOT / "CODERCERBERUS_MARCO_CONCEPTUAL.md"
+
+WIKILINK_PATTERN = re.compile(r"\[\[([^\]]+?)\]\]")
+MARKDOWN_LINK_PATTERN = re.compile(r"(?<!\!)\[[^\]]+\]\(([^)]+?\.md)\)")
+CATALOG_MENTION_PATTERN = re.compile(r"\b(?:VC|VT|TK|PI)-\d{3}\b")
+CATALOG_RANGE_PATTERN = re.compile(r"\b(VC|VT|TK|PI)-(\d{3})\.\.(?:\1-)?(\d{3})\b")
 
 
 def load_golden_standard_catalogs() -> dict[str, dict]:
@@ -49,6 +59,15 @@ def load_golden_standard_catalogs() -> dict[str, dict]:
 def normalize_knowledge_text(value: object) -> str:
     """Normalize knowledge text to strip excessive whitespace."""
     return " ".join(str(value).strip().split())
+
+
+def is_ascii_text(value: object) -> bool:
+    """Return True when the value contains only ASCII characters."""
+    try:
+        str(value).encode("ascii")
+        return True
+    except UnicodeEncodeError:
+        return False
 
 
 def get_project_insights() -> dict[str, str]:
@@ -105,6 +124,11 @@ def get_project_insight_recommendations() -> dict[str, list[dict[str, str]]]:
                 "project": "cerberus",
                 "action": "Keep the knowledge base alive by continuously absorbing lessons from the core project and its satellites.",
             },
+            {
+                "insight_id": "PI-022",
+                "project": "cerberus",
+                "action": "Keep an explicit uncertainty ledger so protocol docs separate verified facts from assumptions before they become doctrine.",
+            },
         ],
         "D3": [
             {
@@ -133,6 +157,11 @@ def get_project_insight_recommendations() -> dict[str, list[dict[str, str]]]:
                 "insight_id": "PI-011",
                 "project": "cerberus",
                 "action": "Flatten nested structure when it simplifies maintenance and removes needless indirection.",
+            },
+            {
+                "insight_id": "PI-024",
+                "project": "cerberus",
+                "action": "Review graph hubs first when the catalog changes, because high fan-in nodes carry the largest impact radius.",
             },
         ],
         "D5": [
@@ -275,6 +304,11 @@ def get_project_insight_recommendations() -> dict[str, list[dict[str, str]]]:
                 "project": "cerberus",
                 "action": "Normalize, deduplicate and record new learnings before folding them into the central knowledge base.",
             },
+            {
+                "insight_id": "PI-023",
+                "project": "cerberus",
+                "action": "Check shared state and recent commits before editing so concurrent sessions do not overwrite each other silently.",
+            },
         ],
     }
 
@@ -304,7 +338,7 @@ def build_project_insight_section() -> list[str]:
     lines = [
         "## Project Insights",
         "",
-        "These entries are preserved as project-agnostic knowledge extracted from external references and now consumed by Cerberus.",
+        "These entries are preserved as project-agnostic knowledge extracted from external references and now consumed by GS users and downstream tools.",
         "",
         "| ID | Insight |",
         "|---|---|",
@@ -321,7 +355,7 @@ def build_project_insight_recommendations_section() -> list[str]:
     lines = [
         "## Project Insight Recommendations by Domain",
         "",
-        "These actions are the operational bridge between the project insights and the Cerberus audit domains.",
+        "These actions are the operational bridge between the project insights and the GS operational lenses.",
         "",
         "| Domain | Insight | Project | Action |",
         "|---|---|---|---|",
@@ -373,19 +407,38 @@ def write_home_md(
     doc_only_count = status_counts.get("DOC_ONLY", 0)
     operational_count = prevented_count + remediated_count
     documentary_count = audited_count + doc_only_count
-    home_content = f"""# CoderCerberus Golden Standard Wiki
+    home_content = f"""# Golden Standard Wiki
 
-Bienvenido a la bóveda Obsidian del **Golden Standard** (GS) de CoderCerberus. Esta base de conocimiento representa la doctrina pura de ingeniería, mitigación de vicios y tokenomics acumulada del proyecto central y sus satélites.
+Bienvenido a la bóveda Obsidian del **Golden Standard** (GS). Esta base de conocimiento representa la doctrina pura de ingeniería, mitigación de vicios y tokenomics acumulada por el proyecto.
 
 ---
 
 ## Acceso Rápido
 
-- 📂 **[[Vices_Index|Índice de Vicios de Ingeniería]]**: Catálogo central de anomalías de código, tests y tokenomics (`VC`, `TV`, `TK`).
+- 📂 **[[Vices_Index|Índice de Vicios de Ingeniería]]**: Catálogo central de anomalías de código y tests (`VC`, `TV`).
 - 📂 **[[Project_Insights_Index|Índice de Insights Satélite]]**: Lecciones y mejores prácticas (`PI`) extraídas de repositorios externos y automatizaciones.
-- 📘 **[[Concepts/Marco_Conceptual|Marco Conceptual de CoderCerberus]]**: Doctrina epistemológica, niveles y bases de diseño.
+- 🕸️ **[[Graph|Mapa de Grafo GS]]**: Hubs, huérfanos intencionales, huérfanos candidatos e impacto local del vault.
+- 📘 **[[Concepts/Marco_Conceptual|Marco Conceptual del Golden Standard]]**: Doctrina epistemológica, niveles y bases de diseño.
+- 🧼 **[[Concepts/Marco_Conceptual#11.-Higiene,-limpieza-y-organización-del-repositorio|Capítulo de Higiene del Repositorio]]**: Norma canónica para limpieza, nombres, root limpio y evidencia de organización.
+- 🔧 **[[Project_Insights/PI-019|Higiene de ejecución y tooling]]**: Regla satélite para comandos simples, UTF-8 y pureza técnica.
+- ⚠️ **[[Vices/VC-124|Deprecación precipitada]]**: Vicio espejo que evita mover a `deprecated/` sin análisis.
+- 🏷️ **[[Project_Insights/PI-020|Confidence Tags]]**: Cada afirmación de protocolo debe declarar si es VERIFIED, INFERRED o ASSUMED.
+- 🧪 **[[Project_Insights/PI-021|Wiki-Lint semántico]]**: Detecta contradicciones, referencias rotas y mandatos sin binding.
+- 🧾 **[[Project_Insights/PI-022|Lista de incertidumbre]]**: Documenta lo no verificado para no fingir certeza.
+- 🧭 **[[Project_Insights/PI-023|Conciencia de sesión dual]]**: Verifica estado compartido antes de editar.
+- 🕸️ **[[Project_Insights/PI-024|Revisión basada en hubs]]**: Prioriza nodos de alto impacto en el grafo.
+- 🧷 **[[Project_Insights/PI-025|Retrospectiva exportable]]**: Cierra cada sesión con una retrospectiva estructurada y persistente.
+- 💠 **[[Tokenomics_Index|Índice de Tokenomics]]**: Catálogo separado de eficiencia, headroom y gestión de contexto (`TK`).
+- 🗺️ **[[Tokenomics_Map|Mapa de Tokenomics]]**: Puente entre lentes `TK` y `PI` para navegar relaciones, huecos y cobertura.
+- 🔹 **[[Tokenomics/Memory_Headroom_Index|Memoria y Headroom]]**: Checkpoints, handoff, persistencia y margen contextual.
+- 🔹 **[[Tokenomics/Input_Retrieval_Index|Entrada y Recuperación]]**: Recuperación dirigida y reducción de ruido de entrada.
+- 🔹 **[[Tokenomics/Output_Compaction_Index|Salida y Compresión]]**: Verbosidad, compresión y presupuesto de respuesta.
+- 🔹 **[[Tokenomics/Measurement_Telemetry_Index|Medición y Telemetría]]**: Evidencia de ahorro y monitoreo de impacto.
+- 🔹 **[[Tokenomics/Automation_Tooling_Index|Automatización y Herramientas]]**: Integraciones activas y tooling que ejecuta ahorro.
+- 📄 **[Marco conceptual raíz](../CONCEPTUAL_FRAMEWORK.md)**: Documento base local del GS para lectura directa y navegación del grafo.
 - 📥 **[Inbox](../Inbox/README.md)**: Buzón de entrada para hallazgos crudos y propuestas nuevas.
 - 🧪 **[Audit Report](../golden_standard_audit_report.md)**: Estado compilado de cobertura y mapeo vigente.
+- 🗺️ **[Graph JSON](../golden_standard_graph.json)**: Export estructurado para queries programáticas de impacto.
 - 🏠 **[README](../README.md)**: Visión general del repositorio público.
 
 ---
@@ -396,7 +449,7 @@ Bienvenido a la bóveda Obsidian del **Golden Standard** (GS) de CoderCerberus. 
 |---|---|---:|---|
 | Vibe Coding | `VC-xxx` | {vc_count} | [[Vices_Index|Abrir índice]] |
 | Testing & Evaluation | `VT-xxx` | {tv_count} | [[Vices_Index|Abrir índice]] |
-| Tokenomics & Context | `TK-xxx` | {tk_count} | [[Vices_Index|Abrir índice]] |
+| Tokenomics | `TK-xxx` | {tk_count} | [[Tokenomics_Index|Abrir índice]] |
 | Project Insights | `PI-xxx` | {pi_count} | [[Project_Insights_Index|Abrir índice]] |
 
 ---
@@ -437,22 +490,22 @@ Bienvenido a la bóveda Obsidian del **Golden Standard** (GS) de CoderCerberus. 
 
 
 def write_vices_index_md(wiki_dir: Path, mapped_database: dict):
-    """Write the main Vices index catalog."""
+    """Write the main VC/VT index catalog."""
     vc_items = []
     tv_items = []
-    tk_items = []
     for flaw_id, item in sorted(mapped_database.items()):
-        line = f"*   [[Vices/{flaw_id}|{flaw_id}]] — **{item['title']}** ({item['status']}, {item['severity']})"
+        line = (
+            f"*   [[Vices/{flaw_id}|{flaw_id}]] — **{item['title']}** "
+            f"({item['status']}, {item['severity']}, downstream:{item.get('downstream_verification', 'none')})"
+        )
         if item["category"] == "Vibe Coding":
             vc_items.append(line)
         elif item["category"] == "Testing & Evaluation":
             tv_items.append(line)
-        elif item["category"] == "Tokenomics & Context":
-            tk_items.append(line)
 
     vices_index_content = f"""# Índice de Vicios de Ingeniería
 
-Este índice clasifica todos los vicios del Golden Standard, organizados por sus dominios de desarrollo. Cada entrada enlaza a su nota atómica de mitigación.
+Este índice clasifica los vicios del Golden Standard en VC y VT. Tokenomics vive en su propio índice porque no es un vicio: es una capa de eficiencia y gobernanza del contexto.
 
 ---
 
@@ -462,13 +515,274 @@ Este índice clasifica todos los vicios del Golden Standard, organizados por sus
 ## Testing & Evaluation (TV)
 {"\n".join(tv_items)}
 
-## Tokenomics & Context (TK)
-{"\n".join(tk_items)}
-
 ---
 [[Home|Volver al Inicio]]
 """
     (wiki_dir / "Vices_Index.md").write_text(vices_index_content, encoding="utf-8")
+
+
+def write_tokenomics_index_md(wiki_dir: Path, mapped_database: dict):
+    """Write the dedicated Tokenomics index catalog."""
+    tk_items = []
+    for flaw_id, item in sorted(mapped_database.items()):
+        if item["category"] != "Tokenomics & Context":
+            continue
+        line = (
+            f"*   [[Tokenomics/{flaw_id}|{flaw_id}]] — **{item['title']}** "
+            f"({item['status']}, {item['severity']}, downstream:{item.get('downstream_verification', 'none')})"
+        )
+        tk_items.append(line)
+
+    prevented_count = len([x for x in mapped_database.values() if x["category"] == "Tokenomics & Context" and x["status"] in ("PREVENTED", "REMEDIATED")])
+    doc_only_count = len([x for x in mapped_database.values() if x["category"] == "Tokenomics & Context" and x["status"] in ("DOC_ONLY", "AUDITED")])
+    total_count = len([x for x in mapped_database.values() if x["category"] == "Tokenomics & Context"])
+
+    tokenomics_index_content = f"""# Índice de Tokenomics
+
+Tokenomics es una categoría propia del Golden Standard. No describe vicios de código ni de testing: describe cómo reducir ruido, preservar headroom, compactar contexto y externalizar estado sin sacrificar calidad.
+
+La utilidad práctica de esta categoría es doble:
+
+1. evitar que el agente queme contexto en relecturas, salidas verbosas o handoffs pobres;
+2. convertir ahorro de tokens en una disciplina medible, no en una intuición.
+
+Históricamente, esta capa se operó bajo nombres como *headspace*, *compact* y *token saving*. GS conserva el conocimiento y también define la doctrina de uso.
+
+---
+
+## Subíndices
+
+- [[Memory_Headroom_Index|Memoria y Headroom]]
+- [[Input_Retrieval_Index|Entrada y Recuperación]]
+- [[Output_Compaction_Index|Salida y Compresión]]
+- [[Measurement_Telemetry_Index|Medición y Telemetría]]
+- [[Automation_Tooling_Index|Automatización y Herramientas]]
+- [[Tokenomics_Map|Mapa de Tokenomics]]
+
+---
+
+## Estado de la categoría
+
+| Estado | Entradas |
+|---|---:|
+| `PREVENTED` / `REMEDIATED` | {prevented_count} |
+| `DOC_ONLY` / `AUDITED` | {doc_only_count} |
+| `Total` | {total_count} |
+
+---
+
+## Entradas
+
+{"\n".join(tk_items)}
+
+---
+## Referencia de uso
+
+- Tokenomics define principios de eficiencia y gestión de contexto.
+- La enforcement real de estos principios pertenece a los repositorios consumidores y herramientas que adopten GS.
+- El vocabulario de la categoría debe mantenerse separado de VC y VT para evitar confusión semántica.
+- Las estrategias modernas de reducción de ruido, como RTK e ICM, confirman que el ahorro de tokens se beneficia de herramientas de filtrado, memoria externa y compacción de contexto.
+
+---
+[[Home|Volver al Inicio]]
+"""
+    (wiki_dir / "Tokenomics_Index.md").write_text(tokenomics_index_content, encoding="utf-8")
+
+
+def write_tokenomics_map_md(wiki_dir: Path, insights: dict):
+    """Write a bridge page that links tokenomics lenses with project insights."""
+    bridge_rows = [
+        (
+            "Memoria y Headroom",
+            "[[Tokenomics/Memory_Headroom_Index|Abrir lente]]",
+            "PI-006, PI-010, PI-014, PI-018",
+            "Evita pérdida de contexto, root pollution y aprendizaje olvidado.",
+        ),
+        (
+            "Entrada y Recuperación",
+            "[[Tokenomics/Input_Retrieval_Index|Abrir lente]]",
+            "PI-005, PI-012",
+            "Reduce ruido de entrada y hace más precisa la recuperación dirigida.",
+        ),
+        (
+            "Salida y Compresión",
+            "[[Tokenomics/Output_Compaction_Index|Abrir lente]]",
+            "PI-003, PI-007, PI-009, PI-016",
+            "Controla verbosidad, costo, pruning y honestidad documental.",
+        ),
+        (
+            "Medición y Telemetría",
+            "[[Tokenomics/Measurement_Telemetry_Index|Abrir lente]]",
+            "PI-003, PI-013",
+            "Hace visible el ahorro real, no solo la intención de ahorrar.",
+        ),
+        (
+            "Automatización y Herramientas",
+            "[[Tokenomics/Automation_Tooling_Index|Abrir lente]]",
+            "PI-005, PI-006, PI-013",
+            "Conecta la doctrina con tooling ejecutable y observabilidad continua.",
+        ),
+    ]
+
+    insight_pairs = []
+    for insight_id in ["PI-003", "PI-005", "PI-006", "PI-007", "PI-009", "PI-010", "PI-012", "PI-013", "PI-014", "PI-016", "PI-018"]:
+        if insight_id in insights:
+            insight_pairs.append((insight_id, insights[insight_id]))
+
+    insight_rows = "\n".join(
+        f"| `{insight_id}` | {description} |"
+        for insight_id, description in insight_pairs
+    )
+
+    lens_rows = "\n".join(
+        f"| {lens} | {link} | `{pi_refs}` | {intent} |"
+        for lens, link, pi_refs, intent in bridge_rows
+    )
+
+    map_content = f"""# Mapa de Tokenomics
+
+Este mapa sirve como puente entre la categoría `TK` y las lecciones satélite del GS. No repite el catálogo: muestra cómo leerlo y con qué insights se cruza.
+
+## Para qué sirve
+
+- Navegar relaciones entre vicios de contexto, ahorro de tokens y disciplina operativa.
+- Identificar qué lecciones satélite refuerzan cada lente de tokenomics.
+- Detectar huecos donde hay doctrina, pero todavía falta un artefacto de apoyo o una telemetría clara.
+
+---
+
+## Lentes operativos
+
+| Lente | Subíndice | Project Insights relacionados | Intención |
+|---|---|---|---|
+{lens_rows}
+
+---
+
+## Project Insights clave
+
+| Insight | Resumen |
+|---|---|
+{insight_rows}
+
+---
+
+## Cruces adyacentes
+
+| Nodo | Relación | Motivo |
+|---|---|---|
+| `[[Project_Insights/PI-019|PI-019]]` | Higiene satélite | Expande la disciplina de edición y validación hacia el trabajo diario con herramientas. |
+| `[[Vices/VC-124|VC-124]]` | Vicio espejo | Representa el error de deprecar sin análisis ni trazabilidad. |
+
+---
+
+## Lectura práctica
+
+1. Si un problema consume contexto, revisa primero `Memoria y Headroom`.
+2. Si el problema nace en la entrada, revisa `Entrada y Recuperación`.
+3. Si el costo está en la respuesta, revisa `Salida y Compresión`.
+4. Si no hay evidencia del ahorro, revisa `Medición y Telemetría`.
+5. Si la doctrina no se ejecuta sola, revisa `Automatización y Herramientas`.
+
+---
+[[Tokenomics_Index|Volver al Índice de Tokenomics]] | [[Project_Insights_Index|Ir a Insights]] | [[Home|Inicio]]
+"""
+    (wiki_dir / "Tokenomics_Map.md").write_text(map_content, encoding="utf-8")
+
+
+def _tokenomics_subindex_group(item_id: str, title: str) -> str:
+    """Map a tokenomics entry to a thematic subindex."""
+    if item_id.startswith("TK-F01") or item_id in {"TK-001", "TK-002", "TK-003", "TK-004", "TK-005", "TK-006", "TK-007", "TK-008", "TK-028", "TK-031", "TK-032", "TK-033", "TK-034", "TK-038"}:
+        return "memory_headroom"
+    if item_id.startswith("TK-F02") or item_id in {"TK-009", "TK-010", "TK-011", "TK-012", "TK-014", "TK-015", "TK-016", "TK-018", "TK-019"}:
+        return "input_retrieval"
+    if item_id.startswith("TK-F03") or item_id in {"TK-020", "TK-021", "TK-022", "TK-024", "TK-025", "TK-027", "TK-029", "TK-030", "TK-035", "TK-036", "TK-043"}:
+        return "output_compaction"
+    if item_id in {"TK-023", "TK-026", "TK-037", "TK-040", "TK-041", "TK-042"}:
+        return "measurement_telemetry"
+    if item_id in {"TK-013", "TK-017", "TK-039"}:
+        return "automation_tooling"
+    # Fallback: infer by title when a future TK lands outside the historical ranges.
+    lower_title = title.lower()
+    if any(term in lower_title for term in ["memory", "memoria", "state", "estado", "checkpoint", "hand-off", "handoff", "headroom", "cache", "drift"]):
+        return "memory_headroom"
+    if any(term in lower_title for term in ["input", "ingest", "retrieval", "poda", "recuper", "chunk", "prompt"]):
+        return "input_retrieval"
+    if any(term in lower_title for term in ["measure", "medir", "telemetry", "telemet", "audit", "evidence", "monitor"]):
+        return "measurement_telemetry"
+    if any(term in lower_title for term in ["tool", "automation", "mode", "router", "integrat", "external"]):
+        return "automation_tooling"
+    return "output_compaction"
+
+
+def write_tokenomics_subindices_md(wiki_dir: Path, mapped_database: dict):
+    """Write thematic subindices for tokenomics."""
+    groups = {
+        "memory_headroom": {
+            "title": "Memoria y Headroom",
+            "filename": "Memory_Headroom_Index.md",
+            "blurb": "Checkpoints, handoffs, persistencia externa, cache, drift y control de margen contextual.",
+            "items": [],
+        },
+        "input_retrieval": {
+            "title": "Entrada y Recuperación",
+            "filename": "Input_Retrieval_Index.md",
+            "blurb": "Recuperación dirigida, poda semántica, chunks y reducción de exploración ciega.",
+            "items": [],
+        },
+        "output_compaction": {
+            "title": "Salida y Compresión",
+            "filename": "Output_Compaction_Index.md",
+            "blurb": "Control de salida, compresión, verbosidad y presupuesto de respuesta.",
+            "items": [],
+        },
+        "measurement_telemetry": {
+            "title": "Medición y Telemetría",
+            "filename": "Measurement_Telemetry_Index.md",
+            "blurb": "Evidencia de ahorro, observabilidad, monitoreo y verificación de impacto.",
+            "items": [],
+        },
+        "automation_tooling": {
+            "title": "Automatización y Herramientas",
+            "filename": "Automation_Tooling_Index.md",
+            "blurb": "Integraciones activas, routing, modos de operación y tooling que realmente ejecuta ahorro.",
+            "items": [],
+        },
+    }
+
+    for flaw_id, item in sorted(mapped_database.items()):
+        if item["category"] != "Tokenomics & Context":
+            continue
+        group_key = _tokenomics_subindex_group(flaw_id, item["title"])
+        groups[group_key]["items"].append(
+            f"*   [[Tokenomics/{flaw_id}|{flaw_id}]] — **{item['title']}** ({item['status']}, {item['severity']}, downstream:{item.get('downstream_verification', 'none')})"
+        )
+
+    for group_key, group in groups.items():
+        subindex_content = f"""# Índice de Tokenomics: {group['title']}
+
+{group['blurb']}
+
+---
+
+## Entradas
+
+{"\n".join(group["items"]) if group["items"] else "*Sin entradas asignadas.*"}
+
+---
+
+## Cómo leer este subíndice
+
+- Si la entrada trata de memoria, checkpoint, handoff, cache o headroom, está en Memoria y Headroom.
+- Si trata de búsqueda, poda, recuperación o chunks, está en Entrada y Recuperación.
+- Si trata de verbosidad, compresión o presupuesto de respuesta, está en Salida y Compresión.
+- Si trata de medición, telemetría, evidencia o ahorro verificado, está en Medición y Telemetría.
+- Si trata de tooling, routing, integración o modos operativos, está en Automatización y Herramientas.
+
+---
+[[Tokenomics_Map|Volver al Mapa de Tokenomics]] | [[Tokenomics_Index|Índice de Tokenomics]]
+"""
+        (wiki_dir / "Tokenomics" / group["filename"]).write_text(subindex_content, encoding="utf-8")
 
 
 def write_project_insights_index_md(wiki_dir: Path, insights: dict):
@@ -493,17 +807,109 @@ Mapeo de lecciones extraídas de repositorios de referencia y herramientas de au
 
 def write_conceptual_concepts_md(wiki_dir: Path):
     """Create link-adapted copy of conceptual framework."""
-    conceptual_src = _ROOT / "CODERCERBERUS_MARCO_CONCEPTUAL.md"
+    conceptual_src = CONCEPTUAL_FRAMEWORK_SRC if CONCEPTUAL_FRAMEWORK_SRC.exists() else LEGACY_CONCEPTUAL_SRC
     if conceptual_src.exists():
         original_text = conceptual_src.read_text(encoding="utf-8")
         nav_header = "# [[Home|← Volver al Inicio de la Bóveda]]\n\n---\n\n"
-        (wiki_dir / "Concepts" / "Marco_Conceptual.md").write_text(nav_header + original_text, encoding="utf-8")
+        note = ""
+        if conceptual_src == LEGACY_CONCEPTUAL_SRC:
+            note = (
+                "> Deprecation note: this page is rendered from the canonical GS root framework; legacy source files are preserved only for historical reference.\n\n---\n\n"
+            )
+        (wiki_dir / "Concepts" / "Marco_Conceptual.md").write_text(
+            nav_header + note + original_text,
+            encoding="utf-8",
+        )
+
+
+def entry_depth(item: dict) -> str:
+    """Classify an entry by depth: deep, doctrinal, or stub.
+
+    - 'deep'      : ships paired bad/good examples (a concrete, falsifiable vice).
+    - 'doctrinal' : explicitly flagged as a behavioral/epistemic principle with no
+                    static signature; a stub by design, not by neglect. Fabricating
+                    code for these would be theater, so we never do.
+    - 'stub'      : enrichable but not yet enriched (real depth debt).
+    """
+    if str(item.get("alias_of", "")).strip():
+        return "alias"
+    if str(item.get("example_bad", "")).strip() and str(item.get("example_good", "")).strip():
+        return "deep"
+    if item.get("doctrinal"):
+        return "doctrinal"
+    return "stub"
+
+
+def depth_badge(item: dict) -> str:
+    """Human-readable badge for an entry's depth classification."""
+    alias = str(item.get("alias_of", "")).strip()
+    if alias:
+        return f"🔗 Alias → [[Vices/{alias}|{alias}]]"
+    return {"deep": "🟢 Deep", "doctrinal": "⚪ Doctrinal"}.get(entry_depth(item), "🟡 Stub")
+
+
+def build_depth_sections(item: dict) -> str:
+    """Render optional depth blocks (examples, detection, evidence) when present.
+
+    Returns markdown to be appended after the core sections. Empty string when the
+    entry carries no enriched fields, so legacy stub entries render unchanged.
+    """
+    lang = str(item.get("example_lang", "text")).strip() or "text"
+    blocks: list[str] = []
+
+    example_bad = str(item.get("example_bad", "")).strip()
+    if example_bad:
+        blocks.append(f"### ❌ Ejemplo del vicio (Bad)\n```{lang}\n{example_bad}\n```")
+
+    example_good = str(item.get("example_good", "")).strip()
+    if example_good:
+        blocks.append(f"### ✅ Versión corregida (Good)\n```{lang}\n{example_good}\n```")
+
+    detection = str(item.get("detection", "")).strip()
+    if detection:
+        blocks.append(f"### 🔎 Detección concreta\n{detection}")
+
+    evidence = item.get("evidence", [])
+    if isinstance(evidence, list) and evidence:
+        lines = ["### 📚 Evidencia externa"]
+        for ref in evidence:
+            if isinstance(ref, dict):
+                source = str(ref.get("source", "")).strip()
+                claim = str(ref.get("claim", "")).strip()
+                lines.append(f"- **{source}** — {claim}" if claim else f"- **{source}**")
+            else:
+                lines.append(f"- {ref}")
+        blocks.append("\n".join(lines))
+
+    if not blocks:
+        return ""
+    return "\n\n" + "\n\n".join(blocks)
 
 
 def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
-    """Create individual atomic files for all vices."""
+    """Create individual atomic files for VC and VT entries."""
     for flaw_id, item in mapped_database.items():
+        if item["category"] == "Tokenomics & Context":
+            continue
+        alias = str(item.get("alias_of", "")).strip()
+        if alias:
+            redirect = f"""# {flaw_id}: {item['title']}
+
+> 🔗 **Entrada fusionada.** Este vicio es un duplicado semantico de [[Vices/{alias}|{alias}]]; el contenido canonico (sintoma, ejemplos y deteccion) vive alli. Se conserva el ID `{flaw_id}` por estabilidad de referencias.
+
+| Campo | Detalle |
+|---|---|
+| **ID** | `{flaw_id}` |
+| **Canonico** | [[Vices/{alias}|{alias}]] |
+| **Profundidad** | {depth_badge(item)} |
+
+---
+[[Vices/{alias}|Ir a la entrada canonica {alias}]] | [[Vices_Index|Índice de Vicios]] | [[Home|Inicio]]
+"""
+            (wiki_dir / "Vices" / f"{flaw_id}.md").write_text(redirect, encoding="utf-8")
+            continue
         tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
+        depth_sections = build_depth_sections(item)
         flaw_content = f"""# {flaw_id}: {item['title']}
 
 | Campo | Detalle |
@@ -512,7 +918,9 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 | **Categoría** | {item['category']} |
 | **Estado** | **{item['status']}** |
 | **Severidad** | **{item['severity']}** |
+| **Profundidad** | {depth_badge(item)} |
 | **Tags** | {tag_list} |
+| **Downstream Verification** | `{item.get('downstream_verification', 'none')}` |
 | **Mecanismo de Validación** | `{item['validating_mechanism']}` |
 
 ---
@@ -527,12 +935,59 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 {item['solution']}
 
 ### Acción Correctiva / Prevención
-{item['action']}
+{item['action']}{depth_sections}
+
+### Relaciones
+- [[Project_Insights/PI-019|PI-019]]
+- [[Tokenomics_Map|Mapa de Tokenomics]]
+- [[Home|Inicio]]
 
 ---
 [[Vices_Index|Volver al Índice de Vicios]] | [[Home|Inicio]]
 """
         (wiki_dir / "Vices" / f"{flaw_id}.md").write_text(flaw_content, encoding="utf-8")
+
+
+def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
+    """Create individual atomic files for tokenomics entries."""
+    tokenomics_dir = wiki_dir / "Tokenomics"
+    tokenomics_dir.mkdir(parents=True, exist_ok=True)
+    for flaw_id, item in mapped_database.items():
+        if item["category"] != "Tokenomics & Context":
+            continue
+        tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
+        depth_sections = build_depth_sections(item)
+        flaw_content = f"""# {flaw_id}: {item['title']}
+
+| Campo | Detalle |
+|---|---|
+| **ID** | `{flaw_id}` |
+| **Categoría** | Tokenomics |
+| **Estado** | **{item['status']}** |
+| **Severidad** | **{item['severity']}** |
+| **Profundidad** | {depth_badge(item)} |
+| **Tags** | {tag_list} |
+| **Downstream Verification** | `{item.get('downstream_verification', 'none')}` |
+| **Mecanismo de Validación** | `{item['validating_mechanism']}` |
+
+---
+
+### Síntoma (Signal)
+> {item['symptom']}
+
+### Causa (Cause)
+{item['cause']}
+
+### Aplicación / Mitigación
+{item['solution']}
+
+### Relevancia Operativa
+{item['action']}{depth_sections}
+
+---
+[[Tokenomics_Map|Volver al Mapa de Tokenomics]] | [[Tokenomics_Index|Volver al Índice de Tokenomics]] | [[Home|Inicio]]
+"""
+        (tokenomics_dir / f"{flaw_id}.md").write_text(flaw_content, encoding="utf-8")
 
 
 def build_pi_mapping_lines(mappings: list) -> list[str]:
@@ -556,9 +1011,14 @@ def write_atomic_project_insights(wiki_dir: Path, insights: dict, pi_to_domains:
 ### Descripción del Insight
 > {text}
 
+### Relaciones
+- [[Tokenomics_Map|Mapa de Tokenomics]]
+- [[Vices/VC-124|VC-124]]
+- [[Home|Inicio]]
+
 ---
 
-### Mapeo a Dominios de Auditoría Cerberus
+### Mapeo a Lentes Operativos GS
 {"\n".join(mapping_lines)}
 
 ---
@@ -577,7 +1037,7 @@ def write_audit_domains(wiki_dir: Path, recommendations: dict):
 
         domain_content = f"""# Dominio de Auditoría: {domain}
 
-Este dominio cubre un área específica del protocolo de consistencia y seguridad de Cerberus. Los siguientes insights satélite están vinculados a este dominio de auditoría:
+Este dominio cubre un área específica del protocolo de consistencia y seguridad del GS. Los siguientes insights satélite están vinculados a esta lente operativa:
 
 ---
 
@@ -587,8 +1047,471 @@ Este dominio cubre un área específica del protocolo de consistencia y segurida
 
 ---
 [[Home|Volver al Inicio]]
-"""
+        """
         (wiki_dir / "Domains" / f"{domain}.md").write_text(domain_content, encoding="utf-8")
+
+
+def canonical_graph_node_id(path: Path) -> str:
+    """Convert a file path into the graph node id used by wiki links."""
+    rel_path = path.relative_to(_ROOT).with_suffix("").as_posix()
+    if rel_path.startswith("Wiki/"):
+        return rel_path.removeprefix("Wiki/")
+    return rel_path
+
+
+def classify_graph_node(path: Path) -> str:
+    """Assign a coarse node type for graph summaries."""
+    rel_path = path.relative_to(_ROOT).as_posix()
+    if rel_path == "README.md":
+        return "root"
+    if rel_path == "CONTRIBUTING.md":
+        return "contributing"
+    if rel_path == "CONCEPTUAL_FRAMEWORK.md":
+        return "conceptual-framework"
+    if rel_path == "CODE_OF_CONDUCT.md":
+        return "code-of-conduct"
+    if rel_path.startswith("Inbox/"):
+        return "inbox"
+    if rel_path.startswith("Wiki/Vices/"):
+        return "vice"
+    if rel_path.startswith("Wiki/Tokenomics/"):
+        return "tokenomics"
+    if rel_path.startswith("Wiki/Project_Insights/"):
+        return "insight"
+    if rel_path.startswith("Wiki/Domains/"):
+        return "domain"
+    if rel_path.startswith("Wiki/Concepts/"):
+        return "concept"
+    if rel_path.startswith("Wiki/"):
+        return "wiki"
+    return "doc"
+
+
+def collect_graph_sources() -> list[Path]:
+    """Return the live Markdown sources that should participate in the GS graph."""
+    sources = [
+        _ROOT / "README.md",
+        _ROOT / "CONTRIBUTING.md",
+        _ROOT / "CONCEPTUAL_FRAMEWORK.md",
+        _ROOT / "CODE_OF_CONDUCT.md",
+    ]
+
+    for relative_dir in ["Wiki", "Inbox"]:
+        base_dir = _ROOT / relative_dir
+        if base_dir.exists():
+            sources.extend(sorted(base_dir.rglob("*.md")))
+
+    return [path for path in sources if path.exists()]
+
+
+def is_intentional_graph_orphan(path: Path) -> bool:
+    """Return True for isolated files that are intentionally kept as templates or fixtures."""
+    rel_path = path.relative_to(_ROOT).as_posix()
+    return rel_path.startswith("Inbox/templates/")
+
+
+def extract_graph_mentions(text: str) -> set[str]:
+    """Extract explicit GS ids mentioned in prose, including simple ranges."""
+    mentions = set(CATALOG_MENTION_PATTERN.findall(text))
+    for prefix, start, end in CATALOG_RANGE_PATTERN.findall(text):
+        start_num = int(start)
+        end_num = int(end)
+        if start_num > end_num:
+            start_num, end_num = end_num, start_num
+        for value in range(start_num, end_num + 1):
+            mentions.add(f"{prefix}-{value:03d}")
+    return mentions
+
+
+def resolve_wikilink_target(source_path: Path, raw_target: str, known_nodes: set[str]) -> str | None:
+    """Resolve an Obsidian-style wikilink target to a graph node id."""
+    target = raw_target.split("|", 1)[0].split("#", 1)[0].strip().replace("\\", "/")
+    if not target:
+        return None
+    if target in known_nodes:
+        return target
+
+    cleaned = target.removesuffix(".md")
+    if cleaned in known_nodes:
+        return cleaned
+
+    candidate = (source_path.parent / target).resolve()
+    if candidate.exists():
+        try:
+            resolved = canonical_graph_node_id(candidate)
+        except ValueError:
+            resolved = None
+        if resolved in known_nodes:
+            return resolved
+
+    candidate = (_ROOT / target).resolve()
+    if candidate.exists():
+        try:
+            resolved = canonical_graph_node_id(candidate)
+        except ValueError:
+            resolved = None
+        if resolved in known_nodes:
+            return resolved
+
+    return None
+
+
+def resolve_markdown_link(source_path: Path, raw_target: str, known_nodes: set[str]) -> str | None:
+    """Resolve a relative Markdown link to a graph node id."""
+    target = raw_target.split("#", 1)[0].split("?", 1)[0].strip().replace("\\", "/")
+    if not target:
+        return None
+
+    candidate = (source_path.parent / target).resolve()
+    if not candidate.exists():
+        candidate = (_ROOT / target).resolve()
+    if not candidate.exists():
+        return None
+
+    try:
+        node_id = canonical_graph_node_id(candidate)
+    except ValueError:
+        return None
+    return node_id if node_id in known_nodes else None
+
+
+def build_gs_graph() -> dict:
+    """Build a deterministic knowledge graph from the live Markdown surface."""
+    sources = collect_graph_sources()
+    known_nodes = {canonical_graph_node_id(path) for path in sources}
+
+    nodes: dict[str, dict] = {}
+    edges: list[dict] = []
+    edge_keys: set[tuple[str, str, str]] = set()
+
+    def add_edge(source: str, target: str, kind: str) -> None:
+        if source == target:
+            return
+        key = (source, target, kind)
+        if key in edge_keys:
+            return
+        edge_keys.add(key)
+        edges.append({"source": source, "target": target, "kind": kind})
+
+    for path in sources:
+        node_id = canonical_graph_node_id(path)
+        content = path.read_text(encoding="utf-8")
+        title_match = re.search(r"^#\s+(.+)$", content, re.MULTILINE)
+        title = title_match.group(1).strip() if title_match else path.stem
+        nodes[node_id] = {
+            "id": node_id,
+            "path": path.relative_to(_ROOT).as_posix(),
+            "title": title,
+            "kind": classify_graph_node(path),
+            "outgoing": [],
+            "incoming": [],
+        }
+
+    for path in sources:
+        source_id = canonical_graph_node_id(path)
+        content = path.read_text(encoding="utf-8")
+
+        for raw_link in WIKILINK_PATTERN.findall(content):
+            target_id = resolve_wikilink_target(path, raw_link, known_nodes)
+            if target_id:
+                add_edge(source_id, target_id, "wikilink")
+
+        for raw_link in MARKDOWN_LINK_PATTERN.findall(content):
+            target_id = resolve_markdown_link(path, raw_link, known_nodes)
+            if target_id:
+                add_edge(source_id, target_id, "markdown")
+
+        for mention in extract_graph_mentions(content):
+            if mention in known_nodes:
+                add_edge(source_id, mention, "mention")
+
+    for edge in edges:
+        nodes[edge["source"]]["outgoing"].append(edge["target"])
+        nodes[edge["target"]]["incoming"].append(edge["source"])
+
+    for node in nodes.values():
+        node["outgoing"] = sorted(set(node["outgoing"]))
+        node["incoming"] = sorted(set(node["incoming"]))
+        node["in_degree"] = len(node["incoming"])
+        node["out_degree"] = len(node["outgoing"])
+        node["degree"] = node["in_degree"] + node["out_degree"]
+
+    intentional_orphans = [
+        node
+        for node in nodes.values()
+        if node["in_degree"] == 0 and is_intentional_graph_orphan(_ROOT / node["path"])
+    ]
+    intentional_orphans.sort(key=lambda node: (node["kind"], node["path"]))
+
+    orphan_candidates = [
+        node
+        for node in nodes.values()
+        if node["in_degree"] == 0
+        and node["kind"] in {"wiki", "vice", "insight", "domain", "concept", "inbox", "root"}
+        and not is_intentional_graph_orphan(_ROOT / node["path"])
+    ]
+    orphan_candidates.sort(key=lambda node: (node["kind"], node["path"]))
+
+    hubs = sorted(nodes.values(), key=lambda node: (-node["degree"], -node["in_degree"], node["path"]))
+    bridges = sorted(
+        [
+            node
+            for node in nodes.values()
+            if len({nodes[target]["kind"] for target in node["outgoing"]}) > 1
+        ],
+        key=lambda node: (-len(node["outgoing"]), node["path"]),
+    )
+
+    return {
+        "generated_on": date.today().isoformat(),
+        "node_count": len(nodes),
+        "edge_count": len(edges),
+        "nodes": sorted(nodes.values(), key=lambda node: node["path"]),
+        "edges": sorted(edges, key=lambda edge: (edge["source"], edge["target"], edge["kind"])),
+        "summary": {
+            "intentional_orphans": intentional_orphans[:25],
+            "orphan_candidates": orphan_candidates[:25],
+            "hubs": hubs[:15],
+            "bridges": bridges[:15],
+        },
+    }
+
+
+def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> None:
+    """Persist the graph JSON plus a Markdown summary inside the wiki."""
+    graph = build_gs_graph()
+    if mapped_database:
+        for node in graph["nodes"]:
+            flaw_id = Path(node["path"]).stem
+            item = mapped_database.get(flaw_id)
+            if item:
+                node["status"] = item["status"]
+                node["downstream_verification"] = item.get("downstream_verification", "none")
+    GRAPH_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    GRAPH_OUTPUT.write_text(json.dumps(graph, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    def compact_links(values: list[str], limit: int = 6) -> str:
+        if not values:
+            return "—"
+        preview = values[:limit]
+        remainder = len(values) - len(preview)
+        suffix = f" +{remainder} more" if remainder > 0 else ""
+        return ", ".join(f"[[{value}]]" for value in preview) + suffix
+
+    hub_rows = "\n".join(
+        f"| [[{node['id']}]] | `{node['kind']}` | {node['in_degree']} | {node['out_degree']} | {compact_links(node['incoming'])} | {compact_links(node['outgoing'])} |"
+        for node in graph["summary"]["hubs"][:10]
+    )
+    if not hub_rows:
+        hub_rows = "| — | — | 0 | 0 | — | — |"
+
+    intentional_orphan_rows = "\n".join(
+        f"| [[{node['id']}]] | `{node['kind']}` | {node['in_degree']} | {node['out_degree']} | {compact_links(node['incoming'])} | {compact_links(node['outgoing'])} |"
+        for node in graph["summary"]["intentional_orphans"]
+    )
+    if not intentional_orphan_rows:
+        intentional_orphan_rows = "| — | — | 0 | 0 | — | — |"
+
+    orphan_rows = "\n".join(
+        f"| [[{node['id']}]] | `{node['kind']}` | {node['in_degree']} | {node['out_degree']} | {compact_links(node['incoming'])} | {compact_links(node['outgoing'])} |"
+        for node in graph["summary"]["orphan_candidates"]
+    )
+    if not orphan_rows:
+        orphan_rows = "| — | — | 0 | 0 | — | — |"
+
+    bridge_rows = []
+    node_kind_by_id = {node["id"]: node["kind"] for node in graph["nodes"]}
+    for node in graph["summary"]["bridges"]:
+        target_kinds = sorted({node_kind_by_id[target] for target in node["outgoing"]})
+        bridge_rows.append(
+            f"| [[{node['id']}]] | `{node['kind']}` | {', '.join(f'`{kind}`' for kind in target_kinds)} | {len(node['outgoing'])} |"
+        )
+    if not bridge_rows:
+        bridge_rows = ["| — | — | — | 0 |"]
+
+    depth_summary_rows = "| — | 0 | 0 | 0 |"
+    if mapped_database:
+        cats = ("Vibe Coding", "Testing & Evaluation", "Tokenomics & Context")
+        depth_counts = {c: Counter() for c in cats}
+        for item in mapped_database.values():
+            if item["category"] in depth_counts:
+                depth_counts[item["category"]][entry_depth(item)] += 1
+        depth_summary_rows = "\n".join(
+            f"| `{label}` | {depth_counts['Vibe Coding'].get(label, 0)} | "
+            f"{depth_counts['Testing & Evaluation'].get(label, 0)} | "
+            f"{depth_counts['Tokenomics & Context'].get(label, 0)} |"
+            for label in ("deep", "stub", "doctrinal", "alias")
+        )
+
+    validation_debt_rows = []
+    validation_debt_summary = "| — | 0 | 0 | 0 |"
+    downstream_verification_summary = "| — | 0 | 0 | 0 |"
+    downstream_verification_none_summary = "| — | 0 | 0 | 0 |"
+    downstream_verification_rows = ["| — | — | — | — |"]
+    if mapped_database:
+        severity_order = {"critical": 0, "high": 1, "medium": 2, "low": 3}
+        doc_only_items = [
+            item
+            for item in mapped_database.values()
+            if str(item.get("validating_mechanism", "")).strip() == "DOC_ONLY"
+            or str(item.get("status", "")).strip() == "DOC_ONLY"
+        ]
+        doc_only_by_category = Counter(item["category"] for item in doc_only_items)
+        validation_debt_summary = (
+            f"| `DOC_ONLY` | {doc_only_by_category.get('Vibe Coding', 0)} | "
+            f"{doc_only_by_category.get('Testing & Evaluation', 0)} | "
+            f"{doc_only_by_category.get('Tokenomics & Context', 0)} |"
+        )
+        consumer_expected = Counter(
+            item["category"]
+            for item in mapped_database.values()
+            if str(item.get("downstream_verification", "none")).strip() == "required"
+        )
+        consumer_none = Counter(
+            item["category"]
+            for item in mapped_database.values()
+            if str(item.get("downstream_verification", "none")).strip() == "none"
+        )
+        downstream_verification_summary = (
+            f"| `required` | {consumer_expected.get('Vibe Coding', 0)} | "
+            f"{consumer_expected.get('Testing & Evaluation', 0)} | "
+            f"{consumer_expected.get('Tokenomics & Context', 0)} |"
+        )
+        downstream_verification_none_summary = (
+            f"| `none` | {consumer_none.get('Vibe Coding', 0)} | "
+            f"{consumer_none.get('Testing & Evaluation', 0)} | "
+            f"{consumer_none.get('Tokenomics & Context', 0)} |"
+        )
+        downstream_verification_rows = [
+            f"| `{item['id']}` | {item['title']} | `{item['category']}` | `{item.get('downstream_verification', 'none')}` |"
+            for item in sorted(
+                [item for item in mapped_database.values() if item.get("downstream_verification") == "required"],
+                key=lambda item: (severity_order.get(str(item.get("severity", "medium")), 2), item["id"]),
+            )[:12]
+        ]
+        high_priority_debt = sorted(
+            doc_only_items,
+            key=lambda item: (severity_order.get(str(item.get("severity", "medium")), 2), item["id"]),
+        )[:12]
+        validation_debt_rows = [
+            f"| `{item['id']}` | {item['title']} | `{item['category']}` | `{item['severity']}` | `{item['status']}` |"
+            for item in high_priority_debt
+        ]
+    if not validation_debt_rows:
+        validation_debt_rows = ["| — | — | — | — | — |"]
+    if not downstream_verification_rows:
+        downstream_verification_rows = ["| — | — | — | — |"]
+
+    graph_md = f"""# GS Graph
+
+Mapa local del vault generado automáticamente por `generate_golden_audit.py`.
+
+Este grafo combina enlaces Obsidian, enlaces Markdown relativos y menciones explícitas de IDs (`VC-xxx`, `VT-xxx`, `TK-xxx`, `PI-xxx`).
+
+---
+
+## Snapshot
+
+| Métrica | Valor |
+|---|---:|
+| Nodos | {graph["node_count"]} |
+| Aristas | {graph["edge_count"]} |
+| Huérfanos intencionales | {len(graph["summary"]["intentional_orphans"])} |
+| Huérfanos candidatos | {len(graph["summary"]["orphan_candidates"])} |
+| Hubs | {len(graph["summary"]["hubs"])} |
+
+---
+
+## Deuda de Validación
+
+El grafo ahora también resalta las entradas que siguen siendo principalmente documentales. Esto no invalida el conocimiento, pero sí marca dónde faltan compuertas reales.
+
+| Catálogo | VC DOC_ONLY | VT DOC_ONLY | TK DOC_ONLY |
+|---|---:|---:|---:|
+{validation_debt_summary}
+
+| ID | Título | Categoría | Severidad | Estado |
+|---|---|---|---|---|
+{chr(10).join(validation_debt_rows)}
+
+---
+
+## Deuda de Profundidad
+
+Cada entrada se clasifica por profundidad: `deep` (trae ejemplos bad/good y receta de detección — vicio falsable), `doctrinal` (principio conductual/epistémico sin firma estática; stub por diseño, no se le fabrica código), `stub` (enriquecible pero aún sin ejemplos — deuda real) y `alias` (duplicado semántico fusionado en su entrada canónica; el ID se conserva por estabilidad de referencias).
+
+| Profundidad | VC | VT | TK |
+|---|---:|---:|---:|
+{depth_summary_rows}
+
+---
+
+## Verificación Downstream
+
+GS distingue explícitamente qué entradas esperan verificación downstream y cuáles no. Esto evita que `DOC_ONLY` se interprete como `test exempt` por defecto.
+
+| Estado | VC | VT | TK |
+|---|---:|---:|---:|
+{downstream_verification_summary}
+{downstream_verification_none_summary}
+
+| ID | Título | Categoría | Downstream Verification |
+|---|---|---|---|
+{chr(10).join(downstream_verification_rows)}
+
+---
+
+## Hubs
+
+Páginas con mayor superficie de impacto. Si cambian, revisa primero sus enlaces entrantes.
+
+| Nodo | Tipo | In | Out | Entradas | Salidas |
+|---|---|---:|---:|---|---|
+{hub_rows}
+
+---
+
+## Huérfanos Intencionales
+
+Plantillas o fixtures que se mantienen aislados por diseño. No son deuda de navegación, pero sí conviene mantenerlos acotados.
+
+| Nodo | Tipo | In | Out | Entradas | Salidas |
+|---|---|---:|---:|---|---|
+{intentional_orphan_rows}
+
+---
+
+## Huérfanos Candidatos
+
+Páginas dentro del surface live de GS que no reciben enlaces entrantes. Si alguna es importante, conviene enlazarla desde un índice o mapa principal.
+
+| Nodo | Tipo | In | Out | Entradas | Salidas |
+|---|---|---:|---:|---|---|
+{orphan_rows}
+
+---
+
+## Puentes
+
+Nodos que enlazan a más de un tipo de página. Son útiles para navegar impacto entre dominios.
+
+| Nodo | Tipo | Tipos alcanzados | Salidas |
+|---|---|---|---:|
+{chr(10).join(bridge_rows)}
+
+---
+
+## Uso Rápido
+
+1. Abre `[[Home]]` para entrar al vault.
+2. Abre este mapa para ver hubs y huérfanos.
+3. Usa el JSON `golden_standard_graph.json` si quieres automatizar análisis de impacto.
+
+---
+[[Home|Volver al Inicio]]
+"""
+    GRAPH_MARKDOWN.write_text(graph_md, encoding="utf-8")
+    print(f"Successfully generated Golden Standard graph at {GRAPH_OUTPUT} and {GRAPH_MARKDOWN}")
 
 
 def populate_pi_mappings(domain: str, items: list, pi_to_domains: dict):
@@ -612,7 +1535,7 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     """Generate a structured, cross-linked Obsidian vault from Compiled Golden Standard data."""
     clean_wiki_directory(wiki_dir)
 
-    for folder in ["Concepts", "Domains", "Vices", "Project_Insights"]:
+    for folder in ["Concepts", "Domains", "Vices", "Tokenomics", "Project_Insights"]:
         (wiki_dir / folder).mkdir(parents=True, exist_ok=True)
 
     insights = get_project_insights()
@@ -629,11 +1552,16 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
 
     write_home_md(wiki_dir, total_vices, vc_count, tv_count, tk_count, pi_count, status_counts)
     write_vices_index_md(wiki_dir, mapped_database)
+    write_tokenomics_index_md(wiki_dir, mapped_database)
+    write_tokenomics_subindices_md(wiki_dir, mapped_database)
     write_project_insights_index_md(wiki_dir, insights)
+    write_tokenomics_map_md(wiki_dir, insights)
     write_conceptual_concepts_md(wiki_dir)
     write_atomic_vices(wiki_dir, mapped_database)
+    write_atomic_tokenomics(wiki_dir, mapped_database)
     write_atomic_project_insights(wiki_dir, insights, pi_to_domains)
     write_audit_domains(wiki_dir, recommendations)
+    write_graph_artifacts(mapped_database)
 
     print(f"Successfully generated Obsidian Wiki Vault at {wiki_dir}")
 
@@ -643,6 +1571,9 @@ def extract_catalog_items(config: dict, mapped_database: dict):
     if not isinstance(config, dict) or "items" not in config:
         return
     for item in config["items"]:
+        downstream_verification = str(item.get("downstream_verification", "")).strip()
+        if not downstream_verification:
+            downstream_verification = "required" if str(item.get("status", "")).strip() == "DOC_ONLY" else "none"
         flaw_id = item["id"]
         mapped_database[flaw_id] = {
             "id": flaw_id,
@@ -656,6 +1587,14 @@ def extract_catalog_items(config: dict, mapped_database: dict):
             "tags": item.get("tags", []),
             "action": item["action"],
             "validating_mechanism": item["validating_mechanism"],
+            "downstream_verification": downstream_verification,
+            "example_bad": item.get("example_bad", ""),
+            "example_good": item.get("example_good", ""),
+            "example_lang": item.get("example_lang", "text"),
+            "detection": item.get("detection", ""),
+            "evidence": item.get("evidence", []),
+            "doctrinal": bool(item.get("doctrinal", False)),
+            "alias_of": str(item.get("alias_of", "")).strip(),
         }
 
 
@@ -676,9 +1615,9 @@ def main():
 
     report_lines = [
         "# Golden Standard Compliance Audit Report",
-        f"**CoderCerberus {_read_version_label()} | Date: {date.today().isoformat()} | Total Audited Items: {len(mapped_database)}**",
+        f"**Golden Standard {_read_version_label()} | Date: {date.today().isoformat()} | Total Audited Items: {len(mapped_database)}**",
         "",
-        "This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in CoderCerberus.",
+        "This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.",
         "",
         "## Summary of Compliance",
         "",
@@ -700,14 +1639,14 @@ def main():
         report_lines.append(f"### {category} ({len(cat_items)} items)")
         report_lines.append("")
         report_lines.append(
-            "| ID | Flaw Title | Severity | Status | Action Taken / Prevention Method | Validating Test / Guard |"
+            "| ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |"
         )
-        report_lines.append("|---|---|---|---|---|---|")
+        report_lines.append("|---|---|---|---|---|---|---|")
 
         for item in sorted(cat_items, key=lambda x: x["id"]):
             action_snippet = item["action"].replace("\n", " ")
             report_lines.append(
-                f"| `{item['id']}` | {item['title']} | **{item['severity']}** | **{item['status']}** | {action_snippet} | `{item['validating_mechanism']}` |"
+                f"| `{item['id']}` | {item['title']} | **{item['severity']}** | **{item['status']}** | `{item.get('downstream_verification', 'none')}` | {action_snippet} | `{item['validating_mechanism']}` |"
             )
         report_lines.append("")
 

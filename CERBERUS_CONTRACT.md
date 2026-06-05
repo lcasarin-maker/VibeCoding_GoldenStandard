@@ -39,12 +39,10 @@
 ### How
 
 Cerberus references Golden Standard as a **normative source**.
-Recommended integration: git submodule or periodic clone.
+Recommended integration: separate repository read-only at the consumer boundary, with explicit sync or fetch steps.
 
-```bash
-# In the Cerberus repository
-git submodule add https://github.com/lcasarin-maker/VibeCoding_GoldenStandard.git Golden_Standard
-```
+Cerberus must not treat Golden Standard as a live submodule or internal snapshot.
+If Cerberus needs a local mirror, it must be an explicitly managed read-only copy, not the source of truth.
 
 ### Rules for Cerberus Rules
 
@@ -63,11 +61,13 @@ Every rule implemented in Cerberus MUST:
 2. **Not contradict the Golden Standard.** If Cerberus narrows or extends a principle, the delta must be documented in the rule itself.
 
 3. **Flag missing coverage.** If Cerberus needs to implement a rule for a pattern not yet in Golden Standard, it MUST create an Inbox finding before implementing the rule (see Direction 2 below).
+4. **Preflight the consumer impact.** If a change alters the audit topology, loader order, or runner path, the preflight must name the impacted Cerberus script, the file-order delta, and the validation step before the edit is considered ready.
 
 ### What Cerberus May NOT Do
 
 - Cerberus must not create rules that contradict a Golden Standard entry without first filing a `refine` request via Inbox.
 - Cerberus must not implement project-specific overrides that would qualify as universal principles without contributing them back.
+- Cerberus must not treat `DOC_ONLY` as `test_exempt` when the GS entry declares downstream verification as required.
 
 ---
 

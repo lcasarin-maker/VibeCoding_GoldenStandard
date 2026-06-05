@@ -16,7 +16,7 @@ structure:
     catalogs:
       - Coding_Vices (VC-xxx)
       - Testing_Vices (TV-xxx)
-      - Tokenomics_Vices (TK-xxx)
+      - Tokenomics_Principles (TK-xxx)
 
   # Legacy (Being migrated to pure structure)
   legacy_catalogs:

@@ -50,12 +50,60 @@ Ways in which tests become useless or actively misleading: tests that check file
 **Wiki:** [`Wiki/Vices/`](Wiki/Vices/)
 
 ### 3. Tokenomics (`golden_standard_tokenomics.yaml`)
-Principles for efficient use of AI context tokens during development — always subordinate to code quality.
+Tokenomics is a separate governance category, not a vice catalog. It covers efficient use of AI context tokens during development — always subordinate to code quality.
+
+It is organized around five operational lenses: memory/headroom, input/retrieval, output/compaction, measurement/telemetry, and automation/tooling.
 
 **Current catalog:** [`golden_standard_tokenomics.yaml`](golden_standard_tokenomics.yaml)
 
 ### 4. Project Insights (`golden_standard_project_insights.yaml`)
 Cross-cutting lessons from real development sessions that don't fit neatly into the vice categories but are too valuable to lose.
+
+---
+
+### 5. Repository and Execution Hygiene
+Golden Standard also treats the execution surface as part of quality.
+
+The repository should stay clean, descriptive, and auditable:
+
+- temporary files should be removed or isolated;
+- names should explain function, not advertise importance;
+- helper scripts should be reusable, not disposable clutter;
+- validation should prefer the simplest deterministic command;
+- elevated permissions should be the exception, not the default;
+- tooling steps should be reproducible and easy to inspect.
+- the canonical GS surface should stay pure: no wrapper layers, shim layers, fake bridges, or ceremonial stubs in executable or schema logic.
+
+This rule is formalized as `PI-019` so execution hygiene can be tracked as reusable project insight, not just as local advice.
+
+---
+
+## Knowledge Graph Governance
+
+Golden Standard is not only a set of files; it is a navigable graph of knowledge.
+
+To keep that graph useful instead of decorative:
+
+- every active VC, VT, TK, and PI entry should connect to at least one index, map, or related concept page;
+- zero-degree live nodes should be treated as suspicious unless they are intentional templates or deprecated artifacts;
+- hub pages deserve first review when a catalog changes, because they carry the largest impact surface;
+- graph exports are evidence artifacts, not just visualization output;
+- intentional isolation must be explicit, not accidental.
+
+The graph layer is what makes GS easier to audit adversarially: it reveals clusters, bridges, and gaps that linear reading hides.
+
+Protocol documents should also be written with explicit confidence discipline:
+
+- `VERIFIED` for claims backed by logs, tests, or generated evidence;
+- `INFERRED` for claims deduced from indirect evidence;
+- `ASSUMED` for reasonable but unverified statements.
+
+That tagging discipline makes semantic lint practical, because the lint can distinguish fact from inference instead of treating all prose equally.
+
+Two additional operating rules come with that discipline:
+
+- keep an explicit uncertainty ledger for claims, paths, and subsystems that were not mechanically verified in the current session;
+- check shared state before editing when multiple sessions or agents may be active, so concurrent work is not overwritten silently.
 
 ---
 
@@ -93,6 +141,10 @@ Each entry uses this maturity status:
 | `OPERATIONAL` | Full chain: rule → test → evidence → consequence |
 | `BLOCKING` | Operational and can block commits / merges |
 
+Every VC/VT/TK catalog entry must declare `downstream_verification` explicitly so downstream tools do not mistake
+documentation for exemption. Use `required` when the consumer repo should enforce the lesson with a test or harness,
+and `none` when no consumer-side test is expected.
+
 ---
 
 ## Repository Structure
@@ -129,23 +181,12 @@ VibeCoding_GoldenStandard/
 
 ---
 
-## Relationship with CoderCerberus
+## Golden Standard Lineage
 
-The Golden Standard and **CoderCerberus** are two separate but correlated projects:
+Golden Standard is now a standalone knowledge base with its own canonical source of truth, public documentation, and generated wiki.
 
-| | Golden Standard | CoderCerberus |
-|---|---|---|
-| **Nature** | Knowledge base | Enforcement tool |
-| **Scope** | Universal (any project, any agent) | Specific to Cerberus-guarded projects |
-| **Language** | English (primary) | Spanish + English |
-| **Audience** | Any developer using AI | Users of the Cerberus protocol |
-| **Repo** | `lcasarin-maker/VibeCoding_GoldenStandard` | `lcasarin-maker/protocolo-agentes` |
-
-CoderCerberus **consumes** Golden Standard as its normative source.
-Every rule in Cerberus must be traceable to a Golden Standard entry.
-Every new Golden Standard entry should eventually have a Cerberus implementation.
-
-The formal bidirectional interface between the two projects is defined in [`CERBERUS_CONTRACT.md`](CERBERUS_CONTRACT.md).
+Its historical lineage includes an earlier enforcement context, but that lineage is no longer the active framing for this repository.
+Legacy materials are preserved under [`deprecated/`](deprecated/) for traceability and historical context.
 
 ---
 
@@ -155,24 +196,23 @@ Knowledge enters the Golden Standard through **authorized sources** with defined
 See [`KNOWLEDGE_SOURCES.md`](KNOWLEDGE_SOURCES.md) for the full source registry.
 
 ```
-┌─────────────────┐    Inbox/cerberus/    ┌──────────────────────────────────┐
-│  CoderCerberus  │ ──────────────────▶  │                                  │
-│  (auditor)      │                       │       Golden Standard            │
-└─────────────────┘                       │   (knowledge base — agnostic)    │
-                                          │                                  │
-┌─────────────────┐    Inbox/manual/      │   VC-xxx  VT-xxx  TK-xxx  PI-xxx │
+┌─────────────────┐    Inbox/manual/      ┌──────────────────────────────────┐
 │  Manual / DRI   │ ──────────────────▶  │                                  │
-└─────────────────┘                       └──────────────────────────────────┘
+└─────────────────┘                       │       Golden Standard            │
+                                          │   (knowledge base — agnostic)    │
+┌─────────────────┐    Inbox/external/    │                                  │
+│  Community      │ ──────────────────▶  │   VC-xxx  VT-xxx  TK-xxx  PI-xxx │
+└─────────────────┘                       │                                  │
+                                          └──────────────────────────────────┘
                                                          │
-┌─────────────────┐    Inbox/external/                  │ (normative source)
-│  Community      │ ──────────────────▶  ───────────────┘
-└─────────────────┘                       consumed by any agent, tool, or team
+                                                         │ (normative source)
+                                                         └─────────────── consumed by any agent, tool, or team
 ```
 
 ## Feedback Loop
 
 ```
-Source detects failure (Cerberus audit / manual session / external contribution)
+Source detects failure (manual session / external contribution / future automation)
         ↓
 Deposit in Inbox/<source>/YYYY-MM-DD_<slug>.md  [see INGESTION_PROTOCOL.md]
         ↓
@@ -186,7 +226,7 @@ Evidence generated → EVIDENCE_GENERATED
         ↓
 Consequence defined → OPERATIONAL
         ↓
-(Optional) Implemented in CoderCerberus → BLOCKING
+(Optional) Implemented in a consuming system → BLOCKING
 ```
 
 No learning should stay isolated in a single session.
@@ -196,7 +236,7 @@ Every discovery should become system-level knowledge.
 
 ## Origin
 
-The Golden Standard was extracted from [CoderCerberus](https://github.com/lcasarin-maker/protocolo-agentes) in June 2026,
+The Golden Standard was extracted from its original enforcement lineage in June 2026,
 when it became clear that the knowledge base had value independent of any specific enforcement tool.
 
 The original conceptual framework document is preserved in [`deprecated/knowledge_snapshots/CODERCERBERUS_MARCO_CONCEPTUAL_original.md`](deprecated/knowledge_snapshots/CODERCERBERUS_MARCO_CONCEPTUAL_original.md).

@@ -42,6 +42,8 @@ Inbox/
 
 El curador revisará el hallazgo y lo promoverá al catálogo YAML + Wiki siguiendo el [`INGESTION_PROTOCOL.md`](../INGESTION_PROTOCOL.md).
 
+> Las plantillas bajo `Inbox/templates/` están aisladas por diseño. No son conocimiento vivo todavía; solo son moldes para nuevos hallazgos.
+
 ---
 
 ## Flujo de Ingesta
