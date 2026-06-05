@@ -61,6 +61,7 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
         errors.append(f"{path}: 'items' must be a list.")
         return
 
+    all_ids = {str(it.get("id", "")).strip() for it in items if isinstance(it, dict)}
     seen_ids: set[str] = set()
     for index, item in enumerate(items, start=1):
         if not isinstance(item, dict):
@@ -145,6 +146,17 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
             errors.append(
                 f"{path}: {item_id or f'item {index}'} is flagged doctrinal but also ships examples; a vice is one or the other."
             )
+
+        alias_of = str(item.get("alias_of", "")).strip()
+        if alias_of:
+            if alias_of == item_id:
+                errors.append(f"{path}: {item_id or f'item {index}'} cannot be an alias of itself.")
+            elif alias_of not in all_ids:
+                errors.append(f"{path}: {item_id or f'item {index}'} alias_of references unknown id {alias_of}.")
+            if has_bad or has_good or doctrinal:
+                errors.append(
+                    f"{path}: {item_id or f'item {index}'} is an alias and must not also carry examples or the doctrinal flag."
+                )
 
         if item_id and item_id.startswith(("VC-", "VT-")):
             wiki_path = WIKI_VICES_DIR / f"{item_id}.md"

@@ -831,6 +831,8 @@ def entry_depth(item: dict) -> str:
                     code for these would be theater, so we never do.
     - 'stub'      : enrichable but not yet enriched (real depth debt).
     """
+    if str(item.get("alias_of", "")).strip():
+        return "alias"
     if str(item.get("example_bad", "")).strip() and str(item.get("example_good", "")).strip():
         return "deep"
     if item.get("doctrinal"):
@@ -840,6 +842,9 @@ def entry_depth(item: dict) -> str:
 
 def depth_badge(item: dict) -> str:
     """Human-readable badge for an entry's depth classification."""
+    alias = str(item.get("alias_of", "")).strip()
+    if alias:
+        return f"🔗 Alias → [[Vices/{alias}|{alias}]]"
     return {"deep": "🟢 Deep", "doctrinal": "⚪ Doctrinal"}.get(entry_depth(item), "🟡 Stub")
 
 
@@ -885,6 +890,23 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
     """Create individual atomic files for VC and VT entries."""
     for flaw_id, item in mapped_database.items():
         if item["category"] == "Tokenomics & Context":
+            continue
+        alias = str(item.get("alias_of", "")).strip()
+        if alias:
+            redirect = f"""# {flaw_id}: {item['title']}
+
+> 🔗 **Entrada fusionada.** Este vicio es un duplicado semantico de [[Vices/{alias}|{alias}]]; el contenido canonico (sintoma, ejemplos y deteccion) vive alli. Se conserva el ID `{flaw_id}` por estabilidad de referencias.
+
+| Campo | Detalle |
+|---|---|
+| **ID** | `{flaw_id}` |
+| **Canonico** | [[Vices/{alias}|{alias}]] |
+| **Profundidad** | {depth_badge(item)} |
+
+---
+[[Vices/{alias}|Ir a la entrada canonica {alias}]] | [[Vices_Index|Índice de Vicios]] | [[Home|Inicio]]
+"""
+            (wiki_dir / "Vices" / f"{flaw_id}.md").write_text(redirect, encoding="utf-8")
             continue
         tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
         depth_sections = build_depth_sections(item)
@@ -1318,7 +1340,7 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
             f"| `{label}` | {depth_counts['Vibe Coding'].get(label, 0)} | "
             f"{depth_counts['Testing & Evaluation'].get(label, 0)} | "
             f"{depth_counts['Tokenomics & Context'].get(label, 0)} |"
-            for label in ("deep", "stub", "doctrinal")
+            for label in ("deep", "stub", "doctrinal", "alias")
         )
 
     validation_debt_rows = []
@@ -1416,7 +1438,7 @@ El grafo ahora también resalta las entradas que siguen siendo principalmente do
 
 ## Deuda de Profundidad
 
-Cada entrada se clasifica por profundidad: `deep` (trae ejemplos bad/good y receta de detección — vicio falsable), `doctrinal` (principio conductual/epistémico sin firma estática; stub por diseño, no se le fabrica código) y `stub` (enriquecible pero aún sin ejemplos — deuda real).
+Cada entrada se clasifica por profundidad: `deep` (trae ejemplos bad/good y receta de detección — vicio falsable), `doctrinal` (principio conductual/epistémico sin firma estática; stub por diseño, no se le fabrica código), `stub` (enriquecible pero aún sin ejemplos — deuda real) y `alias` (duplicado semántico fusionado en su entrada canónica; el ID se conserva por estabilidad de referencias).
 
 | Profundidad | VC | VT | TK |
 |---|---:|---:|---:|
@@ -1572,6 +1594,7 @@ def extract_catalog_items(config: dict, mapped_database: dict):
             "detection": item.get("detection", ""),
             "evidence": item.get("evidence", []),
             "doctrinal": bool(item.get("doctrinal", False)),
+            "alias_of": str(item.get("alias_of", "")).strip(),
         }
 
 

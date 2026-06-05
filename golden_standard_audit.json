@@ -25,7 +25,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-F02": {
     "id": "TK-F02",
@@ -53,7 +54,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-F03": {
     "id": "TK-F03",
@@ -81,7 +83,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-001": {
     "id": "TK-001",
@@ -109,7 +112,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-002": {
     "id": "TK-002",
@@ -137,7 +141,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-003": {
     "id": "TK-003",
@@ -165,7 +170,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-004": {
     "id": "TK-004",
@@ -193,7 +199,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-005": {
     "id": "TK-005",
@@ -221,7 +228,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-006": {
     "id": "TK-006",
@@ -249,7 +257,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-007": {
     "id": "TK-007",
@@ -277,7 +286,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-008": {
     "id": "TK-008",
@@ -305,7 +315,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-009": {
     "id": "TK-009",
@@ -333,7 +344,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-010": {
     "id": "TK-010",
@@ -361,7 +373,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-011": {
     "id": "TK-011",
@@ -389,7 +402,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-012": {
     "id": "TK-012",
@@ -417,7 +431,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-013": {
     "id": "TK-013",
@@ -445,7 +460,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-014": {
     "id": "TK-014",
@@ -473,7 +489,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-015": {
     "id": "TK-015",
@@ -501,7 +518,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-016": {
     "id": "TK-016",
@@ -529,7 +547,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-017": {
     "id": "TK-017",
@@ -557,7 +576,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-018": {
     "id": "TK-018",
@@ -585,7 +605,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-019": {
     "id": "TK-019",
@@ -613,7 +634,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-020": {
     "id": "TK-020",
@@ -641,7 +663,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-021": {
     "id": "TK-021",
@@ -669,7 +692,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-022": {
     "id": "TK-022",
@@ -697,7 +721,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-023": {
     "id": "TK-023",
@@ -725,7 +750,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-024": {
     "id": "TK-024",
@@ -753,7 +779,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-025": {
     "id": "TK-025",
@@ -781,7 +808,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-026": {
     "id": "TK-026",
@@ -809,7 +837,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-027": {
     "id": "TK-027",
@@ -837,7 +866,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-028": {
     "id": "TK-028",
@@ -865,7 +895,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-029": {
     "id": "TK-029",
@@ -893,7 +924,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-030": {
     "id": "TK-030",
@@ -921,7 +953,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-031": {
     "id": "TK-031",
@@ -949,7 +982,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-032": {
     "id": "TK-032",
@@ -977,7 +1011,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-033": {
     "id": "TK-033",
@@ -1005,7 +1040,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-034": {
     "id": "TK-034",
@@ -1033,7 +1069,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-035": {
     "id": "TK-035",
@@ -1061,7 +1098,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-036": {
     "id": "TK-036",
@@ -1089,7 +1127,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-037": {
     "id": "TK-037",
@@ -1117,7 +1156,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-038": {
     "id": "TK-038",
@@ -1145,7 +1185,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-039": {
     "id": "TK-039",
@@ -1173,7 +1214,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-040": {
     "id": "TK-040",
@@ -1201,7 +1243,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-041": {
     "id": "TK-041",
@@ -1229,7 +1272,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-042": {
     "id": "TK-042",
@@ -1257,7 +1301,8 @@
         "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "TK-043": {
     "id": "TK-043",
@@ -1285,7 +1330,8 @@
         "claim": "el residuo no podado infla el contexto y el costo; la gobernanza de salida es tan necesaria como la de entrada."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-001": {
     "id": "VT-001",
@@ -1313,7 +1359,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-002": {
     "id": "VT-002",
@@ -1341,7 +1388,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-003": {
     "id": "VT-003",
@@ -1369,7 +1417,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-004": {
     "id": "VT-004",
@@ -1397,7 +1446,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-005": {
     "id": "VT-005",
@@ -1425,7 +1475,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-006": {
     "id": "VT-006",
@@ -1453,7 +1504,8 @@
         "claim": "los agentes de codificación generan tests sin aserciones y sin invocación del método focal con frecuencia medible; el exceso de mocking agrava el problema."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-007": {
     "id": "VT-007",
@@ -1481,7 +1533,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-008": {
     "id": "VT-008",
@@ -1509,7 +1562,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-009": {
     "id": "VT-009",
@@ -1537,7 +1591,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-010": {
     "id": "VT-010",
@@ -1565,7 +1620,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-011": {
     "id": "VT-011",
@@ -1593,7 +1649,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-012": {
     "id": "VT-012",
@@ -1621,7 +1678,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-013": {
     "id": "VT-013",
@@ -1649,7 +1707,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-014": {
     "id": "VT-014",
@@ -1677,7 +1736,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-015": {
     "id": "VT-015",
@@ -1705,7 +1765,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-016": {
     "id": "VT-016",
@@ -1733,7 +1794,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-017": {
     "id": "VT-017",
@@ -1761,7 +1823,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-018": {
     "id": "VT-018",
@@ -1789,7 +1852,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-019": {
     "id": "VT-019",
@@ -1817,7 +1881,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-020": {
     "id": "VT-020",
@@ -1845,7 +1910,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-021": {
     "id": "VT-021",
@@ -1873,7 +1939,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-022": {
     "id": "VT-022",
@@ -1901,7 +1968,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-023": {
     "id": "VT-023",
@@ -1929,7 +1997,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-024": {
     "id": "VT-024",
@@ -1957,7 +2026,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-025": {
     "id": "VT-025",
@@ -1985,7 +2055,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-026": {
     "id": "VT-026",
@@ -2013,7 +2084,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-027": {
     "id": "VT-027",
@@ -2041,7 +2113,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-028": {
     "id": "VT-028",
@@ -2069,7 +2142,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-029": {
     "id": "VT-029",
@@ -2097,7 +2171,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-030": {
     "id": "VT-030",
@@ -2125,7 +2200,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-031": {
     "id": "VT-031",
@@ -2153,7 +2229,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-032": {
     "id": "VT-032",
@@ -2181,7 +2258,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-033": {
     "id": "VT-033",
@@ -2209,7 +2287,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-034": {
     "id": "VT-034",
@@ -2237,7 +2316,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-035": {
     "id": "VT-035",
@@ -2265,7 +2345,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-036": {
     "id": "VT-036",
@@ -2293,7 +2374,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-037": {
     "id": "VT-037",
@@ -2321,7 +2403,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-038": {
     "id": "VT-038",
@@ -2349,7 +2432,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-039": {
     "id": "VT-039",
@@ -2377,7 +2461,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-040": {
     "id": "VT-040",
@@ -2405,7 +2490,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-041": {
     "id": "VT-041",
@@ -2433,7 +2519,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-042": {
     "id": "VT-042",
@@ -2461,7 +2548,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-043": {
     "id": "VT-043",
@@ -2489,7 +2577,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-044": {
     "id": "VT-044",
@@ -2517,7 +2606,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-045": {
     "id": "VT-045",
@@ -2545,7 +2635,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-046": {
     "id": "VT-046",
@@ -2573,7 +2664,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-047": {
     "id": "VT-047",
@@ -2601,7 +2693,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-048": {
     "id": "VT-048",
@@ -2629,7 +2722,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-049": {
     "id": "VT-049",
@@ -2657,7 +2751,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-050": {
     "id": "VT-050",
@@ -2685,7 +2780,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-051": {
     "id": "VT-051",
@@ -2713,7 +2809,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-052": {
     "id": "VT-052",
@@ -2741,7 +2838,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-053": {
     "id": "VT-053",
@@ -2769,7 +2867,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-054": {
     "id": "VT-054",
@@ -2797,7 +2896,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-055": {
     "id": "VT-055",
@@ -2825,7 +2925,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-056": {
     "id": "VT-056",
@@ -2853,7 +2954,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-057": {
     "id": "VT-057",
@@ -2881,7 +2983,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-058": {
     "id": "VT-058",
@@ -2909,7 +3012,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-059": {
     "id": "VT-059",
@@ -2937,7 +3041,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-060": {
     "id": "VT-060",
@@ -2965,7 +3070,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-061": {
     "id": "VT-061",
@@ -2993,7 +3099,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-062": {
     "id": "VT-062",
@@ -3021,7 +3128,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-063": {
     "id": "VT-063",
@@ -3049,7 +3157,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-064": {
     "id": "VT-064",
@@ -3077,7 +3186,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-065": {
     "id": "VT-065",
@@ -3105,7 +3215,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-066": {
     "id": "VT-066",
@@ -3133,7 +3244,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-067": {
     "id": "VT-067",
@@ -3161,7 +3273,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-068": {
     "id": "VT-068",
@@ -3189,7 +3302,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-069": {
     "id": "VT-069",
@@ -3217,7 +3331,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-070": {
     "id": "VT-070",
@@ -3245,7 +3360,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-071": {
     "id": "VT-071",
@@ -3273,7 +3389,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-072": {
     "id": "VT-072",
@@ -3301,7 +3418,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-073": {
     "id": "VT-073",
@@ -3329,7 +3447,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-074": {
     "id": "VT-074",
@@ -3357,7 +3476,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-075": {
     "id": "VT-075",
@@ -3385,7 +3505,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-076": {
     "id": "VT-076",
@@ -3413,7 +3534,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-077": {
     "id": "VT-077",
@@ -3441,7 +3563,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-078": {
     "id": "VT-078",
@@ -3469,7 +3592,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-079": {
     "id": "VT-079",
@@ -3497,7 +3621,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-080": {
     "id": "VT-080",
@@ -3525,7 +3650,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-081": {
     "id": "VT-081",
@@ -3553,7 +3679,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-082": {
     "id": "VT-082",
@@ -3581,7 +3708,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-083": {
     "id": "VT-083",
@@ -3609,7 +3737,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-084": {
     "id": "VT-084",
@@ -3637,7 +3766,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-085": {
     "id": "VT-085",
@@ -3665,7 +3795,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-086": {
     "id": "VT-086",
@@ -3693,7 +3824,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-087": {
     "id": "VT-087",
@@ -3721,7 +3853,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-088": {
     "id": "VT-088",
@@ -3749,7 +3882,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-089": {
     "id": "VT-089",
@@ -3777,7 +3911,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-090": {
     "id": "VT-090",
@@ -3805,7 +3940,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-091": {
     "id": "VT-091",
@@ -3833,7 +3969,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-092": {
     "id": "VT-092",
@@ -3861,7 +3998,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-093": {
     "id": "VT-093",
@@ -3889,7 +4027,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-094": {
     "id": "VT-094",
@@ -3917,7 +4056,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-095": {
     "id": "VT-095",
@@ -3945,7 +4085,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-096": {
     "id": "VT-096",
@@ -3973,7 +4114,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-097": {
     "id": "VT-097",
@@ -4001,7 +4143,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-098": {
     "id": "VT-098",
@@ -4029,7 +4172,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-099": {
     "id": "VT-099",
@@ -4057,7 +4201,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-100": {
     "id": "VT-100",
@@ -4085,7 +4230,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-101": {
     "id": "VT-101",
@@ -4113,7 +4259,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-102": {
     "id": "VT-102",
@@ -4141,7 +4288,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-103": {
     "id": "VT-103",
@@ -4169,7 +4317,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-104": {
     "id": "VT-104",
@@ -4197,7 +4346,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-105": {
     "id": "VT-105",
@@ -4225,7 +4375,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-106": {
     "id": "VT-106",
@@ -4253,7 +4404,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-107": {
     "id": "VT-107",
@@ -4281,7 +4433,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-108": {
     "id": "VT-108",
@@ -4309,7 +4462,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-109": {
     "id": "VT-109",
@@ -4337,7 +4491,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-110": {
     "id": "VT-110",
@@ -4365,7 +4520,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-111": {
     "id": "VT-111",
@@ -4393,7 +4549,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-112": {
     "id": "VT-112",
@@ -4421,7 +4578,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-113": {
     "id": "VT-113",
@@ -4449,7 +4607,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-114": {
     "id": "VT-114",
@@ -4477,7 +4636,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VT-115": {
     "id": "VT-115",
@@ -4505,7 +4665,8 @@
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-001": {
     "id": "VC-001",
@@ -4528,7 +4689,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-002": {
     "id": "VC-002",
@@ -4551,7 +4713,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-003": {
     "id": "VC-003",
@@ -4579,7 +4742,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-004": {
     "id": "VC-004",
@@ -4602,7 +4766,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-005": {
     "id": "VC-005",
@@ -4630,7 +4795,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-006": {
     "id": "VC-006",
@@ -4653,7 +4819,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-007": {
     "id": "VC-007",
@@ -4676,7 +4843,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-008": {
     "id": "VC-008",
@@ -4699,7 +4867,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-009": {
     "id": "VC-009",
@@ -4722,7 +4891,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-010": {
     "id": "VC-010",
@@ -4745,7 +4915,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-011": {
     "id": "VC-011",
@@ -4768,7 +4939,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-012": {
     "id": "VC-012",
@@ -4791,7 +4963,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-013": {
     "id": "VC-013",
@@ -4814,7 +4987,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-014": {
     "id": "VC-014",
@@ -4837,7 +5011,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-015": {
     "id": "VC-015",
@@ -4860,7 +5035,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-016": {
     "id": "VC-016",
@@ -4878,12 +5054,18 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
-    "doctrinal": true
+    "example_bad": "# Funcion de complejidad ciclomatica alta, sin docstring ni modelo mental.\ndef proc(d):\n    r = []\n    for k in d:\n        if k > 0:\n            for j in d[k]:\n                if j and (j % 2 or k < 3) and not seen(j): r.append(f(j, k))\n    return r\n",
+    "example_good": "# Descompuesta en unidades nombradas y explicables; complejidad baja.\ndef proc(d):\n    return [transform(j, k) for k, j in relevant_pairs(d)]\n",
+    "example_lang": "python",
+    "detection": "Complejidad ciclomatica > umbral (p.ej. 10) o funciones largas sin docstring\n(radon / mccabe / ruff C901).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-017": {
     "id": "VC-017",
@@ -4911,7 +5093,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-018": {
     "id": "VC-018",
@@ -4934,7 +5117,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-019": {
     "id": "VC-019",
@@ -4957,7 +5141,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-020": {
     "id": "VC-020",
@@ -4980,7 +5165,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-021": {
     "id": "VC-021",
@@ -5008,7 +5194,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-022": {
     "id": "VC-022",
@@ -5031,7 +5218,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-023": {
     "id": "VC-023",
@@ -5054,7 +5242,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-024": {
     "id": "VC-024",
@@ -5077,7 +5266,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-025": {
     "id": "VC-025",
@@ -5100,7 +5290,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-026": {
     "id": "VC-026",
@@ -5123,7 +5314,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-027": {
     "id": "VC-027",
@@ -5151,7 +5343,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-028": {
     "id": "VC-028",
@@ -5174,7 +5367,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": false,
+    "alias_of": "VC-024"
   },
   "VC-029": {
     "id": "VC-029",
@@ -5192,12 +5386,18 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Un solo commit toca 47 archivos y 1.800 lineas para un cambio de 1 feature.\n",
+    "example_good": "# Cambio acotado a una unidad testeable: 1-3 archivos, diff revisable.\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
-    "doctrinal": true
+    "detection": "Commits/PRs que superan umbrales de diff (archivos tocados o lineas) para un cambio\nque deberia ser atomico.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-030": {
     "id": "VC-030",
@@ -5225,7 +5425,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-031": {
     "id": "VC-031",
@@ -5253,7 +5454,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-032": {
     "id": "VC-032",
@@ -5276,7 +5478,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-033": {
     "id": "VC-033",
@@ -5299,7 +5502,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-034": {
     "id": "VC-034",
@@ -5322,7 +5526,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-035": {
     "id": "VC-035",
@@ -5345,7 +5550,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-036": {
     "id": "VC-036",
@@ -5373,7 +5579,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-037": {
     "id": "VC-037",
@@ -5401,7 +5608,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-038": {
     "id": "VC-038",
@@ -5424,7 +5632,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-039": {
     "id": "VC-039",
@@ -5452,7 +5661,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-040": {
     "id": "VC-040",
@@ -5475,7 +5685,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-041": {
     "id": "VC-041",
@@ -5498,7 +5709,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-042": {
     "id": "VC-042",
@@ -5521,7 +5733,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-043": {
     "id": "VC-043",
@@ -5544,7 +5757,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-044": {
     "id": "VC-044",
@@ -5567,7 +5781,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-045": {
     "id": "VC-045",
@@ -5585,12 +5800,18 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Handoff sin los campos minimos.\n\"segui donde lo dejamos\"\n",
+    "example_good": "# Handoff estructurado y verificable.\nobjetivo: X | estado: Y | evidencia: .protocol/... | bloqueadores: Z | siguiente: W\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
-    "doctrinal": true
+    "detection": "Documento de handoff/STATUS que no contiene las secciones requeridas (objetivo,\nestado, evidencia, bloqueadores, siguiente accion).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-046": {
     "id": "VC-046",
@@ -5613,7 +5834,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-047": {
     "id": "VC-047",
@@ -5636,7 +5858,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-048": {
     "id": "VC-048",
@@ -5664,7 +5887,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-049": {
     "id": "VC-049",
@@ -5687,7 +5911,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-050": {
     "id": "VC-050",
@@ -5710,7 +5935,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-051": {
     "id": "VC-051",
@@ -5733,7 +5959,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-052": {
     "id": "VC-052",
@@ -5756,7 +5983,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-053": {
     "id": "VC-053",
@@ -5779,7 +6007,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-054": {
     "id": "VC-054",
@@ -5802,7 +6031,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-055": {
     "id": "VC-055",
@@ -5825,7 +6055,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-056": {
     "id": "VC-056",
@@ -5848,7 +6079,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-057": {
     "id": "VC-057",
@@ -5876,7 +6108,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-058": {
     "id": "VC-058",
@@ -5894,12 +6127,18 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
-    "doctrinal": true
+    "example_bad": "resp = sock.recv(1024)        # sin timeout: si el peer muere, cuelga para siempre\n",
+    "example_good": "sock.settimeout(30)\nresp = sock.recv(1024)        # timeout + politica de reintento/recuperacion\n",
+    "example_lang": "python",
+    "detection": "Llamadas bloqueantes (recv/lock.acquire/join/await) sin timeout ni heartbeat\nconfigurado.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-059": {
     "id": "VC-059",
@@ -5922,7 +6161,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-060": {
     "id": "VC-060",
@@ -5945,7 +6185,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-061": {
     "id": "VC-061",
@@ -5973,7 +6214,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-062": {
     "id": "VC-062",
@@ -6001,7 +6243,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-063": {
     "id": "VC-063",
@@ -6029,7 +6272,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-064": {
     "id": "VC-064",
@@ -6052,7 +6296,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-065": {
     "id": "VC-065",
@@ -6075,7 +6320,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-066": {
     "id": "VC-066",
@@ -6098,7 +6344,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-067": {
     "id": "VC-067",
@@ -6121,7 +6368,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-068": {
     "id": "VC-068",
@@ -6144,7 +6392,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-069": {
     "id": "VC-069",
@@ -6172,7 +6421,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-070": {
     "id": "VC-070",
@@ -6200,7 +6450,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-071": {
     "id": "VC-071",
@@ -6223,7 +6474,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-072": {
     "id": "VC-072",
@@ -6246,7 +6498,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-073": {
     "id": "VC-073",
@@ -6269,7 +6522,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-074": {
     "id": "VC-074",
@@ -6287,12 +6541,18 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
-    "doctrinal": true
+    "example_bad": "age = int(request.args[\"age\"])                 # entrada externa usada sin validar\ndb.execute(f\"SELECT * FROM u LIMIT {request.args['n']}\")  # sin sanitizar\n",
+    "example_good": "age = validate_int(request.args.get(\"age\"), lo=0, hi=120)   # validacion en la frontera\ndb.execute(\"SELECT * FROM u LIMIT ?\", (safe_int(request.args.get(\"n\")),))\n",
+    "example_lang": "python",
+    "detection": "Datos de fuentes externas (request/archivo/red/argv) que llegan a un sink sin pasar\npor una validacion/esquema en la frontera.\n",
+    "evidence": [
+      {
+        "source": "OWASP Top 10 for Agents 2026",
+        "claim": "categoria de riesgo reconocida (input validation / broken authorization) para aplicaciones agenticas."
+      }
+    ],
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-075": {
     "id": "VC-075",
@@ -6315,7 +6575,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-076": {
     "id": "VC-076",
@@ -6343,7 +6604,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-077": {
     "id": "VC-077",
@@ -6366,7 +6628,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": false,
+    "alias_of": "VC-076"
   },
   "VC-078": {
     "id": "VC-078",
@@ -6394,7 +6657,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-079": {
     "id": "VC-079",
@@ -6412,12 +6676,18 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
-    "doctrinal": true
+    "example_bad": "# El nucleo importa de un modulo marcado experimental/volatil.\nfrom experimental.newapi import parse   # core depende de algo inestable\n",
+    "example_good": "# El nucleo depende solo de interfaces estables.\nfrom core.stable.parser import parse\n",
+    "example_lang": "python",
+    "detection": "Modulos del nucleo (core/) que importan de paquetes marcados experimental/unstable/\nbeta o de alta rotacion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-080": {
     "id": "VC-080",
@@ -6445,7 +6715,8 @@
         "claim": "el codigo duplicado aumento ~8x con asistencia de IA."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-081": {
     "id": "VC-081",
@@ -6468,7 +6739,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-082": {
     "id": "VC-082",
@@ -6496,7 +6768,8 @@
         "claim": "imports/dependencias fantasma figuran entre los antipatrones recurrentes del código AI-generado, presentes en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-083": {
     "id": "VC-083",
@@ -6524,7 +6797,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-084": {
     "id": "VC-084",
@@ -6547,7 +6821,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-085": {
     "id": "VC-085",
@@ -6570,7 +6845,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-086": {
     "id": "VC-086",
@@ -6593,7 +6869,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-087": {
     "id": "VC-087",
@@ -6621,7 +6898,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-088": {
     "id": "VC-088",
@@ -6644,7 +6922,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-089": {
     "id": "VC-089",
@@ -6667,7 +6946,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-090": {
     "id": "VC-090",
@@ -6695,7 +6975,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-091": {
     "id": "VC-091",
@@ -6723,7 +7004,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-092": {
     "id": "VC-092",
@@ -6751,7 +7033,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-093": {
     "id": "VC-093",
@@ -6774,7 +7057,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-094": {
     "id": "VC-094",
@@ -6797,7 +7081,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-095": {
     "id": "VC-095",
@@ -6825,7 +7110,8 @@
         "claim": "categoria de riesgo reconocida para aplicaciones agenticas (unsafe execution / secret exposure)."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-096": {
     "id": "VC-096",
@@ -6853,7 +7139,8 @@
         "claim": "los agentes generan codigo sin oraculo de prueba de forma medible; la ausencia de tests amplifica el riesgo."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-097": {
     "id": "VC-097",
@@ -6876,7 +7163,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-098": {
     "id": "VC-098",
@@ -6899,7 +7187,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-099": {
     "id": "VC-099",
@@ -6922,7 +7211,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-100": {
     "id": "VC-100",
@@ -6945,7 +7235,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-101": {
     "id": "VC-101",
@@ -6968,7 +7259,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-102": {
     "id": "VC-102",
@@ -6991,7 +7283,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-103": {
     "id": "VC-103",
@@ -7014,7 +7307,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-104": {
     "id": "VC-104",
@@ -7042,7 +7336,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-105": {
     "id": "VC-105",
@@ -7070,7 +7365,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-106": {
     "id": "VC-106",
@@ -7098,7 +7394,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-107": {
     "id": "VC-107",
@@ -7116,12 +7413,18 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
-    "doctrinal": true
+    "example_bad": "def delete_user(actor, uid):\n    db.delete(uid)         # sin verificar el rol/capacidad del actor\n",
+    "example_good": "def delete_user(actor, uid):\n    require(actor.can(\"user.delete\"))   # capacidad declarada y verificada\n    db.delete(uid)\n",
+    "example_lang": "python",
+    "detection": "Acciones sensibles sin verificacion de capacidad/rol, o ausencia de una matriz de\nautorizacion declarada (capacidades, limites y denegaciones por rol).\n",
+    "evidence": [
+      {
+        "source": "OWASP Top 10 for Agents 2026",
+        "claim": "categoria de riesgo reconocida (input validation / broken authorization) para aplicaciones agenticas."
+      }
+    ],
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-108": {
     "id": "VC-108",
@@ -7144,7 +7447,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-109": {
     "id": "VC-109",
@@ -7172,7 +7476,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-110": {
     "id": "VC-110",
@@ -7200,7 +7505,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-111": {
     "id": "VC-111",
@@ -7228,7 +7534,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-112": {
     "id": "VC-112",
@@ -7246,12 +7553,18 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
-    "doctrinal": true
+    "example_bad": "cp .protocol/* child-repo/      # copiado, pero nadie verifica que ejecute\n",
+    "example_good": "cp .protocol/* child-repo/\n(cd child-repo && verify_adoption)   # confirma hooks + auditor + suite activos; reporta % real\n",
+    "example_lang": "bash",
+    "detection": "Copiar archivos de protocolo a proyectos hijo sin un check post-copia que confirme\nhooks/auditor/suite activos y reporte adopcion real.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-113": {
     "id": "VC-113",
@@ -7279,7 +7592,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-114": {
     "id": "VC-114",
@@ -7307,7 +7621,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-115": {
     "id": "VC-115",
@@ -7335,7 +7650,8 @@
         "claim": "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-116": {
     "id": "VC-116",
@@ -7363,7 +7679,8 @@
         "claim": "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-117": {
     "id": "VC-117",
@@ -7391,7 +7708,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-118": {
     "id": "VC-118",
@@ -7419,7 +7737,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-119": {
     "id": "VC-119",
@@ -7442,7 +7761,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-120": {
     "id": "VC-120",
@@ -7465,7 +7785,8 @@
     "example_lang": "text",
     "detection": "",
     "evidence": [],
-    "doctrinal": true
+    "doctrinal": true,
+    "alias_of": ""
   },
   "VC-121": {
     "id": "VC-121",
@@ -7493,7 +7814,8 @@
         "claim": "el código duplicado/clonado aumentó ~8x con asistencia de IA, señal directa de este antipatrón a escala."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-122": {
     "id": "VC-122",
@@ -7521,7 +7843,8 @@
         "claim": "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-123": {
     "id": "VC-123",
@@ -7549,7 +7872,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-124": {
     "id": "VC-124",
@@ -7578,7 +7902,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-125": {
     "id": "VC-125",
@@ -7607,7 +7932,8 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   },
   "VC-126": {
     "id": "VC-126",
@@ -7636,6 +7962,7 @@
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
     ],
-    "doctrinal": false
+    "doctrinal": false,
+    "alias_of": ""
   }
 }
