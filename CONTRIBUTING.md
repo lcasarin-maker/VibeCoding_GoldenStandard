@@ -16,8 +16,8 @@ You've encountered a failure pattern in AI-assisted development that isn't in th
 ### 2. Improving an Existing Entry
 An existing entry is incomplete, imprecise, or missing detection criteria.
 
-### 3. Promoting an Entry's Operativity Status
-An entry is documented (`KNOWLEDGE`) but you've written an executable rule, test, or evidence generator for it.
+### 3. Adding a Detector (turning a recipe into enforcement)
+An entry has a `detection` recipe with a clean static signature, but no real detector yet. Add one to [`scripts/detectors.py`](scripts/detectors.py); `scripts/test_detectors.py` will prove it fires on the entry's `example_bad` and stays silent on its `example_good`.
 
 ### 4. New Knowledge Area
 You believe a whole new domain belongs in the Golden Standard (beyond vibe coding, testing, and tokenomics).
@@ -34,26 +34,40 @@ The `generate_golden_audit.py` script has errors or misses coverage.
 Each entry in the YAML files follows this structure:
 
 ```yaml
-- id: "VC-XXX"
-  title: "Short descriptive name (not dramatic)"
-  description: |
-    What the vice is. What causes it. Why it's harmful.
-  severity: "critical|high|medium|low"
-  status: "DOC_ONLY|AUDITED|PREVENTED|REMEDIATED"
-  detection_criteria:
-    - "How to detect it automatically"
-    - "What to look for in code review"
-  mitigation:
-    - "How to prevent it"
-    - "How to fix it when found"
+- id: VC-XXX
+  title: Short descriptive name (not dramatic)
+  symptom: |
+    What you observe when the vice is present.
+  cause: |
+    Why it happens.
+  solution: |
+    What to do instead.
+  status: DOC_ONLY          # DOC_ONLY | AUDITED | PREVENTED | REMEDIATED
+  severity: medium          # critical | high | medium | low
   tags:
-    - "relevant-tag"
-  examples:
-    bad: |
-      # What the bad code looks like
-    good: |
-      # What the correct code looks like
+    - vibe-coding           # at least two normalized slugs
+    - ai-native
+  action: |
+    The corrective/preventive action; where enforcement lives, if any.
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required   # required for DOC_ONLY, else none
+  # --- Depth fields: required to be merged (see Definition of Done) ---
+  example_lang: python
+  example_bad: |
+    # Concrete code that triggers the vice.
+  example_good: |
+    # The corrected version.
+  detection: |
+    A concrete, falsifiable detection recipe (AST/regex/heuristic, or the
+    external tool that catches it). Name a tool only if it really exists.
+  evidence:
+    - source: "arxiv:XXXX.XXXXX"
+      claim: "What that source actually shows."
+  # detector: vcxxx_my_check   # OPTIONAL: add to scripts/detectors.py if statically checkable
 ```
+
+A purely behavioral/epistemic principle with no static signature uses `doctrinal: true`
+instead of the depth fields (no fabricated example code).
 
 ### Metadata Rules
 
@@ -63,6 +77,9 @@ Each entry in the YAML files follows this structure:
 - `downstream_verification` is mandatory metadata on VC/VT/TK catalog entries. Use `required` when the entry is documented in GS but still expects downstream verification in the consumer repo, and `none` when no consumer-side test is expected.
 - Every new VC/VT/TK issue, PR, or catalog edit must choose `downstream_verification` explicitly before merge; `DOC_ONLY` is never a shortcut for "test exempt".
 - `operativity_status` is intentionally not part of the canonical YAML schema to avoid duplicating the meaning already carried by `status`.
+- **Depth is required to merge.** Either provide `example_bad` + `example_good` together (with `detection` and `evidence`), or set `doctrinal: true`. You cannot do both — an entry is falsifiable or doctrinal, not a half-filled stub. The `stubs` badge must stay at 0.
+- `evidence` (when present) is a list of `{source, claim}` mappings. **Only cite tools, packages, or papers that actually exist** — a fabricated reference is itself the `VC-129` (hallucinated dependency) vice. Verify before you cite.
+- `detector` (optional) names a function in `scripts/detectors.py`; it must match the registered detector and pass `scripts/test_detectors.py`.
 - Technical names, IDs, slugs, and filenames must use ASCII only; prose may keep normal human language, including accents.
 
 ### For Wiki Articles
