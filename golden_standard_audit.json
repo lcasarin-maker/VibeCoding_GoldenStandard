@@ -2697,7 +2697,7 @@
     ],
     "doctrinal": false,
     "alias_of": "",
-    "detector": ""
+    "detector": "vt043_unconditional_exit_zero"
   },
   "VT-044": {
     "id": "VT-044",
@@ -4992,7 +4992,7 @@
     ],
     "doctrinal": false,
     "alias_of": "",
-    "detector": ""
+    "detector": "vc005_untracked_prototype"
   },
   "VC-006": {
     "id": "VC-006",
@@ -5807,7 +5807,7 @@
     ],
     "doctrinal": false,
     "alias_of": "",
-    "detector": ""
+    "detector": "vc036_destructive_without_dryrun"
   },
   "VC-037": {
     "id": "VC-037",
@@ -6467,7 +6467,7 @@
     ],
     "doctrinal": false,
     "alias_of": "",
-    "detector": ""
+    "detector": "vc061_constant_stub"
   },
   "VC-062": {
     "id": "VC-062",
@@ -6712,7 +6712,7 @@
     ],
     "doctrinal": false,
     "alias_of": "",
-    "detector": ""
+    "detector": "vc070_blind_shell_edit"
   },
   "VC-071": {
     "id": "VC-071",
@@ -7177,7 +7177,7 @@
     ],
     "doctrinal": false,
     "alias_of": "",
-    "detector": ""
+    "detector": "vc087_blanket_filterwarnings"
   },
   "VC-088": {
     "id": "VC-088",
@@ -7777,7 +7777,7 @@
     ],
     "doctrinal": false,
     "alias_of": "",
-    "detector": ""
+    "detector": "vc109_hardcoded_path"
   },
   "VC-110": {
     "id": "VC-110",

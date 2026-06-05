@@ -1073,6 +1073,7 @@ items:
   - source: "arxiv:2602.00409"
     claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."
 - id: VT-043
+  detector: vt043_unconditional_exit_zero
   title: Exit exitoso incondicional
   symptom: Pipeline verde
   cause: Código de salida falso

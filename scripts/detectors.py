@@ -117,8 +117,89 @@ def vt040_blind_except(code: str) -> bool:
     return False
 
 
+# --- VC-005: prototype/TODO marker without owner+expiry (untracked debt) ---
+_TODO_MARK = re.compile(r"#.*\b(TODO|FIXME|HACK|XXX|PROTOTYPE|TEMP)\b")
+
+
+def vc005_untracked_prototype(code: str) -> bool:
+    for line in code.splitlines():
+        m = _TODO_MARK.search(line)
+        if m:
+            comment = line[m.start():]
+            if not ("owner=" in comment and "expires=" in comment):
+                return True
+    return False
+
+
+# --- VC-036: destructive command with no dry-run/simulation in the same flow ---
+_DESTRUCTIVE = re.compile(r"(-delete\b|rm\s+-rf|\bDROP\s|\bTRUNCATE\b|git\s+reset\s+--hard)")
+_DRYRUN = re.compile(r"(-print\b|--dry-run\b|\bEXPLAIN\b|\becho\b)")
+
+
+def vc036_destructive_without_dryrun(code: str) -> bool:
+    return bool(_DESTRUCTIVE.search(code)) and not bool(_DRYRUN.search(code))
+
+
+# --- VC-061: non-test function whose whole body is a constant return (stub) ---
+def vc061_constant_stub(code: str) -> bool:
+    tree = _parse(code)
+    if tree is None:
+        return False
+    for fn in ast.walk(tree):
+        if isinstance(fn, ast.FunctionDef) and not fn.name.startswith("test"):
+            body = [n for n in fn.body if not (isinstance(n, ast.Expr) and isinstance(n.value, ast.Constant))]
+            if len(body) == 1 and isinstance(body[0], ast.Return) and isinstance(body[0].value, ast.Constant):
+                return True
+    return False
+
+
+# --- VC-070: editing a structured file with sed/awk instead of a parser ---
+_SED_STRUCT = re.compile(r"\b(sed|awk)\b[^\n]*\.(json|ya?ml|toml|xml|ini)\b", re.I)
+
+
+def vc070_blind_shell_edit(code: str) -> bool:
+    return bool(_SED_STRUCT.search(code))
+
+
+# --- VC-087: blanket filterwarnings("ignore") with no category/justification ---
+_BLANKET_WARN = re.compile(r"""filterwarnings\(\s*['"]ignore['"]\s*\)""")
+
+
+def vc087_blanket_filterwarnings(code: str) -> bool:
+    return bool(_BLANKET_WARN.search(code))
+
+
+# --- VC-109: hardcoded absolute machine path in a string literal ---
+_ABS_PATH = re.compile(r"""['"]([A-Za-z]:[\\/]|/(Users|home)/)""")
+
+
+def vc109_hardcoded_path(code: str) -> bool:
+    return bool(_ABS_PATH.search(code))
+
+
+# --- VT-043: unconditional sys.exit(0) that ignores real state ---
+def vt043_unconditional_exit_zero(code: str) -> bool:
+    tree = _parse(code)
+    if tree is None:
+        return False
+    for n in ast.walk(tree):
+        if isinstance(n, ast.Call):
+            func = n.func
+            name = func.attr if isinstance(func, ast.Attribute) else (func.id if isinstance(func, ast.Name) else "")
+            if name == "exit" and n.args and isinstance(n.args[0], ast.Constant) and n.args[0].value == 0:
+                return True
+    return False
+
+
 # Registry: catalog id -> detector. Keep in sync with the entries' `detector` field.
 DETECTORS = {
+    "VC-005": vc005_untracked_prototype,
+    "VC-036": vc036_destructive_without_dryrun,
+    "VC-061": vc061_constant_stub,
+    "VC-070": vc070_blind_shell_edit,
+    "VC-087": vc087_blanket_filterwarnings,
+    "VC-109": vc109_hardcoded_path,
+    "VT-043": vt043_unconditional_exit_zero,
     "VC-078": vc078_placeholder,
     "VC-095": vc095_hardcoded_secret,
     "VC-115": vc115_unsafe_eval,
