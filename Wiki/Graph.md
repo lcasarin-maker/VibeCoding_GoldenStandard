@@ -11,7 +11,7 @@ Este grafo combina enlaces Obsidian, enlaces Markdown relativos y menciones expl
 | Métrica | Valor |
 |---|---:|
 | Nodos | 349 |
-| Aristas | 1720 |
+| Aristas | 1721 |
 | Huérfanos intencionales | 3 |
 | Huérfanos candidatos | 0 |
 | Hubs | 15 |

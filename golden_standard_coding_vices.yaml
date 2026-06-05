@@ -1293,6 +1293,30 @@ items:
   - prevented
   action: Ghost import (dependencia usada pero no declarada) detectado por análisis
     AST de imports vs manifiesto.
+  example_lang: python
+  example_bad: |
+    # El agente "alucina" una dependencia y la importa sin declararla.
+    # El módulo importa, pasa el linter local del agente, y revienta en CI/prod.
+    import requests          # NO está en requirements.txt / pyproject.toml
+    from rich import print   # idem
+
+    def fetch(url):
+        return requests.get(url, timeout=5).json()
+  example_good: |
+    # Toda dependencia usada queda declarada y fijada antes de usarse.
+    # pyproject.toml:
+    #   dependencies = ["requests==2.32.3", "rich==13.9.4"]
+    import requests
+
+    def fetch(url):
+        return requests.get(url, timeout=5).json()
+  detection: |
+    Comparar el set de módulos importados (AST `import`/`importfrom`) contra el set
+    declarado en el manifiesto. Un import de un paquete de terceros ausente del
+    manifiesto es un ghost import. Herramienta de referencia: `deptry` (ver [[Project_Insights/PI-001|PI-001]]).
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "imports/dependencias fantasma figuran entre los antipatrones recurrentes del código AI-generado, presentes en 80-100% de los proyectos analizados."
   validating_mechanism: test_vc082_ghost_import_detected
   downstream_verification: none
 - id: VC-083
@@ -1920,6 +1944,28 @@ items:
   solution: Imponer una validación estática estricta que rechace la existencia de
     wrappers o intermediarios no registrados que dupliquen más del 30% de la funcionalidad
     core.
+  example_lang: python
+  example_bad: |
+    # En vez de usar la función existente, el agente crea un wrapper redundante
+    # que reimplementa lo mismo "por comodidad". La lógica se dispersa.
+    def get_user(id): ...           # ya existe
+
+    def fetch_user(id):             # wrapper nuevo: 90% duplicado
+        u = get_user(id)
+        return u
+
+    def retrieve_user(id):          # otro más, mismo patrón AI slop
+        return get_user(id)
+  example_good: |
+    # Una sola función canónica. Si hace falta variar comportamiento, parametrizar.
+    def get_user(id, *, with_profile=False): ...
+  detection: |
+    AST: detectar funciones top-level cuyo cuerpo delega >30% en otra función ya
+    existente sin lógica añadida (wrappers triviales) o nombres sinónimos
+    (`get_`/`fetch_`/`retrieve_`) sobre el mismo símbolo.
+  evidence:
+  - source: "GitClear 2025"
+    claim: "el código duplicado/clonado aumentó ~8x con asistencia de IA, señal directa de este antipatrón a escala."
   status: PREVENTED
   severity: high
   tags:

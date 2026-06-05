@@ -115,6 +115,29 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
                 elif not is_ascii_text(tag_text):
                     errors.append(f"{path}: {item_id or f'item {index}'} has non-ASCII tag {tag_text!r}.")
 
+        for text_field in ("example_bad", "example_good", "example_lang", "detection"):
+            value = item.get(text_field, None)
+            if value is not None and not isinstance(value, str):
+                errors.append(f"{path}: {item_id or f'item {index}'} field {text_field} must be a string.")
+
+        evidence = item.get("evidence", None)
+        if evidence is not None:
+            if not isinstance(evidence, list):
+                errors.append(f"{path}: {item_id or f'item {index}'} field evidence must be a list.")
+            else:
+                for ref in evidence:
+                    if not isinstance(ref, dict) or not str(ref.get("source", "")).strip():
+                        errors.append(
+                            f"{path}: {item_id or f'item {index}'} evidence entries must be mappings with a non-empty 'source'."
+                        )
+
+        has_bad = bool(str(item.get("example_bad", "")).strip())
+        has_good = bool(str(item.get("example_good", "")).strip())
+        if has_bad != has_good:
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} must provide both example_bad and example_good together (depth pairing)."
+            )
+
         if item_id and item_id.startswith(("VC-", "VT-")):
             wiki_path = WIKI_VICES_DIR / f"{item_id}.md"
             if check_wiki and not wiki_path.exists():

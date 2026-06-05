@@ -86,6 +86,27 @@ items:
     True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # El agente genera un test que ejecuta el código pero no verifica nada.
+    # Pasa siempre (incluso si discount() devuelve basura) -> teatro de seguridad.
+    def test_apply_discount():
+        cart = Cart(items=[Item(price=100)])
+        cart.apply_discount(0.1)
+        # sin assert: el método se ejecuta y el test "pasa"
+  example_good: |
+    # El test fija un oráculo explícito sobre el resultado observable.
+    def test_apply_discount():
+        cart = Cart(items=[Item(price=100)])
+        cart.apply_discount(0.1)
+        assert cart.total() == 90  # comportamiento, no mera ejecución
+  detection: |
+    AST: marcar funciones `test_*` cuyo cuerpo no contenga ningún `assert` activo, o
+    cuyos asserts sean tautológicos (`assert True`, `assertEqual(x, x)`). Un test sin
+    oráculo no puede fallar ante una regresión.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "los agentes de codificación generan tests sin aserciones y sin invocación del método focal con frecuencia medible; el exceso de mocking agrava el problema."
 - id: VT-007
   title: Presencia no corrección
   symptom: Archivo existe

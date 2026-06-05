@@ -822,12 +822,64 @@ def write_conceptual_concepts_md(wiki_dir: Path):
         )
 
 
+def entry_depth(item: dict) -> str:
+    """Classify an entry as deep (has runnable examples) or stub (declarative only).
+
+    An entry is 'deep' when it ships both a bad and a good example so a reader can
+    see the vice and its fix as concrete code. Everything else is a 'stub'.
+    """
+    if str(item.get("example_bad", "")).strip() and str(item.get("example_good", "")).strip():
+        return "deep"
+    return "stub"
+
+
+def build_depth_sections(item: dict) -> str:
+    """Render optional depth blocks (examples, detection, evidence) when present.
+
+    Returns markdown to be appended after the core sections. Empty string when the
+    entry carries no enriched fields, so legacy stub entries render unchanged.
+    """
+    lang = str(item.get("example_lang", "text")).strip() or "text"
+    blocks: list[str] = []
+
+    example_bad = str(item.get("example_bad", "")).strip()
+    if example_bad:
+        blocks.append(f"### ❌ Ejemplo del vicio (Bad)\n```{lang}\n{example_bad}\n```")
+
+    example_good = str(item.get("example_good", "")).strip()
+    if example_good:
+        blocks.append(f"### ✅ Versión corregida (Good)\n```{lang}\n{example_good}\n```")
+
+    detection = str(item.get("detection", "")).strip()
+    if detection:
+        blocks.append(f"### 🔎 Detección concreta\n{detection}")
+
+    evidence = item.get("evidence", [])
+    if isinstance(evidence, list) and evidence:
+        lines = ["### 📚 Evidencia externa"]
+        for ref in evidence:
+            if isinstance(ref, dict):
+                source = str(ref.get("source", "")).strip()
+                claim = str(ref.get("claim", "")).strip()
+                lines.append(f"- **{source}** — {claim}" if claim else f"- **{source}**")
+            else:
+                lines.append(f"- {ref}")
+        blocks.append("\n".join(lines))
+
+    if not blocks:
+        return ""
+    return "\n\n" + "\n\n".join(blocks)
+
+
 def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
     """Create individual atomic files for VC and VT entries."""
     for flaw_id, item in mapped_database.items():
         if item["category"] == "Tokenomics & Context":
             continue
         tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
+        depth = entry_depth(item)
+        depth_badge = "🟢 Deep" if depth == "deep" else "🟡 Stub"
+        depth_sections = build_depth_sections(item)
         flaw_content = f"""# {flaw_id}: {item['title']}
 
 | Campo | Detalle |
@@ -836,6 +888,7 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 | **Categoría** | {item['category']} |
 | **Estado** | **{item['status']}** |
 | **Severidad** | **{item['severity']}** |
+| **Profundidad** | {depth_badge} |
 | **Tags** | {tag_list} |
 | **Downstream Verification** | `{item.get('downstream_verification', 'none')}` |
 | **Mecanismo de Validación** | `{item['validating_mechanism']}` |
@@ -852,7 +905,7 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 {item['solution']}
 
 ### Acción Correctiva / Prevención
-{item['action']}
+{item['action']}{depth_sections}
 
 ### Relaciones
 - [[Project_Insights/PI-019|PI-019]]
@@ -1479,6 +1532,11 @@ def extract_catalog_items(config: dict, mapped_database: dict):
             "action": item["action"],
             "validating_mechanism": item["validating_mechanism"],
             "downstream_verification": downstream_verification,
+            "example_bad": item.get("example_bad", ""),
+            "example_good": item.get("example_good", ""),
+            "example_lang": item.get("example_lang", "text"),
+            "detection": item.get("detection", ""),
+            "evidence": item.get("evidence", []),
         }
 
 
