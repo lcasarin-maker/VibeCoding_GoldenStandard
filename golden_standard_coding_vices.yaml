@@ -1,0 +1,1232 @@
+format_version: 3.0
+catalog_name: coding_vices
+items:
+- id: VC-001
+  title: Incompetencia no asumida
+  symptom: Se acepta salida generada como correcta
+  cause: Ausencia de adversarialidad epistemológica
+  solution: Tratar toda salida como hipótesis hasta validación
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-002
+  title: Complacencia generativa
+  symptom: El sistema responde con seguridad injustificada
+  cause: Optimización por plausibilidad
+  solution: Exigir incertidumbre explícita y evidencia
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-003
+  title: Triunfalismo sin prueba
+  symptom: Se declara éxito sin logs
+  cause: Confusión entre afirmación y verificación
+  solution: Prohibir veredictos sin evidencia observable
+  status: PREVENTED
+  action: 'Anti-triunfalismo: el test falla si no hay evidencia JSON en .protocol/evidence/, forzando prueba empírica.'
+  validating_mechanism: test_B7_evidence_files_are_valid_json
+- id: VC-004
+  title: Demo como calidad
+  symptom: Algo funciona superficialmente
+  cause: Muestreo insuficiente del estado
+  solution: Validar flujo, límites y persistencia
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-005
+  title: Prototipo convertido en deuda
+  symptom: Lo temporal queda permanente
+  cause: Falta de frontera de expiración
+  solution: Todo prototipo debe tener fecha, dueño y salida
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-006
+  title: Estética como integridad
+  symptom: UI o docs bonitos ocultan fallos
+  cause: Señal visual sustituye causalidad
+  solution: Validar lógica antes que presentación
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-007
+  title: Auditoría no humana del core
+  symptom: Lógica crítica no leída
+  cause: Delegación sin comprensión
+  solution: Revisar humanamente invariantes críticos
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-008
+  title: Optimismo operativo
+  symptom: Se ignoran regresiones probables
+  cause: Priors mal calibrados
+  solution: Asumir fallo hasta prueba contraria
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-009
+  title: Autoauditoría contaminada
+  symptom: Se valida con memoria previa
+  cause: Sesgo contextual
+  solution: Revalidar desde contexto fresco
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-010
+  title: Fallo no convertido en doctrina
+  symptom: Error se repite
+  cause: Aprendizaje no persistido
+  solution: Registrar patrón y guardrail
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-011
+  title: Human test falso
+  symptom: Se declara interacción inexistente
+  cause: Canal perceptual ausente
+  solution: Evidencia humana real
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-012
+  title: Se ve bien como métrica
+  symptom: Estética suplanta función
+  cause: Métrica equivocada
+  solution: Usabilidad igual a comportamiento
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-013
+  title: Calificación máxima gratuita
+  symptom: Se asigna excelencia sin prueba
+  cause: Escala no calibrada
+  solution: Calificar solo con evidencia
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-014
+  title: Falso positivo de auditoría
+  symptom: Sistema roto marcado OK
+  cause: Validador superficial
+  solution: Auditoría empírica
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-015
+  title: Agente como ingeniero autónomo
+  symptom: Usuario delega juicio
+  cause: Autoridad mal asignada
+  solution: Humano conserva responsabilidad
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-016
+  title: Código incomprensible
+  symptom: Solo se sabe qué se pidió
+  cause: Modelo mental ausente
+  solution: Explicabilidad obligatoria
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-017
+  title: Triunfalismo Conversacional Estocástico
+  symptom: Declaraciones de éxito basadas únicamente en plausibilidad estética
+  cause: Falta de validación empírica en tiempo de ejecución o persistencia
+  solution: Subordinar la aprobación a trazas lógicas reales o deltas observables de almacenamiento
+  status: PREVENTED
+  action: 'Anti-triunfalismo: el test falla si no hay evidencia JSON en .protocol/evidence/, forzando prueba empírica.'
+  validating_mechanism: test_B7_evidence_files_are_valid_json
+- id: VC-018
+  title: Fix ciego
+  symptom: Se parchea error copiado
+  cause: Diagnóstico omitido
+  solution: Reproducir, diagnosticar, corregir, verificar
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-019
+  title: Síntoma parcheado
+  symptom: El bug vuelve con otra forma
+  cause: Causa raíz no aislada
+  solution: Corregir mecanismo, no manifestación
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-020
+  title: Bug no reproducido
+  symptom: Se modifica sin caso mínimo
+  cause: Falta de oráculo inicial
+  solution: Todo bug requiere reproducción previa
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-021
+  title: Cierre prematuro
+  symptom: Fallos secundarios quedan vivos
+  cause: Alcance de cierre mal definido
+  solution: Cerrar cadena completa de defectos revelados
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-022
+  title: Velocidad sobre precisión
+  symptom: Más cambios, menos certeza
+  cause: Optimización local de tiempo
+  solution: Validar temprano, construir poco
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-023
+  title: Productividad ilusoria
+  symptom: Se ahorra escritura, se paga debugging
+  cause: Costos diferidos invisibles
+  solution: Medir retrabajo y reversión
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-024
+  title: Construcción sin validación
+  symptom: Se acumula antes de probar
+  cause: Feedback tardío
+  solution: Iterar en cortes verificables
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-025
+  title: Especificación vaga
+  symptom: El sistema adivina requisitos
+  cause: Entrada ambigua
+  solution: Definir objetivo, restricciones y salida
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-026
+  title: Suposiciones excesivas
+  symptom: Se continúa con incertidumbre alta
+  cause: Entropía decisional
+  solution: Detener si las hipótesis críticas superan umbral
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-027
+  title: Plan no externalizado
+  symptom: Trabajo vive en chat
+  cause: Estado efímero
+  solution: Mantener plan físico o lógico estable
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-028
+  title: Paso sin validación
+  symptom: Se avanza tras cambios no probados
+  cause: Falta de compuertas
+  solution: Cada etapa debe demostrar éxito
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-029
+  title: Alcance no quirúrgico
+  symptom: Cambios enormes e inseguros
+  cause: Superficie de impacto excesiva
+  solution: Limitar cambios a unidades testeables
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-030
+  title: State drift
+  symptom: Ediciones grandes degradan coherencia
+  cause: Mutación dispersa
+  solution: Controlar alcance y checkpoints
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-031
+  title: Reescritura completa
+  symptom: Se pierde integridad previa
+  cause: Operación no reversible
+  solution: Preferir diffs mínimos
+  status: DOC_ONLY
+  action: 'Reescritura completa vs edición quirúrgica: vicio conductual de juicio (cuándo se justifica un rewrite). Ningún
+    test estático en test_cerberus_core discrimina intención. Sprint 3.4 revisión manual: DOC_ONLY honesto.'
+  validating_mechanism: DOC_ONLY
+- id: VC-032
+  title: Sidequest
+  symptom: Se agregan mejoras no pedidas
+  cause: Función objetivo inestable
+  solution: Enviar hallazgos laterales a backlog
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-033
+  title: Presión de cierre
+  symptom: Se abandona validación
+  cause: Incentivo comunicacional
+  solution: No cerrar sin criterio de salida
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-034
+  title: Decisiones sin porqué
+  symptom: Futuro agente repite discusiones
+  cause: Causalidad perdida
+  solution: Registrar razón, no solo resultado
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-035
+  title: Aclaraciones perdidas
+  symptom: Se repregunta lo resuelto
+  cause: Falta de ledger
+  solution: Mantener log histórico de aclaraciones
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-036
+  title: Sin dry run
+  symptom: Acción destructiva se ejecuta directa
+  cause: Falta de simulación
+  solution: Simular antes de aplicar
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-037
+  title: Regeneración ciega
+  symptom: Se reemplaza código sin diagnóstico
+  cause: Borrado de causalidad
+  solution: Diagnóstico antes de generación
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-038
+  title: Victoria prematura
+  symptom: Se reporta éxito parcial
+  cause: Métrica incompleta
+  solution: Evidencia obligatoria por afirmación
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-039
+  title: Deuda invisible
+  symptom: Atajos no registrados
+  cause: Coste futuro oculto
+  solution: Declarar deuda técnica
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-040
+  title: Mantenibilidad no auditada
+  symptom: Sistema difícil de cambiar
+  cause: Complejidad acumulada
+  solution: Auditar capacidad de cambio
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-041
+  title: Deriva operativa
+  symptom: Agente expande alcance
+  cause: Control débil
+  solution: Scope lock
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-042
+  title: Loops de corrección
+  symptom: Fix-revert consume contexto
+  cause: Diagnóstico insuficiente
+  solution: Menos generación, más causa raíz
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-043
+  title: Parches sobre parches
+  symptom: Cada fix introduce otro bug
+  cause: Sistema causal no comprendido
+  solution: Separar diagnóstico y corrección
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-044
+  title: Producción sin dueño técnico
+  symptom: Nadie puede mantener
+  cause: Responsabilidad ausente
+  solution: Owner capaz de explicar y reparar
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-045
+  title: Handoff ambiguo
+  symptom: El siguiente actor no sabe estado, riesgo ni próximo paso
+  cause: Transferencia de estado incompleta
+  solution: Handoff estructurado con objetivo, evidencia y bloqueadores
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-046
+  title: Rescate pre-deprecación omitido
+  symptom: Se archiva o elimina sin extraer valor
+  cause: Poda destructiva sin inventario
+  solution: Auditar, extraer y validar antes de retirar
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-047
+  title: Estado no vinculante
+  symptom: Memoria/estado difieren de realidad
+  cause: Fuente de verdad múltiple
+  solution: Reconciliar estado declarado con sistema
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-048
+  title: Memoria monolítica
+  symptom: Todo contexto se mezcla
+  cause: Falta de estratificación
+  solution: Separar núcleo, activo, patrones e historia
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-049
+  title: Audiencias mezcladas
+  symptom: Memoria de agente igual a doc humana
+  cause: Canales con fines distintos
+  solution: Separar documentación operativa y humana
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-050
+  title: Actualización no dirigida
+  symptom: Estado cambia sin evento
+  cause: Ruido informacional
+  solution: Actualizar memoria solo por eventos relevantes
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-051
+  title: Saturación contextual
+  symptom: El agente olvida requisitos
+  cause: Ventana finita
+  solution: Compactar y reiniciar con checkpoint
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-052
+  title: Context rot
+  symptom: Respuestas empeoran por exceso
+  cause: Ruido semántico
+  solution: Mantener contexto mínimo suficiente
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-053
+  title: Sin checkpoint previo
+  symptom: Cambio rompe estado recuperable
+  cause: Ausencia de reversibilidad
+  solution: Crear punto de retorno antes de riesgo
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-054
+  title: Estado descentralizado
+  symptom: Varias fuentes compiten
+  cause: Inconsistencia distribuida
+  solution: Ledger canónico
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-055
+  title: Concurrencia sin cuarentena
+  symptom: Actores pisan cambios
+  cause: Falta de aislamiento
+  solution: Separar ramas, espacios o locks
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-056
+  title: Integración alucinada
+  symptom: Dependencias inventadas
+  cause: Mundo externo asumido
+  solution: Verificar integraciones reales
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-057
+  title: Paridad de versión rota
+  symptom: Documentos, ejecutores y estado declaran versiones distintas
+  cause: Identidad distribuida inconsistente
+  solution: Una versión canónica derivada, no copiada
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-058
+  title: Deadlock sin latido
+  symptom: Proceso queda bloqueado sin ser detectado
+  cause: Falta de señal de vida
+  solution: Exigir heartbeat, timeout y política de recuperación
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-059
+  title: Ruteo opaco
+  symptom: Trabajo cae en actor o fase incorrecta
+  cause: Clasificación de tarea ausente
+  solution: Enrutar por capacidad, riesgo y estado observable
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-060
+  title: Merge textual de memoria
+  symptom: Dos historias se combinan perdiendo decisiones
+  cause: Unión léxica sin semántica
+  solution: Fusionar por entidades, decisiones y causalidad
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-061
+  title: Stub como arquitectura
+  symptom: Simulación temporal se vuelve dependencia
+  cause: Sustituto confundido con componente
+  solution: Retirar stubs antes de validar integración
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-062
+  title: Deriva de Concurrencia de Estado (Dual-Session Drift)
+  symptom: Pérdida de commits y regresiones por sobrescritura paralela
+  cause: Modelos mentales divergentes al omitir la sincronización previa del filesystem
+  solution: Exigir paso obligatorio de reconciliación física contra el ledger antes de escribir
+  status: PREVENTED
+  action: 'Dual-session drift: detectado por sync_binding --check (falla si el protocolo divergió entre sesiones).'
+  validating_mechanism: test_F6_sync_binding_no_protocol_drift
+- id: VC-063
+  title: Documentación mentirosa
+  symptom: Estado declarado no coincide con sistema
+  cause: Persistencia de afirmaciones no revalidadas
+  solution: Subordinar documentación a ejecución
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-064
+  title: Caja negra arquitectónica
+  symptom: Decisiones no explicables
+  cause: Pérdida de modelo causal
+  solution: Toda decisión debe tener razón trazable
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-065
+  title: Esquema tardío
+  symptom: Lógica precede al modelo de datos
+  cause: Estructura causal ausente
+  solution: Definir entidades y relaciones primero
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-066
+  title: Ceguera espacial
+  symptom: UI generada sin layout explícito
+  cause: Falta de modelo perceptual
+  solution: Declarar estructura visual antes de ejecutar
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-067
+  title: Políticas implícitas
+  symptom: Reglas no listadas antes del cambio
+  cause: Restricciones ocultas
+  solution: Extraer políticas aplicables antes de mutar
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-068
+  title: Conflictos normativos
+  symptom: Reglas chocan en ejecución
+  cause: Sistema lógico inconsistente
+  solution: Definir precedencia antes de automatizar
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-069
+  title: Dependencias no mapeadas
+  symptom: Refactor rompe piezas lejanas
+  cause: Grafo causal desconocido
+  solution: Generar mapa de dependencias antes de mover
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-070
+  title: Manipulación shell ciega
+  symptom: Texto sustituye API estructurada
+  cause: Representación frágil
+  solution: Usar operaciones estructuradas
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-071
+  title: Módulo sin biocontainment
+  symptom: Fallo se propaga
+  cause: Acoplamiento excesivo
+  solution: Interfaces estables y aislamiento
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-072
+  title: Blind chunking
+  symptom: Corte rompe semántica
+  cause: Partición por tamaño
+  solution: Chunking por límites funcionales
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-073
+  title: Código crítico troceado
+  symptom: Se pierde coherencia global
+  cause: Dependencias no modeladas
+  solution: No trocear sin grafo estructural
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-074
+  title: I/O sin validación
+  symptom: Datos inválidos entran al sistema
+  cause: Frontera permeable
+  solution: Validar en límites
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-075
+  title: Integraciones no verificadas
+  symptom: API o datos externos asumidos estables
+  cause: Dependencia externa no modelada
+  solution: Contratos y pruebas de frontera
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-076
+  title: Tipado laxo
+  symptom: Estados imposibles circulan
+  cause: Dominio no restringido
+  solution: Representar invariantes
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-077
+  title: Ambigüedad semántica de tipo
+  symptom: Cualquier cosa pasa
+  cause: Pérdida de información
+  solution: Referenciar ambigüedad de tipo
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-078
+  title: Placeholder permanente
+  symptom: Marcador llega a producción
+  cause: Estado incompleto aceptado
+  solution: Bloquear placeholders activos
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-079
+  title: Core dependiente de inestables
+  symptom: Cambios externos rompen núcleo
+  cause: Acoplamiento temporal
+  solution: Núcleo con dependencias estables
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-080
+  title: Copy-paste acrítico
+  symptom: Duplicación de fallos
+  cause: Transferencia sin comprensión
+  solution: Auditar reutilización
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-081
+  title: Secuestro documental
+  symptom: Docs y código divergen
+  cause: Evolución desacoplada
+  solution: Actualizar ambos o invalidar docs
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-082
+  title: Dependencias sin gate
+  symptom: Se agregan riesgos
+  cause: Supply chain no controlada
+  solution: Gatekeeping de dependencias
+  status: PREVENTED
+  action: Ghost import (dependencia usada pero no declarada) detectado por análisis AST de imports vs manifiesto.
+  validating_mechanism: test_vc082_ghost_import_detected
+- id: VC-083
+  title: Archivo zombie tolerado
+  symptom: Artefactos no declarados sobreviven
+  cause: Inventario no vinculante
+  solution: Todo archivo zombie debe estar autorizado, clasificado o eliminado
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-084
+  title: Compatibilidad regresiva ignorada
+  symptom: Consumidores previos se rompen silenciosamente
+  cause: Contrato histórico no modelado
+  solution: Versionar contratos y probar rutas heredadas vigentes
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-085
+  title: Observabilidad ornamental
+  symptom: Existen logs pero no explican fallos
+  cause: Señal sin diagnóstico
+  solution: Registrar eventos causales, decisiones y estados frontera
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-086
+  title: Wrapper evasivo
+  symptom: Capa nueva evita tocar la falla real
+  cause: Indirección como ocultamiento
+  solution: Resolver contrato roto en su origen
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-087
+  title: Warning normalizado
+  symptom: Advertencias se acumulan sin bloqueo
+  cause: Degradación gradual aceptada
+  solution: Cero warnings en rutas de salud
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-088
+  title: Error tolerado por política
+  symptom: Se documenta el fallo en vez de corregirlo
+  cause: Excepción convertida en estado estable
+  solution: Cero errores conocidos en cierre
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-089
+  title: Reconocimiento omitido
+  symptom: Se edita sin entender repositorio
+  cause: Modelo incompleto del sistema
+  solution: Mapear estructura antes de modificar
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-090
+  title: Memoria no cargada
+  symptom: Se repiten errores previos
+  cause: Estado histórico ignorado
+  solution: Cargar ledger y decisiones vigentes
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-091
+  title: Archivo no encontrado perezoso
+  symptom: Se declara inexistencia sin búsqueda
+  cause: Exploración insuficiente
+  solution: Agotar búsqueda estructural
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-092
+  title: Auditoría parcial llamada total
+  symptom: Se omiten superficies críticas
+  cause: Universo auditado mal definido
+  solution: Declarar y cubrir superficies auditables
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-093
+  title: Seguridad optimista
+  symptom: No se buscan abusos
+  cause: Amenaza no modelada
+  solution: Threat model obligatorio
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-094
+  title: Seguridad mezclada
+  symptom: Controles dispersos
+  cause: Frontera difusa
+  solution: Aislar capa de seguridad
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-095
+  title: Acceso directo a producción
+  symptom: Riesgo irreversible
+  cause: Falta de entorno seguro
+  solution: Separar entornos
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-096
+  title: Código sin tests
+  symptom: No hay regresión detectable
+  cause: Oráculo ausente
+  solution: Tests como condición de cambio
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-097
+  title: Tests tardíos
+  symptom: Pruebas adaptadas al resultado
+  cause: Sesgo de confirmación
+  solution: Test-first o test simultáneo
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-098
+  title: Happy path exclusivo
+  symptom: Fallos reales no cubiertos
+  cause: Dominio submuestreado
+  solution: Probar errores y límites
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-099
+  title: Sin caos
+  symptom: Resiliencia no observada
+  cause: Fallos no inducidos
+  solution: Inyectar fallos controlados
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-100
+  title: No funcional ignorado
+  symptom: Performance o seguridad no medidos
+  cause: Calidad reducida a función
+  solution: Auditar requisitos no funcionales
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-101
+  title: Config optimista
+  symptom: Entorno idealizado
+  cause: Variabilidad ignorada
+  solution: Validación pesimista de configuración
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-102
+  title: Debug pobre
+  symptom: Fallo no diagnosticable
+  cause: Observabilidad insuficiente
+  solution: Instrumentación deliberada
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-103
+  title: UI sin uso real
+  symptom: Se valida sin flujo
+  cause: Simulación visual
+  solution: Probar interacción observable
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-104
+  title: Infraestructura ignorada
+  symptom: Runtime real difiere
+  cause: Fuente equivocada
+  solution: Infraestructura efectiva como verdad
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-105
+  title: Omisión de componentes
+  symptom: HTML/startup/build no auditados
+  cause: Superficie incompleta
+  solution: Checklist de superficies
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-106
+  title: Setup fantasma
+  symptom: El sistema presupone que el entorno existe
+  cause: Precondiciones no verificadas
+  solution: Validar requisitos de ejecución antes de operar
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-107
+  title: Matriz de permisos implícita
+  symptom: Actores ejecutan acciones fuera de rol
+  cause: Política de autorización no modelada
+  solution: Declarar capacidades, límites y denegaciones por rol
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-108
+  title: Frontera de seguridad por convención
+  symptom: Se confía en disciplina humana
+  cause: Control no ejecutable
+  solution: Convertir límites de seguridad en compuertas verificables
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-109
+  title: Ruta literal ambiental
+  symptom: Funcionamiento depende de una ubicación fija
+  cause: Estado externo codificado
+  solution: Resolver ubicaciones por contrato configurable
+  status: PREVENTED
+  action: Rutas absolutas hardcodeadas (C:\, /home/, /Users/) detectadas por escaneo regex discriminante.
+  validating_mechanism: test_vc109_absolute_path_in_scripts
+- id: VC-110
+  title: Cuota como sorpresa
+  symptom: Operación falla por límites externos
+  cause: Recurso finito no presupuestado
+  solution: Modelar límites, backoff y degradación antes de ejecutar
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-111
+  title: Exclusión sin auditoría previa
+  symptom: Directorio añadido a lista de ignorados sin verificar su contenido
+  cause: Confianza implícita en que lo invisible es inocuo
+  solution: Auditar contenido antes de excluir; documentar justificación con fecha; mover a deprecated si tiene vicios
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-112
+  title: Propagación sin verificación de adopción
+  symptom: Archivos de protocolo copiados a proyectos hijo sin confirmar que el protocolo ejecuta
+  cause: Confundir distribución con adopción operacional
+  solution: Verificar post-copia que el destinatario tiene hooks, auditor y suite activos; reportar % adopción real
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-113
+  title: Nomenclatura congelada
+  symptom: Nombre de componente no refleja alcance real tras evolución (ej. un componente denominado "auditor_v1" que ha sido
+    expandido para cubrir funcionalidades de la versión v3 pero conserva su nombre heredado)
+  cause: El nombre se fijó en un estado histórico y no se actualizó al expandir
+  solution: Actualizar nombre y todos los tests que lo referencian al cambiar el alcance; o documentar la discrepancia explícitamente
+    con centinela
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-114
+  title: Hallazgo sin plan de remediación
+  symptom: Defecto detectado en sesión no se convierte en ítem ejecutable del plan activo
+  cause: Registro informal sin dueño, evidencia ni criterio de cierre
+  solution: Todo hallazgo debe tener ID, evidencia, fix propuesto y done-criteria en el plan activo antes de cerrar la sesión
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-115
+  title: Ejecución dinámica de expresiones externas
+  symptom: Motor de reglas ejecuta strings de YAML o config como código Python (`eval`/`exec`)
+  cause: La fuente de reglas se trata como código confiable sin distinguir datos de instrucciones
+  solution: Reemplazar eval con dispatch table de funciones registradas explícitamente; validar nombres en tiempo de carga;
+    rechazar cualquier check no registrado
+  status: REMEDIATED
+  action: Replaced eval-based rules with a pre-registered SAFE_CHECKS dispatch table in rules_engine.py to prevent remote
+    code execution.
+  validating_mechanism: test_rule_security_rejects_arbitrary_check
+- id: VC-116
+  title: Instalación automática de dependencias no verificadas
+  symptom: Un `ImportError` desencadena `pip install` sin revisión humana
+  cause: El error handler delega decisiones de supply chain al entorno sin control
+  solution: Prohibir `pip install` automático; reportar la dependencia faltante con guía de instalación manual y detener;
+    el humano decide qué instala
+  status: REMEDIATED
+  action: Disabled automatic subprocess pip installs in repair_failing_tests.py, forcing manual package guidance.
+  validating_mechanism: test_import_error_guard_does_not_pip_install
+- id: VC-117
+  title: Escritura destructiva no atómica de estado crítico
+  symptom: Un crash o kill durante `write_text()` deja el archivo de estado (JSON, YAML) corrupto o vacío
+  cause: La atomicidad de escritura no se modeló como requisito del subsistema de persistencia
+  solution: Escribir a archivo temporal en el mismo directorio y renombrar atómicamente (`tmp → final`); limpiar el temporal
+    si ocurre una excepción antes del rename
+  status: REMEDIATED
+  action: Atomic state writes via core_utils.write_json_atomic (tempfile + os.replace + fsync), wired into update_lock_state
+    and ProtocolSyncManager._save_state.
+  validating_mechanism: test_critical_state_write_is_atomic
+- id: VC-118
+  title: Teatro de Compatibilidad Zombie
+  symptom: 'Se ordena reemplazar X por Y. El agente crea: herencia de X en Y, shim que reenvía a Y, fallback `Y.exists() or
+    X.exists()`, centinelas duales en tests, imports cruzados "por retrocompatibilidad". X nunca muere.'
+  cause: El agente interpreta "reemplazar" como "añadir" para evitar regresar a corregir fallos. El instinto de "no romper
+    nada" genera código muerto disfrazado de seguridad.
+  solution: '**Reemplazar = Eliminar + Crear. Una sola fuente de verdad.** Cuando se ordena reemplazar: (1) el archivo viejo
+    se ELIMINA del VCS, (2) el nuevo no importa del viejo, (3) los tests apuntan solo al nuevo, (4) no existen rutas alternativas
+    ni checks duales. Cualquier "por compatibilidad" en código activo es señal de reemplazo incompleto.'
+  status: PREVENTED
+  action: Prevented by D1 _audit_d1_zombie_compat scanning active scripts for zombie compatibility shim patterns.
+  validating_mechanism: audit_d1_integrity
+- id: VC-119
+  title: Pánico de Bloqueo y Parcheo Sintáctico Rápido (Lock Panic Shortcut)
+  symptom: Ante un fallo inesperado de compilación o de importación en el inicio, el agente opta por parchar el síntoma creando
+    shims o duplicando código viejo en lugar de investigar y resolver la causa raíz en el control plane o los archivos llamadores.
+  cause: Priorizar ver el resultado "tests en verde" a corto plazo y a toda costa, sacrificando la coherencia y los principios
+    estables de arquitectura del sistema.
+  solution: Aplicar estrictamente el Mandato S2 (Brain-First) e investigar la arquitectura del control plane para realizar
+    refactorizaciones quirúrgicas de raíz antes de escribir una sola línea de código.
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-120
+  title: Reasoning Lock-In & AI Runaway loops (Chain-Pattern Interrupts)
+  symptom: El agente se obsesiona con un plan de acción defectuoso, repitiendo el mismo error o herramienta en un bucle cerrado
+    sin detenerse.
+  cause: Ausencia de metacognición activa y falta de interrupciones estructurales.
+  solution: '**Chain-Pattern Interrupts (CPI).** Imponer un centinela que cuente los intentos fallidos consecutivos de la
+    misma herramienta o script. Si el conteo supera el umbral de 2, abortar físicamente la ejecución con `exit 1` y forzar
+    un replanteamiento estructural de la solución.'
+  status: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
+    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
+    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: DOC_ONLY
+- id: VC-121
+  title: Redundancias Críticas y Patrones Repetitivos de AI Slop
+  symptom: Mutaciones aditivas acumulativas que dispersan la funcionalidad del sistema en múltiples archivos redundantes o
+    wrappers innecesarios en vez de consolidar lógica.
+  cause: Comodidad generativa al crear nuevas interfaces en lugar de reestructurar las existentes.
+  solution: Imponer una validación estática estricta que rechace la existencia de wrappers o intermediarios no registrados
+    que dupliquen más del 30% de la funcionalidad core.
+  status: PREVENTED
+  action: Nombres de función top-level duplicados entre módulos detectados por comparación AST.
+  validating_mechanism: test_vc121_duplicate_function_names
+- id: VC-122
+  title: Contaminación de Cadena de Suministro por Ejecuciones Silenciosas
+  symptom: Instalación automática de paquetes arbitrarios o importaciones dinámicas que alteran el entorno sin consentimiento.
+  cause: Falta de control preventivo en los hooks de pre-ejecución.
+  solution: Bloquear de forma física cualquier comando que intente realizar descargas de paquetes o ejecuciones de urls no
+    declaradas de forma explícita y aprobadas.
+  status: PREVENTED
+  action: pip install automático por subprocess en scripts/ bloqueado por detector + repo-guard de ruta activa.
+  validating_mechanism: test_vc122_no_pip_install_in_scripts
+- id: VC-123
+  title: Staging Indiscriminado de Directorios No Trackeados (Unfiltered Git Staging)
+  symptom: Comandos de sincronización git automatizados tardan indefinidamente, bloquean el disco (Google Drive virtual mounts)
+    o intentan rastrear miles de archivos temporales/ocultos creados por herramientas externas.
+  cause: Uso de `git add -A` o `git add .` sin filtrar ni validar previamente el estado del working tree frente a directorios
+    excluidos o de almacenamiento en la nube virtualizado.
+  solution: Preferir `git add -u` para registrar modificaciones en archivos bajo control de versiones y requerir adiciones
+    explícitas quirúrgicas para archivos nuevos, asegurando que `.gitignore` esté cargado antes de cualquier invocación del
+    subproceso Git.
+  status: PREVENTED
+  action: git add -A/. (staging indiscriminado) discriminado por detector failing-first (juicio de intención humano).
+  validating_mechanism: test_vc123_no_git_add_all_in_scripts
