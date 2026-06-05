@@ -15,6 +15,27 @@ items:
     using AST analysis of function bodies to reject empty stubs or stub docstrings.
   validating_mechanism: audit_d2_completeness
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # La funcion devuelve una constante para 'pasar' el test; no implementa nada.
+    def total(cart):
+        return 42          # hardcoded para que el test verde
+
+    def test_total():
+        assert total(demo_cart) == 42
+  example_good: |
+    # El test fija el resultado esperado real; la funcion debe calcularlo.
+    def total(cart):
+        return sum(i.price for i in cart.items)
+
+    def test_total():
+        assert total(Cart([Item(10), Item(32)])) == 42
+  detection: |
+    AST: funcion bajo prueba cuyo cuerpo es un unico return de literal constante, con un
+    test que afirma exactamente ese literal.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-002
   title: Stub permanente
   symptom: Cuerpo falso pasa
@@ -29,6 +50,21 @@ items:
     using AST analysis of function bodies to reject empty stubs or stub docstrings.
   validating_mechanism: audit_d2_completeness
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Stub permanente enviado a produccion como si estuviera implementado.
+    def charge(amount):
+        pass   # TODO: implementar (lleva 6 meses)
+  example_good: |
+    # Implementacion real; si no esta lista, falla ruidosamente, no en silencio.
+    def charge(amount):
+        raise NotImplementedError("charge() pendiente - no usar en prod")
+  detection: |
+    AST: funciones con cuerpo unicamente 'pass'/'...'/docstring (stub) que no estan
+    marcadas como abstractas ni lanzan NotImplementedError.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-003
   title: Respuesta por dato exacto
   symptom: Solo pasa input del test
@@ -72,6 +108,21 @@ items:
     True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    def test_login():
+        user = login("a", "b")
+        assert True    # assert trivial: pasa siempre, no verifica el login
+  example_good: |
+    def test_login():
+        user = login("a", "b")
+        assert user.is_authenticated and user.name == "a"
+  detection: |
+    AST TestTheaterVisitor: presencia de 'assert True' / 'assertTrue(True)' como unica
+    asercion del test.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-006
   title: Test sin assert
   symptom: Corre sin verificar
@@ -147,6 +198,20 @@ items:
     True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    def test_norm():
+        x = normalize(payload)
+        assert x == x   # tautologia: cierto para cualquier valor
+  example_good: |
+    def test_norm():
+        assert normalize({"A": 1}) == {"a": 1}   # oraculo independiente del SUT
+  detection: |
+    AST: asserts cuyos dos operandos son la misma expresion (assertEqual(x, x),
+    assert x == x).
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-010
   title: Test de implementación
   symptom: Cambia interno, pasa
@@ -188,6 +253,21 @@ items:
     True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Llama a todo para subir coverage, pero no afirma nada.
+    def test_pipeline():
+        run_stage_a(); run_stage_b(); run_stage_c()   # 100% lineas, 0% verificacion
+  example_good: |
+    def test_pipeline():
+        out = run_stage_c(run_stage_b(run_stage_a(seed)))
+        assert out.status == "done" and out.rows == 3
+  detection: |
+    Cruzar cobertura con densidad de asserts: archivos con alta cobertura y tests sin
+    asserts activos = cobertura inflada.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-013
   title: Tests por porcentaje
   symptom: Cobertura gamificada
@@ -202,6 +282,21 @@ items:
     True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Tests vacios creados solo para alcanzar el umbral de % de cobertura.
+    def test_a(): import mod          # 'cubre' el import
+    def test_b(): mod.helper()        # llama sin verificar
+  example_good: |
+    # La meta es comportamiento verificado, no el numero de cobertura.
+    def test_helper_doubles():
+        assert mod.helper(2) == 4
+  detection: |
+    Detectar tests cuyo proposito declarado/commit es 'subir coverage' y cuyo cuerpo
+    carece de asserts sobre resultados.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-014
   title: Test circular
   symptom: Auditor se aprueba
@@ -242,6 +337,22 @@ items:
     True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Asercion textual debil: pasa con casi cualquier salida.
+    def test_report():
+        r = build_report()
+        assert "ok" in str(r).lower()   # teatral
+  example_good: |
+    def test_report():
+        r = build_report()
+        assert r.total == 100 and r.errors == []
+  detection: |
+    Marcar asserts que solo comprueban subcadenas vagas ('ok','success','done') sobre
+    str(result) en vez de campos estructurados.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-017
   title: Evidencia hardcodeada
   symptom: outcome siempre success
@@ -322,6 +433,21 @@ items:
     True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # 'Verde' garantizado: combinacion de asserts tautologicos.
+    def test_calc():
+        assert 1 == 1
+        assert isinstance(calc(2), int)   # no fija el valor
+  example_good: |
+    def test_calc():
+        assert calc(2) == 4
+  detection: |
+    AST: tests cuyos asserts son todos tautologicos o de tipo (isinstance) sin fijar
+    ningun valor esperado concreto.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-023
   title: Mock complaciente
   symptom: Simula éxito
@@ -492,6 +618,22 @@ items:
     unless annotated with removal criteria or reasons.
   validating_mechanism: audit_d9_test_purity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    @pytest.mark.xfail   # marcado como fallo esperado... para siempre
+    def test_refund():
+        assert refund(order) == 0
+  example_good: |
+    # Si el bug se arreglo, el xfail debe caer; si sigue, lleva fecha y ticket.
+    @pytest.mark.xfail(reason="BUG-123, revisar 2026-07", strict=True)
+    def test_refund():
+        assert refund(order) == 0
+  detection: |
+    Detectar @xfail/@expectedFailure sin reason+fecha/ticket o sin strict=True
+    (xpass silencioso).
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-036
   title: Skip permanente
   symptom: No corre
@@ -506,6 +648,21 @@ items:
     unless annotated with removal criteria or reasons.
   validating_mechanism: audit_d9_test_purity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    @pytest.mark.skip   # saltado permanentemente, sin condicion ni motivo
+    def test_payment():
+        ...
+  example_good: |
+    @pytest.mark.skipif(no_sandbox(), reason="requiere sandbox de pagos, BUG-77")
+    def test_payment():
+        ...
+  detection: |
+    Detectar @skip incondicional sin reason ni fecha de expiracion; preferir skipif con
+    condicion verificable.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-037
   title: Condición imposible
   symptom: Rama de test nunca entra
@@ -559,6 +716,23 @@ items:
     blocks or silent pass/continue statements.
   validating_mechanism: audit_d5_angry_path
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    def test_parse():
+        try:
+            parse(bad_input)
+        except Exception:
+            pass   # absorbe el fallo: el test nunca falla
+  example_good: |
+    def test_parse():
+        with pytest.raises(ValueError):
+            parse(bad_input)   # afirma la excepcion esperada
+  detection: |
+    AST: bloques try/except con cuerpo 'pass' dentro de funciones test_*, que ocultan
+    cualquier excepcion.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-041
   title: Error output ignorado
   symptom: Señal no observada
@@ -650,6 +824,22 @@ items:
   action: 'Volumen real: test ejercita 1000+ sesiones (lo opuesto al dataset pequeño).'
   validating_mechanism: test_compress_1000_sessions_returns_structured_dict
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # 'Evaluacion' sobre un unico ejemplo: ruido estadistico, no senal.
+    def test_model():
+        assert model.predict([sample]) == [1]
+  example_good: |
+    # Conjunto representativo + umbral de metrica acordado.
+    def test_model_accuracy():
+        acc = evaluate(model, validation_set)   # N>=200 ejemplos
+        assert acc >= 0.85
+  detection: |
+    Tests de modelo/heuristica que afirman sobre 1-2 muestras fijas en lugar de una
+    metrica agregada sobre un dataset.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-048
   title: No vacío/nulo/cero
   symptom: Casos comunes faltan
@@ -690,6 +880,19 @@ items:
     ValueError.'
   validating_mechanism: test_non_leap_year_feb29_raises
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    @pytest.mark.skip("arreglar luego")   # sin fecha limite: eterno
+    def test_export(): ...
+  example_good: |
+    # Todo skip lleva expiracion; un check de CI falla si la fecha vencio.
+    @pytest.mark.skip("BUG-55, expira 2026-07-01")
+    def test_export(): ...
+  detection: |
+    Linter de tests: skip/xfail sin fecha de expiracion parseable, o con fecha ya vencida.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-051
   title: CI informativo
   symptom: Fallos no bloquean
@@ -717,6 +920,19 @@ items:
     blocks or silent pass/continue statements.
   validating_mechanism: audit_d5_angry_path
   downstream_verification: none
+  example_lang: yaml
+  example_bad: |
+    # CI configurado para ignorar errores: el rojo se vuelve verde artificialmente.
+    - run: pytest
+      continue-on-error: true
+  example_good: |
+    - run: pytest          # un fallo de tests detiene el pipeline
+  detection: |
+    Buscar 'continue-on-error: true', '|| true', o '--exitfirst' invertido en pasos de
+    test del CI que enmascaran fallos.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-053
   title: Tests fuera de rama activa
   symptom: Nunca protegen
@@ -783,6 +999,20 @@ items:
     unless annotated with removal criteria or reasons.
   validating_mechanism: audit_d9_test_purity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    @pytest.mark.skip("skip luego, lo vemos despues")   # 'despues' nunca llega
+    def test_webhook(): ...
+  example_good: |
+    # Si no se puede correr ahora, se convierte en backlog con ticket, no en skip mudo.
+    @pytest.mark.skipif(not WEBHOOK_URL, reason="set WEBHOOK_URL; track en BUG-91")
+    def test_webhook(): ...
+  detection: |
+    Detectar reasons de skip con lenguaje aplazante ('luego','despues','TODO') sin
+    ticket asociado.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-058
   title: Feature flag divergente
   symptom: Test distinto a producción
@@ -901,6 +1131,22 @@ items:
     dynamically, verified in test_infrastructure.py.
   validating_mechanism: test_infrastructure_checks
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Test que ejercita codigo ya eliminado: pasa por mock, no prueba nada real.
+    def test_old_engine():
+        eng = Mock(spec=OldEngine)   # OldEngine ya no existe en src/
+        assert eng.run() is not None
+  example_good: |
+    # Sin codigo de produccion correspondiente, el test se borra (o se reescribe sobre el nuevo).
+    def test_engine_runs():
+        assert Engine().run().status == "ok"
+  detection: |
+    Detectar tests cuyo simbolo bajo prueba (import/Mock spec) ya no existe en el arbol
+    de produccion = test huerfano.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-067
   title: Falso negativo por docstring
   symptom: Wrapper no detectado
@@ -954,6 +1200,24 @@ items:
     of Python, git hooks, write access, encoding, and the project registry.
   validating_mechanism: test_setup_validation
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Asume que el fixture cargo bien; si esta vacio, el test 'pasa' sin probar nada.
+    def test_rows():
+        rows = load_fixture("data.csv")
+        for r in rows:                 # si rows == [] el bucle no corre
+            assert r.valid
+  example_good: |
+    def test_rows():
+        rows = load_fixture("data.csv")
+        assert len(rows) == 3          # valida el setup antes de iterar
+        assert all(r.valid for r in rows)
+  detection: |
+    Bucles 'for ... assert' dentro de tests sin una asercion previa de no-vacuidad del
+    conjunto iterado (assert len > 0).
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-071
   title: Handoff no reanudable
   symptom: Otro actor no puede continuar
@@ -1086,6 +1350,20 @@ items:
     path bootstrapping.
   validating_mechanism: audit_d9_test_purity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Afirma sobre el id/orden fisico de memoria, no sobre el contenido.
+    def test_cache():
+        assert id(cache.get("k")) == 140234567   # fragil y sin sentido
+  example_good: |
+    def test_cache():
+        assert cache.get("k") == expected_value
+  detection: |
+    Asserts sobre id(), direcciones de memoria, hash() no determinista u orden de
+    iteracion no garantizado.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-081
   title: Autor prueba su implementación
   symptom: Confirma su modelo
@@ -1165,6 +1443,20 @@ items:
     unless annotated with removal criteria or reasons.
   validating_mechanism: audit_d9_test_purity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # El fallo se 'normaliza' como esperado para que el suite quede verde.
+    EXPECTED_FAILURES = {"test_refund", "test_tax"}   # lista que solo crece
+  example_good: |
+    # Cada fallo se arregla o se trackea individualmente con causa y fecha; sin lista global.
+    @pytest.mark.xfail(reason="BUG-200", strict=True)
+    def test_refund(): ...
+  detection: |
+    Detectar listas/allowlists globales de 'fallos esperados' que crecen monotonamente
+    sin expiracion por entrada.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-087
   title: Warning tolerado
   symptom: Suite verde con advertencias
@@ -1192,6 +1484,21 @@ items:
     blocks or silent pass/continue statements.
   validating_mechanism: audit_d5_angry_path
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # El test tolera errores: cualquier resultado pasa.
+    def test_sync():
+        result = sync()
+        assert result is not None or result is None   # siempre cierto
+  example_good: |
+    def test_sync():
+        assert sync().synced_count == 10
+  detection: |
+    AST: asserts cuya condicion es una tautologia logica (X or not X) o que aceptan
+    cualquier valor del SUT.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-089
   title: Wrapper de conveniencia
   symptom: Adaptador oculta fallo real
@@ -1219,6 +1526,20 @@ items:
     using AST analysis of function bodies to reject empty stubs or stub docstrings.
   validating_mechanism: audit_d2_completeness
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Se testea el valor placeholder en vez del comportamiento real.
+    def get_price(): return 0.0   # placeholder
+    def test_price(): assert get_price() == 0.0
+  example_good: |
+    def get_price(): return catalog.lookup(sku).price
+    def test_price(): assert get_price() == 19.99
+  detection: |
+    Tests que afirman exactamente valores placeholder conocidos (0, '', 'TODO', None)
+    devueltos por implementaciones no terminadas.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-091
   title: Dominio documentado no implementado
   symptom: Regla existe, no corre
@@ -1416,6 +1737,21 @@ items:
     ensuring hooks are physically present and active.
   validating_mechanism: test_pre_commit_hook_exists_and_executable
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Hay hooks de git/CI criticos pero ningun test verifica que existan/corran.
+    # (sin test) -> alguien borra .pre-commit-config y nadie se entera
+  example_good: |
+    def test_precommit_hooks_present():
+        cfg = Path(".pre-commit-config.yaml")
+        assert cfg.exists()
+        assert "validate_golden_standard_catalogs" in cfg.read_text()
+  detection: |
+    Ausencia de un test que afirme la existencia y configuracion de hooks de
+    verificacion declarados como parte del contrato del repo.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-106
   title: Exclusión no revalidada
   symptom: Lista de ignorados no tiene test que verifique que cada exclusión sigue
@@ -1433,6 +1769,21 @@ items:
     of Python, git hooks, write access, encoding, and the project registry.
   validating_mechanism: test_setup_validation
   downstream_verification: none
+  example_lang: ini
+  example_bad: |
+    # Exclusion de cobertura que nadie revalida: oculta codigo sin testear para siempre.
+    [coverage:run]
+    omit = src/payments/*   # anadido 'temporalmente' hace 8 meses
+  example_good: |
+    # Cada exclusion lleva motivo y se revisa; payments SI debe estar cubierto.
+    [coverage:run]
+    omit = src/generated/*  # solo codigo autogenerado, justificado
+  detection: |
+    Auditar entradas 'omit'/'exclude_lines' de cobertura sin justificacion ni fecha de
+    revision; especialmente sobre codigo de dominio.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-107
   title: Stack incompleto silencioso
   symptom: Protocolo falla parcialmente sin reportar qué dependencia falta
@@ -1448,6 +1799,25 @@ items:
     of Python, git hooks, write access, encoding, and the project registry.
   validating_mechanism: test_setup_validation
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Se traga parte del stack: el test pasa aunque una etapa fallo en silencio.
+    def test_flow():
+        try:
+            a(); b(); c()
+        except StepError:
+            pass            # 'c' pudo no ejecutarse y nadie lo sabe
+  example_good: |
+    def test_flow():
+        assert a().ok
+        assert b().ok
+        assert c().ok       # cada etapa verificada, sin captura muda
+  detection: |
+    try/except que abarca multiples pasos y absorbe errores intermedios sin reafirmar
+    que cada paso se completo.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-108
   title: Nombre desconectado del dominio
   symptom: Componente nombrado con un número o descriptor que no refleja su implementación
@@ -1482,6 +1852,23 @@ items:
     shell pipelines returning native exit codes.
   validating_mechanism: test_infrastructure_checks
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Teatro de frameworks: capas de mocks que prueban el mock, no el sistema.
+    def test_service():
+        svc = Mock()
+        svc.process.return_value = "ok"
+        assert svc.process() == "ok"   # se afirma sobre el mock mismo
+  example_good: |
+    def test_service():
+        svc = RealService(repo=InMemoryRepo())
+        assert svc.process(order).state == "ok"   # sistema real
+  detection: |
+    Detectar tests donde el objeto afirmado es un Mock configurado en el propio test
+    (assert sobre return_value preprogramado).
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
 - id: VT-110
   title: Fragmentación de Directorios Ocultos (Dot-Directory Fragmentation)
   symptom: Dispersión de metadatos de gobernanza, seguridad, backups o estados en
@@ -1584,3 +1971,19 @@ items:
     of Python, git hooks, write access, encoding, and the project registry.
   validating_mechanism: test_setup_validation
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Falso positivo de 'drift': compara bytes crudos y el CRLF/LF dispara diferencia.
+    def test_no_drift():
+        assert open("a.txt","rb").read() == open("b.txt","rb").read()
+  example_good: |
+    # Normalizar fin de linea antes de comparar contenido logico.
+    def test_no_drift():
+        norm = lambda p: open(p, encoding="utf-8").read().replace("\r\n", "\n")
+        assert norm("a.txt") == norm("b.txt")
+  detection: |
+    Comparaciones de archivos byte-a-byte que no normalizan EOL (CRLF vs LF) y producen
+    falsos drift en entornos Windows/Unix mixtos.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."

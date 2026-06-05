@@ -47,6 +47,24 @@ items:
     forzando prueba empírica.'
   validating_mechanism: test_B7_evidence_files_are_valid_json
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Se declara exito sin ninguna evidencia observable.
+    def deploy():
+        do_release()
+        print("Deploy OK")  # afirmacion, no verificacion
+  example_good: |
+    # El veredicto exige evidencia: el flujo falla si no hay prueba.
+    def deploy():
+        result = do_release()
+        assert result.health_check().ok, "deploy sin health-check verde"
+        write_evidence(".protocol/evidence/deploy.json", result.metrics())
+  detection: |
+    Marcar como vicio toda ruta que emita 'OK'/'exito'/'done' sin un assert sobre estado
+    observable ni artefacto de evidencia generado en la misma ejecucion.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-004
   title: Demo como calidad
   symptom: Algo funciona superficialmente
@@ -270,6 +288,25 @@ items:
     forzando prueba empírica.'
   validating_mechanism: test_B7_evidence_files_are_valid_json
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # 'Ya quedo arreglado' afirmado en el chat sin correr nada.
+    # El codigo se entrega con un comentario triunfalista en vez de una prueba.
+    def parse(x):
+        return int(x)  # "fix: ahora maneja todos los casos"
+  example_good: |
+    # El arreglo se respalda con un test que ejercita el caso reclamado.
+    def parse(x):
+        return int(x.strip())
+
+    def test_parse_trims():
+        assert parse("  42 ") == 42  # evidencia, no narrativa
+  detection: |
+    Heuristica de revision: rechazar PRs cuyo unico soporte de 'funciona' sea prosa
+    (comentarios/commit message) sin test nuevo que cubra el caso afirmado.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-018
   title: Fix ciego
   symptom: Se parchea error copiado
@@ -981,6 +1018,25 @@ items:
     divergió entre sesiones).'
   validating_mechanism: test_F6_sync_binding_no_protocol_drift
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Dos sesiones/agentes escriben el mismo estado sin coordinacion.
+    # La ultima escritura gana y se pierde el trabajo de la otra (lost update).
+    state = load_state()
+    state["x"] = compute()
+    save_state(state)  # sin verificar version: pisa cambios concurrentes
+  example_good: |
+    # Optimistic locking: la escritura falla si la version cambio entre medias.
+    state = load_state()
+    base_version = state["version"]
+    state["x"] = compute()
+    save_state_if_unchanged(state, expected_version=base_version)
+  detection: |
+    Detectar lectura->modificacion->escritura sobre un estado compartido sin token de
+    version, lock, o CAS (compare-and-swap) intermedio.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-063
   title: Documentación mentirosa
   symptom: Estado declarado no coincide con sistema
@@ -1739,6 +1795,21 @@ items:
     regex discriminante.
   validating_mechanism: test_vc109_absolute_path_in_scripts
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Ruta absoluta de la maquina del agente: rompe en cualquier otro entorno.
+    LOG = open("C:/Users/Luis/AI/project/out.log", "w")
+  example_good: |
+    # Ruta derivada de configuracion/entorno y relativa a la raiz del proyecto.
+    from pathlib import Path
+    import os
+    LOG = open(Path(os.environ.get("PROJECT_ROOT", ".")) / "out.log", "w")
+  detection: |
+    Regex/AST: literales de ruta que contengan 'C:\\', '/Users/', '/home/' o
+    separadores de unidad de Windows en codigo de aplicacion.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-110
   title: Cuota como sorpresa
   symptom: Operación falla por límites externos
@@ -1839,6 +1910,25 @@ items:
     in rules_engine.py to prevent remote code execution.
   validating_mechanism: test_rule_security_rejects_arbitrary_check
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Evaluacion dinamica de una expresion de origen externo: RCE.
+    rule = request.args["expr"]
+    if eval(rule):          # entrada controlada por el atacante
+        grant_access()
+  example_good: |
+    # Parseo explicito y acotado; nunca eval sobre entrada externa.
+    import ast
+    rule = request.args["expr"]
+    value = ast.literal_eval(rule)   # solo literales, sin ejecucion
+    if validate_rule(value):
+        grant_access()
+  detection: |
+    AST: llamadas a eval()/exec()/compile() cuyo argumento proviene (por flujo de datos)
+    de entrada externa (request, archivo, red, argv).
+  evidence:
+  - source: "OWASP Top 10 for Agents 2026"
+    claim: "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
 - id: VC-116
   title: Instalación automática de dependencias no verificadas
   symptom: Un `ImportError` desencadena `pip install` sin revisión humana
@@ -1854,6 +1944,22 @@ items:
     manual package guidance.
   validating_mechanism: test_import_error_guard_does_not_pip_install
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Instalacion de dependencias en runtime, sin fijar ni verificar.
+    import os
+    os.system("pip install some-pkg")   # version arbitraria, codigo sin auditar
+    import some_pkg
+  example_good: |
+    # Dependencia declarada y fijada en el manifiesto; cero instalacion en runtime.
+    # pyproject.toml: dependencies = ["some-pkg==1.4.2"]
+    import some_pkg
+  detection: |
+    Detectar invocaciones a pip/npm/installer dentro del codigo de la aplicacion
+    (os.system, subprocess) en vez del manifiesto de dependencias.
+  evidence:
+  - source: "OWASP Top 10 for Agents 2026"
+    claim: "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
 - id: VC-117
   title: Escritura destructiva no atómica de estado crítico
   symptom: Un crash o kill durante `write_text()` deja el archivo de estado (JSON,
@@ -1871,6 +1977,24 @@ items:
     + fsync), wired into update_lock_state and ProtocolSyncManager._save_state.
   validating_mechanism: test_critical_state_write_is_atomic
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Escritura no atomica: si el proceso muere a mitad, el archivo critico se corrompe.
+    with open("state.json", "w") as f:
+        json.dump(big_state, f)   # truncado y sin reemplazo atomico
+  example_good: |
+    # Escribe a temporal y reemplaza atomicamente (os.replace es atomico en el mismo FS).
+    import os, tempfile, json
+    fd, tmp = tempfile.mkstemp(dir=".")
+    with os.fdopen(fd, "w") as f:
+        json.dump(big_state, f)
+    os.replace(tmp, "state.json")
+  detection: |
+    Detectar open(path,'w')/truncado directo sobre archivos de estado critico sin patron
+    write-temp + os.replace/rename atomico.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-118
   title: Teatro de Compatibilidad Zombie
   symptom: 'Se ordena reemplazar X por Y. El agente crea: herencia de X en Y, shim
@@ -1892,6 +2016,22 @@ items:
     compatibility shim patterns.
   validating_mechanism: audit_d1_integrity
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # Shim de compatibilidad muerto: nadie lo usa pero sigue 'por si acaso'.
+    def legacy_api(*a, **k):
+        return new_api(*a, **k)   # zombie: solo reenvia, jamas se llama
+  example_good: |
+    # Se elimina el shim y se migran los pocos llamadores reales (si los hay).
+    # grep confirma 0 referencias activas -> borrar, no conservar.
+    def new_api(...):
+        ...
+  detection: |
+    grep de referencias: funciones/modulos marcados 'legacy'/'compat'/'deprecated' con
+    0 llamadores activos en el arbol = candidatos zombie a eliminar.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-119
   title: Pánico de Bloqueo y Parcheo Sintáctico Rápido (Lock Panic Shortcut)
   symptom: Ante un fallo inesperado de compilación o de importación en el inicio,
@@ -1991,6 +2131,21 @@ items:
     + repo-guard de ruta activa.
   validating_mechanism: test_vc122_no_pip_install_in_scripts
   downstream_verification: none
+  example_lang: bash
+  example_bad: |
+    # Ejecuta un script remoto sin fijar ni verificar: el proveedor puede inyectar codigo.
+    curl -s https://example.com/install.sh | bash
+  example_good: |
+    # Descarga, fija por hash y verifica antes de ejecutar.
+    curl -sSfL https://example.com/install.sh -o install.sh
+    echo "<sha256-conocido>  install.sh" | sha256sum -c -
+    bash install.sh
+  detection: |
+    Detectar patrones 'curl|bash', postinstall scripts no fijados, o ejecucion de
+    binarios descargados sin verificacion de hash/firma.
+  evidence:
+  - source: "OWASP Top 10 for Agents 2026"
+    claim: "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
 - id: VC-123
   title: Staging Indiscriminado de Directorios No Trackeados (Unfiltered Git Staging)
   symptom: Comandos de sincronización git automatizados tardan indefinidamente, bloquean
@@ -2012,6 +2167,21 @@ items:
     (juicio de intención humano).
   validating_mechanism: test_vc123_no_git_add_all_in_scripts
   downstream_verification: none
+  example_lang: bash
+  example_bad: |
+    # Staging indiscriminado: arrastra secretos, artefactos y basura no trackeada.
+    git add .
+    git commit -m "wip"
+  example_good: |
+    # Staging explicito de lo que cambio a proposito; .gitignore cubre el resto.
+    git add src/feature.py tests/test_feature.py
+    git commit -m "feat: add feature with tests"
+  detection: |
+    Hook pre-commit: alertar ante 'git add .'/'git add -A' o staging de archivos que
+    coincidan con patrones de secreto/artefacto no listados explicitamente.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-124
   title: Deprecación Precipitada sin Análisis (Hasty Deprecation)
   symptom: Un agente mueve un archivo a deprecated/ sin leerlo, sin buscar referencias
@@ -2033,6 +2203,22 @@ items:
     D1 del auditor 12D verifica cobertura del log.
   validating_mechanism: check_deprecation_log.py + pre_edit_guard S24 + D1 audit
   downstream_verification: none
+  example_lang: bash
+  example_bad: |
+    # Mueve a deprecated/ sin leer, sin buscar referencias, sin justificar.
+    git mv module.py deprecated/module.py
+  example_good: |
+    # Proceso auditado antes de deprecar.
+    grep -rn "import module" src/        # 1) referencias activas?
+    # 2) leer el archivo  3) verificar duplicidad  4) registrar la decision:
+    echo "module.py: sin refs, cubierto por core.py - 2026-06-05" >> DEPRECATION_LOG.md
+    git mv module.py deprecated/module.py
+  detection: |
+    Pre-edit guard: rechazar escrituras/moves hacia deprecated/ sin una entrada previa
+    correspondiente en DEPRECATION_LOG.md.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-125
   title: Retrospectiva no externalizada
   symptom: El aprendizaje de la sesión se pierde al cerrar contexto o compactar, y
@@ -2052,6 +2238,23 @@ items:
     COMPACT/CLEAR; si no hay exportación estructurada, el cierre queda incompleto.
   validating_mechanism: generate_golden_audit.py + wiki coverage + retrospective export
   downstream_verification: none
+  example_lang: python
+  example_bad: |
+    # El aprendizaje de la sesion vive solo en el chat: se pierde al compactar.
+    # (sin artefacto) "ya entendimos que el bug era el lock; la proxima sesion no lo sabra"
+  example_good: |
+    # Antes de cerrar, exportar la retrospectiva a un ledger estable del repo.
+    append_retro("Wiki/Project_Insights/", {
+        "decision": "serializar acceso al lock X",
+        "evidence": ".protocol/evidence/race.json",
+        "todo": "anadir test de concurrencia",
+    })
+  detection: |
+    Cierre de sesion incompleto si hubo trabajo real y no se genero/actualizo un
+    artefacto persistente (insight, entrada de catalogo o retro) con decisiones y pendientes.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-126
   title: Sugerencia post-ejecución que reabre alcance
   symptom: Después de ejecutar una instrucción completa, aparecen nuevas sugerencias

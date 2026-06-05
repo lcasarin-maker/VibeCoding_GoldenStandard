@@ -1027,11 +1027,16 @@
     "action": "Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function bodies to reject empty stubs or stub docstrings.",
     "validating_mechanism": "audit_d2_completeness",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# La funcion devuelve una constante para 'pasar' el test; no implementa nada.\ndef total(cart):\n    return 42          # hardcoded para que el test verde\n\ndef test_total():\n    assert total(demo_cart) == 42\n",
+    "example_good": "# El test fija el resultado esperado real; la funcion debe calcularlo.\ndef total(cart):\n    return sum(i.price for i in cart.items)\n\ndef test_total():\n    assert total(Cart([Item(10), Item(32)])) == 42\n",
+    "example_lang": "python",
+    "detection": "AST: funcion bajo prueba cuyo cuerpo es un unico return de literal constante, con un\ntest que afirma exactamente ese literal.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-002": {
     "id": "VT-002",
@@ -1049,11 +1054,16 @@
     "action": "Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function bodies to reject empty stubs or stub docstrings.",
     "validating_mechanism": "audit_d2_completeness",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Stub permanente enviado a produccion como si estuviera implementado.\ndef charge(amount):\n    pass   # TODO: implementar (lleva 6 meses)\n",
+    "example_good": "# Implementacion real; si no esta lista, falla ruidosamente, no en silencio.\ndef charge(amount):\n    raise NotImplementedError(\"charge() pendiente - no usar en prod\")\n",
+    "example_lang": "python",
+    "detection": "AST: funciones con cuerpo unicamente 'pass'/'...'/docstring (stub) que no estan\nmarcadas como abstractas ni lanzan NotImplementedError.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-003": {
     "id": "VT-003",
@@ -1115,11 +1125,16 @@
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
     "validating_mechanism": "audit_d9_test_purity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "def test_login():\n    user = login(\"a\", \"b\")\n    assert True    # assert trivial: pasa siempre, no verifica el login\n",
+    "example_good": "def test_login():\n    user = login(\"a\", \"b\")\n    assert user.is_authenticated and user.name == \"a\"\n",
+    "example_lang": "python",
+    "detection": "AST TestTheaterVisitor: presencia de 'assert True' / 'assertTrue(True)' como unica\nasercion del test.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-006": {
     "id": "VT-006",
@@ -1208,11 +1223,16 @@
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
     "validating_mechanism": "audit_d9_test_purity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "def test_norm():\n    x = normalize(payload)\n    assert x == x   # tautologia: cierto para cualquier valor\n",
+    "example_good": "def test_norm():\n    assert normalize({\"A\": 1}) == {\"a\": 1}   # oraculo independiente del SUT\n",
+    "example_lang": "python",
+    "detection": "AST: asserts cuyos dos operandos son la misma expresion (assertEqual(x, x),\nassert x == x).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-010": {
     "id": "VT-010",
@@ -1274,11 +1294,16 @@
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
     "validating_mechanism": "audit_d9_test_purity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Llama a todo para subir coverage, pero no afirma nada.\ndef test_pipeline():\n    run_stage_a(); run_stage_b(); run_stage_c()   # 100% lineas, 0% verificacion\n",
+    "example_good": "def test_pipeline():\n    out = run_stage_c(run_stage_b(run_stage_a(seed)))\n    assert out.status == \"done\" and out.rows == 3\n",
+    "example_lang": "python",
+    "detection": "Cruzar cobertura con densidad de asserts: archivos con alta cobertura y tests sin\nasserts activos = cobertura inflada.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-013": {
     "id": "VT-013",
@@ -1296,11 +1321,16 @@
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
     "validating_mechanism": "audit_d9_test_purity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Tests vacios creados solo para alcanzar el umbral de % de cobertura.\ndef test_a(): import mod          # 'cubre' el import\ndef test_b(): mod.helper()        # llama sin verificar\n",
+    "example_good": "# La meta es comportamiento verificado, no el numero de cobertura.\ndef test_helper_doubles():\n    assert mod.helper(2) == 4\n",
+    "example_lang": "python",
+    "detection": "Detectar tests cuyo proposito declarado/commit es 'subir coverage' y cuyo cuerpo\ncarece de asserts sobre resultados.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-014": {
     "id": "VT-014",
@@ -1362,11 +1392,16 @@
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
     "validating_mechanism": "audit_d9_test_purity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Asercion textual debil: pasa con casi cualquier salida.\ndef test_report():\n    r = build_report()\n    assert \"ok\" in str(r).lower()   # teatral\n",
+    "example_good": "def test_report():\n    r = build_report()\n    assert r.total == 100 and r.errors == []\n",
+    "example_lang": "python",
+    "detection": "Marcar asserts que solo comprueban subcadenas vagas ('ok','success','done') sobre\nstr(result) en vez de campos estructurados.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-017": {
     "id": "VT-017",
@@ -1494,11 +1529,16 @@
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
     "validating_mechanism": "audit_d9_test_purity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# 'Verde' garantizado: combinacion de asserts tautologicos.\ndef test_calc():\n    assert 1 == 1\n    assert isinstance(calc(2), int)   # no fija el valor\n",
+    "example_good": "def test_calc():\n    assert calc(2) == 4\n",
+    "example_lang": "python",
+    "detection": "AST: tests cuyos asserts son todos tautologicos o de tipo (isinstance) sin fijar\nningun valor esperado concreto.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-023": {
     "id": "VT-023",
@@ -1780,11 +1820,16 @@
     "action": "Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or reasons.",
     "validating_mechanism": "audit_d9_test_purity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "@pytest.mark.xfail   # marcado como fallo esperado... para siempre\ndef test_refund():\n    assert refund(order) == 0\n",
+    "example_good": "# Si el bug se arreglo, el xfail debe caer; si sigue, lleva fecha y ticket.\n@pytest.mark.xfail(reason=\"BUG-123, revisar 2026-07\", strict=True)\ndef test_refund():\n    assert refund(order) == 0\n",
+    "example_lang": "python",
+    "detection": "Detectar @xfail/@expectedFailure sin reason+fecha/ticket o sin strict=True\n(xpass silencioso).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-036": {
     "id": "VT-036",
@@ -1802,11 +1847,16 @@
     "action": "Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or reasons.",
     "validating_mechanism": "audit_d9_test_purity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "@pytest.mark.skip   # saltado permanentemente, sin condicion ni motivo\ndef test_payment():\n    ...\n",
+    "example_good": "@pytest.mark.skipif(no_sandbox(), reason=\"requiere sandbox de pagos, BUG-77\")\ndef test_payment():\n    ...\n",
+    "example_lang": "python",
+    "detection": "Detectar @skip incondicional sin reason ni fecha de expiracion; preferir skipif con\ncondicion verificable.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-037": {
     "id": "VT-037",
@@ -1890,11 +1940,16 @@
     "action": "Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements.",
     "validating_mechanism": "audit_d5_angry_path",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "def test_parse():\n    try:\n        parse(bad_input)\n    except Exception:\n        pass   # absorbe el fallo: el test nunca falla\n",
+    "example_good": "def test_parse():\n    with pytest.raises(ValueError):\n        parse(bad_input)   # afirma la excepcion esperada\n",
+    "example_lang": "python",
+    "detection": "AST: bloques try/except con cuerpo 'pass' dentro de funciones test_*, que ocultan\ncualquier excepcion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-041": {
     "id": "VT-041",
@@ -2044,11 +2099,16 @@
     "action": "Volumen real: test ejercita 1000+ sesiones (lo opuesto al dataset pequeño).",
     "validating_mechanism": "test_compress_1000_sessions_returns_structured_dict",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# 'Evaluacion' sobre un unico ejemplo: ruido estadistico, no senal.\ndef test_model():\n    assert model.predict([sample]) == [1]\n",
+    "example_good": "# Conjunto representativo + umbral de metrica acordado.\ndef test_model_accuracy():\n    acc = evaluate(model, validation_set)   # N>=200 ejemplos\n    assert acc >= 0.85\n",
+    "example_lang": "python",
+    "detection": "Tests de modelo/heuristica que afirman sobre 1-2 muestras fijas en lugar de una\nmetrica agregada sobre un dataset.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-048": {
     "id": "VT-048",
@@ -2110,11 +2170,16 @@
     "action": "Boundary de calendario real: asserta que 29-feb en año no bisiesto lanza ValueError.",
     "validating_mechanism": "test_non_leap_year_feb29_raises",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "@pytest.mark.skip(\"arreglar luego\")   # sin fecha limite: eterno\ndef test_export(): ...\n",
+    "example_good": "# Todo skip lleva expiracion; un check de CI falla si la fecha vencio.\n@pytest.mark.skip(\"BUG-55, expira 2026-07-01\")\ndef test_export(): ...\n",
+    "example_lang": "python",
+    "detection": "Linter de tests: skip/xfail sin fecha de expiracion parseable, o con fecha ya vencida.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-051": {
     "id": "VT-051",
@@ -2154,11 +2219,16 @@
     "action": "Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements.",
     "validating_mechanism": "audit_d5_angry_path",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# CI configurado para ignorar errores: el rojo se vuelve verde artificialmente.\n- run: pytest\n  continue-on-error: true\n",
+    "example_good": "- run: pytest          # un fallo de tests detiene el pipeline\n",
+    "example_lang": "yaml",
+    "detection": "Buscar 'continue-on-error: true', '|| true', o '--exitfirst' invertido en pasos de\ntest del CI que enmascaran fallos.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-053": {
     "id": "VT-053",
@@ -2264,11 +2334,16 @@
     "action": "Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or reasons.",
     "validating_mechanism": "audit_d9_test_purity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "@pytest.mark.skip(\"skip luego, lo vemos despues\")   # 'despues' nunca llega\ndef test_webhook(): ...\n",
+    "example_good": "# Si no se puede correr ahora, se convierte en backlog con ticket, no en skip mudo.\n@pytest.mark.skipif(not WEBHOOK_URL, reason=\"set WEBHOOK_URL; track en BUG-91\")\ndef test_webhook(): ...\n",
+    "example_lang": "python",
+    "detection": "Detectar reasons de skip con lenguaje aplazante ('luego','despues','TODO') sin\nticket asociado.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-058": {
     "id": "VT-058",
@@ -2462,11 +2537,16 @@
     "action": "Discovery gaps prevented by run_compliance_tests executing full pytest tests/ dynamically, verified in test_infrastructure.py.",
     "validating_mechanism": "test_infrastructure_checks",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Test que ejercita codigo ya eliminado: pasa por mock, no prueba nada real.\ndef test_old_engine():\n    eng = Mock(spec=OldEngine)   # OldEngine ya no existe en src/\n    assert eng.run() is not None\n",
+    "example_good": "# Sin codigo de produccion correspondiente, el test se borra (o se reescribe sobre el nuevo).\ndef test_engine_runs():\n    assert Engine().run().status == \"ok\"\n",
+    "example_lang": "python",
+    "detection": "Detectar tests cuyo simbolo bajo prueba (import/Mock spec) ya no existe en el arbol\nde produccion = test huerfano.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-067": {
     "id": "VT-067",
@@ -2550,11 +2630,16 @@
     "action": "Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry.",
     "validating_mechanism": "test_setup_validation",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Asume que el fixture cargo bien; si esta vacio, el test 'pasa' sin probar nada.\ndef test_rows():\n    rows = load_fixture(\"data.csv\")\n    for r in rows:                 # si rows == [] el bucle no corre\n        assert r.valid\n",
+    "example_good": "def test_rows():\n    rows = load_fixture(\"data.csv\")\n    assert len(rows) == 3          # valida el setup antes de iterar\n    assert all(r.valid for r in rows)\n",
+    "example_lang": "python",
+    "detection": "Bucles 'for ... assert' dentro de tests sin una asercion previa de no-vacuidad del\nconjunto iterado (assert len > 0).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-071": {
     "id": "VT-071",
@@ -2770,11 +2855,16 @@
     "action": "Enforced by D9 absolute path scanners. In code, resolved via dynamic str(Path(__file__).resolve().parent.parent) path bootstrapping.",
     "validating_mechanism": "audit_d9_test_purity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Afirma sobre el id/orden fisico de memoria, no sobre el contenido.\ndef test_cache():\n    assert id(cache.get(\"k\")) == 140234567   # fragil y sin sentido\n",
+    "example_good": "def test_cache():\n    assert cache.get(\"k\") == expected_value\n",
+    "example_lang": "python",
+    "detection": "Asserts sobre id(), direcciones de memoria, hash() no determinista u orden de\niteracion no garantizado.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-081": {
     "id": "VT-081",
@@ -2902,11 +2992,16 @@
     "action": "Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or reasons.",
     "validating_mechanism": "audit_d9_test_purity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# El fallo se 'normaliza' como esperado para que el suite quede verde.\nEXPECTED_FAILURES = {\"test_refund\", \"test_tax\"}   # lista que solo crece\n",
+    "example_good": "# Cada fallo se arregla o se trackea individualmente con causa y fecha; sin lista global.\n@pytest.mark.xfail(reason=\"BUG-200\", strict=True)\ndef test_refund(): ...\n",
+    "example_lang": "python",
+    "detection": "Detectar listas/allowlists globales de 'fallos esperados' que crecen monotonamente\nsin expiracion por entrada.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-087": {
     "id": "VT-087",
@@ -2946,11 +3041,16 @@
     "action": "Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements.",
     "validating_mechanism": "audit_d5_angry_path",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# El test tolera errores: cualquier resultado pasa.\ndef test_sync():\n    result = sync()\n    assert result is not None or result is None   # siempre cierto\n",
+    "example_good": "def test_sync():\n    assert sync().synced_count == 10\n",
+    "example_lang": "python",
+    "detection": "AST: asserts cuya condicion es una tautologia logica (X or not X) o que aceptan\ncualquier valor del SUT.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-089": {
     "id": "VT-089",
@@ -2990,11 +3090,16 @@
     "action": "Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function bodies to reject empty stubs or stub docstrings.",
     "validating_mechanism": "audit_d2_completeness",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Se testea el valor placeholder en vez del comportamiento real.\ndef get_price(): return 0.0   # placeholder\ndef test_price(): assert get_price() == 0.0\n",
+    "example_good": "def get_price(): return catalog.lookup(sku).price\ndef test_price(): assert get_price() == 19.99\n",
+    "example_lang": "python",
+    "detection": "Tests que afirman exactamente valores placeholder conocidos (0, '', 'TODO', None)\ndevueltos por implementaciones no terminadas.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-091": {
     "id": "VT-091",
@@ -3320,11 +3425,16 @@
     "action": "Validated by tests/test_infrastructure.py:test_pre_commit_hook_exists_and_executable, ensuring hooks are physically present and active.",
     "validating_mechanism": "test_pre_commit_hook_exists_and_executable",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Hay hooks de git/CI criticos pero ningun test verifica que existan/corran.\n# (sin test) -> alguien borra .pre-commit-config y nadie se entera\n",
+    "example_good": "def test_precommit_hooks_present():\n    cfg = Path(\".pre-commit-config.yaml\")\n    assert cfg.exists()\n    assert \"validate_golden_standard_catalogs\" in cfg.read_text()\n",
+    "example_lang": "python",
+    "detection": "Ausencia de un test que afirme la existencia y configuracion de hooks de\nverificacion declarados como parte del contrato del repo.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-106": {
     "id": "VT-106",
@@ -3342,11 +3452,16 @@
     "action": "Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry.",
     "validating_mechanism": "test_setup_validation",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Exclusion de cobertura que nadie revalida: oculta codigo sin testear para siempre.\n[coverage:run]\nomit = src/payments/*   # anadido 'temporalmente' hace 8 meses\n",
+    "example_good": "# Cada exclusion lleva motivo y se revisa; payments SI debe estar cubierto.\n[coverage:run]\nomit = src/generated/*  # solo codigo autogenerado, justificado\n",
+    "example_lang": "ini",
+    "detection": "Auditar entradas 'omit'/'exclude_lines' de cobertura sin justificacion ni fecha de\nrevision; especialmente sobre codigo de dominio.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-107": {
     "id": "VT-107",
@@ -3364,11 +3479,16 @@
     "action": "Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry.",
     "validating_mechanism": "test_setup_validation",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Se traga parte del stack: el test pasa aunque una etapa fallo en silencio.\ndef test_flow():\n    try:\n        a(); b(); c()\n    except StepError:\n        pass            # 'c' pudo no ejecutarse y nadie lo sabe\n",
+    "example_good": "def test_flow():\n    assert a().ok\n    assert b().ok\n    assert c().ok       # cada etapa verificada, sin captura muda\n",
+    "example_lang": "python",
+    "detection": "try/except que abarca multiples pasos y absorbe errores intermedios sin reafirmar\nque cada paso se completo.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-108": {
     "id": "VT-108",
@@ -3408,11 +3528,16 @@
     "action": "Testing Bridge Theater is bypassed; static audits and tests run as direct shell pipelines returning native exit codes.",
     "validating_mechanism": "test_infrastructure_checks",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Teatro de frameworks: capas de mocks que prueban el mock, no el sistema.\ndef test_service():\n    svc = Mock()\n    svc.process.return_value = \"ok\"\n    assert svc.process() == \"ok\"   # se afirma sobre el mock mismo\n",
+    "example_good": "def test_service():\n    svc = RealService(repo=InMemoryRepo())\n    assert svc.process(order).state == \"ok\"   # sistema real\n",
+    "example_lang": "python",
+    "detection": "Detectar tests donde el objeto afirmado es un Mock configurado en el propio test\n(assert sobre return_value preprogramado).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VT-110": {
     "id": "VT-110",
@@ -3540,11 +3665,16 @@
     "action": "Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry.",
     "validating_mechanism": "test_setup_validation",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Falso positivo de 'drift': compara bytes crudos y el CRLF/LF dispara diferencia.\ndef test_no_drift():\n    assert open(\"a.txt\",\"rb\").read() == open(\"b.txt\",\"rb\").read()\n",
+    "example_good": "# Normalizar fin de linea antes de comparar contenido logico.\ndef test_no_drift():\n    norm = lambda p: open(p, encoding=\"utf-8\").read().replace(\"\\r\\n\", \"\\n\")\n    assert norm(\"a.txt\") == norm(\"b.txt\")\n",
+    "example_lang": "python",
+    "detection": "Comparaciones de archivos byte-a-byte que no normalizan EOL (CRLF vs LF) y producen\nfalsos drift en entornos Windows/Unix mixtos.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
+      }
+    ]
   },
   "VC-001": {
     "id": "VC-001",
@@ -3606,11 +3736,16 @@
     "action": "Anti-triunfalismo: el test falla si no hay evidencia JSON en .protocol/evidence/, forzando prueba empírica.",
     "validating_mechanism": "test_B7_evidence_files_are_valid_json",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Se declara exito sin ninguna evidencia observable.\ndef deploy():\n    do_release()\n    print(\"Deploy OK\")  # afirmacion, no verificacion\n",
+    "example_good": "# El veredicto exige evidencia: el flujo falla si no hay prueba.\ndef deploy():\n    result = do_release()\n    assert result.health_check().ok, \"deploy sin health-check verde\"\n    write_evidence(\".protocol/evidence/deploy.json\", result.metrics())\n",
+    "example_lang": "python",
+    "detection": "Marcar como vicio toda ruta que emita 'OK'/'exito'/'done' sin un assert sobre estado\nobservable ni artefacto de evidencia generado en la misma ejecucion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ]
   },
   "VC-004": {
     "id": "VC-004",
@@ -3914,11 +4049,16 @@
     "action": "Anti-triunfalismo: el test falla si no hay evidencia JSON en .protocol/evidence/, forzando prueba empírica.",
     "validating_mechanism": "test_B7_evidence_files_are_valid_json",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# 'Ya quedo arreglado' afirmado en el chat sin correr nada.\n# El codigo se entrega con un comentario triunfalista en vez de una prueba.\ndef parse(x):\n    return int(x)  # \"fix: ahora maneja todos los casos\"\n",
+    "example_good": "# El arreglo se respalda con un test que ejercita el caso reclamado.\ndef parse(x):\n    return int(x.strip())\n\ndef test_parse_trims():\n    assert parse(\"  42 \") == 42  # evidencia, no narrativa\n",
+    "example_lang": "python",
+    "detection": "Heuristica de revision: rechazar PRs cuyo unico soporte de 'funciona' sea prosa\n(comentarios/commit message) sin test nuevo que cubra el caso afirmado.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ]
   },
   "VC-018": {
     "id": "VC-018",
@@ -4904,11 +5044,16 @@
     "action": "Dual-session drift: detectado por sync_binding --check (falla si el protocolo divergió entre sesiones).",
     "validating_mechanism": "test_F6_sync_binding_no_protocol_drift",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Dos sesiones/agentes escriben el mismo estado sin coordinacion.\n# La ultima escritura gana y se pierde el trabajo de la otra (lost update).\nstate = load_state()\nstate[\"x\"] = compute()\nsave_state(state)  # sin verificar version: pisa cambios concurrentes\n",
+    "example_good": "# Optimistic locking: la escritura falla si la version cambio entre medias.\nstate = load_state()\nbase_version = state[\"version\"]\nstate[\"x\"] = compute()\nsave_state_if_unchanged(state, expected_version=base_version)\n",
+    "example_lang": "python",
+    "detection": "Detectar lectura->modificacion->escritura sobre un estado compartido sin token de\nversion, lock, o CAS (compare-and-swap) intermedio.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ]
   },
   "VC-063": {
     "id": "VC-063",
@@ -5943,11 +6088,16 @@
     "action": "Rutas absolutas hardcodeadas (C:\\, /home/, /Users/) detectadas por escaneo regex discriminante.",
     "validating_mechanism": "test_vc109_absolute_path_in_scripts",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Ruta absoluta de la maquina del agente: rompe en cualquier otro entorno.\nLOG = open(\"C:/Users/Luis/AI/project/out.log\", \"w\")\n",
+    "example_good": "# Ruta derivada de configuracion/entorno y relativa a la raiz del proyecto.\nfrom pathlib import Path\nimport os\nLOG = open(Path(os.environ.get(\"PROJECT_ROOT\", \".\")) / \"out.log\", \"w\")\n",
+    "example_lang": "python",
+    "detection": "Regex/AST: literales de ruta que contengan 'C:\\\\', '/Users/', '/home/' o\nseparadores de unidad de Windows en codigo de aplicacion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ]
   },
   "VC-110": {
     "id": "VC-110",
@@ -6075,11 +6225,16 @@
     "action": "Replaced eval-based rules with a pre-registered SAFE_CHECKS dispatch table in rules_engine.py to prevent remote code execution.",
     "validating_mechanism": "test_rule_security_rejects_arbitrary_check",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Evaluacion dinamica de una expresion de origen externo: RCE.\nrule = request.args[\"expr\"]\nif eval(rule):          # entrada controlada por el atacante\n    grant_access()\n",
+    "example_good": "# Parseo explicito y acotado; nunca eval sobre entrada externa.\nimport ast\nrule = request.args[\"expr\"]\nvalue = ast.literal_eval(rule)   # solo literales, sin ejecucion\nif validate_rule(value):\n    grant_access()\n",
+    "example_lang": "python",
+    "detection": "AST: llamadas a eval()/exec()/compile() cuyo argumento proviene (por flujo de datos)\nde entrada externa (request, archivo, red, argv).\n",
+    "evidence": [
+      {
+        "source": "OWASP Top 10 for Agents 2026",
+        "claim": "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
+      }
+    ]
   },
   "VC-116": {
     "id": "VC-116",
@@ -6097,11 +6252,16 @@
     "action": "Disabled automatic subprocess pip installs in repair_failing_tests.py, forcing manual package guidance.",
     "validating_mechanism": "test_import_error_guard_does_not_pip_install",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Instalacion de dependencias en runtime, sin fijar ni verificar.\nimport os\nos.system(\"pip install some-pkg\")   # version arbitraria, codigo sin auditar\nimport some_pkg\n",
+    "example_good": "# Dependencia declarada y fijada en el manifiesto; cero instalacion en runtime.\n# pyproject.toml: dependencies = [\"some-pkg==1.4.2\"]\nimport some_pkg\n",
+    "example_lang": "python",
+    "detection": "Detectar invocaciones a pip/npm/installer dentro del codigo de la aplicacion\n(os.system, subprocess) en vez del manifiesto de dependencias.\n",
+    "evidence": [
+      {
+        "source": "OWASP Top 10 for Agents 2026",
+        "claim": "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
+      }
+    ]
   },
   "VC-117": {
     "id": "VC-117",
@@ -6119,11 +6279,16 @@
     "action": "Atomic state writes via core_utils.write_json_atomic (tempfile + os.replace + fsync), wired into update_lock_state and ProtocolSyncManager._save_state.",
     "validating_mechanism": "test_critical_state_write_is_atomic",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Escritura no atomica: si el proceso muere a mitad, el archivo critico se corrompe.\nwith open(\"state.json\", \"w\") as f:\n    json.dump(big_state, f)   # truncado y sin reemplazo atomico\n",
+    "example_good": "# Escribe a temporal y reemplaza atomicamente (os.replace es atomico en el mismo FS).\nimport os, tempfile, json\nfd, tmp = tempfile.mkstemp(dir=\".\")\nwith os.fdopen(fd, \"w\") as f:\n    json.dump(big_state, f)\nos.replace(tmp, \"state.json\")\n",
+    "example_lang": "python",
+    "detection": "Detectar open(path,'w')/truncado directo sobre archivos de estado critico sin patron\nwrite-temp + os.replace/rename atomico.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ]
   },
   "VC-118": {
     "id": "VC-118",
@@ -6141,11 +6306,16 @@
     "action": "Prevented by D1 _audit_d1_zombie_compat scanning active scripts for zombie compatibility shim patterns.",
     "validating_mechanism": "audit_d1_integrity",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Shim de compatibilidad muerto: nadie lo usa pero sigue 'por si acaso'.\ndef legacy_api(*a, **k):\n    return new_api(*a, **k)   # zombie: solo reenvia, jamas se llama\n",
+    "example_good": "# Se elimina el shim y se migran los pocos llamadores reales (si los hay).\n# grep confirma 0 referencias activas -> borrar, no conservar.\ndef new_api(...):\n    ...\n",
+    "example_lang": "python",
+    "detection": "grep de referencias: funciones/modulos marcados 'legacy'/'compat'/'deprecated' con\n0 llamadores activos en el arbol = candidatos zombie a eliminar.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ]
   },
   "VC-119": {
     "id": "VC-119",
@@ -6234,11 +6404,16 @@
     "action": "pip install automático por subprocess en scripts/ bloqueado por detector + repo-guard de ruta activa.",
     "validating_mechanism": "test_vc122_no_pip_install_in_scripts",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Ejecuta un script remoto sin fijar ni verificar: el proveedor puede inyectar codigo.\ncurl -s https://example.com/install.sh | bash\n",
+    "example_good": "# Descarga, fija por hash y verifica antes de ejecutar.\ncurl -sSfL https://example.com/install.sh -o install.sh\necho \"<sha256-conocido>  install.sh\" | sha256sum -c -\nbash install.sh\n",
+    "example_lang": "bash",
+    "detection": "Detectar patrones 'curl|bash', postinstall scripts no fijados, o ejecucion de\nbinarios descargados sin verificacion de hash/firma.\n",
+    "evidence": [
+      {
+        "source": "OWASP Top 10 for Agents 2026",
+        "claim": "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
+      }
+    ]
   },
   "VC-123": {
     "id": "VC-123",
@@ -6256,11 +6431,16 @@
     "action": "git add -A/. (staging indiscriminado) discriminado por detector failing-first (juicio de intención humano).",
     "validating_mechanism": "test_vc123_no_git_add_all_in_scripts",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Staging indiscriminado: arrastra secretos, artefactos y basura no trackeada.\ngit add .\ngit commit -m \"wip\"\n",
+    "example_good": "# Staging explicito de lo que cambio a proposito; .gitignore cubre el resto.\ngit add src/feature.py tests/test_feature.py\ngit commit -m \"feat: add feature with tests\"\n",
+    "example_lang": "bash",
+    "detection": "Hook pre-commit: alertar ante 'git add .'/'git add -A' o staging de archivos que\ncoincidan con patrones de secreto/artefacto no listados explicitamente.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ]
   },
   "VC-124": {
     "id": "VC-124",
@@ -6279,11 +6459,16 @@
     "action": "pre_edit_guard bloquea escrituras en deprecated/ sin entrada previa en DEPRECATION_LOG.md. pre-commit hook valida que archivos staged en deprecated/ estén justificados. D1 del auditor 12D verifica cobertura del log.",
     "validating_mechanism": "check_deprecation_log.py + pre_edit_guard S24 + D1 audit",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Mueve a deprecated/ sin leer, sin buscar referencias, sin justificar.\ngit mv module.py deprecated/module.py\n",
+    "example_good": "# Proceso auditado antes de deprecar.\ngrep -rn \"import module\" src/        # 1) referencias activas?\n# 2) leer el archivo  3) verificar duplicidad  4) registrar la decision:\necho \"module.py: sin refs, cubierto por core.py - 2026-06-05\" >> DEPRECATION_LOG.md\ngit mv module.py deprecated/module.py\n",
+    "example_lang": "bash",
+    "detection": "Pre-edit guard: rechazar escrituras/moves hacia deprecated/ sin una entrada previa\ncorrespondiente en DEPRECATION_LOG.md.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ]
   },
   "VC-125": {
     "id": "VC-125",
@@ -6302,11 +6487,16 @@
     "action": "Exigir que toda lección nueva se externalice al catálogo o wiki antes de COMPACT/CLEAR; si no hay exportación estructurada, el cierre queda incompleto.",
     "validating_mechanism": "generate_golden_audit.py + wiki coverage + retrospective export",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# El aprendizaje de la sesion vive solo en el chat: se pierde al compactar.\n# (sin artefacto) \"ya entendimos que el bug era el lock; la proxima sesion no lo sabra\"\n",
+    "example_good": "# Antes de cerrar, exportar la retrospectiva a un ledger estable del repo.\nappend_retro(\"Wiki/Project_Insights/\", {\n    \"decision\": \"serializar acceso al lock X\",\n    \"evidence\": \".protocol/evidence/race.json\",\n    \"todo\": \"anadir test de concurrencia\",\n})\n",
+    "example_lang": "python",
+    "detection": "Cierre de sesion incompleto si hubo trabajo real y no se genero/actualizo un\nartefacto persistente (insight, entrada de catalogo o retro) con decisiones y pendientes.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ]
   },
   "VC-126": {
     "id": "VC-126",
