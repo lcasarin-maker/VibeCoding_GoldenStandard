@@ -5,6 +5,8 @@
 | **ID** | `TK-F03` |
 | **Categoría** | Tokenomics & Context |
 | **Estado** | **DOC_ONLY** |
+| **Severidad** | **low** |
+| **Tags** | `tokenomics`, `doc-only` |
 | **Mecanismo de Validación** | `DOC_ONLY` |
 
 ---
