@@ -5,7 +5,14 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Audit](https://github.com/lcasarin-maker/VibeCoding_GoldenStandard/actions/workflows/audit.yml/badge.svg?branch=master)](https://github.com/lcasarin-maker/VibeCoding_GoldenStandard/actions/workflows/audit.yml)
-[![Knowledge Entries](https://img.shields.io/badge/entries%20cataloged-314-blue.svg)](#knowledge-domains)
+[![Entries](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/lcasarin-maker/VibeCoding_GoldenStandard/master/badges/entries.json)](#knowledge-domains)
+[![Deep](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/lcasarin-maker/VibeCoding_GoldenStandard/master/badges/deep.json)](Wiki/Graph.md)
+[![Local detectors](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/lcasarin-maker/VibeCoding_GoldenStandard/master/badges/detectors.json)](scripts/detectors.py)
+[![With evidence](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/lcasarin-maker/VibeCoding_GoldenStandard/master/badges/evidence.json)](#knowledge-domains)
+[![Stubs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/lcasarin-maker/VibeCoding_GoldenStandard/master/badges/stubs.json)](Wiki/Graph.md)
+
+<!-- Badges above are generated from the catalog by scripts/metrics.py and kept in sync by CI; they cannot drift from the YAML. -->
+
 
 ---
 

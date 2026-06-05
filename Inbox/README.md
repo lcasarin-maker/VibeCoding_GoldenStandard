@@ -42,6 +42,15 @@ Inbox/
 
 El curador revisará el hallazgo y lo promoverá al catálogo YAML + Wiki siguiendo el [`INGESTION_PROTOCOL.md`](../INGESTION_PROTOCOL.md).
 
+### Requisito de profundidad (Definition of Done)
+
+Para evitar que el catálogo vuelva a llenarse de stubs declarativos, una entrada **no se promueve** hasta cumplir una de estas dos vías:
+
+- **Falsable (`deep`)** — trae `example_bad`, `example_good`, una `detection` concreta y al menos una `evidence`. Si la firma es estáticamente verificable, debe además registrar un detector en [`scripts/detectors.py`](../scripts/detectors.py) probado contra sus ejemplos.
+- **Doctrinal** — si es un principio conductual/epistémico sin firma estática, se marca `doctrinal: true` de forma explícita (stub por diseño, no por descuido). Fabricarle código de ejemplo está prohibido.
+
+Un hallazgo que no es ni `deep` ni `doctrinal` declarado es un **stub** y queda en el Inbox hasta enriquecerse. La métrica `stubs` (badge en el README, calculada por [`scripts/metrics.py`](../scripts/metrics.py)) debe permanecer en **0** en el catálogo curado.
+
 > Las plantillas bajo `Inbox/templates/` están aisladas por diseño. No son conocimiento vivo todavía; solo son moldes para nuevos hallazgos.
 
 ---
