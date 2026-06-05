@@ -54,6 +54,8 @@ Cada entrada se clasifica por profundidad: `deep` (trae ejemplos bad/good y rece
 | `doctrinal` | 70 | 0 | 0 |
 | `alias` | 2 | 0 | 0 |
 
+**Enforcement local:** 8 entradas `deep` tienen un detector estático real en `scripts/detectors.py`, probado en CI contra sus propios `example_bad`/`example_good` (`scripts/test_detectors.py`). El resto son falsables-en-principio (traen receta de detección) pero aún sin detector implementado.
+
 ---
 
 ## Verificación Downstream

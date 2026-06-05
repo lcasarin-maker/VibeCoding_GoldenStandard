@@ -116,7 +116,7 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
                 elif not is_ascii_text(tag_text):
                     errors.append(f"{path}: {item_id or f'item {index}'} has non-ASCII tag {tag_text!r}.")
 
-        for text_field in ("example_bad", "example_good", "example_lang", "detection"):
+        for text_field in ("example_bad", "example_good", "example_lang", "detection", "detector"):
             value = item.get(text_field, None)
             if value is not None and not isinstance(value, str):
                 errors.append(f"{path}: {item_id or f'item {index}'} field {text_field} must be a string.")

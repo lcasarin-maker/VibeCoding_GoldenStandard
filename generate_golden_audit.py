@@ -937,6 +937,11 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
             continue
         tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
         depth_sections = build_depth_sections(item)
+        detector = str(item.get("detector", "")).strip()
+        detector_row = (
+            f"\n| **Detector local** | 🛡️ `scripts/detectors.py::{detector}` (probado contra los ejemplos en CI) |"
+            if detector else ""
+        )
         flaw_content = f"""# {flaw_id}: {item['title']}
 
 | Campo | Detalle |
@@ -945,7 +950,7 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 | **Categoría** | {item['category']} |
 | **Estado** | **{item['status']}** |
 | **Severidad** | **{item['severity']}** |
-| **Profundidad** | {depth_badge(item)} |
+| **Profundidad** | {depth_badge(item)} |{detector_row}
 | **Tags** | {tag_list} |
 | **Downstream Verification** | `{item.get('downstream_verification', 'none')}` |
 | **Mecanismo de Validación** | `{item['validating_mechanism']}` |
@@ -1357,12 +1362,15 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
         bridge_rows = ["| — | — | — | 0 |"]
 
     depth_summary_rows = "| — | 0 | 0 | 0 |"
+    detector_count = 0
     if mapped_database:
         cats = ("Vibe Coding", "Testing & Evaluation", "Tokenomics & Context")
         depth_counts = {c: Counter() for c in cats}
         for item in mapped_database.values():
             if item["category"] in depth_counts:
                 depth_counts[item["category"]][entry_depth(item)] += 1
+            if str(item.get("detector", "")).strip():
+                detector_count += 1
         depth_summary_rows = "\n".join(
             f"| `{label}` | {depth_counts['Vibe Coding'].get(label, 0)} | "
             f"{depth_counts['Testing & Evaluation'].get(label, 0)} | "
@@ -1470,6 +1478,8 @@ Cada entrada se clasifica por profundidad: `deep` (trae ejemplos bad/good y rece
 | Profundidad | VC | VT | TK |
 |---|---:|---:|---:|
 {depth_summary_rows}
+
+**Enforcement local:** {detector_count} entradas `deep` tienen un detector estático real en `scripts/detectors.py`, probado en CI contra sus propios `example_bad`/`example_good` (`scripts/test_detectors.py`). El resto son falsables-en-principio (traen receta de detección) pero aún sin detector implementado.
 
 ---
 
@@ -1622,6 +1632,7 @@ def extract_catalog_items(config: dict, mapped_database: dict):
             "evidence": item.get("evidence", []),
             "doctrinal": bool(item.get("doctrinal", False)),
             "alias_of": str(item.get("alias_of", "")).strip(),
+            "detector": str(item.get("detector", "")).strip(),
         }
 
 
