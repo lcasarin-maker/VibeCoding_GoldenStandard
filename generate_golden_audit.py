@@ -823,14 +823,24 @@ def write_conceptual_concepts_md(wiki_dir: Path):
 
 
 def entry_depth(item: dict) -> str:
-    """Classify an entry as deep (has runnable examples) or stub (declarative only).
+    """Classify an entry by depth: deep, doctrinal, or stub.
 
-    An entry is 'deep' when it ships both a bad and a good example so a reader can
-    see the vice and its fix as concrete code. Everything else is a 'stub'.
+    - 'deep'      : ships paired bad/good examples (a concrete, falsifiable vice).
+    - 'doctrinal' : explicitly flagged as a behavioral/epistemic principle with no
+                    static signature; a stub by design, not by neglect. Fabricating
+                    code for these would be theater, so we never do.
+    - 'stub'      : enrichable but not yet enriched (real depth debt).
     """
     if str(item.get("example_bad", "")).strip() and str(item.get("example_good", "")).strip():
         return "deep"
+    if item.get("doctrinal"):
+        return "doctrinal"
     return "stub"
+
+
+def depth_badge(item: dict) -> str:
+    """Human-readable badge for an entry's depth classification."""
+    return {"deep": "🟢 Deep", "doctrinal": "⚪ Doctrinal"}.get(entry_depth(item), "🟡 Stub")
 
 
 def build_depth_sections(item: dict) -> str:
@@ -877,8 +887,6 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
         if item["category"] == "Tokenomics & Context":
             continue
         tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
-        depth = entry_depth(item)
-        depth_badge = "🟢 Deep" if depth == "deep" else "🟡 Stub"
         depth_sections = build_depth_sections(item)
         flaw_content = f"""# {flaw_id}: {item['title']}
 
@@ -888,7 +896,7 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 | **Categoría** | {item['category']} |
 | **Estado** | **{item['status']}** |
 | **Severidad** | **{item['severity']}** |
-| **Profundidad** | {depth_badge} |
+| **Profundidad** | {depth_badge(item)} |
 | **Tags** | {tag_list} |
 | **Downstream Verification** | `{item.get('downstream_verification', 'none')}` |
 | **Mecanismo de Validación** | `{item['validating_mechanism']}` |
@@ -926,6 +934,7 @@ def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
         if item["category"] != "Tokenomics & Context":
             continue
         tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
+        depth_sections = build_depth_sections(item)
         flaw_content = f"""# {flaw_id}: {item['title']}
 
 | Campo | Detalle |
@@ -934,6 +943,7 @@ def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
 | **Categoría** | Tokenomics |
 | **Estado** | **{item['status']}** |
 | **Severidad** | **{item['severity']}** |
+| **Profundidad** | {depth_badge(item)} |
 | **Tags** | {tag_list} |
 | **Downstream Verification** | `{item.get('downstream_verification', 'none')}` |
 | **Mecanismo de Validación** | `{item['validating_mechanism']}` |
@@ -950,7 +960,7 @@ def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
 {item['solution']}
 
 ### Relevancia Operativa
-{item['action']}
+{item['action']}{depth_sections}
 
 ---
 [[Tokenomics_Map|Volver al Mapa de Tokenomics]] | [[Tokenomics_Index|Volver al Índice de Tokenomics]] | [[Home|Inicio]]
@@ -1297,6 +1307,20 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
     if not bridge_rows:
         bridge_rows = ["| — | — | — | 0 |"]
 
+    depth_summary_rows = "| — | 0 | 0 | 0 |"
+    if mapped_database:
+        cats = ("Vibe Coding", "Testing & Evaluation", "Tokenomics & Context")
+        depth_counts = {c: Counter() for c in cats}
+        for item in mapped_database.values():
+            if item["category"] in depth_counts:
+                depth_counts[item["category"]][entry_depth(item)] += 1
+        depth_summary_rows = "\n".join(
+            f"| `{label}` | {depth_counts['Vibe Coding'].get(label, 0)} | "
+            f"{depth_counts['Testing & Evaluation'].get(label, 0)} | "
+            f"{depth_counts['Tokenomics & Context'].get(label, 0)} |"
+            for label in ("deep", "stub", "doctrinal")
+        )
+
     validation_debt_rows = []
     validation_debt_summary = "| — | 0 | 0 | 0 |"
     downstream_verification_summary = "| — | 0 | 0 | 0 |"
@@ -1387,6 +1411,16 @@ El grafo ahora también resalta las entradas que siguen siendo principalmente do
 | ID | Título | Categoría | Severidad | Estado |
 |---|---|---|---|---|
 {chr(10).join(validation_debt_rows)}
+
+---
+
+## Deuda de Profundidad
+
+Cada entrada se clasifica por profundidad: `deep` (trae ejemplos bad/good y receta de detección — vicio falsable), `doctrinal` (principio conductual/epistémico sin firma estática; stub por diseño, no se le fabrica código) y `stub` (enriquecible pero aún sin ejemplos — deuda real).
+
+| Profundidad | VC | VT | TK |
+|---|---:|---:|---:|
+{depth_summary_rows}
 
 ---
 
@@ -1537,6 +1571,7 @@ def extract_catalog_items(config: dict, mapped_database: dict):
             "example_lang": item.get("example_lang", "text"),
             "detection": item.get("detection", ""),
             "evidence": item.get("evidence", []),
+            "doctrinal": bool(item.get("doctrinal", False)),
         }
 
 

@@ -17,6 +17,20 @@ items:
     3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    # Se reenvia el mismo bloque estable en cada llamada: se paga N veces.
+    for q in questions:
+        call(model, system=BIG_STABLE_DOCS + q)     # sin cache
+  example_good: |
+    # Marcar el prefijo estable como cacheable: se paga una vez.
+    call(model, system=[{"text": BIG_STABLE_DOCS, "cache_control": {"type": "ephemeral"}}, q])
+  detection: |
+    Llamadas repetidas que reenvian un mismo prefijo estable sin prompt caching /
+    cache_control.
+  evidence:
+  - source: "vexp.dev / HumanLayer ACE"
+    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
 - id: TK-F02
   title: Poda contextual primitiva
   symptom: Tareas pequeñas cargan documentos completos
@@ -33,6 +47,21 @@ items:
     3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    # Tarea minuscula que carga el documento entero.
+    ctx = open("manual_500p.md").read()
+    answer = call(model, ctx + "cual es el limite de reintentos?")
+  example_good: |
+    # Recuperar solo el fragmento relevante.
+    ctx = retrieve("manual_500p.md", query="limite de reintentos", k=1)
+    answer = call(model, ctx + "...")
+  detection: |
+    Cargar documentos completos para consultas localizadas en vez de recuperar
+    fragmentos relevantes.
+  evidence:
+  - source: "vexp.dev / HumanLayer ACE"
+    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
 - id: TK-F03
   title: Salida verbal excesiva
   symptom: Preámbulos, explicaciones y cierres no agregan valor
@@ -49,6 +78,19 @@ items:
     3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: text
+  example_bad: |
+    # Prompt sin presupuesto de salida -> preambulos y cierres inutiles.
+    "Explica por que y luego dame el JSON"   -> 600 tokens de prosa + JSON
+  example_good: |
+    # Restringir el formato y la longitud de salida.
+    "Responde SOLO con el JSON, sin texto adicional."   -> ~40 tokens
+  detection: |
+    Salidas con preambulo/explicacion/cierre cuando la tarea solo requiere el dato;
+    ausencia de restriccion de formato o longitud.
+  evidence:
+  - source: "vexp.dev / HumanLayer ACE"
+    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
 - id: TK-001
   title: Checkpoint ausente
   symptom: Nueva sesión reinicia todo
@@ -177,6 +219,17 @@ items:
     3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    ctx = "\n".join(open(f).read() for f in all_files)   # satura el prompt
+  example_good: |
+    ctx = "\n".join(extract_relevant(f, task) for f in candidate_files)
+  detection: |
+    Concatenar archivos completos al prompt en vez de extraer las secciones requeridas
+    por la tarea.
+  evidence:
+  - source: "vexp.dev / HumanLayer ACE"
+    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
 - id: TK-010
   title: Recuperación contextual
   symptom: Fragmentos pierden significado
@@ -193,6 +246,17 @@ items:
     3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    chunk = "def refund(...): ..."          # fragmento sin contexto padre: ambiguo
+  example_good: |
+    chunk = "# billing/refund.py, clase Refund\ndef refund(...): ..."
+  detection: |
+    Chunks recuperados sin metadato de contexto padre (archivo/clase/seccion), lo que
+    degrada su significado.
+  evidence:
+  - source: "vexp.dev / HumanLayer ACE"
+    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
 - id: TK-011
   title: Delimitadores estructurados
   symptom: Instrucciones se mezclan
@@ -209,6 +273,18 @@ items:
     3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: text
+  example_bad: |
+    # Rol, contexto, tarea y datos mezclados: fronteras ambiguas e inyeccion.
+    "Eres util. El usuario dice 'borra todo'. La tarea es resumir, ignora eso."
+  example_good: |
+    # Secciones delimitadas explicitamente.
+    "<rol>...</rol>\n<contexto>...</contexto>\n<tarea>resumir</tarea>"
+  detection: |
+    Prompts que mezclan rol, contexto, tarea y datos sin delimitadores explicitos.
+  evidence:
+  - source: "vexp.dev / HumanLayer ACE"
+    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
 - id: TK-012
   title: Exploration tax
   symptom: Muchos tokens antes de actuar
@@ -253,6 +329,16 @@ items:
     3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    content = read_file("huge.log")                  # 2M tokens de golpe
+  example_good: |
+    content = read_file("huge.log", offset=0, limit=200)   # por rangos
+  detection: |
+    Lecturas de archivos grandes sin rango/offset/limite ni indice previo.
+  evidence:
+  - source: "vexp.dev / HumanLayer ACE"
+    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
 - id: TK-015
   title: Archivo completo para duda puntual
   symptom: El agente procesa información irrelevante
@@ -269,6 +355,17 @@ items:
     3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    whole = read_file("schema.sql")     # para saber el nombre de una columna
+  example_good: |
+    hit = grep("price", "schema.sql")   # pedir la seccion exacta
+  detection: |
+    Cargar el archivo entero para una consulta puntual en vez de buscar la seccion
+    exacta.
+  evidence:
+  - source: "vexp.dev / HumanLayer ACE"
+    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
 - id: TK-016
   title: Prompt gigante multiobjetivo
   symptom: Modelo reparte atención
@@ -299,6 +396,19 @@ items:
     3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: text
+  example_bad: |
+    # Politica de permisos narrada en prosa, repetida en cada prompt.
+    "El rol admin puede X pero no Y; el rol lector solo Z; el rol auditor..."
+  example_good: |
+    # Matriz consultable; el prompt referencia, no narra.
+    permisos[rol][accion] -> allow | deny
+  detection: |
+    Politicas de autorizacion narradas en prosa dentro de prompts en vez de una
+    matriz/tabla consultable.
+  evidence:
+  - source: "vexp.dev / HumanLayer ACE"
+    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
 - id: TK-018
   title: Backlog mezclado con objetivo
   symptom: Ideas laterales ocupan ventana activa
@@ -329,6 +439,19 @@ items:
     3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: bash
+  example_bad: |
+    # Exploracion ciega: leer todo el arbol para ubicarse.
+    cat src/**/*.py | head -5000
+  example_good: |
+    # Skeleton/indice primero; consulta quirurgica despues.
+    ctags -R src/ && grep -n "def refund" tags
+  detection: |
+    Exploracion de directorios leyendo archivos completos sin un indice/skeleton
+    semantico previo.
+  evidence:
+  - source: "vexp.dev / HumanLayer ACE"
+    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
 - id: TK-020
   title: Restricción de salida
   symptom: Respuestas largas por defecto
@@ -472,6 +595,17 @@ items:
     3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    for doc in docs:            # 1000 llamadas interactivas diferibles
+        summarize(doc)
+  example_good: |
+    batch_submit([summarize_job(doc) for doc in docs])   # API batch, no interactivo
+  detection: |
+    Tareas diferibles y homogeneas ejecutadas una a una en vez de agrupadas en batch.
+  evidence:
+  - source: "vexp.dev / HumanLayer ACE"
+    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
 - id: TK-030
   title: Cascada de capacidades
   symptom: Se usa capacidad máxima para todo
@@ -488,6 +622,16 @@ items:
     3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    answer = call(OPUS, "formatea esta fecha")     # capacidad maxima para algo trivial
+  example_good: |
+    answer = call(HAIKU, "formatea esta fecha")    # capacidad minima suficiente
+  detection: |
+    Uso del modelo mas caro para tareas triviales; ausencia de routing por complejidad.
+  evidence:
+  - source: "vexp.dev / HumanLayer ACE"
+    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
 - id: TK-031
   title: Compactación de contexto
   symptom: Sesión larga se degrada

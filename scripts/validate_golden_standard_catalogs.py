@@ -138,6 +138,14 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
                 f"{path}: {item_id or f'item {index}'} must provide both example_bad and example_good together (depth pairing)."
             )
 
+        doctrinal = item.get("doctrinal", None)
+        if doctrinal is not None and not isinstance(doctrinal, bool):
+            errors.append(f"{path}: {item_id or f'item {index}'} field doctrinal must be a boolean.")
+        if doctrinal and (has_bad or has_good):
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} is flagged doctrinal but also ships examples; a vice is one or the other."
+            )
+
         if item_id and item_id.startswith(("VC-", "VT-")):
             wiki_path = WIKI_VICES_DIR / f"{item_id}.md"
             if check_wiki and not wiki_path.exists():

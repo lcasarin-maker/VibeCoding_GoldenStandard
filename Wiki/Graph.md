@@ -43,6 +43,18 @@ El grafo ahora también resalta las entradas que siguen siendo principalmente do
 
 ---
 
+## Deuda de Profundidad
+
+Cada entrada se clasifica por profundidad: `deep` (trae ejemplos bad/good y receta de detección — vicio falsable), `doctrinal` (principio conductual/epistémico sin firma estática; stub por diseño, no se le fabrica código) y `stub` (enriquecible pero aún sin ejemplos — deuda real).
+
+| Profundidad | VC | VT | TK |
+|---|---:|---:|---:|
+| `deep` | 27 | 27 | 12 |
+| `stub` | 19 | 88 | 34 |
+| `doctrinal` | 80 | 0 | 0 |
+
+---
+
 ## Verificación Downstream
 
 GS distingue explícitamente qué entradas esperan verificación downstream y cuáles no. Esto evita que `DOC_ONLY` se interprete como `test exempt` por defecto.

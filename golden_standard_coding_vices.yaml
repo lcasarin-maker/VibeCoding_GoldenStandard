@@ -17,6 +17,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-002
   title: Complacencia generativa
   symptom: El sistema responde con seguridad injustificada
@@ -33,6 +34,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-003
   title: Triunfalismo sin prueba
   symptom: Se declara éxito sin logs
@@ -81,6 +83,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-005
   title: Prototipo convertido en deuda
   symptom: Lo temporal queda permanente
@@ -97,6 +100,21 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    # Prototipo "temporal" sin fecha ni dueno: se queda para siempre.
+    def quick_hack():            # TODO: temporal, quitar
+        return cached_guess()
+  example_good: |
+    # Todo prototipo lleva expiracion y dueno explicitos y rastreables.
+    def quick_hack():            # PROTOTYPE owner=luis expires=2026-07-01 ticket=BUG-12
+        return cached_guess()
+  detection: |
+    Marcar comentarios TODO/FIXME/HACK/'temporal'/'prototype' sin dueno + fecha de
+    expiracion + ticket parseables.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-006
   title: Estética como integridad
   symptom: UI o docs bonitos ocultan fallos
@@ -113,6 +131,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-007
   title: Auditoría no humana del core
   symptom: Lógica crítica no leída
@@ -129,6 +148,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-008
   title: Optimismo operativo
   symptom: Se ignoran regresiones probables
@@ -145,6 +165,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-009
   title: Autoauditoría contaminada
   symptom: Se valida con memoria previa
@@ -161,6 +182,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-010
   title: Fallo no convertido en doctrina
   symptom: Error se repite
@@ -177,6 +199,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-011
   title: Human test falso
   symptom: Se declara interacción inexistente
@@ -193,6 +216,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-012
   title: Se ve bien como métrica
   symptom: Estética suplanta función
@@ -209,6 +233,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-013
   title: Calificación máxima gratuita
   symptom: Se asigna excelencia sin prueba
@@ -225,6 +250,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-014
   title: Falso positivo de auditoría
   symptom: Sistema roto marcado OK
@@ -241,6 +267,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-015
   title: Agente como ingeniero autónomo
   symptom: Usuario delega juicio
@@ -257,6 +284,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-016
   title: Código incomprensible
   symptom: Solo se sabe qué se pidió
@@ -273,6 +301,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-017
   title: Triunfalismo Conversacional Estocástico
   symptom: Declaraciones de éxito basadas únicamente en plausibilidad estética
@@ -323,6 +352,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-019
   title: Síntoma parcheado
   symptom: El bug vuelve con otra forma
@@ -339,6 +369,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-020
   title: Bug no reproducido
   symptom: Se modifica sin caso mínimo
@@ -355,6 +386,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-021
   title: Cierre prematuro
   symptom: Fallos secundarios quedan vivos
@@ -385,6 +417,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-023
   title: Productividad ilusoria
   symptom: Se ahorra escritura, se paga debugging
@@ -401,6 +434,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-024
   title: Construcción sin validación
   symptom: Se acumula antes de probar
@@ -417,6 +451,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-025
   title: Especificación vaga
   symptom: El sistema adivina requisitos
@@ -433,6 +468,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-026
   title: Suposiciones excesivas
   symptom: Se continúa con incertidumbre alta
@@ -449,6 +485,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-027
   title: Plan no externalizado
   symptom: Trabajo vive en chat
@@ -479,6 +516,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-029
   title: Alcance no quirúrgico
   symptom: Cambios enormes e inseguros
@@ -495,6 +533,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-030
   title: State drift
   symptom: Ediciones grandes degradan coherencia
@@ -525,6 +564,20 @@ items:
     intención. Sprint 3.4 revisión manual: DOC_ONLY honesto.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: text
+  example_bad: |
+    # El agente reescribe el archivo entero para cambiar dos lineas.
+    # diff: 198 deletions(-), 200 insertions(+)  -> se pierde historia e invariantes
+  example_good: |
+    # Diff minimo y quirurgico: solo lo que cambia.
+    - timeout = 30
+    + timeout = 60
+  detection: |
+    Heuristica de diff: cambios donde >80% de las lineas de un archivo existente se
+    borran y reinsertan = reescritura total disfrazada de edicion.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-032
   title: Sidequest
   symptom: Se agregan mejoras no pedidas
@@ -541,6 +594,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-033
   title: Presión de cierre
   symptom: Se abandona validación
@@ -557,6 +611,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-034
   title: Decisiones sin porqué
   symptom: Futuro agente repite discusiones
@@ -573,6 +628,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-035
   title: Aclaraciones perdidas
   symptom: Se repregunta lo resuelto
@@ -589,6 +645,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-036
   title: Sin dry run
   symptom: Acción destructiva se ejecuta directa
@@ -605,6 +662,20 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: bash
+  example_bad: |
+    # Borrado masivo ejecutado directo, sin simular.
+    find . -name "*.tmp" -delete
+  example_good: |
+    # Simular primero; aplicar solo tras revisar la lista.
+    find . -name "*.tmp" -print     # dry-run: que se borraria
+    find . -name "*.tmp" -delete    # aplicar tras confirmar
+  detection: |
+    Operaciones destructivas (rm/-delete/DROP/TRUNCATE/git reset --hard) sin un paso
+    previo de simulacion (--dry-run/-print/EXPLAIN) en el mismo flujo.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-037
   title: Regeneración ciega
   symptom: Se reemplaza código sin diagnóstico
@@ -636,6 +707,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-039
   title: Deuda invisible
   symptom: Atajos no registrados
@@ -652,6 +724,20 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    def pay(x):
+        return charge(x)   # atajo: sin idempotencia ni reintentos (no registrado)
+  example_good: |
+    # La deuda se declara explicita en un registro rastreable.
+    def pay(x):
+        return charge(x)   # DEBT-21: falta idempotencia, ver TECH_DEBT.md
+  detection: |
+    Atajos conocidos ('por ahora', sin validacion, sin reintento) que no tengan una
+    entrada correspondiente en un registro de deuda tecnica.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-040
   title: Mantenibilidad no auditada
   symptom: Sistema difícil de cambiar
@@ -668,6 +754,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-041
   title: Deriva operativa
   symptom: Agente expande alcance
@@ -684,6 +771,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-042
   title: Loops de corrección
   symptom: Fix-revert consume contexto
@@ -700,6 +788,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-043
   title: Parches sobre parches
   symptom: Cada fix introduce otro bug
@@ -716,6 +805,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-044
   title: Producción sin dueño técnico
   symptom: Nadie puede mantener
@@ -732,6 +822,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-045
   title: Handoff ambiguo
   symptom: El siguiente actor no sabe estado, riesgo ni próximo paso
@@ -748,6 +839,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-046
   title: Rescate pre-deprecación omitido
   symptom: Se archiva o elimina sin extraer valor
@@ -764,6 +856,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-047
   title: Estado no vinculante
   symptom: Memoria/estado difieren de realidad
@@ -780,6 +873,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-048
   title: Memoria monolítica
   symptom: Todo contexto se mezcla
@@ -811,6 +905,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-050
   title: Actualización no dirigida
   symptom: Estado cambia sin evento
@@ -827,6 +922,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-051
   title: Saturación contextual
   symptom: El agente olvida requisitos
@@ -843,6 +939,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-052
   title: Context rot
   symptom: Respuestas empeoran por exceso
@@ -859,6 +956,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-053
   title: Sin checkpoint previo
   symptom: Cambio rompe estado recuperable
@@ -875,6 +973,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-054
   title: Estado descentralizado
   symptom: Varias fuentes compiten
@@ -891,6 +990,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-055
   title: Concurrencia sin cuarentena
   symptom: Actores pisan cambios
@@ -907,6 +1007,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-056
   title: Integración alucinada
   symptom: Dependencias inventadas
@@ -923,6 +1024,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-057
   title: Paridad de versión rota
   symptom: Documentos, ejecutores y estado declaran versiones distintas
@@ -939,6 +1041,21 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: text
+  example_bad: |
+    # Tres fuentes declaran versiones distintas.
+    pyproject.toml : version = "1.4.0"
+    __init__.py    : __version__ = "1.2.0"
+    CHANGELOG.md   : ## 1.5.0
+  example_good: |
+    # Una sola fuente canonica; el resto la derivan, no la copian.
+    __version__ = importlib.metadata.version("mypkg")
+  detection: |
+    Extraer todas las cadenas de version del repo (manifiesto, __version__, changelog,
+    tags) y fallar si no coinciden.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-058
   title: Deadlock sin latido
   symptom: Proceso queda bloqueado sin ser detectado
@@ -955,6 +1072,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-059
   title: Ruteo opaco
   symptom: Trabajo cae en actor o fase incorrecta
@@ -971,6 +1089,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-060
   title: Merge textual de memoria
   symptom: Dos historias se combinan perdiendo decisiones
@@ -987,6 +1106,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-061
   title: Stub como arquitectura
   symptom: Simulación temporal se vuelve dependencia
@@ -1003,6 +1123,23 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    # Un stub temporal queda cableado como dependencia real de produccion.
+    class PaymentGateway:
+        def charge(self, amount):
+            return True        # stub: "luego lo conectamos"
+  example_good: |
+    # El stub vive solo en tests; produccion usa la implementacion real.
+    class PaymentGateway:
+        def charge(self, amount):
+            return self._provider.charge(amount)
+  detection: |
+    Clases/funciones con cuerpo trivial (return True/None/pass) importadas desde modulos
+    de produccion (no de tests/fixtures).
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-062
   title: Deriva de Concurrencia de Estado (Dual-Session Drift)
   symptom: Pérdida de commits y regresiones por sobrescritura paralela
@@ -1067,6 +1204,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-065
   title: Esquema tardío
   symptom: Lógica precede al modelo de datos
@@ -1083,6 +1221,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-066
   title: Ceguera espacial
   symptom: UI generada sin layout explícito
@@ -1099,6 +1238,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-067
   title: Políticas implícitas
   symptom: Reglas no listadas antes del cambio
@@ -1115,6 +1255,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-068
   title: Conflictos normativos
   symptom: Reglas chocan en ejecución
@@ -1131,6 +1272,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-069
   title: Dependencias no mapeadas
   symptom: Refactor rompe piezas lejanas
@@ -1161,6 +1303,19 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: bash
+  example_bad: |
+    # Editar JSON con sed: fragil, rompe el formato al primer caso raro.
+    sed -i 's/"port": 80/"port": 443/' config.json
+  example_good: |
+    # Operacion estructurada con un parser real del formato.
+    python -c "import json; d=json.load(open('config.json')); d['port']=443; json.dump(d, open('config.json','w'), indent=2)"
+  detection: |
+    Uso de sed/awk/grep para mutar archivos estructurados (.json/.yaml/.toml/.xml) en
+    vez de un parser del formato.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-071
   title: Módulo sin biocontainment
   symptom: Fallo se propaga
@@ -1177,6 +1332,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-072
   title: Blind chunking
   symptom: Corte rompe semántica
@@ -1193,6 +1349,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-073
   title: Código crítico troceado
   symptom: Se pierde coherencia global
@@ -1209,6 +1366,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-074
   title: I/O sin validación
   symptom: Datos inválidos entran al sistema
@@ -1225,6 +1383,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-075
   title: Integraciones no verificadas
   symptom: API o datos externos asumidos estables
@@ -1241,6 +1400,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-076
   title: Tipado laxo
   symptom: Estados imposibles circulan
@@ -1257,6 +1417,19 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    def handle(data):          # sin tipos: estados imposibles circulan
+        return data["amount"] * data["rate"]
+  example_good: |
+    def handle(order: Order) -> Money:   # invariantes representados en el tipo
+        return order.amount * order.rate
+  detection: |
+    Funciones publicas sin anotaciones de tipo o con Any en firmas de dominio
+    (mypy --disallow-untyped-defs / --disallow-any-explicit).
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-077
   title: Ambigüedad semántica de tipo
   symptom: Cualquier cosa pasa
@@ -1273,6 +1446,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-078
   title: Placeholder permanente
   symptom: Marcador llega a producción
@@ -1305,6 +1479,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-080
   title: Copy-paste acrítico
   symptom: Duplicación de fallos
@@ -1321,6 +1496,22 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    # Mismo bloque copiado en varios handlers; un bug se replica N veces.
+    def a(): u = db.get(id); log(u); return u.name
+    def b(): u = db.get(id); log(u); return u.email
+  example_good: |
+    # Logica comun extraida una sola vez.
+    def _load(id): u = db.get(id); log(u); return u
+    def a(): return _load(id).name
+    def b(): return _load(id).email
+  detection: |
+    Deteccion de clones: bloques de >=5 lineas identicos en >=2 ubicaciones
+    (jscpd / pylint duplicate-code).
+  evidence:
+  - source: "GitClear 2025"
+    claim: "el codigo duplicado aumento ~8x con asistencia de IA."
 - id: VC-081
   title: Secuestro documental
   symptom: Docs y código divergen
@@ -1337,6 +1528,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-082
   title: Dependencias sin gate
   symptom: Se agregan riesgos
@@ -1407,6 +1599,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-085
   title: Observabilidad ornamental
   symptom: Existen logs pero no explican fallos
@@ -1423,6 +1616,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-086
   title: Wrapper evasivo
   symptom: Capa nueva evita tocar la falla real
@@ -1439,6 +1633,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-087
   title: Warning normalizado
   symptom: Advertencias se acumulan sin bloqueo; filterwarnings("ignore") sin justificación
@@ -1472,6 +1667,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-089
   title: Reconocimiento omitido
   symptom: Se edita sin entender repositorio
@@ -1488,6 +1684,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-090
   title: Memoria no cargada
   symptom: Se repiten errores previos
@@ -1546,6 +1743,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-094
   title: Seguridad mezclada
   symptom: Controles dispersos
@@ -1562,6 +1760,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-095
   title: Acceso directo a producción
   symptom: Riesgo irreversible
@@ -1578,6 +1777,19 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    # URL/credencial de produccion incrustada: cualquier corrida toca prod.
+    DB = connect("postgres://prod-db.internal:5432", password="hunter2")
+  example_good: |
+    # Entorno inyectado; prod requiere un paso explicito y separado.
+    DB = connect(os.environ["DATABASE_URL"])   # default apunta a sandbox
+  detection: |
+    Literales con hosts/credenciales de produccion (prod, internal, claves) en codigo
+    fuente en vez de configuracion por entorno.
+  evidence:
+  - source: "OWASP Top 10 for Agents 2026"
+    claim: "categoria de riesgo reconocida para aplicaciones agenticas (unsafe execution / secret exposure)."
 - id: VC-096
   title: Código sin tests
   symptom: No hay regresión detectable
@@ -1594,6 +1806,19 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: text
+  example_bad: |
+    src/billing/refund.py        # 0 tests
+    # se cambia refund() y nada detecta la regresion
+  example_good: |
+    src/billing/refund.py
+    tests/billing/test_refund.py # cubre el comportamiento antes de cambiarlo
+  detection: |
+    Modulos de produccion sin archivo de test correspondiente (mapeo src/x.py ->
+    tests/test_x.py ausente) o sin cobertura de sus funciones publicas.
+  evidence:
+  - source: "arxiv:2602.00409"
+    claim: "los agentes generan codigo sin oraculo de prueba de forma medible; la ausencia de tests amplifica el riesgo."
 - id: VC-097
   title: Tests tardíos
   symptom: Pruebas adaptadas al resultado
@@ -1610,6 +1835,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-098
   title: Happy path exclusivo
   symptom: Fallos reales no cubiertos
@@ -1626,6 +1852,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-099
   title: Sin caos
   symptom: Resiliencia no observada
@@ -1642,6 +1869,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-100
   title: No funcional ignorado
   symptom: Performance o seguridad no medidos
@@ -1658,6 +1886,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-101
   title: Config optimista
   symptom: Entorno idealizado
@@ -1674,6 +1903,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-102
   title: Debug pobre
   symptom: Fallo no diagnosticable
@@ -1690,6 +1920,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-103
   title: UI sin uso real
   symptom: Se valida sin flujo
@@ -1706,6 +1937,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-104
   title: Infraestructura ignorada
   symptom: Runtime real difiere
@@ -1765,6 +1997,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-108
   title: Frontera de seguridad por convención
   symptom: Se confía en disciplina humana
@@ -1781,6 +2014,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-109
   title: Ruta literal ambiental
   symptom: Funcionamiento depende de una ubicación fija
@@ -1841,6 +2075,19 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: text
+  example_bad: |
+    # .gitignore: se ignora un directorio sin saber que contiene.
+    scratch/
+  example_good: |
+    # Cada exclusion lleva motivo y fecha; se audito antes de ignorar.
+    scratch/   # solo artefactos de build, auditado 2026-06-05, sin secretos
+  detection: |
+    Entradas de .gitignore / exclusiones de cobertura sin comentario justificativo,
+    especialmente directorios opacos no auditados.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-112
   title: Propagación sin verificación de adopción
   symptom: Archivos de protocolo copiados a proyectos hijo sin confirmar que el protocolo
@@ -1859,6 +2106,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-113
   title: Nomenclatura congelada
   symptom: Nombre de componente no refleja alcance real tras evolución (ej. un componente
@@ -1878,6 +2126,20 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  example_lang: python
+  example_bad: |
+    # El nombre dice v1 pero ya implementa reglas de la v3: enga;a a lectores y tests.
+    class AuditorV1:           # alcance real != nombre heredado
+        ...
+  example_good: |
+    class Auditor:             # el nombre refleja el alcance actual
+        ...
+  detection: |
+    Identificadores con tokens de version embebidos (xxx_v1, FooV2) cuyo alcance ya no
+    corresponde a esa version.
+  evidence:
+  - source: "arxiv:2603.28592"
+    claim: "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
 - id: VC-114
   title: Hallazgo sin plan de remediación
   symptom: Defecto detectado en sesión no se convierte en ítem ejecutable del plan
@@ -2054,6 +2316,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-120
   title: Reasoning Lock-In & AI Runaway loops (Chain-Pattern Interrupts)
   symptom: El agente se obsesiona con un plan de acción defectuoso, repitiendo el
@@ -2074,6 +2337,7 @@ items:
     reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
+  doctrinal: true
 - id: VC-121
   title: Redundancias Críticas y Patrones Repetitivos de AI Slop
   symptom: Mutaciones aditivas acumulativas que dispersan la funcionalidad del sistema

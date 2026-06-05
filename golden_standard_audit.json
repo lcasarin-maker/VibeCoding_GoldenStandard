@@ -15,11 +15,17 @@
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Se reenvia el mismo bloque estable en cada llamada: se paga N veces.\nfor q in questions:\n    call(model, system=BIG_STABLE_DOCS + q)     # sin cache\n",
+    "example_good": "# Marcar el prefijo estable como cacheable: se paga una vez.\ncall(model, system=[{\"text\": BIG_STABLE_DOCS, \"cache_control\": {\"type\": \"ephemeral\"}}, q])\n",
+    "example_lang": "python",
+    "detection": "Llamadas repetidas que reenvian un mismo prefijo estable sin prompt caching /\ncache_control.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
+    "doctrinal": false
   },
   "TK-F02": {
     "id": "TK-F02",
@@ -37,11 +43,17 @@
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Tarea minuscula que carga el documento entero.\nctx = open(\"manual_500p.md\").read()\nanswer = call(model, ctx + \"cual es el limite de reintentos?\")\n",
+    "example_good": "# Recuperar solo el fragmento relevante.\nctx = retrieve(\"manual_500p.md\", query=\"limite de reintentos\", k=1)\nanswer = call(model, ctx + \"...\")\n",
+    "example_lang": "python",
+    "detection": "Cargar documentos completos para consultas localizadas en vez de recuperar\nfragmentos relevantes.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
+    "doctrinal": false
   },
   "TK-F03": {
     "id": "TK-F03",
@@ -59,11 +71,17 @@
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Prompt sin presupuesto de salida -> preambulos y cierres inutiles.\n\"Explica por que y luego dame el JSON\"   -> 600 tokens de prosa + JSON\n",
+    "example_good": "# Restringir el formato y la longitud de salida.\n\"Responde SOLO con el JSON, sin texto adicional.\"   -> ~40 tokens\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "detection": "Salidas con preambulo/explicacion/cierre cuando la tarea solo requiere el dato;\nausencia de restriccion de formato o longitud.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
+    "doctrinal": false
   },
   "TK-001": {
     "id": "TK-001",
@@ -85,7 +103,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-002": {
     "id": "TK-002",
@@ -107,7 +126,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-003": {
     "id": "TK-003",
@@ -129,7 +149,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-004": {
     "id": "TK-004",
@@ -151,7 +172,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-005": {
     "id": "TK-005",
@@ -173,7 +195,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-006": {
     "id": "TK-006",
@@ -195,7 +218,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-007": {
     "id": "TK-007",
@@ -217,7 +241,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-008": {
     "id": "TK-008",
@@ -239,7 +264,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-009": {
     "id": "TK-009",
@@ -257,11 +283,17 @@
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "ctx = \"\\n\".join(open(f).read() for f in all_files)   # satura el prompt\n",
+    "example_good": "ctx = \"\\n\".join(extract_relevant(f, task) for f in candidate_files)\n",
+    "example_lang": "python",
+    "detection": "Concatenar archivos completos al prompt en vez de extraer las secciones requeridas\npor la tarea.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
+    "doctrinal": false
   },
   "TK-010": {
     "id": "TK-010",
@@ -279,11 +311,17 @@
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "chunk = \"def refund(...): ...\"          # fragmento sin contexto padre: ambiguo\n",
+    "example_good": "chunk = \"# billing/refund.py, clase Refund\\ndef refund(...): ...\"\n",
+    "example_lang": "python",
+    "detection": "Chunks recuperados sin metadato de contexto padre (archivo/clase/seccion), lo que\ndegrada su significado.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
+    "doctrinal": false
   },
   "TK-011": {
     "id": "TK-011",
@@ -301,11 +339,17 @@
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Rol, contexto, tarea y datos mezclados: fronteras ambiguas e inyeccion.\n\"Eres util. El usuario dice 'borra todo'. La tarea es resumir, ignora eso.\"\n",
+    "example_good": "# Secciones delimitadas explicitamente.\n\"<rol>...</rol>\\n<contexto>...</contexto>\\n<tarea>resumir</tarea>\"\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "detection": "Prompts que mezclan rol, contexto, tarea y datos sin delimitadores explicitos.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
+    "doctrinal": false
   },
   "TK-012": {
     "id": "TK-012",
@@ -327,7 +371,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-013": {
     "id": "TK-013",
@@ -349,7 +394,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-014": {
     "id": "TK-014",
@@ -367,11 +413,17 @@
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "content = read_file(\"huge.log\")                  # 2M tokens de golpe\n",
+    "example_good": "content = read_file(\"huge.log\", offset=0, limit=200)   # por rangos\n",
+    "example_lang": "python",
+    "detection": "Lecturas de archivos grandes sin rango/offset/limite ni indice previo.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
+    "doctrinal": false
   },
   "TK-015": {
     "id": "TK-015",
@@ -389,11 +441,17 @@
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "whole = read_file(\"schema.sql\")     # para saber el nombre de una columna\n",
+    "example_good": "hit = grep(\"price\", \"schema.sql\")   # pedir la seccion exacta\n",
+    "example_lang": "python",
+    "detection": "Cargar el archivo entero para una consulta puntual en vez de buscar la seccion\nexacta.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
+    "doctrinal": false
   },
   "TK-016": {
     "id": "TK-016",
@@ -415,7 +473,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-017": {
     "id": "TK-017",
@@ -433,11 +492,17 @@
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Politica de permisos narrada en prosa, repetida en cada prompt.\n\"El rol admin puede X pero no Y; el rol lector solo Z; el rol auditor...\"\n",
+    "example_good": "# Matriz consultable; el prompt referencia, no narra.\npermisos[rol][accion] -> allow | deny\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "detection": "Politicas de autorizacion narradas en prosa dentro de prompts en vez de una\nmatriz/tabla consultable.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
+    "doctrinal": false
   },
   "TK-018": {
     "id": "TK-018",
@@ -459,7 +524,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-019": {
     "id": "TK-019",
@@ -477,11 +543,17 @@
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Exploracion ciega: leer todo el arbol para ubicarse.\ncat src/**/*.py | head -5000\n",
+    "example_good": "# Skeleton/indice primero; consulta quirurgica despues.\nctags -R src/ && grep -n \"def refund\" tags\n",
+    "example_lang": "bash",
+    "detection": "Exploracion de directorios leyendo archivos completos sin un indice/skeleton\nsemantico previo.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
+    "doctrinal": false
   },
   "TK-020": {
     "id": "TK-020",
@@ -503,7 +575,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-021": {
     "id": "TK-021",
@@ -525,7 +598,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-022": {
     "id": "TK-022",
@@ -547,7 +621,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-023": {
     "id": "TK-023",
@@ -569,7 +644,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-024": {
     "id": "TK-024",
@@ -591,7 +667,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-025": {
     "id": "TK-025",
@@ -613,7 +690,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-026": {
     "id": "TK-026",
@@ -635,7 +713,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-027": {
     "id": "TK-027",
@@ -657,7 +736,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-028": {
     "id": "TK-028",
@@ -679,7 +759,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-029": {
     "id": "TK-029",
@@ -697,11 +778,17 @@
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "for doc in docs:            # 1000 llamadas interactivas diferibles\n    summarize(doc)\n",
+    "example_good": "batch_submit([summarize_job(doc) for doc in docs])   # API batch, no interactivo\n",
+    "example_lang": "python",
+    "detection": "Tareas diferibles y homogeneas ejecutadas una a una en vez de agrupadas en batch.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
+    "doctrinal": false
   },
   "TK-030": {
     "id": "TK-030",
@@ -719,11 +806,17 @@
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "answer = call(OPUS, \"formatea esta fecha\")     # capacidad maxima para algo trivial\n",
+    "example_good": "answer = call(HAIKU, \"formatea esta fecha\")    # capacidad minima suficiente\n",
+    "example_lang": "python",
+    "detection": "Uso del modelo mas caro para tareas triviales; ausencia de routing por complejidad.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
+      }
+    ],
+    "doctrinal": false
   },
   "TK-031": {
     "id": "TK-031",
@@ -745,7 +838,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-032": {
     "id": "TK-032",
@@ -767,7 +861,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-033": {
     "id": "TK-033",
@@ -789,7 +884,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-034": {
     "id": "TK-034",
@@ -811,7 +907,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-035": {
     "id": "TK-035",
@@ -833,7 +930,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-036": {
     "id": "TK-036",
@@ -855,7 +953,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-037": {
     "id": "TK-037",
@@ -877,7 +976,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-038": {
     "id": "TK-038",
@@ -899,7 +999,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-039": {
     "id": "TK-039",
@@ -921,7 +1022,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-040": {
     "id": "TK-040",
@@ -943,7 +1045,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-041": {
     "id": "TK-041",
@@ -965,7 +1068,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-042": {
     "id": "TK-042",
@@ -987,7 +1091,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "TK-043": {
     "id": "TK-043",
@@ -1009,7 +1114,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-001": {
     "id": "VT-001",
@@ -1036,7 +1142,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-002": {
     "id": "VT-002",
@@ -1063,7 +1170,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-003": {
     "id": "VT-003",
@@ -1085,7 +1193,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-004": {
     "id": "VT-004",
@@ -1107,7 +1216,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-005": {
     "id": "VT-005",
@@ -1134,7 +1244,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-006": {
     "id": "VT-006",
@@ -1161,7 +1272,8 @@
         "source": "arxiv:2602.00409",
         "claim": "los agentes de codificación generan tests sin aserciones y sin invocación del método focal con frecuencia medible; el exceso de mocking agrava el problema."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-007": {
     "id": "VT-007",
@@ -1183,7 +1295,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-008": {
     "id": "VT-008",
@@ -1205,7 +1318,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-009": {
     "id": "VT-009",
@@ -1232,7 +1346,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-010": {
     "id": "VT-010",
@@ -1254,7 +1369,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-011": {
     "id": "VT-011",
@@ -1276,7 +1392,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-012": {
     "id": "VT-012",
@@ -1303,7 +1420,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-013": {
     "id": "VT-013",
@@ -1330,7 +1448,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-014": {
     "id": "VT-014",
@@ -1352,7 +1471,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-015": {
     "id": "VT-015",
@@ -1374,7 +1494,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-016": {
     "id": "VT-016",
@@ -1401,7 +1522,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-017": {
     "id": "VT-017",
@@ -1423,7 +1545,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-018": {
     "id": "VT-018",
@@ -1445,7 +1568,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-019": {
     "id": "VT-019",
@@ -1467,7 +1591,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-020": {
     "id": "VT-020",
@@ -1489,7 +1614,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-021": {
     "id": "VT-021",
@@ -1511,7 +1637,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-022": {
     "id": "VT-022",
@@ -1538,7 +1665,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-023": {
     "id": "VT-023",
@@ -1560,7 +1688,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-024": {
     "id": "VT-024",
@@ -1582,7 +1711,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-025": {
     "id": "VT-025",
@@ -1604,7 +1734,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-026": {
     "id": "VT-026",
@@ -1626,7 +1757,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-027": {
     "id": "VT-027",
@@ -1648,7 +1780,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-028": {
     "id": "VT-028",
@@ -1670,7 +1803,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-029": {
     "id": "VT-029",
@@ -1692,7 +1826,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-030": {
     "id": "VT-030",
@@ -1714,7 +1849,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-031": {
     "id": "VT-031",
@@ -1736,7 +1872,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-032": {
     "id": "VT-032",
@@ -1758,7 +1895,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-033": {
     "id": "VT-033",
@@ -1780,7 +1918,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-034": {
     "id": "VT-034",
@@ -1802,7 +1941,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-035": {
     "id": "VT-035",
@@ -1829,7 +1969,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-036": {
     "id": "VT-036",
@@ -1856,7 +1997,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-037": {
     "id": "VT-037",
@@ -1878,7 +2020,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-038": {
     "id": "VT-038",
@@ -1900,7 +2043,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-039": {
     "id": "VT-039",
@@ -1922,7 +2066,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-040": {
     "id": "VT-040",
@@ -1949,7 +2094,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-041": {
     "id": "VT-041",
@@ -1971,7 +2117,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-042": {
     "id": "VT-042",
@@ -1993,7 +2140,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-043": {
     "id": "VT-043",
@@ -2015,7 +2163,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-044": {
     "id": "VT-044",
@@ -2037,7 +2186,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-045": {
     "id": "VT-045",
@@ -2059,7 +2209,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-046": {
     "id": "VT-046",
@@ -2081,7 +2232,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-047": {
     "id": "VT-047",
@@ -2108,7 +2260,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-048": {
     "id": "VT-048",
@@ -2130,7 +2283,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-049": {
     "id": "VT-049",
@@ -2152,7 +2306,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-050": {
     "id": "VT-050",
@@ -2179,7 +2334,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-051": {
     "id": "VT-051",
@@ -2201,7 +2357,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-052": {
     "id": "VT-052",
@@ -2228,7 +2385,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-053": {
     "id": "VT-053",
@@ -2250,7 +2408,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-054": {
     "id": "VT-054",
@@ -2272,7 +2431,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-055": {
     "id": "VT-055",
@@ -2294,7 +2454,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-056": {
     "id": "VT-056",
@@ -2316,7 +2477,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-057": {
     "id": "VT-057",
@@ -2343,7 +2505,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-058": {
     "id": "VT-058",
@@ -2365,7 +2528,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-059": {
     "id": "VT-059",
@@ -2387,7 +2551,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-060": {
     "id": "VT-060",
@@ -2409,7 +2574,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-061": {
     "id": "VT-061",
@@ -2431,7 +2597,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-062": {
     "id": "VT-062",
@@ -2453,7 +2620,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-063": {
     "id": "VT-063",
@@ -2475,7 +2643,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-064": {
     "id": "VT-064",
@@ -2497,7 +2666,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-065": {
     "id": "VT-065",
@@ -2519,7 +2689,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-066": {
     "id": "VT-066",
@@ -2546,7 +2717,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-067": {
     "id": "VT-067",
@@ -2568,7 +2740,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-068": {
     "id": "VT-068",
@@ -2590,7 +2763,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-069": {
     "id": "VT-069",
@@ -2612,7 +2786,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-070": {
     "id": "VT-070",
@@ -2639,7 +2814,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-071": {
     "id": "VT-071",
@@ -2661,7 +2837,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-072": {
     "id": "VT-072",
@@ -2683,7 +2860,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-073": {
     "id": "VT-073",
@@ -2705,7 +2883,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-074": {
     "id": "VT-074",
@@ -2727,7 +2906,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-075": {
     "id": "VT-075",
@@ -2749,7 +2929,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-076": {
     "id": "VT-076",
@@ -2771,7 +2952,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-077": {
     "id": "VT-077",
@@ -2793,7 +2975,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-078": {
     "id": "VT-078",
@@ -2815,7 +2998,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-079": {
     "id": "VT-079",
@@ -2837,7 +3021,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-080": {
     "id": "VT-080",
@@ -2864,7 +3049,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-081": {
     "id": "VT-081",
@@ -2886,7 +3072,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-082": {
     "id": "VT-082",
@@ -2908,7 +3095,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-083": {
     "id": "VT-083",
@@ -2930,7 +3118,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-084": {
     "id": "VT-084",
@@ -2952,7 +3141,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-085": {
     "id": "VT-085",
@@ -2974,7 +3164,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-086": {
     "id": "VT-086",
@@ -3001,7 +3192,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-087": {
     "id": "VT-087",
@@ -3023,7 +3215,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-088": {
     "id": "VT-088",
@@ -3050,7 +3243,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-089": {
     "id": "VT-089",
@@ -3072,7 +3266,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-090": {
     "id": "VT-090",
@@ -3099,7 +3294,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-091": {
     "id": "VT-091",
@@ -3121,7 +3317,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-092": {
     "id": "VT-092",
@@ -3143,7 +3340,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-093": {
     "id": "VT-093",
@@ -3165,7 +3363,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-094": {
     "id": "VT-094",
@@ -3187,7 +3386,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-095": {
     "id": "VT-095",
@@ -3209,7 +3409,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-096": {
     "id": "VT-096",
@@ -3231,7 +3432,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-097": {
     "id": "VT-097",
@@ -3253,7 +3455,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-098": {
     "id": "VT-098",
@@ -3275,7 +3478,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-099": {
     "id": "VT-099",
@@ -3297,7 +3501,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-100": {
     "id": "VT-100",
@@ -3319,7 +3524,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-101": {
     "id": "VT-101",
@@ -3341,7 +3547,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-102": {
     "id": "VT-102",
@@ -3363,7 +3570,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-103": {
     "id": "VT-103",
@@ -3385,7 +3593,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-104": {
     "id": "VT-104",
@@ -3407,7 +3616,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-105": {
     "id": "VT-105",
@@ -3434,7 +3644,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-106": {
     "id": "VT-106",
@@ -3461,7 +3672,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-107": {
     "id": "VT-107",
@@ -3488,7 +3700,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-108": {
     "id": "VT-108",
@@ -3510,7 +3723,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-109": {
     "id": "VT-109",
@@ -3537,7 +3751,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VT-110": {
     "id": "VT-110",
@@ -3559,7 +3774,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-111": {
     "id": "VT-111",
@@ -3581,7 +3797,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-112": {
     "id": "VT-112",
@@ -3603,7 +3820,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-113": {
     "id": "VT-113",
@@ -3625,7 +3843,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-114": {
     "id": "VT-114",
@@ -3647,7 +3866,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VT-115": {
     "id": "VT-115",
@@ -3674,7 +3894,8 @@
         "source": "arxiv:2602.00409",
         "claim": "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-001": {
     "id": "VC-001",
@@ -3696,7 +3917,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-002": {
     "id": "VC-002",
@@ -3718,7 +3940,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-003": {
     "id": "VC-003",
@@ -3745,7 +3968,8 @@
         "source": "arxiv:2603.28592",
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-004": {
     "id": "VC-004",
@@ -3767,7 +3991,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-005": {
     "id": "VC-005",
@@ -3785,11 +4010,17 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Prototipo \"temporal\" sin fecha ni dueno: se queda para siempre.\ndef quick_hack():            # TODO: temporal, quitar\n    return cached_guess()\n",
+    "example_good": "# Todo prototipo lleva expiracion y dueno explicitos y rastreables.\ndef quick_hack():            # PROTOTYPE owner=luis expires=2026-07-01 ticket=BUG-12\n    return cached_guess()\n",
+    "example_lang": "python",
+    "detection": "Marcar comentarios TODO/FIXME/HACK/'temporal'/'prototype' sin dueno + fecha de\nexpiracion + ticket parseables.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-006": {
     "id": "VC-006",
@@ -3811,7 +4042,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-007": {
     "id": "VC-007",
@@ -3833,7 +4065,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-008": {
     "id": "VC-008",
@@ -3855,7 +4088,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-009": {
     "id": "VC-009",
@@ -3877,7 +4111,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-010": {
     "id": "VC-010",
@@ -3899,7 +4134,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-011": {
     "id": "VC-011",
@@ -3921,7 +4157,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-012": {
     "id": "VC-012",
@@ -3943,7 +4180,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-013": {
     "id": "VC-013",
@@ -3965,7 +4203,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-014": {
     "id": "VC-014",
@@ -3987,7 +4226,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-015": {
     "id": "VC-015",
@@ -4009,7 +4249,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-016": {
     "id": "VC-016",
@@ -4031,7 +4272,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-017": {
     "id": "VC-017",
@@ -4058,7 +4300,8 @@
         "source": "arxiv:2603.28592",
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-018": {
     "id": "VC-018",
@@ -4080,7 +4323,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-019": {
     "id": "VC-019",
@@ -4102,7 +4346,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-020": {
     "id": "VC-020",
@@ -4124,7 +4369,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-021": {
     "id": "VC-021",
@@ -4146,7 +4392,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-022": {
     "id": "VC-022",
@@ -4168,7 +4415,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-023": {
     "id": "VC-023",
@@ -4190,7 +4438,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-024": {
     "id": "VC-024",
@@ -4212,7 +4461,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-025": {
     "id": "VC-025",
@@ -4234,7 +4484,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-026": {
     "id": "VC-026",
@@ -4256,7 +4507,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-027": {
     "id": "VC-027",
@@ -4278,7 +4530,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-028": {
     "id": "VC-028",
@@ -4300,7 +4553,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-029": {
     "id": "VC-029",
@@ -4322,7 +4576,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-030": {
     "id": "VC-030",
@@ -4344,7 +4599,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-031": {
     "id": "VC-031",
@@ -4362,11 +4618,17 @@
     "action": "Reescritura completa vs edición quirúrgica: vicio conductual de juicio (cuándo se justifica un rewrite). Ningún test estático en test_cerberus_core discrimina intención. Sprint 3.4 revisión manual: DOC_ONLY honesto.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# El agente reescribe el archivo entero para cambiar dos lineas.\n# diff: 198 deletions(-), 200 insertions(+)  -> se pierde historia e invariantes\n",
+    "example_good": "# Diff minimo y quirurgico: solo lo que cambia.\n- timeout = 30\n+ timeout = 60\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "detection": "Heuristica de diff: cambios donde >80% de las lineas de un archivo existente se\nborran y reinsertan = reescritura total disfrazada de edicion.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-032": {
     "id": "VC-032",
@@ -4388,7 +4650,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-033": {
     "id": "VC-033",
@@ -4410,7 +4673,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-034": {
     "id": "VC-034",
@@ -4432,7 +4696,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-035": {
     "id": "VC-035",
@@ -4454,7 +4719,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-036": {
     "id": "VC-036",
@@ -4472,11 +4738,17 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Borrado masivo ejecutado directo, sin simular.\nfind . -name \"*.tmp\" -delete\n",
+    "example_good": "# Simular primero; aplicar solo tras revisar la lista.\nfind . -name \"*.tmp\" -print     # dry-run: que se borraria\nfind . -name \"*.tmp\" -delete    # aplicar tras confirmar\n",
+    "example_lang": "bash",
+    "detection": "Operaciones destructivas (rm/-delete/DROP/TRUNCATE/git reset --hard) sin un paso\nprevio de simulacion (--dry-run/-print/EXPLAIN) en el mismo flujo.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-037": {
     "id": "VC-037",
@@ -4498,7 +4770,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-038": {
     "id": "VC-038",
@@ -4520,7 +4793,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-039": {
     "id": "VC-039",
@@ -4538,11 +4812,17 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "def pay(x):\n    return charge(x)   # atajo: sin idempotencia ni reintentos (no registrado)\n",
+    "example_good": "# La deuda se declara explicita en un registro rastreable.\ndef pay(x):\n    return charge(x)   # DEBT-21: falta idempotencia, ver TECH_DEBT.md\n",
+    "example_lang": "python",
+    "detection": "Atajos conocidos ('por ahora', sin validacion, sin reintento) que no tengan una\nentrada correspondiente en un registro de deuda tecnica.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-040": {
     "id": "VC-040",
@@ -4564,7 +4844,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-041": {
     "id": "VC-041",
@@ -4586,7 +4867,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-042": {
     "id": "VC-042",
@@ -4608,7 +4890,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-043": {
     "id": "VC-043",
@@ -4630,7 +4913,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-044": {
     "id": "VC-044",
@@ -4652,7 +4936,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-045": {
     "id": "VC-045",
@@ -4674,7 +4959,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-046": {
     "id": "VC-046",
@@ -4696,7 +4982,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-047": {
     "id": "VC-047",
@@ -4718,7 +5005,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-048": {
     "id": "VC-048",
@@ -4740,7 +5028,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-049": {
     "id": "VC-049",
@@ -4762,7 +5051,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-050": {
     "id": "VC-050",
@@ -4784,7 +5074,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-051": {
     "id": "VC-051",
@@ -4806,7 +5097,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-052": {
     "id": "VC-052",
@@ -4828,7 +5120,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-053": {
     "id": "VC-053",
@@ -4850,7 +5143,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-054": {
     "id": "VC-054",
@@ -4872,7 +5166,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-055": {
     "id": "VC-055",
@@ -4894,7 +5189,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-056": {
     "id": "VC-056",
@@ -4916,7 +5212,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-057": {
     "id": "VC-057",
@@ -4934,11 +5231,17 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# Tres fuentes declaran versiones distintas.\npyproject.toml : version = \"1.4.0\"\n__init__.py    : __version__ = \"1.2.0\"\nCHANGELOG.md   : ## 1.5.0\n",
+    "example_good": "# Una sola fuente canonica; el resto la derivan, no la copian.\n__version__ = importlib.metadata.version(\"mypkg\")\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "detection": "Extraer todas las cadenas de version del repo (manifiesto, __version__, changelog,\ntags) y fallar si no coinciden.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-058": {
     "id": "VC-058",
@@ -4960,7 +5263,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-059": {
     "id": "VC-059",
@@ -4982,7 +5286,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-060": {
     "id": "VC-060",
@@ -5004,7 +5309,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-061": {
     "id": "VC-061",
@@ -5022,11 +5328,17 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Un stub temporal queda cableado como dependencia real de produccion.\nclass PaymentGateway:\n    def charge(self, amount):\n        return True        # stub: \"luego lo conectamos\"\n",
+    "example_good": "# El stub vive solo en tests; produccion usa la implementacion real.\nclass PaymentGateway:\n    def charge(self, amount):\n        return self._provider.charge(amount)\n",
+    "example_lang": "python",
+    "detection": "Clases/funciones con cuerpo trivial (return True/None/pass) importadas desde modulos\nde produccion (no de tests/fixtures).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-062": {
     "id": "VC-062",
@@ -5053,7 +5365,8 @@
         "source": "arxiv:2603.28592",
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-063": {
     "id": "VC-063",
@@ -5075,7 +5388,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-064": {
     "id": "VC-064",
@@ -5097,7 +5411,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-065": {
     "id": "VC-065",
@@ -5119,7 +5434,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-066": {
     "id": "VC-066",
@@ -5141,7 +5457,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-067": {
     "id": "VC-067",
@@ -5163,7 +5480,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-068": {
     "id": "VC-068",
@@ -5185,7 +5503,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-069": {
     "id": "VC-069",
@@ -5207,7 +5526,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-070": {
     "id": "VC-070",
@@ -5225,11 +5545,17 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Editar JSON con sed: fragil, rompe el formato al primer caso raro.\nsed -i 's/\"port\": 80/\"port\": 443/' config.json\n",
+    "example_good": "# Operacion estructurada con un parser real del formato.\npython -c \"import json; d=json.load(open('config.json')); d['port']=443; json.dump(d, open('config.json','w'), indent=2)\"\n",
+    "example_lang": "bash",
+    "detection": "Uso de sed/awk/grep para mutar archivos estructurados (.json/.yaml/.toml/.xml) en\nvez de un parser del formato.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-071": {
     "id": "VC-071",
@@ -5251,7 +5577,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-072": {
     "id": "VC-072",
@@ -5273,7 +5600,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-073": {
     "id": "VC-073",
@@ -5295,7 +5623,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-074": {
     "id": "VC-074",
@@ -5317,7 +5646,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-075": {
     "id": "VC-075",
@@ -5339,7 +5669,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-076": {
     "id": "VC-076",
@@ -5357,11 +5688,17 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "def handle(data):          # sin tipos: estados imposibles circulan\n    return data[\"amount\"] * data[\"rate\"]\n",
+    "example_good": "def handle(order: Order) -> Money:   # invariantes representados en el tipo\n    return order.amount * order.rate\n",
+    "example_lang": "python",
+    "detection": "Funciones publicas sin anotaciones de tipo o con Any en firmas de dominio\n(mypy --disallow-untyped-defs / --disallow-any-explicit).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-077": {
     "id": "VC-077",
@@ -5383,7 +5720,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-078": {
     "id": "VC-078",
@@ -5405,7 +5743,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-079": {
     "id": "VC-079",
@@ -5427,7 +5766,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-080": {
     "id": "VC-080",
@@ -5445,11 +5785,17 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# Mismo bloque copiado en varios handlers; un bug se replica N veces.\ndef a(): u = db.get(id); log(u); return u.name\ndef b(): u = db.get(id); log(u); return u.email\n",
+    "example_good": "# Logica comun extraida una sola vez.\ndef _load(id): u = db.get(id); log(u); return u\ndef a(): return _load(id).name\ndef b(): return _load(id).email\n",
+    "example_lang": "python",
+    "detection": "Deteccion de clones: bloques de >=5 lineas identicos en >=2 ubicaciones\n(jscpd / pylint duplicate-code).\n",
+    "evidence": [
+      {
+        "source": "GitClear 2025",
+        "claim": "el codigo duplicado aumento ~8x con asistencia de IA."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-081": {
     "id": "VC-081",
@@ -5471,7 +5817,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-082": {
     "id": "VC-082",
@@ -5498,7 +5845,8 @@
         "source": "arxiv:2603.28592",
         "claim": "imports/dependencias fantasma figuran entre los antipatrones recurrentes del código AI-generado, presentes en 80-100% de los proyectos analizados."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-083": {
     "id": "VC-083",
@@ -5520,7 +5868,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-084": {
     "id": "VC-084",
@@ -5542,7 +5891,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-085": {
     "id": "VC-085",
@@ -5564,7 +5914,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-086": {
     "id": "VC-086",
@@ -5586,7 +5937,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-087": {
     "id": "VC-087",
@@ -5608,7 +5960,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-088": {
     "id": "VC-088",
@@ -5630,7 +5983,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-089": {
     "id": "VC-089",
@@ -5652,7 +6006,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-090": {
     "id": "VC-090",
@@ -5674,7 +6029,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-091": {
     "id": "VC-091",
@@ -5696,7 +6052,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-092": {
     "id": "VC-092",
@@ -5718,7 +6075,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-093": {
     "id": "VC-093",
@@ -5740,7 +6098,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-094": {
     "id": "VC-094",
@@ -5762,7 +6121,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-095": {
     "id": "VC-095",
@@ -5780,11 +6140,17 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# URL/credencial de produccion incrustada: cualquier corrida toca prod.\nDB = connect(\"postgres://prod-db.internal:5432\", password=\"hunter2\")\n",
+    "example_good": "# Entorno inyectado; prod requiere un paso explicito y separado.\nDB = connect(os.environ[\"DATABASE_URL\"])   # default apunta a sandbox\n",
+    "example_lang": "python",
+    "detection": "Literales con hosts/credenciales de produccion (prod, internal, claves) en codigo\nfuente en vez de configuracion por entorno.\n",
+    "evidence": [
+      {
+        "source": "OWASP Top 10 for Agents 2026",
+        "claim": "categoria de riesgo reconocida para aplicaciones agenticas (unsafe execution / secret exposure)."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-096": {
     "id": "VC-096",
@@ -5802,11 +6168,17 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "src/billing/refund.py        # 0 tests\n# se cambia refund() y nada detecta la regresion\n",
+    "example_good": "src/billing/refund.py\ntests/billing/test_refund.py # cubre el comportamiento antes de cambiarlo\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "detection": "Modulos de produccion sin archivo de test correspondiente (mapeo src/x.py ->\ntests/test_x.py ausente) o sin cobertura de sus funciones publicas.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2602.00409",
+        "claim": "los agentes generan codigo sin oraculo de prueba de forma medible; la ausencia de tests amplifica el riesgo."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-097": {
     "id": "VC-097",
@@ -5828,7 +6200,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-098": {
     "id": "VC-098",
@@ -5850,7 +6223,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-099": {
     "id": "VC-099",
@@ -5872,7 +6246,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-100": {
     "id": "VC-100",
@@ -5894,7 +6269,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-101": {
     "id": "VC-101",
@@ -5916,7 +6292,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-102": {
     "id": "VC-102",
@@ -5938,7 +6315,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-103": {
     "id": "VC-103",
@@ -5960,7 +6338,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-104": {
     "id": "VC-104",
@@ -5982,7 +6361,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-105": {
     "id": "VC-105",
@@ -6004,7 +6384,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-106": {
     "id": "VC-106",
@@ -6026,7 +6407,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-107": {
     "id": "VC-107",
@@ -6048,7 +6430,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-108": {
     "id": "VC-108",
@@ -6070,7 +6453,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-109": {
     "id": "VC-109",
@@ -6097,7 +6481,8 @@
         "source": "arxiv:2603.28592",
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-110": {
     "id": "VC-110",
@@ -6119,7 +6504,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-111": {
     "id": "VC-111",
@@ -6137,11 +6523,17 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# .gitignore: se ignora un directorio sin saber que contiene.\nscratch/\n",
+    "example_good": "# Cada exclusion lleva motivo y fecha; se audito antes de ignorar.\nscratch/   # solo artefactos de build, auditado 2026-06-05, sin secretos\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "detection": "Entradas de .gitignore / exclusiones de cobertura sin comentario justificativo,\nespecialmente directorios opacos no auditados.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-112": {
     "id": "VC-112",
@@ -6163,7 +6555,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-113": {
     "id": "VC-113",
@@ -6181,11 +6574,17 @@
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": []
+    "example_bad": "# El nombre dice v1 pero ya implementa reglas de la v3: enga;a a lectores y tests.\nclass AuditorV1:           # alcance real != nombre heredado\n    ...\n",
+    "example_good": "class Auditor:             # el nombre refleja el alcance actual\n    ...\n",
+    "example_lang": "python",
+    "detection": "Identificadores con tokens de version embebidos (xxx_v1, FooV2) cuyo alcance ya no\ncorresponde a esa version.\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
+      }
+    ],
+    "doctrinal": false
   },
   "VC-114": {
     "id": "VC-114",
@@ -6207,7 +6606,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   },
   "VC-115": {
     "id": "VC-115",
@@ -6234,7 +6634,8 @@
         "source": "OWASP Top 10 for Agents 2026",
         "claim": "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-116": {
     "id": "VC-116",
@@ -6261,7 +6662,8 @@
         "source": "OWASP Top 10 for Agents 2026",
         "claim": "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-117": {
     "id": "VC-117",
@@ -6288,7 +6690,8 @@
         "source": "arxiv:2603.28592",
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-118": {
     "id": "VC-118",
@@ -6315,7 +6718,8 @@
         "source": "arxiv:2603.28592",
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-119": {
     "id": "VC-119",
@@ -6337,7 +6741,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-120": {
     "id": "VC-120",
@@ -6359,7 +6764,8 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": true
   },
   "VC-121": {
     "id": "VC-121",
@@ -6386,7 +6792,8 @@
         "source": "GitClear 2025",
         "claim": "el código duplicado/clonado aumentó ~8x con asistencia de IA, señal directa de este antipatrón a escala."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-122": {
     "id": "VC-122",
@@ -6413,7 +6820,8 @@
         "source": "OWASP Top 10 for Agents 2026",
         "claim": "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-123": {
     "id": "VC-123",
@@ -6440,7 +6848,8 @@
         "source": "arxiv:2603.28592",
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-124": {
     "id": "VC-124",
@@ -6468,7 +6877,8 @@
         "source": "arxiv:2603.28592",
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-125": {
     "id": "VC-125",
@@ -6496,7 +6906,8 @@
         "source": "arxiv:2603.28592",
         "claim": "antipatron recurrente del codigo AI-generado, presente en 80-100% de los proyectos analizados."
       }
-    ]
+    ],
+    "doctrinal": false
   },
   "VC-126": {
     "id": "VC-126",
@@ -6519,6 +6930,7 @@
     "example_good": "",
     "example_lang": "text",
     "detection": "",
-    "evidence": []
+    "evidence": [],
+    "doctrinal": false
   }
 }
