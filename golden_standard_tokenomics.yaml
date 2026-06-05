@@ -1167,3 +1167,30 @@ items:
   evidence:
   - source: "vexp.dev / HumanLayer ACE"
     claim: "el residuo no podado infla el contexto y el costo; la gobernanza de salida es tan necesaria como la de entrada."
+- id: TK-044
+  title: Deuda de tokenomics acumulada (Cost Compounding)
+  symptom: |
+    El costo por sesion crece silenciosamente porque nunca se compacta ni se mide; las sesiones largas pagan 3-5x mas tokens que el trabajo estructurado.
+  cause: |
+    Sin compactacion periodica ni telemetria de costo, el contexto crece de forma monotona y cada turno arrastra todo el historial.
+  solution: |
+    Compactar en umbrales de uso, medir el costo por sesion y operar con presupuesto y alertas.
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - tokenomics
+  - ai-native
+  action: |
+    Documentado; enforcement downstream. Tools: tokencost (PI-003), litellm (PI-005), LLM-Cost-Guardian para enforcement de budget.
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  example_lang: text
+  example_bad: |
+    # Sesion de 4 horas sin compactar; el contexto llega al 95% y el costo se dispara.
+  example_good: |
+    # Compactacion en umbrales + presupuesto con alertas + telemetria de costo por sesion.
+  detection: |
+    Sesiones largas sin eventos de compactacion ni telemetria de costo; crecimiento monotono del contexto. Relacionado con TK-031 (compactacion) y TK-040 (ahorro no medido).
+  evidence:
+  - source: "vexp.dev"
+    claim: "vibe coding sin estructura cuesta ~3-5x mas (~$300-450/mes vs ~$90-135/mes estructurado)."

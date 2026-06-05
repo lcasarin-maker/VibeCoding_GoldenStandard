@@ -17,6 +17,7 @@ Control de salida, compresión, verbosidad y presupuesto de respuesta.
 *   [[Tokenomics/TK-035|TK-035]] — **Pensar con herramienta de ejecución** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-036|TK-036]] — **Respuesta sin modo** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-043|TK-043]] — **Entropía sin poda — gobernanza de entrada sin gobernanza de salida** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-044|TK-044]] — **Deuda de tokenomics acumulada (Cost Compounding)** (DOC_ONLY, medium, downstream:required)
 *   [[Tokenomics/TK-F03|TK-F03]] — **Salida verbal excesiva** (DOC_ONLY, low, downstream:required)
 
 ---

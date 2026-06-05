@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.5 | Date: 2026-06-05 | Total Audited Items: 287**
+**Golden Standard V0.5 | Date: 2026-06-05 | Total Audited Items: 296**
 
 This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -8,9 +8,9 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 115 | 27 | 88 | 100% |
-| **Vibe Coding** | 126 | 31 | 95 | 100% |
-| **Tokenomics & Context** | 46 | 34 | 12 | 100% |
-| **Total** | 287 | 92 | 195 | 100% |
+| **Vibe Coding** | 134 | 31 | 103 | 100% |
+| **Tokenomics & Context** | 47 | 34 | 13 | 100% |
+| **Total** | 296 | 92 | 204 | 100% |
 
 ---
 
@@ -136,7 +136,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VT-114` | Deriva de Sincronización Multirepositorio (Multi-Repository Sync Drift) | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
 | `VT-115` | Falso Positivo de Drift por Fin de Línea (CRLF/LF Hash Mismatch) | **high** | **REMEDIATED** | `none` | Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry. | `test_setup_validation` |
 
-### Vibe Coding (126 items)
+### Vibe Coding (134 items)
 
 | ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |
 |---|---|---|---|---|---|---|
@@ -266,8 +266,16 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-124` | Deprecación Precipitada sin Análisis (Hasty Deprecation) | **high** | **PREVENTED** | `none` | pre_edit_guard bloquea escrituras en deprecated/ sin entrada previa en DEPRECATION_LOG.md. pre-commit hook valida que archivos staged en deprecated/ estén justificados. D1 del auditor 12D verifica cobertura del log. | `check_deprecation_log.py + pre_edit_guard S24 + D1 audit` |
 | `VC-125` | Retrospectiva no externalizada | **high** | **PREVENTED** | `none` | Exigir que toda lección nueva se externalice al catálogo o wiki antes de COMPACT/CLEAR; si no hay exportación estructurada, el cierre queda incompleto. | `generate_golden_audit.py + wiki coverage + retrospective export` |
 | `VC-126` | Sugerencia post-ejecución que reabre alcance | **medium** | **PREVENTED** | `none` | CONTRIBUTING.md now requires a preflight with scope, impacts and out-of-scope follow-ups before execution; post-execution suggestions must be captured in backlog first. | `CONTRIBUTING.md execution hygiene rule + issue-template preflight` |
+| `VC-127` | Inyeccion de prompt en bucle de agente (Prompt Injection) | **critical** | **DOC_ONLY** | `required` | Documentado como conocimiento de gobernanza AI-native; el enforcement vive downstream. Receta: aislar contenido externo, allowlist de tools, gate humano para acciones destructivas.  | `DOC_ONLY` |
+| `VC-128` | Envenenamiento de contexto (Context Poisoning) | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: paso de verificacion antes de persistir un hecho, y reanclaje en fuentes de verdad al compactar.  | `DOC_ONLY` |
+| `VC-129` | Dependencia alucinada (Slopsquatting) | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Hueco confirmado: ningun SCA tradicional (Trivy, Snyk, OWASP DependencyCheck) detecta paquetes inexistentes, solo CVEs de paquetes reales.  | `DOC_ONLY` |
+| `VC-130` | Revision en camara de eco (Echo-Chamber Review) | **medium** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: separar generador y revisor (modelo/version/contexto distintos) o anadir una compuerta estatica independiente.  | `DOC_ONLY` |
+| `VC-131` | Deriva arquitectonica en sesiones largas (Architecture Drift) | **medium** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: ADR persistente + reanclaje post-compactacion + check de coherencia contra decisiones vigentes.  | `DOC_ONLY` |
+| `VC-132` | Cascada de ambiguedad de especificacion (Spec Ambiguity Cascade) | **medium** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: confirmar interpretacion en puntos de bifurcacion antes de construir sobre ella.  | `DOC_ONLY` |
+| `VC-133` | Fallo de tool call no manejado en bucle de agente | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: verificar exito de cada tool call, backoff con limite, y abortar/degradar tras N fallos (ver VC-120).  | `DOC_ONLY` |
+| `VC-134` | Coordinacion multiagente sin protocolo | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: declarar ownership por area, serializar el acceso al estado compartido y exigir handoff estructurado.  | `DOC_ONLY` |
 
-### Tokenomics & Context (46 items)
+### Tokenomics & Context (47 items)
 
 | ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |
 |---|---|---|---|---|---|---|
@@ -314,6 +322,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `TK-041` | Cuotas invisibles | **low** | **PREVENTED** | `none` | Memory/headroom topology validation keeps quota awareness tied to the canonical tokenomics surfaces. | `validate_golden_standard_catalogs.py --check-wiki` |
 | `TK-042` | Manifiestos sin restricción de tamaño | **medium** | **REMEDIATED** | `none` | D10 manifest size gate validates that AGENT.md <= 150 lines, STATUS.md <= 200 lines, and SPEC.md <= 500 lines. | `audit_d10_tokenomics` |
 | `TK-043` | Entropía sin poda — gobernanza de entrada sin gobernanza de salida | **low** | **PREVENTED** | `none` | Tokenomics cleanup validation now rejects orphan markdown files in Wiki/Vices and Wiki/Tokenomics so residual docs cannot linger unnoticed. | `validate_golden_standard_catalogs.py --check-wiki` |
+| `TK-044` | Deuda de tokenomics acumulada (Cost Compounding) | **medium** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Tools: tokencost (PI-003), litellm (PI-005), LLM-Cost-Guardian para enforcement de budget.  | `DOC_ONLY` |
 | `TK-F01` | Reprocesamiento de contexto estable | **low** | **DOC_ONLY** | `required` | Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY. | `DOC_ONLY` |
 | `TK-F02` | Poda contextual primitiva | **low** | **DOC_ONLY** | `required` | Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY. | `DOC_ONLY` |
 | `TK-F03` | Salida verbal excesiva | **low** | **DOC_ONLY** | `required` | Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY. | `DOC_ONLY` |
