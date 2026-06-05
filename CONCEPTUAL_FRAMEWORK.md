@@ -145,14 +145,36 @@ CoderCerberus **consumes** Golden Standard as its normative source.
 Every rule in Cerberus must be traceable to a Golden Standard entry.
 Every new Golden Standard entry should eventually have a Cerberus implementation.
 
+The formal bidirectional interface between the two projects is defined in [`CERBERUS_CONTRACT.md`](CERBERUS_CONTRACT.md).
+
 ---
+
+## Source Ecosystem
+
+Knowledge enters the Golden Standard through **authorized sources** with defined contracts.
+See [`KNOWLEDGE_SOURCES.md`](KNOWLEDGE_SOURCES.md) for the full source registry.
+
+```
+┌─────────────────┐    Inbox/cerberus/    ┌──────────────────────────────────┐
+│  CoderCerberus  │ ──────────────────▶  │                                  │
+│  (auditor)      │                       │       Golden Standard            │
+└─────────────────┘                       │   (knowledge base — agnostic)    │
+                                          │                                  │
+┌─────────────────┐    Inbox/manual/      │   VC-xxx  VT-xxx  TK-xxx  PI-xxx │
+│  Manual / DRI   │ ──────────────────▶  │                                  │
+└─────────────────┘                       └──────────────────────────────────┘
+                                                         │
+┌─────────────────┐    Inbox/external/                  │ (normative source)
+│  Community      │ ──────────────────▶  ───────────────┘
+└─────────────────┘                       consumed by any agent, tool, or team
+```
 
 ## Feedback Loop
 
 ```
-Real development session
+Source detects failure (Cerberus audit / manual session / external contribution)
         ↓
-New vice / failure detected
+Deposit in Inbox/<source>/YYYY-MM-DD_<slug>.md  [see INGESTION_PROTOCOL.md]
         ↓
 Documented in Golden Standard (KNOWLEDGE status)
         ↓

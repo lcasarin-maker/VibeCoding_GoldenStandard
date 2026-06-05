@@ -1,37 +1,63 @@
-# Inbox — Golden Standard Ingestion Protocol
+# Inbox — Golden Standard Knowledge Ingestion
 
-Este directorio actúa como el **Raw Inbox** (buzón de entrada) según el patrón **LLM Wiki**. Aquí se deposita el conocimiento informal, bitácoras de incidentes, logs y aprendizajes sueltos de vibe coding antes de ser purificados y consolidados en el estándar.
+Este directorio es el **buzón de entrada** de la base de conocimiento.
+Aquí se depositan hallazgos crudos antes de ser curados y promovidos al catálogo.
+
+> **Para el protocolo completo de ingesta, ver:** [`INGESTION_PROTOCOL.md`](../INGESTION_PROTOCOL.md)  
+> **Para las fuentes autorizadas y sus contratos, ver:** [`KNOWLEDGE_SOURCES.md`](../KNOWLEDGE_SOURCES.md)
 
 ---
 
-## Flujo de Ingesta y Promoción
+## Estructura de este Directorio
 
-```mermaid
-graph TD
-    A[Buzón Informal: Inbox/] -->|1. Análisis y Deduplicación| B{¿Es nuevo o duplicado?}
-    B -->|Duplicado/Ruido| C[Descartar o Archivar]
-    B -->|Nuevo Conocimiento| D[2. Mapear a Formato Canónico]
-    D -->|Agregar entrada| E[3. Registrar en golden_standard_*.yaml]
-    E -->|Ejecutar compilador| F[4. Generar Bóveda Obsidian & DB]
-    F -->|Éxito y Validación| G[5. Limpiar Inbox y Mover a deprecated/]
+```
+Inbox/
+├── cerberus/      ← Hallazgos de auditorías de CoderCerberus
+├── manual/        ← Hallazgos de sesiones manuales del DRI
+├── external/      ← Contribuciones externas (triageadas por mantenedores)
+└── templates/
+    ├── cerberus_finding.md        ← Plantilla para hallazgos de Cerberus
+    ├── manual_finding.md          ← Plantilla para hallazgos manuales
+    └── external_contribution.md  ← Plantilla para contribuciones externas
 ```
 
-### Paso 1: Recibir Hallazgos
-Cualquier sesión de vibe coding, test fallido recurrente, o error de tokenomics debe registrarse en un archivo `.md` rápido dentro de esta carpeta (ej. `Inbox/error_context_handling.md`).
+### Notas por Carpeta
 
-### Paso 2: Análisis y Purificación
-El agente o el DRI humano revisará el buzón periódicamente:
-1. Comprobar contra los catálogos YAML si la falla/symptom ya está cubierta.
-2. Si es nueva, extraer: **Symptom**, **Cause**, **Solution**, **Prevention Action** y su **Validating Mechanism**.
+- [`cerberus/README.md`](cerberus/README.md) — qué depositar y cómo nombrarlo.
+- [`manual/README.md`](manual/README.md) — hallazgos observados por la DRI.
+- [`external/README.md`](external/README.md) — flujo para issues y PRs externos.
+- [`templates/README.md`](templates/README.md) — referencia rápida de plantillas.
 
-### Paso 3: Promoción
-1. Agregar la entrada bajo el dominio correspondiente (`VC-xxx`, `TV-xxx`, `TK-xxx`) en su respectivo archivo YAML de `Golden_Standard/`.
-2. Mantener la numeración secuencial estricta.
+---
 
-### Paso 4: Compilación y Cierre
-1. Ejecutar el script compilador:
-   ```bash
-   python scripts/generate_golden_audit.py
+## Cómo Depositar un Hallazgo (resumen rápido)
+
+1. Copia la plantilla correspondiente de `Inbox/templates/`
+2. Completa todos los campos requeridos (marcados con ✅ en la plantilla)
+3. Guarda el archivo en el subdirectorio correcto con la convención de nombre:
    ```
-2. Confirmar que la bóveda Obsidian (`Wiki/`) se actualice con el nuevo enlace bidireccional y que las pruebas de cumplimiento de Cerberus pasen en verde.
-3. Trasladar el archivo del `Inbox/` original a `deprecated/Golden_Standard/Inbox/` para mantener limpio el espacio de producción.
+   YYYY-MM-DD_<slug>.md
+   ```
+4. Haz commit con el mensaje: `inbox: <fuente> finding <slug>`
+
+El curador revisará el hallazgo y lo promoverá al catálogo YAML + Wiki siguiendo el [`INGESTION_PROTOCOL.md`](../INGESTION_PROTOCOL.md).
+
+---
+
+## Flujo de Ingesta
+
+```
+Fuente (Cerberus / Manual / External)
+        ↓
+Depositar en Inbox/<fuente>/YYYY-MM-DD_<slug>.md
+        ↓
+Curador valida → deduplica → mapea dominio
+        ↓
+Agregar entrada en golden_standard_*.yaml (status: KNOWLEDGE)
+        ↓
+Crear artículo en Wiki/Vices/
+        ↓
+Ejecutar generate_golden_audit.py
+        ↓
+Mover archivo a deprecated/
+```

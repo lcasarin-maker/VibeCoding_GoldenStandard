@@ -4,6 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Audit](https://github.com/lcasarin-maker/VibeCoding_GoldenStandard/actions/workflows/audit.yml/badge.svg?branch=master)](https://github.com/lcasarin-maker/VibeCoding_GoldenStandard/actions/workflows/audit.yml)
 [![Knowledge Entries](https://img.shields.io/badge/vices%20cataloged-600%2B-blue.svg)](#knowledge-domains)
 
 ---
@@ -50,6 +51,8 @@ Principles for efficient use of AI context tokens — because wasting tokens is 
 ### Browse the Knowledge Base
 
 - **[Wiki Home](Wiki/Home.md)** — Entry point with category indexes
+- **[Inbox](Inbox/README.md)** — Intake process for raw findings and proposed entries
+- **[Audit Report](golden_standard_audit_report.md)** — Machine-generated coverage map
 - **[Coding Vices Index](Wiki/Vices/)** — All VC-xxx and VT-xxx articles
 - **[YAML Catalogs](#catalogs)** — Machine-readable knowledge for tooling
 
@@ -70,7 +73,7 @@ git clone https://github.com/lcasarin-maker/VibeCoding_GoldenStandard.git
 python generate_golden_audit.py
 ```
 
-Output: `golden_standard_audit_report.md` — shows which entries have full Wiki coverage and which are missing documentation.
+Output: `golden_standard_audit_report.md` — shows the compliance map and generated status snapshot. CI also validates that the catalogs and Wiki stay in sync.
 
 ---
 
@@ -94,6 +97,8 @@ VibeCoding_GoldenStandard/
 │   └── Vices/                             ← Individual articles (VC/VT)
 │
 ├── Inbox/                                 ← Proposed entries (pending review)
+├── scripts/                               ← Validation helpers for CI and local checks
+│   └── validate_golden_standard_catalogs.py ← Catalog + wiki validator
 ├── generate_golden_audit.py               ← Audit tool
 └── deprecated/                            ← Historical artifacts
 ```
