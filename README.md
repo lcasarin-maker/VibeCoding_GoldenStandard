@@ -59,6 +59,12 @@ Cross-cutting lessons and reusable observations that explain, connect, or contex
 - **[Coding Vices Index](Wiki/Vices/)** — All VC-xxx and VT-xxx articles
 - **[YAML Catalogs](#catalogs)** — Machine-readable knowledge for tooling
 
+### Optional Viewer
+
+The Golden Standard is plain Markdown plus YAML plus git. You do **not** need Obsidian, Dataview, Web Clipper, or any other plugin stack for the repo to work.
+
+If you want a nicer local reading experience, Obsidian is a good optional viewer because the `Wiki/` tree is already Obsidian-friendly.
+
 ### Use It in Your Project
 
 ```bash

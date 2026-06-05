@@ -1,6 +1,8 @@
 # CoderCerberus Golden Standard Wiki
 
-Bienvenido a la bóveda Obsidian del **Golden Standard** (GS) de CoderCerberus. Esta base de conocimiento representa la doctrina pura de ingeniería, mitigación de vicios y tokenomics acumulada del proyecto central y sus satélites.
+Bienvenido a la bóveda compatible con Obsidian del **Golden Standard** (GS) de CoderCerberus. Esta base de conocimiento representa la doctrina pura de ingeniería, mitigación de vicios y tokenomics acumulada del proyecto central y sus satélites.
+
+El repo no depende de Obsidian ni de plugins para funcionar: es Markdown, YAML y git. Obsidian solo mejora la navegación si quieres una vista local más cómoda.
 
 ---
 
