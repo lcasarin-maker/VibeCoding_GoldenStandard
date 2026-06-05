@@ -244,3 +244,25 @@ The Golden Standard was extracted from its original enforcement lineage in June 
 when it became clear that the knowledge base had value independent of any specific enforcement tool.
 
 The original conceptual framework document is preserved in [`deprecated/knowledge_snapshots/CODERCERBERUS_MARCO_CONCEPTUAL_original.md`](deprecated/knowledge_snapshots/CODERCERBERUS_MARCO_CONCEPTUAL_original.md).
+
+---
+
+## Shared Vocabulary (with attribution)
+
+The Golden Standard adopts established community terminology so its entries align with the
+language practitioners already use. Terms are attributed to their origin:
+
+- **Context engineering** — the discipline of deliberately shaping an agent's context window
+  (what goes in, what is pruned, what is cached). Popularized by HumanLayer and Tobi Lütke / Shopify (2025).
+  See `VC-128` (context poisoning), `VC-131` (architecture drift), and the Tokenomics catalog.
+- **Frequent Intentional Compaction (FIC)** — periodically summarizing and resetting context to
+  keep utilization in a healthy band. Origin: HumanLayer ACE. See `TK-031`, `TK-044`.
+- **AGENTS.md** — the emerging convention for a repo-level agent instruction file
+  (>20k repos by 2025). Relevant to handoff and decision-externalization vices (`VC-045`, `VC-131`).
+- **Context poisoning** — unverified/hallucinated claims that persist in context and self-reinforce.
+  Community term; cataloged as `VC-128`.
+- **Over-mocked / assertion-free tests** — test-theater patterns measured empirically in
+  arxiv:2602.00409. Cataloged across the `VT-xxx` family (e.g. `VT-006`, `VT-023`).
+- **Slopsquatting** — supply-chain risk from AI-hallucinated package names. Cataloged as `VC-129`.
+
+These terms are descriptive anchors, not new claims; each links to the catalog entry that operationalizes it.

@@ -1,8 +1,11 @@
 project_insights:
   PI-001: Deptry – reconciliación de imports contra dependencias declaradas para detectar
     faltantes, no usadas, transitivas, dev mal ubicadas y stdlib declaradas como dependencias.
-  PI-002: 'pytest-good-assertions – densidad diagnóstica de aserciones y fallos: cuando
-    un test falla, el mensaje debe explicar la discrepancia con claridad accionable.'
+  PI-002: 'Aserciones diagnósticas – cuando un test falla, el mensaje debe explicar
+    la discrepancia con claridad accionable. Tools reales verificados: assertion rewriting
+    nativo de pytest, pytest-clarity / pytest-icdiff para diffs legibles, flake8-assertive
+    para métodos de aserción correctos. (Corrige una referencia previa a un paquete inexistente
+    — ver VC-129 dependencia alucinada.)'
   PI-003: 'Tokencost – metering previo de tokens y conversión a USD para hacer visible
     el gasto antes de ejecutar una llamada LLM. [REMEDIATED Sprint 5: track_tokens.py
     cableado al gate D10; visualidad confirma.]'
@@ -87,3 +90,15 @@ project_insights:
     resultados inconsistentes. Cuando exista coordinación o tooling concurrente, la disciplina segura
     es un único flujo Git a la vez con reintentos controlados, no paralelismo oportunista. Origen:
     Cerberus global learning sobre race conditions y bloqueo de .git/index.lock.'
+  PI-028: 'Vibe Check (PV-Bhat/vibe-check-mcp-server, verificado) – servidor MCP de
+    metacognicion que frena tunnel-vision y runaway loops de agentes mediante Chain-Pattern
+    Interrupts; implementacion directa de la mitigacion de VC-120.'
+  PI-029: 'vibecheck (yuvrajangadsingh/vibecheck, verificado) – ESLint para AI slop:
+    linter local que detecta code smells de codigo generado por IA (secretos hardcodeados,
+    eval, catch vacio); evidencia de que los vicios del catalogo son detectables estaticamente.'
+  PI-030: 'viberails (refractionPOINT/viberails, verificado) – AI Firewall que intercepta
+    operaciones riesgosas de agentes (Claude Code, Cursor, Gemini CLI) via hooks; capa de
+    enforcement comparable conceptualmente a Cerberus (sin relacion con el homonimo philips-software/cerberus).'
+  PI-031: 'ratelimit (tomasbasham/ratelimit, verificado) – decorador de rate limiting
+    (@limits + sleep_and_retry) como control concreto contra VC-110 (cuota como sorpresa)
+    y la deuda de tokenomics (TK-044).'

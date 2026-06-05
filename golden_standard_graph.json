@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-06-05",
-  "node_count": 358,
-  "edge_count": 1764,
+  "node_count": 362,
+  "edge_count": 1784,
   "nodes": [
     {
       "id": "CODE_OF_CONDUCT",
@@ -503,6 +503,10 @@
         "Project_Insights/PI-025",
         "Project_Insights/PI-026",
         "Project_Insights/PI-027",
+        "Project_Insights/PI-028",
+        "Project_Insights/PI-029",
+        "Project_Insights/PI-030",
+        "Project_Insights/PI-031",
         "Project_Insights_Index",
         "README",
         "Tokenomics/TK-001",
@@ -805,9 +809,9 @@
         "Vices/VT-115",
         "Vices_Index"
       ],
-      "in_degree": 341,
+      "in_degree": 345,
       "out_degree": 21,
-      "degree": 362
+      "degree": 366
     },
     {
       "id": "Project_Insights/PI-001",
@@ -1632,6 +1636,78 @@
       "degree": 5
     },
     {
+      "id": "Project_Insights/PI-028",
+      "path": "Wiki/Project_Insights/PI-028.md",
+      "title": "PI-028: Insight Satélite",
+      "kind": "insight",
+      "outgoing": [
+        "Home",
+        "Project_Insights_Index",
+        "Tokenomics_Map",
+        "Vices/VC-124"
+      ],
+      "incoming": [
+        "Project_Insights_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5
+    },
+    {
+      "id": "Project_Insights/PI-029",
+      "path": "Wiki/Project_Insights/PI-029.md",
+      "title": "PI-029: Insight Satélite",
+      "kind": "insight",
+      "outgoing": [
+        "Home",
+        "Project_Insights_Index",
+        "Tokenomics_Map",
+        "Vices/VC-124"
+      ],
+      "incoming": [
+        "Project_Insights_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5
+    },
+    {
+      "id": "Project_Insights/PI-030",
+      "path": "Wiki/Project_Insights/PI-030.md",
+      "title": "PI-030: Insight Satélite",
+      "kind": "insight",
+      "outgoing": [
+        "Home",
+        "Project_Insights_Index",
+        "Tokenomics_Map",
+        "Vices/VC-124"
+      ],
+      "incoming": [
+        "Project_Insights_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5
+    },
+    {
+      "id": "Project_Insights/PI-031",
+      "path": "Wiki/Project_Insights/PI-031.md",
+      "title": "PI-031: Insight Satélite",
+      "kind": "insight",
+      "outgoing": [
+        "Home",
+        "Project_Insights_Index",
+        "Tokenomics_Map",
+        "Vices/VC-124"
+      ],
+      "incoming": [
+        "Project_Insights_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5
+    },
+    {
       "id": "Project_Insights_Index",
       "path": "Wiki/Project_Insights_Index.md",
       "title": "Índice de Insights Satélite",
@@ -1664,7 +1740,11 @@
         "Project_Insights/PI-024",
         "Project_Insights/PI-025",
         "Project_Insights/PI-026",
-        "Project_Insights/PI-027"
+        "Project_Insights/PI-027",
+        "Project_Insights/PI-028",
+        "Project_Insights/PI-029",
+        "Project_Insights/PI-030",
+        "Project_Insights/PI-031"
       ],
       "incoming": [
         "Home",
@@ -1695,11 +1775,15 @@
         "Project_Insights/PI-025",
         "Project_Insights/PI-026",
         "Project_Insights/PI-027",
+        "Project_Insights/PI-028",
+        "Project_Insights/PI-029",
+        "Project_Insights/PI-030",
+        "Project_Insights/PI-031",
         "Tokenomics_Map"
       ],
-      "in_degree": 29,
-      "out_degree": 28,
-      "degree": 57
+      "in_degree": 33,
+      "out_degree": 32,
+      "degree": 65
     },
     {
       "id": "Tokenomics/Automation_Tooling_Index",
@@ -2936,6 +3020,10 @@
         "Project_Insights/PI-025",
         "Project_Insights/PI-026",
         "Project_Insights/PI-027",
+        "Project_Insights/PI-028",
+        "Project_Insights/PI-029",
+        "Project_Insights/PI-030",
+        "Project_Insights/PI-031",
         "README",
         "Tokenomics/Automation_Tooling_Index",
         "Tokenomics/Input_Retrieval_Index",
@@ -3238,9 +3326,9 @@
         "Vices/VT-114",
         "Vices/VT-115"
       ],
-      "in_degree": 329,
+      "in_degree": 333,
       "out_degree": 10,
-      "degree": 339
+      "degree": 343
     },
     {
       "id": "Vices/VC-001",
@@ -5743,12 +5831,16 @@
         "Project_Insights/PI-025",
         "Project_Insights/PI-026",
         "Project_Insights/PI-027",
+        "Project_Insights/PI-028",
+        "Project_Insights/PI-029",
+        "Project_Insights/PI-030",
+        "Project_Insights/PI-031",
         "Tokenomics_Map",
         "Vices_Index"
       ],
-      "in_degree": 30,
+      "in_degree": 34,
       "out_degree": 4,
-      "degree": 34,
+      "degree": 38,
       "status": "PREVENTED",
       "downstream_verification": "none"
     },
@@ -9908,6 +10000,86 @@
       "kind": "wikilink"
     },
     {
+      "source": "Project_Insights/PI-028",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-028",
+      "target": "Project_Insights_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-028",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-028",
+      "target": "Vices/VC-124",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-029",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-029",
+      "target": "Project_Insights_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-029",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-029",
+      "target": "Vices/VC-124",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-030",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-030",
+      "target": "Project_Insights_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-030",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-030",
+      "target": "Vices/VC-124",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-031",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-031",
+      "target": "Project_Insights_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-031",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights/PI-031",
+      "target": "Vices/VC-124",
+      "kind": "wikilink"
+    },
+    {
       "source": "Project_Insights_Index",
       "target": "Home",
       "kind": "wikilink"
@@ -10045,6 +10217,26 @@
     {
       "source": "Project_Insights_Index",
       "target": "Project_Insights/PI-027",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights_Index",
+      "target": "Project_Insights/PI-028",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights_Index",
+      "target": "Project_Insights/PI-029",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights_Index",
+      "target": "Project_Insights/PI-030",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights_Index",
+      "target": "Project_Insights/PI-031",
       "kind": "wikilink"
     },
     {
@@ -18208,6 +18400,10 @@
           "Project_Insights/PI-025",
           "Project_Insights/PI-026",
           "Project_Insights/PI-027",
+          "Project_Insights/PI-028",
+          "Project_Insights/PI-029",
+          "Project_Insights/PI-030",
+          "Project_Insights/PI-031",
           "Project_Insights_Index",
           "README",
           "Tokenomics/TK-001",
@@ -18510,9 +18706,9 @@
           "Vices/VT-115",
           "Vices_Index"
         ],
-        "in_degree": 341,
+        "in_degree": 345,
         "out_degree": 21,
-        "degree": 362
+        "degree": 366
       },
       {
         "id": "Tokenomics_Map",
@@ -18560,6 +18756,10 @@
           "Project_Insights/PI-025",
           "Project_Insights/PI-026",
           "Project_Insights/PI-027",
+          "Project_Insights/PI-028",
+          "Project_Insights/PI-029",
+          "Project_Insights/PI-030",
+          "Project_Insights/PI-031",
           "README",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
@@ -18862,9 +19062,9 @@
           "Vices/VT-114",
           "Vices/VT-115"
         ],
-        "in_degree": 329,
+        "in_degree": 333,
         "out_degree": 10,
-        "degree": 339
+        "degree": 343
       },
       {
         "id": "Project_Insights/PI-019",
@@ -19283,7 +19483,11 @@
           "Project_Insights/PI-024",
           "Project_Insights/PI-025",
           "Project_Insights/PI-026",
-          "Project_Insights/PI-027"
+          "Project_Insights/PI-027",
+          "Project_Insights/PI-028",
+          "Project_Insights/PI-029",
+          "Project_Insights/PI-030",
+          "Project_Insights/PI-031"
         ],
         "incoming": [
           "Home",
@@ -19314,11 +19518,15 @@
           "Project_Insights/PI-025",
           "Project_Insights/PI-026",
           "Project_Insights/PI-027",
+          "Project_Insights/PI-028",
+          "Project_Insights/PI-029",
+          "Project_Insights/PI-030",
+          "Project_Insights/PI-031",
           "Tokenomics_Map"
         ],
-        "in_degree": 29,
-        "out_degree": 28,
-        "degree": 57
+        "in_degree": 33,
+        "out_degree": 32,
+        "degree": 65
       },
       {
         "id": "Vices/VC-124",
@@ -19360,12 +19568,16 @@
           "Project_Insights/PI-025",
           "Project_Insights/PI-026",
           "Project_Insights/PI-027",
+          "Project_Insights/PI-028",
+          "Project_Insights/PI-029",
+          "Project_Insights/PI-030",
+          "Project_Insights/PI-031",
           "Tokenomics_Map",
           "Vices_Index"
         ],
-        "in_degree": 30,
+        "in_degree": 34,
         "out_degree": 4,
-        "degree": 34,
+        "degree": 38,
         "status": "PREVENTED",
         "downstream_verification": "none"
       },
@@ -20252,7 +20464,11 @@
           "Project_Insights/PI-024",
           "Project_Insights/PI-025",
           "Project_Insights/PI-026",
-          "Project_Insights/PI-027"
+          "Project_Insights/PI-027",
+          "Project_Insights/PI-028",
+          "Project_Insights/PI-029",
+          "Project_Insights/PI-030",
+          "Project_Insights/PI-031"
         ],
         "incoming": [
           "Home",
@@ -20283,11 +20499,15 @@
           "Project_Insights/PI-025",
           "Project_Insights/PI-026",
           "Project_Insights/PI-027",
+          "Project_Insights/PI-028",
+          "Project_Insights/PI-029",
+          "Project_Insights/PI-030",
+          "Project_Insights/PI-031",
           "Tokenomics_Map"
         ],
-        "in_degree": 29,
-        "out_degree": 28,
-        "degree": 57
+        "in_degree": 33,
+        "out_degree": 32,
+        "degree": 65
       },
       {
         "id": "Home",
@@ -20358,6 +20578,10 @@
           "Project_Insights/PI-025",
           "Project_Insights/PI-026",
           "Project_Insights/PI-027",
+          "Project_Insights/PI-028",
+          "Project_Insights/PI-029",
+          "Project_Insights/PI-030",
+          "Project_Insights/PI-031",
           "Project_Insights_Index",
           "README",
           "Tokenomics/TK-001",
@@ -20660,9 +20884,9 @@
           "Vices/VT-115",
           "Vices_Index"
         ],
-        "in_degree": 341,
+        "in_degree": 345,
         "out_degree": 21,
-        "degree": 362
+        "degree": 366
       },
       {
         "id": "Tokenomics/Memory_Headroom_Index",
@@ -20799,6 +21023,10 @@
           "Project_Insights/PI-025",
           "Project_Insights/PI-026",
           "Project_Insights/PI-027",
+          "Project_Insights/PI-028",
+          "Project_Insights/PI-029",
+          "Project_Insights/PI-030",
+          "Project_Insights/PI-031",
           "README",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
@@ -21101,9 +21329,9 @@
           "Vices/VT-114",
           "Vices/VT-115"
         ],
-        "in_degree": 329,
+        "in_degree": 333,
         "out_degree": 10,
-        "degree": 339
+        "degree": 343
       },
       {
         "id": "Project_Insights/PI-002",

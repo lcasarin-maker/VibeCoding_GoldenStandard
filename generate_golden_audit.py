@@ -785,19 +785,46 @@ def write_tokenomics_subindices_md(wiki_dir: Path, mapped_database: dict):
         (wiki_dir / "Tokenomics" / group["filename"]).write_text(subindex_content, encoding="utf-8")
 
 
+# Editorial classification of Project Insights to separate actionable lessons from
+# system-meta commentary (addresses the audit critique that PIs were self-referential).
+PI_KIND = {
+    "tool": {"PI-001", "PI-002", "PI-003", "PI-004", "PI-005", "PI-020", "PI-021",
+             "PI-028", "PI-029", "PI-030", "PI-031"},
+    "meta": {"PI-006", "PI-007", "PI-014", "PI-018"},
+}
+
+
+def classify_pi(pi_id: str) -> str:
+    if pi_id in PI_KIND["tool"]:
+        return "tool"
+    if pi_id in PI_KIND["meta"]:
+        return "meta"
+    return "principle"
+
+
 def write_project_insights_index_md(wiki_dir: Path, insights: dict):
-    """Write the Project Insights index catalog."""
-    pi_items = []
-    for pi_id in sorted(insights):
-        pi_items.append(f"*   [[Project_Insights/{pi_id}|{pi_id}]] — {insights[pi_id]}")
+    """Write the Project Insights index catalog, grouped by kind."""
+    groups = {
+        "principle": ("🟢 Principios accionables", "Lecciones transversales que cambian cómo se trabaja."),
+        "tool": ("🔧 Herramientas y técnicas de referencia", "Punteros a herramientas externas verificadas y patrones reutilizables."),
+        "meta": ("⚪ Meta-sistema (sobre el propio Golden Standard)", "Insights que describen la gobernanza del GS; útiles pero no enseñan una técnica externa."),
+    }
+    sections = []
+    for kind, (heading, blurb) in groups.items():
+        ids = sorted(pi for pi in insights if classify_pi(pi) == kind)
+        if not ids:
+            continue
+        rows = "\n".join(f"*   [[Project_Insights/{pi_id}|{pi_id}]] — {insights[pi_id]}" for pi_id in ids)
+        sections.append(f"## {heading}\n\n_{blurb}_ ({len(ids)})\n\n{rows}")
 
     pi_index_content = f"""# Índice de Insights Satélite
 
 Mapeo de lecciones extraídas de repositorios de referencia y herramientas de auditoría externa.
+Las entradas se agrupan por tipo para distinguir principios accionables de meta-comentario del sistema.
 
 ---
 
-{"\n".join(pi_items)}
+{"\n\n---\n\n".join(sections)}
 
 ---
 [[Home|Volver al Inicio]]
