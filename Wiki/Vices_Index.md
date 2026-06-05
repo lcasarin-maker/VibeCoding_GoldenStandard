@@ -139,6 +139,11 @@ Este índice clasifica los vicios del Golden Standard en VC y VT. Tokenomics viv
 *   [[Vices/VC-132|VC-132]] — **Cascada de ambiguedad de especificacion (Spec Ambiguity Cascade)** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-133|VC-133]] — **Fallo de tool call no manejado en bucle de agente** (DOC_ONLY, high, downstream:required)
 *   [[Vices/VC-134|VC-134]] — **Coordinacion multiagente sin protocolo** (DOC_ONLY, high, downstream:required)
+*   [[Vices/VC-135|VC-135]] — **Uso de API obsoleta o alucinada de una libreria real** (DOC_ONLY, high, downstream:required)
+*   [[Vices/VC-136|VC-136]] — **Memoria persistente envenenada o stale (cross-session)** (DOC_ONLY, high, downstream:required)
+*   [[Vices/VC-137|VC-137]] — **Recuperacion (RAG) que alimenta contexto erroneo** (DOC_ONLY, medium, downstream:required)
+*   [[Vices/VC-138|VC-138]] — **Codigo generado inseguro por defecto** (DOC_ONLY, high, downstream:required)
+*   [[Vices/VC-139|VC-139]] — **Confianza ciega en la salida del LLM (Insecure Output Handling)** (DOC_ONLY, high, downstream:required)
 
 ## Testing & Evaluation (TV)
 *   [[Vices/VT-001|VT-001]] — **Hardcoded return** (PREVENTED, high, downstream:none)
