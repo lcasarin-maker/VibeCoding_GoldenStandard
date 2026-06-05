@@ -1017,6 +1017,7 @@ items:
   detection: |
     AST: bloques try/except con cuerpo 'pass' dentro de funciones test_*, que ocultan
     cualquier excepcion.
+    Tools: ruff BLE001 (blind-except), flake8-bugbear, pylint W0702.
   evidence:
   - source: "arxiv:2602.00409"
     claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos o sobre-mockeados) de forma medible."
@@ -2811,6 +2812,7 @@ items:
     # mutation testing: la suite debe matar mutantes
   detection: |
     Suite sin validacion mutacional: no se prueba que detecta defectos inyectados.
+    Tools: mutmut / cosmic-ray (Python), Stryker (JS/TS), PITest (Java).
   evidence:
   - source: "arxiv:2602.00409"
     claim: "estudio empirico confirma que los agentes generan tests sin oraculo (sin assert, tautologicos, sobre-mockeados) de forma medible."

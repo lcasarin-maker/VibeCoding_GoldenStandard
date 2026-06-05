@@ -1522,6 +1522,7 @@ items:
   detection: |
     Datos de fuentes externas (request/archivo/red/argv) que llegan a un sink sin pasar
     por una validacion/esquema en la frontera.
+    Tools: semgrep y CodeQL (taint mode) — los unicos con dataflow real.
   evidence:
   - source: "OWASP Top 10 for Agents 2026"
     claim: "categoria de riesgo reconocida (input validation / broken authorization) para aplicaciones agenticas."
@@ -2000,6 +2001,7 @@ items:
   detection: |
     Literales con hosts/credenciales de produccion (prod, internal, claves) en codigo
     fuente en vez de configuracion por entorno.
+    Tools: gitleaks (secretos en codigo e historial git), trufflehog.
   evidence:
   - source: "OWASP Top 10 for Agents 2026"
     claim: "categoria de riesgo reconocida para aplicaciones agenticas (unsafe execution / secret exposure)."
@@ -2477,6 +2479,7 @@ items:
   detection: |
     AST: llamadas a eval()/exec()/compile() cuyo argumento proviene (por flujo de datos)
     de entrada externa (request, archivo, red, argv).
+    Tools: bandit (Python), semgrep (multi-lenguaje).
   evidence:
   - source: "OWASP Top 10 for Agents 2026"
     claim: "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."
@@ -2696,6 +2699,7 @@ items:
   detection: |
     Detectar patrones 'curl|bash', postinstall scripts no fijados, o ejecucion de
     binarios descargados sin verificacion de hash/firma.
+    Tools (CVEs de deps): Trivy (PI-004), OWASP DependencyCheck, Snyk.
   evidence:
   - source: "OWASP Top 10 for Agents 2026"
     claim: "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse / unsafe execution)."

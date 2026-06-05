@@ -2512,7 +2512,7 @@
     "example_bad": "def test_parse():\n    try:\n        parse(bad_input)\n    except Exception:\n        pass   # absorbe el fallo: el test nunca falla\n",
     "example_good": "def test_parse():\n    with pytest.raises(ValueError):\n        parse(bad_input)   # afirma la excepcion esperada\n",
     "example_lang": "python",
-    "detection": "AST: bloques try/except con cuerpo 'pass' dentro de funciones test_*, que ocultan\ncualquier excepcion.\n",
+    "detection": "AST: bloques try/except con cuerpo 'pass' dentro de funciones test_*, que ocultan\ncualquier excepcion.\nTools: ruff BLE001 (blind-except), flake8-bugbear, pylint W0702.\n",
     "evidence": [
       {
         "source": "arxiv:2602.00409",
@@ -4629,7 +4629,7 @@
     "example_bad": "# Ninguna mutacion del codigo hace fallar la suite.\n",
     "example_good": "# mutation testing: la suite debe matar mutantes\n",
     "example_lang": "text",
-    "detection": "Suite sin validacion mutacional: no se prueba que detecta defectos inyectados.\n",
+    "detection": "Suite sin validacion mutacional: no se prueba que detecta defectos inyectados.\nTools: mutmut / cosmic-ray (Python), Stryker (JS/TS), PITest (Java).\n",
     "evidence": [
       {
         "source": "arxiv:2602.00409",
@@ -6573,7 +6573,7 @@
     "example_bad": "age = int(request.args[\"age\"])                 # entrada externa usada sin validar\ndb.execute(f\"SELECT * FROM u LIMIT {request.args['n']}\")  # sin sanitizar\n",
     "example_good": "age = validate_int(request.args.get(\"age\"), lo=0, hi=120)   # validacion en la frontera\ndb.execute(\"SELECT * FROM u LIMIT ?\", (safe_int(request.args.get(\"n\")),))\n",
     "example_lang": "python",
-    "detection": "Datos de fuentes externas (request/archivo/red/argv) que llegan a un sink sin pasar\npor una validacion/esquema en la frontera.\n",
+    "detection": "Datos de fuentes externas (request/archivo/red/argv) que llegan a un sink sin pasar\npor una validacion/esquema en la frontera.\nTools: semgrep y CodeQL (taint mode) — los unicos con dataflow real.\n",
     "evidence": [
       {
         "source": "OWASP Top 10 for Agents 2026",
@@ -7132,7 +7132,7 @@
     "example_bad": "# URL/credencial de produccion incrustada: cualquier corrida toca prod.\nDB = connect(\"postgres://prod-db.internal:5432\", password=\"hunter2\")\n",
     "example_good": "# Entorno inyectado; prod requiere un paso explicito y separado.\nDB = connect(os.environ[\"DATABASE_URL\"])   # default apunta a sandbox\n",
     "example_lang": "python",
-    "detection": "Literales con hosts/credenciales de produccion (prod, internal, claves) en codigo\nfuente en vez de configuracion por entorno.\n",
+    "detection": "Literales con hosts/credenciales de produccion (prod, internal, claves) en codigo\nfuente en vez de configuracion por entorno.\nTools: gitleaks (secretos en codigo e historial git), trufflehog.\n",
     "evidence": [
       {
         "source": "OWASP Top 10 for Agents 2026",
@@ -7672,7 +7672,7 @@
     "example_bad": "# Evaluacion dinamica de una expresion de origen externo: RCE.\nrule = request.args[\"expr\"]\nif eval(rule):          # entrada controlada por el atacante\n    grant_access()\n",
     "example_good": "# Parseo explicito y acotado; nunca eval sobre entrada externa.\nimport ast\nrule = request.args[\"expr\"]\nvalue = ast.literal_eval(rule)   # solo literales, sin ejecucion\nif validate_rule(value):\n    grant_access()\n",
     "example_lang": "python",
-    "detection": "AST: llamadas a eval()/exec()/compile() cuyo argumento proviene (por flujo de datos)\nde entrada externa (request, archivo, red, argv).\n",
+    "detection": "AST: llamadas a eval()/exec()/compile() cuyo argumento proviene (por flujo de datos)\nde entrada externa (request, archivo, red, argv).\nTools: bandit (Python), semgrep (multi-lenguaje).\n",
     "evidence": [
       {
         "source": "OWASP Top 10 for Agents 2026",
@@ -7865,7 +7865,7 @@
     "example_bad": "# Ejecuta un script remoto sin fijar ni verificar: el proveedor puede inyectar codigo.\ncurl -s https://example.com/install.sh | bash\n",
     "example_good": "# Descarga, fija por hash y verifica antes de ejecutar.\ncurl -sSfL https://example.com/install.sh -o install.sh\necho \"<sha256-conocido>  install.sh\" | sha256sum -c -\nbash install.sh\n",
     "example_lang": "bash",
-    "detection": "Detectar patrones 'curl|bash', postinstall scripts no fijados, o ejecucion de\nbinarios descargados sin verificacion de hash/firma.\n",
+    "detection": "Detectar patrones 'curl|bash', postinstall scripts no fijados, o ejecucion de\nbinarios descargados sin verificacion de hash/firma.\nTools (CVEs de deps): Trivy (PI-004), OWASP DependencyCheck, Snyk.\n",
     "evidence": [
       {
         "source": "OWASP Top 10 for Agents 2026",
