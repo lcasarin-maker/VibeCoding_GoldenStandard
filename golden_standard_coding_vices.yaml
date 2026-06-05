@@ -7,6 +7,10 @@ items:
   cause: Ausencia de adversarialidad epistemológica
   solution: Tratar toda salida como hipótesis hasta validación
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -17,6 +21,10 @@ items:
   cause: Optimización por plausibilidad
   solution: Exigir incertidumbre explícita y evidencia
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -27,6 +35,10 @@ items:
   cause: Confusión entre afirmación y verificación
   solution: Prohibir veredictos sin evidencia observable
   status: PREVENTED
+  severity: high
+  tags:
+    - vibe-coding
+    - prevented
   action: 'Anti-triunfalismo: el test falla si no hay evidencia JSON en .protocol/evidence/, forzando prueba empírica.'
   validating_mechanism: test_B7_evidence_files_are_valid_json
 - id: VC-004
@@ -35,6 +47,10 @@ items:
   cause: Muestreo insuficiente del estado
   solution: Validar flujo, límites y persistencia
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -45,6 +61,10 @@ items:
   cause: Falta de frontera de expiración
   solution: Todo prototipo debe tener fecha, dueño y salida
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -55,6 +75,10 @@ items:
   cause: Señal visual sustituye causalidad
   solution: Validar lógica antes que presentación
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -65,6 +89,10 @@ items:
   cause: Delegación sin comprensión
   solution: Revisar humanamente invariantes críticos
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -75,6 +103,10 @@ items:
   cause: Priors mal calibrados
   solution: Asumir fallo hasta prueba contraria
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -85,6 +117,10 @@ items:
   cause: Sesgo contextual
   solution: Revalidar desde contexto fresco
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -95,6 +131,10 @@ items:
   cause: Aprendizaje no persistido
   solution: Registrar patrón y guardrail
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -105,6 +145,10 @@ items:
   cause: Canal perceptual ausente
   solution: Evidencia humana real
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -115,6 +159,10 @@ items:
   cause: Métrica equivocada
   solution: Usabilidad igual a comportamiento
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -125,6 +173,10 @@ items:
   cause: Escala no calibrada
   solution: Calificar solo con evidencia
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -135,6 +187,10 @@ items:
   cause: Validador superficial
   solution: Auditoría empírica
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -145,6 +201,10 @@ items:
   cause: Autoridad mal asignada
   solution: Humano conserva responsabilidad
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -155,6 +215,10 @@ items:
   cause: Modelo mental ausente
   solution: Explicabilidad obligatoria
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -165,6 +229,10 @@ items:
   cause: Falta de validación empírica en tiempo de ejecución o persistencia
   solution: Subordinar la aprobación a trazas lógicas reales o deltas observables de almacenamiento
   status: PREVENTED
+  severity: high
+  tags:
+    - vibe-coding
+    - prevented
   action: 'Anti-triunfalismo: el test falla si no hay evidencia JSON en .protocol/evidence/, forzando prueba empírica.'
   validating_mechanism: test_B7_evidence_files_are_valid_json
 - id: VC-018
@@ -173,6 +241,10 @@ items:
   cause: Diagnóstico omitido
   solution: Reproducir, diagnosticar, corregir, verificar
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -183,6 +255,10 @@ items:
   cause: Causa raíz no aislada
   solution: Corregir mecanismo, no manifestación
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -193,6 +269,10 @@ items:
   cause: Falta de oráculo inicial
   solution: Todo bug requiere reproducción previa
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -203,6 +283,10 @@ items:
   cause: Alcance de cierre mal definido
   solution: Cerrar cadena completa de defectos revelados
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -213,6 +297,10 @@ items:
   cause: Optimización local de tiempo
   solution: Validar temprano, construir poco
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -223,6 +311,10 @@ items:
   cause: Costos diferidos invisibles
   solution: Medir retrabajo y reversión
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -233,6 +325,10 @@ items:
   cause: Feedback tardío
   solution: Iterar en cortes verificables
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -243,6 +339,10 @@ items:
   cause: Entrada ambigua
   solution: Definir objetivo, restricciones y salida
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -253,6 +353,10 @@ items:
   cause: Entropía decisional
   solution: Detener si las hipótesis críticas superan umbral
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -263,6 +367,10 @@ items:
   cause: Estado efímero
   solution: Mantener plan físico o lógico estable
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -273,6 +381,10 @@ items:
   cause: Falta de compuertas
   solution: Cada etapa debe demostrar éxito
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -283,6 +395,10 @@ items:
   cause: Superficie de impacto excesiva
   solution: Limitar cambios a unidades testeables
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -293,6 +409,10 @@ items:
   cause: Mutación dispersa
   solution: Controlar alcance y checkpoints
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -303,6 +423,10 @@ items:
   cause: Operación no reversible
   solution: Preferir diffs mínimos
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Reescritura completa vs edición quirúrgica: vicio conductual de juicio (cuándo se justifica un rewrite). Ningún
     test estático en test_cerberus_core discrimina intención. Sprint 3.4 revisión manual: DOC_ONLY honesto.'
   validating_mechanism: DOC_ONLY
@@ -312,6 +436,10 @@ items:
   cause: Función objetivo inestable
   solution: Enviar hallazgos laterales a backlog
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -322,6 +450,10 @@ items:
   cause: Incentivo comunicacional
   solution: No cerrar sin criterio de salida
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -332,6 +464,10 @@ items:
   cause: Causalidad perdida
   solution: Registrar razón, no solo resultado
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -342,6 +478,10 @@ items:
   cause: Falta de ledger
   solution: Mantener log histórico de aclaraciones
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -352,6 +492,10 @@ items:
   cause: Falta de simulación
   solution: Simular antes de aplicar
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -362,6 +506,10 @@ items:
   cause: Borrado de causalidad
   solution: Diagnóstico antes de generación
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -372,6 +520,10 @@ items:
   cause: Métrica incompleta
   solution: Evidencia obligatoria por afirmación
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -382,6 +534,10 @@ items:
   cause: Coste futuro oculto
   solution: Declarar deuda técnica
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -392,6 +548,10 @@ items:
   cause: Complejidad acumulada
   solution: Auditar capacidad de cambio
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -402,6 +562,10 @@ items:
   cause: Control débil
   solution: Scope lock
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -412,6 +576,10 @@ items:
   cause: Diagnóstico insuficiente
   solution: Menos generación, más causa raíz
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -422,6 +590,10 @@ items:
   cause: Sistema causal no comprendido
   solution: Separar diagnóstico y corrección
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -432,6 +604,10 @@ items:
   cause: Responsabilidad ausente
   solution: Owner capaz de explicar y reparar
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -442,6 +618,10 @@ items:
   cause: Transferencia de estado incompleta
   solution: Handoff estructurado con objetivo, evidencia y bloqueadores
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -452,6 +632,10 @@ items:
   cause: Poda destructiva sin inventario
   solution: Auditar, extraer y validar antes de retirar
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -462,6 +646,10 @@ items:
   cause: Fuente de verdad múltiple
   solution: Reconciliar estado declarado con sistema
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -472,6 +660,10 @@ items:
   cause: Falta de estratificación
   solution: Separar núcleo, activo, patrones e historia
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -482,6 +674,10 @@ items:
   cause: Canales con fines distintos
   solution: Separar documentación operativa y humana
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -492,6 +688,10 @@ items:
   cause: Ruido informacional
   solution: Actualizar memoria solo por eventos relevantes
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -502,6 +702,10 @@ items:
   cause: Ventana finita
   solution: Compactar y reiniciar con checkpoint
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -512,6 +716,10 @@ items:
   cause: Ruido semántico
   solution: Mantener contexto mínimo suficiente
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -522,6 +730,10 @@ items:
   cause: Ausencia de reversibilidad
   solution: Crear punto de retorno antes de riesgo
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -532,6 +744,10 @@ items:
   cause: Inconsistencia distribuida
   solution: Ledger canónico
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -542,6 +758,10 @@ items:
   cause: Falta de aislamiento
   solution: Separar ramas, espacios o locks
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -552,6 +772,10 @@ items:
   cause: Mundo externo asumido
   solution: Verificar integraciones reales
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -562,6 +786,10 @@ items:
   cause: Identidad distribuida inconsistente
   solution: Una versión canónica derivada, no copiada
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -572,6 +800,10 @@ items:
   cause: Falta de señal de vida
   solution: Exigir heartbeat, timeout y política de recuperación
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -582,6 +814,10 @@ items:
   cause: Clasificación de tarea ausente
   solution: Enrutar por capacidad, riesgo y estado observable
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -592,6 +828,10 @@ items:
   cause: Unión léxica sin semántica
   solution: Fusionar por entidades, decisiones y causalidad
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -602,6 +842,10 @@ items:
   cause: Sustituto confundido con componente
   solution: Retirar stubs antes de validar integración
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -612,6 +856,10 @@ items:
   cause: Modelos mentales divergentes al omitir la sincronización previa del filesystem
   solution: Exigir paso obligatorio de reconciliación física contra el ledger antes de escribir
   status: PREVENTED
+  severity: high
+  tags:
+    - vibe-coding
+    - prevented
   action: 'Dual-session drift: detectado por sync_binding --check (falla si el protocolo divergió entre sesiones).'
   validating_mechanism: test_F6_sync_binding_no_protocol_drift
 - id: VC-063
@@ -620,6 +868,10 @@ items:
   cause: Persistencia de afirmaciones no revalidadas
   solution: Subordinar documentación a ejecución
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -630,6 +882,10 @@ items:
   cause: Pérdida de modelo causal
   solution: Toda decisión debe tener razón trazable
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -640,6 +896,10 @@ items:
   cause: Estructura causal ausente
   solution: Definir entidades y relaciones primero
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -650,6 +910,10 @@ items:
   cause: Falta de modelo perceptual
   solution: Declarar estructura visual antes de ejecutar
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -660,6 +924,10 @@ items:
   cause: Restricciones ocultas
   solution: Extraer políticas aplicables antes de mutar
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -670,6 +938,10 @@ items:
   cause: Sistema lógico inconsistente
   solution: Definir precedencia antes de automatizar
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -680,6 +952,10 @@ items:
   cause: Grafo causal desconocido
   solution: Generar mapa de dependencias antes de mover
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -690,6 +966,10 @@ items:
   cause: Representación frágil
   solution: Usar operaciones estructuradas
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -700,6 +980,10 @@ items:
   cause: Acoplamiento excesivo
   solution: Interfaces estables y aislamiento
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -710,6 +994,10 @@ items:
   cause: Partición por tamaño
   solution: Chunking por límites funcionales
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -720,6 +1008,10 @@ items:
   cause: Dependencias no modeladas
   solution: No trocear sin grafo estructural
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -730,6 +1022,10 @@ items:
   cause: Frontera permeable
   solution: Validar en límites
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -740,6 +1036,10 @@ items:
   cause: Dependencia externa no modelada
   solution: Contratos y pruebas de frontera
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -750,6 +1050,10 @@ items:
   cause: Dominio no restringido
   solution: Representar invariantes
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -760,6 +1064,10 @@ items:
   cause: Pérdida de información
   solution: Referenciar ambigüedad de tipo
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -770,6 +1078,10 @@ items:
   cause: Estado incompleto aceptado
   solution: Bloquear placeholders activos
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -780,6 +1092,10 @@ items:
   cause: Acoplamiento temporal
   solution: Núcleo con dependencias estables
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -790,6 +1106,10 @@ items:
   cause: Transferencia sin comprensión
   solution: Auditar reutilización
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -800,6 +1120,10 @@ items:
   cause: Evolución desacoplada
   solution: Actualizar ambos o invalidar docs
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -810,6 +1134,10 @@ items:
   cause: Supply chain no controlada
   solution: Gatekeeping de dependencias
   status: PREVENTED
+  severity: high
+  tags:
+    - vibe-coding
+    - prevented
   action: Ghost import (dependencia usada pero no declarada) detectado por análisis AST de imports vs manifiesto.
   validating_mechanism: test_vc082_ghost_import_detected
 - id: VC-083
@@ -818,6 +1146,10 @@ items:
   cause: Inventario no vinculante
   solution: Todo archivo zombie debe estar autorizado, clasificado o eliminado
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -828,6 +1160,10 @@ items:
   cause: Contrato histórico no modelado
   solution: Versionar contratos y probar rutas heredadas vigentes
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -838,6 +1174,10 @@ items:
   cause: Señal sin diagnóstico
   solution: Registrar eventos causales, decisiones y estados frontera
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -848,6 +1188,10 @@ items:
   cause: Indirección como ocultamiento
   solution: Resolver contrato roto en su origen
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -858,6 +1202,10 @@ items:
   cause: Degradación gradual aceptada
   solution: Cero warnings en rutas de salud
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -868,6 +1216,10 @@ items:
   cause: Excepción convertida en estado estable
   solution: Cero errores conocidos en cierre
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -878,6 +1230,10 @@ items:
   cause: Modelo incompleto del sistema
   solution: Mapear estructura antes de modificar
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -888,6 +1244,10 @@ items:
   cause: Estado histórico ignorado
   solution: Cargar ledger y decisiones vigentes
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -898,6 +1258,10 @@ items:
   cause: Exploración insuficiente
   solution: Agotar búsqueda estructural
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -908,6 +1272,10 @@ items:
   cause: Universo auditado mal definido
   solution: Declarar y cubrir superficies auditables
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -918,6 +1286,10 @@ items:
   cause: Amenaza no modelada
   solution: Threat model obligatorio
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -928,6 +1300,10 @@ items:
   cause: Frontera difusa
   solution: Aislar capa de seguridad
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -938,6 +1314,10 @@ items:
   cause: Falta de entorno seguro
   solution: Separar entornos
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -948,6 +1328,10 @@ items:
   cause: Oráculo ausente
   solution: Tests como condición de cambio
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -958,6 +1342,10 @@ items:
   cause: Sesgo de confirmación
   solution: Test-first o test simultáneo
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -968,6 +1356,10 @@ items:
   cause: Dominio submuestreado
   solution: Probar errores y límites
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -978,6 +1370,10 @@ items:
   cause: Fallos no inducidos
   solution: Inyectar fallos controlados
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -988,6 +1384,10 @@ items:
   cause: Calidad reducida a función
   solution: Auditar requisitos no funcionales
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -998,6 +1398,10 @@ items:
   cause: Variabilidad ignorada
   solution: Validación pesimista de configuración
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1008,6 +1412,10 @@ items:
   cause: Observabilidad insuficiente
   solution: Instrumentación deliberada
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1018,6 +1426,10 @@ items:
   cause: Simulación visual
   solution: Probar interacción observable
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1028,6 +1440,10 @@ items:
   cause: Fuente equivocada
   solution: Infraestructura efectiva como verdad
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1038,6 +1454,10 @@ items:
   cause: Superficie incompleta
   solution: Checklist de superficies
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1048,6 +1468,10 @@ items:
   cause: Precondiciones no verificadas
   solution: Validar requisitos de ejecución antes de operar
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1058,6 +1482,10 @@ items:
   cause: Política de autorización no modelada
   solution: Declarar capacidades, límites y denegaciones por rol
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1068,6 +1496,10 @@ items:
   cause: Control no ejecutable
   solution: Convertir límites de seguridad en compuertas verificables
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1078,6 +1510,10 @@ items:
   cause: Estado externo codificado
   solution: Resolver ubicaciones por contrato configurable
   status: PREVENTED
+  severity: high
+  tags:
+    - vibe-coding
+    - prevented
   action: Rutas absolutas hardcodeadas (C:\, /home/, /Users/) detectadas por escaneo regex discriminante.
   validating_mechanism: test_vc109_absolute_path_in_scripts
 - id: VC-110
@@ -1086,6 +1522,10 @@ items:
   cause: Recurso finito no presupuestado
   solution: Modelar límites, backoff y degradación antes de ejecutar
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1096,6 +1536,10 @@ items:
   cause: Confianza implícita en que lo invisible es inocuo
   solution: Auditar contenido antes de excluir; documentar justificación con fecha; mover a deprecated si tiene vicios
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1106,6 +1550,10 @@ items:
   cause: Confundir distribución con adopción operacional
   solution: Verificar post-copia que el destinatario tiene hooks, auditor y suite activos; reportar % adopción real
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1118,6 +1566,10 @@ items:
   solution: Actualizar nombre y todos los tests que lo referencian al cambiar el alcance; o documentar la discrepancia explícitamente
     con centinela
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1128,6 +1580,10 @@ items:
   cause: Registro informal sin dueño, evidencia ni criterio de cierre
   solution: Todo hallazgo debe tener ID, evidencia, fix propuesto y done-criteria en el plan activo antes de cerrar la sesión
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1139,6 +1595,10 @@ items:
   solution: Reemplazar eval con dispatch table de funciones registradas explícitamente; validar nombres en tiempo de carga;
     rechazar cualquier check no registrado
   status: REMEDIATED
+  severity: high
+  tags:
+    - vibe-coding
+    - remediated
   action: Replaced eval-based rules with a pre-registered SAFE_CHECKS dispatch table in rules_engine.py to prevent remote
     code execution.
   validating_mechanism: test_rule_security_rejects_arbitrary_check
@@ -1149,6 +1609,10 @@ items:
   solution: Prohibir `pip install` automático; reportar la dependencia faltante con guía de instalación manual y detener;
     el humano decide qué instala
   status: REMEDIATED
+  severity: high
+  tags:
+    - vibe-coding
+    - remediated
   action: Disabled automatic subprocess pip installs in repair_failing_tests.py, forcing manual package guidance.
   validating_mechanism: test_import_error_guard_does_not_pip_install
 - id: VC-117
@@ -1158,6 +1622,10 @@ items:
   solution: Escribir a archivo temporal en el mismo directorio y renombrar atómicamente (`tmp → final`); limpiar el temporal
     si ocurre una excepción antes del rename
   status: REMEDIATED
+  severity: high
+  tags:
+    - vibe-coding
+    - remediated
   action: Atomic state writes via core_utils.write_json_atomic (tempfile + os.replace + fsync), wired into update_lock_state
     and ProtocolSyncManager._save_state.
   validating_mechanism: test_critical_state_write_is_atomic
@@ -1171,6 +1639,10 @@ items:
     se ELIMINA del VCS, (2) el nuevo no importa del viejo, (3) los tests apuntan solo al nuevo, (4) no existen rutas alternativas
     ni checks duales. Cualquier "por compatibilidad" en código activo es señal de reemplazo incompleto.'
   status: PREVENTED
+  severity: high
+  tags:
+    - vibe-coding
+    - prevented
   action: Prevented by D1 _audit_d1_zombie_compat scanning active scripts for zombie compatibility shim patterns.
   validating_mechanism: audit_d1_integrity
 - id: VC-119
@@ -1182,6 +1654,10 @@ items:
   solution: Aplicar estrictamente el Mandato S2 (Brain-First) e investigar la arquitectura del control plane para realizar
     refactorizaciones quirúrgicas de raíz antes de escribir una sola línea de código.
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1195,6 +1671,10 @@ items:
     misma herramienta o script. Si el conteo supera el umbral de 2, abortar físicamente la ejecución con `exit 1` y forzar
     un replanteamiento estructural de la solución.'
   status: DOC_ONLY
+  severity: medium
+  tags:
+    - vibe-coding
+    - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
     as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
     from AUDITED/test_behavioral_compliance to DOC_ONLY.'
@@ -1207,6 +1687,10 @@ items:
   solution: Imponer una validación estática estricta que rechace la existencia de wrappers o intermediarios no registrados
     que dupliquen más del 30% de la funcionalidad core.
   status: PREVENTED
+  severity: high
+  tags:
+    - vibe-coding
+    - prevented
   action: Nombres de función top-level duplicados entre módulos detectados por comparación AST.
   validating_mechanism: test_vc121_duplicate_function_names
 - id: VC-122
@@ -1216,6 +1700,10 @@ items:
   solution: Bloquear de forma física cualquier comando que intente realizar descargas de paquetes o ejecuciones de urls no
     declaradas de forma explícita y aprobadas.
   status: PREVENTED
+  severity: high
+  tags:
+    - vibe-coding
+    - prevented
   action: pip install automático por subprocess en scripts/ bloqueado por detector + repo-guard de ruta activa.
   validating_mechanism: test_vc122_no_pip_install_in_scripts
 - id: VC-123
@@ -1228,5 +1716,9 @@ items:
     explícitas quirúrgicas para archivos nuevos, asegurando que `.gitignore` esté cargado antes de cualquier invocación del
     subproceso Git.
   status: PREVENTED
+  severity: high
+  tags:
+    - vibe-coding
+    - prevented
   action: git add -A/. (staging indiscriminado) discriminado por detector failing-first (juicio de intención humano).
   validating_mechanism: test_vc123_no_git_add_all_in_scripts

@@ -120,9 +120,10 @@ Each entry includes:
 - **ID** (e.g., `VC-042`)
 - **Title** and **Description**
 - **Severity** (`critical`, `high`, `medium`, `low`)
+- **Status** (`DOC_ONLY`, `AUDITED`, `PREVENTED`, `REMEDIATED`)
+- **Tags** (at least two normalized)
 - **Detection criteria**
 - **Mitigation**
-- **Operativity status**
 
 ---
 

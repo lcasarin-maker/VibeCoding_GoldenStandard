@@ -442,7 +442,7 @@ def write_vices_index_md(wiki_dir: Path, mapped_database: dict):
     tv_items = []
     tk_items = []
     for flaw_id, item in sorted(mapped_database.items()):
-        line = f"*   [[Vices/{flaw_id}|{flaw_id}]] — **{item['title']}** ({item['status']})"
+        line = f"*   [[Vices/{flaw_id}|{flaw_id}]] — **{item['title']}** ({item['status']}, {item['severity']})"
         if item["category"] == "Vibe Coding":
             vc_items.append(line)
         elif item["category"] == "Testing & Evaluation":
@@ -503,6 +503,7 @@ def write_conceptual_concepts_md(wiki_dir: Path):
 def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
     """Create individual atomic files for all vices."""
     for flaw_id, item in mapped_database.items():
+        tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
         flaw_content = f"""# {flaw_id}: {item['title']}
 
 | Campo | Detalle |
@@ -510,6 +511,8 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 | **ID** | `{flaw_id}` |
 | **Categoría** | {item['category']} |
 | **Estado** | **{item['status']}** |
+| **Severidad** | **{item['severity']}** |
+| **Tags** | {tag_list} |
 | **Mecanismo de Validación** | `{item['validating_mechanism']}` |
 
 ---
@@ -649,6 +652,8 @@ def extract_catalog_items(config: dict, mapped_database: dict):
             "cause": item["cause"],
             "solution": item["solution"],
             "status": item["status"],
+            "severity": item.get("severity", "medium"),
+            "tags": item.get("tags", []),
             "action": item["action"],
             "validating_mechanism": item["validating_mechanism"],
         }
@@ -695,14 +700,14 @@ def main():
         report_lines.append(f"### {category} ({len(cat_items)} items)")
         report_lines.append("")
         report_lines.append(
-            "| ID | Flaw Title | Status | Action Taken / Prevention Method | Validating Test / Guard |"
+            "| ID | Flaw Title | Severity | Status | Action Taken / Prevention Method | Validating Test / Guard |"
         )
-        report_lines.append("|---|---|---|---|---|")
+        report_lines.append("|---|---|---|---|---|---|")
 
         for item in sorted(cat_items, key=lambda x: x["id"]):
             action_snippet = item["action"].replace("\n", " ")
             report_lines.append(
-                f"| `{item['id']}` | {item['title']} | **{item['status']}** | {action_snippet} | `{item['validating_mechanism']}` |"
+                f"| `{item['id']}` | {item['title']} | **{item['severity']}** | **{item['status']}** | {action_snippet} | `{item['validating_mechanism']}` |"
             )
         report_lines.append("")
 

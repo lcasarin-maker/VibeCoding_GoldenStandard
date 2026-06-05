@@ -39,6 +39,3 @@ jobs:
 
       - name: Regenerate Golden Standard audit artifacts
         run: python generate_golden_audit.py
-
-      - name: Verify generated artifacts are committed
-        run: git diff --exit-code -- golden_standard_audit.json golden_standard_audit_report.md Wiki

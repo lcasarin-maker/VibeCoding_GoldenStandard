@@ -7,6 +7,10 @@ items:
   cause: Reuso no modelado
   solution: Separar contexto estable y contexto volatil
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -17,6 +21,10 @@ items:
   cause: Recuperacion no selectiva
   solution: Extraer solo fragmentos relevantes
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -27,6 +35,10 @@ items:
   cause: Presupuesto de salida ausente
   solution: Restringir formato y longitud de salida
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -37,6 +49,10 @@ items:
   cause: Estado efímero
   solution: Cerrar con resumen físico o lógico
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -47,6 +63,10 @@ items:
   cause: Persistencia no externa
   solution: Mantener estado fuera del chat
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -57,6 +77,10 @@ items:
   cause: Frontera de tarea difusa
   solution: Checkpoint antes de cambiar objetivo
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -67,6 +91,10 @@ items:
   cause: Precondiciones no externalizadas
   solution: Mantener ficha mínima de arranque y salud
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -77,6 +105,10 @@ items:
   cause: Estado no normalizado
   solution: 'Handoff atómico: objetivo, estado, evidencia, riesgos, siguiente acción'
   status: PREVENTED
+  severity: medium
+  tags:
+    - tokenomics
+    - prevented
   action: 'Handoff atómico: STATUS.md debe tener secciones estructuradas; detector falla ante prosa cruda.'
   validating_mechanism: test_tk005_status_md_has_required_sections
 - id: TK-006
@@ -85,6 +117,10 @@ items:
   cause: Memoria no semántica
   solution: Fusionar por decisiones e invariantes, no por texto bruto
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -95,6 +131,10 @@ items:
   cause: Estado canónico no definido
   solution: Consultar un núcleo canónico y archivar copias como evidencia
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -105,6 +145,10 @@ items:
   cause: Confusión entre invariantes lógicas y variables de sesión
   solution: Separar directrices en Núcleo Inmutable y compactar el Búfer Transicional
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -115,6 +159,10 @@ items:
   cause: Recuperación por documento, no por necesidad
   solution: Extraer secciones relevantes
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -125,6 +173,10 @@ items:
   cause: Chunks sin contexto padre
   solution: Enriquecer fragmentos con contexto mínimo
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -135,6 +187,10 @@ items:
   cause: Fronteras ambiguas
   solution: Separar rol, contexto, tarea y salida
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -145,6 +201,10 @@ items:
   cause: Exploración ciega
   solution: Usar índices, mapas y lectura dirigida
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -155,6 +215,10 @@ items:
   cause: Carga anticipada excesiva
   solution: Carga de herramientas diferida
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -165,6 +229,10 @@ items:
   cause: Granularidad baja
   solution: Leer por rangos, índice o esqueleto
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -175,6 +243,10 @@ items:
   cause: Consulta no localizada
   solution: Pedir sección exacta
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -185,6 +257,10 @@ items:
   cause: Sobrecarga de objetivos
   solution: Una tarea concreta por ciclo
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -195,6 +271,10 @@ items:
   cause: Autorización no estructurada
   solution: Representar permisos como matriz consultable
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -205,6 +285,10 @@ items:
   cause: Priorización no separada
   solution: Enviar side findings a cola externa
   status: PREVENTED
+  severity: medium
+  tags:
+    - tokenomics
+    - prevented
   action: Backlog externalizado (.protocol/review_queue.json) verificado por detector + repo-guard.
   validating_mechanism: test_tk018_external_backlog_exists
 - id: TK-019
@@ -213,6 +297,10 @@ items:
   cause: Baja granularidad de lectura y falta de mapas contextuales previos
   solution: Utilizar índices semánticos y skeletons para direccionar consultas quirúrgicas
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -223,6 +311,10 @@ items:
   cause: Espacio de salida no acotado
   solution: Definir presupuesto y formato
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -233,6 +325,10 @@ items:
   cause: Distribución de salida amplia
   solution: Predefinir inicio y estructura
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -243,6 +339,10 @@ items:
   cause: Repetición innecesaria
   solution: Usar ejemplos mínimos, diversos y densos
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -253,6 +353,10 @@ items:
   cause: Ruido operacional
   solution: Comprimir o filtrar antes de entregar al agente
   status: REMEDIATED
+  severity: medium
+  tags:
+    - tokenomics
+    - remediated
   action: D10 enforces that all major background loop and orchestrator scripts import and wrap execution inside OutputCompressor.
   validating_mechanism: audit_d10_tokenomics
 - id: TK-024
@@ -261,6 +365,10 @@ items:
   cause: Compresión sin invariantes
   solution: Preservar hechos críticos, decisiones y próximos pasos
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -271,6 +379,10 @@ items:
   cause: Baja densidad informativa
   solution: Reportar hallazgos, evidencia y acción
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -281,6 +393,10 @@ items:
   cause: Señal no jerarquizada
   solution: Registrar resumen causal y retener detalle bajo demanda
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -291,6 +407,10 @@ items:
   cause: Truncamiento ciego del historial por rebasar límites físicos
   solution: Aplicar filtros de redundancia léxica (elisión controlada) a trazas del entorno de ejecución
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -301,6 +421,10 @@ items:
   cause: Memoria estable no separada
   solution: Marcar bloques reutilizables y evitar recarga
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -311,6 +435,10 @@ items:
   cause: Falta de agrupación
   solution: Agrupar trabajo no interactivo
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -321,6 +449,10 @@ items:
   cause: Asignación ineficiente de recursos
   solution: Elegir capacidad mínima suficiente
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -331,6 +463,10 @@ items:
   cause: Ventana finita saturada
   solution: Resumir estado y reiniciar con continuidad
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -341,6 +477,10 @@ items:
   cause: TTL ignorado
   solution: Gestionar reanudación y checkpoints
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -351,6 +491,10 @@ items:
   cause: Margen no reservado
   solution: Mantener presupuesto con zona de seguridad
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -361,6 +505,10 @@ items:
   cause: Retrabajo no medido
   solution: Registrar costo de rollback
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -371,6 +519,10 @@ items:
   cause: Routing incorrecto
   solution: Separar pensar, ejecutar y revisar
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -381,6 +533,10 @@ items:
   cause: Intención no clasificada
   solution: 'Enrutar por fase: pensar, ejecutar, revisar'
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -391,6 +547,10 @@ items:
   cause: Control humano frágil
   solution: Umbrales visibles y automatizables
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -401,6 +561,10 @@ items:
   cause: Estado no indexado
   solution: Mantener campos pequeños de estado
   status: REMEDIATED
+  severity: medium
+  tags:
+    - tokenomics
+    - remediated
   action: D10 manifest size gate validates that AGENT.md <= 150 lines, STATUS.md <= 200 lines, and SPEC.md <= 500 lines.
   validating_mechanism: audit_d10_tokenomics
 - id: TK-039
@@ -409,6 +573,10 @@ items:
   cause: Script espectral
   solution: Cada optimización debe estar en ruta activa
   status: REMEDIATED
+  severity: medium
+  tags:
+    - tokenomics
+    - remediated
   action: D10 check extracts and verifies that all python scripts referenced in TOKEN_BUDGET.md or AGENT.md exist on disk.
   validating_mechanism: audit_d10_tokenomics
 - id: TK-040
@@ -417,6 +585,10 @@ items:
   cause: Métrica ausente
   solution: Medir antes y después
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -427,6 +599,10 @@ items:
   cause: Recurso externo no contabilizado
   solution: Incluir límites, backoff y degradación en el plan
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
@@ -439,6 +615,10 @@ items:
   solution: Definir y hacer cumplir límites de líneas en cada manifiesto (ej. AGENT.md ≤ 150 líneas per Trinity); auditarlos
     como compuerta de commit en el validador de gobernanza
   status: REMEDIATED
+  severity: medium
+  tags:
+    - tokenomics
+    - remediated
   action: D10 manifest size gate validates that AGENT.md <= 150 lines, STATUS.md <= 200 lines, and SPEC.md <= 500 lines.
   validating_mechanism: audit_d10_tokenomics
 - id: TK-043
@@ -451,6 +631,10 @@ items:
   solution: Cazar huérfanos como COMPUERTA (dead-code/vulture, allowlist sin archivo, dirs sin retención, docs de propósito
     duplicado); REEMPLAZAR = `rm` + crear en el mismo commit
   status: DOC_ONLY
+  severity: low
+  tags:
+    - tokenomics
+    - doc-only
   action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
     catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
     triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'

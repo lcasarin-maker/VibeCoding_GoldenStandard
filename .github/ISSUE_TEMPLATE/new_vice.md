@@ -40,6 +40,18 @@ assignees: ''
 - [ ] Medium (maintainability/reliability issues)
 - [ ] Low (style or efficiency concern)
 
+## Tags
+<!-- Add at least 1-2 tags that describe the domain and the pattern -->
+- [ ] Domain tag
+- [ ] Lifecycle or topic tag
+
+## Catalog Status
+<!-- Proposed operativity status for the catalog entry -->
+- [ ] DOC_ONLY
+- [ ] AUDITED
+- [ ] PREVENTED
+- [ ] REMEDIATED
+
 ## Related Vices
 <!-- List any VC/VT IDs that are related -->
 

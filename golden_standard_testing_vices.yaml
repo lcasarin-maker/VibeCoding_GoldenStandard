@@ -7,6 +7,10 @@ items:
   cause: Optimización contra ejemplo
   solution: Probar propiedades generales
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function
     bodies to reject empty stubs or stub docstrings.
   validating_mechanism: audit_d2_completeness
@@ -16,6 +20,10 @@ items:
   cause: Implementación ausente
   solution: Bloquear stubs activos
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function
     bodies to reject empty stubs or stub docstrings.
   validating_mechanism: audit_d2_completeness
@@ -25,6 +33,10 @@ items:
   cause: Memorización
   solution: Variar entradas
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-004
@@ -33,6 +45,10 @@ items:
   cause: Oráculo contaminado
   solution: Separar test y solución
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-005
@@ -41,6 +57,10 @@ items:
   cause: Tautología
   solution: Exigir fallo demostrable
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
     and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
@@ -50,6 +70,10 @@ items:
   cause: Oráculo ausente
   solution: Aserción obligatoria
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
     and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
@@ -59,6 +83,10 @@ items:
   cause: Proxy débil
   solution: Validar efecto
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-008
@@ -67,6 +95,10 @@ items:
   cause: Señal indirecta
   solution: Validar estado final
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-009
@@ -75,6 +107,10 @@ items:
   cause: Predicado inútil
   solution: Test debe discriminar
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
     and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
@@ -84,6 +120,10 @@ items:
   cause: Acoplamiento incorrecto
   solution: Probar comportamiento
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-011
@@ -92,6 +132,10 @@ items:
   cause: Oráculo falso
   solution: Revisar especificación
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-012
@@ -100,6 +144,10 @@ items:
   cause: Métrica vacía
   solution: Cobertura con oráculos
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
     and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
@@ -109,6 +157,10 @@ items:
   cause: Incentivo equivocado
   solution: Calidad de aserciones
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
     and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
@@ -118,6 +170,10 @@ items:
   cause: Verificador no independiente
   solution: Oráculo externo
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-015
@@ -126,6 +182,10 @@ items:
   cause: Granularidad baja
   solution: Tests focales
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-016
@@ -134,6 +194,10 @@ items:
   cause: Presencia por acción
   solution: Invocar mandato
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
     and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
@@ -143,6 +207,10 @@ items:
   cause: Resultado predeterminado
   solution: Outcome derivado de verificación
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-018
@@ -151,6 +219,10 @@ items:
   cause: Contrato textual frágil
   solution: Estados estructurados
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-019
@@ -159,6 +231,10 @@ items:
   cause: Error codificado como valor
   solution: Fallo explícito
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-020
@@ -167,6 +243,10 @@ items:
   cause: Incentivo invertido
   solution: Cien por ciento solo como consecuencia
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-021
@@ -175,6 +255,10 @@ items:
   cause: Memoria de fallos no convertida en prueba
   solution: Cada defecto corregido deja prueba discriminante
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-022
@@ -183,6 +267,10 @@ items:
   cause: Gamificación de cobertura priorizando métrica sintáctica sobre adversarialidad
   solution: Exigir aserciones de valores límite y prohibir capturas globales que silencien fallos
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
     and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
@@ -192,6 +280,10 @@ items:
   cause: Realidad sustituida
   solution: Calibrar con integración
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-024
@@ -200,6 +292,10 @@ items:
   cause: Modelo parcial
   solution: Probar contra sistema real
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-025
@@ -208,6 +304,10 @@ items:
   cause: Entorno congelado
   solution: Contract tests vivos
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-026
@@ -216,6 +316,10 @@ items:
   cause: Semántica distinta
   solution: Probar motor equivalente
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-027
@@ -224,6 +328,10 @@ items:
   cause: Variabilidad eliminada
   solution: Probar frontera temporal
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-028
@@ -232,6 +340,10 @@ items:
   cause: Varianza oculta
   solution: Propiedades estadísticas
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-029
@@ -240,6 +352,10 @@ items:
   cause: Recurso idealizado
   solution: Pruebas con recurso real
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-030
@@ -248,6 +364,10 @@ items:
   cause: Sustitución invasiva
   solution: Limitar parches
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-031
@@ -256,6 +376,10 @@ items:
   cause: Acción simulada
   solution: Verificar efecto externo
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-032
@@ -264,6 +388,10 @@ items:
   cause: Universo incompleto
   solution: Escanear dominio activo
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-033
@@ -272,6 +400,10 @@ items:
   cause: Ocultamiento de contrato roto
   solution: Reparar causa en el sujeto, no adaptar el juez
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-034
@@ -280,6 +412,10 @@ items:
   cause: Forma confundida con cumplimiento
   solution: Exigir comportamiento observable antes de aprobar
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-035
@@ -288,6 +424,10 @@ items:
   cause: Deuda normalizada
   solution: Prohibir xfail como evidencia de salud
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or
     reasons.
   validating_mechanism: audit_d9_test_purity
@@ -297,6 +437,10 @@ items:
   cause: Cobertura ficticia
   solution: Resultado global inválido si omite prueba crítica
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or
     reasons.
   validating_mechanism: audit_d9_test_purity
@@ -306,6 +450,10 @@ items:
   cause: Control inválido
   solution: Verificar ejecución del test
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-038
@@ -314,6 +462,10 @@ items:
   cause: Aislamiento roto
   solution: Tests independientes
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-039
@@ -322,6 +474,10 @@ items:
   cause: No determinismo
   solution: Control explícito del tiempo
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-040
@@ -330,6 +486,10 @@ items:
   cause: Fallo colapsado
   solution: Fallar explícitamente
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements.
   validating_mechanism: audit_d5_angry_path
 - id: VT-041
@@ -338,6 +498,10 @@ items:
   cause: Canal descartado
   solution: Capturar error y log
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-042
@@ -346,6 +510,10 @@ items:
   cause: Narrativa no causal
   solution: Log posterior a verificación
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-043
@@ -354,6 +522,10 @@ items:
   cause: Código de salida falso
   solution: Exit refleja estado real
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-044
@@ -362,6 +534,10 @@ items:
   cause: Observación incompleta
   solution: Asertar retorno
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-045
@@ -370,6 +546,10 @@ items:
   cause: Dominio pobre
   solution: Casos adversos
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-046
@@ -378,6 +558,10 @@ items:
   cause: Sesgo de muestra
   solution: Generar variaciones
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-047
@@ -386,6 +570,10 @@ items:
   cause: Complejidad no ejercida
   solution: Pruebas de volumen
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: 'Volumen real: test ejercita 1000+ sesiones (lo opuesto al dataset pequeño).'
   validating_mechanism: test_compress_1000_sessions_returns_structured_dict
 - id: VT-048
@@ -394,6 +582,10 @@ items:
   cause: Fronteras omitidas
   solution: Cubrir valores límite
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-049
@@ -402,6 +594,10 @@ items:
   cause: Alfabeto incompleto
   solution: Datos diversos
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-050
@@ -410,6 +606,10 @@ items:
   cause: Fronteras temporales
   solution: Casos calendarios
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: 'Boundary de calendario real: asserta que 29-feb en año no bisiesto lanza ValueError.'
   validating_mechanism: test_non_leap_year_feb29_raises
 - id: VT-051
@@ -418,6 +618,10 @@ items:
   cause: Señal sin control
   solution: Fallos críticos bloquean
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-052
@@ -426,6 +630,10 @@ items:
   cause: Política permisiva
   solution: Propagación estricta
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements.
   validating_mechanism: audit_d5_angry_path
 - id: VT-053
@@ -434,6 +642,10 @@ items:
   cause: Separación de flujo
   solution: Integrar en ruta activa
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-054
@@ -442,6 +654,10 @@ items:
   cause: Voluntariedad
   solution: Obligatorios por riesgo
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-055
@@ -450,6 +666,10 @@ items:
   cause: Canal muerto
   solution: Alertas con dueño
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-056
@@ -458,6 +678,10 @@ items:
   cause: Confirmación retrospectiva
   solution: Test rojo antes del fix
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-057
@@ -466,6 +690,10 @@ items:
   cause: Sin vencimiento
   solution: Fecha límite obligatoria
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or
     reasons.
   validating_mechanism: audit_d9_test_purity
@@ -475,6 +703,10 @@ items:
   cause: Config bifurcada
   solution: Probar flags reales
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-059
@@ -483,6 +715,10 @@ items:
   cause: Entorno privilegiado
   solution: Config equivalente
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-060
@@ -491,6 +727,10 @@ items:
   cause: Preparación oculta
   solution: Probar estado sucio
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-061
@@ -499,6 +739,10 @@ items:
   cause: Deuda exenta
   solution: Validar flujos críticos
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-062
@@ -507,6 +751,10 @@ items:
   cause: Longitud por funcionalidad
   solution: Validar ejecución
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-063
@@ -515,6 +763,10 @@ items:
   cause: Contrato roto
   solution: Probar interfaz pública
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-064
@@ -523,6 +775,10 @@ items:
   cause: Discovery parcial
   solution: Suite completa activa
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-065
@@ -531,6 +787,10 @@ items:
   cause: Mutación global
   solution: Aislar efectos de test
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-066
@@ -539,6 +799,10 @@ items:
   cause: Inventario no comparado
   solution: Reconciliar inventario
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Discovery gaps prevented by run_compliance_tests executing full pytest tests/ dynamically, verified in test_infrastructure.py.
   validating_mechanism: test_infrastructure_checks
 - id: VT-067
@@ -547,6 +811,10 @@ items:
   cause: Heurística superficial
   solution: Análisis estructural
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-068
@@ -555,6 +823,10 @@ items:
   cause: Clasificación pobre
   solution: Tipología de artefactos
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-069
@@ -563,6 +835,10 @@ items:
   cause: Contrato semántico falso
   solution: Nombre igual a comportamiento
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-070
@@ -571,6 +847,10 @@ items:
   cause: Precondiciones fuera del oráculo
   solution: Probar arranque, dependencias y permisos mínimos
   status: REMEDIATED
+  severity: high
+  tags:
+    - testing
+    - remediated
   action: Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access,
     encoding, and the project registry.
   validating_mechanism: test_setup_validation
@@ -580,6 +860,10 @@ items:
   cause: Estado transferido incompleto
   solution: Probar continuidad desde checkpoint ajeno
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-072
@@ -588,6 +872,10 @@ items:
   cause: Recuperación no observada
   solution: Verificar retorno real antes de aceptar cambio destructivo
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-073
@@ -596,6 +884,10 @@ items:
   cause: Contratos previos no muestreados
   solution: Mantener suite de consumidores vigentes
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-074
@@ -604,6 +896,10 @@ items:
   cause: Logs fuera del criterio de calidad
   solution: Evaluar que el fallo produzca evidencia accionable
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-075
@@ -612,6 +908,10 @@ items:
   cause: Nombres de prueba fuera de las convenciones dinámicas del oráculo
   solution: Auditoría obligatoria de coincidencia física entre archivos de prueba y descubiertos
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-076
@@ -620,6 +920,10 @@ items:
   cause: Portabilidad no probada
   solution: Matriz de entornos
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-077
@@ -628,6 +932,10 @@ items:
   cause: Umbral mal calibrado
   solution: Límites funcionales
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-078
@@ -636,6 +944,10 @@ items:
   cause: Entorno no portable
   solution: Reproducibilidad
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-079
@@ -644,6 +956,10 @@ items:
   cause: Amenaza no inducida
   solution: Probar violaciones controladas de frontera
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-080
@@ -652,6 +968,10 @@ items:
   cause: Uso de rutas de almacenamiento absoluto de la máquina de origen
   solution: Parametrizar dinámicamente recursos mediante inyección o variables lógicas
   status: REMEDIATED
+  severity: high
+  tags:
+    - testing
+    - remediated
   action: Enforced by D9 absolute path scanners. In code, resolved via dynamic str(Path(__file__).resolve().parent.parent)
     path bootstrapping.
   validating_mechanism: audit_d9_test_purity
@@ -661,6 +981,10 @@ items:
   cause: Sesgo de autor
   solution: Revisión independiente
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-082
@@ -669,6 +993,10 @@ items:
   cause: Puerta incompleta
   solution: Revisar pruebas
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-083
@@ -677,6 +1005,10 @@ items:
   cause: Oráculo derivado de la implementación
   solution: Derivar esperados de especificación independiente
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-084
@@ -685,6 +1017,10 @@ items:
   cause: Autoridad de aprobación no verificable
   solution: Aprobación basada en evidencia reproducible
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-085
@@ -693,6 +1029,10 @@ items:
   cause: Oráculo congelado sin revalidación
   solution: Regenerar golden solo tras revisión semántica
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-086
@@ -701,6 +1041,10 @@ items:
   cause: Excepción temporal convertida en contrato
   solution: Prohibir expected failure como verde
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or
     reasons.
   validating_mechanism: audit_d9_test_purity
@@ -710,6 +1054,10 @@ items:
   cause: Señal débil tratada como ruido
   solution: Elevar warning a fallo hasta resolver causa
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-088
@@ -718,6 +1066,10 @@ items:
   cause: Política de excepción infinita
   solution: Cero errores aceptados en veredicto de salud
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements.
   validating_mechanism: audit_d5_angry_path
 - id: VT-089
@@ -726,6 +1078,10 @@ items:
   cause: Complejidad desplazada fuera del test
   solution: Probar interfaz real sin envoltorio simplificador
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-090
@@ -734,6 +1090,10 @@ items:
   cause: Ausencia confundida con implementación
   solution: Bloquear placeholders en rutas verificadas
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function
     bodies to reject empty stubs or stub docstrings.
   validating_mechanism: audit_d2_completeness
@@ -743,6 +1103,10 @@ items:
   cause: Brecha especificación-runtime
   solution: Cada dominio debe tener ejecutor
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-092
@@ -751,6 +1115,10 @@ items:
   cause: Sintaxis por semántica
   solution: Validar contenido y efecto
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-093
@@ -759,6 +1127,10 @@ items:
   cause: Metadato por conducta
   solution: Cruzar uso, llamada y prueba
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-094
@@ -767,6 +1139,10 @@ items:
   cause: Token por semántica
   solution: Inducir error real
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-095
@@ -775,6 +1151,10 @@ items:
   cause: Universo equivocado
   solution: Ejecutar suite del sujeto auditado
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-096
@@ -783,6 +1163,10 @@ items:
   cause: Vínculo causal ausente
   solution: Evidencia ligada a versión
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-097
@@ -791,6 +1175,10 @@ items:
   cause: Sujeto equivocado
   solution: Fallar componentes reales
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-098
@@ -799,6 +1187,10 @@ items:
   cause: Reporte no trazable
   solution: Reportar dominios reales
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-099
@@ -807,6 +1199,10 @@ items:
   cause: Constante obsoleta
   solution: Fuente única de versión
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-100
@@ -815,6 +1211,10 @@ items:
   cause: Negación no ejercida
   solution: Validar permisos positivos y negativos
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-101
@@ -823,6 +1223,10 @@ items:
   cause: Clasificador sin oráculo
   solution: Probar decisiones de ruteo con casos límite
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-102
@@ -831,6 +1235,10 @@ items:
   cause: Whitelist confundida con prueba
   solution: Toda aprobación debe revalidar propiedades activas
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-103
@@ -839,6 +1247,10 @@ items:
   cause: Oráculo contaminado
   solution: Separar generador, sujeto y juez
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-104
@@ -847,6 +1259,10 @@ items:
   cause: Función objetivo incompleta
   solution: Warnings cuentan como fallo hasta clasificación explícita
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-105
@@ -855,6 +1271,10 @@ items:
   cause: Hook ausente pasa validación de CI porque CI no pregunta por hooks
   solution: Comprobar presencia y ejecutabilidad de cada hook requerido como paso explícito de la suite
   status: REMEDIATED
+  severity: high
+  tags:
+    - testing
+    - remediated
   action: Validated by tests/test_infrastructure.py:test_pre_commit_hook_exists_and_executable, ensuring hooks are physically
     present and active.
   validating_mechanism: test_pre_commit_hook_exists_and_executable
@@ -864,6 +1284,10 @@ items:
   cause: 'Deriva silenciosa: lo que se ignoró puede dejar de ser inofensivo; nadie lo detecta'
   solution: Test periódico que comprueba que cada ítem de hard_excludes está en el conjunto aprobado y documentado
   status: REMEDIATED
+  severity: high
+  tags:
+    - testing
+    - remediated
   action: Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access,
     encoding, and the project registry.
   validating_mechanism: test_setup_validation
@@ -873,6 +1297,10 @@ items:
   cause: Precondiciones no verificadas en startup; el sistema asume entorno completo
   solution: 'Validación activa de stack al inicio: runtime, CLI tools, hooks, archivos esenciales, permisos de escritura'
   status: REMEDIATED
+  severity: high
+  tags:
+    - testing
+    - remediated
   action: Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access,
     encoding, and the project registry.
   validating_mechanism: test_setup_validation
@@ -883,6 +1311,10 @@ items:
   solution: Centinela que compara declaración formal (nombre, count de dominios, versión) contra implementación real; falla
     si divergen
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-109
@@ -894,6 +1326,10 @@ items:
     directo y soberano.
   solution: Eliminar el puente intermediario; el auditor estático se ejecuta de forma directa y nativa (`exit 0` o `exit 1`).
   status: PREVENTED
+  severity: high
+  tags:
+    - testing
+    - prevented
   action: Testing Bridge Theater is bypassed; static audits and tests run as direct shell pipelines returning native exit
     codes.
   validating_mechanism: test_infrastructure_checks
@@ -904,6 +1340,10 @@ items:
   cause: Falta de visión unificada y acumulación de nomenclatura zombi histórica.
   solution: Consolidar radicalmente toda la metadata bajo un único directorio oculto de gobernanza centralizada (ej. `.protocol/`).
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-111
@@ -917,6 +1357,10 @@ items:
     de exclusiones estructurales o deudas técnicas en el plan de remediación centralizado conduce a una deriva persistente
     y a la pérdida del control de calidad).'
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-112
@@ -927,6 +1371,10 @@ items:
   solution: Diseñar compuertas estáticas (`deptry` o regex AST en python) que comparen el 100% de los top-level imports contra
     la base de dependencias del proyecto.
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-113
@@ -936,6 +1384,10 @@ items:
   solution: Exigir que al menos una suite de pruebas demuestre empíricamente su capacidad de fallar (criterio de falsabilidad)
     ante una mutación de código controlada o inyección de caos.
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-114
@@ -946,6 +1398,10 @@ items:
   solution: Implementar una compuerta D12 de Drift Detection activa en el auditor central que compare checksums y bloquee
     si hay desvíos en satélites.
   status: AUDITED
+  severity: medium
+  tags:
+    - testing
+    - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
 - id: VT-115
@@ -957,6 +1413,10 @@ items:
   solution: Normalizar obligatoriamente todo byte stream binario decodificándolo y convirtiendo la secuencia de fin de línea
     `\r\n` a `\n` antes de calcular el hash de verificación de integridad o drift.
   status: REMEDIATED
+  severity: high
+  tags:
+    - testing
+    - remediated
   action: Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access,
     encoding, and the project registry.
   validating_mechanism: test_setup_validation

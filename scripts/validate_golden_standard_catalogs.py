@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from pathlib import Path
 
@@ -15,7 +16,20 @@ MANIFEST = ROOT / "golden_standard.yaml"
 WIKI_VICES_DIR = ROOT / "Wiki" / "Vices"
 WIKI_INSIGHTS_DIR = ROOT / "Wiki" / "Project_Insights"
 ALLOWED_STATUSES = {"DOC_ONLY", "AUDITED", "PREVENTED", "REMEDIATED"}
-CATALOG_REQUIRED_FIELDS = ("id", "title", "symptom", "cause", "solution", "status", "action", "validating_mechanism")
+ALLOWED_SEVERITIES = {"critical", "high", "medium", "low"}
+TAG_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+CATALOG_REQUIRED_FIELDS = (
+    "id",
+    "title",
+    "symptom",
+    "cause",
+    "solution",
+    "status",
+    "severity",
+    "tags",
+    "action",
+    "validating_mechanism",
+)
 
 
 def load_yaml(path: Path) -> dict:
@@ -52,6 +66,21 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
         status = str(item.get("status", "")).strip()
         if status and status not in ALLOWED_STATUSES:
             errors.append(f"{path}: {item_id or f'item {index}'} has unsupported status {status}.")
+
+        severity = str(item.get("severity", "")).strip()
+        if severity and severity not in ALLOWED_SEVERITIES:
+            errors.append(f"{path}: {item_id or f'item {index}'} has unsupported severity {severity}.")
+
+        tags = item.get("tags", None)
+        if not isinstance(tags, list) or len(tags) < 2:
+            errors.append(f"{path}: {item_id or f'item {index}'} must define at least two tags.")
+        else:
+            for tag in tags:
+                tag_text = str(tag).strip()
+                if not tag_text:
+                    errors.append(f"{path}: {item_id or f'item {index}'} contains an empty tag value.")
+                elif not TAG_PATTERN.fullmatch(tag_text):
+                    errors.append(f"{path}: {item_id or f'item {index}'} has non-normalized tag {tag_text!r}.")
 
         if item_id and item_id.startswith(("VC-", "VT-", "TK-")):
             wiki_path = WIKI_VICES_DIR / f"{item_id}.md"

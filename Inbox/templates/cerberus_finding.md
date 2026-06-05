@@ -16,6 +16,9 @@ date_detected: YYYY-MM-DD       # ✅ ISO 8601
 
 proposed_domain:                # ✅ VC | VT | TK | PI
 proposed_severity:              # ✅ critical | high | medium | low
+tags:                           # ✅ At least two normalized tags
+  - 
+  - 
 refinement_target:              # ⚠️ Existing GS entry ID if this refines one (e.g. VC-312)
 evidence_for:                   # ⚠️ Existing GS entry ID if this provides evidence (e.g. VC-200)
 severity_challenge: false       # ⚠️ Set true if you believe an existing entry's severity is wrong

@@ -20,6 +20,9 @@ triaged_by:                     # ✅ Maintainer who triaged
 
 proposed_domain:                # ✅ VC | VT | TK | PI
 proposed_severity:              # ✅ critical | high | medium | low
+tags:                           # ✅ At least two normalized tags
+  - 
+  - 
 refinement_target:              # ⚠️ Existing GS entry ID if this refines one
 evidence_for:                   # ⚠️ Existing GS entry ID if this provides evidence
 triage_decision:                # ✅ ACCEPT | REJECT | NEEDS_INFO

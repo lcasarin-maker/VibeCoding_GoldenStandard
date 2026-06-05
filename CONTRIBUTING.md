@@ -39,13 +39,13 @@ Each entry in the YAML files follows this structure:
   description: |
     What the vice is. What causes it. Why it's harmful.
   severity: "critical|high|medium|low"
+  status: "DOC_ONLY|AUDITED|PREVENTED|REMEDIATED"
   detection_criteria:
     - "How to detect it automatically"
     - "What to look for in code review"
   mitigation:
     - "How to prevent it"
     - "How to fix it when found"
-  operativity_status: "KNOWLEDGE|RULE_DEFINED|TEST_ASSOCIATED|EVIDENCE_GENERATED|OPERATIONAL|BLOCKING"
   tags:
     - "relevant-tag"
   examples:
@@ -54,6 +54,13 @@ Each entry in the YAML files follows this structure:
     good: |
       # What the correct code looks like
 ```
+
+### Metadata Rules
+
+- `severity` is mandatory and must be one of `critical`, `high`, `medium`, or `low`.
+- `status` is the canonical operativity field in the catalog and must be one of `DOC_ONLY`, `AUDITED`, `PREVENTED`, or `REMEDIATED`.
+- `tags` is mandatory, must be a list of at least two normalized slugs, and should include at least one domain tag plus one lifecycle tag.
+- `operativity_status` is intentionally not part of the canonical YAML schema to avoid duplicating the meaning already carried by `status`.
 
 ### For Wiki Articles
 
