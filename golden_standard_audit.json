@@ -13,7 +13,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "TK-F02": {
     "id": "TK-F02",
@@ -29,7 +30,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "TK-F03": {
     "id": "TK-F03",
@@ -45,7 +47,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "TK-001": {
     "id": "TK-001",
@@ -54,14 +57,15 @@
     "symptom": "Nueva sesión reinicia todo",
     "cause": "Estado efímero",
     "solution": "Cerrar con resumen físico o lógico",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "validate_golden_standard_catalogs.py --check-wiki verifies that the Memory and Headroom tokenomics surface is published and linked from the canonical index.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-002": {
     "id": "TK-002",
@@ -70,14 +74,15 @@
     "symptom": "Cambiar hilo pierde estado",
     "cause": "Persistencia no externa",
     "solution": "Mantener estado fuera del chat",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Tokenomics topology validation keeps the canonical memory surfaces visible, so chat is not treated as the only durable store.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-003": {
     "id": "TK-003",
@@ -86,14 +91,15 @@
     "symptom": "Contextos se contaminan",
     "cause": "Frontera de tarea difusa",
     "solution": "Checkpoint antes de cambiar objetivo",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "validate_golden_standard_catalogs.py --check-wiki keeps the memory/headroom surface linked so project switches must pass through the canonical layout.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-004": {
     "id": "TK-004",
@@ -102,14 +108,15 @@
     "symptom": "Cada sesión consume tokens reconstruyendo entorno",
     "cause": "Precondiciones no externalizadas",
     "solution": "Mantener ficha mínima de arranque y salud",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Tokenomics topology validation ensures the canonical memory/headroom entry points remain published instead of being reconstructed ad hoc each session.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-005": {
     "id": "TK-005",
@@ -125,7 +132,8 @@
       "prevented"
     ],
     "action": "Handoff atómico: STATUS.md debe tener secciones estructuradas; detector falla ante prosa cruda.",
-    "validating_mechanism": "test_tk005_status_md_has_required_sections"
+    "validating_mechanism": "test_tk005_status_md_has_required_sections",
+    "downstream_verification": "none"
   },
   "TK-006": {
     "id": "TK-006",
@@ -134,14 +142,15 @@
     "symptom": "Resolver conflicto consume contexto excesivo",
     "cause": "Memoria no semántica",
     "solution": "Fusionar por decisiones e invariantes, no por texto bruto",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "validate_golden_standard_catalogs.py --check-wiki keeps the canonical tokenomics map and memory lenses linked so history is not merged blindly.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-007": {
     "id": "TK-007",
@@ -150,14 +159,15 @@
     "symptom": "Se releen copias contradictorias",
     "cause": "Estado canónico no definido",
     "solution": "Consultar un núcleo canónico y archivar copias como evidencia",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "The canonical Tokenomics map and index are now enforced as the visible source of truth for this category.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-008": {
     "id": "TK-008",
@@ -166,14 +176,15 @@
     "symptom": "Reprocesamiento redundante de especificaciones estables",
     "cause": "Confusión entre invariantes lógicas y variables de sesión",
     "solution": "Separar directrices en Núcleo Inmutable y compactar el Búfer Transicional",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Memory/headroom topology validation keeps the stable/volatile split represented as its own canonical lens.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-009": {
     "id": "TK-009",
@@ -189,7 +200,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "TK-010": {
     "id": "TK-010",
@@ -205,7 +217,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "TK-011": {
     "id": "TK-011",
@@ -221,7 +234,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "TK-012": {
     "id": "TK-012",
@@ -230,14 +244,15 @@
     "symptom": "Muchos tokens antes de actuar",
     "cause": "Exploración ciega",
     "solution": "Usar índices, mapas y lectura dirigida",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Input-retrieval topology validation now keeps the reading paths and map surfaces canonical instead of free-form exploration.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-013": {
     "id": "TK-013",
@@ -246,14 +261,15 @@
     "symptom": "Herramientas no usadas consumen contexto",
     "cause": "Carga anticipada excesiva",
     "solution": "Carga de herramientas diferida",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Automation-tooling topology validation keeps the tooling surface explicit so unused tools do not become invisible context debt.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-014": {
     "id": "TK-014",
@@ -269,7 +285,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "TK-015": {
     "id": "TK-015",
@@ -285,7 +302,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "TK-016": {
     "id": "TK-016",
@@ -294,14 +312,15 @@
     "symptom": "Modelo reparte atención",
     "cause": "Sobrecarga de objetivos",
     "solution": "Una tarea concreta por ciclo",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Output-compaction topology validation keeps the output discipline lens canonical and linked.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-017": {
     "id": "TK-017",
@@ -317,7 +336,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "TK-018": {
     "id": "TK-018",
@@ -333,7 +353,8 @@
       "prevented"
     ],
     "action": "Backlog externalizado (.protocol/review_queue.json) verificado por detector + repo-guard.",
-    "validating_mechanism": "test_tk018_external_backlog_exists"
+    "validating_mechanism": "test_tk018_external_backlog_exists",
+    "downstream_verification": "none"
   },
   "TK-019": {
     "id": "TK-019",
@@ -349,7 +370,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "TK-020": {
     "id": "TK-020",
@@ -358,14 +380,15 @@
     "symptom": "Respuestas largas por defecto",
     "cause": "Espacio de salida no acotado",
     "solution": "Definir presupuesto y formato",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Output-compaction topology validation keeps the output budget lens canonical in the vault.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-021": {
     "id": "TK-021",
@@ -374,14 +397,15 @@
     "symptom": "Formato variable",
     "cause": "Distribución de salida amplia",
     "solution": "Predefinir inicio y estructura",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Output-compaction topology validation keeps the compaction lens and its index published.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-022": {
     "id": "TK-022",
@@ -390,14 +414,15 @@
     "symptom": "Few-shot redundante",
     "cause": "Repetición innecesaria",
     "solution": "Usar ejemplos mínimos, diversos y densos",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Output-compaction topology validation keeps the compaction lens visible so example bloat is tracked instead of hidden.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-023": {
     "id": "TK-023",
@@ -413,7 +438,8 @@
       "remediated"
     ],
     "action": "D10 enforces that all major background loop and orchestrator scripts import and wrap execution inside OutputCompressor.",
-    "validating_mechanism": "audit_d10_tokenomics"
+    "validating_mechanism": "audit_d10_tokenomics",
+    "downstream_verification": "none"
   },
   "TK-024": {
     "id": "TK-024",
@@ -422,14 +448,15 @@
     "symptom": "Compactación pierde decisiones",
     "cause": "Compresión sin invariantes",
     "solution": "Preservar hechos críticos, decisiones y próximos pasos",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Output-compaction topology validation keeps the summary/compactness lens canonical and linked.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-025": {
     "id": "TK-025",
@@ -438,14 +465,15 @@
     "symptom": "El hallazgo se pierde entre ruido",
     "cause": "Baja densidad informativa",
     "solution": "Reportar hallazgos, evidencia y acción",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Measurement-telemetry topology validation keeps the reporting lens visible so audit output cannot drift into verbosity theater.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-026": {
     "id": "TK-026",
@@ -454,14 +482,15 @@
     "symptom": "Logs extensos desplazan el problema",
     "cause": "Señal no jerarquizada",
     "solution": "Registrar resumen causal y retener detalle bajo demanda",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Measurement-telemetry topology validation keeps the observability lens explicit and linked from the tokenomics index.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-027": {
     "id": "TK-027",
@@ -470,14 +499,15 @@
     "symptom": "Pérdida de contexto por trazas de error verbosas y repetitivas",
     "cause": "Truncamiento ciego del historial por rebasar límites físicos",
     "solution": "Aplicar filtros de redundancia léxica (elisión controlada) a trazas del entorno de ejecución",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Measurement-telemetry topology validation keeps the diagnostic-compression lens published and linked.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-028": {
     "id": "TK-028",
@@ -486,14 +516,15 @@
     "symptom": "Reprocesamiento recurrente",
     "cause": "Memoria estable no separada",
     "solution": "Marcar bloques reutilizables y evitar recarga",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Memory/headroom topology validation keeps the cache/stability lens canonical so the category does not dissolve into prose.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-029": {
     "id": "TK-029",
@@ -509,7 +540,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "TK-030": {
     "id": "TK-030",
@@ -525,7 +557,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "TK-031": {
     "id": "TK-031",
@@ -534,14 +567,15 @@
     "symptom": "Sesión larga se degrada",
     "cause": "Ventana finita saturada",
     "solution": "Resumir estado y reiniciar con continuidad",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Output-compaction topology validation keeps the compaction lens and its linked page visible from the canonical index.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-032": {
     "id": "TK-032",
@@ -550,14 +584,15 @@
     "symptom": "Pausas invalidan beneficio de caché",
     "cause": "TTL ignorado",
     "solution": "Gestionar reanudación y checkpoints",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Memory/headroom topology validation keeps the cache/stability lens canonical instead of hidden in prose.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-033": {
     "id": "TK-033",
@@ -566,14 +601,15 @@
     "symptom": "Contexto colapsa silenciosamente",
     "cause": "Margen no reservado",
     "solution": "Mantener presupuesto con zona de seguridad",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Memory/headroom topology validation keeps the headroom lens explicit and linked from the tokenomics index.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-034": {
     "id": "TK-034",
@@ -582,14 +618,15 @@
     "symptom": "Loops de fix/revert consumen sesión",
     "cause": "Retrabajo no medido",
     "solution": "Registrar costo de rollback",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Measurement-telemetry topology validation keeps the rollback-cost lens linked so it cannot hide in an orphaned note.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-035": {
     "id": "TK-035",
@@ -598,14 +635,15 @@
     "symptom": "Contexto caro se usa para decidir",
     "cause": "Routing incorrecto",
     "solution": "Separar pensar, ejecutar y revisar",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Automation-tooling topology validation keeps the execution-tool lens visible and linked.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-036": {
     "id": "TK-036",
@@ -614,14 +652,15 @@
     "symptom": "El agente no sabe si pensar o ejecutar",
     "cause": "Intención no clasificada",
     "solution": "Enrutar por fase: pensar, ejecutar, revisar",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Output-compaction topology validation keeps mode discipline surfaced as a canonical tokenomics lens.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-037": {
     "id": "TK-037",
@@ -630,14 +669,15 @@
     "symptom": "Usuario cuenta mensajes",
     "cause": "Control humano frágil",
     "solution": "Umbrales visibles y automatizables",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Measurement-telemetry topology validation keeps the monitoring lens canonical and visible from the index.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-038": {
     "id": "TK-038",
@@ -653,7 +693,8 @@
       "remediated"
     ],
     "action": "D10 manifest size gate validates that AGENT.md <= 150 lines, STATUS.md <= 200 lines, and SPEC.md <= 500 lines.",
-    "validating_mechanism": "audit_d10_tokenomics"
+    "validating_mechanism": "audit_d10_tokenomics",
+    "downstream_verification": "none"
   },
   "TK-039": {
     "id": "TK-039",
@@ -669,7 +710,8 @@
       "remediated"
     ],
     "action": "D10 check extracts and verifies that all python scripts referenced in TOKEN_BUDGET.md or AGENT.md exist on disk.",
-    "validating_mechanism": "audit_d10_tokenomics"
+    "validating_mechanism": "audit_d10_tokenomics",
+    "downstream_verification": "none"
   },
   "TK-040": {
     "id": "TK-040",
@@ -678,14 +720,15 @@
     "symptom": "Se declara reducción sin telemetría",
     "cause": "Métrica ausente",
     "solution": "Medir antes y después",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Measurement-telemetry topology validation requires the savings lens to remain published and linked.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-041": {
     "id": "TK-041",
@@ -694,14 +737,15 @@
     "symptom": "La sesión se corta por límites no presupuestados",
     "cause": "Recurso externo no contabilizado",
     "solution": "Incluir límites, backoff y degradación en el plan",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Memory/headroom topology validation keeps quota awareness tied to the canonical tokenomics surfaces.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "TK-042": {
     "id": "TK-042",
@@ -717,7 +761,8 @@
       "remediated"
     ],
     "action": "D10 manifest size gate validates that AGENT.md <= 150 lines, STATUS.md <= 200 lines, and SPEC.md <= 500 lines.",
-    "validating_mechanism": "audit_d10_tokenomics"
+    "validating_mechanism": "audit_d10_tokenomics",
+    "downstream_verification": "none"
   },
   "TK-043": {
     "id": "TK-043",
@@ -726,14 +771,15 @@
     "symptom": "El sistema valida lo que ENTRA (anti-slop, large-file, gates) pero nada caza lo que debe SALIR: los refactors dejan residuo (imports/params muertos, backups, scripts espectrales, docs duplicados, IDs huérfanos en catálogo) que el gate aprueba por solo existir",
     "cause": "Validación de letra (`Path.exists`) en vez de vigencia; cultura append-only; sin política de retención ni dueño de la limpieza",
     "solution": "Cazar huérfanos como COMPUERTA (dead-code/vulture, allowlist sin archivo, dirs sin retención, docs de propósito duplicado); REEMPLAZAR = `rm` + crear en el mismo commit",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "low",
     "tags": [
       "tokenomics",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Tokenomics cleanup validation now rejects orphan markdown files in Wiki/Vices and Wiki/Tokenomics so residual docs cannot linger unnoticed.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "VT-001": {
     "id": "VT-001",
@@ -749,7 +795,8 @@
       "prevented"
     ],
     "action": "Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function bodies to reject empty stubs or stub docstrings.",
-    "validating_mechanism": "audit_d2_completeness"
+    "validating_mechanism": "audit_d2_completeness",
+    "downstream_verification": "none"
   },
   "VT-002": {
     "id": "VT-002",
@@ -765,7 +812,8 @@
       "prevented"
     ],
     "action": "Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function bodies to reject empty stubs or stub docstrings.",
-    "validating_mechanism": "audit_d2_completeness"
+    "validating_mechanism": "audit_d2_completeness",
+    "downstream_verification": "none"
   },
   "VT-003": {
     "id": "VT-003",
@@ -781,23 +829,25 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-004": {
     "id": "VT-004",
     "title": "Copiar esperado",
     "category": "Testing & Evaluation",
-    "symptom": "Código conoce test",
-    "cause": "Oráculo contaminado",
-    "solution": "Separar test y solución",
+    "symptom": "El valor esperado termina copiado dentro del código o del fixture y deja de ser una observación independiente",
+    "cause": "El oráculo se incrusta en la implementación o en una fixture compartida",
+    "solution": "Mantener el esperado fuera de la ruta productiva y validar contra una especificación externa",
     "status": "AUDITED",
     "severity": "medium",
     "tags": [
       "testing",
       "audited"
     ],
-    "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "action": "Audited as oracle-contamination in test fixtures or implementation glue; separate from stale-spec mismatches.",
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-005": {
     "id": "VT-005",
@@ -813,7 +863,8 @@
       "prevented"
     ],
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
-    "validating_mechanism": "audit_d9_test_purity"
+    "validating_mechanism": "audit_d9_test_purity",
+    "downstream_verification": "none"
   },
   "VT-006": {
     "id": "VT-006",
@@ -829,7 +880,8 @@
       "prevented"
     ],
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
-    "validating_mechanism": "audit_d9_test_purity"
+    "validating_mechanism": "audit_d9_test_purity",
+    "downstream_verification": "none"
   },
   "VT-007": {
     "id": "VT-007",
@@ -845,7 +897,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-008": {
     "id": "VT-008",
@@ -861,7 +914,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-009": {
     "id": "VT-009",
@@ -877,7 +931,8 @@
       "prevented"
     ],
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
-    "validating_mechanism": "audit_d9_test_purity"
+    "validating_mechanism": "audit_d9_test_purity",
+    "downstream_verification": "none"
   },
   "VT-010": {
     "id": "VT-010",
@@ -893,23 +948,25 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-011": {
     "id": "VT-011",
     "title": "Esperado incorrecto",
     "category": "Testing & Evaluation",
-    "symptom": "Test y código mal",
-    "cause": "Oráculo falso",
-    "solution": "Revisar especificación",
+    "symptom": "El test compara contra una expectativa que ya no coincide con la especificación vigente",
+    "cause": "La especificación o el fixture de referencia quedó obsoleto",
+    "solution": "Revisar la fuente de verdad de la expectativa y actualizar el oráculo",
     "status": "AUDITED",
     "severity": "medium",
     "tags": [
       "testing",
       "audited"
     ],
-    "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "action": "Audited as stale-oracle mismatch; separate from copied-expected contamination.",
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-012": {
     "id": "VT-012",
@@ -925,7 +982,8 @@
       "prevented"
     ],
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
-    "validating_mechanism": "audit_d9_test_purity"
+    "validating_mechanism": "audit_d9_test_purity",
+    "downstream_verification": "none"
   },
   "VT-013": {
     "id": "VT-013",
@@ -941,7 +999,8 @@
       "prevented"
     ],
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
-    "validating_mechanism": "audit_d9_test_purity"
+    "validating_mechanism": "audit_d9_test_purity",
+    "downstream_verification": "none"
   },
   "VT-014": {
     "id": "VT-014",
@@ -957,7 +1016,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-015": {
     "id": "VT-015",
@@ -973,7 +1033,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-016": {
     "id": "VT-016",
@@ -989,7 +1050,8 @@
       "prevented"
     ],
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
-    "validating_mechanism": "audit_d9_test_purity"
+    "validating_mechanism": "audit_d9_test_purity",
+    "downstream_verification": "none"
   },
   "VT-017": {
     "id": "VT-017",
@@ -1005,7 +1067,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-018": {
     "id": "VT-018",
@@ -1021,7 +1084,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-019": {
     "id": "VT-019",
@@ -1037,7 +1101,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-020": {
     "id": "VT-020",
@@ -1053,7 +1118,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-021": {
     "id": "VT-021",
@@ -1069,7 +1135,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-022": {
     "id": "VT-022",
@@ -1085,7 +1152,8 @@
       "prevented"
     ],
     "action": "Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts.",
-    "validating_mechanism": "audit_d9_test_purity"
+    "validating_mechanism": "audit_d9_test_purity",
+    "downstream_verification": "none"
   },
   "VT-023": {
     "id": "VT-023",
@@ -1101,7 +1169,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-024": {
     "id": "VT-024",
@@ -1117,7 +1186,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-025": {
     "id": "VT-025",
@@ -1133,7 +1203,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-026": {
     "id": "VT-026",
@@ -1149,7 +1220,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-027": {
     "id": "VT-027",
@@ -1165,7 +1237,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-028": {
     "id": "VT-028",
@@ -1181,7 +1254,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-029": {
     "id": "VT-029",
@@ -1197,7 +1271,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-030": {
     "id": "VT-030",
@@ -1213,7 +1288,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-031": {
     "id": "VT-031",
@@ -1229,7 +1305,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-032": {
     "id": "VT-032",
@@ -1245,7 +1322,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-033": {
     "id": "VT-033",
@@ -1261,7 +1339,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-034": {
     "id": "VT-034",
@@ -1277,7 +1356,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-035": {
     "id": "VT-035",
@@ -1293,7 +1373,8 @@
       "prevented"
     ],
     "action": "Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or reasons.",
-    "validating_mechanism": "audit_d9_test_purity"
+    "validating_mechanism": "audit_d9_test_purity",
+    "downstream_verification": "none"
   },
   "VT-036": {
     "id": "VT-036",
@@ -1309,7 +1390,8 @@
       "prevented"
     ],
     "action": "Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or reasons.",
-    "validating_mechanism": "audit_d9_test_purity"
+    "validating_mechanism": "audit_d9_test_purity",
+    "downstream_verification": "none"
   },
   "VT-037": {
     "id": "VT-037",
@@ -1325,7 +1407,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-038": {
     "id": "VT-038",
@@ -1341,7 +1424,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-039": {
     "id": "VT-039",
@@ -1357,7 +1441,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-040": {
     "id": "VT-040",
@@ -1373,7 +1458,8 @@
       "prevented"
     ],
     "action": "Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements.",
-    "validating_mechanism": "audit_d5_angry_path"
+    "validating_mechanism": "audit_d5_angry_path",
+    "downstream_verification": "none"
   },
   "VT-041": {
     "id": "VT-041",
@@ -1389,7 +1475,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-042": {
     "id": "VT-042",
@@ -1405,7 +1492,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-043": {
     "id": "VT-043",
@@ -1421,7 +1509,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-044": {
     "id": "VT-044",
@@ -1437,7 +1526,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-045": {
     "id": "VT-045",
@@ -1453,7 +1543,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-046": {
     "id": "VT-046",
@@ -1469,7 +1560,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-047": {
     "id": "VT-047",
@@ -1485,7 +1577,8 @@
       "prevented"
     ],
     "action": "Volumen real: test ejercita 1000+ sesiones (lo opuesto al dataset pequeño).",
-    "validating_mechanism": "test_compress_1000_sessions_returns_structured_dict"
+    "validating_mechanism": "test_compress_1000_sessions_returns_structured_dict",
+    "downstream_verification": "none"
   },
   "VT-048": {
     "id": "VT-048",
@@ -1501,7 +1594,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-049": {
     "id": "VT-049",
@@ -1517,7 +1611,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-050": {
     "id": "VT-050",
@@ -1533,7 +1628,8 @@
       "prevented"
     ],
     "action": "Boundary de calendario real: asserta que 29-feb en año no bisiesto lanza ValueError.",
-    "validating_mechanism": "test_non_leap_year_feb29_raises"
+    "validating_mechanism": "test_non_leap_year_feb29_raises",
+    "downstream_verification": "none"
   },
   "VT-051": {
     "id": "VT-051",
@@ -1549,7 +1645,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-052": {
     "id": "VT-052",
@@ -1565,7 +1662,8 @@
       "prevented"
     ],
     "action": "Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements.",
-    "validating_mechanism": "audit_d5_angry_path"
+    "validating_mechanism": "audit_d5_angry_path",
+    "downstream_verification": "none"
   },
   "VT-053": {
     "id": "VT-053",
@@ -1581,7 +1679,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-054": {
     "id": "VT-054",
@@ -1597,7 +1696,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-055": {
     "id": "VT-055",
@@ -1613,7 +1713,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-056": {
     "id": "VT-056",
@@ -1629,7 +1730,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-057": {
     "id": "VT-057",
@@ -1645,7 +1747,8 @@
       "prevented"
     ],
     "action": "Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or reasons.",
-    "validating_mechanism": "audit_d9_test_purity"
+    "validating_mechanism": "audit_d9_test_purity",
+    "downstream_verification": "none"
   },
   "VT-058": {
     "id": "VT-058",
@@ -1661,7 +1764,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-059": {
     "id": "VT-059",
@@ -1677,7 +1781,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-060": {
     "id": "VT-060",
@@ -1693,7 +1798,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-061": {
     "id": "VT-061",
@@ -1709,7 +1815,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-062": {
     "id": "VT-062",
@@ -1725,7 +1832,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-063": {
     "id": "VT-063",
@@ -1741,7 +1849,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-064": {
     "id": "VT-064",
@@ -1757,7 +1866,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-065": {
     "id": "VT-065",
@@ -1773,7 +1883,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-066": {
     "id": "VT-066",
@@ -1789,7 +1900,8 @@
       "prevented"
     ],
     "action": "Discovery gaps prevented by run_compliance_tests executing full pytest tests/ dynamically, verified in test_infrastructure.py.",
-    "validating_mechanism": "test_infrastructure_checks"
+    "validating_mechanism": "test_infrastructure_checks",
+    "downstream_verification": "none"
   },
   "VT-067": {
     "id": "VT-067",
@@ -1805,7 +1917,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-068": {
     "id": "VT-068",
@@ -1821,7 +1934,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-069": {
     "id": "VT-069",
@@ -1837,7 +1951,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-070": {
     "id": "VT-070",
@@ -1853,7 +1968,8 @@
       "remediated"
     ],
     "action": "Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry.",
-    "validating_mechanism": "test_setup_validation"
+    "validating_mechanism": "test_setup_validation",
+    "downstream_verification": "none"
   },
   "VT-071": {
     "id": "VT-071",
@@ -1869,7 +1985,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-072": {
     "id": "VT-072",
@@ -1885,7 +2002,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-073": {
     "id": "VT-073",
@@ -1901,7 +2019,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-074": {
     "id": "VT-074",
@@ -1917,7 +2036,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-075": {
     "id": "VT-075",
@@ -1933,7 +2053,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-076": {
     "id": "VT-076",
@@ -1949,7 +2070,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-077": {
     "id": "VT-077",
@@ -1965,7 +2087,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-078": {
     "id": "VT-078",
@@ -1981,7 +2104,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-079": {
     "id": "VT-079",
@@ -1997,7 +2121,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-080": {
     "id": "VT-080",
@@ -2013,7 +2138,8 @@
       "remediated"
     ],
     "action": "Enforced by D9 absolute path scanners. In code, resolved via dynamic str(Path(__file__).resolve().parent.parent) path bootstrapping.",
-    "validating_mechanism": "audit_d9_test_purity"
+    "validating_mechanism": "audit_d9_test_purity",
+    "downstream_verification": "none"
   },
   "VT-081": {
     "id": "VT-081",
@@ -2029,7 +2155,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-082": {
     "id": "VT-082",
@@ -2045,7 +2172,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-083": {
     "id": "VT-083",
@@ -2061,7 +2189,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-084": {
     "id": "VT-084",
@@ -2077,7 +2206,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-085": {
     "id": "VT-085",
@@ -2093,7 +2223,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-086": {
     "id": "VT-086",
@@ -2109,7 +2240,8 @@
       "prevented"
     ],
     "action": "Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or reasons.",
-    "validating_mechanism": "audit_d9_test_purity"
+    "validating_mechanism": "audit_d9_test_purity",
+    "downstream_verification": "none"
   },
   "VT-087": {
     "id": "VT-087",
@@ -2125,7 +2257,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-088": {
     "id": "VT-088",
@@ -2141,7 +2274,8 @@
       "prevented"
     ],
     "action": "Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements.",
-    "validating_mechanism": "audit_d5_angry_path"
+    "validating_mechanism": "audit_d5_angry_path",
+    "downstream_verification": "none"
   },
   "VT-089": {
     "id": "VT-089",
@@ -2157,7 +2291,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-090": {
     "id": "VT-090",
@@ -2173,7 +2308,8 @@
       "prevented"
     ],
     "action": "Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function bodies to reject empty stubs or stub docstrings.",
-    "validating_mechanism": "audit_d2_completeness"
+    "validating_mechanism": "audit_d2_completeness",
+    "downstream_verification": "none"
   },
   "VT-091": {
     "id": "VT-091",
@@ -2189,7 +2325,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-092": {
     "id": "VT-092",
@@ -2205,7 +2342,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-093": {
     "id": "VT-093",
@@ -2221,7 +2359,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-094": {
     "id": "VT-094",
@@ -2237,7 +2376,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-095": {
     "id": "VT-095",
@@ -2253,7 +2393,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-096": {
     "id": "VT-096",
@@ -2269,7 +2410,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-097": {
     "id": "VT-097",
@@ -2285,7 +2427,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-098": {
     "id": "VT-098",
@@ -2301,7 +2444,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-099": {
     "id": "VT-099",
@@ -2317,7 +2461,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-100": {
     "id": "VT-100",
@@ -2333,7 +2478,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-101": {
     "id": "VT-101",
@@ -2349,7 +2495,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-102": {
     "id": "VT-102",
@@ -2365,7 +2512,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-103": {
     "id": "VT-103",
@@ -2381,7 +2529,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-104": {
     "id": "VT-104",
@@ -2397,7 +2546,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-105": {
     "id": "VT-105",
@@ -2413,7 +2563,8 @@
       "remediated"
     ],
     "action": "Validated by tests/test_infrastructure.py:test_pre_commit_hook_exists_and_executable, ensuring hooks are physically present and active.",
-    "validating_mechanism": "test_pre_commit_hook_exists_and_executable"
+    "validating_mechanism": "test_pre_commit_hook_exists_and_executable",
+    "downstream_verification": "none"
   },
   "VT-106": {
     "id": "VT-106",
@@ -2429,7 +2580,8 @@
       "remediated"
     ],
     "action": "Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry.",
-    "validating_mechanism": "test_setup_validation"
+    "validating_mechanism": "test_setup_validation",
+    "downstream_verification": "none"
   },
   "VT-107": {
     "id": "VT-107",
@@ -2445,7 +2597,8 @@
       "remediated"
     ],
     "action": "Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry.",
-    "validating_mechanism": "test_setup_validation"
+    "validating_mechanism": "test_setup_validation",
+    "downstream_verification": "none"
   },
   "VT-108": {
     "id": "VT-108",
@@ -2461,7 +2614,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-109": {
     "id": "VT-109",
@@ -2477,7 +2631,8 @@
       "prevented"
     ],
     "action": "Testing Bridge Theater is bypassed; static audits and tests run as direct shell pipelines returning native exit codes.",
-    "validating_mechanism": "test_infrastructure_checks"
+    "validating_mechanism": "test_infrastructure_checks",
+    "downstream_verification": "none"
   },
   "VT-110": {
     "id": "VT-110",
@@ -2493,7 +2648,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-111": {
     "id": "VT-111",
@@ -2509,7 +2665,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-112": {
     "id": "VT-112",
@@ -2525,7 +2682,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-113": {
     "id": "VT-113",
@@ -2541,7 +2699,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-114": {
     "id": "VT-114",
@@ -2557,7 +2716,8 @@
       "audited"
     ],
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
-    "validating_mechanism": "audit_d8_test_coverage"
+    "validating_mechanism": "audit_d8_test_coverage",
+    "downstream_verification": "none"
   },
   "VT-115": {
     "id": "VT-115",
@@ -2573,7 +2733,8 @@
       "remediated"
     ],
     "action": "Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry.",
-    "validating_mechanism": "test_setup_validation"
+    "validating_mechanism": "test_setup_validation",
+    "downstream_verification": "none"
   },
   "VC-001": {
     "id": "VC-001",
@@ -2589,7 +2750,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-002": {
     "id": "VC-002",
@@ -2605,7 +2767,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-003": {
     "id": "VC-003",
@@ -2621,7 +2784,8 @@
       "prevented"
     ],
     "action": "Anti-triunfalismo: el test falla si no hay evidencia JSON en .protocol/evidence/, forzando prueba empírica.",
-    "validating_mechanism": "test_B7_evidence_files_are_valid_json"
+    "validating_mechanism": "test_B7_evidence_files_are_valid_json",
+    "downstream_verification": "none"
   },
   "VC-004": {
     "id": "VC-004",
@@ -2637,7 +2801,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-005": {
     "id": "VC-005",
@@ -2653,7 +2818,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-006": {
     "id": "VC-006",
@@ -2669,7 +2835,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-007": {
     "id": "VC-007",
@@ -2685,7 +2852,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-008": {
     "id": "VC-008",
@@ -2701,7 +2869,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-009": {
     "id": "VC-009",
@@ -2717,7 +2886,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-010": {
     "id": "VC-010",
@@ -2733,7 +2903,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-011": {
     "id": "VC-011",
@@ -2749,7 +2920,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-012": {
     "id": "VC-012",
@@ -2765,7 +2937,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-013": {
     "id": "VC-013",
@@ -2781,7 +2954,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-014": {
     "id": "VC-014",
@@ -2797,7 +2971,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-015": {
     "id": "VC-015",
@@ -2813,7 +2988,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-016": {
     "id": "VC-016",
@@ -2829,7 +3005,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-017": {
     "id": "VC-017",
@@ -2845,7 +3022,8 @@
       "prevented"
     ],
     "action": "Anti-triunfalismo: el test falla si no hay evidencia JSON en .protocol/evidence/, forzando prueba empírica.",
-    "validating_mechanism": "test_B7_evidence_files_are_valid_json"
+    "validating_mechanism": "test_B7_evidence_files_are_valid_json",
+    "downstream_verification": "none"
   },
   "VC-018": {
     "id": "VC-018",
@@ -2861,7 +3039,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-019": {
     "id": "VC-019",
@@ -2877,7 +3056,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-020": {
     "id": "VC-020",
@@ -2893,7 +3073,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-021": {
     "id": "VC-021",
@@ -2902,14 +3083,15 @@
     "symptom": "Fallos secundarios quedan vivos",
     "cause": "Alcance de cierre mal definido",
     "solution": "Cerrar cadena completa de defectos revelados",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "validate_golden_standard_catalogs.py --check-wiki keeps the canonical surfaces, link graph, and coverage counts aligned so a partial close fails the gate.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "VC-022": {
     "id": "VC-022",
@@ -2925,7 +3107,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-023": {
     "id": "VC-023",
@@ -2941,7 +3124,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-024": {
     "id": "VC-024",
@@ -2957,7 +3141,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-025": {
     "id": "VC-025",
@@ -2973,7 +3158,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-026": {
     "id": "VC-026",
@@ -2989,7 +3175,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-027": {
     "id": "VC-027",
@@ -2998,14 +3185,15 @@
     "symptom": "Trabajo vive en chat",
     "cause": "Estado efímero",
     "solution": "Mantener plan físico o lógico estable",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "validate_gs_topology.py checks that Inbox is published, linked from Home, and backed by the ingestion protocol and templates.",
+    "validating_mechanism": "validate_gs_topology.py",
+    "downstream_verification": "none"
   },
   "VC-028": {
     "id": "VC-028",
@@ -3021,7 +3209,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-029": {
     "id": "VC-029",
@@ -3037,7 +3226,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-030": {
     "id": "VC-030",
@@ -3046,14 +3236,15 @@
     "symptom": "Ediciones grandes degradan coherencia",
     "cause": "Mutación dispersa",
     "solution": "Controlar alcance y checkpoints",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Regenerated audit artifacts and topology checks prevent the Home, graph, and index surfaces from drifting away from the YAML catalogs.",
+    "validating_mechanism": "generate_golden_audit.py + validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "VC-031": {
     "id": "VC-031",
@@ -3069,7 +3260,8 @@
       "doc-only"
     ],
     "action": "Reescritura completa vs edición quirúrgica: vicio conductual de juicio (cuándo se justifica un rewrite). Ningún test estático en test_cerberus_core discrimina intención. Sprint 3.4 revisión manual: DOC_ONLY honesto.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-032": {
     "id": "VC-032",
@@ -3085,7 +3277,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-033": {
     "id": "VC-033",
@@ -3101,7 +3294,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-034": {
     "id": "VC-034",
@@ -3117,7 +3311,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-035": {
     "id": "VC-035",
@@ -3133,7 +3328,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-036": {
     "id": "VC-036",
@@ -3149,7 +3345,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-037": {
     "id": "VC-037",
@@ -3158,14 +3355,15 @@
     "symptom": "Se reemplaza código sin diagnóstico",
     "cause": "Borrado de causalidad",
     "solution": "Diagnóstico antes de generación",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "generate_golden_audit.py forces a fresh rebuild of the vault before validation, so blind replacement cannot masquerade as a finished state.",
+    "validating_mechanism": "generate_golden_audit.py + validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "VC-038": {
     "id": "VC-038",
@@ -3181,7 +3379,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-039": {
     "id": "VC-039",
@@ -3197,7 +3396,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-040": {
     "id": "VC-040",
@@ -3213,7 +3413,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-041": {
     "id": "VC-041",
@@ -3229,7 +3430,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-042": {
     "id": "VC-042",
@@ -3245,7 +3447,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-043": {
     "id": "VC-043",
@@ -3261,7 +3464,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-044": {
     "id": "VC-044",
@@ -3277,7 +3481,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-045": {
     "id": "VC-045",
@@ -3293,7 +3498,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-046": {
     "id": "VC-046",
@@ -3309,7 +3515,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-047": {
     "id": "VC-047",
@@ -3325,7 +3532,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-048": {
     "id": "VC-048",
@@ -3334,14 +3542,15 @@
     "symptom": "Todo contexto se mezcla",
     "cause": "Falta de estratificación",
     "solution": "Separar núcleo, activo, patrones e historia",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "validate_gs_topology.py checks that GS exposes separate canonical surfaces for Vices, Tokenomics, Project Insights, and the graph instead of one monolithic knowledge page.",
+    "validating_mechanism": "validate_gs_topology.py",
+    "downstream_verification": "none"
   },
   "VC-049": {
     "id": "VC-049",
@@ -3357,7 +3566,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-050": {
     "id": "VC-050",
@@ -3373,7 +3583,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-051": {
     "id": "VC-051",
@@ -3389,7 +3600,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-052": {
     "id": "VC-052",
@@ -3405,7 +3617,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-053": {
     "id": "VC-053",
@@ -3421,7 +3634,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-054": {
     "id": "VC-054",
@@ -3437,7 +3651,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-055": {
     "id": "VC-055",
@@ -3453,7 +3668,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-056": {
     "id": "VC-056",
@@ -3469,7 +3685,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-057": {
     "id": "VC-057",
@@ -3485,7 +3702,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-058": {
     "id": "VC-058",
@@ -3501,7 +3719,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-059": {
     "id": "VC-059",
@@ -3517,7 +3736,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-060": {
     "id": "VC-060",
@@ -3533,7 +3753,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-061": {
     "id": "VC-061",
@@ -3549,7 +3770,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-062": {
     "id": "VC-062",
@@ -3565,7 +3787,8 @@
       "prevented"
     ],
     "action": "Dual-session drift: detectado por sync_binding --check (falla si el protocolo divergió entre sesiones).",
-    "validating_mechanism": "test_F6_sync_binding_no_protocol_drift"
+    "validating_mechanism": "test_F6_sync_binding_no_protocol_drift",
+    "downstream_verification": "none"
   },
   "VC-063": {
     "id": "VC-063",
@@ -3574,14 +3797,15 @@
     "symptom": "Estado declarado no coincide con sistema",
     "cause": "Persistencia de afirmaciones no revalidadas",
     "solution": "Subordinar documentación a ejecución",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "validate_golden_standard_catalogs.py --check-wiki now enforces link integrity and Home count parity so documentation cannot drift away from the generated state.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "VC-064": {
     "id": "VC-064",
@@ -3597,7 +3821,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-065": {
     "id": "VC-065",
@@ -3613,7 +3838,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-066": {
     "id": "VC-066",
@@ -3629,7 +3855,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-067": {
     "id": "VC-067",
@@ -3645,7 +3872,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-068": {
     "id": "VC-068",
@@ -3661,7 +3889,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-069": {
     "id": "VC-069",
@@ -3670,14 +3899,15 @@
     "symptom": "Refactor rompe piezas lejanas",
     "cause": "Grafo causal desconocido",
     "solution": "Generar mapa de dependencias antes de mover",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "The wiki graph and link validator enforce that the canonical surfaces are mapped and resolved instead of being assumed.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "VC-070": {
     "id": "VC-070",
@@ -3693,7 +3923,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-071": {
     "id": "VC-071",
@@ -3709,7 +3940,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-072": {
     "id": "VC-072",
@@ -3725,7 +3957,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-073": {
     "id": "VC-073",
@@ -3741,7 +3974,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-074": {
     "id": "VC-074",
@@ -3757,7 +3991,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-075": {
     "id": "VC-075",
@@ -3773,7 +4008,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-076": {
     "id": "VC-076",
@@ -3789,7 +4025,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-077": {
     "id": "VC-077",
@@ -3805,7 +4042,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-078": {
     "id": "VC-078",
@@ -3814,14 +4052,15 @@
     "symptom": "Marcador llega a producción",
     "cause": "Estado incompleto aceptado",
     "solution": "Bloquear placeholders activos",
-    "status": "DOC_ONLY",
+    "status": "AUDITED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "audited"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Detectado por D2 (completeness) vía AST: cuerpos de función vacíos, stub docstrings y pass-only functions son rechazados. D9 (test purity) rechaza tests que no tienen aserciones activas. Upgrade 2026-06-04: VC-078 deja DOC_ONLY porque D2 y D9 cubren el patrón mecánicamente en scripts/ y tests/.",
+    "validating_mechanism": "audit_d2_completeness",
+    "downstream_verification": "none"
   },
   "VC-079": {
     "id": "VC-079",
@@ -3837,7 +4076,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-080": {
     "id": "VC-080",
@@ -3853,7 +4093,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-081": {
     "id": "VC-081",
@@ -3869,7 +4110,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-082": {
     "id": "VC-082",
@@ -3885,7 +4127,8 @@
       "prevented"
     ],
     "action": "Ghost import (dependencia usada pero no declarada) detectado por análisis AST de imports vs manifiesto.",
-    "validating_mechanism": "test_vc082_ghost_import_detected"
+    "validating_mechanism": "test_vc082_ghost_import_detected",
+    "downstream_verification": "none"
   },
   "VC-083": {
     "id": "VC-083",
@@ -3894,14 +4137,15 @@
     "symptom": "Artefactos no declarados sobreviven",
     "cause": "Inventario no vinculante",
     "solution": "Todo archivo zombie debe estar autorizado, clasificado o eliminado",
-    "status": "DOC_ONLY",
+    "status": "AUDITED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "audited"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Detectado por D1 audit_d1_integrity: escanea todos los archivos de código (excluyendo no-code por extensión) y falla con \"Archivo no registrado (Zombi)\" si el archivo no está en la whitelist ni es un test legítimo. Upgrade 2026-06-04: VC-083 deja DOC_ONLY porque D1 ya lo verifica mecánicamente.",
+    "validating_mechanism": "audit_d1_integrity",
+    "downstream_verification": "none"
   },
   "VC-084": {
     "id": "VC-084",
@@ -3917,7 +4161,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-085": {
     "id": "VC-085",
@@ -3933,7 +4178,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-086": {
     "id": "VC-086",
@@ -3949,23 +4195,25 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-087": {
     "id": "VC-087",
     "title": "Warning normalizado",
     "category": "Vibe Coding",
-    "symptom": "Advertencias se acumulan sin bloqueo",
-    "cause": "Degradación gradual aceptada",
-    "solution": "Cero warnings en rutas de salud",
-    "status": "DOC_ONLY",
+    "symptom": "Advertencias se acumulan sin bloqueo; filterwarnings(\"ignore\") sin justificación",
+    "cause": "Degradación gradual aceptada; supresión global ciega de señales de alerta",
+    "solution": "Cero warnings en rutas de salud; toda supresión de warning debe tener comentario justificativo",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "D6 (_check_file_anti_slop) detecta filterwarnings(\"ignore\") sin comentario justificativo en scripts/ (excluyendo tests). Upgrade 2026-06-04: VC-087 promovido a PREVENTED con detección estática en audit_d6_anti_slop. Patrón permitido: filterwarnings(\"ignore\")  # VC-087-OK: <razón específica>.",
+    "validating_mechanism": "audit_d6_anti_slop",
+    "downstream_verification": "none"
   },
   "VC-088": {
     "id": "VC-088",
@@ -3981,7 +4229,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-089": {
     "id": "VC-089",
@@ -3997,7 +4246,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-090": {
     "id": "VC-090",
@@ -4006,14 +4256,15 @@
     "symptom": "Se repiten errores previos",
     "cause": "Estado histórico ignorado",
     "solution": "Cargar ledger y decisiones vigentes",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "validate_gs_topology.py checks that the canonical memory surfaces are linked from Home, so the GS ledger can be loaded on entry.",
+    "validating_mechanism": "validate_gs_topology.py",
+    "downstream_verification": "none"
   },
   "VC-091": {
     "id": "VC-091",
@@ -4022,14 +4273,15 @@
     "symptom": "Se declara inexistencia sin búsqueda",
     "cause": "Exploración insuficiente",
     "solution": "Agotar búsqueda estructural",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Broken-link validation now fails if canonical markdown or wiki targets do not resolve on disk.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "VC-092": {
     "id": "VC-092",
@@ -4038,14 +4290,15 @@
     "symptom": "Se omiten superficies críticas",
     "cause": "Universo auditado mal definido",
     "solution": "Declarar y cubrir superficies auditables",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Home count parity and topology checks ensure the canonical surfaces are all represented instead of only a partial slice.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "VC-093": {
     "id": "VC-093",
@@ -4061,7 +4314,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-094": {
     "id": "VC-094",
@@ -4077,7 +4331,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-095": {
     "id": "VC-095",
@@ -4093,7 +4348,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-096": {
     "id": "VC-096",
@@ -4109,7 +4365,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-097": {
     "id": "VC-097",
@@ -4125,7 +4382,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-098": {
     "id": "VC-098",
@@ -4141,7 +4399,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-099": {
     "id": "VC-099",
@@ -4157,7 +4416,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-100": {
     "id": "VC-100",
@@ -4173,7 +4433,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-101": {
     "id": "VC-101",
@@ -4189,7 +4450,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-102": {
     "id": "VC-102",
@@ -4205,7 +4467,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-103": {
     "id": "VC-103",
@@ -4221,7 +4484,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-104": {
     "id": "VC-104",
@@ -4230,14 +4494,15 @@
     "symptom": "Runtime real difiere",
     "cause": "Fuente equivocada",
     "solution": "Infraestructura efectiva como verdad",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "The audit workflow is now a visible, validated surface and must include both the compiler and the wiki checker so infra cannot be ignored.",
+    "validating_mechanism": ".github/workflows/audit.yml + validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "VC-105": {
     "id": "VC-105",
@@ -4246,14 +4511,15 @@
     "symptom": "HTML/startup/build no auditados",
     "cause": "Superficie incompleta",
     "solution": "Checklist de superficies",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Topology validation now checks the canonical Home, Vices, Tokenomics, Graph, and Inbox surfaces so missing components fail the gate.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "VC-106": {
     "id": "VC-106",
@@ -4262,14 +4528,15 @@
     "symptom": "El sistema presupone que el entorno existe",
     "cause": "Precondiciones no verificadas",
     "solution": "Validar requisitos de ejecución antes de operar",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Inbox topology validation requires the ingestion protocol, knowledge sources contract, and templates to exist before new findings can be accepted.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "VC-107": {
     "id": "VC-107",
@@ -4285,7 +4552,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-108": {
     "id": "VC-108",
@@ -4301,7 +4569,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-109": {
     "id": "VC-109",
@@ -4317,7 +4586,8 @@
       "prevented"
     ],
     "action": "Rutas absolutas hardcodeadas (C:\\, /home/, /Users/) detectadas por escaneo regex discriminante.",
-    "validating_mechanism": "test_vc109_absolute_path_in_scripts"
+    "validating_mechanism": "test_vc109_absolute_path_in_scripts",
+    "downstream_verification": "none"
   },
   "VC-110": {
     "id": "VC-110",
@@ -4326,14 +4596,15 @@
     "symptom": "Operación falla por límites externos",
     "cause": "Recurso finito no presupuestado",
     "solution": "Modelar límites, backoff y degradación antes de ejecutar",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "validate_gs_topology.py checks that Tokenomics exposes its subindices and map from the index surface before the category can be treated as complete.",
+    "validating_mechanism": "validate_gs_topology.py",
+    "downstream_verification": "none"
   },
   "VC-111": {
     "id": "VC-111",
@@ -4349,7 +4620,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-112": {
     "id": "VC-112",
@@ -4365,7 +4637,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-113": {
     "id": "VC-113",
@@ -4381,7 +4654,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-114": {
     "id": "VC-114",
@@ -4390,14 +4664,15 @@
     "symptom": "Defecto detectado en sesión no se convierte en ítem ejecutable del plan activo",
     "cause": "Registro informal sin dueño, evidencia ni criterio de cierre",
     "solution": "Todo hallazgo debe tener ID, evidencia, fix propuesto y done-criteria en el plan activo antes de cerrar la sesión",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "action": "Inbox topology validation enforces the ingestion path, template surface, and protocol docs required for a remediable finding.",
+    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "downstream_verification": "none"
   },
   "VC-115": {
     "id": "VC-115",
@@ -4413,7 +4688,8 @@
       "remediated"
     ],
     "action": "Replaced eval-based rules with a pre-registered SAFE_CHECKS dispatch table in rules_engine.py to prevent remote code execution.",
-    "validating_mechanism": "test_rule_security_rejects_arbitrary_check"
+    "validating_mechanism": "test_rule_security_rejects_arbitrary_check",
+    "downstream_verification": "none"
   },
   "VC-116": {
     "id": "VC-116",
@@ -4429,7 +4705,8 @@
       "remediated"
     ],
     "action": "Disabled automatic subprocess pip installs in repair_failing_tests.py, forcing manual package guidance.",
-    "validating_mechanism": "test_import_error_guard_does_not_pip_install"
+    "validating_mechanism": "test_import_error_guard_does_not_pip_install",
+    "downstream_verification": "none"
   },
   "VC-117": {
     "id": "VC-117",
@@ -4445,7 +4722,8 @@
       "remediated"
     ],
     "action": "Atomic state writes via core_utils.write_json_atomic (tempfile + os.replace + fsync), wired into update_lock_state and ProtocolSyncManager._save_state.",
-    "validating_mechanism": "test_critical_state_write_is_atomic"
+    "validating_mechanism": "test_critical_state_write_is_atomic",
+    "downstream_verification": "none"
   },
   "VC-118": {
     "id": "VC-118",
@@ -4461,7 +4739,8 @@
       "prevented"
     ],
     "action": "Prevented by D1 _audit_d1_zombie_compat scanning active scripts for zombie compatibility shim patterns.",
-    "validating_mechanism": "audit_d1_integrity"
+    "validating_mechanism": "audit_d1_integrity",
+    "downstream_verification": "none"
   },
   "VC-119": {
     "id": "VC-119",
@@ -4477,7 +4756,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-120": {
     "id": "VC-120",
@@ -4493,7 +4773,8 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY"
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required"
   },
   "VC-121": {
     "id": "VC-121",
@@ -4509,7 +4790,8 @@
       "prevented"
     ],
     "action": "Nombres de función top-level duplicados entre módulos detectados por comparación AST.",
-    "validating_mechanism": "test_vc121_duplicate_function_names"
+    "validating_mechanism": "test_vc121_duplicate_function_names",
+    "downstream_verification": "none"
   },
   "VC-122": {
     "id": "VC-122",
@@ -4525,7 +4807,8 @@
       "prevented"
     ],
     "action": "pip install automático por subprocess en scripts/ bloqueado por detector + repo-guard de ruta activa.",
-    "validating_mechanism": "test_vc122_no_pip_install_in_scripts"
+    "validating_mechanism": "test_vc122_no_pip_install_in_scripts",
+    "downstream_verification": "none"
   },
   "VC-123": {
     "id": "VC-123",
@@ -4541,6 +4824,61 @@
       "prevented"
     ],
     "action": "git add -A/. (staging indiscriminado) discriminado por detector failing-first (juicio de intención humano).",
-    "validating_mechanism": "test_vc123_no_git_add_all_in_scripts"
+    "validating_mechanism": "test_vc123_no_git_add_all_in_scripts",
+    "downstream_verification": "none"
+  },
+  "VC-124": {
+    "id": "VC-124",
+    "title": "Deprecación Precipitada sin Análisis (Hasty Deprecation)",
+    "category": "Vibe Coding",
+    "symptom": "Un agente mueve un archivo a deprecated/ sin leerlo, sin buscar referencias activas y sin verificar si su funcionalidad sigue siendo útil o está cubierta en otro lugar.",
+    "cause": "El agente trata deprecated/ como papelera de reciclaje en lugar de cuarentena auditada. El impulso de \"resolver el error rápido\" supera el análisis requerido.",
+    "solution": "Proceso obligatorio antes de deprecar — (1) leer el archivo completo, (2) buscar referencias activas con grep, (3) verificar duplicidad funcional, (4) documentar decisión en DEPRECATION_LOG, (5) ENTONCES ejecutar git mv.",
+    "status": "PREVENTED",
+    "severity": "high",
+    "tags": [
+      "vibe-coding",
+      "prevented",
+      "governance"
+    ],
+    "action": "pre_edit_guard bloquea escrituras en deprecated/ sin entrada previa en DEPRECATION_LOG.md. pre-commit hook valida que archivos staged en deprecated/ estén justificados. D1 del auditor 12D verifica cobertura del log.",
+    "validating_mechanism": "check_deprecation_log.py + pre_edit_guard S24 + D1 audit",
+    "downstream_verification": "none"
+  },
+  "VC-125": {
+    "id": "VC-125",
+    "title": "Retrospectiva no externalizada",
+    "category": "Vibe Coding",
+    "symptom": "El aprendizaje de la sesión se pierde al cerrar contexto o compactar, y la siguiente sesión repite trabajo ya resuelto.",
+    "cause": "Tratar el chat como memoria durable en lugar de exportar decisiones, hallazgos y pendientes a un ledger persistente.",
+    "solution": "Antes de cerrar una sesión con trabajo real, exportar una retrospectiva estructurada con decisiones, evidencias y pendientes a un artefacto estable del GS.",
+    "status": "PREVENTED",
+    "severity": "high",
+    "tags": [
+      "vibe-coding",
+      "prevented",
+      "governance"
+    ],
+    "action": "Exigir que toda lección nueva se externalice al catálogo o wiki antes de COMPACT/CLEAR; si no hay exportación estructurada, el cierre queda incompleto.",
+    "validating_mechanism": "generate_golden_audit.py + wiki coverage + retrospective export",
+    "downstream_verification": "none"
+  },
+  "VC-126": {
+    "id": "VC-126",
+    "title": "Sugerencia post-ejecución que reabre alcance",
+    "category": "Vibe Coding",
+    "symptom": "Después de ejecutar una instrucción completa, aparecen nuevas sugerencias de mejora que no fueron parte del alcance inicial y vuelven infinito el ciclo.",
+    "cause": "Falta de preflight explícito, alcance insuficientemente cerrado y ausencia de una regla de backlog antes de ejecutar.",
+    "solution": "Hacer preflight antes de ejecutar: definir alcance, impactos y follow-ups fuera de alcance; si surge una mejora nueva tras ejecutar, convertirla en backlog explícito en lugar de seguir ampliando el turno.",
+    "status": "PREVENTED",
+    "severity": "medium",
+    "tags": [
+      "vibe-coding",
+      "prevented",
+      "governance"
+    ],
+    "action": "CONTRIBUTING.md now requires a preflight with scope, impacts and out-of-scope follow-ups before execution; post-execution suggestions must be captured in backlog first.",
+    "validating_mechanism": "CONTRIBUTING.md execution hygiene rule + issue-template preflight",
+    "downstream_verification": "none"
   }
 }

@@ -10,6 +10,12 @@ assignees: ''
 - [ ] Vibe Coding Vice (VC-xxx)
 - [ ] Testing Vice (VT-xxx)
 
+## Preflight
+- [ ] I checked the current catalog and existing wiki coverage
+- [ ] I defined the intended scope of this change
+- [ ] I listed likely impacts and any out-of-scope follow-ups
+- [ ] I will move any post-execution ideas that expand scope into backlog first
+
 ## Short Title
 <!-- One line, descriptive, not dramatic -->
 
@@ -51,6 +57,11 @@ assignees: ''
 - [ ] AUDITED
 - [ ] PREVENTED
 - [ ] REMEDIATED
+
+## Downstream Verification
+<!-- Choose the downstream expectation explicitly so DOC_ONLY is never treated as test exempt -->
+- [ ] required
+- [ ] none
 
 ## Related Vices
 <!-- List any VC/VT IDs that are related -->

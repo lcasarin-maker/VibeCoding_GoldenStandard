@@ -9,11 +9,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function
-    bodies to reject empty stubs or stub docstrings.
+  - testing
+  - prevented
+  action: Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py
+    using AST analysis of function bodies to reject empty stubs or stub docstrings.
   validating_mechanism: audit_d2_completeness
+  downstream_verification: none
 - id: VT-002
   title: Stub permanente
   symptom: Cuerpo falso pasa
@@ -22,11 +23,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function
-    bodies to reject empty stubs or stub docstrings.
+  - testing
+  - prevented
+  action: Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py
+    using AST analysis of function bodies to reject empty stubs or stub docstrings.
   validating_mechanism: audit_d2_completeness
+  downstream_verification: none
 - id: VT-003
   title: Respuesta por dato exacto
   symptom: Solo pasa input del test
@@ -35,22 +37,27 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-004
   title: Copiar esperado
-  symptom: Código conoce test
-  cause: Oráculo contaminado
-  solution: Separar test y solución
+  symptom: El valor esperado termina copiado dentro del código o del fixture y deja
+    de ser una observación independiente
+  cause: El oráculo se incrusta en la implementación o en una fixture compartida
+  solution: Mantener el esperado fuera de la ruta productiva y validar contra una
+    especificación externa
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
-  action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
+  - testing
+  - audited
+  action: Audited as oracle-contamination in test fixtures or implementation glue;
+    separate from stale-spec mismatches.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-005
   title: Assert trivial
   symptom: Siempre verdadero
@@ -59,11 +66,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
-    and tests without active asserts.
+  - testing
+  - prevented
+  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert
+    True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
+  downstream_verification: none
 - id: VT-006
   title: Test sin assert
   symptom: Corre sin verificar
@@ -72,11 +80,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
-    and tests without active asserts.
+  - testing
+  - prevented
+  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert
+    True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
+  downstream_verification: none
 - id: VT-007
   title: Presencia no corrección
   symptom: Archivo existe
@@ -85,10 +94,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-008
   title: Mensaje no resultado
   symptom: Busca texto de aprobado
@@ -97,10 +107,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-009
   title: Tautología
   symptom: Verifica ley universal
@@ -109,11 +120,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
-    and tests without active asserts.
+  - testing
+  - prevented
+  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert
+    True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
+  downstream_verification: none
 - id: VT-010
   title: Test de implementación
   symptom: Cambia interno, pasa
@@ -122,22 +134,25 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-011
   title: Esperado incorrecto
-  symptom: Test y código mal
-  cause: Oráculo falso
-  solution: Revisar especificación
+  symptom: El test compara contra una expectativa que ya no coincide con la especificación
+    vigente
+  cause: La especificación o el fixture de referencia quedó obsoleto
+  solution: Revisar la fuente de verdad de la expectativa y actualizar el oráculo
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
-  action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
+  - testing
+  - audited
+  action: Audited as stale-oracle mismatch; separate from copied-expected contamination.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-012
   title: Cobertura sin asserts
   symptom: Ejecuta sin verificar
@@ -146,11 +161,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
-    and tests without active asserts.
+  - testing
+  - prevented
+  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert
+    True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
+  downstream_verification: none
 - id: VT-013
   title: Tests por porcentaje
   symptom: Cobertura gamificada
@@ -159,11 +175,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
-    and tests without active asserts.
+  - testing
+  - prevented
+  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert
+    True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
+  downstream_verification: none
 - id: VT-014
   title: Test circular
   symptom: Auditor se aprueba
@@ -172,10 +189,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-015
   title: Test demasiado amplio
   symptom: No localiza falla
@@ -184,10 +202,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-016
   title: Aserción textual teatral
   symptom: Texto existe
@@ -196,11 +215,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
-    and tests without active asserts.
+  - testing
+  - prevented
+  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert
+    True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
+  downstream_verification: none
 - id: VT-017
   title: Evidencia hardcodeada
   symptom: outcome siempre success
@@ -209,10 +229,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-018
   title: String matching frágil
   symptom: Mensaje cambia resultado
@@ -221,10 +242,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-019
   title: Hash de error válido
   symptom: UNREADABLE parece dato
@@ -233,10 +255,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-020
   title: Cien por ciento como objetivo
   symptom: Se cazan tests
@@ -245,10 +268,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-021
   title: Regresión sin centinela
   symptom: Error viejo reaparece
@@ -257,23 +281,26 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-022
   title: Teatralidad del Verde y Aserciones Tautológicas
   symptom: Pruebas exitosas inútiles que no discriminan rupturas lógicas
   cause: Gamificación de cobertura priorizando métrica sintáctica sobre adversarialidad
-  solution: Exigir aserciones de valores límite y prohibir capturas globales que silencien fallos
+  solution: Exigir aserciones de valores límite y prohibir capturas globales que silencien
+    fallos
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x),
-    and tests without active asserts.
+  - testing
+  - prevented
+  action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert
+    True, assertTrue(True), assertEqual(x, x), and tests without active asserts.
   validating_mechanism: audit_d9_test_purity
+  downstream_verification: none
 - id: VT-023
   title: Mock complaciente
   symptom: Simula éxito
@@ -282,10 +309,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-024
   title: Fake incompleto
   symptom: Omite casos difíciles
@@ -294,10 +322,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-025
   title: Stub de red
   symptom: Respuesta vieja
@@ -306,10 +335,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-026
   title: Base simplificada
   symptom: Reglas difieren
@@ -318,10 +348,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-027
   title: Reloj fijo
   symptom: Fechas siempre ideales
@@ -330,10 +361,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-028
   title: Aleatoriedad controlada
   symptom: No explora distribución
@@ -342,10 +374,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-029
   title: Sistema de archivos falso
   symptom: No prueba permisos ni locks
@@ -354,10 +387,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-030
   title: Monkey patch amable
   symptom: Sistema real no probado
@@ -366,10 +400,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-031
   title: Comando stub
   symptom: Imprime instalado
@@ -378,10 +413,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-032
   title: Mock scan parcial
   symptom: No cubre tests
@@ -390,10 +426,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-033
   title: Wrapper como remediación
   symptom: Se crea capa para que el validador no falle
@@ -402,10 +439,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-034
   title: Placeholder aprobado
   symptom: El evaluador acepta estructura incompleta
@@ -414,10 +452,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-035
   title: xfail permanente
   symptom: Falla ignorada
@@ -426,11 +465,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or
-    reasons.
+  - testing
+  - prevented
+  action: Checked by D9 Test Purity which rejects permanent xfail or skip markers
+    unless annotated with removal criteria or reasons.
   validating_mechanism: audit_d9_test_purity
+  downstream_verification: none
 - id: VT-036
   title: Skip permanente
   symptom: No corre
@@ -439,11 +479,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or
-    reasons.
+  - testing
+  - prevented
+  action: Checked by D9 Test Purity which rejects permanent xfail or skip markers
+    unless annotated with removal criteria or reasons.
   validating_mechanism: audit_d9_test_purity
+  downstream_verification: none
 - id: VT-037
   title: Condición imposible
   symptom: Rama de test nunca entra
@@ -452,10 +493,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-038
   title: Dependencia de orden
   symptom: Pasa por estado previo
@@ -464,10 +506,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-039
   title: Dependencia temporal
   symptom: Hora o día decide
@@ -476,10 +519,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-040
   title: Excepción absorbida
   symptom: Error desaparece
@@ -488,10 +532,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements.
+  - testing
+  - prevented
+  action: Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except
+    blocks or silent pass/continue statements.
   validating_mechanism: audit_d5_angry_path
+  downstream_verification: none
 - id: VT-041
   title: Error output ignorado
   symptom: Señal no observada
@@ -500,10 +546,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-042
   title: Log de éxito falso
   symptom: OK sin comprobar
@@ -512,10 +559,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-043
   title: Exit exitoso incondicional
   symptom: Pipeline verde
@@ -524,10 +572,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-044
   title: Retorno ignorado
   symptom: Resultado error no visto
@@ -536,10 +585,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-045
   title: Happy path único
   symptom: Solo caso ideal
@@ -548,10 +598,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-046
   title: Dato mágico
   symptom: Input evita bug
@@ -560,10 +611,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-047
   title: Dataset pequeño
   symptom: Escala rompe
@@ -572,10 +624,11 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
+  - testing
+  - prevented
   action: 'Volumen real: test ejercita 1000+ sesiones (lo opuesto al dataset pequeño).'
   validating_mechanism: test_compress_1000_sessions_returns_structured_dict
+  downstream_verification: none
 - id: VT-048
   title: No vacío/nulo/cero
   symptom: Casos comunes faltan
@@ -584,10 +637,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-049
   title: No caracteres especiales
   symptom: Texto real rompe
@@ -596,10 +650,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-050
   title: No fechas límite
   symptom: Calendario rompe
@@ -608,10 +663,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: 'Boundary de calendario real: asserta que 29-feb en año no bisiesto lanza ValueError.'
+  - testing
+  - prevented
+  action: 'Boundary de calendario real: asserta que 29-feb en año no bisiesto lanza
+    ValueError.'
   validating_mechanism: test_non_leap_year_feb29_raises
+  downstream_verification: none
 - id: VT-051
   title: CI informativo
   symptom: Fallos no bloquean
@@ -620,10 +677,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-052
   title: Ignore errors
   symptom: Pipeline ignora fallo
@@ -632,10 +690,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements.
+  - testing
+  - prevented
+  action: Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except
+    blocks or silent pass/continue statements.
   validating_mechanism: audit_d5_angry_path
+  downstream_verification: none
 - id: VT-053
   title: Tests fuera de rama activa
   symptom: Nunca protegen
@@ -644,10 +704,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-054
   title: Tests opcionales
   symptom: Nadie los corre
@@ -656,10 +717,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-055
   title: Notificación no atendida
   symptom: Fallo invisible
@@ -668,10 +730,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-056
   title: Test post-bug complaciente
   symptom: Pasa con roto
@@ -680,10 +743,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-057
   title: Skip luego
   symptom: Deuda infinita
@@ -692,11 +756,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or
-    reasons.
+  - testing
+  - prevented
+  action: Checked by D9 Test Purity which rejects permanent xfail or skip markers
+    unless annotated with removal criteria or reasons.
   validating_mechanism: audit_d9_test_purity
+  downstream_verification: none
 - id: VT-058
   title: Feature flag divergente
   symptom: Test distinto a producción
@@ -705,10 +770,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-059
   title: Variable altera validación
   symptom: Test desactiva checks
@@ -717,10 +783,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-060
   title: Setup limpia demasiado
   symptom: Estado irreal
@@ -729,10 +796,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-061
   title: UI por delta
   symptom: UI rota no revisada
@@ -741,10 +809,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-062
   title: Archivo lleno muerto
   symptom: No truncado pero inútil
@@ -753,10 +822,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-063
   title: Interfaz documentada falsa
   symptom: Flag no soportado
@@ -765,10 +835,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-064
   title: Tests rotos invisibles
   symptom: ImportError no visto
@@ -777,10 +848,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-065
   title: Captura global rota
   symptom: Test rompe runner
@@ -789,10 +861,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-066
   title: Tests huérfanos
   symptom: Archivos nunca corren
@@ -801,10 +874,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Discovery gaps prevented by run_compliance_tests executing full pytest tests/ dynamically, verified in test_infrastructure.py.
+  - testing
+  - prevented
+  action: Discovery gaps prevented by run_compliance_tests executing full pytest tests/
+    dynamically, verified in test_infrastructure.py.
   validating_mechanism: test_infrastructure_checks
+  downstream_verification: none
 - id: VT-067
   title: Falso negativo por docstring
   symptom: Wrapper no detectado
@@ -813,10 +888,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-068
   title: Backups como deprecated
   symptom: Ruido contamina auditoría
@@ -825,10 +901,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-069
   title: Nombre engañoso
   symptom: Loop no mejora nada
@@ -837,10 +914,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-070
   title: Validación de setup ausente
   symptom: El test pasa aunque el entorno real no puede iniciar
@@ -849,11 +927,12 @@ items:
   status: REMEDIATED
   severity: high
   tags:
-    - testing
-    - remediated
-  action: Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access,
-    encoding, and the project registry.
+  - testing
+  - remediated
+  action: Checked by setup_validate.py which runs comprehensive pre-flight verification
+    of Python, git hooks, write access, encoding, and the project registry.
   validating_mechanism: test_setup_validation
+  downstream_verification: none
 - id: VT-071
   title: Handoff no reanudable
   symptom: Otro actor no puede continuar
@@ -862,10 +941,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-072
   title: Rollback documental
   symptom: Se documenta reversibilidad sin ejecutarla
@@ -874,10 +954,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-073
   title: Compatibilidad no evaluada
   symptom: Flujo antiguo se rompe con cambio nuevo
@@ -886,10 +967,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-074
   title: Observabilidad no testeada
   symptom: Al fallar no hay diagnóstico útil
@@ -898,22 +980,25 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-075
   title: Discovery Incompleto de Pruebas
   symptom: Suites verdes que ocultan tests rotos o inactivos
   cause: Nombres de prueba fuera de las convenciones dinámicas del oráculo
-  solution: Auditoría obligatoria de coincidencia física entre archivos de prueba y descubiertos
+  solution: Auditoría obligatoria de coincidencia física entre archivos de prueba
+    y descubiertos
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-076
   title: Dependencia de sistema
   symptom: Solo corre en un entorno
@@ -922,10 +1007,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-077
   title: Timeout engañoso
   symptom: Lentitud pasa
@@ -934,10 +1020,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-078
   title: Máquina local única
   symptom: Depende de instalación
@@ -946,10 +1033,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-079
   title: Sandbox no perforado
   symptom: Se declara aislamiento sin intentar fuga
@@ -958,10 +1046,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-080
   title: Acoplamiento de Dirección Física
   symptom: Fallos de validación al migrar a entornos secundarios
@@ -970,11 +1059,12 @@ items:
   status: REMEDIATED
   severity: high
   tags:
-    - testing
-    - remediated
+  - testing
+  - remediated
   action: Enforced by D9 absolute path scanners. In code, resolved via dynamic str(Path(__file__).resolve().parent.parent)
     path bootstrapping.
   validating_mechanism: audit_d9_test_purity
+  downstream_verification: none
 - id: VT-081
   title: Autor prueba su implementación
   symptom: Confirma su modelo
@@ -983,10 +1073,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-082
   title: Review sin tests
   symptom: Cambios aprobados ciegos
@@ -995,10 +1086,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-083
   title: Expected codificado
   symptom: El test compara contra una respuesta escrita para pasar
@@ -1007,10 +1099,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-084
   title: Approval hardcodeado
   symptom: El estado approved se fija manualmente como verdad
@@ -1019,10 +1112,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-085
   title: Golden file complaciente
   symptom: Snapshot obsoleto legitima salida rota
@@ -1031,10 +1125,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-086
   title: Expected failure normalizado
   symptom: Fallo esperado se vuelve permanente
@@ -1043,11 +1138,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or
-    reasons.
+  - testing
+  - prevented
+  action: Checked by D9 Test Purity which rejects permanent xfail or skip markers
+    unless annotated with removal criteria or reasons.
   validating_mechanism: audit_d9_test_purity
+  downstream_verification: none
 - id: VT-087
   title: Warning tolerado
   symptom: Suite verde con advertencias
@@ -1056,10 +1152,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-088
   title: Tolerancia de errores
   symptom: El sistema acepta error conocido
@@ -1068,10 +1165,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements.
+  - testing
+  - prevented
+  action: Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except
+    blocks or silent pass/continue statements.
   validating_mechanism: audit_d5_angry_path
+  downstream_verification: none
 - id: VT-089
   title: Wrapper de conveniencia
   symptom: Adaptador oculta fallo real
@@ -1080,10 +1179,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-090
   title: Placeholder testeado
   symptom: Marcador satisface aserción
@@ -1092,11 +1192,12 @@ items:
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function
-    bodies to reject empty stubs or stub docstrings.
+  - testing
+  - prevented
+  action: Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py
+    using AST analysis of function bodies to reject empty stubs or stub docstrings.
   validating_mechanism: audit_d2_completeness
+  downstream_verification: none
 - id: VT-091
   title: Dominio documentado no implementado
   symptom: Regla existe, no corre
@@ -1105,10 +1206,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-092
   title: Sección como cumplimiento
   symptom: Encabezado basta
@@ -1117,10 +1219,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-093
   title: Docstrings como calidad
   symptom: Comentarios pasan
@@ -1129,10 +1232,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-094
   title: Manejo por palabra clave
   symptom: Token léxico pasa
@@ -1141,10 +1245,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-095
   title: Tests del protocolo, no del sujeto
   symptom: Proyecto sin tests pasa
@@ -1153,10 +1258,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-096
   title: Evidencia obsoleta
   symptom: Artefacto viejo pasa
@@ -1165,10 +1271,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-097
   title: Chaos teatral
   symptom: Prueba biblioteca externa, no sistema
@@ -1177,10 +1284,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-098
   title: Reporte passed mentiroso
   symptom: Dice todos, corre pocos
@@ -1189,10 +1297,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-099
   title: Versión zombi
   symptom: Fallback antiguo
@@ -1201,10 +1310,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-100
   title: Permisos no adversariales
   symptom: Solo se prueba el actor permitido
@@ -1213,10 +1323,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-101
   title: Ruteo no validado
   symptom: Tareas llegan al flujo incorrecto
@@ -1225,10 +1336,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-102
   title: Approved list codificada
   symptom: El validador acepta por nombre, no por comportamiento
@@ -1237,10 +1349,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-103
   title: Expected codificado en evaluador
   symptom: El evaluador sabe de antemano que debe pasar
@@ -1249,10 +1362,11 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-104
   title: Warnings fuera del score
   symptom: Advertencias no afectan aprobación
@@ -1261,162 +1375,191 @@ items:
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-105
   title: Sin test de existencia de hooks
   symptom: Pipeline sin verificación de que git hooks están instalados y son ejecutables
   cause: Hook ausente pasa validación de CI porque CI no pregunta por hooks
-  solution: Comprobar presencia y ejecutabilidad de cada hook requerido como paso explícito de la suite
+  solution: Comprobar presencia y ejecutabilidad de cada hook requerido como paso
+    explícito de la suite
   status: REMEDIATED
   severity: high
   tags:
-    - testing
-    - remediated
-  action: Validated by tests/test_infrastructure.py:test_pre_commit_hook_exists_and_executable, ensuring hooks are physically
-    present and active.
+  - testing
+  - remediated
+  action: Validated by tests/test_infrastructure.py:test_pre_commit_hook_exists_and_executable,
+    ensuring hooks are physically present and active.
   validating_mechanism: test_pre_commit_hook_exists_and_executable
+  downstream_verification: none
 - id: VT-106
   title: Exclusión no revalidada
-  symptom: Lista de ignorados no tiene test que verifique que cada exclusión sigue siendo válida
-  cause: 'Deriva silenciosa: lo que se ignoró puede dejar de ser inofensivo; nadie lo detecta'
-  solution: Test periódico que comprueba que cada ítem de hard_excludes está en el conjunto aprobado y documentado
+  symptom: Lista de ignorados no tiene test que verifique que cada exclusión sigue
+    siendo válida
+  cause: 'Deriva silenciosa: lo que se ignoró puede dejar de ser inofensivo; nadie
+    lo detecta'
+  solution: Test periódico que comprueba que cada ítem de hard_excludes está en el
+    conjunto aprobado y documentado
   status: REMEDIATED
   severity: high
   tags:
-    - testing
-    - remediated
-  action: Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access,
-    encoding, and the project registry.
+  - testing
+  - remediated
+  action: Checked by setup_validate.py which runs comprehensive pre-flight verification
+    of Python, git hooks, write access, encoding, and the project registry.
   validating_mechanism: test_setup_validation
+  downstream_verification: none
 - id: VT-107
   title: Stack incompleto silencioso
   symptom: Protocolo falla parcialmente sin reportar qué dependencia falta
   cause: Precondiciones no verificadas en startup; el sistema asume entorno completo
-  solution: 'Validación activa de stack al inicio: runtime, CLI tools, hooks, archivos esenciales, permisos de escritura'
+  solution: 'Validación activa de stack al inicio: runtime, CLI tools, hooks, archivos
+    esenciales, permisos de escritura'
   status: REMEDIATED
   severity: high
   tags:
-    - testing
-    - remediated
-  action: Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access,
-    encoding, and the project registry.
+  - testing
+  - remediated
+  action: Checked by setup_validate.py which runs comprehensive pre-flight verification
+    of Python, git hooks, write access, encoding, and the project registry.
   validating_mechanism: test_setup_validation
+  downstream_verification: none
 - id: VT-108
   title: Nombre desconectado del dominio
-  symptom: Componente nombrado con un número o descriptor que no refleja su implementación actual
+  symptom: Componente nombrado con un número o descriptor que no refleja su implementación
+    actual
   cause: Contrato semántico ausente entre nombre declarado y comportamiento real
-  solution: Centinela que compara declaración formal (nombre, count de dominios, versión) contra implementación real; falla
-    si divergen
+  solution: Centinela que compara declaración formal (nombre, count de dominios, versión)
+    contra implementación real; falla si divergen
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-109
   title: Teatro de Frameworks e Intermediarios Redundantes (Testing Bridge Theater)
-  symptom: Usar frameworks de prueba complejos (`pytest`) para validaciones estáticas/estructurales simples que pueden resolverse
-    con un script directo e independiente. Añade dependencias, duplicidad y crea puentes de compatibilidad que violan los
-    principios de simplicidad y acoplamiento mínimo (KISS).
-  cause: Inercia técnica de usar herramientas tradicionales de desarrollo en lugar de unificar la autoridad en un auditor
-    directo y soberano.
-  solution: Eliminar el puente intermediario; el auditor estático se ejecuta de forma directa y nativa (`exit 0` o `exit 1`).
+  symptom: Usar frameworks de prueba complejos (`pytest`) para validaciones estáticas/estructurales
+    simples que pueden resolverse con un script directo e independiente. Añade dependencias,
+    duplicidad y crea puentes de compatibilidad que violan los principios de simplicidad
+    y acoplamiento mínimo (KISS).
+  cause: Inercia técnica de usar herramientas tradicionales de desarrollo en lugar
+    de unificar la autoridad en un auditor directo y soberano.
+  solution: Eliminar el puente intermediario; el auditor estático se ejecuta de forma
+    directa y nativa (`exit 0` o `exit 1`).
   status: PREVENTED
   severity: high
   tags:
-    - testing
-    - prevented
-  action: Testing Bridge Theater is bypassed; static audits and tests run as direct shell pipelines returning native exit
-    codes.
+  - testing
+  - prevented
+  action: Testing Bridge Theater is bypassed; static audits and tests run as direct
+    shell pipelines returning native exit codes.
   validating_mechanism: test_infrastructure_checks
+  downstream_verification: none
 - id: VT-110
   title: Fragmentación de Directorios Ocultos (Dot-Directory Fragmentation)
-  symptom: Dispersión de metadatos de gobernanza, seguridad, backups o estados en múltiples carpetas ocultas en la raíz del
-    repositorio (ej. `.backup_old`, `.temp_meta`, `.rules_draft`), ensuciando el espacio de trabajo.
+  symptom: Dispersión de metadatos de gobernanza, seguridad, backups o estados en
+    múltiples carpetas ocultas en la raíz del repositorio (ej. `.backup_old`, `.temp_meta`,
+    `.rules_draft`), ensuciando el espacio de trabajo.
   cause: Falta de visión unificada y acumulación de nomenclatura zombi histórica.
-  solution: Consolidar radicalmente toda la metadata bajo un único directorio oculto de gobernanza centralizada (ej. `.protocol/`).
+  solution: Consolidar radicalmente toda la metadata bajo un único directorio oculto
+    de gobernanza centralizada (ej. `.protocol/`).
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-111
   title: Deferred Without Registration (Diferido Sin Registro)
-  symptom: El agente detecta deuda técnica o un hallazgo, lo clasifica verbalmente como "posponer / sprint aislado / deferred
-    / luego", y cierra la respuesta sin abrir `PLAN.md`. El ítem desaparece.
-  cause: Cambio de contexto entre modo análisis y modo implementación desactiva el trigger de VC-114; el agente asume que
-    "nombrar = registrar".
-  solution: 'Trigger B8 obligatorio: toda clasificación de "diferido" activa apertura inmediata de PLAN.md con ID + evidencia
-    + done-criteria en esa misma respuesta. Sin ID en PLAN.md = olvidado, no diferido. (Lección: La omisión de registro formal
-    de exclusiones estructurales o deudas técnicas en el plan de remediación centralizado conduce a una deriva persistente
-    y a la pérdida del control de calidad).'
+  symptom: El agente detecta deuda técnica o un hallazgo, lo clasifica verbalmente
+    como "posponer / sprint aislado / deferred / luego", y cierra la respuesta sin
+    abrir `PLAN.md`. El ítem desaparece.
+  cause: Cambio de contexto entre modo análisis y modo implementación desactiva el
+    trigger de VC-114; el agente asume que "nombrar = registrar".
+  solution: 'Trigger B8 obligatorio: toda clasificación de "diferido" activa apertura
+    inmediata de PLAN.md con ID + evidencia + done-criteria en esa misma respuesta.
+    Sin ID en PLAN.md = olvidado, no diferido. (Lección: La omisión de registro formal
+    de exclusiones estructurales o deudas técnicas en el plan de remediación centralizado
+    conduce a una deriva persistente y a la pérdida del control de calidad).'
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-112
   title: Deriva de Dependencia Fantasma (Ghost Dependency Drift)
-  symptom: Importar e integrar paquetes y módulos en tiempo de codificación sin registrar explícitamente su existencia en
-    el manifiesto de dependencias.
+  symptom: Importar e integrar paquetes y módulos en tiempo de codificación sin registrar
+    explícitamente su existencia en el manifiesto de dependencias.
   cause: Falta de control estático de consistencia de imports en los pre-commit hooks.
-  solution: Diseñar compuertas estáticas (`deptry` o regex AST en python) que comparen el 100% de los top-level imports contra
-    la base de dependencias del proyecto.
+  solution: Diseñar compuertas estáticas (`deptry` o regex AST en python) que comparen
+    el 100% de los top-level imports contra la base de dependencias del proyecto.
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-113
   title: Ausencia de Falsabilidad Mutacional (Lack of Test Mutation Validation)
-  symptom: Tests que siempre pasan (verde) sin importar qué modificaciones lógicas o roturas se inserten en el código de producción.
+  symptom: Tests que siempre pasan (verde) sin importar qué modificaciones lógicas
+    o roturas se inserten en el código de producción.
   cause: Teatro de aserciones happy-path y mocks autocomplacientes.
-  solution: Exigir que al menos una suite de pruebas demuestre empíricamente su capacidad de fallar (criterio de falsabilidad)
-    ante una mutación de código controlada o inyección de caos.
+  solution: Exigir que al menos una suite de pruebas demuestre empíricamente su capacidad
+    de fallar (criterio de falsabilidad) ante una mutación de código controlada o
+    inyección de caos.
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-114
   title: Deriva de Sincronización Multirepositorio (Multi-Repository Sync Drift)
-  symptom: Modificar los archivos de gobernanza o del protocolo en un repositorio satélite de manera aislada sin integrarlos
-    de vuelta al core central, rompiendo la paridad operativa del ecosistema.
+  symptom: Modificar los archivos de gobernanza o del protocolo en un repositorio
+    satélite de manera aislada sin integrarlos de vuelta al core central, rompiendo
+    la paridad operativa del ecosistema.
   cause: Gobernanza basada en copia física pasiva sin validación activa de drift.
-  solution: Implementar una compuerta D12 de Drift Detection activa en el auditor central que compare checksums y bloquee
-    si hay desvíos en satélites.
+  solution: Implementar una compuerta D12 de Drift Detection activa en el auditor
+    central que compare checksums y bloquee si hay desvíos en satélites.
   status: AUDITED
   severity: medium
   tags:
-    - testing
-    - audited
+  - testing
+  - audited
   action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.
   validating_mechanism: audit_d8_test_coverage
+  downstream_verification: none
 - id: VT-115
   title: Falso Positivo de Drift por Fin de Línea (CRLF/LF Hash Mismatch)
-  symptom: La auditoría de drift (D12) falla falsamente al comparar archivos idénticos en disco (Windows CRLF) contra repositorios
-    Git o satélites (LF).
-  cause: Comparación binaria directa de hashes SHA256 sin normalización previa de caracteres de fin de línea, ignorando las
-    políticas de traducción automática de Git (`core.autocrlf`).
-  solution: Normalizar obligatoriamente todo byte stream binario decodificándolo y convirtiendo la secuencia de fin de línea
-    `\r\n` a `\n` antes de calcular el hash de verificación de integridad o drift.
+  symptom: La auditoría de drift (D12) falla falsamente al comparar archivos idénticos
+    en disco (Windows CRLF) contra repositorios Git o satélites (LF).
+  cause: Comparación binaria directa de hashes SHA256 sin normalización previa de
+    caracteres de fin de línea, ignorando las políticas de traducción automática de
+    Git (`core.autocrlf`).
+  solution: Normalizar obligatoriamente todo byte stream binario decodificándolo y
+    convirtiendo la secuencia de fin de línea `\r\n` a `\n` antes de calcular el hash
+    de verificación de integridad o drift.
   status: REMEDIATED
   severity: high
   tags:
-    - testing
-    - remediated
-  action: Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access,
-    encoding, and the project registry.
+  - testing
+  - remediated
+  action: Checked by setup_validate.py which runs comprehensive pre-flight verification
+    of Python, git hooks, write access, encoding, and the project registry.
   validating_mechanism: test_setup_validation
+  downstream_verification: none
