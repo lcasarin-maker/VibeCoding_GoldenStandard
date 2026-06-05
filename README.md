@@ -29,7 +29,7 @@ The same mistakes appear in every project, in every language, with every AI agen
 
 ## What It Is
 
-A structured, growing library of knowledge organized into three domains:
+A structured, growing library of knowledge organized into four streams:
 
 ### 🔴 Vibe Coding Vices (`VC-xxx`)
 Antipatterns specific to AI-assisted development: improvised architecture, non-reversible solutions, ghost files, hardcoded paths, invisible technical debt accumulation.
@@ -43,6 +43,9 @@ Ways tests become "security theater": checking file existence instead of behavio
 
 ### 🟢 Tokenomics
 Principles for efficient use of AI context tokens — because wasting tokens is also a form of technical debt. Always subordinate to code quality.
+
+### 🔵 Project Insights (`PI-xxx`)
+Cross-cutting lessons and reusable observations that explain, connect, or contextualize the rule catalogs without duplicating them.
 
 ---
 
