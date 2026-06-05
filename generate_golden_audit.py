@@ -1697,6 +1697,14 @@ def main():
 
     generate_obsidian_wiki(mapped_database, WIKI_DIR)
 
+    # Honest dynamic quality metrics + shields.io badges (Phase 5).
+    sys.path.insert(0, str(_ROOT / "scripts"))
+    from metrics import write_all as write_metrics
+
+    metrics = write_metrics()
+    print(f"Successfully generated quality metrics and badges "
+          f"(deep {metrics['deep_pct']}%, {metrics['local_detectors']} detectors, {metrics['stub']} stubs).")
+
 
 if __name__ == "__main__":
     try:
