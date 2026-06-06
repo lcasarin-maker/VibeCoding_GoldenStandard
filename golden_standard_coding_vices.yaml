@@ -1549,16 +1549,14 @@ items:
   symptom: Estados imposibles circulan
   cause: Dominio no restringido
   solution: Representar invariantes
-  status: DOC_ONLY
+  status: PREVENTED
   severity: medium
   tags:
   - vibe-coding
-  - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way.
-    Documented in the Golden Standard catalogs as governance knowledge; no automated
-    test can discriminate this without human semantic judgment. Sprint 3.4 triage:
-    reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
+  - prevented-mechanically
+  action: |
+    Verificación física: validador estático AST en scripts/run_security_audit_12d.py (audit_d6_anti_slop) que exige anotaciones completas de tipos de parámetros y retornos en todas las funciones públicas de protocol_engine/ y dimensions/.
+  validating_mechanism: audit_d6_anti_slop
   downstream_verification: required
   example_lang: python
   example_bad: |
@@ -3254,3 +3252,37 @@ items:
   evidence:
   - source: "OWASP Top 10 for LLM Applications"
     claim: "LLM02: Insecure Output Handling -- la salida del modelo usada sin validacion en un sink downstream."
+- id: VC-140
+  title: "Brecha de continuidad entre agentes (handoff huerfano)"
+  symptom: "El siguiente agente re-deriva el contexto desde cero, gasta tokens o se desvia de la tarea."
+  cause: "Cambios commiteados sin un relevo (handoff) explicito y fresco para el proximo agente."
+  solution: "HANDOFF.md vivo de esquema fijo, obligatorio y verificado mecanicamente en cada commit (agente-agnostico)."
+  status: PREVENTED
+  severity: high
+  tags:
+  - continuity
+  - agent-agnostic
+  - prevented-mechanically
+  action: |
+    Verificacion fisica: scripts/check_handoff_freshness.py invocado en el git hook commit-msg
+    (agnostico: corre con cualquier `git commit`, sea Codex/Gemini/Claude). Bloquea el commit si
+    hay cambios sustantivos pero HANDOFF.md no se actualizo o le faltan secciones del esquema
+    (ESTADO/SIGUIENTE/VERIFICAR). Escape explicito: token [skip-handoff] en el mensaje o
+    env CERBERUS_SKIP_HANDOFF=1.
+  validating_mechanism: check_handoff_freshness
+  downstream_verification: required
+  example_lang: markdown
+  example_bad: |
+    # commit con codigo nuevo y HANDOFF.md sin tocar -> el proximo agente pierde el hilo
+    git commit -m "fix: parser"
+  example_good: |
+    # HANDOFF.md actualizado y staged en el mismo commit, con el esquema fijo
+    ## ESTADO   parser arreglado, suite verde
+    ## SIGUIENTE 1. migrar el lexer en scripts/lexer.py
+    ## VERIFICAR pytest -q
+  detection: |
+    Cambios sustantivos staged sin HANDOFF.md fresco en el changeset, o HANDOFF.md sin las
+    secciones obligatorias. Verificado mecanicamente por check_handoff_freshness en commit-msg.
+  evidence:
+  - source: "CoderCerberus v0.5 -- operacion multi-agente (Codex/Gemini/Claude)"
+    claim: "La perdida de contexto entre relevos de agente desperdicia tokens y causa desviacion; un handoff fresco obligatorio lo previene."

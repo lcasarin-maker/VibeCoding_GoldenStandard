@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.5 | Date: 2026-06-06 | Total Audited Items: 301**
+**Golden Standard V0.5 | Date: 2026-06-06 | Total Audited Items: 302**
 
 This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -8,9 +8,9 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 115 | 27 | 88 | 100% |
-| **Vibe Coding** | 139 | 35 | 104 | 100% |
+| **Vibe Coding** | 140 | 37 | 103 | 100% |
 | **Tokenomics & Context** | 47 | 35 | 12 | 100% |
-| **Total** | 301 | 97 | 204 | 100% |
+| **Total** | 302 | 99 | 203 | 100% |
 
 ---
 
@@ -136,7 +136,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VT-114` | Deriva de Sincronización Multirepositorio (Multi-Repository Sync Drift) | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
 | `VT-115` | Falso Positivo de Drift por Fin de Línea (CRLF/LF Hash Mismatch) | **high** | **REMEDIATED** | `none` | Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry. | `test_setup_validation` |
 
-### Vibe Coding (139 items)
+### Vibe Coding (140 items)
 
 | ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |
 |---|---|---|---|---|---|---|
@@ -215,7 +215,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-073` | Código crítico troceado | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-074` | I/O sin validación | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-075` | Integraciones no verificadas | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
-| `VC-076` | Tipado laxo | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
+| `VC-076` | Tipado laxo | **medium** | **PREVENTED** | `required` | Verificación física: validador estático AST en scripts/run_security_audit_12d.py (audit_d6_anti_slop) que exige anotaciones completas de tipos de parámetros y retornos en todas las funciones públicas de protocol_engine/ y dimensions/.  | `audit_d6_anti_slop` |
 | `VC-077` | Ambigüedad semántica de tipo | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-078` | Placeholder permanente | **medium** | **AUDITED** | `none` | Detectado por D2 (completeness) vía AST: cuerpos de función vacíos, stub docstrings y pass-only functions son rechazados. D9 (test purity) rechaza tests que no tienen aserciones activas. Upgrade 2026-06-04: VC-078 deja DOC_ONLY porque D2 y D9 cubren el patrón mecánicamente en scripts/ y tests/. | `audit_d2_completeness` |
 | `VC-079` | Core dependiente de inestables | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
@@ -279,6 +279,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-137` | Recuperacion (RAG) que alimenta contexto erroneo | **medium** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Mitigacion: retrieval a nivel de simbolo (serena) o code-search MCP (claude-context) (PI-034).  | `DOC_ONLY` |
 | `VC-138` | Codigo generado inseguro por defecto | **high** | **PREVENTED** | `required` | Documentado; enforcement downstream. Firma estatica: detector local en scripts/detectors.py probado contra los ejemplos. Ver VC-101 y VC-095.  | `audit_declarative_rules` |
 | `VC-139` | Confianza ciega en la salida del LLM (Insecure Output Handling) | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Es el lado OUTPUT de VC-074 (input). Mitigacion via taint analysis: semgrep / CodeQL.  | `DOC_ONLY` |
+| `VC-140` | Brecha de continuidad entre agentes (handoff huerfano) | **high** | **PREVENTED** | `required` | Verificacion fisica: scripts/check_handoff_freshness.py invocado en el git hook commit-msg (agnostico: corre con cualquier `git commit`, sea Codex/Gemini/Claude). Bloquea el commit si hay cambios sustantivos pero HANDOFF.md no se actualizo o le faltan secciones del esquema (ESTADO/SIGUIENTE/VERIFICAR). Escape explicito: token [skip-handoff] en el mensaje o env CERBERUS_SKIP_HANDOFF=1.  | `check_handoff_freshness` |
 
 ### Tokenomics & Context (47 items)
 

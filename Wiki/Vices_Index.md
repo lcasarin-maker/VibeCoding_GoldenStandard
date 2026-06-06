@@ -80,7 +80,7 @@ Este índice clasifica los vicios del Golden Standard en VC y VT. Tokenomics viv
 *   [[Vices/VC-073|VC-073]] — **Código crítico troceado** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-074|VC-074]] — **I/O sin validación** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-075|VC-075]] — **Integraciones no verificadas** (DOC_ONLY, medium, downstream:required)
-*   [[Vices/VC-076|VC-076]] — **Tipado laxo** (DOC_ONLY, medium, downstream:required)
+*   [[Vices/VC-076|VC-076]] — **Tipado laxo** (PREVENTED, medium, downstream:required)
 *   [[Vices/VC-077|VC-077]] — **Ambigüedad semántica de tipo** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-078|VC-078]] — **Placeholder permanente** (AUDITED, medium, downstream:none)
 *   [[Vices/VC-079|VC-079]] — **Core dependiente de inestables** (DOC_ONLY, medium, downstream:required)
@@ -144,6 +144,7 @@ Este índice clasifica los vicios del Golden Standard en VC y VT. Tokenomics viv
 *   [[Vices/VC-137|VC-137]] — **Recuperacion (RAG) que alimenta contexto erroneo** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-138|VC-138]] — **Codigo generado inseguro por defecto** (PREVENTED, high, downstream:required)
 *   [[Vices/VC-139|VC-139]] — **Confianza ciega en la salida del LLM (Insecure Output Handling)** (DOC_ONLY, high, downstream:required)
+*   [[Vices/VC-140|VC-140]] — **Brecha de continuidad entre agentes (handoff huerfano)** (PREVENTED, high, downstream:required)
 
 ## Testing & Evaluation (TV)
 *   [[Vices/VT-001|VT-001]] — **Hardcoded return** (PREVENTED, high, downstream:none)
