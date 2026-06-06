@@ -49,8 +49,8 @@ Bienvenido a la bóveda Obsidian del **Golden Standard** (GS). Esta base de cono
 
 | Estado | Entradas | Significado |
 |---|---:|---|
-| `PREVENTED` + `REMEDIATED` | 95 | El catálogo ya tiene una compuerta ejecutable o una corrección concreta. |
-| `AUDITED` + `DOC_ONLY` | 206 | La entrada existe como conocimiento, pero sigue siendo principalmente documental. |
+| `PREVENTED` + `REMEDIATED` | 96 | El catálogo ya tiene una compuerta ejecutable o una corrección concreta. |
+| `AUDITED` + `DOC_ONLY` | 205 | La entrada existe como conocimiento, pero sigue siendo principalmente documental. |
 | `Total` | 301 | Suma de las entradas de VC, VT y TK auditadas por el compilador. |
 
 ---

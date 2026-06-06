@@ -7816,14 +7816,14 @@
     "symptom": "Directorio añadido a lista de ignorados sin verificar su contenido",
     "cause": "Confianza implícita en que lo invisible es inocuo",
     "solution": "Auditar contenido antes de excluir; documentar justificación con fecha; mover a deprecated si tiene vicios",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented-mechanically"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY",
+    "action": "Prevención física mediante verificación de que toda regla de exclusión activa en el archivo .gitignore esté precedida por un comentario explicativo justificando la exclusión en el mismo bloque.",
+    "validating_mechanism": "audit_d2_completeness",
     "downstream_verification": "required",
     "example_bad": "# .gitignore: se ignora un directorio sin saber que contiene.\nscratch/\n",
     "example_good": "# Cada exclusion lleva motivo y fecha; se audito antes de ignorar.\nscratch/   # solo artefactos de build, auditado 2026-06-05, sin secretos\n",

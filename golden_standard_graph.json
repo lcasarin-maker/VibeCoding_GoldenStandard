@@ -5640,7 +5640,7 @@
       "in_degree": 1,
       "out_degree": 4,
       "degree": 5,
-      "status": "DOC_ONLY",
+      "status": "PREVENTED",
       "downstream_verification": "required"
     },
     {

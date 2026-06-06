@@ -8,9 +8,9 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 115 | 27 | 88 | 100% |
-| **Vibe Coding** | 139 | 34 | 105 | 100% |
+| **Vibe Coding** | 139 | 35 | 104 | 100% |
 | **Tokenomics & Context** | 47 | 34 | 13 | 100% |
-| **Total** | 301 | 95 | 206 | 100% |
+| **Total** | 301 | 96 | 205 | 100% |
 
 ---
 
@@ -250,7 +250,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-108` | Frontera de seguridad por convención | **medium** | **PREVENTED** | `none` | Enforced by executing physical validation gates (verifying golden_standard_ref in rules.yaml and Phase 0 purge evidence in external audits). | `audit_d2_completeness` |
 | `VC-109` | Ruta literal ambiental | **high** | **PREVENTED** | `none` | Rutas absolutas hardcodeadas (C:\, /home/, /Users/) detectadas por escaneo regex discriminante. | `test_vc109_absolute_path_in_scripts` |
 | `VC-110` | Cuota como sorpresa | **medium** | **PREVENTED** | `none` | validate_gs_topology.py checks that Tokenomics exposes its subindices and map from the index surface before the category can be treated as complete. | `validate_gs_topology.py` |
-| `VC-111` | Exclusión sin auditoría previa | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
+| `VC-111` | Exclusión sin auditoría previa | **medium** | **PREVENTED** | `required` | Prevención física mediante verificación de que toda regla de exclusión activa en el archivo .gitignore esté precedida por un comentario explicativo justificando la exclusión en el mismo bloque. | `audit_d2_completeness` |
 | `VC-112` | Propagación sin verificación de adopción | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-113` | Nomenclatura congelada | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-114` | Hallazgo sin plan de remediación | **medium** | **PREVENTED** | `none` | Inbox topology validation enforces the ingestion path, template surface, and protocol docs required for a remediable finding. | `validate_golden_standard_catalogs.py --check-wiki` |

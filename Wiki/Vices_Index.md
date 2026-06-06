@@ -115,7 +115,7 @@ Este índice clasifica los vicios del Golden Standard en VC y VT. Tokenomics viv
 *   [[Vices/VC-108|VC-108]] — **Frontera de seguridad por convención** (PREVENTED, medium, downstream:none)
 *   [[Vices/VC-109|VC-109]] — **Ruta literal ambiental** (PREVENTED, high, downstream:none)
 *   [[Vices/VC-110|VC-110]] — **Cuota como sorpresa** (PREVENTED, medium, downstream:none)
-*   [[Vices/VC-111|VC-111]] — **Exclusión sin auditoría previa** (DOC_ONLY, medium, downstream:required)
+*   [[Vices/VC-111|VC-111]] — **Exclusión sin auditoría previa** (PREVENTED, medium, downstream:required)
 *   [[Vices/VC-112|VC-112]] — **Propagación sin verificación de adopción** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-113|VC-113]] — **Nomenclatura congelada** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-114|VC-114]] — **Hallazgo sin plan de remediación** (PREVENTED, medium, downstream:none)

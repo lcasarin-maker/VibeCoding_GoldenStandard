@@ -24,7 +24,7 @@ El grafo ahora también resalta las entradas que siguen siendo principalmente do
 
 | Catálogo | VC DOC_ONLY | VT DOC_ONLY | TK DOC_ONLY |
 |---|---:|---:|---:|
-| `DOC_ONLY` | 103 | 0 | 13 |
+| `DOC_ONLY` | 102 | 0 | 13 |
 
 | ID | Título | Categoría | Severidad | Estado |
 |---|---|---|---|---|
