@@ -1365,17 +1365,14 @@ items:
   symptom: Reglas no listadas antes del cambio
   cause: Restricciones ocultas
   solution: Extraer políticas aplicables antes de mutar
-  status: DOC_ONLY
+  status: PREVENTED
   severity: medium
   tags:
   - vibe-coding
-  - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way.
-    Documented in the Golden Standard catalogs as governance knowledge; no automated
-    test can discriminate this without human semantic judgment. Sprint 3.4 triage:
-    reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
+  - prevented
+  action: 'Enforced by verifying the presence and format of golden_standard_ref in rules.yaml during audit.'
+  validating_mechanism: audit_declarative_rules
+  downstream_verification: none
   doctrinal: true
 - id: VC-068
   title: Conflictos normativos
@@ -1933,9 +1930,8 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: Home count parity and topology checks ensure the canonical surfaces are
-    all represented instead of only a partial slice.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+  action: Enforced by verifying existence of Phase 0 purge evidence files (purge_plan.md and phase_0_purge_result.md) in external audits.
+  validating_mechanism: audit_d2_completeness
   downstream_verification: none
   example_lang: text
   example_bad: |
@@ -2269,17 +2265,14 @@ items:
   symptom: Se confía en disciplina humana
   cause: Control no ejecutable
   solution: Convertir límites de seguridad en compuertas verificables
-  status: DOC_ONLY
+  status: PREVENTED
   severity: medium
   tags:
   - vibe-coding
-  - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way.
-    Documented in the Golden Standard catalogs as governance knowledge; no automated
-    test can discriminate this without human semantic judgment. Sprint 3.4 triage:
-    reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
+  - prevented
+  action: Enforced by executing physical validation gates (verifying golden_standard_ref in rules.yaml and Phase 0 purge evidence in external audits).
+  validating_mechanism: audit_d2_completeness
+  downstream_verification: none
   doctrinal: true
 - id: VC-109
   detector: vc109_hardcoded_path
