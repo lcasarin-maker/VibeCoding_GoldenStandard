@@ -10,10 +10,10 @@ Este grafo combina enlaces Obsidian, enlaces Markdown relativos y menciones expl
 
 | Métrica | Valor |
 |---|---:|
-| Nodos | 370 |
+| Nodos | 371 |
 | Aristas | 1824 |
 | Huérfanos intencionales | 3 |
-| Huérfanos candidatos | 0 |
+| Huérfanos candidatos | 1 |
 | Hubs | 15 |
 
 ---
@@ -24,7 +24,7 @@ El grafo ahora también resalta las entradas que siguen siendo principalmente do
 
 | Catálogo | VC DOC_ONLY | VT DOC_ONLY | TK DOC_ONLY |
 |---|---:|---:|---:|
-| `DOC_ONLY` | 106 | 0 | 13 |
+| `DOC_ONLY` | 103 | 0 | 13 |
 
 | ID | Título | Categoría | Severidad | Estado |
 |---|---|---|---|---|
@@ -35,11 +35,11 @@ El grafo ahora también resalta las entradas que siguen siendo principalmente do
 | `VC-134` | Coordinacion multiagente sin protocolo | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-135` | Uso de API obsoleta o alucinada de una libreria real | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-136` | Memoria persistente envenenada o stale (cross-session) | `Vibe Coding` | `high` | `DOC_ONLY` |
-| `VC-138` | Codigo generado inseguro por defecto | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-139` | Confianza ciega en la salida del LLM (Insecure Output Handling) | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `TK-044` | Deuda de tokenomics acumulada (Cost Compounding) | `Tokenomics & Context` | `medium` | `DOC_ONLY` |
 | `VC-001` | Incompetencia no asumida | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-002` | Complacencia generativa | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-004` | Demo como calidad | `Vibe Coding` | `medium` | `DOC_ONLY` |
 
 ---
 
@@ -64,8 +64,8 @@ GS distingue explícitamente qué entradas esperan verificación downstream y cu
 
 | Estado | VC | VT | TK |
 |---|---:|---:|---:|
-| `required` | 106 | 0 | 13 |
-| `none` | 33 | 115 | 34 |
+| `required` | 104 | 0 | 13 |
+| `none` | 35 | 115 | 34 |
 
 | ID | Título | Categoría | Downstream Verification |
 |---|---|---|---|
@@ -121,7 +121,7 @@ Páginas dentro del surface live de GS que no reciben enlaces entrantes. Si algu
 
 | Nodo | Tipo | In | Out | Entradas | Salidas |
 |---|---|---:|---:|---|---|
-| — | — | 0 | 0 | — | — |
+| [[Inbox/cerberus/2026-06-06_doc-only-enforcement-gap]] | `inbox` | 0 | 0 | — | — |
 
 ---
 

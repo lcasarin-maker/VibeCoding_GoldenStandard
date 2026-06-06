@@ -3200,15 +3200,16 @@ items:
     El modelo optimiza por 'que funcione' y emite los defaults mas permisivos; nadie endurece la configuracion antes de mergear.
   solution: |
     Endurecer los defaults; revisar la configuracion de seguridad del codigo generado contra una checklist; bloquear patrones inseguros conocidos en CI.
-  status: DOC_ONLY
+  status: PREVENTED
   severity: high
   tags:
   - vibe-coding
   - ai-native
   - security
+  - prevented-mechanically
   action: |
     Documentado; enforcement downstream. Firma estatica: detector local en scripts/detectors.py probado contra los ejemplos. Ver VC-101 y VC-095.
-  validating_mechanism: DOC_ONLY
+  validating_mechanism: audit_declarative_rules
   downstream_verification: required
   detector: vc138_insecure_defaults
   example_lang: python

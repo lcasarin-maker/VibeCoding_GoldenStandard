@@ -6611,15 +6611,15 @@
     "symptom": "Reglas no listadas antes del cambio",
     "cause": "Restricciones ocultas",
     "solution": "Extraer políticas aplicables antes de mutar",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY",
-    "downstream_verification": "required",
+    "action": "Enforced by verifying the presence and format of golden_standard_ref in rules.yaml during audit.",
+    "validating_mechanism": "audit_declarative_rules",
+    "downstream_verification": "none",
     "example_bad": "",
     "example_good": "",
     "example_lang": "text",
@@ -7302,8 +7302,8 @@
       "vibe-coding",
       "prevented"
     ],
-    "action": "Home count parity and topology checks ensure the canonical surfaces are all represented instead of only a partial slice.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Enforced by verifying existence of Phase 0 purge evidence files (purge_plan.md and phase_0_purge_result.md) in external audits.",
+    "validating_mechanism": "audit_d2_completeness",
     "downstream_verification": "none",
     "example_bad": "# \"auditoria completa OK\" cubriendo solo src/, omitiendo migrations/ y scripts/.\n",
     "example_good": "# Declarar las superficies auditables y cubrirlas todas antes de decir 'total'.\n",
@@ -7731,15 +7731,15 @@
     "symptom": "Se confía en disciplina humana",
     "cause": "Control no ejecutable",
     "solution": "Convertir límites de seguridad en compuertas verificables",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY",
-    "downstream_verification": "required",
+    "action": "Enforced by executing physical validation gates (verifying golden_standard_ref in rules.yaml and Phase 0 purge evidence in external audits).",
+    "validating_mechanism": "audit_d2_completeness",
+    "downstream_verification": "none",
     "example_bad": "",
     "example_good": "",
     "example_lang": "text",
@@ -8640,15 +8640,16 @@
     "symptom": "El modelo genera codigo con defaults inseguros: debug activado, CORS abierto, verificacion TLS desactivada, hashing debil o bind a todas las interfaces sin auth.\n",
     "cause": "El modelo optimiza por 'que funcione' y emite los defaults mas permisivos; nadie endurece la configuracion antes de mergear.\n",
     "solution": "Endurecer los defaults; revisar la configuracion de seguridad del codigo generado contra una checklist; bloquear patrones inseguros conocidos en CI.\n",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "high",
     "tags": [
       "vibe-coding",
       "ai-native",
-      "security"
+      "security",
+      "prevented-mechanically"
     ],
     "action": "Documentado; enforcement downstream. Firma estatica: detector local en scripts/detectors.py probado contra los ejemplos. Ver VC-101 y VC-095.\n",
-    "validating_mechanism": "DOC_ONLY",
+    "validating_mechanism": "audit_declarative_rules",
     "downstream_verification": "required",
     "example_bad": "app.run(host=\"0.0.0.0\", debug=True)        # debug en prod, bind a todo\nrequests.get(url, verify=False)            # TLS sin verificar\n",
     "example_good": "app.run(host=\"127.0.0.1\", debug=False)\nrequests.get(url)                          # verify=True por defecto\n",

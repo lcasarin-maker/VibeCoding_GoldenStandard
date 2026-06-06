@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.5 | Date: 2026-06-05 | Total Audited Items: 301**
+**Golden Standard V0.5 | Date: 2026-06-06 | Total Audited Items: 301**
 
 This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -8,9 +8,9 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 115 | 27 | 88 | 100% |
-| **Vibe Coding** | 139 | 31 | 108 | 100% |
+| **Vibe Coding** | 139 | 34 | 105 | 100% |
 | **Tokenomics & Context** | 47 | 34 | 13 | 100% |
-| **Total** | 301 | 92 | 209 | 100% |
+| **Total** | 301 | 95 | 206 | 100% |
 
 ---
 
@@ -206,7 +206,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-064` | Caja negra arquitectónica | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-065` | Esquema tardío | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-066` | Ceguera espacial | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
-| `VC-067` | Políticas implícitas | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
+| `VC-067` | Políticas implícitas | **medium** | **PREVENTED** | `none` | Enforced by verifying the presence and format of golden_standard_ref in rules.yaml during audit. | `audit_declarative_rules` |
 | `VC-068` | Conflictos normativos | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-069` | Dependencias no mapeadas | **medium** | **PREVENTED** | `none` | The wiki graph and link validator enforce that the canonical surfaces are mapped and resolved instead of being assumed. | `validate_golden_standard_catalogs.py --check-wiki` |
 | `VC-070` | Manipulación shell ciega | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
@@ -231,7 +231,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-089` | Reconocimiento omitido | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-090` | Memoria no cargada | **medium** | **PREVENTED** | `none` | validate_gs_topology.py checks that the canonical memory surfaces are linked from Home, so the GS ledger can be loaded on entry. | `validate_gs_topology.py` |
 | `VC-091` | Archivo no encontrado perezoso | **medium** | **PREVENTED** | `none` | Broken-link validation now fails if canonical markdown or wiki targets do not resolve on disk. | `validate_golden_standard_catalogs.py --check-wiki` |
-| `VC-092` | Auditoría parcial llamada total | **medium** | **PREVENTED** | `none` | Home count parity and topology checks ensure the canonical surfaces are all represented instead of only a partial slice. | `validate_golden_standard_catalogs.py --check-wiki` |
+| `VC-092` | Auditoría parcial llamada total | **medium** | **PREVENTED** | `none` | Enforced by verifying existence of Phase 0 purge evidence files (purge_plan.md and phase_0_purge_result.md) in external audits. | `audit_d2_completeness` |
 | `VC-093` | Seguridad optimista | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-094` | Seguridad mezclada | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-095` | Acceso directo a producción | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
@@ -247,7 +247,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-105` | Omisión de componentes | **medium** | **PREVENTED** | `none` | Topology validation now checks the canonical Home, Vices, Tokenomics, Graph, and Inbox surfaces so missing components fail the gate. | `validate_golden_standard_catalogs.py --check-wiki` |
 | `VC-106` | Setup fantasma | **medium** | **PREVENTED** | `none` | Inbox topology validation requires the ingestion protocol, knowledge sources contract, and templates to exist before new findings can be accepted. | `validate_golden_standard_catalogs.py --check-wiki` |
 | `VC-107` | Matriz de permisos implícita | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
-| `VC-108` | Frontera de seguridad por convención | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
+| `VC-108` | Frontera de seguridad por convención | **medium** | **PREVENTED** | `none` | Enforced by executing physical validation gates (verifying golden_standard_ref in rules.yaml and Phase 0 purge evidence in external audits). | `audit_d2_completeness` |
 | `VC-109` | Ruta literal ambiental | **high** | **PREVENTED** | `none` | Rutas absolutas hardcodeadas (C:\, /home/, /Users/) detectadas por escaneo regex discriminante. | `test_vc109_absolute_path_in_scripts` |
 | `VC-110` | Cuota como sorpresa | **medium** | **PREVENTED** | `none` | validate_gs_topology.py checks that Tokenomics exposes its subindices and map from the index surface before the category can be treated as complete. | `validate_gs_topology.py` |
 | `VC-111` | Exclusión sin auditoría previa | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
@@ -277,7 +277,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-135` | Uso de API obsoleta o alucinada de una libreria real | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Distinto de VC-129 (paquete inexistente): aqui el paquete existe pero el simbolo no. Mitigacion: docs up-to-date via context7 (PI-032).  | `DOC_ONLY` |
 | `VC-136` | Memoria persistente envenenada o stale (cross-session) | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Extiende VC-128 (envenenamiento en contexto) a la memoria DURABLE entre sesiones. Mitigacion: capas de memoria como byterover / claude-context-memsearch (PI-033).  | `DOC_ONLY` |
 | `VC-137` | Recuperacion (RAG) que alimenta contexto erroneo | **medium** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Mitigacion: retrieval a nivel de simbolo (serena) o code-search MCP (claude-context) (PI-034).  | `DOC_ONLY` |
-| `VC-138` | Codigo generado inseguro por defecto | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Firma estatica: detector local en scripts/detectors.py probado contra los ejemplos. Ver VC-101 y VC-095.  | `DOC_ONLY` |
+| `VC-138` | Codigo generado inseguro por defecto | **high** | **PREVENTED** | `required` | Documentado; enforcement downstream. Firma estatica: detector local en scripts/detectors.py probado contra los ejemplos. Ver VC-101 y VC-095.  | `audit_declarative_rules` |
 | `VC-139` | Confianza ciega en la salida del LLM (Insecure Output Handling) | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Es el lado OUTPUT de VC-074 (input). Mitigacion via taint analysis: semgrep / CodeQL.  | `DOC_ONLY` |
 
 ### Tokenomics & Context (47 items)
