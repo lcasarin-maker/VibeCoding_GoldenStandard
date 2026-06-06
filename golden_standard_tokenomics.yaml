@@ -1175,14 +1175,14 @@ items:
     Sin compactacion periodica ni telemetria de costo, el contexto crece de forma monotona y cada turno arrastra todo el historial.
   solution: |
     Compactar en umbrales de uso, medir el costo por sesion y operar con presupuesto y alertas.
-  status: DOC_ONLY
+  status: PREVENTED
   severity: medium
   tags:
   - tokenomics
-  - ai-native
+  - prevented-mechanically
   action: |
-    Documentado; enforcement downstream. Tools: tokencost (PI-003), litellm (PI-005), LLM-Cost-Guardian para enforcement de budget.
-  validating_mechanism: DOC_ONLY
+    Prevención física mediante control de presupuesto y bloqueo de ejecución cuando los tokens acumulados por sesión superan los límites de eficiencia (80K tokens de salida), forzando el comando de compactación.
+  validating_mechanism: _check_and_flag_compact
   downstream_verification: required
   example_lang: text
   example_bad: |

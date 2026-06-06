@@ -1386,14 +1386,14 @@
     "symptom": "El costo por sesion crece silenciosamente porque nunca se compacta ni se mide; las sesiones largas pagan 3-5x mas tokens que el trabajo estructurado.\n",
     "cause": "Sin compactacion periodica ni telemetria de costo, el contexto crece de forma monotona y cada turno arrastra todo el historial.\n",
     "solution": "Compactar en umbrales de uso, medir el costo por sesion y operar con presupuesto y alertas.\n",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "tokenomics",
-      "ai-native"
+      "prevented-mechanically"
     ],
-    "action": "Documentado; enforcement downstream. Tools: tokencost (PI-003), litellm (PI-005), LLM-Cost-Guardian para enforcement de budget.\n",
-    "validating_mechanism": "DOC_ONLY",
+    "action": "Prevención física mediante control de presupuesto y bloqueo de ejecución cuando los tokens acumulados por sesión superan los límites de eficiencia (80K tokens de salida), forzando el comando de compactación.\n",
+    "validating_mechanism": "_check_and_flag_compact",
     "downstream_verification": "required",
     "example_bad": "# Sesion de 4 horas sin compactar; el contexto llega al 95% y el costo se dispara.\n",
     "example_good": "# Compactacion en umbrales + presupuesto con alertas + telemetria de costo por sesion.\n",

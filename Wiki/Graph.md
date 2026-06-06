@@ -24,7 +24,7 @@ El grafo ahora también resalta las entradas que siguen siendo principalmente do
 
 | Catálogo | VC DOC_ONLY | VT DOC_ONLY | TK DOC_ONLY |
 |---|---:|---:|---:|
-| `DOC_ONLY` | 102 | 0 | 13 |
+| `DOC_ONLY` | 102 | 0 | 12 |
 
 | ID | Título | Categoría | Severidad | Estado |
 |---|---|---|---|---|
@@ -36,10 +36,10 @@ El grafo ahora también resalta las entradas que siguen siendo principalmente do
 | `VC-135` | Uso de API obsoleta o alucinada de una libreria real | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-136` | Memoria persistente envenenada o stale (cross-session) | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-139` | Confianza ciega en la salida del LLM (Insecure Output Handling) | `Vibe Coding` | `high` | `DOC_ONLY` |
-| `TK-044` | Deuda de tokenomics acumulada (Cost Compounding) | `Tokenomics & Context` | `medium` | `DOC_ONLY` |
 | `VC-001` | Incompetencia no asumida | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-002` | Complacencia generativa | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-004` | Demo como calidad | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-005` | Prototipo convertido en deuda | `Vibe Coding` | `medium` | `DOC_ONLY` |
 
 ---
 

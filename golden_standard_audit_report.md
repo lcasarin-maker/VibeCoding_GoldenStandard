@@ -9,8 +9,8 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 |---|---|---|---|---|
 | **Testing & Evaluation** | 115 | 27 | 88 | 100% |
 | **Vibe Coding** | 139 | 35 | 104 | 100% |
-| **Tokenomics & Context** | 47 | 34 | 13 | 100% |
-| **Total** | 301 | 96 | 205 | 100% |
+| **Tokenomics & Context** | 47 | 35 | 12 | 100% |
+| **Total** | 301 | 97 | 204 | 100% |
 
 ---
 
@@ -327,7 +327,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `TK-041` | Cuotas invisibles | **low** | **PREVENTED** | `none` | Memory/headroom topology validation keeps quota awareness tied to the canonical tokenomics surfaces. | `validate_golden_standard_catalogs.py --check-wiki` |
 | `TK-042` | Manifiestos sin restricción de tamaño | **medium** | **REMEDIATED** | `none` | D10 manifest size gate validates that AGENT.md <= 150 lines, STATUS.md <= 200 lines, and SPEC.md <= 500 lines. | `audit_d10_tokenomics` |
 | `TK-043` | Entropía sin poda — gobernanza de entrada sin gobernanza de salida | **low** | **PREVENTED** | `none` | Tokenomics cleanup validation now rejects orphan markdown files in Wiki/Vices and Wiki/Tokenomics so residual docs cannot linger unnoticed. | `validate_golden_standard_catalogs.py --check-wiki` |
-| `TK-044` | Deuda de tokenomics acumulada (Cost Compounding) | **medium** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Tools: tokencost (PI-003), litellm (PI-005), LLM-Cost-Guardian para enforcement de budget.  | `DOC_ONLY` |
+| `TK-044` | Deuda de tokenomics acumulada (Cost Compounding) | **medium** | **PREVENTED** | `required` | Prevención física mediante control de presupuesto y bloqueo de ejecución cuando los tokens acumulados por sesión superan los límites de eficiencia (80K tokens de salida), forzando el comando de compactación.  | `_check_and_flag_compact` |
 | `TK-F01` | Reprocesamiento de contexto estable | **low** | **DOC_ONLY** | `required` | Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY. | `DOC_ONLY` |
 | `TK-F02` | Poda contextual primitiva | **low** | **DOC_ONLY** | `required` | Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY. | `DOC_ONLY` |
 | `TK-F03` | Salida verbal excesiva | **low** | **DOC_ONLY** | `required` | Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY. | `DOC_ONLY` |
