@@ -10,8 +10,8 @@ Este grafo combina enlaces Obsidian, enlaces Markdown relativos y menciones expl
 
 | Métrica | Valor |
 |---|---:|
-| Nodos | 372 |
-| Aristas | 1829 |
+| Nodos | 373 |
+| Aristas | 1834 |
 | Huérfanos intencionales | 3 |
 | Huérfanos candidatos | 1 |
 | Hubs | 15 |
@@ -24,13 +24,12 @@ El grafo ahora también resalta las entradas que siguen siendo principalmente do
 
 | Catálogo | VC DOC_ONLY | VT DOC_ONLY | TK DOC_ONLY |
 |---|---:|---:|---:|
-| `DOC_ONLY` | 101 | 0 | 12 |
+| `DOC_ONLY` | 100 | 0 | 12 |
 
 | ID | Título | Categoría | Severidad | Estado |
 |---|---|---|---|---|
 | `VC-127` | Inyeccion de prompt en bucle de agente (Prompt Injection) | `Vibe Coding` | `critical` | `DOC_ONLY` |
 | `VC-128` | Envenenamiento de contexto (Context Poisoning) | `Vibe Coding` | `high` | `DOC_ONLY` |
-| `VC-129` | Dependencia alucinada (Slopsquatting) | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-133` | Fallo de tool call no manejado en bucle de agente | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-134` | Coordinacion multiagente sin protocolo | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-135` | Uso de API obsoleta o alucinada de una libreria real | `Vibe Coding` | `high` | `DOC_ONLY` |
@@ -40,6 +39,7 @@ El grafo ahora también resalta las entradas que siguen siendo principalmente do
 | `VC-002` | Complacencia generativa | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-004` | Demo como calidad | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-005` | Prototipo convertido en deuda | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-006` | Estética como integridad | `Vibe Coding` | `medium` | `DOC_ONLY` |
 
 ---
 
@@ -91,12 +91,12 @@ Páginas con mayor superficie de impacto. Si cambian, revisa primero sus enlaces
 | Nodo | Tipo | In | Out | Entradas | Salidas |
 |---|---|---:|---:|---|---|
 | [[Vices_Index]] | `wiki` | 256 | 256 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +250 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +250 more |
-| [[Home]] | `wiki` | 354 | 21 | [[Concepts/Marco_Conceptual]], [[Domains/D1]], [[Domains/D10]], [[Domains/D11]], [[Domains/D12]], [[Domains/D2]] +348 more | [[CONCEPTUAL_FRAMEWORK]], [[Concepts/Marco_Conceptual]], [[Inbox/README]], [[Project_Insights/PI-019]], [[Project_Insights/PI-020]], [[Project_Insights/PI-021]] +15 more |
-| [[Tokenomics_Map]] | `wiki` | 342 | 10 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +336 more | [[Home]], [[Project_Insights/PI-019]], [[Project_Insights_Index]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]] +4 more |
+| [[Home]] | `wiki` | 355 | 21 | [[Concepts/Marco_Conceptual]], [[Domains/D1]], [[Domains/D10]], [[Domains/D11]], [[Domains/D12]], [[Domains/D2]] +349 more | [[CONCEPTUAL_FRAMEWORK]], [[Concepts/Marco_Conceptual]], [[Inbox/README]], [[Project_Insights/PI-019]], [[Project_Insights/PI-020]], [[Project_Insights/PI-021]] +15 more |
+| [[Tokenomics_Map]] | `wiki` | 343 | 10 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +337 more | [[Home]], [[Project_Insights/PI-019]], [[Project_Insights_Index]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]] +4 more |
 | [[Project_Insights/PI-019]] | `insight` | 256 | 4 | [[Home]], [[Project_Insights_Index]], [[Tokenomics_Map]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]] +250 more | [[Home]], [[Project_Insights_Index]], [[Tokenomics_Map]], [[Vices/VC-124]] |
 | [[Tokenomics_Index]] | `wiki` | 55 | 49 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +49 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +43 more |
-| [[Project_Insights_Index]] | `wiki` | 36 | 35 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +30 more | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +29 more |
-| [[Vices/VC-124]] | `vice` | 37 | 4 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +31 more | [[Home]], [[Project_Insights/PI-019]], [[Tokenomics_Map]], [[Vices_Index]] |
+| [[Project_Insights_Index]] | `wiki` | 37 | 36 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +31 more | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +30 more |
+| [[Vices/VC-124]] | `vice` | 38 | 4 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +32 more | [[Home]], [[Project_Insights/PI-019]], [[Tokenomics_Map]], [[Vices_Index]] |
 | [[Tokenomics/Memory_Headroom_Index]] | `tokenomics` | 2 | 17 | [[Home]], [[Tokenomics_Map]] | [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]], [[Tokenomics/TK-006]] +11 more |
 | [[Tokenomics/Output_Compaction_Index]] | `tokenomics` | 2 | 15 | [[Home]], [[Tokenomics_Map]] | [[Tokenomics/TK-020]], [[Tokenomics/TK-021]], [[Tokenomics/TK-022]], [[Tokenomics/TK-024]], [[Tokenomics/TK-025]], [[Tokenomics/TK-027]] +9 more |
 | [[Tokenomics/Input_Retrieval_Index]] | `tokenomics` | 2 | 12 | [[Home]], [[Tokenomics_Map]] | [[Tokenomics/TK-009]], [[Tokenomics/TK-010]], [[Tokenomics/TK-011]], [[Tokenomics/TK-012]], [[Tokenomics/TK-014]], [[Tokenomics/TK-015]] +6 more |
@@ -133,7 +133,7 @@ Nodos que enlazan a más de un tipo de página. Son útiles para navegar impacto
 |---|---|---|---:|
 | [[Vices_Index]] | `wiki` | `vice`, `wiki` | 256 |
 | [[Tokenomics_Index]] | `wiki` | `tokenomics`, `wiki` | 49 |
-| [[Project_Insights_Index]] | `wiki` | `insight`, `wiki` | 35 |
+| [[Project_Insights_Index]] | `wiki` | `insight`, `wiki` | 36 |
 | [[Home]] | `wiki` | `concept`, `conceptual-framework`, `inbox`, `insight`, `root`, `tokenomics`, `vice`, `wiki` | 21 |
 | [[Tokenomics/Memory_Headroom_Index]] | `tokenomics` | `tokenomics`, `wiki` | 17 |
 | [[Tokenomics/Output_Compaction_Index]] | `tokenomics` | `tokenomics`, `wiki` | 15 |

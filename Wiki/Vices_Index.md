@@ -133,7 +133,7 @@ Este índice clasifica los vicios del Golden Standard en VC y VT. Tokenomics viv
 *   [[Vices/VC-126|VC-126]] — **Sugerencia post-ejecución que reabre alcance** (PREVENTED, medium, downstream:none)
 *   [[Vices/VC-127|VC-127]] — **Inyeccion de prompt en bucle de agente (Prompt Injection)** (DOC_ONLY, critical, downstream:required)
 *   [[Vices/VC-128|VC-128]] — **Envenenamiento de contexto (Context Poisoning)** (DOC_ONLY, high, downstream:required)
-*   [[Vices/VC-129|VC-129]] — **Dependencia alucinada (Slopsquatting)** (DOC_ONLY, high, downstream:required)
+*   [[Vices/VC-129|VC-129]] — **Dependencia alucinada (Slopsquatting)** (PREVENTED, high, downstream:required)
 *   [[Vices/VC-130|VC-130]] — **Revision en camara de eco (Echo-Chamber Review)** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-131|VC-131]] — **Deriva arquitectonica en sesiones largas (Architecture Drift)** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-132|VC-132]] — **Cascada de ambiguedad de especificacion (Spec Ambiguity Cascade)** (DOC_ONLY, medium, downstream:required)

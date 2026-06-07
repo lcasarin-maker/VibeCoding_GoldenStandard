@@ -8351,16 +8351,17 @@
     "symptom": "El agente importa o declara un paquete que no existe en el registry (nombre inventado o casi-correcto), exponiendo a slopsquatting: un atacante puede registrar ese nombre con codigo malicioso.\n",
     "cause": "El modelo genera nombres de paquetes plausibles pero inexistentes; nadie verifica su existencia ni legitimidad en el registry oficial.\n",
     "solution": "Verificar que cada dependencia existe en el registry oficial, evaluar su popularidad/legitimidad y fijar version; rechazar nombres que no resuelven.\n",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "high",
     "tags": [
       "vibe-coding",
       "ai-native",
       "security",
-      "supply-chain"
+      "supply-chain",
+      "prevented-mechanically"
     ],
-    "action": "Documentado; enforcement downstream. Hueco confirmado: ningun SCA tradicional (Trivy, Snyk, OWASP DependencyCheck) detecta paquetes inexistentes, solo CVEs de paquetes reales.\n",
-    "validating_mechanism": "DOC_ONLY",
+    "action": "Prevented by D11 check in dimensions/d11_dependency.py which queries the official PyPI registry for each dependency in requirements.txt and flags any 404 responses.\n",
+    "validating_mechanism": "test_pypi_404_is_alucinated_dependency",
     "downstream_verification": "required",
     "example_bad": "# El modelo 'alucina' un paquete que no existe en PyPI.\nimport nicethings              # no existe -> alguien puede registrarlo con malware\n# pip install reqests          # typo de 'requests' (typosquatting)\n",
     "example_good": "# Verificar existencia y legitimidad en el registry antes de declarar.\n#   pip index versions requests   # resuelve -> real, popular\n#   nombre que no resuelve en PyPI = rechazar, no instalar\n",

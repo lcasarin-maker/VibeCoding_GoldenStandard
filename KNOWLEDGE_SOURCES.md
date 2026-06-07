@@ -73,6 +73,7 @@ Example: `Inbox/manual/2026-06-05_silently-broken-auth-flow.md`
 - Vices observed in other teams, languages, or stacks
 - Refinements and corrections to existing entries
 - New domains not yet covered
+- Only evidence anchored to the active baseline counts; findings derived from retired `00 audit` artifacts, stale snapshots, or pre-purge states must be rejected or returned for rework.
 
 **SLA:** Reviewed within 14 days of submission.
 
@@ -142,6 +143,10 @@ Every YAML entry in the catalog includes a `source` field:
 
 This ensures the catalog remains fully auditable — every piece of knowledge
 has a traceable origin.
+
+External submissions that claim repository cleanliness or audit completeness must also include fresh purge evidence for the active baseline they audited. If they cannot name that baseline, they are not ready for promotion.
+
+Passing a legacy test suite is not enough. If the submission only proves that old checks still go green, the maintainer must re-run or re-aim the verification against the current Cerberus baseline and require functional evidence for the claim being made.
 
 ---
 

@@ -7,7 +7,7 @@ Las entradas se agrupan por tipo para distinguir principios accionables de meta-
 
 ## 🟢 Principios accionables
 
-_Lecciones transversales que cambian cómo se trabaja._ (16)
+_Lecciones transversales que cambian cómo se trabaja._ (17)
 
 *   [[Project_Insights/PI-008|PI-008]] — Batch de autorizaciones previsibles – agrupar permisos, aclaraciones y decisiones antes de una corrida larga para evitar interrupciones, relecturas y trabajo reactivo.
 *   [[Project_Insights/PI-009|PI-009]] — Deuda cero antes de avanzar – todo warning o hallazgo no bloqueante se trata como error operativo hasta que se corrija o se bloquee explícitamente. [IMPLEMENTED Sprint 5: [RECOMENDACIONES POR DOMINIO] suprimida de gate APPROVED (ruido no bloqueante); solo aparece cuando hay FAILs de dominio para guiar el fix. Test failing-first valida ambas ramas. Refactor _print_recommendations (C901 compliance).]
@@ -25,6 +25,7 @@ _Lecciones transversales que cambian cómo se trabaja._ (16)
 *   [[Project_Insights/PI-025|PI-025]] — Retrospectiva exportable – cada sesión debe cerrar con una retrospectiva estructurada y parseable que se persista en un ledger durable antes de COMPACT/CLEAR. El chat no es memoria confiable y el conocimiento nuevo debe sobrevivir al reset de contexto. Origen: Cerberus export_retrospective.py y la disciplina de HISTORIAL como fuente de continuidad.
 *   [[Project_Insights/PI-026|PI-026]] — Preflight exhaustivo y no reabrir alcance post-ejecución – antes de ejecutar cualquier cambio, el agente debe declarar scope, impactos previsibles, follow-ups fuera de alcance y el runner/loader que se vería afectado si la topología cambia. Si después de ejecutar surge una mejora nueva, se registra primero en backlog; no se ofrece como sugerencia post-ejecución. Origen: Cerberus / GS execution hygiene y la separación formal de auditorías entre conocimiento y consumo.
 *   [[Project_Insights/PI-027|PI-027]] — Serialización de operaciones Git – los comandos Git deben ejecutarse de forma serializada dentro de automatizaciones y orquestadores para evitar bloqueos de índice, carreras de estado y resultados inconsistentes. Cuando exista coordinación o tooling concurrente, la disciplina segura es un único flujo Git a la vez con reintentos controlados, no paralelismo oportunista. Origen: Cerberus global learning sobre race conditions y bloqueo de .git/index.lock.
+*   [[Project_Insights/PI-035|PI-035]] — Auditoría de sistemas estocásticos – cuando el comportamiento depende de azar, sampling, retries, routing probabilista o generación no determinista, no se evalúa con una sola corrida ni con un valor exacto. La regla es declarar distribución objetivo, semilla cuando aplique, tamaño de muestra, umbrales aceptables y criterio de repetición; si la superficie debería ser determinista, la aleatoriedad se elimina en vez de disfrazarla como controlada. Las afirmaciones sobre estabilidad o corrección deben ser reproducibles en varias ejecuciones, no solo plausibles en una. Origen: GS audit of stochastic systems; complementa VT-028 sobre aleatoriedad controlada.
 
 ---
 

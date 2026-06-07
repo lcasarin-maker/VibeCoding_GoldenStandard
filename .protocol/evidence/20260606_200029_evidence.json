@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-06-06T20:00:29.127849",
+  "operation": "check",
+  "outcome": "failure",
+  "details": {
+    "stage": "run_security_audit_12d",
+    "code": 2,
+    "stdout": ""
+  }
+}

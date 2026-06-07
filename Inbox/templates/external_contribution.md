@@ -11,10 +11,15 @@ source: external
 contributor:                    # ✅ GitHub handle or name
 github_issue:                   # ⚠️ GitHub Issue number (if applicable)
 github_pr:                      # ⚠️ GitHub PR number (if applicable)
+audit_baseline:                 # ✅ Active Cerberus/GS baseline audited (commit, tag, or version)
+verification_target:            # ✅ Current Cerberus generation / active enforcement baseline
 date_detected: YYYY-MM-DD       # ✅ ISO 8601 (date contributor reported it)
 date_triaged: YYYY-MM-DD        # ✅ ISO 8601 (date maintainer triaged it)
 language_or_stack:              # ⚠️ If the finding is stack-specific, note it here
 triaged_by:                     # ✅ Maintainer who triaged
+purge_evidence:                 # ⚠️ Required when the submission claims cleanup/completeness/repo hygiene
+functional_evidence:            # ⚠️ Required when the submission claims a behavior or guard actually works
+legacy_artifacts_checked:       # ⚠️ yes/no + note if any retired artifacts were encountered
 
 ## Classification
 
@@ -27,6 +32,12 @@ refinement_target:              # ⚠️ Existing GS entry ID if this refines on
 evidence_for:                   # ⚠️ Existing GS entry ID if this provides evidence
 triage_decision:                # ✅ ACCEPT | REJECT | NEEDS_INFO
 rejection_reason:               # ✅ (required if REJECT)
+
+## Hard Law
+
+If the only proof is that an old or retired test suite still passes, the submission is not valid evidence.
+The maintainer must retarget verification to the current Cerberus baseline and require functional evidence for the exact claim being made.
+Legacy `00 audit` artifacts, stale snapshots, and pre-purge states are not acceptable as proof of correctness or repo health.
 
 ---
 

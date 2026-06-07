@@ -25,7 +25,7 @@ Inbox/
 
 - [`cerberus/README.md`](cerberus/README.md) — qué depositar y cómo nombrarlo.
 - [`manual/README.md`](manual/README.md) — hallazgos observados por la DRI.
-- [`external/README.md`](external/README.md) — flujo para issues y PRs externos.
+- [`external/README.md`](external/README.md) — flujo para issues y PRs externos; solo evidencia basada en el baseline activo y con purga fresca si se audita limpieza o completitud.
 - [`templates/README.md`](templates/README.md) — referencia rápida de plantillas.
 
 ---

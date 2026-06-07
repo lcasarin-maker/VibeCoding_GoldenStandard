@@ -1,9 +1,10 @@
 # Cerberus ↔ Golden Standard Contract
 
-> This document defines the **bidirectional interface** between CoderCerberus (the enforcement tool)
+> This document defines the **consumer-facing interface** between CoderCerberus (the enforcement tool)
 > and the Golden Standard (the knowledge base).
 >
-> Both projects are independent. This contract is the formal agreement between them.
+> Both projects are independent. This contract is a boundary document, not a second source of truth.
+> For Cerberus internal doctrine, `D:\AI\Cerberus\00 audit\00_CONSTITUCION_CERBERUS.md` wins.
 
 ---
 
@@ -43,6 +44,7 @@ Recommended integration: separate repository read-only at the consumer boundary,
 
 Cerberus must not treat Golden Standard as a live submodule or internal snapshot.
 If Cerberus needs a local mirror, it must be an explicitly managed read-only copy, not the source of truth.
+If this contract ever conflicts with Cerberus's Constitution, the Constitution is authoritative for Cerberus behavior and this document must be updated to match.
 
 ### Rules for Cerberus Rules
 
@@ -62,12 +64,15 @@ Every rule implemented in Cerberus MUST:
 
 3. **Flag missing coverage.** If Cerberus needs to implement a rule for a pattern not yet in Golden Standard, it MUST create an Inbox finding before implementing the rule (see Direction 2 below).
 4. **Preflight the consumer impact.** If a change alters the audit topology, loader order, or runner path, the preflight must name the impacted Cerberus script, the file-order delta, and the validation step before the edit is considered ready.
+5. **Reject stale external audit baselines.** This is the reusable GS-side principle behind Cerberus's external audit contract: an external verdict is only valid when it is tied to the active baseline being exercised. Findings based on retired `00 audit` artifacts, stale snapshots, or pre-purge states must be returned as `NEEDS_INFO`, not accepted as clean evidence.
+6. **Require Cerberus-new functional proof.** GS keeps the abstract rule; Cerberus owns the procedural enforcement. “Passes tests” is not sufficient if the test harness or enforcement layer is retired, mismatched, or legacy. External audits must be re-targeted to the current Cerberus baseline and prove the actual functionality being claimed; otherwise the result is not a valid acceptance.
 
 ### What Cerberus May NOT Do
 
 - Cerberus must not create rules that contradict a Golden Standard entry without first filing a `refine` request via Inbox.
 - Cerberus must not implement project-specific overrides that would qualify as universal principles without contributing them back.
 - Cerberus must not treat `DOC_ONLY` as `test_exempt` when the GS entry declares downstream verification as required.
+- Cerberus must not accept “test passed” as proof of correctness when the test was run against a retired baseline, a legacy audit surface, or a different Cerberus generation; the verdict must be revalidated on the active baseline with functional evidence.
 
 ---
 
@@ -83,6 +88,8 @@ Cerberus deposits a finding in `Inbox/cerberus/` when:
 | An existing GS entry needs refinement based on audit evidence | Create Inbox finding with `refinement_target: <existing-ID>` |
 | A GS entry's severity seems wrong based on real-world frequency | Create Inbox finding with `severity_challenge: true` |
 | An audit produces hard evidence for a KNOWLEDGE-status entry | Create Inbox finding with `evidence_for: <existing-ID>` |
+| An external audit claims cleanup, completeness, or repo hygiene | Require the active baseline plus fresh purge evidence; if either is missing, return `NEEDS_INFO` |
+| An external audit only proves that old tests pass | Reject until it is re-run against the current Cerberus baseline and demonstrates the functionality being asserted |
 
 ### How to Deposit
 

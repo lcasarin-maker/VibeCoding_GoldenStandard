@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.5 | Date: 2026-06-06 | Total Audited Items: 302**
+**Golden Standard V0.5 | Date: 2026-06-07 | Total Audited Items: 302**
 
 This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -8,9 +8,9 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 115 | 27 | 88 | 100% |
-| **Vibe Coding** | 140 | 37 | 103 | 100% |
+| **Vibe Coding** | 140 | 38 | 102 | 100% |
 | **Tokenomics & Context** | 47 | 35 | 12 | 100% |
-| **Total** | 302 | 99 | 203 | 100% |
+| **Total** | 302 | 100 | 202 | 100% |
 
 ---
 
@@ -268,7 +268,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-126` | Sugerencia post-ejecución que reabre alcance | **medium** | **PREVENTED** | `none` | CONTRIBUTING.md now requires a preflight with scope, impacts and out-of-scope follow-ups before execution; post-execution suggestions must be captured in backlog first. | `CONTRIBUTING.md execution hygiene rule + issue-template preflight` |
 | `VC-127` | Inyeccion de prompt en bucle de agente (Prompt Injection) | **critical** | **DOC_ONLY** | `required` | Documentado como conocimiento de gobernanza AI-native; el enforcement vive downstream. Receta: aislar contenido externo, allowlist de tools, gate humano para acciones destructivas.  | `DOC_ONLY` |
 | `VC-128` | Envenenamiento de contexto (Context Poisoning) | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: paso de verificacion antes de persistir un hecho, y reanclaje en fuentes de verdad al compactar.  | `DOC_ONLY` |
-| `VC-129` | Dependencia alucinada (Slopsquatting) | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Hueco confirmado: ningun SCA tradicional (Trivy, Snyk, OWASP DependencyCheck) detecta paquetes inexistentes, solo CVEs de paquetes reales.  | `DOC_ONLY` |
+| `VC-129` | Dependencia alucinada (Slopsquatting) | **high** | **PREVENTED** | `required` | Prevented by D11 check in dimensions/d11_dependency.py which queries the official PyPI registry for each dependency in requirements.txt and flags any 404 responses.  | `test_pypi_404_is_alucinated_dependency` |
 | `VC-130` | Revision en camara de eco (Echo-Chamber Review) | **medium** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: separar generador y revisor (modelo/version/contexto distintos) o anadir una compuerta estatica independiente.  | `DOC_ONLY` |
 | `VC-131` | Deriva arquitectonica en sesiones largas (Architecture Drift) | **medium** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: ADR persistente + reanclaje post-compactacion + check de coherencia contra decisiones vigentes.  | `DOC_ONLY` |
 | `VC-132` | Cascada de ambiguedad de especificacion (Spec Ambiguity Cascade) | **medium** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Receta: confirmar interpretacion en puntos de bifurcacion antes de construir sobre ella.  | `DOC_ONLY` |
@@ -373,6 +373,7 @@ These entries are preserved as project-agnostic knowledge extracted from externa
 | `PI-032` | context7 (upstash/context7, verificado) -- entrega a los LLMs documentacion de codigo up-to-date para evitar llamadas a APIs obsoletas o inexistentes; mitigacion directa de VC-135. |
 | `PI-033` | Capa de memoria persistente (byterover-cli / zilliztech claude-context-memsearch, verificados) -- memoria durable entre sesiones para agentes; su disciplina (fuente, fecha, reconciliacion) mitiga VC-136. |
 | `PI-034` | serena (oraios/serena, verificado) -- retrieval y edicion a nivel de simbolo (semantico) para que el contexto recuperado sea correcto; mitiga VC-137 frente al chunking ciego. |
+| `PI-035` | Auditoría de sistemas estocásticos – cuando el comportamiento depende de azar, sampling, retries, routing probabilista o generación no determinista, no se evalúa con una sola corrida ni con un valor exacto. La regla es declarar distribución objetivo, semilla cuando aplique, tamaño de muestra, umbrales aceptables y criterio de repetición; si la superficie debería ser determinista, la aleatoriedad se elimina en vez de disfrazarla como controlada. Las afirmaciones sobre estabilidad o corrección deben ser reproducibles en varias ejecuciones, no solo plausibles en una. Origen: GS audit of stochastic systems; complementa VT-028 sobre aleatoriedad controlada. |
 
 ## Project Insight Recommendations by Domain
 
