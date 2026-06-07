@@ -145,6 +145,7 @@ Este índice clasifica los vicios del Golden Standard en VC y VT. Tokenomics viv
 *   [[Vices/VC-138|VC-138]] — **Codigo generado inseguro por defecto** (PREVENTED, high, downstream:required)
 *   [[Vices/VC-139|VC-139]] — **Confianza ciega en la salida del LLM (Insecure Output Handling)** (DOC_ONLY, high, downstream:required)
 *   [[Vices/VC-140|VC-140]] — **Brecha de continuidad entre agentes (handoff huerfano)** (PREVENTED, high, downstream:required)
+*   [[Vices/VC-141|VC-141]] — **Cambios huerfanos eludidos (commit parcial evasivo)** (PREVENTED, high, downstream:required)
 
 ## Testing & Evaluation (TV)
 *   [[Vices/VT-001|VT-001]] — **Hardcoded return** (PREVENTED, high, downstream:none)

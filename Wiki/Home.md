@@ -38,7 +38,7 @@ Bienvenido a la bóveda Obsidian del **Golden Standard** (GS). Esta base de cono
 
 | Dominio | Catálogo | Entradas | Enlace |
 |---|---|---:|---|
-| Vibe Coding | `VC-xxx` | 140 | [[Vices_Index|Abrir índice]] |
+| Vibe Coding | `VC-xxx` | 141 | [[Vices_Index|Abrir índice]] |
 | Testing & Evaluation | `VT-xxx` | 115 | [[Vices_Index|Abrir índice]] |
 | Tokenomics | `TK-xxx` | 47 | [[Tokenomics_Index|Abrir índice]] |
 | Project Insights | `PI-xxx` | 35 | [[Project_Insights_Index|Abrir índice]] |
@@ -49,9 +49,9 @@ Bienvenido a la bóveda Obsidian del **Golden Standard** (GS). Esta base de cono
 
 | Estado | Entradas | Significado |
 |---|---:|---|
-| `PREVENTED` + `REMEDIATED` | 100 | El catálogo ya tiene una compuerta ejecutable o una corrección concreta. |
+| `PREVENTED` + `REMEDIATED` | 101 | El catálogo ya tiene una compuerta ejecutable o una corrección concreta. |
 | `AUDITED` + `DOC_ONLY` | 202 | La entrada existe como conocimiento, pero sigue siendo principalmente documental. |
-| `Total` | 302 | Suma de las entradas de VC, VT y TK auditadas por el compilador. |
+| `Total` | 303 | Suma de las entradas de VC, VT y TK auditadas por el compilador. |
 
 ---
 

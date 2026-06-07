@@ -3287,3 +3287,37 @@ items:
   evidence:
   - source: "CoderCerberus v0.5 -- operacion multi-agente (Codex/Gemini/Claude)"
     claim: "La perdida de contexto entre relevos de agente desperdicia tokens y causa desviacion; un handoff fresco obligatorio lo previene."
+- id: VC-141
+  title: "Cambios huerfanos eludidos (commit parcial evasivo)"
+  symptom: "Tras un commit, el working tree queda con cambios ajenos sin integrar; el siguiente agente hereda deuda silenciosa y no sabe si es intencional o un olvido."
+  cause: "El agente hace un commit selectivo (git add solo de sus archivos) y le da la vuelta a los cambios pendientes previos en vez de revisarlos, corregirlos e integrarlos."
+  solution: "Antes de cerrar el commit, el working tree debe quedar limpio: cada cambio pendiente se revisa (diff), se corrige si introduce deuda, y se integra al commit; o se gitignora con decision explicita. Verificado mecanicamente."
+  status: PREVENTED
+  severity: high
+  tags:
+  - hygiene
+  - agent-agnostic
+  - prevented-mechanically
+  action: |
+    Verificacion fisica: scripts/check_clean_worktree.py invocado en el git hook pre-commit
+    (agnostico: corre con cualquier `git commit`). Bloquea si tras stagear queda algo sin
+    decidir en el working tree (modificado no-staged o untracked no-ignorado). La causa raiz
+    del churn de artefactos auto-generados se neutraliza con escritura idempotente y auto-stage
+    de una whitelist canonica. Escape consciente: env CERBERUS_ALLOW_PARTIAL=1.
+  validating_mechanism: check_clean_worktree
+  downstream_verification: required
+  example_lang: bash
+  example_bad: |
+    # cambios previos de otro agente sin commitear -> se ignoran y se commitea solo lo propio
+    git add scripts/mio.py && git commit -m "feat: mio"   # deja REGISTRY.json, otro.py colgando
+  example_good: |
+    # se revisan, corrigen e integran TODOS los cambios pendientes (o se gitignoran)
+    git diff otro.py            # revisar
+    git add scripts/mio.py otro.py REGISTRY.json
+    git commit -m "feat: mio + integra pendientes"   # working tree limpio
+  detection: |
+    Tras el pre-commit, `git status --porcelain` reporta archivos no-staged o untracked no
+    ignorados que no entraron al commit. Verificado por check_clean_worktree en pre-commit.
+  evidence:
+  - source: "CoderCerberus v0.5 -- sesion 2026-06-07 (Claude Opus), commit 6f632b8"
+    claim: "Un agente eludio cambios previos de otro en commits selectivos; integrarlos y dejar el working tree limpio evita deuda silenciosa heredada."

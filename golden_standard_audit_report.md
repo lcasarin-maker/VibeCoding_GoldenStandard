@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.5 | Date: 2026-06-07 | Total Audited Items: 302**
+**Golden Standard V0.5 | Date: 2026-06-07 | Total Audited Items: 303**
 
 This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -8,9 +8,9 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 115 | 27 | 88 | 100% |
-| **Vibe Coding** | 140 | 38 | 102 | 100% |
+| **Vibe Coding** | 141 | 39 | 102 | 100% |
 | **Tokenomics & Context** | 47 | 35 | 12 | 100% |
-| **Total** | 302 | 100 | 202 | 100% |
+| **Total** | 303 | 101 | 202 | 100% |
 
 ---
 
@@ -136,7 +136,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VT-114` | Deriva de Sincronización Multirepositorio (Multi-Repository Sync Drift) | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
 | `VT-115` | Falso Positivo de Drift por Fin de Línea (CRLF/LF Hash Mismatch) | **high** | **REMEDIATED** | `none` | Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry. | `test_setup_validation` |
 
-### Vibe Coding (140 items)
+### Vibe Coding (141 items)
 
 | ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |
 |---|---|---|---|---|---|---|
@@ -280,6 +280,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-138` | Codigo generado inseguro por defecto | **high** | **PREVENTED** | `required` | Documentado; enforcement downstream. Firma estatica: detector local en scripts/detectors.py probado contra los ejemplos. Ver VC-101 y VC-095.  | `audit_declarative_rules` |
 | `VC-139` | Confianza ciega en la salida del LLM (Insecure Output Handling) | **high** | **DOC_ONLY** | `required` | Documentado; enforcement downstream. Es el lado OUTPUT de VC-074 (input). Mitigacion via taint analysis: semgrep / CodeQL.  | `DOC_ONLY` |
 | `VC-140` | Brecha de continuidad entre agentes (handoff huerfano) | **high** | **PREVENTED** | `required` | Verificacion fisica: scripts/check_handoff_freshness.py invocado en el git hook commit-msg (agnostico: corre con cualquier `git commit`, sea Codex/Gemini/Claude). Bloquea el commit si hay cambios sustantivos pero HANDOFF.md no se actualizo o le faltan secciones del esquema (ESTADO/SIGUIENTE/VERIFICAR). Escape explicito: token [skip-handoff] en el mensaje o env CERBERUS_SKIP_HANDOFF=1.  | `check_handoff_freshness` |
+| `VC-141` | Cambios huerfanos eludidos (commit parcial evasivo) | **high** | **PREVENTED** | `required` | Verificacion fisica: scripts/check_clean_worktree.py invocado en el git hook pre-commit (agnostico: corre con cualquier `git commit`). Bloquea si tras stagear queda algo sin decidir en el working tree (modificado no-staged o untracked no-ignorado). La causa raiz del churn de artefactos auto-generados se neutraliza con escritura idempotente y auto-stage de una whitelist canonica. Escape consciente: env CERBERUS_ALLOW_PARTIAL=1.  | `check_clean_worktree` |
 
 ### Tokenomics & Context (47 items)
 
