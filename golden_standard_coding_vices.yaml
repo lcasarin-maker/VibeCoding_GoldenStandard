@@ -1557,7 +1557,7 @@ items:
   action: |
     Verificación física: validador estático AST en scripts/run_security_audit_12d.py (audit_d6_anti_slop) que exige anotaciones completas de tipos de parámetros y retornos en todas las funciones públicas de protocol_engine/ y dimensions/.
   validating_mechanism: audit_d6_anti_slop
-  downstream_verification: required
+  downstream_verification: none
   example_lang: python
   example_bad: |
     def handle(data):          # sin tipos: estados imposibles circulan
@@ -2340,7 +2340,7 @@ items:
   - prevented-mechanically
   action: 'Prevención física mediante verificación de que toda regla de exclusión activa en el archivo .gitignore esté precedida por un comentario explicativo justificando la exclusión en el mismo bloque.'
   validating_mechanism: audit_d2_completeness
-  downstream_verification: required
+  downstream_verification: none
   example_lang: text
   example_bad: |
     # .gitignore: se ignora un directorio sin saber que contiene.
@@ -2925,7 +2925,7 @@ items:
   action: |
     Prevented by D11 check in dimensions/d11_dependency.py which queries the official PyPI registry for each dependency in requirements.txt and flags any 404 responses.
   validating_mechanism: test_pypi_404_is_alucinated_dependency
-  downstream_verification: required
+  downstream_verification: none
   example_lang: python
   example_bad: |
     # El modelo 'alucina' un paquete que no existe en PyPI.
@@ -3206,7 +3206,7 @@ items:
   action: |
     Documentado; enforcement downstream. Firma estatica: detector local en scripts/detectors.py probado contra los ejemplos. Ver VC-101 y VC-095.
   validating_mechanism: audit_declarative_rules
-  downstream_verification: required
+  downstream_verification: none
   detector: vc138_insecure_defaults
   example_lang: python
   example_bad: |
@@ -3271,7 +3271,7 @@ items:
     (ESTADO/SIGUIENTE/VERIFICAR). Escape explicito: token [skip-handoff] en el mensaje o
     env CERBERUS_SKIP_HANDOFF=1.
   validating_mechanism: check_handoff_freshness
-  downstream_verification: required
+  downstream_verification: none
   example_lang: markdown
   example_bad: |
     # commit con codigo nuevo y HANDOFF.md sin tocar -> el proximo agente pierde el hilo
@@ -3305,7 +3305,7 @@ items:
     del churn de artefactos auto-generados se neutraliza con escritura idempotente y auto-stage
     de una whitelist canonica. Escape consciente: env CERBERUS_ALLOW_PARTIAL=1.
   validating_mechanism: check_clean_worktree
-  downstream_verification: required
+  downstream_verification: none
   example_lang: bash
   example_bad: |
     # cambios previos de otro agente sin commitear -> se ignoran y se commitea solo lo propio

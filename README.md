@@ -41,7 +41,7 @@ A structured, growing library of knowledge organized into four streams:
 ### 🔴 Vibe Coding Vices (`VC-xxx`)
 Antipatterns specific to AI-assisted development: improvised architecture, non-reversible solutions, ghost files, hardcoded paths, invisible technical debt accumulation.
 
-**126 entries** cataloged with severity, description, detection criteria, and mitigation.
+**141 entries** cataloged with severity, description, detection criteria, and mitigation.
 
 ### 🟡 Testing Vices (`VT-xxx`)
 Ways tests become "security theater": checking file existence instead of behavior, mocks with no real-world correspondence, tests that pass despite broken user flows.
@@ -143,12 +143,12 @@ The knowledge is stored in human-readable YAML files:
 
 | File | Domain | Entries |
 |---|---|---|
-| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 126 |
+| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 141 |
 | `golden_standard_testing_vices.yaml` | Testing failures | 115 |
-| `golden_standard_tokenomics.yaml` | Token efficiency | 46 |
-| `golden_standard_project_insights.yaml` | Cross-cutting insights | 27 |
+| `golden_standard_tokenomics.yaml` | Token efficiency | 47 |
+| `golden_standard_project_insights.yaml` | Cross-cutting insights | 35 |
 
-**Total: 314 entries.** Counts here are the source of truth and are validated against the YAML in CI; the badge reflects the same number.
+**Total: 303 vices + 35 insights (338 entries).** Counts here are the source of truth and are validated against the YAML; the entries badge reflects the total number of flaws (303).
 
 Each entry includes:
 - **ID** (e.g., `VC-042`)

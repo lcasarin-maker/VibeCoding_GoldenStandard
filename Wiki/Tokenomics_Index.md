@@ -77,7 +77,7 @@ Históricamente, esta capa se operó bajo nombres como *headspace*, *compact* y 
 *   [[Tokenomics/TK-041|TK-041]] — **Cuotas invisibles** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-042|TK-042]] — **Manifiestos sin restricción de tamaño** (REMEDIATED, medium, downstream:none)
 *   [[Tokenomics/TK-043|TK-043]] — **Entropía sin poda — gobernanza de entrada sin gobernanza de salida** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-044|TK-044]] — **Deuda de tokenomics acumulada (Cost Compounding)** (PREVENTED, medium, downstream:required)
+*   [[Tokenomics/TK-044|TK-044]] — **Deuda de tokenomics acumulada (Cost Compounding)** (PREVENTED, medium, downstream:none)
 *   [[Tokenomics/TK-F01|TK-F01]] — **Reprocesamiento de contexto estable** (DOC_ONLY, low, downstream:required)
 *   [[Tokenomics/TK-F02|TK-F02]] — **Poda contextual primitiva** (DOC_ONLY, low, downstream:required)
 *   [[Tokenomics/TK-F03|TK-F03]] — **Salida verbal excesiva** (DOC_ONLY, low, downstream:required)

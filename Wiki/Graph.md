@@ -11,9 +11,9 @@ Este grafo combina enlaces Obsidian, enlaces Markdown relativos y menciones expl
 | Métrica | Valor |
 |---|---:|
 | Nodos | 374 |
-| Aristas | 1839 |
+| Aristas | 1840 |
 | Huérfanos intencionales | 3 |
-| Huérfanos candidatos | 1 |
+| Huérfanos candidatos | 0 |
 | Hubs | 15 |
 
 ---
@@ -64,23 +64,23 @@ GS distingue explícitamente qué entradas esperan verificación downstream y cu
 
 | Estado | VC | VT | TK |
 |---|---:|---:|---:|
-| `required` | 106 | 0 | 13 |
-| `none` | 35 | 115 | 34 |
+| `required` | 100 | 0 | 12 |
+| `none` | 41 | 115 | 35 |
 
 | ID | Título | Categoría | Downstream Verification |
 |---|---|---|---|
 | `VC-127` | Inyeccion de prompt en bucle de agente (Prompt Injection) | `Vibe Coding` | `required` |
 | `VC-128` | Envenenamiento de contexto (Context Poisoning) | `Vibe Coding` | `required` |
-| `VC-129` | Dependencia alucinada (Slopsquatting) | `Vibe Coding` | `required` |
 | `VC-133` | Fallo de tool call no manejado en bucle de agente | `Vibe Coding` | `required` |
 | `VC-134` | Coordinacion multiagente sin protocolo | `Vibe Coding` | `required` |
 | `VC-135` | Uso de API obsoleta o alucinada de una libreria real | `Vibe Coding` | `required` |
 | `VC-136` | Memoria persistente envenenada o stale (cross-session) | `Vibe Coding` | `required` |
-| `VC-138` | Codigo generado inseguro por defecto | `Vibe Coding` | `required` |
 | `VC-139` | Confianza ciega en la salida del LLM (Insecure Output Handling) | `Vibe Coding` | `required` |
-| `VC-140` | Brecha de continuidad entre agentes (handoff huerfano) | `Vibe Coding` | `required` |
-| `VC-141` | Cambios huerfanos eludidos (commit parcial evasivo) | `Vibe Coding` | `required` |
-| `TK-044` | Deuda de tokenomics acumulada (Cost Compounding) | `Tokenomics & Context` | `required` |
+| `VC-001` | Incompetencia no asumida | `Vibe Coding` | `required` |
+| `VC-002` | Complacencia generativa | `Vibe Coding` | `required` |
+| `VC-004` | Demo como calidad | `Vibe Coding` | `required` |
+| `VC-005` | Prototipo convertido en deuda | `Vibe Coding` | `required` |
+| `VC-006` | Estética como integridad | `Vibe Coding` | `required` |
 
 ---
 
@@ -121,7 +121,7 @@ Páginas dentro del surface live de GS que no reciben enlaces entrantes. Si algu
 
 | Nodo | Tipo | In | Out | Entradas | Salidas |
 |---|---|---:|---:|---|---|
-| [[Inbox/cerberus/2026-06-06_doc-only-enforcement-gap]] | `inbox` | 0 | 0 | — | — |
+| — | — | 0 | 0 | — | — |
 
 ---
 

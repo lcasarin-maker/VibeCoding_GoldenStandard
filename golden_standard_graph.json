@@ -1,7 +1,7 @@
 {
-  "generated_on": "2026-06-07",
+  "generated_on": "2026-06-09",
   "node_count": 374,
-  "edge_count": 1839,
+  "edge_count": 1840,
   "nodes": [
     {
       "id": "CODE_OF_CONDUCT",
@@ -72,23 +72,27 @@
       "title": "2026-06-06_doc-only-enforcement-gap",
       "kind": "inbox",
       "outgoing": [],
-      "incoming": [],
-      "in_degree": 0,
+      "incoming": [
+        "Inbox/cerberus/README"
+      ],
+      "in_degree": 1,
       "out_degree": 0,
-      "degree": 0
+      "degree": 1
     },
     {
       "id": "Inbox/cerberus/README",
       "path": "Inbox/cerberus/README.md",
       "title": "Inbox / Cerberus",
       "kind": "inbox",
-      "outgoing": [],
+      "outgoing": [
+        "Inbox/cerberus/2026-06-06_doc-only-enforcement-gap"
+      ],
       "incoming": [
         "Inbox/README"
       ],
       "in_degree": 1,
-      "out_degree": 0,
-      "degree": 1
+      "out_degree": 1,
+      "degree": 2
     },
     {
       "id": "Inbox/external/README",
@@ -2904,7 +2908,7 @@
       "out_degree": 3,
       "degree": 5,
       "status": "PREVENTED",
-      "downstream_verification": "required"
+      "downstream_verification": "none"
     },
     {
       "id": "Tokenomics/TK-F01",
@@ -4969,7 +4973,7 @@
       "out_degree": 4,
       "degree": 6,
       "status": "PREVENTED",
-      "downstream_verification": "required"
+      "downstream_verification": "none"
     },
     {
       "id": "Vices/VC-077",
@@ -5669,7 +5673,7 @@
       "out_degree": 4,
       "degree": 5,
       "status": "PREVENTED",
-      "downstream_verification": "required"
+      "downstream_verification": "none"
     },
     {
       "id": "Vices/VC-112",
@@ -6066,7 +6070,7 @@
       "out_degree": 4,
       "degree": 5,
       "status": "PREVENTED",
-      "downstream_verification": "required"
+      "downstream_verification": "none"
     },
     {
       "id": "Vices/VC-130",
@@ -6246,7 +6250,7 @@
       "out_degree": 4,
       "degree": 5,
       "status": "PREVENTED",
-      "downstream_verification": "required"
+      "downstream_verification": "none"
     },
     {
       "id": "Vices/VC-139",
@@ -6286,7 +6290,7 @@
       "out_degree": 4,
       "degree": 5,
       "status": "PREVENTED",
-      "downstream_verification": "required"
+      "downstream_verification": "none"
     },
     {
       "id": "Vices/VC-141",
@@ -6306,7 +6310,7 @@
       "out_degree": 4,
       "degree": 5,
       "status": "PREVENTED",
-      "downstream_verification": "required"
+      "downstream_verification": "none"
     },
     {
       "id": "Vices/VT-001",
@@ -9536,6 +9540,11 @@
       "source": "Inbox/README",
       "target": "Inbox/templates/README",
       "kind": "markdown"
+    },
+    {
+      "source": "Inbox/cerberus/README",
+      "target": "Inbox/cerberus/2026-06-06_doc-only-enforcement-gap",
+      "kind": "wikilink"
     },
     {
       "source": "Project_Insights/PI-001",
@@ -18369,19 +18378,7 @@
         "degree": 0
       }
     ],
-    "orphan_candidates": [
-      {
-        "id": "Inbox/cerberus/2026-06-06_doc-only-enforcement-gap",
-        "path": "Inbox/cerberus/2026-06-06_doc-only-enforcement-gap.md",
-        "title": "2026-06-06_doc-only-enforcement-gap",
-        "kind": "inbox",
-        "outgoing": [],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 0,
-        "degree": 0
-      }
-    ],
+    "orphan_candidates": [],
     "hubs": [
       {
         "id": "Vices_Index",

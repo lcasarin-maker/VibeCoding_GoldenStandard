@@ -341,6 +341,49 @@ def validate_home_counts(errors: list[str]) -> None:
         errors.append(f"{home_path}: audited/doc_only count row mismatch.")
 
 
+def validate_readme_counts(errors: list[str]) -> None:
+    readme_path = ROOT / "README.md"
+    if not readme_path.exists():
+        errors.append(f"Missing README: {readme_path}")
+        return
+
+    data = load_yaml(ROOT / "golden_standard_coding_vices.yaml")
+    vc_count = len([item for item in data.get("items", []) if str(item.get("id", "")).startswith("VC-")])
+    data = load_yaml(ROOT / "golden_standard_testing_vices.yaml")
+    tv_count = len([item for item in data.get("items", []) if str(item.get("id", "")).startswith("VT-")])
+    data = load_yaml(ROOT / "golden_standard_tokenomics.yaml")
+    tk_count = len([item for item in data.get("items", []) if str(item.get("id", "")).startswith("TK-")])
+    data = load_yaml(ROOT / "golden_standard_project_insights.yaml")
+    pi_count = len([key for key in data.get("project_insights", {}) if str(key).startswith("PI-")])
+
+    readme_text = readme_path.read_text(encoding="utf-8")
+
+    # Check paragraphs counts
+    expected_vc_str = f"**{vc_count} entries** cataloged with severity"
+    expected_tv_str = f"**{tv_count} entries** with examples"
+    
+    if expected_vc_str not in readme_text:
+        errors.append(f"{readme_path}: missing or stale VC count ({expected_vc_str!r}).")
+    if expected_tv_str not in readme_text:
+        errors.append(f"{readme_path}: missing or stale VT count ({expected_tv_str!r}).")
+
+    # Check catalog table rows
+    expected_rows = [
+        f"| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | {vc_count} |",
+        f"| `golden_standard_testing_vices.yaml` | Testing failures | {tv_count} |",
+        f"| `golden_standard_tokenomics.yaml` | Token efficiency | {tk_count} |",
+        f"| `golden_standard_project_insights.yaml` | Cross-cutting insights | {pi_count} |",
+    ]
+    for row in expected_rows:
+        if row not in readme_text:
+            errors.append(f"{readme_path}: missing or stale table row ({row!r}).")
+
+    # Check total line
+    expected_total = f"**Total: {vc_count + tv_count + tk_count} vices + {pi_count} insights ({vc_count + tv_count + tk_count + pi_count} entries).**"
+    if expected_total not in readme_text:
+        errors.append(f"{readme_path}: missing or stale total line ({expected_total!r}).")
+
+
 def validate_wiki_topology(errors: list[str]) -> None:
     """Check that the wiki exposes the canonical navigation and memory surfaces."""
     required_snippets: dict[Path, list[str]] = {
@@ -479,6 +522,7 @@ def validate_wiki_topology(errors: list[str]) -> None:
     validate_link_targets(errors, link_sources)
     validate_wiki_file_sets(errors)
     validate_home_counts(errors)
+    validate_readme_counts(errors)
 
 
 def validate_manifest(path: Path, errors: list[str], check_wiki: bool) -> None:

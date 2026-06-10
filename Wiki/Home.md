@@ -76,4 +76,4 @@ Bienvenido a la bóveda Obsidian del **Golden Standard** (GS). Esta base de cono
 4. Recompilar con `python generate_golden_audit.py`.
 
 ---
-*Bóveda auto-generada por el compilador `generate_golden_audit.py` el 2026-06-07.*
+*Bóveda auto-generada por el compilador `generate_golden_audit.py` el 2026-06-09.*
