@@ -6,27 +6,4 @@ catalogs:
   project_insights: golden_standard_project_insights.yaml
 description: >
   Golden Standard — Pure knowledge repository (agent-agnostic, project-agnostic).
-
-  GS contains: Marco Conceptual (epistemology, operations), and 4 structured YAML catalogs.
-
-structure:
-  patterns:
-    description: "Anti-patterns, vices, detected failures (agent-agnostic) [CONSOLIDATED -> deprecated]"
-    path: ../deprecated/Golden_Standard/Patterns/
-    catalogs:
-      - Coding_Vices (VC-xxx)
-      - Testing_Vices (TV-xxx)
-      - Tokenomics_Principles (TK-xxx)
-
-  # Legacy (Being migrated to pure structure)
-  legacy_catalogs:
-    coding_vices: golden_standard_coding_vices.yaml
-    testing_vices: golden_standard_testing_vices.yaml
-    tokenomics: golden_standard_tokenomics.yaml
-
-# Project-Specific (Ephemeral, Transitional)
-# NOT in GS. See ../project_insights/ for active transformations.
-project_insights:
-  status: "EXTERNAL (separate repository)"
-  path: ../project_insights/
-  description: "Raw learnings → Analysis → Promotion to GS (or Archive)"
+  This repository contains the structured catalogs mapping coding/testing vices, tokenomics, and project insights.

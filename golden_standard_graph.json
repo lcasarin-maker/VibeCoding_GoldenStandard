@@ -1,6 +1,6 @@
 {
   "generated_on": "2026-06-09",
-  "node_count": 374,
+  "node_count": 377,
   "edge_count": 1840,
   "nodes": [
     {
@@ -93,6 +93,39 @@
       "in_degree": 1,
       "out_degree": 1,
       "degree": 2
+    },
+    {
+      "id": "Inbox/cerberus/VC-142_structural_hygiene",
+      "path": "Inbox/cerberus/VC-142_structural_hygiene.md",
+      "title": "Proposal: VC-142 — Repositorio con código vigilado y estructura salvaje",
+      "kind": "inbox",
+      "outgoing": [],
+      "incoming": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0
+    },
+    {
+      "id": "Inbox/cerberus/fallos_concretos",
+      "path": "Inbox/cerberus/fallos_concretos.md",
+      "title": "Fallos Concretos (Rescued from HISTORICO_PROTOCOLO)",
+      "kind": "inbox",
+      "outgoing": [],
+      "incoming": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0
+    },
+    {
+      "id": "Inbox/cerberus/global_learning_legacy",
+      "path": "Inbox/cerberus/global_learning_legacy.md",
+      "title": "Legacy Global Learning (Rescued from HISTORICO_PROTOCOLO)",
+      "kind": "inbox",
+      "outgoing": [],
+      "incoming": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0
     },
     {
       "id": "Inbox/external/README",
@@ -18378,7 +18411,41 @@
         "degree": 0
       }
     ],
-    "orphan_candidates": [],
+    "orphan_candidates": [
+      {
+        "id": "Inbox/cerberus/VC-142_structural_hygiene",
+        "path": "Inbox/cerberus/VC-142_structural_hygiene.md",
+        "title": "Proposal: VC-142 — Repositorio con código vigilado y estructura salvaje",
+        "kind": "inbox",
+        "outgoing": [],
+        "incoming": [],
+        "in_degree": 0,
+        "out_degree": 0,
+        "degree": 0
+      },
+      {
+        "id": "Inbox/cerberus/fallos_concretos",
+        "path": "Inbox/cerberus/fallos_concretos.md",
+        "title": "Fallos Concretos (Rescued from HISTORICO_PROTOCOLO)",
+        "kind": "inbox",
+        "outgoing": [],
+        "incoming": [],
+        "in_degree": 0,
+        "out_degree": 0,
+        "degree": 0
+      },
+      {
+        "id": "Inbox/cerberus/global_learning_legacy",
+        "path": "Inbox/cerberus/global_learning_legacy.md",
+        "title": "Legacy Global Learning (Rescued from HISTORICO_PROTOCOLO)",
+        "kind": "inbox",
+        "outgoing": [],
+        "incoming": [],
+        "in_degree": 0,
+        "out_degree": 0,
+        "degree": 0
+      }
+    ],
     "hubs": [
       {
         "id": "Vices_Index",

@@ -10,10 +10,10 @@ Este grafo combina enlaces Obsidian, enlaces Markdown relativos y menciones expl
 
 | Métrica | Valor |
 |---|---:|
-| Nodos | 374 |
+| Nodos | 377 |
 | Aristas | 1840 |
 | Huérfanos intencionales | 3 |
-| Huérfanos candidatos | 0 |
+| Huérfanos candidatos | 3 |
 | Hubs | 15 |
 
 ---
@@ -121,7 +121,9 @@ Páginas dentro del surface live de GS que no reciben enlaces entrantes. Si algu
 
 | Nodo | Tipo | In | Out | Entradas | Salidas |
 |---|---|---:|---:|---|---|
-| — | — | 0 | 0 | — | — |
+| [[Inbox/cerberus/VC-142_structural_hygiene]] | `inbox` | 0 | 0 | — | — |
+| [[Inbox/cerberus/fallos_concretos]] | `inbox` | 0 | 0 | — | — |
+| [[Inbox/cerberus/global_learning_legacy]] | `inbox` | 0 | 0 | — | — |
 
 ---
 
