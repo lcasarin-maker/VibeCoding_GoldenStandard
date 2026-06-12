@@ -532,7 +532,7 @@ items:
   - prevented
   action: validate_gs_topology.py checks that Inbox is published, linked from Home,
     and backed by the ingestion protocol and templates.
-  validating_mechanism: validate_gs_topology.py
+  validating_mechanism: validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: text
   example_bad: |
@@ -976,7 +976,7 @@ items:
   action: validate_gs_topology.py checks that GS exposes separate canonical surfaces
     for Vices, Tokenomics, Project Insights, and the graph instead of one monolithic
     knowledge page.
-  validating_mechanism: validate_gs_topology.py
+  validating_mechanism: validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: text
   example_bad: |
@@ -1745,7 +1745,7 @@ items:
     (excluyendo no-code por extensión) y falla con "Archivo no registrado (Zombi)"
     si el archivo no está en la whitelist ni es un test legítimo. Upgrade 2026-06-04:
     VC-083 deja DOC_ONLY porque D1 ya lo verifica mecánicamente.'
-  validating_mechanism: audit_d1_integrity
+  validating_mechanism: D1Integrity
   downstream_verification: none
   example_lang: text
   example_bad: |
@@ -1882,7 +1882,7 @@ items:
   - prevented
   action: validate_gs_topology.py checks that the canonical memory surfaces are linked
     from Home, so the GS ledger can be loaded on entry.
-  validating_mechanism: validate_gs_topology.py
+  validating_mechanism: validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: text
   example_bad: |
@@ -2314,7 +2314,7 @@ items:
   - prevented
   action: validate_gs_topology.py checks that Tokenomics exposes its subindices and
     map from the index surface before the category can be treated as complete.
-  validating_mechanism: validate_gs_topology.py
+  validating_mechanism: validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: python
   example_bad: |
@@ -2565,7 +2565,7 @@ items:
   - prevented
   action: Prevented by D1 _audit_d1_zombie_compat scanning active scripts for zombie
     compatibility shim patterns.
-  validating_mechanism: audit_d1_integrity
+  validating_mechanism: D1Integrity
   downstream_verification: none
   example_lang: python
   example_bad: |
@@ -2819,17 +2819,17 @@ items:
     Hacer preflight antes de ejecutar: definir alcance, impactos y follow-ups
     fuera de alcance; si surge una mejora nueva tras ejecutar, convertirla en backlog
     explícito en lugar de seguir ampliando el turno.
-  status: PREVENTED
+  status: DOC_ONLY
   severity: medium
   tags:
   - vibe-coding
-  - prevented
+  - doc-only
   - governance
   action: >-
     CONTRIBUTING.md now requires a preflight with scope, impacts and out-of-scope
     follow-ups before execution; post-execution suggestions must be captured in backlog
     first.
-  validating_mechanism: CONTRIBUTING.md execution hygiene rule + issue-template preflight
+  validating_mechanism: DOC_ONLY
   downstream_verification: none
   example_lang: text
   example_bad: |
@@ -3304,7 +3304,7 @@ items:
     decidir en el working tree (modificado no-staged o untracked no-ignorado). La causa raiz
     del churn de artefactos auto-generados se neutraliza con escritura idempotente y auto-stage
     de una whitelist canonica. Escape consciente: env CERBERUS_ALLOW_PARTIAL=1.
-  validating_mechanism: check_clean_worktree
+  validating_mechanism: check_clean_worktree.py
   downstream_verification: none
   example_lang: bash
   example_bad: |
