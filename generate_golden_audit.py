@@ -1633,6 +1633,7 @@ def extract_catalog_items(config: dict, mapped_database: dict):
             "doctrinal": bool(item.get("doctrinal", False)),
             "alias_of": str(item.get("alias_of", "")).strip(),
             "detector": str(item.get("detector", "")).strip(),
+            "tier": str(item.get("tier", "extended")).strip(),
         }
 
 
