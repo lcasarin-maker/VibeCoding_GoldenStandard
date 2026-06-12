@@ -41,7 +41,7 @@ A structured, growing library of knowledge organized into four streams:
 ### 🔴 Vibe Coding Vices (`VC-xxx`)
 Antipatterns specific to AI-assisted development: improvised architecture, non-reversible solutions, ghost files, hardcoded paths, invisible technical debt accumulation.
 
-**141 entries** cataloged with severity, description, detection criteria, and mitigation.
+**151 entries** cataloged with severity, description, detection criteria, and mitigation.
 
 ### 🟡 Testing Vices (`VT-xxx`)
 Ways tests become "security theater": checking file existence instead of behavior, mocks with no real-world correspondence, tests that pass despite broken user flows.
@@ -112,7 +112,7 @@ VibeCoding_GoldenStandard/
 ├── CODE_OF_CONDUCT.md                     ← Community standards
 │
 ├── golden_standard.yaml                   ← Master index
-├── golden_standard_coding_vices.yaml      ← VC-xxx catalog (126 entries)
+├── golden_standard_coding_vices.yaml      ← VC-xxx catalog (151 entries)
 ├── golden_standard_testing_vices.yaml     ← VT-xxx catalog (115 entries)
 ├── golden_standard_tokenomics.yaml        ← Tokenomics principles
 ├── golden_standard_project_insights.yaml  ← Cross-cutting lessons
@@ -143,12 +143,12 @@ The knowledge is stored in human-readable YAML files:
 
 | File | Domain | Entries |
 |---|---|---|
-| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 141 |
+| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 151 |
 | `golden_standard_testing_vices.yaml` | Testing failures | 115 |
 | `golden_standard_tokenomics.yaml` | Token efficiency | 47 |
 | `golden_standard_project_insights.yaml` | Cross-cutting insights | 35 |
 
-**Total: 303 vices + 35 insights (338 entries).** Counts here are the source of truth and are validated against the YAML; the entries badge reflects the total number of flaws (303).
+**Total: 313 vices + 35 insights (348 entries).** Counts here are the source of truth and are validated against the YAML; the entries badge reflects the total number of flaws (313).
 
 Each entry includes:
 - **ID** (e.g., `VC-042`)

@@ -10,10 +10,10 @@ Este grafo combina enlaces Obsidian, enlaces Markdown relativos y menciones expl
 
 | Métrica | Valor |
 |---|---:|
-| Nodos | 377 |
-| Aristas | 1840 |
+| Nodos | 387 |
+| Aristas | 1893 |
 | Huérfanos intencionales | 3 |
-| Huérfanos candidatos | 3 |
+| Huérfanos candidatos | 0 |
 | Hubs | 15 |
 
 ---
@@ -24,7 +24,7 @@ El grafo ahora también resalta las entradas que siguen siendo principalmente do
 
 | Catálogo | VC DOC_ONLY | VT DOC_ONLY | TK DOC_ONLY |
 |---|---:|---:|---:|
-| `DOC_ONLY` | 100 | 0 | 12 |
+| `DOC_ONLY` | 101 | 0 | 12 |
 
 | ID | Título | Categoría | Severidad | Estado |
 |---|---|---|---|---|
@@ -36,7 +36,7 @@ El grafo ahora también resalta las entradas que siguen siendo principalmente do
 | `VC-136` | Memoria persistente envenenada o stale (cross-session) | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-139` | Confianza ciega en la salida del LLM (Insecure Output Handling) | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-001` | Incompetencia no asumida | `Vibe Coding` | `medium` | `DOC_ONLY` |
-| `VC-002` | Complacencia generativa | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-002` | confianza ciega | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-004` | Demo como calidad | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-005` | Prototipo convertido en deuda | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-006` | Estética como integridad | `Vibe Coding` | `medium` | `DOC_ONLY` |
@@ -49,7 +49,7 @@ Cada entrada se clasifica por profundidad: `deep` (trae ejemplos bad/good y rece
 
 | Profundidad | VC | VT | TK |
 |---|---:|---:|---:|
-| `deep` | 69 | 115 | 47 |
+| `deep` | 79 | 115 | 47 |
 | `stub` | 0 | 0 | 0 |
 | `doctrinal` | 70 | 0 | 0 |
 | `alias` | 2 | 0 | 0 |
@@ -64,8 +64,8 @@ GS distingue explícitamente qué entradas esperan verificación downstream y cu
 
 | Estado | VC | VT | TK |
 |---|---:|---:|---:|
-| `required` | 100 | 0 | 12 |
-| `none` | 41 | 115 | 35 |
+| `required` | 101 | 0 | 12 |
+| `none` | 50 | 115 | 35 |
 
 | ID | Título | Categoría | Downstream Verification |
 |---|---|---|---|
@@ -77,7 +77,7 @@ GS distingue explícitamente qué entradas esperan verificación downstream y cu
 | `VC-136` | Memoria persistente envenenada o stale (cross-session) | `Vibe Coding` | `required` |
 | `VC-139` | Confianza ciega en la salida del LLM (Insecure Output Handling) | `Vibe Coding` | `required` |
 | `VC-001` | Incompetencia no asumida | `Vibe Coding` | `required` |
-| `VC-002` | Complacencia generativa | `Vibe Coding` | `required` |
+| `VC-002` | confianza ciega | `Vibe Coding` | `required` |
 | `VC-004` | Demo como calidad | `Vibe Coding` | `required` |
 | `VC-005` | Prototipo convertido en deuda | `Vibe Coding` | `required` |
 | `VC-006` | Estética como integridad | `Vibe Coding` | `required` |
@@ -90,10 +90,10 @@ Páginas con mayor superficie de impacto. Si cambian, revisa primero sus enlaces
 
 | Nodo | Tipo | In | Out | Entradas | Salidas |
 |---|---|---:|---:|---|---|
-| [[Vices_Index]] | `wiki` | 257 | 257 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +251 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +251 more |
-| [[Home]] | `wiki` | 356 | 21 | [[Concepts/Marco_Conceptual]], [[Domains/D1]], [[Domains/D10]], [[Domains/D11]], [[Domains/D12]], [[Domains/D2]] +350 more | [[CONCEPTUAL_FRAMEWORK]], [[Concepts/Marco_Conceptual]], [[Inbox/README]], [[Project_Insights/PI-019]], [[Project_Insights/PI-020]], [[Project_Insights/PI-021]] +15 more |
-| [[Tokenomics_Map]] | `wiki` | 344 | 10 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +338 more | [[Home]], [[Project_Insights/PI-019]], [[Project_Insights_Index]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]] +4 more |
-| [[Project_Insights/PI-019]] | `insight` | 257 | 4 | [[Home]], [[Project_Insights_Index]], [[Tokenomics_Map]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]] +251 more | [[Home]], [[Project_Insights_Index]], [[Tokenomics_Map]], [[Vices/VC-124]] |
+| [[Vices_Index]] | `wiki` | 267 | 267 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +261 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +261 more |
+| [[Home]] | `wiki` | 366 | 21 | [[Concepts/Marco_Conceptual]], [[Domains/D1]], [[Domains/D10]], [[Domains/D11]], [[Domains/D12]], [[Domains/D2]] +360 more | [[CONCEPTUAL_FRAMEWORK]], [[Concepts/Marco_Conceptual]], [[Inbox/README]], [[Project_Insights/PI-019]], [[Project_Insights/PI-020]], [[Project_Insights/PI-021]] +15 more |
+| [[Tokenomics_Map]] | `wiki` | 354 | 10 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +348 more | [[Home]], [[Project_Insights/PI-019]], [[Project_Insights_Index]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]] +4 more |
+| [[Project_Insights/PI-019]] | `insight` | 267 | 4 | [[Home]], [[Project_Insights_Index]], [[Tokenomics_Map]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]] +261 more | [[Home]], [[Project_Insights_Index]], [[Tokenomics_Map]], [[Vices/VC-124]] |
 | [[Tokenomics_Index]] | `wiki` | 55 | 49 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +49 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +43 more |
 | [[Project_Insights_Index]] | `wiki` | 37 | 36 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +31 more | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +30 more |
 | [[Vices/VC-124]] | `vice` | 38 | 4 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +32 more | [[Home]], [[Project_Insights/PI-019]], [[Tokenomics_Map]], [[Vices_Index]] |
@@ -121,9 +121,7 @@ Páginas dentro del surface live de GS que no reciben enlaces entrantes. Si algu
 
 | Nodo | Tipo | In | Out | Entradas | Salidas |
 |---|---|---:|---:|---|---|
-| [[Inbox/cerberus/VC-142_structural_hygiene]] | `inbox` | 0 | 0 | — | — |
-| [[Inbox/cerberus/fallos_concretos]] | `inbox` | 0 | 0 | — | — |
-| [[Inbox/cerberus/global_learning_legacy]] | `inbox` | 0 | 0 | — | — |
+| — | — | 0 | 0 | — | — |
 
 ---
 
@@ -133,7 +131,7 @@ Nodos que enlazan a más de un tipo de página. Son útiles para navegar impacto
 
 | Nodo | Tipo | Tipos alcanzados | Salidas |
 |---|---|---|---:|
-| [[Vices_Index]] | `wiki` | `vice`, `wiki` | 257 |
+| [[Vices_Index]] | `wiki` | `vice`, `wiki` | 267 |
 | [[Tokenomics_Index]] | `wiki` | `tokenomics`, `wiki` | 49 |
 | [[Project_Insights_Index]] | `wiki` | `insight`, `wiki` | 36 |
 | [[Home]] | `wiki` | `concept`, `conceptual-framework`, `inbox`, `insight`, `root`, `tokenomics`, `vice`, `wiki` | 21 |

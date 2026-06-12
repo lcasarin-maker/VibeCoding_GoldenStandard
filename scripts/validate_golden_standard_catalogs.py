@@ -35,6 +35,7 @@ CATALOG_REQUIRED_FIELDS = (
     "action",
     "validating_mechanism",
     "downstream_verification",
+    "tier",
 )
 
 
@@ -88,6 +89,10 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
         severity = str(item.get("severity", "")).strip()
         if severity and severity not in ALLOWED_SEVERITIES:
             errors.append(f"{path}: {item_id or f'item {index}'} has unsupported severity {severity}.")
+
+        tier = str(item.get("tier", "")).strip()
+        if tier and tier not in {"core", "extended", "specialist"}:
+            errors.append(f"{path}: {item_id or f'item {index}'} has unsupported tier {tier}.")
 
         downstream_verification = str(item.get("downstream_verification", "")).strip()
         if not downstream_verification:

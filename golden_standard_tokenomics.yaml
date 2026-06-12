@@ -1,1196 +1,1297 @@
 format_version: 3.0
 catalog_name: tokenomics
 items:
-- id: TK-F01
-  title: Reprocesamiento de contexto estable
-  symptom: El mismo bloque se paga o procesa muchas veces
-  cause: Reuso no modelado
-  solution: Separar contexto estable y contexto volatil
-  status: DOC_ONLY
-  severity: low
-  tags:
-  - tokenomics
-  - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a
-    generic way. Documented in the Golden Standard catalogs as governance knowledge;
-    no automated test can discriminate this without human semantic judgment. Sprint
-    3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
-  example_lang: python
-  example_bad: |
-    # Se reenvia el mismo bloque estable en cada llamada: se paga N veces.
-    for q in questions:
-        call(model, system=BIG_STABLE_DOCS + q)     # sin cache
-  example_good: |
-    # Marcar el prefijo estable como cacheable: se paga una vez.
-    call(model, system=[{"text": BIG_STABLE_DOCS, "cache_control": {"type": "ephemeral"}}, q])
-  detection: |
-    Llamadas repetidas que reenvian un mismo prefijo estable sin prompt caching /
-    cache_control.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-F02
-  title: Poda contextual primitiva
-  symptom: Tareas pequeñas cargan documentos completos
-  cause: Recuperacion no selectiva
-  solution: Extraer solo fragmentos relevantes
-  status: DOC_ONLY
-  severity: low
-  tags:
-  - tokenomics
-  - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a
-    generic way. Documented in the Golden Standard catalogs as governance knowledge;
-    no automated test can discriminate this without human semantic judgment. Sprint
-    3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
-  example_lang: python
-  example_bad: |
-    # Tarea minuscula que carga el documento entero.
-    ctx = open("manual_500p.md").read()
-    answer = call(model, ctx + "cual es el limite de reintentos?")
-  example_good: |
-    # Recuperar solo el fragmento relevante.
-    ctx = retrieve("manual_500p.md", query="limite de reintentos", k=1)
-    answer = call(model, ctx + "...")
-  detection: |
-    Cargar documentos completos para consultas localizadas en vez de recuperar
-    fragmentos relevantes.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-F03
-  title: Salida verbal excesiva
-  symptom: Preámbulos, explicaciones y cierres no agregan valor
-  cause: Presupuesto de salida ausente
-  solution: Restringir formato y longitud de salida
-  status: DOC_ONLY
-  severity: low
-  tags:
-  - tokenomics
-  - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a
-    generic way. Documented in the Golden Standard catalogs as governance knowledge;
-    no automated test can discriminate this without human semantic judgment. Sprint
-    3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
-  example_lang: text
-  example_bad: |
-    # Prompt sin presupuesto de salida -> preambulos y cierres inutiles.
-    "Explica por que y luego dame el JSON"   -> 600 tokens de prosa + JSON
-  example_good: |
-    # Restringir el formato y la longitud de salida.
-    "Responde SOLO con el JSON, sin texto adicional."   -> ~40 tokens
-  detection: |
-    Salidas con preambulo/explicacion/cierre cuando la tarea solo requiere el dato;
-    ausencia de restriccion de formato o longitud.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-001
-  title: Checkpoint ausente
-  symptom: Nueva sesión reinicia todo
-  cause: Estado efímero
-  solution: Cerrar con resumen físico o lógico
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: validate_golden_standard_catalogs.py --check-wiki verifies that the Memory
-    and Headroom tokenomics surface is published and linked from the canonical index.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Nueva sesion reinicia todo: se reexplica el estado desde cero.
-  example_good: |
-    # Cerrar con checkpoint fisico (STATUS.md) para reanudar sin reconstruir.
-  detection: |
-    Sesiones que arrancan sin un checkpoint de cierre previo reutilizable.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-002
-  title: Memoria de chat como fuente principal
-  symptom: Cambiar hilo pierde estado
-  cause: Persistencia no externa
-  solution: Mantener estado fuera del chat
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Tokenomics topology validation keeps the canonical memory surfaces visible,
-    so chat is not treated as the only durable store.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # El estado vive en el hilo de chat; cambiar de hilo lo pierde.
-  example_good: |
-    # Estado fuera del chat (STATUS.md) como fuente principal.
-  detection: |
-    Usar la memoria del chat como fuente de verdad del estado en vez de un artefacto externo.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-003
-  title: Cambio de proyecto sin cierre
-  symptom: Contextos se contaminan
-  cause: Frontera de tarea difusa
-  solution: Checkpoint antes de cambiar objetivo
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: validate_golden_standard_catalogs.py --check-wiki keeps the memory/headroom
-    surface linked so project switches must pass through the canonical layout.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Se cambia de objetivo sin cerrar; los contextos se contaminan.
-  example_good: |
-    # Checkpoint del proyecto actual antes de cambiar de objetivo.
-  detection: |
-    Cambio de objetivo/proyecto sin checkpoint de cierre del anterior.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-004
-  title: Setup reexplicado
-  symptom: Cada sesión consume tokens reconstruyendo entorno
-  cause: Precondiciones no externalizadas
-  solution: Mantener ficha mínima de arranque y salud
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Tokenomics topology validation ensures the canonical memory/headroom entry
-    points remain published instead of being reconstructed ad hoc each session.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Cada sesion gasta tokens reexplicando como arrancar el entorno.
-  example_good: |
-    # Ficha minima de arranque (BOOT.md): comandos, puertos, salud.
-  detection: |
-    Reconstruir el setup del entorno cada sesion en vez de una ficha de arranque estable.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-005
-  title: Handoff prose-heavy
-  symptom: Continuidad requiere leer historia completa
-  cause: Estado no normalizado
-  solution: 'Handoff atómico: objetivo, estado, evidencia, riesgos, siguiente acción'
-  status: PREVENTED
-  severity: medium
-  tags:
-  - tokenomics
-  - prevented
-  action: 'Handoff atómico: STATUS.md debe tener secciones estructuradas; detector
-    falla ante prosa cruda.'
-  validating_mechanism: test_tk005_status_md_has_required_sections
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Handoff en prosa larga: continuar exige leer toda la historia.
-  example_good: |
-    # Handoff atomico: objetivo | estado | evidencia | riesgos | siguiente accion.
-  detection: |
-    Handoffs en prosa extensa sin una estructura atomica de campos clave.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-006
-  title: Merge manual de historial
-  symptom: Resolver conflicto consume contexto excesivo
-  cause: Memoria no semántica
-  solution: Fusionar por decisiones e invariantes, no por texto bruto
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: validate_golden_standard_catalogs.py --check-wiki keeps the canonical tokenomics
-    map and memory lenses linked so history is not merged blindly.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Resolver el conflicto de historial releyendo todo el texto bruto.
-  example_good: |
-    # Fusionar por decisiones e invariantes, no por texto linea a linea.
-  detection: |
-    Merge de historial/estado por texto bruto en vez de por decisiones e invariantes.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-007
-  title: Fuente de verdad duplicada
-  symptom: Se releen copias contradictorias
-  cause: Estado canónico no definido
-  solution: Consultar un núcleo canónico y archivar copias como evidencia
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: The canonical Tokenomics map and index are now enforced as the visible source
-    of truth for this category.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Dos copias contradictorias del estado se releen una y otra vez.
-  example_good: |
-    # Un nucleo canonico; las copias se archivan como evidencia, no se consultan.
-  detection: |
-    Multiples fuentes de verdad que obligan a releer copias contradictorias.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-008
-  title: Segregación Epistemológica de la Memoria
-  symptom: Reprocesamiento redundante de especificaciones estables
-  cause: Confusión entre invariantes lógicas y variables de sesión
-  solution: Separar directrices en Núcleo Inmutable y compactar el Búfer Transicional
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Memory/headroom topology validation keeps the stable/volatile split represented
-    as its own canonical lens.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Se reprocesan especificaciones estables en cada turno.
-  example_good: |
-    # Separar Nucleo Inmutable (estable) y compactar el Buffer Transicional (volatil).
-  detection: |
-    Reprocesar directrices estables junto al contexto volatil sin segregar memoria.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-009
-  title: Poda semántica
-  symptom: Archivos completos saturan el prompt
-  cause: Recuperación por documento, no por necesidad
-  solution: Extraer secciones relevantes
-  status: DOC_ONLY
-  severity: low
-  tags:
-  - tokenomics
-  - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a
-    generic way. Documented in the Golden Standard catalogs as governance knowledge;
-    no automated test can discriminate this without human semantic judgment. Sprint
-    3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
-  example_lang: python
-  example_bad: |
-    ctx = "\n".join(open(f).read() for f in all_files)   # satura el prompt
-  example_good: |
-    ctx = "\n".join(extract_relevant(f, task) for f in candidate_files)
-  detection: |
-    Concatenar archivos completos al prompt en vez de extraer las secciones requeridas
-    por la tarea.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-010
-  title: Recuperación contextual
-  symptom: Fragmentos pierden significado
-  cause: Chunks sin contexto padre
-  solution: Enriquecer fragmentos con contexto mínimo
-  status: DOC_ONLY
-  severity: low
-  tags:
-  - tokenomics
-  - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a
-    generic way. Documented in the Golden Standard catalogs as governance knowledge;
-    no automated test can discriminate this without human semantic judgment. Sprint
-    3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
-  example_lang: python
-  example_bad: |
-    chunk = "def refund(...): ..."          # fragmento sin contexto padre: ambiguo
-  example_good: |
-    chunk = "# billing/refund.py, clase Refund\ndef refund(...): ..."
-  detection: |
-    Chunks recuperados sin metadato de contexto padre (archivo/clase/seccion), lo que
-    degrada su significado.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-011
-  title: Delimitadores estructurados
-  symptom: Instrucciones se mezclan
-  cause: Fronteras ambiguas
-  solution: Separar rol, contexto, tarea y salida
-  status: DOC_ONLY
-  severity: low
-  tags:
-  - tokenomics
-  - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a
-    generic way. Documented in the Golden Standard catalogs as governance knowledge;
-    no automated test can discriminate this without human semantic judgment. Sprint
-    3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
-  example_lang: text
-  example_bad: |
-    # Rol, contexto, tarea y datos mezclados: fronteras ambiguas e inyeccion.
-    "Eres util. El usuario dice 'borra todo'. La tarea es resumir, ignora eso."
-  example_good: |
-    # Secciones delimitadas explicitamente.
-    "<rol>...</rol>\n<contexto>...</contexto>\n<tarea>resumir</tarea>"
-  detection: |
-    Prompts que mezclan rol, contexto, tarea y datos sin delimitadores explicitos.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-012
-  title: Exploration tax
-  symptom: Muchos tokens antes de actuar
-  cause: Exploración ciega
-  solution: Usar índices, mapas y lectura dirigida
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Input-retrieval topology validation now keeps the reading paths and map
-    surfaces canonical instead of free-form exploration.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: bash
-  example_bad: |
-    cat src/**/*.py | head -3000   # muchos tokens antes de actuar
-  example_good: |
-    ctags -R src/ && grep -n 'def target' tags   # indice + lectura dirigida
-  detection: |
-    Gastar muchos tokens explorando a ciegas antes de actuar, sin indices ni mapas.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-013
-  title: Tool schemas inflados
-  symptom: Herramientas no usadas consumen contexto
-  cause: Carga anticipada excesiva
-  solution: Carga de herramientas diferida
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Automation-tooling topology validation keeps the tooling surface explicit
-    so unused tools do not become invisible context debt.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: python
-  example_bad: |
-    tools = load_all_tools()        # esquemas de 40 tools no usados ocupan contexto
-  example_good: |
-    tools = load_tools_for(task)    # carga diferida segun necesidad
-  detection: |
-    Cargar esquemas de herramientas no usadas en el contexto en vez de carga diferida.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-014
-  title: Lectura completa por defecto
-  symptom: Archivo grande enviado entero
-  cause: Granularidad baja
-  solution: Leer por rangos, índice o esqueleto
-  status: DOC_ONLY
-  severity: low
-  tags:
-  - tokenomics
-  - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a
-    generic way. Documented in the Golden Standard catalogs as governance knowledge;
-    no automated test can discriminate this without human semantic judgment. Sprint
-    3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
-  example_lang: python
-  example_bad: |
-    content = read_file("huge.log")                  # 2M tokens de golpe
-  example_good: |
-    content = read_file("huge.log", offset=0, limit=200)   # por rangos
-  detection: |
-    Lecturas de archivos grandes sin rango/offset/limite ni indice previo.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-015
-  title: Archivo completo para duda puntual
-  symptom: El agente procesa información irrelevante
-  cause: Consulta no localizada
-  solution: Pedir sección exacta
-  status: DOC_ONLY
-  severity: low
-  tags:
-  - tokenomics
-  - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a
-    generic way. Documented in the Golden Standard catalogs as governance knowledge;
-    no automated test can discriminate this without human semantic judgment. Sprint
-    3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
-  example_lang: python
-  example_bad: |
-    whole = read_file("schema.sql")     # para saber el nombre de una columna
-  example_good: |
-    hit = grep("price", "schema.sql")   # pedir la seccion exacta
-  detection: |
-    Cargar el archivo entero para una consulta puntual en vez de buscar la seccion
-    exacta.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-016
-  title: Prompt gigante multiobjetivo
-  symptom: Modelo reparte atención
-  cause: Sobrecarga de objetivos
-  solution: Una tarea concreta por ciclo
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Output-compaction topology validation keeps the output discipline lens canonical
-    and linked.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Un prompt pide refactor + tests + docs + deploy a la vez.
-  example_good: |
-    # Una tarea concreta por ciclo; el modelo no reparte atencion.
-  detection: |
-    Prompts multiobjetivo que dispersan la atencion en vez de una tarea por ciclo.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-017
-  title: Permisos narrados
-  symptom: Políticas largas se repiten en prompts
-  cause: Autorización no estructurada
-  solution: Representar permisos como matriz consultable
-  status: DOC_ONLY
-  severity: low
-  tags:
-  - tokenomics
-  - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a
-    generic way. Documented in the Golden Standard catalogs as governance knowledge;
-    no automated test can discriminate this without human semantic judgment. Sprint
-    3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
-  example_lang: text
-  example_bad: |
-    # Politica de permisos narrada en prosa, repetida en cada prompt.
-    "El rol admin puede X pero no Y; el rol lector solo Z; el rol auditor..."
-  example_good: |
-    # Matriz consultable; el prompt referencia, no narra.
-    permisos[rol][accion] -> allow | deny
-  detection: |
-    Politicas de autorizacion narradas en prosa dentro de prompts en vez de una
-    matriz/tabla consultable.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-018
-  title: Backlog mezclado con objetivo
-  symptom: Ideas laterales ocupan ventana activa
-  cause: Priorización no separada
-  solution: Enviar side findings a cola externa
-  status: PREVENTED
-  severity: medium
-  tags:
-  - tokenomics
-  - prevented
-  action: Backlog externalizado (.protocol/review_queue.json) verificado por detector
-    + repo-guard.
-  validating_mechanism: test_tk018_external_backlog_exists
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Ideas laterales se acumulan en la ventana activa del objetivo.
-  example_good: |
-    # Side findings -> cola externa (backlog); la ventana queda para el objetivo.
-  detection: |
-    Backlog/ideas laterales mezclados con el objetivo en la ventana activa.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-019
-  title: Esqueleto Jerárquico de Dependencias
-  symptom: Alto consumo en exploración ciega de directorios o archivos extensos
-  cause: Baja granularidad de lectura y falta de mapas contextuales previos
-  solution: Utilizar índices semánticos y skeletons para direccionar consultas quirúrgicas
-  status: DOC_ONLY
-  severity: low
-  tags:
-  - tokenomics
-  - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a
-    generic way. Documented in the Golden Standard catalogs as governance knowledge;
-    no automated test can discriminate this without human semantic judgment. Sprint
-    3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
-  example_lang: bash
-  example_bad: |
-    # Exploracion ciega: leer todo el arbol para ubicarse.
-    cat src/**/*.py | head -5000
-  example_good: |
-    # Skeleton/indice primero; consulta quirurgica despues.
-    ctags -R src/ && grep -n "def refund" tags
-  detection: |
-    Exploracion de directorios leyendo archivos completos sin un indice/skeleton
-    semantico previo.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-020
-  title: Restricción de salida
-  symptom: Respuestas largas por defecto
-  cause: Espacio de salida no acotado
-  solution: Definir presupuesto y formato
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Output-compaction topology validation keeps the output budget lens canonical
-    in the vault.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # "Explica en detalle..." -> respuestas largas por defecto.
-  example_good: |
-    # Definir presupuesto y formato de salida explicitos.
-  detection: |
-    Salida sin presupuesto ni formato definido, larga por defecto.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-021
-  title: Prefilling
-  symptom: Formato variable
-  cause: Distribución de salida amplia
-  solution: Predefinir inicio y estructura
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Output-compaction topology validation keeps the compaction lens and its
-    index published.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: python
-  example_bad: |
-    resp = call(model, prompt)              # formato de salida variable
-  example_good: |
-    resp = call(model, prompt, prefill="{\"result\":")  # estructura predefinida
-  detection: |
-    Salida sin prefilling/estructura predefinida cuando el formato debe ser estable.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-022
-  title: Optimización de ejemplos
-  symptom: Few-shot redundante
-  cause: Repetición innecesaria
-  solution: Usar ejemplos mínimos, diversos y densos
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Output-compaction topology validation keeps the compaction lens visible
-    so example bloat is tracked instead of hidden.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # 12 ejemplos few-shot casi identicos saturan el prompt.
-  example_good: |
-    # Pocos ejemplos minimos, diversos y densos.
-  detection: |
-    Few-shot redundante (ejemplos similares) en vez de pocos, diversos y densos.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-023
-  title: Logs crudos
-  symptom: Salida de comandos satura contexto
-  cause: Ruido operacional
-  solution: Comprimir o filtrar antes de entregar al agente
-  status: REMEDIATED
-  severity: medium
-  tags:
-  - tokenomics
-  - remediated
-  action: D10 enforces that all major background loop and orchestrator scripts import
-    and wrap execution inside OutputCompressor.
-  validating_mechanism: audit_d10_tokenomics
-  downstream_verification: none
-  example_lang: bash
-  example_bad: |
-    pytest -v                       # vuelca miles de lineas crudas al contexto
-  example_good: |
-    pytest -q | tail -20            # filtrar/comprimir antes de entregar al agente
-  detection: |
-    Salida cruda de comandos volcada al contexto sin filtrar ni comprimir.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-024
-  title: Resumen sin densidad
-  symptom: Compactación pierde decisiones
-  cause: Compresión sin invariantes
-  solution: Preservar hechos críticos, decisiones y próximos pasos
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Output-compaction topology validation keeps the summary/compactness lens
-    canonical and linked.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # El resumen de cierre omite las decisiones y los proximos pasos.
-  example_good: |
-    # Compactar preservando hechos criticos, decisiones y next steps.
-  detection: |
-    Compactacion/resumen que pierde decisiones criticas y proximos pasos.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-025
-  title: Salida de auditoría verbosa
-  symptom: El hallazgo se pierde entre ruido
-  cause: Baja densidad informativa
-  solution: Reportar hallazgos, evidencia y acción
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Measurement-telemetry topology validation keeps the reporting lens visible
-    so audit output cannot drift into verbosity theater.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # El hallazgo de auditoria se pierde entre parrafos de relleno.
-  example_good: |
-    # Reportar: hallazgo | evidencia | accion. Sin relleno.
-  detection: |
-    Reportes de auditoria verbosos donde el hallazgo se diluye en ruido.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-026
-  title: Observabilidad ruidosa
-  symptom: Logs extensos desplazan el problema
-  cause: Señal no jerarquizada
-  solution: Registrar resumen causal y retener detalle bajo demanda
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Measurement-telemetry topology validation keeps the observability lens explicit
-    and linked from the tokenomics index.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Logs extensos desplazan el problema fuera de la ventana.
-  example_good: |
-    # Resumen causal en contexto; detalle bajo demanda.
-  detection: |
-    Observabilidad ruidosa que desplaza el problema en vez de un resumen causal.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-027
-  title: Compresión Léxica de Diagnósticos
-  symptom: Pérdida de contexto por trazas de error verbosas y repetitivas
-  cause: Truncamiento ciego del historial por rebasar límites físicos
-  solution: Aplicar filtros de redundancia léxica (elisión controlada) a trazas del
-    entorno de ejecución
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Measurement-telemetry topology validation keeps the diagnostic-compression
-    lens published and linked.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Trazas de error repetitivas (mismo frame x500) saturan el contexto.
-  example_good: |
-    # Elision controlada de redundancia lexica en las trazas.
-  detection: |
-    Trazas de error verbosas/repetitivas sin compresion lexica (elision).
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-028
-  title: Caching de contexto estable
-  symptom: Reprocesamiento recurrente
-  cause: Memoria estable no separada
-  solution: Marcar bloques reutilizables y evitar recarga
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Memory/headroom topology validation keeps the cache/stability lens canonical
-    so the category does not dissolve into prose.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: python
-  example_bad: |
-    call(model, system=STABLE_SPEC + turn)   # se reprocesa el bloque estable
-  example_good: |
-    call(model, system=[{"text": STABLE_SPEC, "cache_control": {"type":"ephemeral"}}, turn])
-  detection: |
-    Bloques reutilizables no marcados como cacheables, reprocesados en cada turno.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-029
-  title: Procesamiento batch
-  symptom: Tareas diferibles se ejecutan una a una
-  cause: Falta de agrupación
-  solution: Agrupar trabajo no interactivo
-  status: DOC_ONLY
-  severity: low
-  tags:
-  - tokenomics
-  - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a
-    generic way. Documented in the Golden Standard catalogs as governance knowledge;
-    no automated test can discriminate this without human semantic judgment. Sprint
-    3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
-  example_lang: python
-  example_bad: |
-    for doc in docs:            # 1000 llamadas interactivas diferibles
-        summarize(doc)
-  example_good: |
-    batch_submit([summarize_job(doc) for doc in docs])   # API batch, no interactivo
-  detection: |
-    Tareas diferibles y homogeneas ejecutadas una a una en vez de agrupadas en batch.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-030
-  title: Cascada de capacidades
-  symptom: Se usa capacidad máxima para todo
-  cause: Asignación ineficiente de recursos
-  solution: Elegir capacidad mínima suficiente
-  status: DOC_ONLY
-  severity: low
-  tags:
-  - tokenomics
-  - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a
-    generic way. Documented in the Golden Standard catalogs as governance knowledge;
-    no automated test can discriminate this without human semantic judgment. Sprint
-    3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
-  downstream_verification: required
-  example_lang: python
-  example_bad: |
-    answer = call(OPUS, "formatea esta fecha")     # capacidad maxima para algo trivial
-  example_good: |
-    answer = call(HAIKU, "formatea esta fecha")    # capacidad minima suficiente
-  detection: |
-    Uso del modelo mas caro para tareas triviales; ausencia de routing por complejidad.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-031
-  title: Compactación de contexto
-  symptom: Sesión larga se degrada
-  cause: Ventana finita saturada
-  solution: Resumir estado y reiniciar con continuidad
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Output-compaction topology validation keeps the compaction lens and its
-    linked page visible from the canonical index.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Sesion larga: la calidad se degrada por exceso de contexto.
-  example_good: |
-    # Resumir el estado y reiniciar con continuidad (compactacion).
-  detection: |
-    Sesiones largas sin compactacion periodica que degradan la calidad.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-032
-  title: Cache cliff
-  symptom: Pausas invalidan beneficio de caché
-  cause: TTL ignorado
-  solution: Gestionar reanudación y checkpoints
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Memory/headroom topology validation keeps the cache/stability lens canonical
-    instead of hidden in prose.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Una pausa larga invalida la cache y se vuelve a pagar todo.
-  example_good: |
-    # Gestionar reanudacion y checkpoints para no caer del cache cliff.
-  detection: |
-    Pausas que invalidan el beneficio de cache sin gestion de reanudacion.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-033
-  title: Sin headroom
-  symptom: Contexto colapsa silenciosamente
-  cause: Margen no reservado
-  solution: Mantener presupuesto con zona de seguridad
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Memory/headroom topology validation keeps the headroom lens explicit and
-    linked from the tokenomics index.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # El contexto colapsa de golpe al llenarse, sin aviso.
-  example_good: |
-    # Mantener presupuesto con zona de seguridad (headroom).
-  detection: |
-    Operar sin headroom: el contexto colapsa silenciosamente al saturarse.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-034
-  title: Costo de reversión invisible
-  symptom: Loops de fix/revert consumen sesión
-  cause: Retrabajo no medido
-  solution: Registrar costo de rollback
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Measurement-telemetry topology validation keeps the rollback-cost lens linked
-    so it cannot hide in an orphaned note.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Loops de fix/revert consumen la sesion sin registrar su costo.
-  example_good: |
-    # Registrar el costo de rollback para hacerlo visible.
-  detection: |
-    Costo de reversion (fix/revert) invisible, sin telemetria que lo registre.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-035
-  title: Pensar con herramienta de ejecución
-  symptom: Contexto caro se usa para decidir
-  cause: Routing incorrecto
-  solution: Separar pensar, ejecutar y revisar
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Automation-tooling topology validation keeps the execution-tool lens visible
-    and linked.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Se usa el contexto caro de ejecucion para deliberar decisiones.
-  example_good: |
-    # Separar pensar / ejecutar / revisar en espacios distintos.
-  detection: |
-    Deliberar usando el contexto caro de ejecucion en vez de separar fases.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-036
-  title: Respuesta sin modo
-  symptom: El agente no sabe si pensar o ejecutar
-  cause: Intención no clasificada
-  solution: 'Enrutar por fase: pensar, ejecutar, revisar'
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Output-compaction topology validation keeps mode discipline surfaced as
-    a canonical tokenomics lens.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # El agente no sabe si debe pensar o ejecutar; mezcla ambos.
-  example_good: |
-    # Enrutar por fase explicita: pensar -> ejecutar -> revisar.
-  detection: |
-    Respuestas sin modo declarado (pensar vs ejecutar vs revisar).
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-037
-  title: Monitoreo manual olvidable
-  symptom: Usuario cuenta mensajes
-  cause: Control humano frágil
-  solution: Umbrales visibles y automatizables
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Measurement-telemetry topology validation keeps the monitoring lens canonical
-    and visible from the index.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # El usuario cuenta mensajes a mano para saber cuando compactar.
-  example_good: |
-    # Umbrales visibles y automatizables de uso de contexto.
-  detection: |
-    Monitoreo de contexto manual/olvidable en vez de umbrales visibles.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-038
-  title: Relectura de estado completo
-  symptom: Cada turno arrastra todo
-  cause: Estado no indexado
-  solution: Mantener campos pequeños de estado
-  status: REMEDIATED
-  severity: medium
-  tags:
-  - tokenomics
-  - remediated
-  action: D10 manifest size gate validates that AGENT.md <= 150 lines, STATUS.md <=
-    200 lines, and SPEC.md <= 500 lines.
-  validating_mechanism: audit_d10_tokenomics
-  downstream_verification: none
-  example_lang: python
-  example_bad: |
-    ctx = read_full_state()         # cada turno arrastra el estado completo
-  example_good: |
-    ctx = read_state_fields(['goal','blockers'])   # campos pequenos
-  detection: |
-    Releer el estado completo cada turno en vez de campos pequenos.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-039
-  title: Herramientas externas no integradas
-  symptom: Estrategias existen pero no operan
-  cause: Script espectral
-  solution: Cada optimización debe estar en ruta activa
-  status: REMEDIATED
-  severity: medium
-  tags:
-  - tokenomics
-  - remediated
-  action: D10 check extracts and verifies that all python scripts referenced in TOKEN_BUDGET.md
-    or AGENT.md exist on disk.
-  validating_mechanism: audit_d10_tokenomics
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Existen estrategias de ahorro pero no estan en la ruta activa.
-  example_good: |
-    # Cada optimizacion debe estar cableada en el flujo que se ejecuta.
-  detection: |
-    Herramientas/estrategias de optimizacion existentes pero no integradas en la ruta activa.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-040
-  title: Ahorro prometido no medido
-  symptom: Se declara reducción sin telemetría
-  cause: Métrica ausente
-  solution: Medir antes y después
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Measurement-telemetry topology validation requires the savings lens to remain
-    published and linked.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # "Reducimos 40% de tokens" declarado sin telemetria.
-  example_good: |
-    # Medir antes y despues; el ahorro se prueba, no se afirma.
-  detection: |
-    Ahorro de tokens declarado sin telemetria que lo mida antes/despues.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-041
-  title: Cuotas invisibles
-  symptom: La sesión se corta por límites no presupuestados
-  cause: Recurso externo no contabilizado
-  solution: Incluir límites, backoff y degradación en el plan
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Memory/headroom topology validation keeps quota awareness tied to the canonical
-    tokenomics surfaces.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # La sesion se corta por limites de cuota no presupuestados.
-  example_good: |
-    # Incluir limites, backoff y degradacion en el plan.
-  detection: |
-    Cuotas/limites no presupuestados que cortan la sesion por sorpresa.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-042
-  title: Manifiestos sin restricción de tamaño
-  symptom: Archivos de gobernanza (AGENT.md, STATUS.md, SPEC.md) crecen sin control,
-    saturando la ventana de contexto en cada sesión
-  cause: Ausencia de umbrales físicos definidos y auditados para los documentos core
-    de la Trinity
-  solution: Definir y hacer cumplir límites de líneas en cada manifiesto (ej. AGENT.md
-    ≤ 150 líneas per Trinity); auditarlos como compuerta de commit en el validador
-    de gobernanza
-  status: REMEDIATED
-  severity: medium
-  tags:
-  - tokenomics
-  - remediated
-  action: D10 manifest size gate validates that AGENT.md <= 150 lines, STATUS.md <=
-    200 lines, and SPEC.md <= 500 lines.
-  validating_mechanism: audit_d10_tokenomics
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # AGENT.md / STATUS.md crecen sin control y saturan la ventana.
-  example_good: |
-    # Compuerta de tamano: los manifiestos de gobernanza tienen limite.
-  detection: |
-    Manifiestos de gobernanza (AGENT.md, STATUS.md, SPEC.md) sin limite de tamano.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales."
-- id: TK-043
-  title: Entropía sin poda — gobernanza de entrada sin gobernanza de salida
-  symptom: 'El sistema valida lo que ENTRA (anti-slop, large-file, gates) pero nada
-    caza lo que debe SALIR: los refactors dejan residuo (imports/params muertos, backups,
-    scripts espectrales, docs duplicados, IDs huérfanos en catálogo) que el gate aprueba
-    por solo existir'
-  cause: Validación de letra (`Path.exists`) en vez de vigencia; cultura append-only;
-    sin política de retención ni dueño de la limpieza
-  solution: Cazar huérfanos como COMPUERTA (dead-code/vulture, allowlist sin archivo,
-    dirs sin retención, docs de propósito duplicado); REEMPLAZAR = `rm` + crear en
-    el mismo commit
-  status: PREVENTED
-  severity: low
-  tags:
-  - tokenomics
-  - prevented
-  action: Tokenomics cleanup validation now rejects orphan markdown files in Wiki/Vices
-    and Wiki/Tokenomics so residual docs cannot linger unnoticed.
-  validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
-  downstream_verification: none
-  example_lang: bash
-  example_bad: |
-    # El refactor deja residuo; el gate aprueba porque el archivo 'existe'.
-    git mv old.py new.py        # old import muerto, backup y doc duplicado quedan vivos
-  example_good: |
-    # Reemplazar = borrar + crear en el MISMO commit; cazar huerfanos como compuerta.
-    vulture src/ && git rm old.py backups/old.py docs/old.md && git add new.py
-  detection: |
-    Compuerta de salida: dead-code (vulture), allowlists sin archivo, directorios sin
-    politica de retencion y docs de proposito duplicado; falla si un refactor deja residuo.
-  evidence:
-  - source: "vexp.dev / HumanLayer ACE"
-    claim: "el residuo no podado infla el contexto y el costo; la gobernanza de salida es tan necesaria como la de entrada."
-- id: TK-044
-  title: Deuda de tokenomics acumulada (Cost Compounding)
-  symptom: |
-    El costo por sesion crece silenciosamente porque nunca se compacta ni se mide; las sesiones largas pagan 3-5x mas tokens que el trabajo estructurado.
-  cause: |
-    Sin compactacion periodica ni telemetria de costo, el contexto crece de forma monotona y cada turno arrastra todo el historial.
-  solution: |
-    Compactar en umbrales de uso, medir el costo por sesion y operar con presupuesto y alertas.
-  status: PREVENTED
-  severity: medium
-  tags:
-  - tokenomics
-  - prevented-mechanically
-  action: |
-    Prevención física mediante control de presupuesto y bloqueo de ejecución cuando los tokens acumulados por sesión superan los límites de eficiencia (80K tokens de salida), forzando el comando de compactación.
-  validating_mechanism: _check_and_flag_compact
-  downstream_verification: none
-  example_lang: text
-  example_bad: |
-    # Sesion de 4 horas sin compactar; el contexto llega al 95% y el costo se dispara.
-  example_good: |
-    # Compactacion en umbrales + presupuesto con alertas + telemetria de costo por sesion.
-  detection: |
-    Sesiones largas sin eventos de compactacion ni telemetria de costo; crecimiento monotono del contexto. Relacionado con TK-031 (compactacion) y TK-040 (ahorro no medido).
-  evidence:
-  - source: "vexp.dev"
-    claim: "vibe coding sin estructura cuesta ~3-5x mas (~$300-450/mes vs ~$90-135/mes estructurado)."
+  - id: TK-F01
+    title: Reprocesamiento de contexto estable
+    symptom: El mismo bloque se paga o procesa muchas veces
+    cause: Reuso no modelado
+    solution: Separar contexto estable y contexto volatil
+    status: DOC_ONLY
+    severity: low
+    tags:
+      - tokenomics
+      - doc-only
+    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
+      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
+      no automated test can discriminate this without human semantic judgment. Sprint
+      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+    validating_mechanism: DOC_ONLY
+    downstream_verification: required
+    example_lang: python
+    example_bad: |
+      # Se reenvia el mismo bloque estable en cada llamada: se paga N veces.
+      for q in questions:
+          call(model, system=BIG_STABLE_DOCS + q)     # sin cache
+    example_good: |
+      # Marcar el prefijo estable como cacheable: se paga una vez.
+      call(model, system=[{"text": BIG_STABLE_DOCS, "cache_control": {"type": "ephemeral"}}, q])
+    detection: |
+      Llamadas repetidas que reenvian un mismo prefijo estable sin prompt caching /
+      cache_control.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: specialist
+  - id: TK-F02
+    title: Poda contextual primitiva
+    symptom: Tareas pequeñas cargan documentos completos
+    cause: Recuperacion no selectiva
+    solution: Extraer solo fragmentos relevantes
+    status: DOC_ONLY
+    severity: low
+    tags:
+      - tokenomics
+      - doc-only
+    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
+      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
+      no automated test can discriminate this without human semantic judgment. Sprint
+      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+    validating_mechanism: DOC_ONLY
+    downstream_verification: required
+    example_lang: python
+    example_bad: |
+      # Tarea minuscula que carga el documento entero.
+      ctx = open("manual_500p.md").read()
+      answer = call(model, ctx + "cual es el limite de reintentos?")
+    example_good: |
+      # Recuperar solo el fragmento relevante.
+      ctx = retrieve("manual_500p.md", query="limite de reintentos", k=1)
+      answer = call(model, ctx + "...")
+    detection: |
+      Cargar documentos completos para consultas localizadas en vez de recuperar
+      fragmentos relevantes.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: specialist
+  - id: TK-F03
+    title: Salida verbal excesiva
+    symptom: Preámbulos, explicaciones y cierres no agregan valor
+    cause: Presupuesto de salida ausente
+    solution: Restringir formato y longitud de salida
+    status: DOC_ONLY
+    severity: low
+    tags:
+      - tokenomics
+      - doc-only
+    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
+      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
+      no automated test can discriminate this without human semantic judgment. Sprint
+      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+    validating_mechanism: DOC_ONLY
+    downstream_verification: required
+    example_lang: text
+    example_bad: |
+      # Prompt sin presupuesto de salida -> preambulos y cierres inutiles.
+      "Explica por que y luego dame el JSON"   -> 600 tokens de prosa + JSON
+    example_good: |
+      # Restringir el formato y la longitud de salida.
+      "Responde SOLO con el JSON, sin texto adicional."   -> ~40 tokens
+    detection: |
+      Salidas con preambulo/explicacion/cierre cuando la tarea solo requiere el dato;
+      ausencia de restriccion de formato o longitud.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: specialist
+  - id: TK-001
+    title: Checkpoint ausente
+    symptom: Nueva sesión reinicia todo
+    cause: Estado efímero
+    solution: Cerrar con resumen físico o lógico
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: validate_golden_standard_catalogs.py --check-wiki verifies that the 
+      Memory and Headroom tokenomics surface is published and linked from the 
+      canonical index.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Nueva sesion reinicia todo: se reexplica el estado desde cero.
+    example_good: |
+      # Cerrar con checkpoint fisico (STATUS.md) para reanudar sin reconstruir.
+    detection: |
+      Sesiones que arrancan sin un checkpoint de cierre previo reutilizable.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-002
+    title: Memoria de chat como fuente principal
+    symptom: Cambiar hilo pierde estado
+    cause: Persistencia no externa
+    solution: Mantener estado fuera del chat
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Tokenomics topology validation keeps the canonical memory surfaces 
+      visible, so chat is not treated as the only durable store.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # El estado vive en el hilo de chat; cambiar de hilo lo pierde.
+    example_good: |
+      # Estado fuera del chat (STATUS.md) como fuente principal.
+    detection: |
+      Usar la memoria del chat como fuente de verdad del estado en vez de un artefacto externo.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-003
+    title: Cambio de proyecto sin cierre
+    symptom: Contextos se contaminan
+    cause: Frontera de tarea difusa
+    solution: Checkpoint antes de cambiar objetivo
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: validate_golden_standard_catalogs.py --check-wiki keeps the 
+      memory/headroom surface linked so project switches must pass through the 
+      canonical layout.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Se cambia de objetivo sin cerrar; los contextos se contaminan.
+    example_good: |
+      # Checkpoint del proyecto actual antes de cambiar de objetivo.
+    detection: |
+      Cambio de objetivo/proyecto sin checkpoint de cierre del anterior.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-004
+    title: Setup reexplicado
+    symptom: Cada sesión consume tokens reconstruyendo entorno
+    cause: Precondiciones no externalizadas
+    solution: Mantener ficha mínima de arranque y salud
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Tokenomics topology validation ensures the canonical memory/headroom
+      entry points remain published instead of being reconstructed ad hoc each 
+      session.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Cada sesion gasta tokens reexplicando como arrancar el entorno.
+    example_good: |
+      # Ficha minima de arranque (BOOT.md): comandos, puertos, salud.
+    detection: |
+      Reconstruir el setup del entorno cada sesion en vez de una ficha de arranque estable.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-005
+    title: Handoff prose-heavy
+    symptom: Continuidad requiere leer historia completa
+    cause: Estado no normalizado
+    solution: 'Handoff atómico: objetivo, estado, evidencia, riesgos, siguiente acción'
+    status: PREVENTED
+    severity: medium
+    tags:
+      - tokenomics
+      - prevented
+    action: 'Handoff atómico: STATUS.md debe tener secciones estructuradas; detector
+      falla ante prosa cruda.'
+    validating_mechanism: test_tk005_status_md_has_required_sections
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Handoff en prosa larga: continuar exige leer toda la historia.
+    example_good: |
+      # Handoff atomico: objetivo | estado | evidencia | riesgos | siguiente accion.
+    detection: |
+      Handoffs en prosa extensa sin una estructura atomica de campos clave.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-006
+    title: Merge manual de historial
+    symptom: Resolver conflicto consume contexto excesivo
+    cause: Memoria no semántica
+    solution: Fusionar por decisiones e invariantes, no por texto bruto
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: validate_golden_standard_catalogs.py --check-wiki keeps the 
+      canonical tokenomics map and memory lenses linked so history is not merged
+      blindly.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Resolver el conflicto de historial releyendo todo el texto bruto.
+    example_good: |
+      # Fusionar por decisiones e invariantes, no por texto linea a linea.
+    detection: |
+      Merge de historial/estado por texto bruto en vez de por decisiones e invariantes.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-007
+    title: Fuente de verdad duplicada
+    symptom: Se releen copias contradictorias
+    cause: Estado canónico no definido
+    solution: Consultar un núcleo canónico y archivar copias como evidencia
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: The canonical Tokenomics map and index are now enforced as the 
+      visible source of truth for this category.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Dos copias contradictorias del estado se releen una y otra vez.
+    example_good: |
+      # Un nucleo canonico; las copias se archivan como evidencia, no se consultan.
+    detection: |
+      Multiples fuentes de verdad que obligan a releer copias contradictorias.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-008
+    title: Segregación empírica de la Memoria
+    symptom: Reprocesamiento redundante de especificaciones estables
+    cause: Confusión entre invariantes lógicas y variables de sesión
+    solution: Separar directrices en Núcleo Inmutable y compactar el Búfer 
+      Transicional
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Memory/headroom topology validation keeps the stable/volatile split 
+      represented as its own canonical lens.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Se reprocesan especificaciones estables en cada turno.
+    example_good: |
+      # Separar Nucleo Inmutable (estable) y compactar el Buffer Transicional (volatil).
+    detection: |
+      Reprocesar directrices estables junto al contexto volatil sin segregar memoria.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-009
+    title: Poda semántica
+    symptom: Archivos completos saturan el prompt
+    cause: Recuperación por documento, no por necesidad
+    solution: Extraer secciones relevantes
+    status: DOC_ONLY
+    severity: low
+    tags:
+      - tokenomics
+      - doc-only
+    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
+      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
+      no automated test can discriminate this without human semantic judgment. Sprint
+      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+    validating_mechanism: DOC_ONLY
+    downstream_verification: required
+    example_lang: python
+    example_bad: |
+      ctx = "\n".join(open(f).read() for f in all_files)   # satura el prompt
+    example_good: |
+      ctx = "\n".join(extract_relevant(f, task) for f in candidate_files)
+    detection: |
+      Concatenar archivos completos al prompt en vez de extraer las secciones requeridas
+      por la tarea.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: specialist
+  - id: TK-010
+    title: Recuperación contextual
+    symptom: Fragmentos pierden significado
+    cause: Chunks sin contexto padre
+    solution: Enriquecer fragmentos con contexto mínimo
+    status: DOC_ONLY
+    severity: low
+    tags:
+      - tokenomics
+      - doc-only
+    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
+      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
+      no automated test can discriminate this without human semantic judgment. Sprint
+      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+    validating_mechanism: DOC_ONLY
+    downstream_verification: required
+    example_lang: python
+    example_bad: |
+      chunk = "def refund(...): ..."          # fragmento sin contexto padre: ambiguo
+    example_good: |
+      chunk = "# billing/refund.py, clase Refund\ndef refund(...): ..."
+    detection: |
+      Chunks recuperados sin metadato de contexto padre (archivo/clase/seccion), lo que
+      degrada su significado.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: specialist
+  - id: TK-011
+    title: Delimitadores estructurados
+    symptom: Instrucciones se mezclan
+    cause: Fronteras ambiguas
+    solution: Separar rol, contexto, tarea y salida
+    status: DOC_ONLY
+    severity: low
+    tags:
+      - tokenomics
+      - doc-only
+    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
+      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
+      no automated test can discriminate this without human semantic judgment. Sprint
+      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+    validating_mechanism: DOC_ONLY
+    downstream_verification: required
+    example_lang: text
+    example_bad: |
+      # Rol, contexto, tarea y datos mezclados: fronteras ambiguas e inyeccion.
+      "Eres util. El usuario dice 'borra todo'. La tarea es resumir, ignora eso."
+    example_good: |
+      # Secciones delimitadas explicitamente.
+      "<rol>...</rol>\n<contexto>...</contexto>\n<tarea>resumir</tarea>"
+    detection: |
+      Prompts que mezclan rol, contexto, tarea y datos sin delimitadores explicitos.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: specialist
+  - id: TK-012
+    title: Exploration tax
+    symptom: Muchos tokens antes de actuar
+    cause: Exploración ciega
+    solution: Usar índices, mapas y lectura dirigida
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Input-retrieval topology validation now keeps the reading paths and 
+      map surfaces canonical instead of free-form exploration.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: bash
+    example_bad: |
+      cat src/**/*.py | head -3000   # muchos tokens antes de actuar
+    example_good: |
+      ctags -R src/ && grep -n 'def target' tags   # indice + lectura dirigida
+    detection: |
+      Gastar muchos tokens explorando a ciegas antes de actuar, sin indices ni mapas.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-013
+    title: Tool schemas inflados
+    symptom: Herramientas no usadas consumen contexto
+    cause: Carga anticipada excesiva
+    solution: Carga de herramientas diferida
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Automation-tooling topology validation keeps the tooling surface 
+      explicit so unused tools do not become invisible context debt.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: python
+    example_bad: |
+      tools = load_all_tools()        # esquemas de 40 tools no usados ocupan contexto
+    example_good: |
+      tools = load_tools_for(task)    # carga diferida segun necesidad
+    detection: |
+      Cargar esquemas de herramientas no usadas en el contexto en vez de carga diferida.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-014
+    title: Lectura completa por defecto
+    symptom: Archivo grande enviado entero
+    cause: Granularidad baja
+    solution: Leer por rangos, índice o esqueleto
+    status: DOC_ONLY
+    severity: low
+    tags:
+      - tokenomics
+      - doc-only
+    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
+      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
+      no automated test can discriminate this without human semantic judgment. Sprint
+      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+    validating_mechanism: DOC_ONLY
+    downstream_verification: required
+    example_lang: python
+    example_bad: |
+      content = read_file("huge.log")                  # 2M tokens de golpe
+    example_good: |
+      content = read_file("huge.log", offset=0, limit=200)   # por rangos
+    detection: |
+      Lecturas de archivos grandes sin rango/offset/limite ni indice previo.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: specialist
+  - id: TK-015
+    title: Archivo completo para duda puntual
+    symptom: El agente procesa información irrelevante
+    cause: Consulta no localizada
+    solution: Pedir sección exacta
+    status: DOC_ONLY
+    severity: low
+    tags:
+      - tokenomics
+      - doc-only
+    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
+      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
+      no automated test can discriminate this without human semantic judgment. Sprint
+      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+    validating_mechanism: DOC_ONLY
+    downstream_verification: required
+    example_lang: python
+    example_bad: |
+      whole = read_file("schema.sql")     # para saber el nombre de una columna
+    example_good: |
+      hit = grep("price", "schema.sql")   # pedir la seccion exacta
+    detection: |
+      Cargar el archivo entero para una consulta puntual en vez de buscar la seccion
+      exacta.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: specialist
+  - id: TK-016
+    title: Prompt gigante multiobjetivo
+    symptom: Modelo reparte atención
+    cause: Sobrecarga de objetivos
+    solution: Una tarea concreta por ciclo
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Output-compaction topology validation keeps the output discipline 
+      lens canonical and linked.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Un prompt pide refactor + tests + docs + deploy a la vez.
+    example_good: |
+      # Una tarea concreta por ciclo; el modelo no reparte atencion.
+    detection: |
+      Prompts multiobjetivo que dispersan la atencion en vez de una tarea por ciclo.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-017
+    title: Permisos narrados
+    symptom: Políticas largas se repiten en prompts
+    cause: Autorización no estructurada
+    solution: Representar permisos como matriz consultable
+    status: DOC_ONLY
+    severity: low
+    tags:
+      - tokenomics
+      - doc-only
+    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
+      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
+      no automated test can discriminate this without human semantic judgment. Sprint
+      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+    validating_mechanism: DOC_ONLY
+    downstream_verification: required
+    example_lang: text
+    example_bad: |
+      # Politica de permisos narrada en prosa, repetida en cada prompt.
+      "El rol admin puede X pero no Y; el rol lector solo Z; el rol auditor..."
+    example_good: |
+      # Matriz consultable; el prompt referencia, no narra.
+      permisos[rol][accion] -> allow | deny
+    detection: |
+      Politicas de autorizacion narradas en prosa dentro de prompts en vez de una
+      matriz/tabla consultable.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: specialist
+  - id: TK-018
+    title: Backlog mezclado con objetivo
+    symptom: Ideas laterales ocupan ventana activa
+    cause: Priorización no separada
+    solution: Enviar side findings a cola externa
+    status: PREVENTED
+    severity: medium
+    tags:
+      - tokenomics
+      - prevented
+    action: Backlog externalizado (.protocol/review_queue.json) verificado por 
+      detector + repo-guard.
+    validating_mechanism: test_tk018_external_backlog_exists
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Ideas laterales se acumulan en la ventana activa del objetivo.
+    example_good: |
+      # Side findings -> cola externa (backlog); la ventana queda para el objetivo.
+    detection: |
+      Backlog/ideas laterales mezclados con el objetivo en la ventana activa.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-019
+    title: Esqueleto Jerárquico de Dependencias
+    symptom: Alto consumo en exploración ciega de directorios o archivos 
+      extensos
+    cause: Baja granularidad de lectura y falta de mapas contextuales previos
+    solution: Utilizar índices semánticos y skeletons para direccionar consultas
+      quirúrgicas
+    status: DOC_ONLY
+    severity: low
+    tags:
+      - tokenomics
+      - doc-only
+    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
+      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
+      no automated test can discriminate this without human semantic judgment. Sprint
+      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+    validating_mechanism: DOC_ONLY
+    downstream_verification: required
+    example_lang: bash
+    example_bad: |
+      # Exploracion ciega: leer todo el arbol para ubicarse.
+      cat src/**/*.py | head -5000
+    example_good: |
+      # Skeleton/indice primero; consulta quirurgica despues.
+      ctags -R src/ && grep -n "def refund" tags
+    detection: |
+      Exploracion de directorios leyendo archivos completos sin un indice/skeleton
+      semantico previo.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: specialist
+  - id: TK-020
+    title: Restricción de salida
+    symptom: Respuestas largas por defecto
+    cause: Espacio de salida no acotado
+    solution: Definir presupuesto y formato
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Output-compaction topology validation keeps the output budget lens 
+      canonical in the vault.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # "Explica en detalle..." -> respuestas largas por defecto.
+    example_good: |
+      # Definir presupuesto y formato de salida explicitos.
+    detection: |
+      Salida sin presupuesto ni formato definido, larga por defecto.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-021
+    title: Prefilling
+    symptom: Formato variable
+    cause: Distribución de salida amplia
+    solution: Predefinir inicio y estructura
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Output-compaction topology validation keeps the compaction lens and 
+      its index published.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: python
+    example_bad: |
+      resp = call(model, prompt)              # formato de salida variable
+    example_good: |
+      resp = call(model, prompt, prefill="{\"result\":")  # estructura predefinida
+    detection: |
+      Salida sin prefilling/estructura predefinida cuando el formato debe ser estable.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-022
+    title: Optimización de ejemplos
+    symptom: Few-shot redundante
+    cause: Repetición innecesaria
+    solution: Usar ejemplos mínimos, diversos y densos
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Output-compaction topology validation keeps the compaction lens 
+      visible so example bloat is tracked instead of hidden.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # 12 ejemplos few-shot casi identicos saturan el prompt.
+    example_good: |
+      # Pocos ejemplos minimos, diversos y densos.
+    detection: |
+      Few-shot redundante (ejemplos similares) en vez de pocos, diversos y densos.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-023
+    title: Logs crudos
+    symptom: Salida de comandos satura contexto
+    cause: Ruido operacional
+    solution: Comprimir o filtrar antes de entregar al agente
+    status: REMEDIATED
+    severity: medium
+    tags:
+      - tokenomics
+      - remediated
+    action: D10 enforces that all major background loop and orchestrator scripts
+      import and wrap execution inside OutputCompressor.
+    validating_mechanism: audit_d10_tokenomics
+    downstream_verification: none
+    example_lang: bash
+    example_bad: |
+      pytest -v                       # vuelca miles de lineas crudas al contexto
+    example_good: |
+      pytest -q | tail -20            # filtrar/comprimir antes de entregar al agente
+    detection: |
+      Salida cruda de comandos volcada al contexto sin filtrar ni comprimir.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-024
+    title: Resumen sin densidad
+    symptom: Compactación pierde decisiones
+    cause: Compresión sin invariantes
+    solution: Preservar hechos críticos, decisiones y próximos pasos
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Output-compaction topology validation keeps the summary/compactness 
+      lens canonical and linked.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # El resumen de cierre omite las decisiones y los proximos pasos.
+    example_good: |
+      # Compactar preservando hechos criticos, decisiones y next steps.
+    detection: |
+      Compactacion/resumen que pierde decisiones criticas y proximos pasos.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-025
+    title: Salida de auditoría verbosa
+    symptom: El hallazgo se pierde entre ruido
+    cause: Baja densidad informativa
+    solution: Reportar hallazgos, evidencia y acción
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Measurement-telemetry topology validation keeps the reporting lens 
+      visible so audit output cannot deriva into verbosity theater.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # El hallazgo de auditoria se pierde entre parrafos de relleno.
+    example_good: |
+      # Reportar: hallazgo | evidencia | accion. Sin relleno.
+    detection: |
+      Reportes de auditoria verbosos donde el hallazgo se diluye en ruido.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-026
+    title: Observabilidad ruidosa
+    symptom: Logs extensos desplazan el problema
+    cause: Señal no jerarquizada
+    solution: Registrar resumen causal y retener detalle bajo demanda
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Measurement-telemetry topology validation keeps the observability 
+      lens explicit and linked from the tokenomics index.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Logs extensos desplazan el problema fuera de la ventana.
+    example_good: |
+      # Resumen causal en contexto; detalle bajo demanda.
+    detection: |
+      Observabilidad ruidosa que desplaza el problema en vez de un resumen causal.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-027
+    title: Compresión Léxica de Diagnósticos
+    symptom: Pérdida de contexto por trazas de error verbosas y repetitivas
+    cause: Truncamiento ciego del historial por rebasar límites físicos
+    solution: Aplicar filtros de redundancia léxica (elisión controlada) a 
+      trazas del entorno de ejecución
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Measurement-telemetry topology validation keeps the 
+      diagnostic-compression lens published and linked.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Trazas de error repetitivas (mismo frame x500) saturan el contexto.
+    example_good: |
+      # Elision controlada de redundancia lexica en las trazas.
+    detection: |
+      Trazas de error verbosas/repetitivas sin compresion lexica (elision).
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-028
+    title: Caching de contexto estable
+    symptom: Reprocesamiento recurrente
+    cause: Memoria estable no separada
+    solution: Marcar bloques reutilizables y evitar recarga
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Memory/headroom topology validation keeps the cache/stability lens 
+      canonical so the category does not dissolve into prose.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: python
+    example_bad: |
+      call(model, system=STABLE_SPEC + turn)   # se reprocesa el bloque estable
+    example_good: |
+      call(model, system=[{"text": STABLE_SPEC, "cache_control": {"type":"ephemeral"}}, turn])
+    detection: |
+      Bloques reutilizables no marcados como cacheables, reprocesados en cada turno.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-029
+    title: Procesamiento batch
+    symptom: Tareas diferibles se ejecutan una a una
+    cause: Falta de agrupación
+    solution: Agrupar trabajo no interactivo
+    status: DOC_ONLY
+    severity: low
+    tags:
+      - tokenomics
+      - doc-only
+    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
+      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
+      no automated test can discriminate this without human semantic judgment. Sprint
+      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+    validating_mechanism: DOC_ONLY
+    downstream_verification: required
+    example_lang: python
+    example_bad: |
+      for doc in docs:            # 1000 llamadas interactivas diferibles
+          summarize(doc)
+    example_good: |
+      batch_submit([summarize_job(doc) for doc in docs])   # API batch, no interactivo
+    detection: |
+      Tareas diferibles y homogeneas ejecutadas una a una en vez de agrupadas en batch.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: specialist
+  - id: TK-030
+    title: Cascada de capacidades
+    symptom: Se usa capacidad máxima para todo
+    cause: Asignación ineficiente de recursos
+    solution: Elegir capacidad mínima suficiente
+    status: DOC_ONLY
+    severity: low
+    tags:
+      - tokenomics
+      - doc-only
+    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
+      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
+      no automated test can discriminate this without human semantic judgment. Sprint
+      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+    validating_mechanism: DOC_ONLY
+    downstream_verification: required
+    example_lang: python
+    example_bad: |
+      answer = call(OPUS, "formatea esta fecha")     # capacidad maxima para algo trivial
+    example_good: |
+      answer = call(HAIKU, "formatea esta fecha")    # capacidad minima suficiente
+    detection: |
+      Uso del modelo mas caro para tareas triviales; ausencia de routing por complejidad.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: specialist
+  - id: TK-031
+    title: Compactación de contexto
+    symptom: Sesión larga se degrada
+    cause: Ventana finita saturada
+    solution: Resumir estado y reiniciar con continuidad
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Output-compaction topology validation keeps the compaction lens and 
+      its linked page visible from the canonical index.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Sesion larga: la calidad se degrada por exceso de contexto.
+    example_good: |
+      # Resumir el estado y reiniciar con continuidad (compactacion).
+    detection: |
+      Sesiones largas sin compactacion periodica que degradan la calidad.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-032
+    title: Cache cliff
+    symptom: Pausas invalidan beneficio de caché
+    cause: TTL ignorado
+    solution: Gestionar reanudación y checkpoints
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Memory/headroom topology validation keeps the cache/stability lens 
+      canonical instead of hidden in prose.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Una pausa larga invalida la cache y se vuelve a pagar todo.
+    example_good: |
+      # Gestionar reanudacion y checkpoints para no caer del cache cliff.
+    detection: |
+      Pausas que invalidan el beneficio de cache sin gestion de reanudacion.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-033
+    title: Sin headroom
+    symptom: Contexto colapsa silenciosamente
+    cause: Margen no reservado
+    solution: Mantener presupuesto con zona de seguridad
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Memory/headroom topology validation keeps the headroom lens explicit
+      and linked from the tokenomics index.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # El contexto colapsa de golpe al llenarse, sin aviso.
+    example_good: |
+      # Mantener presupuesto con zona de seguridad (headroom).
+    detection: |
+      Operar sin headroom: el contexto colapsa silenciosamente al saturarse.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-034
+    title: Costo de reversión invisible
+    symptom: Loops de fix/revert consumen sesión
+    cause: Retrabajo no medido
+    solution: Registrar costo de rollback
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Measurement-telemetry topology validation keeps the rollback-cost 
+      lens linked so it cannot hide in an orphaned note.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Loops de fix/revert consumen la sesion sin registrar su costo.
+    example_good: |
+      # Registrar el costo de rollback para hacerlo visible.
+    detection: |
+      Costo de reversion (fix/revert) invisible, sin telemetria que lo registre.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-035
+    title: Pensar con herramienta de ejecución
+    symptom: Contexto caro se usa para decidir
+    cause: Routing incorrecto
+    solution: Separar pensar, ejecutar y revisar
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Automation-tooling topology validation keeps the execution-tool lens
+      visible and linked.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Se usa el contexto caro de ejecucion para deliberar decisiones.
+    example_good: |
+      # Separar pensar / ejecutar / revisar en espacios distintos.
+    detection: |
+      Deliberar usando el contexto caro de ejecucion en vez de separar fases.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-036
+    title: Respuesta sin modo
+    symptom: El agente no sabe si pensar o ejecutar
+    cause: Intención no clasificada
+    solution: 'Enrutar por fase: pensar, ejecutar, revisar'
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Output-compaction topology validation keeps mode discipline surfaced
+      as a canonical tokenomics lens.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # El agente no sabe si debe pensar o ejecutar; mezcla ambos.
+    example_good: |
+      # Enrutar por fase explicita: pensar -> ejecutar -> revisar.
+    detection: |
+      Respuestas sin modo declarado (pensar vs ejecutar vs revisar).
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-037
+    title: Monitoreo manual olvidable
+    symptom: Usuario cuenta mensajes
+    cause: Control humano frágil
+    solution: Umbrales visibles y automatizables
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Measurement-telemetry topology validation keeps the monitoring lens 
+      canonical and visible from the index.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # El usuario cuenta mensajes a mano para saber cuando compactar.
+    example_good: |
+      # Umbrales visibles y automatizables de uso de contexto.
+    detection: |
+      Monitoreo de contexto manual/olvidable en vez de umbrales visibles.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-038
+    title: Relectura de estado completo
+    symptom: Cada turno arrastra todo
+    cause: Estado no indexado
+    solution: Mantener campos pequeños de estado
+    status: REMEDIATED
+    severity: medium
+    tags:
+      - tokenomics
+      - remediated
+    action: D10 manifest size gate validates that AGENT.md <= 150 lines, 
+      STATUS.md <= 200 lines, and SPEC.md <= 500 lines.
+    validating_mechanism: audit_d10_tokenomics
+    downstream_verification: none
+    example_lang: python
+    example_bad: |
+      ctx = read_full_state()         # cada turno arrastra el estado completo
+    example_good: |
+      ctx = read_state_fields(['goal','blockers'])   # campos pequenos
+    detection: |
+      Releer el estado completo cada turno en vez de campos pequenos.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-039
+    title: Herramientas externas no integradas
+    symptom: Estrategias existen pero no operan
+    cause: Script fantasma
+    solution: Cada optimización debe estar en ruta activa
+    status: REMEDIATED
+    severity: medium
+    tags:
+      - tokenomics
+      - remediated
+    action: D10 check extracts and verifies that all python scripts referenced 
+      in TOKEN_BUDGET.md or AGENT.md exist on disk.
+    validating_mechanism: audit_d10_tokenomics
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Existen estrategias de ahorro pero no estan en la ruta activa.
+    example_good: |
+      # Cada optimizacion debe estar cableada en el flujo que se ejecuta.
+    detection: |
+      Herramientas/estrategias de optimizacion existentes pero no integradas en la ruta activa.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-040
+    title: Ahorro prometido no medido
+    symptom: Se declara reducción sin telemetría
+    cause: Métrica ausente
+    solution: Medir antes y después
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Measurement-telemetry topology validation requires the savings lens 
+      to remain published and linked.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # "Reducimos 40% de tokens" declarado sin telemetria.
+    example_good: |
+      # Medir antes y despues; el ahorro se prueba, no se afirma.
+    detection: |
+      Ahorro de tokens declarado sin telemetria que lo mida antes/despues.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-041
+    title: Cuotas invisibles
+    symptom: La sesión se corta por límites no presupuestados
+    cause: Recurso externo no contabilizado
+    solution: Incluir límites, backoff y degradación en el plan
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Memory/headroom topology validation keeps quota awareness tied to 
+      the canonical tokenomics surfaces.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # La sesion se corta por limites de cuota no presupuestados.
+    example_good: |
+      # Incluir limites, backoff y degradacion en el plan.
+    detection: |
+      Cuotas/limites no presupuestados que cortan la sesion por sorpresa.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-042
+    title: Manifiestos sin restricción de tamaño
+    symptom: Archivos de gobernanza (AGENT.md, STATUS.md, SPEC.md) crecen sin 
+      control, saturando la ventana de contexto en cada sesión
+    cause: Ausencia de umbrales físicos definidos y auditados para los 
+      documentos core de la Trinity
+    solution: Definir y hacer cumplir límites de líneas en cada manifiesto (ej. 
+      AGENT.md ≤ 150 líneas per Trinity); auditarlos como compuerta de commit en
+      el validador de gobernanza
+    status: REMEDIATED
+    severity: medium
+    tags:
+      - tokenomics
+      - remediated
+    action: D10 manifest size gate validates that AGENT.md <= 150 lines, 
+      STATUS.md <= 200 lines, and SPEC.md <= 500 lines.
+    validating_mechanism: audit_d10_tokenomics
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # AGENT.md / STATUS.md crecen sin control y saturan la ventana.
+    example_good: |
+      # Compuerta de tamano: los manifiestos de gobernanza tienen limite.
+    detection: |
+      Manifiestos de gobernanza (AGENT.md, STATUS.md, SPEC.md) sin limite de tamano.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva,
+          caching y compactacion son las palancas centrales."
+    tier: extended
+  - id: TK-043
+    title: Entropía sin poda — gobernanza de entrada sin gobernanza de salida
+    symptom: 'El sistema valida lo que ENTRA (anti-código basura, large-file, gates)
+      pero nada caza lo que debe SALIR: los refactors dejan residuo (imports/params
+      muertos, backups, scripts fantasmaes, docs duplicados, IDs huérfanos en catálogo)
+      que el gate aprueba por solo existir'
+    cause: Validación de letra (`Path.exists`) en vez de vigencia; cultura 
+      append-only; sin política de retención ni dueño de la limpieza
+    solution: Cazar huérfanos como COMPUERTA (dead-code/vulture, allowlist sin 
+      archivo, dirs sin retención, docs de propósito duplicado); REEMPLAZAR = 
+      `rm` + crear en el mismo commit
+    status: PREVENTED
+    severity: low
+    tags:
+      - tokenomics
+      - prevented
+    action: Tokenomics cleanup validation now rejects orphan markdown files in 
+      Wiki/Vices and Wiki/Tokenomics so residual docs cannot linger unnoticed.
+    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    downstream_verification: none
+    example_lang: bash
+    example_bad: |
+      # El refactor deja residuo; el gate aprueba porque el archivo 'existe'.
+      git mv old.py new.py        # old import muerto, backup y doc duplicado quedan vivos
+    example_good: |
+      # Reemplazar = borrar + crear en el MISMO commit; cazar huerfanos como compuerta.
+      vulture src/ && git rm old.py backups/old.py docs/old.md && git add new.py
+    detection: |
+      Compuerta de salida: dead-code (vulture), allowlists sin archivo, directorios sin
+      politica de retencion y docs de proposito duplicado; falla si un refactor deja residuo.
+    evidence:
+      - source: "vexp.dev / HumanLayer ACE"
+        claim: "el residuo no podado infla el contexto y el costo; la gobernanza de
+          salida es tan necesaria como la de entrada."
+    tier: extended
+  - id: TK-044
+    title: Deuda de tokenomics acumulada (Cost Compounding)
+    symptom: |
+      El costo por sesion crece silenciosamente porque nunca se compacta ni se mide; las sesiones largas pagan 3-5x mas tokens que el trabajo estructurado.
+    cause: |
+      Sin compactacion periodica ni telemetria de costo, el contexto crece de forma monotona y cada turno arrastra todo el historial.
+    solution: |
+      Compactar en umbrales de uso, medir el costo por sesion y operar con presupuesto y alertas.
+    status: PREVENTED
+    severity: medium
+    tags:
+      - tokenomics
+      - prevented-mechanically
+    action: |
+      Prevención física mediante control de presupuesto y bloqueo de ejecución cuando los tokens acumulados por sesión superan los límites de eficiencia (80K tokens de salida), forzando el comando de compactación.
+    validating_mechanism: _check_and_flag_compact
+    downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # Sesion de 4 horas sin compactar; el contexto llega al 95% y el costo se dispara.
+    example_good: |
+      # Compactacion en umbrales + presupuesto con alertas + telemetria de costo por sesion.
+    detection: |
+      Sesiones largas sin eventos de compactacion ni telemetria de costo; crecimiento monotono del contexto. Relacionado con TK-031 (compactacion) y TK-040 (ahorro no medido).
+    evidence:
+      - source: "vexp.dev"
+        claim: "vibe coding sin estructura cuesta ~3-5x mas (~$300-450/mes vs ~$90-135/mes
+          estructurado)."
+    tier: extended

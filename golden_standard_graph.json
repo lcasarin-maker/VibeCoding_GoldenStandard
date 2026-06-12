@@ -1,7 +1,7 @@
 {
-  "generated_on": "2026-06-09",
-  "node_count": 377,
-  "edge_count": 1840,
+  "generated_on": "2026-06-12",
+  "node_count": 387,
+  "edge_count": 1893,
   "nodes": [
     {
       "id": "CODE_OF_CONDUCT",
@@ -85,14 +85,17 @@
       "title": "Inbox / Cerberus",
       "kind": "inbox",
       "outgoing": [
-        "Inbox/cerberus/2026-06-06_doc-only-enforcement-gap"
+        "Inbox/cerberus/2026-06-06_doc-only-enforcement-gap",
+        "Inbox/cerberus/VC-142_structural_hygiene",
+        "Inbox/cerberus/fallos_concretos",
+        "Inbox/cerberus/global_learning_legacy"
       ],
       "incoming": [
         "Inbox/README"
       ],
       "in_degree": 1,
-      "out_degree": 1,
-      "degree": 2
+      "out_degree": 4,
+      "degree": 5
     },
     {
       "id": "Inbox/cerberus/VC-142_structural_hygiene",
@@ -100,10 +103,12 @@
       "title": "Proposal: VC-142 — Repositorio con código vigilado y estructura salvaje",
       "kind": "inbox",
       "outgoing": [],
-      "incoming": [],
-      "in_degree": 0,
+      "incoming": [
+        "Inbox/cerberus/README"
+      ],
+      "in_degree": 1,
       "out_degree": 0,
-      "degree": 0
+      "degree": 1
     },
     {
       "id": "Inbox/cerberus/fallos_concretos",
@@ -111,10 +116,12 @@
       "title": "Fallos Concretos (Rescued from HISTORICO_PROTOCOLO)",
       "kind": "inbox",
       "outgoing": [],
-      "incoming": [],
-      "in_degree": 0,
+      "incoming": [
+        "Inbox/cerberus/README"
+      ],
+      "in_degree": 1,
       "out_degree": 0,
-      "degree": 0
+      "degree": 1
     },
     {
       "id": "Inbox/cerberus/global_learning_legacy",
@@ -122,10 +129,12 @@
       "title": "Legacy Global Learning (Rescued from HISTORICO_PROTOCOLO)",
       "kind": "inbox",
       "outgoing": [],
-      "incoming": [],
-      "in_degree": 0,
+      "incoming": [
+        "Inbox/cerberus/README"
+      ],
+      "in_degree": 1,
       "out_degree": 0,
-      "degree": 0
+      "degree": 1
     },
     {
       "id": "Inbox/external/README",
@@ -751,6 +760,16 @@
         "Vices/VC-139",
         "Vices/VC-140",
         "Vices/VC-141",
+        "Vices/VC-142",
+        "Vices/VC-143",
+        "Vices/VC-144",
+        "Vices/VC-145",
+        "Vices/VC-146",
+        "Vices/VC-147",
+        "Vices/VC-148",
+        "Vices/VC-149",
+        "Vices/VC-150",
+        "Vices/VC-151",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -868,9 +887,9 @@
         "Vices/VT-115",
         "Vices_Index"
       ],
-      "in_degree": 356,
+      "in_degree": 366,
       "out_degree": 21,
-      "degree": 377
+      "degree": 387
     },
     {
       "id": "Project_Insights/PI-001",
@@ -1425,6 +1444,16 @@
         "Vices/VC-139",
         "Vices/VC-140",
         "Vices/VC-141",
+        "Vices/VC-142",
+        "Vices/VC-143",
+        "Vices/VC-144",
+        "Vices/VC-145",
+        "Vices/VC-146",
+        "Vices/VC-147",
+        "Vices/VC-148",
+        "Vices/VC-149",
+        "Vices/VC-150",
+        "Vices/VC-151",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -1541,9 +1570,9 @@
         "Vices/VT-114",
         "Vices/VT-115"
       ],
-      "in_degree": 257,
+      "in_degree": 267,
       "out_degree": 4,
-      "degree": 261
+      "degree": 271
     },
     {
       "id": "Project_Insights/PI-020",
@@ -2206,7 +2235,7 @@
     {
       "id": "Tokenomics/TK-008",
       "path": "Wiki/Tokenomics/TK-008.md",
-      "title": "TK-008: Segregación Epistemológica de la Memoria",
+      "title": "TK-008: Segregación empírica de la Memoria",
       "kind": "tokenomics",
       "outgoing": [
         "Home",
@@ -3367,6 +3396,16 @@
         "Vices/VC-139",
         "Vices/VC-140",
         "Vices/VC-141",
+        "Vices/VC-142",
+        "Vices/VC-143",
+        "Vices/VC-144",
+        "Vices/VC-145",
+        "Vices/VC-146",
+        "Vices/VC-147",
+        "Vices/VC-148",
+        "Vices/VC-149",
+        "Vices/VC-150",
+        "Vices/VC-151",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -3483,9 +3522,9 @@
         "Vices/VT-114",
         "Vices/VT-115"
       ],
-      "in_degree": 344,
+      "in_degree": 354,
       "out_degree": 10,
-      "degree": 354
+      "degree": 364
     },
     {
       "id": "Vices/VC-001",
@@ -3510,7 +3549,7 @@
     {
       "id": "Vices/VC-002",
       "path": "Wiki/Vices/VC-002.md",
-      "title": "VC-002: Complacencia generativa",
+      "title": "VC-002: confianza ciega",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -3530,7 +3569,7 @@
     {
       "id": "Vices/VC-003",
       "path": "Wiki/Vices/VC-003.md",
-      "title": "VC-003: Triunfalismo sin prueba",
+      "title": "VC-003: optimismo sin pruebas sin prueba",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -3810,7 +3849,7 @@
     {
       "id": "Vices/VC-017",
       "path": "Wiki/Vices/VC-017.md",
-      "title": "VC-017: Triunfalismo Conversacional Estocástico",
+      "title": "VC-017: optimismo sin pruebas Conversacional Estocástico",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -4070,7 +4109,7 @@
     {
       "id": "Vices/VC-030",
       "path": "Wiki/Vices/VC-030.md",
-      "title": "VC-030: State drift",
+      "title": "VC-030: State deriva",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -4710,7 +4749,7 @@
     {
       "id": "Vices/VC-062",
       "path": "Wiki/Vices/VC-062.md",
-      "title": "VC-062: Deriva de Concurrencia de Estado (Dual-Session Drift)",
+      "title": "VC-062: Deriva de Concurrencia de Estado (Dual-Session deriva)",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -5131,7 +5170,7 @@
     {
       "id": "Vices/VC-083",
       "path": "Wiki/Vices/VC-083.md",
-      "title": "VC-083: Archivo zombie tolerado",
+      "title": "VC-083: Archivo inactivoe tolerado",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -5831,7 +5870,7 @@
     {
       "id": "Vices/VC-118",
       "path": "Wiki/Vices/VC-118.md",
-      "title": "VC-118: Teatro de Compatibilidad Zombie",
+      "title": "VC-118: Teatro de Compatibilidad inactivoe",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -5891,7 +5930,7 @@
     {
       "id": "Vices/VC-121",
       "path": "Wiki/Vices/VC-121.md",
-      "title": "VC-121: Redundancias Críticas y Patrones Repetitivos de AI Slop",
+      "title": "VC-121: Redundancias Críticas y Patrones Repetitivos de AI código basura",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -6042,8 +6081,8 @@
       "in_degree": 1,
       "out_degree": 4,
       "degree": 5,
-      "status": "PREVENTED",
-      "downstream_verification": "none"
+      "status": "DOC_ONLY",
+      "downstream_verification": "required"
     },
     {
       "id": "Vices/VC-127",
@@ -6088,7 +6127,7 @@
     {
       "id": "Vices/VC-129",
       "path": "Wiki/Vices/VC-129.md",
-      "title": "VC-129: Dependencia alucinada (Slopsquatting)",
+      "title": "VC-129: Dependencia alucinada (código basurasquatting)",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -6128,7 +6167,7 @@
     {
       "id": "Vices/VC-131",
       "path": "Wiki/Vices/VC-131.md",
-      "title": "VC-131: Deriva arquitectonica en sesiones largas (Architecture Drift)",
+      "title": "VC-131: Deriva arquitectonica en sesiones largas (Architecture deriva)",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -6329,6 +6368,206 @@
       "id": "Vices/VC-141",
       "path": "Wiki/Vices/VC-141.md",
       "title": "VC-141: Cambios huerfanos eludidos (commit parcial evasivo)",
+      "kind": "vice",
+      "outgoing": [
+        "Home",
+        "Project_Insights/PI-019",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Vices_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5,
+      "status": "PREVENTED",
+      "downstream_verification": "none"
+    },
+    {
+      "id": "Vices/VC-142",
+      "path": "Wiki/Vices/VC-142.md",
+      "title": "VC-142: Secuestro de instrucciones del agente (Prompt Injection / P1-P2)",
+      "kind": "vice",
+      "outgoing": [
+        "Home",
+        "Project_Insights/PI-019",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Vices_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5,
+      "status": "PREVENTED",
+      "downstream_verification": "none"
+    },
+    {
+      "id": "Vices/VC-143",
+      "path": "Wiki/Vices/VC-143.md",
+      "title": "VC-143: Fuga del prompt del sistema (System Prompt Leakage / P6-P8)",
+      "kind": "vice",
+      "outgoing": [
+        "Home",
+        "Project_Insights/PI-019",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Vices_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5,
+      "status": "PREVENTED",
+      "downstream_verification": "none"
+    },
+    {
+      "id": "Vices/VC-144",
+      "path": "Wiki/Vices/VC-144.md",
+      "title": "VC-144: Exfiltración de datos no autorizada (Data Exfiltration / E1-E4)",
+      "kind": "vice",
+      "outgoing": [
+        "Home",
+        "Project_Insights/PI-019",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Vices_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5,
+      "status": "PREVENTED",
+      "downstream_verification": "none"
+    },
+    {
+      "id": "Vices/VC-145",
+      "path": "Wiki/Vices/VC-145.md",
+      "title": "VC-145: Escalado de privilegios injustificado (Privilege Escalation / PE1-PE3)",
+      "kind": "vice",
+      "outgoing": [
+        "Home",
+        "Project_Insights/PI-019",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Vices_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5,
+      "status": "PREVENTED",
+      "downstream_verification": "none"
+    },
+    {
+      "id": "Vices/VC-146",
+      "path": "Wiki/Vices/VC-146.md",
+      "title": "VC-146: Agencia excesiva y descontrolada (Excessive Agency / EA1-EA4)",
+      "kind": "vice",
+      "outgoing": [
+        "Home",
+        "Project_Insights/PI-019",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Vices_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5,
+      "status": "PREVENTED",
+      "downstream_verification": "none"
+    },
+    {
+      "id": "Vices/VC-147",
+      "path": "Wiki/Vices/VC-147.md",
+      "title": "VC-147: Envenenamiento de memoria persistente (Memory Poisoning / MP1-MP3)",
+      "kind": "vice",
+      "outgoing": [
+        "Home",
+        "Project_Insights/PI-019",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Vices_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5,
+      "status": "PREVENTED",
+      "downstream_verification": "none"
+    },
+    {
+      "id": "Vices/VC-148",
+      "path": "Wiki/Vices/VC-148.md",
+      "title": "VC-148: Llamada o encadenamiento de herramientas inseguro (Tool Misuse / TM1-TM3)",
+      "kind": "vice",
+      "outgoing": [
+        "Home",
+        "Project_Insights/PI-019",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Vices_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5,
+      "status": "PREVENTED",
+      "downstream_verification": "none"
+    },
+    {
+      "id": "Vices/VC-149",
+      "path": "Wiki/Vices/VC-149.md",
+      "title": "VC-149: Comportamiento persistente no autorizado (Rogue Agent / RA1-RA2)",
+      "kind": "vice",
+      "outgoing": [
+        "Home",
+        "Project_Insights/PI-019",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Vices_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5,
+      "status": "PREVENTED",
+      "downstream_verification": "none"
+    },
+    {
+      "id": "Vices/VC-150",
+      "path": "Wiki/Vices/VC-150.md",
+      "title": "VC-150: Violación de menor privilegio en MCP (MCP Least Privilege / LP1-LP4)",
+      "kind": "vice",
+      "outgoing": [
+        "Home",
+        "Project_Insights/PI-019",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Vices_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5,
+      "status": "PREVENTED",
+      "downstream_verification": "none"
+    },
+    {
+      "id": "Vices/VC-151",
+      "path": "Wiki/Vices/VC-151.md",
+      "title": "VC-151: Envenenamiento de descripciones de herramientas (MCP Tool Poisoning / TP1-TP4)",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -6648,7 +6887,7 @@
     {
       "id": "Vices/VT-016",
       "path": "Wiki/Vices/VT-016.md",
-      "title": "VT-016: Aserción textual teatral",
+      "title": "VT-016: Aserción textual ceremonial",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -6768,7 +7007,7 @@
     {
       "id": "Vices/VT-022",
       "path": "Wiki/Vices/VT-022.md",
-      "title": "VT-022: Teatralidad del Verde y Aserciones Tautológicas",
+      "title": "VT-022: ceremonia del Verde y Aserciones Tautológicas",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -8268,7 +8507,7 @@
     {
       "id": "Vices/VT-097",
       "path": "Wiki/Vices/VT-097.md",
-      "title": "VT-097: Chaos teatral",
+      "title": "VT-097: Chaos ceremonial",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -8308,7 +8547,7 @@
     {
       "id": "Vices/VT-099",
       "path": "Wiki/Vices/VT-099.md",
-      "title": "VT-099: Versión zombi",
+      "title": "VT-099: Versión inactivo",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -8328,7 +8567,7 @@
     {
       "id": "Vices/VT-100",
       "path": "Wiki/Vices/VT-100.md",
-      "title": "VT-100: Permisos no adversariales",
+      "title": "VT-100: Permisos no rigurosaes",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -8568,7 +8807,7 @@
     {
       "id": "Vices/VT-112",
       "path": "Wiki/Vices/VT-112.md",
-      "title": "VT-112: Deriva de Dependencia Fantasma (Ghost Dependency Drift)",
+      "title": "VT-112: Deriva de Dependencia Fantasma (Ghost Dependency deriva)",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -8588,7 +8827,7 @@
     {
       "id": "Vices/VT-113",
       "path": "Wiki/Vices/VT-113.md",
-      "title": "VT-113: Ausencia de Falsabilidad Mutacional (Lack of Test Mutation Validation)",
+      "title": "VT-113: Ausencia de pruebas de mutación (Lack of Test Mutation Validation)",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -8608,7 +8847,7 @@
     {
       "id": "Vices/VT-114",
       "path": "Wiki/Vices/VT-114.md",
-      "title": "VT-114: Deriva de Sincronización Multirepositorio (Multi-Repository Sync Drift)",
+      "title": "VT-114: Deriva de Sincronización Multirepositorio (Multi-Repository Sync deriva)",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -8628,7 +8867,7 @@
     {
       "id": "Vices/VT-115",
       "path": "Wiki/Vices/VT-115.md",
-      "title": "VT-115: Falso Positivo de Drift por Fin de Línea (CRLF/LF Hash Mismatch)",
+      "title": "VT-115: Falso Positivo de deriva por Fin de Línea (CRLF/LF Hash Mismatch)",
       "kind": "vice",
       "outgoing": [
         "Home",
@@ -8793,6 +9032,16 @@
         "Vices/VC-139",
         "Vices/VC-140",
         "Vices/VC-141",
+        "Vices/VC-142",
+        "Vices/VC-143",
+        "Vices/VC-144",
+        "Vices/VC-145",
+        "Vices/VC-146",
+        "Vices/VC-147",
+        "Vices/VC-148",
+        "Vices/VC-149",
+        "Vices/VC-150",
+        "Vices/VC-151",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -9052,6 +9301,16 @@
         "Vices/VC-139",
         "Vices/VC-140",
         "Vices/VC-141",
+        "Vices/VC-142",
+        "Vices/VC-143",
+        "Vices/VC-144",
+        "Vices/VC-145",
+        "Vices/VC-146",
+        "Vices/VC-147",
+        "Vices/VC-148",
+        "Vices/VC-149",
+        "Vices/VC-150",
+        "Vices/VC-151",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -9168,9 +9427,9 @@
         "Vices/VT-114",
         "Vices/VT-115"
       ],
-      "in_degree": 257,
-      "out_degree": 257,
-      "degree": 514
+      "in_degree": 267,
+      "out_degree": 267,
+      "degree": 534
     }
   ],
   "edges": [
@@ -9577,6 +9836,21 @@
     {
       "source": "Inbox/cerberus/README",
       "target": "Inbox/cerberus/2026-06-06_doc-only-enforcement-gap",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Inbox/cerberus/README",
+      "target": "Inbox/cerberus/VC-142_structural_hygiene",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Inbox/cerberus/README",
+      "target": "Inbox/cerberus/fallos_concretos",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Inbox/cerberus/README",
+      "target": "Inbox/cerberus/global_learning_legacy",
       "kind": "wikilink"
     },
     {
@@ -14790,6 +15064,206 @@
       "kind": "wikilink"
     },
     {
+      "source": "Vices/VC-142",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-142",
+      "target": "Project_Insights/PI-019",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-142",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-142",
+      "target": "Vices_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-143",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-143",
+      "target": "Project_Insights/PI-019",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-143",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-143",
+      "target": "Vices_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-144",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-144",
+      "target": "Project_Insights/PI-019",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-144",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-144",
+      "target": "Vices_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-145",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-145",
+      "target": "Project_Insights/PI-019",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-145",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-145",
+      "target": "Vices_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-146",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-146",
+      "target": "Project_Insights/PI-019",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-146",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-146",
+      "target": "Vices_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-147",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-147",
+      "target": "Project_Insights/PI-019",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-147",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-147",
+      "target": "Vices_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-148",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-148",
+      "target": "Project_Insights/PI-019",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-148",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-148",
+      "target": "Vices_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-149",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-149",
+      "target": "Project_Insights/PI-019",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-149",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-149",
+      "target": "Vices_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-150",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-150",
+      "target": "Project_Insights/PI-019",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-150",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-150",
+      "target": "Vices_Index",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-151",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-151",
+      "target": "Project_Insights/PI-019",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-151",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VC-151",
+      "target": "Vices_Index",
+      "kind": "wikilink"
+    },
+    {
       "source": "Vices/VT-001",
       "target": "Home",
       "kind": "wikilink"
@@ -17801,6 +18275,56 @@
     },
     {
       "source": "Vices_Index",
+      "target": "Vices/VC-142",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices_Index",
+      "target": "Vices/VC-143",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices_Index",
+      "target": "Vices/VC-144",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices_Index",
+      "target": "Vices/VC-145",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices_Index",
+      "target": "Vices/VC-146",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices_Index",
+      "target": "Vices/VC-147",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices_Index",
+      "target": "Vices/VC-148",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices_Index",
+      "target": "Vices/VC-149",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices_Index",
+      "target": "Vices/VC-150",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices_Index",
+      "target": "Vices/VC-151",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices_Index",
       "target": "Vices/VT-001",
       "kind": "wikilink"
     },
@@ -18411,41 +18935,7 @@
         "degree": 0
       }
     ],
-    "orphan_candidates": [
-      {
-        "id": "Inbox/cerberus/VC-142_structural_hygiene",
-        "path": "Inbox/cerberus/VC-142_structural_hygiene.md",
-        "title": "Proposal: VC-142 — Repositorio con código vigilado y estructura salvaje",
-        "kind": "inbox",
-        "outgoing": [],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 0,
-        "degree": 0
-      },
-      {
-        "id": "Inbox/cerberus/fallos_concretos",
-        "path": "Inbox/cerberus/fallos_concretos.md",
-        "title": "Fallos Concretos (Rescued from HISTORICO_PROTOCOLO)",
-        "kind": "inbox",
-        "outgoing": [],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 0,
-        "degree": 0
-      },
-      {
-        "id": "Inbox/cerberus/global_learning_legacy",
-        "path": "Inbox/cerberus/global_learning_legacy.md",
-        "title": "Legacy Global Learning (Rescued from HISTORICO_PROTOCOLO)",
-        "kind": "inbox",
-        "outgoing": [],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 0,
-        "degree": 0
-      }
-    ],
+    "orphan_candidates": [],
     "hubs": [
       {
         "id": "Vices_Index",
@@ -18595,6 +19085,16 @@
           "Vices/VC-139",
           "Vices/VC-140",
           "Vices/VC-141",
+          "Vices/VC-142",
+          "Vices/VC-143",
+          "Vices/VC-144",
+          "Vices/VC-145",
+          "Vices/VC-146",
+          "Vices/VC-147",
+          "Vices/VC-148",
+          "Vices/VC-149",
+          "Vices/VC-150",
+          "Vices/VC-151",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -18854,6 +19354,16 @@
           "Vices/VC-139",
           "Vices/VC-140",
           "Vices/VC-141",
+          "Vices/VC-142",
+          "Vices/VC-143",
+          "Vices/VC-144",
+          "Vices/VC-145",
+          "Vices/VC-146",
+          "Vices/VC-147",
+          "Vices/VC-148",
+          "Vices/VC-149",
+          "Vices/VC-150",
+          "Vices/VC-151",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -18970,9 +19480,9 @@
           "Vices/VT-114",
           "Vices/VT-115"
         ],
-        "in_degree": 257,
-        "out_degree": 257,
-        "degree": 514
+        "in_degree": 267,
+        "out_degree": 267,
+        "degree": 534
       },
       {
         "id": "Home",
@@ -19243,6 +19753,16 @@
           "Vices/VC-139",
           "Vices/VC-140",
           "Vices/VC-141",
+          "Vices/VC-142",
+          "Vices/VC-143",
+          "Vices/VC-144",
+          "Vices/VC-145",
+          "Vices/VC-146",
+          "Vices/VC-147",
+          "Vices/VC-148",
+          "Vices/VC-149",
+          "Vices/VC-150",
+          "Vices/VC-151",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -19360,9 +19880,9 @@
           "Vices/VT-115",
           "Vices_Index"
         ],
-        "in_degree": 356,
+        "in_degree": 366,
         "out_degree": 21,
-        "degree": 377
+        "degree": 387
       },
       {
         "id": "Tokenomics_Map",
@@ -19611,6 +20131,16 @@
           "Vices/VC-139",
           "Vices/VC-140",
           "Vices/VC-141",
+          "Vices/VC-142",
+          "Vices/VC-143",
+          "Vices/VC-144",
+          "Vices/VC-145",
+          "Vices/VC-146",
+          "Vices/VC-147",
+          "Vices/VC-148",
+          "Vices/VC-149",
+          "Vices/VC-150",
+          "Vices/VC-151",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -19727,9 +20257,9 @@
           "Vices/VT-114",
           "Vices/VT-115"
         ],
-        "in_degree": 344,
+        "in_degree": 354,
         "out_degree": 10,
-        "degree": 354
+        "degree": 364
       },
       {
         "id": "Project_Insights/PI-019",
@@ -19885,6 +20415,16 @@
           "Vices/VC-139",
           "Vices/VC-140",
           "Vices/VC-141",
+          "Vices/VC-142",
+          "Vices/VC-143",
+          "Vices/VC-144",
+          "Vices/VC-145",
+          "Vices/VC-146",
+          "Vices/VC-147",
+          "Vices/VC-148",
+          "Vices/VC-149",
+          "Vices/VC-150",
+          "Vices/VC-151",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -20001,9 +20541,9 @@
           "Vices/VT-114",
           "Vices/VT-115"
         ],
-        "in_degree": 257,
+        "in_degree": 267,
         "out_degree": 4,
-        "degree": 261
+        "degree": 271
       },
       {
         "id": "Tokenomics_Index",
@@ -20633,6 +21173,16 @@
           "Vices/VC-139",
           "Vices/VC-140",
           "Vices/VC-141",
+          "Vices/VC-142",
+          "Vices/VC-143",
+          "Vices/VC-144",
+          "Vices/VC-145",
+          "Vices/VC-146",
+          "Vices/VC-147",
+          "Vices/VC-148",
+          "Vices/VC-149",
+          "Vices/VC-150",
+          "Vices/VC-151",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -20892,6 +21442,16 @@
           "Vices/VC-139",
           "Vices/VC-140",
           "Vices/VC-141",
+          "Vices/VC-142",
+          "Vices/VC-143",
+          "Vices/VC-144",
+          "Vices/VC-145",
+          "Vices/VC-146",
+          "Vices/VC-147",
+          "Vices/VC-148",
+          "Vices/VC-149",
+          "Vices/VC-150",
+          "Vices/VC-151",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -21008,9 +21568,9 @@
           "Vices/VT-114",
           "Vices/VT-115"
         ],
-        "in_degree": 257,
-        "out_degree": 257,
-        "degree": 514
+        "in_degree": 267,
+        "out_degree": 267,
+        "degree": 534
       },
       {
         "id": "Tokenomics_Index",
@@ -21484,6 +22044,16 @@
           "Vices/VC-139",
           "Vices/VC-140",
           "Vices/VC-141",
+          "Vices/VC-142",
+          "Vices/VC-143",
+          "Vices/VC-144",
+          "Vices/VC-145",
+          "Vices/VC-146",
+          "Vices/VC-147",
+          "Vices/VC-148",
+          "Vices/VC-149",
+          "Vices/VC-150",
+          "Vices/VC-151",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -21601,9 +22171,9 @@
           "Vices/VT-115",
           "Vices_Index"
         ],
-        "in_degree": 356,
+        "in_degree": 366,
         "out_degree": 21,
-        "degree": 377
+        "degree": 387
       },
       {
         "id": "Tokenomics/Memory_Headroom_Index",
@@ -21941,6 +22511,16 @@
           "Vices/VC-139",
           "Vices/VC-140",
           "Vices/VC-141",
+          "Vices/VC-142",
+          "Vices/VC-143",
+          "Vices/VC-144",
+          "Vices/VC-145",
+          "Vices/VC-146",
+          "Vices/VC-147",
+          "Vices/VC-148",
+          "Vices/VC-149",
+          "Vices/VC-150",
+          "Vices/VC-151",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -22057,9 +22637,9 @@
           "Vices/VT-114",
           "Vices/VT-115"
         ],
-        "in_degree": 344,
+        "in_degree": 354,
         "out_degree": 10,
-        "degree": 354
+        "degree": 364
       },
       {
         "id": "Project_Insights/PI-002",

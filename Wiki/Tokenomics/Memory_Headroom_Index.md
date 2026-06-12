@@ -13,7 +13,7 @@ Checkpoints, handoffs, persistencia externa, cache, drift y control de margen co
 *   [[Tokenomics/TK-005|TK-005]] — **Handoff prose-heavy** (PREVENTED, medium, downstream:none)
 *   [[Tokenomics/TK-006|TK-006]] — **Merge manual de historial** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-007|TK-007]] — **Fuente de verdad duplicada** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-008|TK-008]] — **Segregación Epistemológica de la Memoria** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-008|TK-008]] — **Segregación empírica de la Memoria** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-028|TK-028]] — **Caching de contexto estable** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-031|TK-031]] — **Compactación de contexto** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-032|TK-032]] — **Cache cliff** (PREVENTED, low, downstream:none)

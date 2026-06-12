@@ -41,7 +41,7 @@ Históricamente, esta capa se operó bajo nombres como *headspace*, *compact* y 
 *   [[Tokenomics/TK-005|TK-005]] — **Handoff prose-heavy** (PREVENTED, medium, downstream:none)
 *   [[Tokenomics/TK-006|TK-006]] — **Merge manual de historial** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-007|TK-007]] — **Fuente de verdad duplicada** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-008|TK-008]] — **Segregación Epistemológica de la Memoria** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-008|TK-008]] — **Segregación empírica de la Memoria** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-009|TK-009]] — **Poda semántica** (DOC_ONLY, low, downstream:required)
 *   [[Tokenomics/TK-010|TK-010]] — **Recuperación contextual** (DOC_ONLY, low, downstream:required)
 *   [[Tokenomics/TK-011|TK-011]] — **Delimitadores estructurados** (DOC_ONLY, low, downstream:required)
