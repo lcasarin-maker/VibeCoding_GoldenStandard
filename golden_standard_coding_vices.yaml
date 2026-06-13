@@ -1562,9 +1562,9 @@ items:
     tier: specialist
   - id: VC-072
     title: Blind chunking
-    symptom: Corte rompe semántica
-    cause: Partición por tamaño
-    solution: Chunking por límites funcionales
+    symptom: The cut breaks semantics
+    cause: Partitioning by size
+    solution: Chunking by functional boundaries
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1579,10 +1579,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-073
-    title: Código crítico troceado
-    symptom: Se pierde coherencia global
-    cause: Dependencias no modeladas
-    solution: No trocear sin grafo estructural
+    title: Critical code sliced up
+    symptom: Global coherence is lost
+    cause: Unmodeled dependencies
+    solution: Do not slice without a structural graph
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1597,10 +1597,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-074
-    title: I/O sin validación
-    symptom: Datos inválidos entran al sistema
-    cause: Frontera permeable
-    solution: Validar en límites
+    title: I/O without validation
+    symptom: Invalid data enters the system
+    cause: Permeable boundary
+    solution: Validate at boundaries
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1614,25 +1614,25 @@ items:
     downstream_verification: required
     example_lang: python
     example_bad: |
-      age = int(request.args["age"])                 # entrada externa usada sin validar
-      db.execute(f"SELECT * FROM u LIMIT {request.args['n']}")  # sin sanitizar
+      age = int(request.args["age"])                 # external input used without validation
+      db.execute(f"SELECT * FROM u LIMIT {request.args['n']}")  # unsanitized
     example_good: |
-      age = validate_int(request.args.get("age"), lo=0, hi=120)   # validacion en la frontera
+      age = validate_int(request.args.get("age"), lo=0, hi=120)   # validation at the boundary
       db.execute("SELECT * FROM u LIMIT ?", (safe_int(request.args.get("n")),))
     detection: |
-      Datos de fuentes externas (request/archivo/red/argv) que llegan a un sink sin pasar
-      por una validacion/esquema en la frontera.
-      Tools: semgrep y CodeQL (taint mode) — los unicos con dataflow real.
+      Data from external sources (request/file/network/argv) that reaches a sink without going
+      through validation/schema at the boundary.
+      Tools: semgrep and CodeQL (taint mode) — the only ones with real dataflow.
     evidence:
       - source: "OWASP Top 10 for Agents 2026"
-        claim: "categoria de riesgo reconocida (input validation / broken authorization)
-          para aplicaciones agenticas."
+        claim: "recognized risk category (input validation / broken authorization)
+          for agentic applications."
     tier: specialist
   - id: VC-075
-    title: Integraciones no verificadas
-    symptom: API o datos externos asumidos estables
-    cause: Dependencia externa no modelada
-    solution: Contratos y pruebas de frontera
+    title: Unverified integrations
+    symptom: External API or data assumed stable
+    cause: Unmodeled external dependency
+    solution: Contracts and boundary tests
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1647,28 +1647,28 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-076
-    title: Tipado laxo
-    symptom: Estados imposibles circulan
-    cause: Dominio no restringido
-    solution: Representar invariantes
+    title: Lax typing
+    symptom: Impossible states circulate
+    cause: Unconstrained domain
+    solution: Represent invariants
     status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
       - prevented-mechanically
     action: |
-      Verificación física: validador estático AST en scripts/run_security_audit_12d.py (audit_d6_anti_código basura) que exige anotaciones completas de tipos de parámetros y retornos en todas las funciones públicas de protocol_engine/ y dimensions/.
+      Physical verification: static AST validator in scripts/run_security_audit_12d.py (audit_d6_anti_slop) that requires complete type annotations for parameters and return values on all public functions of protocol_engine/ and dimensions/.
     validating_mechanism: audit_d6_anti_slop
     downstream_verification: none
     example_lang: python
     example_bad: |
-      def handle(data):          # sin tipos: estados imposibles circulan
+      def handle(data):          # no types: impossible states circulate
           return data["amount"] * data["rate"]
     example_good: |
-      def handle(order: Order) -> Money:   # invariantes representados en el tipo
+      def handle(order: Order) -> Money:   # invariants represented in the type
           return order.amount * order.rate
     detection: |
-      Funciones publicas sin anotaciones de tipo o con Any en firmas de dominio
+      Public functions without type annotations or with Any in domain signatures
       (mypy --disallow-untyped-defs / --disallow-any-explicit).
     evidence:
       - source: "arxiv:2603.28592"
@@ -1676,10 +1676,10 @@ items:
           of the analyzed projects."
     tier: core
   - id: VC-077
-    title: Ambigüedad semántica de tipo
-    symptom: Cualquier cosa pasa
-    cause: Pérdida de información
-    solution: Referenciar ambigüedad de tipo
+    title: Semantic type ambiguity
+    symptom: Anything passes
+    cause: Loss of information
+    solution: Reference type ambiguity
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1704,29 +1704,29 @@ items:
     tags:
       - vibe-coding
       - audited
-    action: 'Detectado por D2 (completeness) vía AST: cuerpos de función vacíos, stub
-      docstrings y pass-only functions son rechazados. D9 (test purity) rechaza tests
-      que no tienen aserciones activas. Upgrade 2026-06-04: VC-078 deja DOC_ONLY porque
-      D2 y D9 cubren el patrón mecánicamente en scripts/ y tests/.'
+    action: 'Detected by D2 (completeness) via AST: empty function bodies, stub
+      docstrings, and pass-only functions are rejected. D9 (test purity) rejects tests
+      that have no active assertions. Upgrade 2026-06-04: VC-078 leaves DOC_ONLY because
+      D2 and D9 cover the pattern mechanically in scripts/ and tests/.'
     validating_mechanism: audit_d2_completeness
     downstream_verification: none
     example_lang: python
     example_bad: |
-      API_KEY = "REPLACE_ME"           # placeholder que llega a produccion
+      API_KEY = "REPLACE_ME"           # placeholder that reaches production
     example_good: |
-      API_KEY = os.environ["API_KEY"]  # falla si falta; sin placeholder
+      API_KEY = os.environ["API_KEY"]  # fails if missing; no placeholder
     detection: |
-      Literales placeholder (REPLACE_ME / XXX / changeme / foo) en rutas de produccion.
+      Placeholder literals (REPLACE_ME / XXX / changeme / foo) in production paths.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-079
-    title: Core dependiente de inestables
-    symptom: Cambios externos rompen núcleo
-    cause: Acoplamiento temporal
-    solution: Núcleo con dependencias estables
+    title: Core dependent on unstable parts
+    symptom: External changes break the core
+    cause: Temporal coupling
+    solution: A core with stable dependencies
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1740,24 +1740,24 @@ items:
     downstream_verification: required
     example_lang: python
     example_bad: |
-      # El nucleo importa de un modulo marcado experimental/volatil.
-      from experimental.newapi import parse   # core depende de algo inestable
+      # The core imports from a module marked experimental/volatile.
+      from experimental.newapi import parse   # core depends on something unstable
     example_good: |
-      # El nucleo depende solo de interfaces estables.
+      # The core depends only on stable interfaces.
       from core.stable.parser import parse
     detection: |
-      Modulos del nucleo (core/) que importan de paquetes marcados experimental/unstable/
-      beta o de alta rotacion.
+      Core modules (core/) that import from packages marked experimental/unstable/
+      beta or with high churn.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: specialist
   - id: VC-080
-    title: Copy-paste acrítico
-    symptom: Duplicación de fallos
-    cause: Transferencia sin comprensión
-    solution: Auditar reutilización
+    title: Uncritical copy-paste
+    symptom: Duplication of failures
+    cause: Transfer without comprehension
+    solution: Audit reuse
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1771,26 +1771,26 @@ items:
     downstream_verification: required
     example_lang: python
     example_bad: |
-      # Mismo bloque copiado en varios handlers; un bug se replica N veces.
+      # Same block copied across several handlers; a bug replicates N times.
       def a(): u = db.get(id); log(u); return u.name
       def b(): u = db.get(id); log(u); return u.email
     example_good: |
-      # Logica comun extraida una sola vez.
+      # Common logic extracted just once.
       def _load(id): u = db.get(id); log(u); return u
       def a(): return _load(id).name
       def b(): return _load(id).email
     detection: |
-      Deteccion de clones: bloques de >=5 lineas identicos en >=2 ubicaciones
+      Clone detection: blocks of >=5 identical lines in >=2 locations
       (jscpd / pylint duplicate-code).
     evidence:
       - source: "GitClear 2025"
-        claim: "el codigo duplicado aumento ~8x con asistencia de IA."
+        claim: "duplicated code increased ~8x with AI assistance."
     tier: specialist
   - id: VC-081
-    title: Secuestro documental
-    symptom: Docs y código divergen
-    cause: Evolución desacoplada
-    solution: Actualizar ambos o invalidar docs
+    title: Documentation hijack
+    symptom: Docs and code diverge
+    cause: Decoupled evolution
+    solution: Update both or invalidate the docs
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1805,28 +1805,28 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-082
-    title: Dependencias sin gate
-    symptom: Se agregan riesgos
-    cause: Supply chain no controlada
-    solution: Gatekeeping de dependencias
+    title: Dependencies without a gate
+    symptom: Risks are added
+    cause: Uncontrolled supply chain
+    solution: Dependency gatekeeping
     status: PREVENTED
     severity: high
     tags:
       - vibe-coding
       - prevented
-    action: Ghost import (dependencia usada pero no declarada) detectado por 
-      análisis AST de imports vs manifiesto.
+    action: Ghost import (dependency used but not declared) detected by
+      AST analysis of imports vs manifest.
     example_lang: python
     example_bad: |
-      # El agente "alucina" una dependencia y la importa sin declararla.
-      # El módulo importa, pasa el linter local del agente, y revienta en CI/prod.
-      import requests          # NO está en requirements.txt / pyproject.toml
-      from rich import print   # idem
+      # The agent "hallucinates" a dependency and imports it without declaring it.
+      # The module imports, passes the agent's local linter, and blows up in CI/prod.
+      import requests          # NOT in requirements.txt / pyproject.toml
+      from rich import print   # same
 
       def fetch(url):
           return requests.get(url, timeout=5).json()
     example_good: |
-      # Toda dependencia usada queda declarada y fijada antes de usarse.
+      # Every used dependency is declared and pinned before being used.
       # pyproject.toml:
       #   dependencies = ["requests==2.32.3", "rich==13.9.4"]
       import requests
@@ -1834,50 +1834,50 @@ items:
       def fetch(url):
           return requests.get(url, timeout=5).json()
     detection: |
-      Comparar el set de módulos importados (AST `import`/`importfrom`) contra el set
-      declarado en el manifiesto. Un import de un paquete de terceros ausente del
-      manifiesto es un ghost import. Herramienta de referencia: `deptry` (ver [[Project_Insights/PI-001|PI-001]]).
+      Compare the set of imported modules (AST `import`/`importfrom`) against the set
+      declared in the manifest. An import of a third-party package absent from the
+      manifest is a ghost import. Reference tool: `deptry` (see [[Project_Insights/PI-001|PI-001]]).
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "imports/dependencias fantasma figuran entre los antipatrones recurrentes
-          del código AI-generado, presentes en 80-100% de los proyectos analizados."
+        claim: "ghost imports/dependencies are among the recurring anti-patterns
+          of AI-generated code, present in 80-100% of the analyzed projects."
     validating_mechanism: test_vc082_ghost_import_detected
     downstream_verification: none
     tier: extended
   - id: VC-083
-    title: Archivo inactivoe tolerado
-    symptom: Artefactos no declarados sobreviven
-    cause: Inventario no vinculante
-    solution: Todo archivo inactivoe debe estar autorizado, clasificado o 
-      eliminado
+    title: Tolerated dead file
+    symptom: Undeclared artifacts survive
+    cause: Non-binding inventory
+    solution: Every dead file must be authorized, classified, or
+      deleted
     status: AUDITED
     severity: medium
     tags:
       - vibe-coding
       - audited
-    action: 'Detectado por D1 audit_d1_integrity: escanea todos los archivos de código
-      (excluyendo no-code por extensión) y falla con "Archivo no registrado (inactivo)"
-      si el archivo no está en la whitelist ni es un test legítimo. Upgrade 2026-06-04:
-      VC-083 deja DOC_ONLY porque D1 ya lo verifica mecánicamente.'
+    action: 'Detected by D1 audit_d1_integrity: scans all code files
+      (excluding non-code by extension) and fails with "Unregistered file (dead)"
+      if the file is not in the whitelist nor a legitimate test. Upgrade 2026-06-04:
+      VC-083 leaves DOC_ONLY because D1 already verifies it mechanically.'
     validating_mechanism: D1Integrity
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # old_server.py, server_v2_backup.py conviven sin declararse ni usarse.
+      # old_server.py, server_v2_backup.py coexist without being declared or used.
     example_good: |
-      # Cada artefacto esta autorizado, clasificado o eliminado (inventario explicito).
+      # Each artifact is authorized, classified, or deleted (explicit inventory).
     detection: |
-      Archivos no referenciados por imports/build ni declarados en un inventario = inactivoes.
+      Files not referenced by imports/build nor declared in an inventory = dead files.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-084
-    title: Compatibilidad regresiva ignorada
-    symptom: Consumidores previos se rompen silenciosamente
-    cause: Contrato histórico no modelado
-    solution: Versionar contratos y probar rutas heredadas vigentes
+    title: Ignored regressive compatibility
+    symptom: Prior consumers break silently
+    cause: Historical contract not modeled
+    solution: Version contracts and test active legacy paths
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1892,10 +1892,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-085
-    title: Observabilidad ornamental
-    symptom: Existen logs pero no explican fallos
-    cause: Señal sin diagnóstico
-    solution: Registrar eventos causales, decisiones y estados frontera
+    title: Ornamental observability
+    symptom: Logs exist but do not explain failures
+    cause: Signal without diagnosis
+    solution: Record causal events, decisions, and boundary states
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1910,10 +1910,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-086
-    title: Wrapper evasivo
-    symptom: Capa nueva evita tocar la falla real
-    cause: Indirección como ocultamiento
-    solution: Resolver contrato roto en su origen
+    title: Evasive wrapper
+    symptom: A new layer avoids touching the real fault
+    cause: Indirection as concealment
+    solution: Resolve the broken contract at its source
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1929,41 +1929,41 @@ items:
     tier: specialist
   - id: VC-087
     detector: vc087_blanket_filterwarnings
-    title: Warning normalizado
-    symptom: Advertencias se acumulan sin bloqueo; filterwarnings("ignore") sin 
-      justificación
-    cause: Degradación gradual aceptada; supresión global ciega de señales de 
-      alerta
-    solution: Cero warnings en rutas de salud; toda supresión de warning debe 
-      tener comentario justificativo
+    title: Normalized warning
+    symptom: Warnings accumulate without blocking; filterwarnings("ignore") without
+      justification
+    cause: Accepted gradual degradation; blind global suppression of alert
+      signals
+    solution: Zero warnings on health paths; every warning suppression must
+      have a justifying comment
     status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
       - prevented
-    action: 'D6 (_check_file_anti_código basura) detecta filterwarnings("ignore")
-      sin comentario justificativo en scripts/ (excluyendo tests). Upgrade 2026-06-04:
-      VC-087 promovido a PREVENTED con detección estática en audit_d6_anti_código
-      basura. Patrón permitido: filterwarnings("ignore")  # VC-087-OK: <razón específica>.'
+    action: 'D6 (_check_file_anti_slop) detects filterwarnings("ignore")
+      without a justifying comment in scripts/ (excluding tests). Upgrade 2026-06-04:
+      VC-087 promoted to PREVENTED with static detection in audit_d6_anti_slop.
+      Allowed pattern: filterwarnings("ignore")  # VC-087-OK: <specific reason>.'
     validating_mechanism: audit_d6_anti_slop
     downstream_verification: none
     example_lang: python
     example_bad: |
-      warnings.filterwarnings("ignore")   # se silencian todos, sin justificar
+      warnings.filterwarnings("ignore")   # all are silenced, without justification
     example_good: |
-      warnings.filterwarnings("ignore", category=DeprecationWarning)  # solo este, ver BUG-30
+      warnings.filterwarnings("ignore", category=DeprecationWarning)  # only this one, see BUG-30
     detection: |
-      filterwarnings("ignore") global o acumulacion de warnings sin justificacion en rutas de salud.
+      Global filterwarnings("ignore") or accumulation of warnings without justification on health paths.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-088
-    title: Error tolerado por política
-    symptom: Se documenta el fallo en vez de corregirlo
-    cause: Excepción convertida en estado estable
-    solution: Cero errores conocidos en cierre
+    title: Error tolerated by policy
+    symptom: The failure is documented instead of fixed
+    cause: Exception turned into a stable state
+    solution: Zero known errors at closure
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1978,10 +1978,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-089
-    title: Reconocimiento omitido
-    symptom: Se edita sin entender repositorio
-    cause: Modelo incompleto del sistema
-    solution: Mapear estructura antes de modificar
+    title: Skipped reconnaissance
+    symptom: Editing without understanding the repository
+    cause: Incomplete model of the system
+    solution: Map the structure before modifying
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1996,36 +1996,36 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-090
-    title: Memoria no cargada
-    symptom: Se repiten errores previos
-    cause: Estado histórico ignorado
-    solution: Cargar ledger y decisiones vigentes
+    title: Memory not loaded
+    symptom: Prior errors are repeated
+    cause: Historical state ignored
+    solution: Load the ledger and active decisions
     status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
       - prevented
-    action: validate_gs_topology.py checks that the canonical memory surfaces 
+    action: validate_gs_topology.py checks that the canonical memory surfaces
       are linked from Home, so the GS ledger can be loaded on entry.
     validating_mechanism: validate_golden_standard_catalogs.py
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # La sesion arranca sin leer el ledger -> repite un error ya resuelto.
+      # The session starts without reading the ledger -> repeats an already-resolved error.
     example_good: |
-      # El arranque carga decisiones vigentes (STATUS.md / DECISIONS.md) antes de actuar.
+      # Startup loads active decisions (STATUS.md / DECISIONS.md) before acting.
     detection: |
-      Inicio de trabajo sin cargar el ledger de decisiones/errores previos.
+      Starting work without loading the ledger of prior decisions/errors.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-091
-    title: Archivo no encontrado perezoso
-    symptom: Se declara inexistencia sin búsqueda
-    cause: Exploración insuficiente
-    solution: Agotar búsqueda estructural
+    title: Lazy file-not-found
+    symptom: Non-existence is declared without searching
+    cause: Insufficient exploration
+    solution: Exhaust the structural search
     status: PREVENTED
     severity: medium
     tags:
@@ -2409,8 +2409,8 @@ items:
       autorizacion declarada (capacidades, limites y denegaciones por rol).
     evidence:
       - source: "OWASP Top 10 for Agents 2026"
-        claim: "categoria de riesgo reconocida (input validation / broken authorization)
-          para aplicaciones agenticas."
+        claim: "recognized risk category (input validation / broken authorization)
+          for agentic applications."
     tier: specialist
   - id: VC-108
     title: Frontera de seguridad por convención
