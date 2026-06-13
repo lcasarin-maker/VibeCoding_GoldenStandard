@@ -1,4 +1,4 @@
-# [[Home|← Volver al Inicio de la Bóveda]]
+# [[Home|← Back to Vault Home]]
 
 ---
 

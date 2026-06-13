@@ -1,24 +1,24 @@
-# Índice de Tokenomics: Automatización y Herramientas
+# Tokenomics Index: Automation and Tooling
 
-Integraciones activas, routing, modos de operación y tooling que realmente ejecuta ahorro.
-
----
-
-## Entradas
-
-*   [[Tokenomics/TK-013|TK-013]] — **Tool schemas inflados** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-017|TK-017]] — **Permisos narrados** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-039|TK-039]] — **Herramientas externas no integradas** (REMEDIATED, medium, downstream:none)
+Active integrations, routing, operation modes, and tooling that actually executes savings.
 
 ---
 
-## Cómo leer este subíndice
+## Entries
 
-- Si la entrada trata de memoria, checkpoint, handoff, cache o headroom, está en Memoria y Headroom.
-- Si trata de búsqueda, poda, recuperación o chunks, está en Entrada y Recuperación.
-- Si trata de verbosidad, compresión o presupuesto de respuesta, está en Salida y Compresión.
-- Si trata de medición, telemetría, evidencia o ahorro verificado, está en Medición y Telemetría.
-- Si trata de tooling, routing, integración o modos operativos, está en Automatización y Herramientas.
+*   [[Tokenomics/TK-013|TK-013]] — **Bloated tool schemas** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-017|TK-017]] — **Narrated permissions** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-039|TK-039]] — **Non-integrated external tools** (REMEDIATED, medium, downstream:none)
 
 ---
-[[Tokenomics_Map|Volver al Mapa de Tokenomics]] | [[Tokenomics_Index|Índice de Tokenomics]]
+
+## How to read this subindex
+
+- If the entry is about memory, checkpoint, handoff, cache, or headroom, it is in Memory and Headroom.
+- If it is about search, pruning, retrieval, or chunks, it is in Input and Retrieval.
+- If it is about verbosity, compression, or response budget, it is in Output and Compaction.
+- If it is about measurement, telemetry, evidence, or verified savings, it is in Measurement and Telemetry.
+- If it is about tooling, routing, integration, or operating modes, it is in Automation and Tooling.
+
+---
+[[Tokenomics_Map|Back to Tokenomics Map]] | [[Tokenomics_Index|Tokenomics Index]]

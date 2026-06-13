@@ -1,27 +1,27 @@
-# Índice de Tokenomics: Medición y Telemetría
+# Tokenomics Index: Measurement and Telemetry
 
-Evidencia de ahorro, observabilidad, monitoreo y verificación de impacto.
-
----
-
-## Entradas
-
-*   [[Tokenomics/TK-023|TK-023]] — **Logs crudos** (REMEDIATED, medium, downstream:none)
-*   [[Tokenomics/TK-026|TK-026]] — **Observabilidad ruidosa** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-037|TK-037]] — **Monitoreo manual olvidable** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-040|TK-040]] — **Ahorro prometido no medido** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-041|TK-041]] — **Cuotas invisibles** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-042|TK-042]] — **Manifiestos sin restricción de tamaño** (REMEDIATED, medium, downstream:none)
+Savings evidence, observability, monitoring, and impact verification.
 
 ---
 
-## Cómo leer este subíndice
+## Entries
 
-- Si la entrada trata de memoria, checkpoint, handoff, cache o headroom, está en Memoria y Headroom.
-- Si trata de búsqueda, poda, recuperación o chunks, está en Entrada y Recuperación.
-- Si trata de verbosidad, compresión o presupuesto de respuesta, está en Salida y Compresión.
-- Si trata de medición, telemetría, evidencia o ahorro verificado, está en Medición y Telemetría.
-- Si trata de tooling, routing, integración o modos operativos, está en Automatización y Herramientas.
+*   [[Tokenomics/TK-023|TK-023]] — **Raw logs** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-026|TK-026]] — **Noisy observability** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-037|TK-037]] — **Forgettable manual monitoring** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-040|TK-040]] — **Promised savings not measured** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-041|TK-041]] — **Invisible quotas** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-042|TK-042]] — **Manifests without a size constraint** (REMEDIATED, medium, downstream:none)
 
 ---
-[[Tokenomics_Map|Volver al Mapa de Tokenomics]] | [[Tokenomics_Index|Índice de Tokenomics]]
+
+## How to read this subindex
+
+- If the entry is about memory, checkpoint, handoff, cache, or headroom, it is in Memory and Headroom.
+- If it is about search, pruning, retrieval, or chunks, it is in Input and Retrieval.
+- If it is about verbosity, compression, or response budget, it is in Output and Compaction.
+- If it is about measurement, telemetry, evidence, or verified savings, it is in Measurement and Telemetry.
+- If it is about tooling, routing, integration, or operating modes, it is in Automation and Tooling.
+
+---
+[[Tokenomics_Map|Back to Tokenomics Map]] | [[Tokenomics_Index|Tokenomics Index]]

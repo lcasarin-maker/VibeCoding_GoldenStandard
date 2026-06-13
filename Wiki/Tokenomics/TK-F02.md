@@ -1,50 +1,50 @@
-# TK-F02: Poda contextual primitiva
+# TK-F02: Primitive context pruning
 
-| Campo | Detalle |
+| Field | Detail |
 |---|---|
 | **ID** | `TK-F02` |
-| **Categoría** | Tokenomics |
-| **Estado** | **DOC_ONLY** |
-| **Severidad** | **low** |
-| **Profundidad** | 🟢 Deep |
+| **Category** | Tokenomics |
+| **Status** | **DOC_ONLY** |
+| **Severity** | **low** |
+| **Depth** | 🟢 Deep |
 | **Tags** | `tokenomics`, `doc-only` |
 | **Downstream Verification** | `required` |
-| **Mecanismo de Validación** | `DOC_ONLY` |
+| **Validation Mechanism** | `DOC_ONLY` |
 
 ---
 
-### Síntoma (Signal)
-> Tareas pequeñas cargan documentos completos
+### Symptom (Signal)
+> Small tasks load entire documents
 
-### Causa (Cause)
-Recuperacion no selectiva
+### Cause
+Non-selective retrieval
 
-### Aplicación / Mitigación
-Extraer solo fragmentos relevantes
+### Application / Mitigation
+Extract only the relevant fragments
 
-### Relevancia Operativa
+### Operational Relevance
 Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.
 
-### ❌ Ejemplo del vicio (Bad)
+### ❌ Example of the vice (Bad)
 ```python
-# Tarea minuscula que carga el documento entero.
+# Tiny task that loads the entire document.
 ctx = open("manual_500p.md").read()
-answer = call(model, ctx + "cual es el limite de reintentos?")
+answer = call(model, ctx + "what is the retry limit?")
 ```
 
-### ✅ Versión corregida (Good)
+### ✅ Corrected version (Good)
 ```python
-# Recuperar solo el fragmento relevante.
-ctx = retrieve("manual_500p.md", query="limite de reintentos", k=1)
+# Retrieve only the relevant fragment.
+ctx = retrieve("manual_500p.md", query="retry limit", k=1)
 answer = call(model, ctx + "...")
 ```
 
-### 🔎 Detección concreta
-Cargar documentos completos para consultas localizadas en vez de recuperar
-fragmentos relevantes.
+### 🔎 Concrete detection
+Loading entire documents for localized queries instead of retrieving the
+relevant fragments.
 
-### 📚 Evidencia externa
-- **vexp.dev / HumanLayer ACE** — el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales.
+### 📚 External evidence
+- **vexp.dev / HumanLayer ACE** — unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
 
 ---
-[[Tokenomics_Map|Volver al Mapa de Tokenomics]] | [[Tokenomics_Index|Volver al Índice de Tokenomics]] | [[Home|Inicio]]
+[[Tokenomics_Map|Back to Tokenomics Map]] | [[Tokenomics_Index|Back to Tokenomics Index]] | [[Home|Home]]

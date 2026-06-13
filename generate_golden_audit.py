@@ -420,19 +420,19 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 - 🕸️ **[[Graph|GS Graph Map]]**: Hubs, intentional orphans, candidate orphans, and local vault impact.
 - 📘 **[[Concepts/Conceptual_Framework|Golden Standard Conceptual Framework]]**: Epistemological doctrine, levels, and design foundations.
 - 🧼 **[[Concepts/Conceptual_Framework#11.-Higiene,-limpieza-y-organización-del-repositorio|Repository Hygiene Chapter]]**: Canonical standard for cleanup, naming, clean root, and organization evidence.
-- 🔧 **[[Project_Insights/PI-019|Execution and tooling hygiene]]**: Satellite rule for simple commands, UTF-8, and technical purity.
+- 🔧 **[[Project_Insights/PI-019|Execution Hygiene and Tooling]]**: Satellite rule for simple commands, UTF-8, and technical purity.
 - ⚠️ **[[Vices/VC-124|Hasty deprecation]]**: Mirror vice that avoids moving to `deprecated/` without analysis.
 - 🏷️ **[[Project_Insights/PI-020|Confidence Tags]]**: Every protocol claim must declare whether it is VERIFIED, INFERRED, or ASSUMED.
 - 🧪 **[[Project_Insights/PI-021|Semantic Wiki-Lint]]**: Detects contradictions, broken references, and mandates without binding.
 - 🧾 **[[Project_Insights/PI-022|Uncertainty list]]**: Documents the unverified so as not to feign certainty.
 - 🧭 **[[Project_Insights/PI-023|Dual-session awareness]]**: Verifies shared state before editing.
 - 🕸️ **[[Project_Insights/PI-024|Hub-based review]]**: Prioritizes high-impact nodes in the graph.
-- 🧷 **[[Project_Insights/PI-025|Exportable retrospective]]**: Closes each session with a structured, persistent retrospective.
+- 🧷 **[[Project_Insights/PI-025|Exportable Retrospective]]**: Closes each session with a structured, persistent retrospective.
 - 💠 **[[Tokenomics_Index|Tokenomics Index]]**: Separate catalog of efficiency, headroom, and context management (`TK`).
 - 🗺️ **[[Tokenomics_Map|Tokenomics Map]]**: Bridge between the `TK` and `PI` lenses to navigate relations, gaps, and coverage.
 - 🔹 **[[Tokenomics/Memory_Headroom_Index|Memory and Headroom]]**: Checkpoints, handoff, persistence, and context margin.
 - 🔹 **[[Tokenomics/Input_Retrieval_Index|Input and Retrieval]]**: Targeted retrieval and input-noise reduction.
-- 🔹 **[[Tokenomics/Output_Compaction_Index|Output and Compression]]**: Verbosity, compression, and response budget.
+- 🔹 **[[Tokenomics/Output_Compaction_Index|Output and Compaction]]**: Verbosity, compression, and response budget.
 - 🔹 **[[Tokenomics/Measurement_Telemetry_Index|Measurement and Telemetry]]**: Savings evidence and impact monitoring.
 - 🔹 **[[Tokenomics/Automation_Tooling_Index|Automation and Tooling]]**: Active integrations and tooling that executes savings.
 - 📄 **[Root conceptual framework](../CONCEPTUAL_FRAMEWORK.md)**: Local GS base document for direct reading and graph navigation.
@@ -554,7 +554,7 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 
 - [[Memory_Headroom_Index|Memory and Headroom]]
 - [[Input_Retrieval_Index|Input and Retrieval]]
-- [[Output_Compaction_Index|Output and Compression]]
+- [[Output_Compaction_Index|Output and Compaction]]
 - [[Measurement_Telemetry_Index|Measurement and Telemetry]]
 - [[Automation_Tooling_Index|Automation and Tooling]]
 - [[Tokenomics_Map|Tokenomics Map]]
@@ -605,7 +605,7 @@ def write_tokenomics_map_md(wiki_dir: Path, insights: dict):
             "Reduces input noise and makes targeted retrieval more precise.",
         ),
         (
-            "Output and Compression",
+            "Output and Compaction",
             "[[Tokenomics/Output_Compaction_Index|Open lens]]",
             "PI-003, PI-007, PI-009, PI-016",
             "Controls verbosity, cost, pruning, and documentary honesty.",
@@ -680,7 +680,7 @@ This map serves as a bridge between the `TK` category and the GS satellite lesso
 
 1. If a problem consumes context, first check `Memory and Headroom`.
 2. If the problem originates in the input, check `Input and Retrieval`.
-3. If the cost is in the response, check `Output and Compression`.
+3. If the cost is in the response, check `Output and Compaction`.
 4. If there is no evidence of savings, check `Measurement and Telemetry`.
 5. If the doctrine does not run by itself, check `Automation and Tooling`.
 
@@ -731,7 +731,7 @@ def write_tokenomics_subindices_md(wiki_dir: Path, mapped_database: dict):
             "items": [],
         },
         "output_compaction": {
-            "title": "Output and Compression",
+            "title": "Output and Compaction",
             "filename": "Output_Compaction_Index.md",
             "blurb": "Output control, compression, verbosity, and response budget.",
             "items": [],
@@ -775,7 +775,7 @@ def write_tokenomics_subindices_md(wiki_dir: Path, mapped_database: dict):
 
 - If the entry is about memory, checkpoint, handoff, cache, or headroom, it is in Memory and Headroom.
 - If it is about search, pruning, retrieval, or chunks, it is in Input and Retrieval.
-- If it is about verbosity, compression, or response budget, it is in Output and Compression.
+- If it is about verbosity, compression, or response budget, it is in Output and Compaction.
 - If it is about measurement, telemetry, evidence, or verified savings, it is in Measurement and Telemetry.
 - If it is about tooling, routing, integration, or operating modes, it is in Automation and Tooling.
 

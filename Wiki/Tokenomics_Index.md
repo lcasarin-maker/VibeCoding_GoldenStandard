@@ -1,30 +1,30 @@
-# Índice de Tokenomics
+# Tokenomics Index
 
-Tokenomics es una categoría propia del Golden Standard. No describe vicios de código ni de testing: describe cómo reducir ruido, preservar headroom, compactar contexto y externalizar estado sin sacrificar calidad.
+Tokenomics is a category of its own in the Golden Standard. It does not describe code or testing vices: it describes how to reduce noise, preserve headroom, compact context, and externalize state without sacrificing quality.
 
-La utilidad práctica de esta categoría es doble:
+The practical utility of this category is twofold:
 
-1. evitar que el agente queme contexto en relecturas, salidas verbosas o handoffs pobres;
-2. convertir ahorro de tokens en una disciplina medible, no en una intuición.
+1. prevent the agent from burning context on rereads, verbose outputs, or poor handoffs;
+2. turn token savings into a measurable discipline, not an intuition.
 
-Históricamente, esta capa se operó bajo nombres como *headspace*, *compact* y *token saving*. GS conserva el conocimiento y también define la doctrina de uso.
-
----
-
-## Subíndices
-
-- [[Memory_Headroom_Index|Memoria y Headroom]]
-- [[Input_Retrieval_Index|Entrada y Recuperación]]
-- [[Output_Compaction_Index|Salida y Compresión]]
-- [[Measurement_Telemetry_Index|Medición y Telemetría]]
-- [[Automation_Tooling_Index|Automatización y Herramientas]]
-- [[Tokenomics_Map|Mapa de Tokenomics]]
+Historically, this layer was operated under names like *headspace*, *compact*, and *token saving*. GS preserves the knowledge and also defines the doctrine of use.
 
 ---
 
-## Estado de la categoría
+## Subindices
 
-| Estado | Entradas |
+- [[Memory_Headroom_Index|Memory and Headroom]]
+- [[Input_Retrieval_Index|Input and Retrieval]]
+- [[Output_Compaction_Index|Output and Compaction]]
+- [[Measurement_Telemetry_Index|Measurement and Telemetry]]
+- [[Automation_Tooling_Index|Automation and Tooling]]
+- [[Tokenomics_Map|Tokenomics Map]]
+
+---
+
+## Category status
+
+| Status | Entries |
 |---|---:|
 | `PREVENTED` / `REMEDIATED` | 35 |
 | `DOC_ONLY` / `AUDITED` | 12 |
@@ -32,63 +32,63 @@ Históricamente, esta capa se operó bajo nombres como *headspace*, *compact* y 
 
 ---
 
-## Entradas
+## Entries
 
-*   [[Tokenomics/TK-001|TK-001]] — **Checkpoint ausente** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-002|TK-002]] — **Memoria de chat como fuente principal** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-003|TK-003]] — **Cambio de proyecto sin cierre** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-004|TK-004]] — **Setup reexplicado** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-005|TK-005]] — **Handoff prose-heavy** (PREVENTED, medium, downstream:none)
-*   [[Tokenomics/TK-006|TK-006]] — **Merge manual de historial** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-007|TK-007]] — **Fuente de verdad duplicada** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-008|TK-008]] — **Segregación empírica de la Memoria** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-009|TK-009]] — **Poda semántica** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-010|TK-010]] — **Recuperación contextual** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-011|TK-011]] — **Delimitadores estructurados** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-001|TK-001]] — **Missing checkpoint** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-002|TK-002]] — **Chat memory as the primary source** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-003|TK-003]] — **Project switch without closure** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-004|TK-004]] — **Re-explained setup** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-005|TK-005]] — **Prose-heavy handoff** (PREVENTED, medium, downstream:none)
+*   [[Tokenomics/TK-006|TK-006]] — **Manual history merge** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-007|TK-007]] — **Duplicated source of truth** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-008|TK-008]] — **Empirical memory segregation** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-009|TK-009]] — **Semantic pruning** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-010|TK-010]] — **Contextual retrieval** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-011|TK-011]] — **Structured delimiters** (DOC_ONLY, low, downstream:required)
 *   [[Tokenomics/TK-012|TK-012]] — **Exploration tax** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-013|TK-013]] — **Tool schemas inflados** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-014|TK-014]] — **Lectura completa por defecto** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-015|TK-015]] — **Archivo completo para duda puntual** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-016|TK-016]] — **Prompt gigante multiobjetivo** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-017|TK-017]] — **Permisos narrados** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-018|TK-018]] — **Backlog mezclado con objetivo** (PREVENTED, medium, downstream:none)
-*   [[Tokenomics/TK-019|TK-019]] — **Esqueleto Jerárquico de Dependencias** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-020|TK-020]] — **Restricción de salida** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-013|TK-013]] — **Bloated tool schemas** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-014|TK-014]] — **Full read by default** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-015|TK-015]] — **Whole file for a specific question** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-016|TK-016]] — **Giant multi-objective prompt** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-017|TK-017]] — **Narrated permissions** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-018|TK-018]] — **Backlog mixed with the objective** (PREVENTED, medium, downstream:none)
+*   [[Tokenomics/TK-019|TK-019]] — **Hierarchical Dependency Skeleton** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-020|TK-020]] — **Output constraint** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-021|TK-021]] — **Prefilling** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-022|TK-022]] — **Optimización de ejemplos** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-023|TK-023]] — **Logs crudos** (REMEDIATED, medium, downstream:none)
-*   [[Tokenomics/TK-024|TK-024]] — **Resumen sin densidad** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-025|TK-025]] — **Salida de auditoría verbosa** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-026|TK-026]] — **Observabilidad ruidosa** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-027|TK-027]] — **Compresión Léxica de Diagnósticos** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-028|TK-028]] — **Caching de contexto estable** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-029|TK-029]] — **Procesamiento batch** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-030|TK-030]] — **Cascada de capacidades** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-031|TK-031]] — **Compactación de contexto** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-022|TK-022]] — **Example optimization** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-023|TK-023]] — **Raw logs** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-024|TK-024]] — **Summary without density** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-025|TK-025]] — **Verbose audit output** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-026|TK-026]] — **Noisy observability** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-027|TK-027]] — **Lexical Compression of Diagnostics** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-028|TK-028]] — **Stable context caching** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-029|TK-029]] — **Batch processing** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-030|TK-030]] — **Capability cascade** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-031|TK-031]] — **Context compaction** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-032|TK-032]] — **Cache cliff** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-033|TK-033]] — **Sin headroom** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-034|TK-034]] — **Costo de reversión invisible** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-035|TK-035]] — **Pensar con herramienta de ejecución** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-036|TK-036]] — **Respuesta sin modo** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-037|TK-037]] — **Monitoreo manual olvidable** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-038|TK-038]] — **Relectura de estado completo** (REMEDIATED, medium, downstream:none)
-*   [[Tokenomics/TK-039|TK-039]] — **Herramientas externas no integradas** (REMEDIATED, medium, downstream:none)
-*   [[Tokenomics/TK-040|TK-040]] — **Ahorro prometido no medido** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-041|TK-041]] — **Cuotas invisibles** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-042|TK-042]] — **Manifiestos sin restricción de tamaño** (REMEDIATED, medium, downstream:none)
-*   [[Tokenomics/TK-043|TK-043]] — **Entropía sin poda — gobernanza de entrada sin gobernanza de salida** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-044|TK-044]] — **Deuda de tokenomics acumulada (Cost Compounding)** (PREVENTED, medium, downstream:none)
-*   [[Tokenomics/TK-F01|TK-F01]] — **Reprocesamiento de contexto estable** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-F02|TK-F02]] — **Poda contextual primitiva** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-F03|TK-F03]] — **Salida verbal excesiva** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-033|TK-033]] — **No headroom** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-034|TK-034]] — **Invisible rollback cost** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-035|TK-035]] — **Thinking with the execution tool** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-036|TK-036]] — **Response without a mode** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-037|TK-037]] — **Forgettable manual monitoring** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-038|TK-038]] — **Full-state re-reading** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-039|TK-039]] — **Non-integrated external tools** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-040|TK-040]] — **Promised savings not measured** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-041|TK-041]] — **Invisible quotas** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-042|TK-042]] — **Manifests without a size constraint** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-043|TK-043]] — **Entropy without pruning — input governance without output governance** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-044|TK-044]] — **Accumulated tokenomics debt (Cost Compounding)** (PREVENTED, medium, downstream:none)
+*   [[Tokenomics/TK-F01|TK-F01]] — **Reprocessing stable context** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-F02|TK-F02]] — **Primitive context pruning** (DOC_ONLY, low, downstream:required)
+*   [[Tokenomics/TK-F03|TK-F03]] — **Excessive verbal output** (DOC_ONLY, low, downstream:required)
 
 ---
-## Referencia de uso
+## Usage reference
 
-- Tokenomics define principios de eficiencia y gestión de contexto.
-- La enforcement real de estos principios pertenece a los repositorios consumidores y herramientas que adopten GS.
-- El vocabulario de la categoría debe mantenerse separado de VC y VT para evitar confusión semántica.
-- Las estrategias modernas de reducción de ruido, como RTK e ICM, confirman que el ahorro de tokens se beneficia de herramientas de filtrado, memoria externa y compacción de contexto.
+- Tokenomics defines principles of efficiency and context management.
+- The real enforcement of these principles belongs to the consuming repositories and tools that adopt GS.
+- The category's vocabulary must be kept separate from VC and VT to avoid semantic confusion.
+- Modern noise-reduction strategies, like RTK and ICM, confirm that token savings benefit from filtering tools, external memory, and context compaction.
 
 ---
-[[Home|Volver al Inicio]]
+[[Home|Back to Home]]

@@ -1,48 +1,48 @@
-# TK-F03: Salida verbal excesiva
+# TK-F03: Excessive verbal output
 
-| Campo | Detalle |
+| Field | Detail |
 |---|---|
 | **ID** | `TK-F03` |
-| **Categoría** | Tokenomics |
-| **Estado** | **DOC_ONLY** |
-| **Severidad** | **low** |
-| **Profundidad** | 🟢 Deep |
+| **Category** | Tokenomics |
+| **Status** | **DOC_ONLY** |
+| **Severity** | **low** |
+| **Depth** | 🟢 Deep |
 | **Tags** | `tokenomics`, `doc-only` |
 | **Downstream Verification** | `required` |
-| **Mecanismo de Validación** | `DOC_ONLY` |
+| **Validation Mechanism** | `DOC_ONLY` |
 
 ---
 
-### Síntoma (Signal)
-> Preámbulos, explicaciones y cierres no agregan valor
+### Symptom (Signal)
+> Preambles, explanations, and closings add no value
 
-### Causa (Cause)
-Presupuesto de salida ausente
+### Cause
+Missing output budget
 
-### Aplicación / Mitigación
-Restringir formato y longitud de salida
+### Application / Mitigation
+Constrain output format and length
 
-### Relevancia Operativa
+### Operational Relevance
 Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.
 
-### ❌ Ejemplo del vicio (Bad)
+### ❌ Example of the vice (Bad)
 ```text
-# Prompt sin presupuesto de salida -> preambulos y cierres inutiles.
-"Explica por que y luego dame el JSON"   -> 600 tokens de prosa + JSON
+# Prompt with no output budget -> useless preambles and closings.
+"Explain why and then give me the JSON"   -> 600 tokens of prose + JSON
 ```
 
-### ✅ Versión corregida (Good)
+### ✅ Corrected version (Good)
 ```text
-# Restringir el formato y la longitud de salida.
-"Responde SOLO con el JSON, sin texto adicional."   -> ~40 tokens
+# Constrain the output format and length.
+"Respond ONLY with the JSON, no additional text."   -> ~40 tokens
 ```
 
-### 🔎 Detección concreta
-Salidas con preambulo/explicacion/cierre cuando la tarea solo requiere el dato;
-ausencia de restriccion de formato o longitud.
+### 🔎 Concrete detection
+Outputs with preamble/explanation/closing when the task only requires the
+datum; absence of format or length constraints.
 
-### 📚 Evidencia externa
-- **vexp.dev / HumanLayer ACE** — el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales.
+### 📚 External evidence
+- **vexp.dev / HumanLayer ACE** — unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
 
 ---
-[[Tokenomics_Map|Volver al Mapa de Tokenomics]] | [[Tokenomics_Index|Volver al Índice de Tokenomics]] | [[Home|Inicio]]
+[[Tokenomics_Map|Back to Tokenomics Map]] | [[Tokenomics_Index|Back to Tokenomics Index]] | [[Home|Home]]

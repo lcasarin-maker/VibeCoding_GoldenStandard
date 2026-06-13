@@ -1,49 +1,49 @@
-# TK-F01: Reprocesamiento de contexto estable
+# TK-F01: Reprocessing stable context
 
-| Campo | Detalle |
+| Field | Detail |
 |---|---|
 | **ID** | `TK-F01` |
-| **Categoría** | Tokenomics |
-| **Estado** | **DOC_ONLY** |
-| **Severidad** | **low** |
-| **Profundidad** | 🟢 Deep |
+| **Category** | Tokenomics |
+| **Status** | **DOC_ONLY** |
+| **Severity** | **low** |
+| **Depth** | 🟢 Deep |
 | **Tags** | `tokenomics`, `doc-only` |
 | **Downstream Verification** | `required` |
-| **Mecanismo de Validación** | `DOC_ONLY` |
+| **Validation Mechanism** | `DOC_ONLY` |
 
 ---
 
-### Síntoma (Signal)
-> El mismo bloque se paga o procesa muchas veces
+### Symptom (Signal)
+> The same block is paid for or processed many times
 
-### Causa (Cause)
-Reuso no modelado
+### Cause
+Unmodeled reuse
 
-### Aplicación / Mitigación
-Separar contexto estable y contexto volatil
+### Application / Mitigation
+Separate stable context from volatile context
 
-### Relevancia Operativa
+### Operational Relevance
 Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.
 
-### ❌ Ejemplo del vicio (Bad)
+### ❌ Example of the vice (Bad)
 ```python
-# Se reenvia el mismo bloque estable en cada llamada: se paga N veces.
+# The same stable block is resent on every call: paid for N times.
 for q in questions:
-    call(model, system=BIG_STABLE_DOCS + q)     # sin cache
+    call(model, system=BIG_STABLE_DOCS + q)     # no cache
 ```
 
-### ✅ Versión corregida (Good)
+### ✅ Corrected version (Good)
 ```python
-# Marcar el prefijo estable como cacheable: se paga una vez.
+# Mark the stable prefix as cacheable: paid for once.
 call(model, system=[{"text": BIG_STABLE_DOCS, "cache_control": {"type": "ephemeral"}}, q])
 ```
 
-### 🔎 Detección concreta
-Llamadas repetidas que reenvian un mismo prefijo estable sin prompt caching /
+### 🔎 Concrete detection
+Repeated calls that resend the same stable prefix without prompt caching /
 cache_control.
 
-### 📚 Evidencia externa
-- **vexp.dev / HumanLayer ACE** — el contexto sin estructura consume 3-5x mas tokens; recuperacion selectiva, caching y compactacion son las palancas centrales.
+### 📚 External evidence
+- **vexp.dev / HumanLayer ACE** — unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
 
 ---
-[[Tokenomics_Map|Volver al Mapa de Tokenomics]] | [[Tokenomics_Index|Volver al Índice de Tokenomics]] | [[Home|Inicio]]
+[[Tokenomics_Map|Back to Tokenomics Map]] | [[Tokenomics_Index|Back to Tokenomics Index]] | [[Home|Home]]
