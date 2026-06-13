@@ -2,10 +2,10 @@ format_version: 3.0
 catalog_name: coding_vices
 items:
   - id: VC-001
-    title: Incompetencia no asumida
-    symptom: Se acepta salida generada como correcta
-    cause: Ausencia de validación rigurosa
-    solution: Tratar toda salida como hipótesis hasta validación
+    title: Unassumed incompetence
+    symptom: Generated output is accepted as correct
+    cause: Absence of rigorous validation
+    solution: Treat all output as a hypothesis until validated
     status: DOC_ONLY
     severity: medium
     tags:
@@ -20,10 +20,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-002
-    title: confianza ciega
-    symptom: El sistema responde con seguridad injustificada
-    cause: Optimización por similitud superficial
-    solution: Exigir incertidumbre explícita y evidencia
+    title: Blind trust
+    symptom: The system responds with unjustified confidence
+    cause: Optimization by superficial similarity
+    solution: Demand explicit uncertainty and evidence
     status: DOC_ONLY
     severity: medium
     tags:
@@ -38,44 +38,44 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-003
-    title: optimismo sin pruebas sin prueba
-    symptom: Se declara éxito sin logs
-    cause: Confusión entre afirmación y verificación
-    solution: Prohibir veredictos sin evidencia observable
+    title: Optimism without proof
+    symptom: Success is declared without logs
+    cause: Confusion between assertion and verification
+    solution: Forbid verdicts without observable evidence
     status: PREVENTED
     severity: high
     tags:
       - vibe-coding
       - prevented
-    action: 'Anti-optimismo sin pruebas: el test falla si no hay evidencia JSON en
-      .protocol/evidence/, forzando prueba empírica.'
+    action: 'Anti-optimism without proof: the test fails if there is no JSON evidence
+      in .protocol/evidence/, forcing empirical proof.'
     validating_mechanism: test_B7_evidence_files_are_valid_json
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Se declara exito sin ninguna evidencia observable.
+      # Success is declared without any observable evidence.
       def deploy():
           do_release()
-          print("Deploy OK")  # afirmacion, no verificacion
+          print("Deploy OK")  # assertion, not verification
     example_good: |
-      # El veredicto exige evidencia: el flujo falla si no hay prueba.
+      # The verdict requires evidence: the flow fails if there is no proof.
       def deploy():
           result = do_release()
-          assert result.health_check().ok, "deploy sin health-check verde"
+          assert result.health_check().ok, "deploy without green health-check"
           write_evidence(".protocol/evidence/deploy.json", result.metrics())
     detection: |
-      Marcar como vicio toda ruta que emita 'OK'/'exito'/'done' sin un assert sobre estado
-      observable ni artefacto de evidencia generado en la misma ejecucion.
+      Flag as a vice any path that emits 'OK'/'success'/'done' without an assert over
+      observable state or an evidence artifact generated in the same execution.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: core
   - id: VC-004
-    title: Demo como calidad
-    symptom: Algo funciona superficialmente
-    cause: Muestreo insuficiente del estado
-    solution: Validar flujo, límites y persistencia
+    title: Demo as quality
+    symptom: Something works superficially
+    cause: Insufficient sampling of state
+    solution: Validate flow, boundaries, and persistence
     status: DOC_ONLY
     severity: medium
     tags:
@@ -91,10 +91,10 @@ items:
     tier: specialist
   - id: VC-005
     detector: vc005_untracked_prototype
-    title: Prototipo convertido en deuda
-    symptom: Lo temporal queda permanente
-    cause: Falta de frontera de expiración
-    solution: Todo prototipo debe tener fecha, dueño y salida
+    title: Prototype turned into debt
+    symptom: The temporary becomes permanent
+    cause: Lack of an expiration boundary
+    solution: Every prototype must have a date, owner, and exit
     status: DOC_ONLY
     severity: medium
     tags:
@@ -108,26 +108,26 @@ items:
     downstream_verification: required
     example_lang: python
     example_bad: |
-      # Prototipo "temporal" sin fecha ni dueno: se queda para siempre.
-      def quick_hack():            # TODO: temporal, quitar
+      # "Temporary" prototype with no date or owner: it stays forever.
+      def quick_hack():            # TODO: temporary, remove
           return cached_guess()
     example_good: |
-      # Todo prototipo lleva expiracion y dueno explicitos y rastreables.
+      # Every prototype carries explicit, trackable expiration and owner.
       def quick_hack():            # PROTOTYPE owner=luis expires=2026-07-01 ticket=BUG-12
           return cached_guess()
     detection: |
-      Marcar comentarios TODO/FIXME/HACK/'temporal'/'prototype' sin dueno + fecha de
-      expiracion + ticket parseables.
+      Flag TODO/FIXME/HACK/'temporary'/'prototype' comments without a parseable owner +
+      expiration date + ticket.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-006
-    title: Estética como integridad
-    symptom: UI o docs bonitos ocultan fallos
-    cause: Señal visual sustituye causalidad
-    solution: Validar lógica antes que presentación
+    title: Aesthetics as integrity
+    symptom: Pretty UI or docs hide failures
+    cause: Visual signal substitutes for causality
+    solution: Validate logic before presentation
     status: DOC_ONLY
     severity: medium
     tags:
@@ -142,10 +142,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-007
-    title: Auditoría no humana del core
-    symptom: Lógica crítica no leída
-    cause: Delegación sin comprensión
-    solution: Revisar humanamente invariantes críticos
+    title: Non-human audit of the core
+    symptom: Critical logic never read
+    cause: Delegation without comprehension
+    solution: Human review of critical invariants
     status: DOC_ONLY
     severity: medium
     tags:
@@ -160,10 +160,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-008
-    title: Optimismo operativo
-    symptom: Se ignoran regresiones probables
-    cause: Priors mal calibrados
-    solution: Asumir fallo hasta prueba contraria
+    title: Operational optimism
+    symptom: Probable regressions are ignored
+    cause: Poorly calibrated priors
+    solution: Assume failure until proven otherwise
     status: DOC_ONLY
     severity: medium
     tags:
@@ -178,10 +178,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-009
-    title: Autoauditoría contaminada
-    symptom: Se valida con memoria previa
-    cause: Sesgo contextual
-    solution: Revalidar desde contexto fresco
+    title: Contaminated self-audit
+    symptom: Validation uses prior memory
+    cause: Contextual bias
+    solution: Re-validate from fresh context
     status: DOC_ONLY
     severity: medium
     tags:
@@ -196,10 +196,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-010
-    title: Fallo no convertido en doctrina
-    symptom: Error se repite
-    cause: Aprendizaje no persistido
-    solution: Registrar patrón y guardrail
+    title: Failure not turned into doctrine
+    symptom: The error repeats
+    cause: Learning not persisted
+    solution: Record the pattern and a guardrail
     status: DOC_ONLY
     severity: medium
     tags:
@@ -214,10 +214,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-011
-    title: Human test falso
-    symptom: Se declara interacción inexistente
-    cause: Canal perceptual ausente
-    solution: Evidencia humana real
+    title: Fake human test
+    symptom: A nonexistent interaction is declared
+    cause: Absent perceptual channel
+    solution: Real human evidence
     status: DOC_ONLY
     severity: medium
     tags:
@@ -232,10 +232,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-012
-    title: Se ve bien como métrica
-    symptom: Estética suplanta función
-    cause: Métrica equivocada
-    solution: Usabilidad igual a comportamiento
+    title: '"Looks good" as a metric'
+    symptom: Aesthetics supplant function
+    cause: Wrong metric
+    solution: Usability equals behavior
     status: DOC_ONLY
     severity: medium
     tags:
@@ -250,10 +250,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-013
-    title: Calificación máxima gratuita
-    symptom: Se asigna excelencia sin prueba
-    cause: Escala no calibrada
-    solution: Calificar solo con evidencia
+    title: Free top score
+    symptom: Excellence is assigned without proof
+    cause: Uncalibrated scale
+    solution: Grade only with evidence
     status: DOC_ONLY
     severity: medium
     tags:
@@ -268,10 +268,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-014
-    title: Falso positivo de auditoría
-    symptom: Sistema roto marcado OK
-    cause: Validador superficial
-    solution: Auditoría empírica
+    title: Audit false positive
+    symptom: Broken system marked OK
+    cause: Superficial validator
+    solution: Empirical audit
     status: DOC_ONLY
     severity: medium
     tags:
@@ -286,10 +286,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-015
-    title: Agente como ingeniero autónomo
-    symptom: Usuario delega juicio
-    cause: Autoridad mal asignada
-    solution: Humano conserva responsabilidad
+    title: Agent as autonomous engineer
+    symptom: User delegates judgment
+    cause: Misassigned authority
+    solution: Human retains responsibility
     status: DOC_ONLY
     severity: medium
     tags:
@@ -304,10 +304,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-016
-    title: Código incomprensible
-    symptom: Solo se sabe qué se pidió
-    cause: Modelo mental ausente
-    solution: Explicabilidad obligatoria
+    title: Incomprehensible code
+    symptom: Only what was asked for is known
+    cause: Absent mental model
+    solution: Mandatory explainability
     status: DOC_ONLY
     severity: medium
     tags:
@@ -321,7 +321,7 @@ items:
     downstream_verification: required
     example_lang: python
     example_bad: |
-      # Funcion de complejidad ciclomatica alta, sin docstring ni modelo mental.
+      # High cyclomatic-complexity function, with no docstring or mental model.
       def proc(d):
           r = []
           for k in d:
@@ -330,59 +330,59 @@ items:
                       if j and (j % 2 or k < 3) and not seen(j): r.append(f(j, k))
           return r
     example_good: |
-      # Descompuesta en unidades nombradas y explicables; complejidad baja.
+      # Decomposed into named, explainable units; low complexity.
       def proc(d):
           return [transform(j, k) for k, j in relevant_pairs(d)]
     detection: |
-      Complejidad ciclomatica > umbral (p.ej. 10) o funciones largas sin docstring
+      Cyclomatic complexity > threshold (e.g. 10) or long functions without a docstring
       (radon / mccabe / ruff C901).
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-017
-    title: optimismo sin pruebas Conversacional Estocástico
-    symptom: Declaraciones de éxito basadas únicamente en similitud superficial 
-      estética
-    cause: Falta de validación empírica en tiempo de ejecución o persistencia
-    solution: Subordinar la aprobación a trazas lógicas reales o deltas 
-      observables de almacenamiento
+    title: Stochastic Conversational Optimism without proof
+    symptom: Success declarations based solely on superficial aesthetic
+      similarity
+    cause: Lack of empirical validation at runtime or persistence
+    solution: Subordinate approval to real logical traces or observable
+      storage deltas
     status: PREVENTED
     severity: high
     tags:
       - vibe-coding
       - prevented
-    action: 'Anti-optimismo sin pruebas: el test falla si no hay evidencia JSON en
-      .protocol/evidence/, forzando prueba empírica.'
+    action: 'Anti-optimism without proof: the test fails if there is no JSON evidence
+      in .protocol/evidence/, forcing empirical proof.'
     validating_mechanism: test_B7_evidence_files_are_valid_json
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # 'Ya quedo arreglado' afirmado en el chat sin correr nada.
-      # El codigo se entrega con un comentario triunfalista en vez de una prueba.
+      # 'Already fixed' asserted in the chat without running anything.
+      # The code ships with a triumphalist comment instead of a test.
       def parse(x):
-          return int(x)  # "fix: ahora maneja todos los casos"
+          return int(x)  # "fix: now handles all cases"
     example_good: |
-      # El arreglo se respalda con un test que ejercita el caso reclamado.
+      # The fix is backed by a test that exercises the claimed case.
       def parse(x):
           return int(x.strip())
 
       def test_parse_trims():
-          assert parse("  42 ") == 42  # evidencia, no narrativa
+          assert parse("  42 ") == 42  # evidence, not narrative
     detection: |
-      Heuristica de revision: rechazar PRs cuyo unico soporte de 'funciona' sea prosa
-      (comentarios/commit message) sin test nuevo que cubra el caso afirmado.
+      Review heuristic: reject PRs whose only support for 'it works' is prose
+      (comments/commit message) without a new test covering the asserted case.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-018
-    title: Fix ciego
-    symptom: Se parchea error copiado
-    cause: Diagnóstico omitido
-    solution: Reproducir, diagnosticar, corregir, verificar
+    title: Blind fix
+    symptom: A copied error is patched
+    cause: Diagnosis omitted
+    solution: Reproduce, diagnose, fix, verify
     status: DOC_ONLY
     severity: medium
     tags:
@@ -397,10 +397,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-019
-    title: Síntoma parcheado
-    symptom: El bug vuelve con otra forma
-    cause: Causa raíz no aislada
-    solution: Corregir mecanismo, no manifestación
+    title: Patched symptom
+    symptom: The bug returns in another form
+    cause: Root cause not isolated
+    solution: Fix the mechanism, not the manifestation
     status: DOC_ONLY
     severity: medium
     tags:
@@ -415,10 +415,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-020
-    title: Bug no reproducido
-    symptom: Se modifica sin caso mínimo
-    cause: Falta de oráculo inicial
-    solution: Todo bug requiere reproducción previa
+    title: Unreproduced bug
+    symptom: Code is changed without a minimal case
+    cause: Lack of an initial oracle
+    solution: Every bug requires prior reproduction
     status: DOC_ONLY
     severity: medium
     tags:
@@ -433,41 +433,41 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-021
-    title: Cierre prematuro
-    symptom: Fallos secundarios quedan vivos
-    cause: Alcance de cierre mal definido
-    solution: Cerrar cadena completa de defectos revelados
+    title: Premature closure
+    symptom: Secondary failures stay alive
+    cause: Poorly defined closure scope
+    solution: Close the full chain of revealed defects
     status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
       - prevented
-    action: validate_golden_standard_catalogs.py --check-wiki keeps the 
-      canonical surfaces, link graph, and coverage counts aligned so a partial 
+    action: validate_golden_standard_catalogs.py --check-wiki keeps the
+      canonical surfaces, link graph, and coverage counts aligned so a partial
       close fails the gate.
     validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
     downstream_verification: none
     example_lang: python
     example_bad: |
       def fix():
-          patch_login()        # arregla el bug principal
-          # el log revela ademas un KeyError secundario -> se ignora y se cierra
+          patch_login()        # fixes the main bug
+          # the log also reveals a secondary KeyError -> ignored and closed
     example_good: |
       def fix():
           patch_login()
-          assert not scan_logs().errors   # cierra la cadena completa de defectos
+          assert not scan_logs().errors   # closes the full chain of defects
     detection: |
-      Cerrar una tarea cuando los logs/CI aun muestran errores secundarios revelados por el propio fix.
+      Closing a task while the logs/CI still show secondary errors revealed by the fix itself.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-022
-    title: Velocidad sobre precisión
-    symptom: Más cambios, menos certeza
-    cause: Optimización local de tiempo
-    solution: Validar temprano, construir poco
+    title: Speed over precision
+    symptom: More changes, less certainty
+    cause: Local optimization of time
+    solution: Validate early, build little
     status: DOC_ONLY
     severity: medium
     tags:
@@ -482,10 +482,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-023
-    title: Productividad ilusoria
-    symptom: Se ahorra escritura, se paga debugging
-    cause: Costos diferidos invisibles
-    solution: Medir retrabajo y reversión
+    title: Illusory productivity
+    symptom: Writing is saved, debugging is paid
+    cause: Invisible deferred costs
+    solution: Measure rework and reversion
     status: DOC_ONLY
     severity: medium
     tags:
@@ -500,10 +500,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-024
-    title: Construcción sin validación
-    symptom: Se acumula antes de probar
-    cause: Feedback tardío
-    solution: Iterar en cortes verificables
+    title: Building without validation
+    symptom: Work accumulates before testing
+    cause: Late feedback
+    solution: Iterate in verifiable slices
     status: DOC_ONLY
     severity: medium
     tags:
@@ -518,10 +518,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-025
-    title: Especificación vaga
-    symptom: El sistema adivina requisitos
-    cause: Entrada ambigua
-    solution: Definir objetivo, restricciones y salida
+    title: Vague specification
+    symptom: The system guesses requirements
+    cause: Ambiguous input
+    solution: Define goal, constraints, and output
     status: DOC_ONLY
     severity: medium
     tags:
@@ -536,10 +536,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-026
-    title: Suposiciones excesivas
-    symptom: Se continúa con incertidumbre alta
-    cause: Entropía decisional
-    solution: Detener si las hipótesis críticas superan umbral
+    title: Excessive assumptions
+    symptom: Work continues under high uncertainty
+    cause: Decisional entropy
+    solution: Stop if critical hypotheses exceed a threshold
     status: DOC_ONLY
     severity: medium
     tags:
@@ -554,36 +554,36 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-027
-    title: Plan no externalizado
-    symptom: Trabajo vive en chat
-    cause: Estado efímero
-    solution: Mantener plan físico o lógico estable
+    title: Non-externalized plan
+    symptom: Work lives in the chat
+    cause: Ephemeral state
+    solution: Keep a stable physical or logical plan
     status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
       - prevented
-    action: validate_gs_topology.py checks that Inbox is published, linked from 
+    action: validate_gs_topology.py checks that Inbox is published, linked from
       Home, and backed by the ingestion protocol and templates.
     validating_mechanism: validate_golden_standard_catalogs.py
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # El plan de 6 pasos vive solo en el chat; al compactar se pierde.
+      # The 6-step plan lives only in the chat; on compaction it is lost.
     example_good: |
-      # PLAN.md versionado: pasos, estado y done-criteria fuera del chat.
+      # Versioned PLAN.md: steps, status, and done-criteria outside the chat.
     detection: |
-      Trabajo multi-paso sin un artefacto de plan persistente (PLAN.md / issue) fuera del chat.
+      Multi-step work without a persistent plan artifact (PLAN.md / issue) outside the chat.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-028
-    title: Paso sin validación
-    symptom: Se avanza tras cambios no probados
-    cause: Falta de compuertas
-    solution: Cada etapa debe demostrar éxito
+    title: Step without validation
+    symptom: Work advances after untested changes
+    cause: Lack of gates
+    solution: Each stage must demonstrate success
     status: DOC_ONLY
     severity: medium
     tags:
@@ -598,10 +598,10 @@ items:
     alias_of: VC-024
     tier: specialist
   - id: VC-029
-    title: Alcance no quirúrgico
-    symptom: Cambios enormes e inseguros
-    cause: Superficie de impacto excesiva
-    solution: Limitar cambios a unidades testeables
+    title: Non-surgical scope
+    symptom: Enormous, unsafe changes
+    cause: Excessive impact surface
+    solution: Limit changes to testable units
     status: DOC_ONLY
     severity: medium
     tags:
@@ -615,80 +615,80 @@ items:
     downstream_verification: required
     example_lang: text
     example_bad: |
-      # Un solo commit toca 47 archivos y 1.800 lineas para un cambio de 1 feature.
+      # A single commit touches 47 files and 1,800 lines for a 1-feature change.
     example_good: |
-      # Cambio acotado a una unidad testeable: 1-3 archivos, diff revisable.
+      # Change scoped to a testable unit: 1-3 files, reviewable diff.
     detection: |
-      Commits/PRs que superan umbrales de diff (archivos tocados o lineas) para un cambio
-      que deberia ser atomico.
+      Commits/PRs that exceed diff thresholds (files touched or lines) for a change
+      that should be atomic.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-030
-    title: State deriva
-    symptom: Ediciones grandes degradan coherencia
-    cause: Mutación dispersa
-    solution: Controlar alcance y checkpoints
+    title: State drift
+    symptom: Large edits degrade coherence
+    cause: Scattered mutation
+    solution: Control scope and checkpoints
     status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
       - prevented
-    action: Regenerated audit artifacts and topology checks prevent the Home, 
-      graph, and index surfaces from derivaing away from the YAML catalogs.
+    action: Regenerated audit artifacts and topology checks prevent the Home,
+      graph, and index surfaces from drifting away from the YAML catalogs.
     validating_mechanism: generate_golden_audit.py + 
       validate_golden_standard_catalogs.py --check-wiki
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Ediciones masivas sucesivas sin checkpoint -> el estado real diverge del esperado.
+      # Successive massive edits without a checkpoint -> real state diverges from expected.
     example_good: |
-      # Cortes verificables + checkpoint (git commit) entre ediciones.
+      # Verifiable slices + checkpoint (git commit) between edits.
     detection: |
-      Series de ediciones grandes sin commits/checkpoints intermedios que permitan reanudar.
+      Series of large edits without intermediate commits/checkpoints that allow resuming.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-031
-    title: Reescritura completa
-    symptom: Se pierde integridad previa
-    cause: Operación no reversible
-    solution: Preferir diffs mínimos
+    title: Full rewrite
+    symptom: Prior integrity is lost
+    cause: Non-reversible operation
+    solution: Prefer minimal diffs
     status: DOC_ONLY
     severity: medium
     tags:
       - vibe-coding
       - doc-only
-    action: 'Reescritura completa vs edición quirúrgica: vicio conductual de juicio
-      (cuándo se justifica un rewrite). Ningún test estático en test_cerberus_core
-      discrimina intención. Sprint 3.4 revisión manual: DOC_ONLY honesto.'
+    action: 'Full rewrite vs surgical edit: behavioral judgment vice (when a rewrite
+      is justified). No static test in test_cerberus_core discriminates intent.
+      Sprint 3.4 manual review: honest DOC_ONLY.'
     validating_mechanism: DOC_ONLY
     downstream_verification: required
     example_lang: text
     example_bad: |
-      # El agente reescribe el archivo entero para cambiar dos lineas.
-      # diff: 198 deletions(-), 200 insertions(+)  -> se pierde historia e invariantes
+      # The agent rewrites the whole file to change two lines.
+      # diff: 198 deletions(-), 200 insertions(+)  -> history and invariants are lost
     example_good: |
-      # Diff minimo y quirurgico: solo lo que cambia.
+      # Minimal, surgical diff: only what changes.
       - timeout = 30
       + timeout = 60
     detection: |
-      Heuristica de diff: cambios donde >80% de las lineas de un archivo existente se
-      borran y reinsertan = reescritura total disfrazada de edicion.
+      Diff heuristic: changes where >80% of an existing file's lines are
+      deleted and reinserted = total rewrite disguised as an edit.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-032
     title: Sidequest
-    symptom: Se agregan mejoras no pedidas
-    cause: Función objetivo inestable
-    solution: Enviar hallazgos laterales a backlog
+    symptom: Unrequested improvements are added
+    cause: Unstable objective function
+    solution: Send side findings to the backlog
     status: DOC_ONLY
     severity: medium
     tags:
@@ -703,10 +703,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-033
-    title: Presión de cierre
-    symptom: Se abandona validación
-    cause: Incentivo comunicacional
-    solution: No cerrar sin criterio de salida
+    title: Closure pressure
+    symptom: Validation is abandoned
+    cause: Communicational incentive
+    solution: Do not close without an exit criterion
     status: DOC_ONLY
     severity: medium
     tags:
@@ -721,10 +721,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-034
-    title: Decisiones sin porqué
-    symptom: Futuro agente repite discusiones
-    cause: Causalidad perdida
-    solution: Registrar razón, no solo resultado
+    title: Decisions without a why
+    symptom: A future agent repeats discussions
+    cause: Lost causality
+    solution: Record the reason, not just the result
     status: DOC_ONLY
     severity: medium
     tags:
@@ -739,10 +739,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-035
-    title: Aclaraciones perdidas
-    symptom: Se repregunta lo resuelto
-    cause: Falta de ledger
-    solution: Mantener log histórico de aclaraciones
+    title: Lost clarifications
+    symptom: Already-resolved questions are re-asked
+    cause: Lack of a ledger
+    solution: Keep a historical log of clarifications
     status: DOC_ONLY
     severity: medium
     tags:
@@ -758,10 +758,10 @@ items:
     tier: specialist
   - id: VC-036
     detector: vc036_destructive_without_dryrun
-    title: Sin dry run
-    symptom: Acción destructiva se ejecuta directa
-    cause: Falta de simulación
-    solution: Simular antes de aplicar
+    title: No dry run
+    symptom: A destructive action runs directly
+    cause: Lack of simulation
+    solution: Simulate before applying
     status: DOC_ONLY
     severity: medium
     tags:
@@ -775,54 +775,54 @@ items:
     downstream_verification: required
     example_lang: bash
     example_bad: |
-      # Borrado masivo ejecutado directo, sin simular.
+      # Mass deletion run directly, without simulating.
       find . -name "*.tmp" -delete
     example_good: |
-      # Simular primero; aplicar solo tras revisar la lista.
-      find . -name "*.tmp" -print     # dry-run: que se borraria
-      find . -name "*.tmp" -delete    # aplicar tras confirmar
+      # Simulate first; apply only after reviewing the list.
+      find . -name "*.tmp" -print     # dry-run: what would be deleted
+      find . -name "*.tmp" -delete    # apply after confirming
     detection: |
-      Operaciones destructivas (rm/-delete/DROP/TRUNCATE/git reset --hard) sin un paso
-      previo de simulacion (--dry-run/-print/EXPLAIN) en el mismo flujo.
+      Destructive operations (rm/-delete/DROP/TRUNCATE/git reset --hard) without a prior
+      simulation step (--dry-run/-print/EXPLAIN) in the same flow.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-037
-    title: Regeneración ciega
-    symptom: Se reemplaza código sin diagnóstico
-    cause: Borrado de causalidad
-    solution: Diagnóstico antes de generación
+    title: Blind regeneration
+    symptom: Code is replaced without diagnosis
+    cause: Erasure of causality
+    solution: Diagnosis before generation
     status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
       - prevented
-    action: generate_golden_audit.py forces a fresh rebuild of the vault before 
+    action: generate_golden_audit.py forces a fresh rebuild of the vault before
       validation, so blind replacement cannot masquerade as a finished state.
     validating_mechanism: generate_golden_audit.py + 
       validate_golden_standard_catalogs.py --check-wiki
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Se reemplaza la funcion entera sin diagnosticar por que fallaba.
-      def parse(x): return brand_new_impl(x)   # 'regenerar hasta que pase'
+      # The whole function is replaced without diagnosing why it failed.
+      def parse(x): return brand_new_impl(x)   # 'regenerate until it passes'
     example_good: |
-      # Diagnostico primero: reproducir, aislar causa, corregir minimo.
-      def parse(x): return x.strip() or DEFAULT   # fix dirigido a la causa
+      # Diagnose first: reproduce, isolate cause, fix minimally.
+      def parse(x): return x.strip() or DEFAULT   # fix aimed at the cause
     detection: |
-      Reemplazo total de una unidad que fallaba sin evidencia de diagnostico (repro/causa) previa.
+      Total replacement of a failing unit without evidence of prior diagnosis (repro/cause).
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-038
-    title: Victoria prematura
-    symptom: Se reporta éxito parcial
-    cause: Métrica incompleta
-    solution: Evidencia obligatoria por afirmación
+    title: Premature victory
+    symptom: Partial success is reported
+    cause: Incomplete metric
+    solution: Mandatory evidence per claim
     status: DOC_ONLY
     severity: medium
     tags:
@@ -865,8 +865,8 @@ items:
       entrada correspondiente en un registro de deuda tecnica.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-040
     title: Mantenibilidad no auditada
@@ -986,8 +986,8 @@ items:
       estado, evidencia, bloqueadores, siguiente accion).
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-046
     title: Rescate pre-deprecación omitido
@@ -1049,8 +1049,8 @@ items:
       Un unico archivo de memoria que mezcla capas con vidas distintas (estable vs volatil).
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-049
     title: Audiencias mezcladas
@@ -1226,8 +1226,8 @@ items:
       tags) y fallar si no coinciden.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-058
     title: Deadlock sin latido
@@ -1256,8 +1256,8 @@ items:
       configurado.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-059
     title: Ruteo opaco
@@ -1328,8 +1328,8 @@ items:
       de produccion (no de tests/fixtures).
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-062
     title: Deriva de Concurrencia de Estado (Dual-Session deriva)
@@ -1365,8 +1365,8 @@ items:
       version, lock, o CAS (compare-and-swap) intermedio.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-063
     title: Documentación mentirosa
@@ -1392,8 +1392,8 @@ items:
       Afirmaciones de capacidad en docs sin codigo/test que las respalde (divergencia doc-codigo).
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-064
     title: Caja negra arquitectónica
@@ -1507,8 +1507,8 @@ items:
       Mover/renombrar simbolos sin un mapa previo de referencias entrantes.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-070
     detector: vc070_blind_shell_edit
@@ -1539,8 +1539,8 @@ items:
       vez de un parser del formato.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-071
     title: Módulo sin biocontainment
@@ -1672,8 +1672,8 @@ items:
       (mypy --disallow-untyped-defs / --disallow-any-explicit).
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: core
   - id: VC-077
     title: Ambigüedad semántica de tipo
@@ -1719,8 +1719,8 @@ items:
       Literales placeholder (REPLACE_ME / XXX / changeme / foo) en rutas de produccion.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-079
     title: Core dependiente de inestables
@@ -1750,8 +1750,8 @@ items:
       beta o de alta rotacion.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-080
     title: Copy-paste acrítico
@@ -1870,8 +1870,8 @@ items:
       Archivos no referenciados por imports/build ni declarados en un inventario = inactivoes.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-084
     title: Compatibilidad regresiva ignorada
@@ -1956,8 +1956,8 @@ items:
       filterwarnings("ignore") global o acumulacion de warnings sin justificacion en rutas de salud.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-088
     title: Error tolerado por política
@@ -2018,8 +2018,8 @@ items:
       Inicio de trabajo sin cargar el ledger de decisiones/errores previos.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-091
     title: Archivo no encontrado perezoso
@@ -2044,8 +2044,8 @@ items:
       Declarar inexistencia de un archivo sin una busqueda recursiva/estructural previa.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-092
     title: Auditoría parcial llamada total
@@ -2070,8 +2070,8 @@ items:
       Reporte de auditoria 'total' que no enumera ni cubre todas las superficies criticas.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-093
     title: Seguridad optimista
@@ -2323,8 +2323,8 @@ items:
       Supuestos de runtime (version, OS, servicios) que difieren del entorno real de ejecucion.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-105
     title: Omisión de componentes
@@ -2349,8 +2349,8 @@ items:
       Auditoria sin checklist de superficies que omite componentes no-backend.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-106
     title: Setup fantasma
@@ -2377,8 +2377,8 @@ items:
       Codigo que presupone directorios/servicios/variables sin validarlos al arrancar.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-107
     title: Matriz de permisos implícita
@@ -2458,8 +2458,8 @@ items:
       separadores de unidad de Windows en codigo de aplicacion.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-110
     title: Cuota como sorpresa
@@ -2486,8 +2486,8 @@ items:
       Llamadas a APIs con limites sin backoff/retry/degradacion modelados de antemano.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-111
     title: Exclusión sin auditoría previa
@@ -2517,8 +2517,8 @@ items:
       especialmente directorios opacos no auditados.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-112
     title: Propagación sin verificación de adopción
@@ -2549,8 +2549,8 @@ items:
       hooks/auditor/suite activos y reporte adopcion real.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-113
     title: Nomenclatura congelada
@@ -2585,8 +2585,8 @@ items:
       corresponde a esa version.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-114
     title: Hallazgo sin plan de remediación
@@ -2613,8 +2613,8 @@ items:
       Defectos detectados en sesion que no se convierten en items ejecutables del plan activo.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-115
     detector: vc115_unsafe_eval
@@ -2728,8 +2728,8 @@ items:
       write-temp + os.replace/rename atomico.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-118
     title: Teatro de Compatibilidad inactivoe
@@ -2768,8 +2768,8 @@ items:
       0 llamadores activos en el arbol = candidatos inactivoe a eliminar.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: core
   - id: VC-119
     title: Pánico de Bloqueo y Parcheo Sintáctico Rápido (Lock Panic Shortcut)
@@ -2934,8 +2934,8 @@ items:
       coincidan con patrones de secreto/artefacto no listados explicitamente.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-124
     title: Deprecación Precipitada sin Análisis (Hasty Deprecation)
@@ -2977,8 +2977,8 @@ items:
       correspondiente en DEPRECATION_LOG.md.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-125
     title: Retrospectiva no externalizada
@@ -3017,8 +3017,8 @@ items:
       artefacto persistente (insight, entrada de catalogo o retro) con decisiones y pendientes.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: extended
   - id: VC-126
     title: Sugerencia post-ejecución que reabre alcance
@@ -3052,8 +3052,8 @@ items:
       Sugerencias post-ejecucion fuera del alcance acordado que no se derivan a backlog.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "antipatron recurrente del codigo AI-generado, presente en 80-100%
-          de los proyectos analizados."
+        claim: "recurring anti-pattern of AI-generated code, present in 80-100%
+          of the analyzed projects."
     tier: specialist
   - id: VC-127
     title: Inyeccion de prompt en bucle de agente (Prompt Injection)
