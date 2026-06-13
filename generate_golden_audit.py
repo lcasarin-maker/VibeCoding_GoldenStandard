@@ -409,83 +409,83 @@ def write_home_md(
     documentary_count = audited_count + doc_only_count
     home_content = f"""# Golden Standard Wiki
 
-Bienvenido a la bóveda Obsidian del **Golden Standard** (GS). Esta base de conocimiento representa la doctrina pura de ingeniería, mitigación de vicios y tokenomics acumulada por el proyecto.
+Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge base represents the pure doctrine of engineering, vice mitigation, and tokenomics accumulated by the project.
 
 ---
 
-## Acceso Rápido
+## Quick Access
 
-- 📂 **[[Vices_Index|Índice de Vicios de Ingeniería]]**: Catálogo central de anomalías de código y tests (`VC`, `TV`).
-- 📂 **[[Project_Insights_Index|Índice de Insights Satélite]]**: Lecciones y mejores prácticas (`PI`) extraídas de repositorios externos y automatizaciones.
-- 🕸️ **[[Graph|Mapa de Grafo GS]]**: Hubs, huérfanos intencionales, huérfanos candidatos e impacto local del vault.
-- 📘 **[[Concepts/Conceptual_Framework|Marco Conceptual del Golden Standard]]**: Doctrina epistemológica, niveles y bases de diseño.
-- 🧼 **[[Concepts/Conceptual_Framework#11.-Higiene,-limpieza-y-organización-del-repositorio|Capítulo de Higiene del Repositorio]]**: Norma canónica para limpieza, nombres, root limpio y evidencia de organización.
-- 🔧 **[[Project_Insights/PI-019|Higiene de ejecución y tooling]]**: Regla satélite para comandos simples, UTF-8 y pureza técnica.
-- ⚠️ **[[Vices/VC-124|Deprecación precipitada]]**: Vicio espejo que evita mover a `deprecated/` sin análisis.
-- 🏷️ **[[Project_Insights/PI-020|Confidence Tags]]**: Cada afirmación de protocolo debe declarar si es VERIFIED, INFERRED o ASSUMED.
-- 🧪 **[[Project_Insights/PI-021|Wiki-Lint semántico]]**: Detecta contradicciones, referencias rotas y mandatos sin binding.
-- 🧾 **[[Project_Insights/PI-022|Lista de incertidumbre]]**: Documenta lo no verificado para no fingir certeza.
-- 🧭 **[[Project_Insights/PI-023|Conciencia de sesión dual]]**: Verifica estado compartido antes de editar.
-- 🕸️ **[[Project_Insights/PI-024|Revisión basada en hubs]]**: Prioriza nodos de alto impacto en el grafo.
-- 🧷 **[[Project_Insights/PI-025|Retrospectiva exportable]]**: Cierra cada sesión con una retrospectiva estructurada y persistente.
-- 💠 **[[Tokenomics_Index|Índice de Tokenomics]]**: Catálogo separado de eficiencia, headroom y gestión de contexto (`TK`).
-- 🗺️ **[[Tokenomics_Map|Mapa de Tokenomics]]**: Puente entre lentes `TK` y `PI` para navegar relaciones, huecos y cobertura.
-- 🔹 **[[Tokenomics/Memory_Headroom_Index|Memoria y Headroom]]**: Checkpoints, handoff, persistencia y margen contextual.
-- 🔹 **[[Tokenomics/Input_Retrieval_Index|Entrada y Recuperación]]**: Recuperación dirigida y reducción de ruido de entrada.
-- 🔹 **[[Tokenomics/Output_Compaction_Index|Salida y Compresión]]**: Verbosidad, compresión y presupuesto de respuesta.
-- 🔹 **[[Tokenomics/Measurement_Telemetry_Index|Medición y Telemetría]]**: Evidencia de ahorro y monitoreo de impacto.
-- 🔹 **[[Tokenomics/Automation_Tooling_Index|Automatización y Herramientas]]**: Integraciones activas y tooling que ejecuta ahorro.
-- 📄 **[Marco conceptual raíz](../CONCEPTUAL_FRAMEWORK.md)**: Documento base local del GS para lectura directa y navegación del grafo.
-- 📥 **[Inbox](../Inbox/README.md)**: Buzón de entrada para hallazgos crudos y propuestas nuevas.
-- 🧪 **[Audit Report](../golden_standard_audit_report.md)**: Estado compilado de cobertura y mapeo vigente.
-- 🗺️ **[Graph JSON](../golden_standard_graph.json)**: Export estructurado para queries programáticas de impacto.
-- 🏠 **[README](../README.md)**: Visión general del repositorio público.
+- 📂 **[[Vices_Index|Engineering Vices Index]]**: Central catalog of code and test anomalies (`VC`, `TV`).
+- 📂 **[[Project_Insights_Index|Satellite Insights Index]]**: Lessons and best practices (`PI`) extracted from external repositories and automations.
+- 🕸️ **[[Graph|GS Graph Map]]**: Hubs, intentional orphans, candidate orphans, and local vault impact.
+- 📘 **[[Concepts/Conceptual_Framework|Golden Standard Conceptual Framework]]**: Epistemological doctrine, levels, and design foundations.
+- 🧼 **[[Concepts/Conceptual_Framework#11.-Higiene,-limpieza-y-organización-del-repositorio|Repository Hygiene Chapter]]**: Canonical standard for cleanup, naming, clean root, and organization evidence.
+- 🔧 **[[Project_Insights/PI-019|Execution and tooling hygiene]]**: Satellite rule for simple commands, UTF-8, and technical purity.
+- ⚠️ **[[Vices/VC-124|Hasty deprecation]]**: Mirror vice that avoids moving to `deprecated/` without analysis.
+- 🏷️ **[[Project_Insights/PI-020|Confidence Tags]]**: Every protocol claim must declare whether it is VERIFIED, INFERRED, or ASSUMED.
+- 🧪 **[[Project_Insights/PI-021|Semantic Wiki-Lint]]**: Detects contradictions, broken references, and mandates without binding.
+- 🧾 **[[Project_Insights/PI-022|Uncertainty list]]**: Documents the unverified so as not to feign certainty.
+- 🧭 **[[Project_Insights/PI-023|Dual-session awareness]]**: Verifies shared state before editing.
+- 🕸️ **[[Project_Insights/PI-024|Hub-based review]]**: Prioritizes high-impact nodes in the graph.
+- 🧷 **[[Project_Insights/PI-025|Exportable retrospective]]**: Closes each session with a structured, persistent retrospective.
+- 💠 **[[Tokenomics_Index|Tokenomics Index]]**: Separate catalog of efficiency, headroom, and context management (`TK`).
+- 🗺️ **[[Tokenomics_Map|Tokenomics Map]]**: Bridge between the `TK` and `PI` lenses to navigate relations, gaps, and coverage.
+- 🔹 **[[Tokenomics/Memory_Headroom_Index|Memory and Headroom]]**: Checkpoints, handoff, persistence, and context margin.
+- 🔹 **[[Tokenomics/Input_Retrieval_Index|Input and Retrieval]]**: Targeted retrieval and input-noise reduction.
+- 🔹 **[[Tokenomics/Output_Compaction_Index|Output and Compression]]**: Verbosity, compression, and response budget.
+- 🔹 **[[Tokenomics/Measurement_Telemetry_Index|Measurement and Telemetry]]**: Savings evidence and impact monitoring.
+- 🔹 **[[Tokenomics/Automation_Tooling_Index|Automation and Tooling]]**: Active integrations and tooling that executes savings.
+- 📄 **[Root conceptual framework](../CONCEPTUAL_FRAMEWORK.md)**: Local GS base document for direct reading and graph navigation.
+- 📥 **[Inbox](../Inbox/README.md)**: Inbox for raw findings and new proposals.
+- 🧪 **[Audit Report](../golden_standard_audit_report.md)**: Compiled state of current coverage and mapping.
+- 🗺️ **[Graph JSON](../golden_standard_graph.json)**: Structured export for programmatic impact queries.
+- 🏠 **[README](../README.md)**: Overview of the public repository.
 
 ---
 
-## Mapa por Dominio
+## Map by Domain
 
-| Dominio | Catálogo | Entradas | Enlace |
+| Domain | Catalog | Entries | Link |
 |---|---|---:|---|
-| Vibe Coding | `VC-xxx` | {vc_count} | [[Vices_Index|Abrir índice]] |
-| Testing & Evaluation | `VT-xxx` | {tv_count} | [[Vices_Index|Abrir índice]] |
-| Tokenomics | `TK-xxx` | {tk_count} | [[Tokenomics_Index|Abrir índice]] |
-| Project Insights | `PI-xxx` | {pi_count} | [[Project_Insights_Index|Abrir índice]] |
+| Vibe Coding | `VC-xxx` | {vc_count} | [[Vices_Index|Open index]] |
+| Testing & Evaluation | `VT-xxx` | {tv_count} | [[Vices_Index|Open index]] |
+| Tokenomics | `TK-xxx` | {tk_count} | [[Tokenomics_Index|Open index]] |
+| Project Insights | `PI-xxx` | {pi_count} | [[Project_Insights_Index|Open index]] |
 
 ---
 
-## Estado de Operatividad
+## Operability Status
 
-| Estado | Entradas | Significado |
+| Status | Entries | Meaning |
 |---|---:|---|
-| `PREVENTED` + `REMEDIATED` | {operational_count} | El catálogo ya tiene una compuerta ejecutable o una corrección concreta. |
-| `AUDITED` + `DOC_ONLY` | {documentary_count} | La entrada existe como conocimiento, pero sigue siendo principalmente documental. |
-| `Total` | {total_vices} | Suma de las entradas de VC, VT y TK auditadas por el compilador. |
+| `PREVENTED` + `REMEDIATED` | {operational_count} | The catalog already has an executable gate or a concrete correction. |
+| `AUDITED` + `DOC_ONLY` | {documentary_count} | The entry exists as knowledge, but remains mainly documentary. |
+| `Total` | {total_vices} | Sum of the VC, VT, and TK entries audited by the compiler. |
 
 ---
 
-## Guía de Severidad
+## Severity Guide
 
-| Severidad | Qué significa | Acción típica |
+| Severity | What it means | Typical action |
 |---|---|---|
-| `critical` | Riesgo de seguridad, pérdida de datos o fallo total de una capacidad esencial. | Corregir antes de seguir. |
-| `high` | Bug visible para usuarios o ruptura seria de confianza. | Priorizar en la siguiente iteración. |
-| `medium` | Deuda de fiabilidad o mantenibilidad. | Programar remediación. |
-| `low` | Ajuste de estilo, claridad o eficiencia. | Agrupar con limpieza general. |
+| `critical` | Security risk, data loss, or total failure of an essential capability. | Fix before continuing. |
+| `high` | User-visible bug or serious breach of trust. | Prioritize in the next iteration. |
+| `medium` | Reliability or maintainability debt. | Schedule remediation. |
+| `low` | Style, clarity, or efficiency adjustment. | Group with general cleanup. |
 
-> La severidad se usa en revisión de contribuciones; el estado operativo canónico en los catálogos sigue siendo `status`.
-
----
-
-## Flujo de Entrada
-
-1. Depositar el hallazgo en `Inbox/<fuente>/YYYY-MM-DD_<slug>.md`.
-2. Validar campos mínimos con `INGESTION_PROTOCOL.md`.
-3. Promover a YAML + Wiki solo después de deduplicar y mapear el dominio.
-4. Recompilar con `python generate_golden_audit.py`.
+> Severity is used in contribution review; the canonical operational state in the catalogs is still `status`.
 
 ---
-*Bóveda auto-generada por el compilador `generate_golden_audit.py` el {date.today().isoformat()}.*"""
+
+## Intake Flow
+
+1. Deposit the finding in `Inbox/<source>/YYYY-MM-DD_<slug>.md`.
+2. Validate the minimal fields with `INGESTION_PROTOCOL.md`.
+3. Promote to YAML + Wiki only after deduplicating and mapping the domain.
+4. Recompile with `python generate_golden_audit.py`.
+
+---
+*Vault auto-generated by the `generate_golden_audit.py` compiler on {date.today().isoformat()}.*"""
     (wiki_dir / "Home.md").write_text(home_content, encoding="utf-8")
 
 
@@ -503,9 +503,9 @@ def write_vices_index_md(wiki_dir: Path, mapped_database: dict):
         elif item["category"] == "Testing & Evaluation":
             tv_items.append(line)
 
-    vices_index_content = f"""# Índice de Vicios de Ingeniería
+    vices_index_content = f"""# Engineering Vices Index
 
-Este índice clasifica los vicios del Golden Standard en VC y VT. Tokenomics vive en su propio índice porque no es un vicio: es una capa de eficiencia y gobernanza del contexto.
+This index classifies the Golden Standard vices into VC and VT. Tokenomics lives in its own index because it is not a vice: it is a layer of efficiency and context governance.
 
 ---
 
@@ -516,7 +516,7 @@ Este índice clasifica los vicios del Golden Standard en VC y VT. Tokenomics viv
 {"\n".join(tv_items)}
 
 ---
-[[Home|Volver al Inicio]]
+[[Home|Back to Home]]
 """
     (wiki_dir / "Vices_Index.md").write_text(vices_index_content, encoding="utf-8")
 
