@@ -805,9 +805,9 @@ def classify_pi(pi_id: str) -> str:
 def write_project_insights_index_md(wiki_dir: Path, insights: dict):
     """Write the Project Insights index catalog, grouped by kind."""
     groups = {
-        "principle": ("🟢 Principios accionables", "Lecciones transversales que cambian cómo se trabaja."),
-        "tool": ("🔧 Herramientas y técnicas de referencia", "Punteros a herramientas externas verificadas y patrones reutilizables."),
-        "meta": ("⚪ Meta-sistema (sobre el propio Golden Standard)", "Insights que describen la gobernanza del GS; útiles pero no enseñan una técnica externa."),
+        "principle": ("🟢 Actionable principles", "Cross-cutting lessons that change how work is done."),
+        "tool": ("🔧 Reference tools and techniques", "Pointers to verified external tools and reusable patterns."),
+        "meta": ("⚪ Meta-system (about the Golden Standard itself)", "Insights that describe GS governance; useful but they do not teach an external technique."),
     }
     sections = []
     for kind, (heading, blurb) in groups.items():
@@ -817,17 +817,17 @@ def write_project_insights_index_md(wiki_dir: Path, insights: dict):
         rows = "\n".join(f"*   [[Project_Insights/{pi_id}|{pi_id}]] — {insights[pi_id]}" for pi_id in ids)
         sections.append(f"## {heading}\n\n_{blurb}_ ({len(ids)})\n\n{rows}")
 
-    pi_index_content = f"""# Índice de Insights Satélite
+    pi_index_content = f"""# Satellite Insights Index
 
-Mapeo de lecciones extraídas de repositorios de referencia y herramientas de auditoría externa.
-Las entradas se agrupan por tipo para distinguir principios accionables de meta-comentario del sistema.
+Mapping of lessons extracted from reference repositories and external audit tools.
+Entries are grouped by type to distinguish actionable principles from system meta-commentary.
 
 ---
 
 {"\n\n---\n\n".join(sections)}
 
 ---
-[[Home|Volver al Inicio]]
+[[Home|Back to Home]]
 """
     (wiki_dir / "Project_Insights_Index.md").write_text(pi_index_content, encoding="utf-8")
 
@@ -837,7 +837,7 @@ def write_conceptual_concepts_md(wiki_dir: Path):
     conceptual_src = CONCEPTUAL_FRAMEWORK_SRC if CONCEPTUAL_FRAMEWORK_SRC.exists() else LEGACY_CONCEPTUAL_SRC
     if conceptual_src.exists():
         original_text = conceptual_src.read_text(encoding="utf-8")
-        nav_header = "# [[Home|← Volver al Inicio de la Bóveda]]\n\n---\n\n"
+        nav_header = "# [[Home|← Back to Vault Home]]\n\n---\n\n"
         note = ""
         if conceptual_src == LEGACY_CONCEPTUAL_SRC:
             note = (
@@ -886,19 +886,19 @@ def build_depth_sections(item: dict) -> str:
 
     example_bad = str(item.get("example_bad", "")).strip()
     if example_bad:
-        blocks.append(f"### ❌ Ejemplo del vicio (Bad)\n```{lang}\n{example_bad}\n```")
+        blocks.append(f"### ❌ Example of the vice (Bad)\n```{lang}\n{example_bad}\n```")
 
     example_good = str(item.get("example_good", "")).strip()
     if example_good:
-        blocks.append(f"### ✅ Versión corregida (Good)\n```{lang}\n{example_good}\n```")
+        blocks.append(f"### ✅ Corrected version (Good)\n```{lang}\n{example_good}\n```")
 
     detection = str(item.get("detection", "")).strip()
     if detection:
-        blocks.append(f"### 🔎 Detección concreta\n{detection}")
+        blocks.append(f"### 🔎 Concrete detection\n{detection}")
 
     evidence = item.get("evidence", [])
     if isinstance(evidence, list) and evidence:
-        lines = ["### 📚 Evidencia externa"]
+        lines = ["### 📚 External evidence"]
         for ref in evidence:
             if isinstance(ref, dict):
                 source = str(ref.get("source", "")).strip()
@@ -922,16 +922,16 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
         if alias:
             redirect = f"""# {flaw_id}: {item['title']}
 
-> 🔗 **Entrada fusionada.** Este vicio es un duplicado semantico de [[Vices/{alias}|{alias}]]; el contenido canonico (sintoma, ejemplos y deteccion) vive alli. Se conserva el ID `{flaw_id}` por estabilidad de referencias.
+> 🔗 **Merged entry.** This vice is a semantic duplicate of [[Vices/{alias}|{alias}]]; the canonical content (symptom, examples, and detection) lives there. The ID `{flaw_id}` is preserved for reference stability.
 
-| Campo | Detalle |
+| Field | Detail |
 |---|---|
 | **ID** | `{flaw_id}` |
-| **Canonico** | [[Vices/{alias}|{alias}]] |
-| **Profundidad** | {depth_badge(item)} |
+| **Canonical** | [[Vices/{alias}|{alias}]] |
+| **Depth** | {depth_badge(item)} |
 
 ---
-[[Vices/{alias}|Ir a la entrada canonica {alias}]] | [[Vices_Index|Índice de Vicios]] | [[Home|Inicio]]
+[[Vices/{alias}|Go to the canonical entry {alias}]] | [[Vices_Index|Vices Index]] | [[Home|Home]]
 """
             (wiki_dir / "Vices" / f"{flaw_id}.md").write_text(redirect, encoding="utf-8")
             continue
