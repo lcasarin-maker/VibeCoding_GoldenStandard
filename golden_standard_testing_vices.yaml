@@ -3,9 +3,9 @@ catalog_name: testing_vices
 items:
   - id: VT-001
     title: Hardcoded return
-    symptom: Devuelve valor esperado
-    cause: Optimización contra ejemplo
-    solution: Probar propiedades generales
+    symptom: Returns the expected value
+    cause: Optimization against the example
+    solution: Test general properties
     status: PREVENTED
     severity: high
     tags:
@@ -18,32 +18,32 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # La funcion devuelve una constante para 'pasar' el test; no implementa nada.
+      # The function returns a constant to 'pass' the test; it implements nothing.
       def total(cart):
-          return 42          # hardcoded para que el test verde
+          return 42          # hardcoded so the test goes green
 
       def test_total():
           assert total(demo_cart) == 42
     example_good: |
-      # El test fija el resultado esperado real; la funcion debe calcularlo.
+      # The test fixes the real expected result; the function must compute it.
       def total(cart):
           return sum(i.price for i in cart.items)
 
       def test_total():
           assert total(Cart([Item(10), Item(32)])) == 42
     detection: |
-      AST: funcion bajo prueba cuyo cuerpo es un unico return de literal constante, con un
-      test que afirma exactamente ese literal.
+      AST: function under test whose body is a single return of a constant literal, with a
+      test that asserts exactly that literal.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: core
   - id: VT-002
-    title: Stub permanente
-    symptom: Cuerpo falso pasa
-    cause: Implementación ausente
-    solution: Bloquear stubs activos
+    title: Permanent stub
+    symptom: A fake body passes
+    cause: Missing implementation
+    solution: Block active stubs
     status: PREVENTED
     severity: high
     tags:
@@ -56,26 +56,26 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Stub permanente enviado a produccion como si estuviera implementado.
+      # Permanent stub shipped to production as if it were implemented.
       def charge(amount):
-          pass   # TODO: implementar (lleva 6 meses)
+          pass   # TODO: implement (6 months and counting)
     example_good: |
-      # Implementacion real; si no esta lista, falla ruidosamente, no en silencio.
+      # Real implementation; if not ready, it fails loudly, not silently.
       def charge(amount):
-          raise NotImplementedError("charge() pendiente - no usar en prod")
+          raise NotImplementedError("charge() pending - do not use in prod")
     detection: |
-      AST: funciones con cuerpo unicamente 'pass'/'...'/docstring (stub) que no estan
-      marcadas como abstractas ni lanzan NotImplementedError.
+      AST: functions whose body is only 'pass'/'...'/docstring (stub) that are not
+      marked as abstract nor raise NotImplementedError.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: core
   - id: VT-003
-    title: Respuesta por dato exacto
-    symptom: Solo pasa input del test
-    cause: Memorización
-    solution: Variar entradas
+    title: Response by exact datum
+    symptom: Only passes the test's input
+    cause: Memorization
+    solution: Vary the inputs
     status: AUDITED
     severity: medium
     tags:
@@ -87,24 +87,24 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      def classify(s): return "spam" if s == "BUY NOW" else "ham"  # solo el input del test
+      def classify(s): return "spam" if s == "BUY NOW" else "ham"  # only the test's input
     example_good: |
-      def classify(s): return model.predict(s)   # generaliza; el test usa varias entradas
+      def classify(s): return model.predict(s)   # generalizes; the test uses several inputs
     detection: |
-      Implementacion que solo acierta para el input exacto del test (memoriza el caso).
+      Implementation that only succeeds for the test's exact input (memorizes the case).
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-004
-    title: Copiar esperado
-    symptom: El valor esperado termina copiado dentro del código o del fixture y
-      deja de ser una observación independiente
-    cause: El oráculo se incrusta en la implementación o en una fixture 
-      compartida
-    solution: Mantener el esperado fuera de la ruta productiva y validar contra 
-      una especificación externa
+    title: Copying the expected value
+    symptom: The expected value ends up copied inside the code or the fixture and
+      stops being an independent observation
+    cause: The oracle is embedded in the implementation or in a shared
+      fixture
+    solution: Keep the expected value out of the production path and validate against
+      an external specification
     status: AUDITED
     severity: medium
     tags:
@@ -117,22 +117,22 @@ items:
     example_lang: python
     example_bad: |
       EXPECTED = compute(x)
-      assert compute(x) == EXPECTED   # el esperado sale del propio SUT
+      assert compute(x) == EXPECTED   # the expected value comes from the SUT itself
     example_good: |
-      assert compute(x) == spec_value(x)   # esperado de una especificacion externa
+      assert compute(x) == spec_value(x)   # expected value from an external specification
     detection: |
-      El valor esperado se deriva del propio SUT en vez de una fuente independiente.
+      The expected value is derived from the SUT itself instead of an independent source.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-005
     detector: vt005_assert_true
-    title: Assert trivial
-    symptom: Siempre verdadero
-    cause: Tautología
-    solution: Exigir fallo demostrable
+    title: Trivial assert
+    symptom: Always true
+    cause: Tautology
+    solution: Require a demonstrable failure
     status: PREVENTED
     severity: high
     tags:
@@ -147,25 +147,25 @@ items:
     example_bad: |
       def test_login():
           user = login("a", "b")
-          assert True    # assert trivial: pasa siempre, no verifica el login
+          assert True    # trivial assert: always passes, does not verify the login
     example_good: |
       def test_login():
           user = login("a", "b")
           assert user.is_authenticated and user.name == "a"
     detection: |
-      AST TestTheaterVisitor: presencia de 'assert True' / 'assertTrue(True)' como unica
-      asercion del test.
+      AST TestTheaterVisitor: presence of 'assert True' / 'assertTrue(True)' as the test's
+      only assertion.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: core
   - id: VT-006
     detector: vt006_test_without_assert
-    title: Test sin assert
-    symptom: Corre sin verificar
-    cause: Oráculo ausente
-    solution: Aserción obligatoria
+    title: Test without assert
+    symptom: Runs without verifying
+    cause: Missing oracle
+    solution: Mandatory assertion
     status: PREVENTED
     severity: high
     tags:
@@ -178,33 +178,33 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # El agente genera un test que ejecuta el código pero no verifica nada.
-      # Pasa siempre (incluso si discount() devuelve basura) -> teatro de seguridad.
+      # The agent generates a test that runs the code but verifies nothing.
+      # Always passes (even if discount() returns garbage) -> security theater.
       def test_apply_discount():
           cart = Cart(items=[Item(price=100)])
           cart.apply_discount(0.1)
-          # sin assert: el método se ejecuta y el test "pasa"
+          # no assert: the method runs and the test "passes"
     example_good: |
-      # El test fija un oráculo explícito sobre el resultado observable.
+      # The test fixes an explicit oracle on the observable result.
       def test_apply_discount():
           cart = Cart(items=[Item(price=100)])
           cart.apply_discount(0.1)
-          assert cart.total() == 90  # comportamiento, no mera ejecución
+          assert cart.total() == 90  # behavior, not mere execution
     detection: |
-      AST: marcar funciones `test_*` cuyo cuerpo no contenga ningún `assert` activo, o
-      cuyos asserts sean tautológicos (`assert True`, `assertEqual(x, x)`). Un test sin
-      oráculo no puede fallar ante una regresión.
+      AST: flag `test_*` functions whose body contains no active `assert`, or
+      whose asserts are tautological (`assert True`, `assertEqual(x, x)`). A test without
+      an oracle cannot fail on a regression.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "los agentes de codificación generan tests sin aserciones y sin invocación
-          del método focal con frecuencia medible; el exceso de mocking agrava el
-          problema."
+        claim: "coding agents generate tests without assertions and without invoking
+          the focal method at a measurable frequency; excessive mocking aggravates the
+          problem."
     tier: core
   - id: VT-007
-    title: Presencia no corrección
-    symptom: Archivo existe
-    cause: Proxy débil
-    solution: Validar efecto
+    title: Presence not correctness
+    symptom: The file exists
+    cause: Weak proxy
+    solution: Validate the effect
     status: AUDITED
     severity: medium
     tags:
@@ -216,21 +216,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert os.path.exists("out.csv")   # existe, pero no se valida el contenido
+      assert os.path.exists("out.csv")   # exists, but the content is not validated
     example_good: |
-      assert read_csv("out.csv").rows == 3   # efecto observable
+      assert read_csv("out.csv").rows == 3   # observable effect
     detection: |
-      Tests que afirman existencia de un artefacto sin validar su efecto/contenido.
+      Tests that assert the existence of an artifact without validating its effect/content.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-008
-    title: Mensaje no resultado
-    symptom: Busca texto de aprobado
-    cause: Señal indirecta
-    solution: Validar estado final
+    title: Message not result
+    symptom: Looks for approval text
+    cause: Indirect signal
+    solution: Validate the final state
     status: AUDITED
     severity: medium
     tags:
@@ -242,22 +242,22 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert "approved" in output   # busca el texto de aprobado
+      assert "approved" in output   # looks for the approval text
     example_good: |
-      assert order.status == Status.APPROVED   # estado final estructurado
+      assert order.status == Status.APPROVED   # structured final state
     detection: |
-      Asertar sobre texto de aprobacion en vez del estado final estructurado.
+      Asserting on approval text instead of the structured final state.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-009
     detector: vt009_tautological_assert
-    title: Tautología
-    symptom: Verifica ley universal
-    cause: Predicado inútil
-    solution: Test debe discriminar
+    title: Tautology
+    symptom: Verifies a universal law
+    cause: Useless predicate
+    solution: The test must discriminate
     status: PREVENTED
     severity: high
     tags:
@@ -272,23 +272,23 @@ items:
     example_bad: |
       def test_norm():
           x = normalize(payload)
-          assert x == x   # tautologia: cierto para cualquier valor
+          assert x == x   # tautology: true for any value
     example_good: |
       def test_norm():
-          assert normalize({"A": 1}) == {"a": 1}   # oraculo independiente del SUT
+          assert normalize({"A": 1}) == {"a": 1}   # oracle independent of the SUT
     detection: |
-      AST: asserts cuyos dos operandos son la misma expresion (assertEqual(x, x),
+      AST: asserts whose two operands are the same expression (assertEqual(x, x),
       assert x == x).
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: core
   - id: VT-010
-    title: Test de implementación
-    symptom: Cambia interno, pasa
-    cause: Acoplamiento incorrecto
-    solution: Probar comportamiento
+    title: Implementation test
+    symptom: Internals change, it still passes
+    cause: Incorrect coupling
+    solution: Test behavior
     status: AUDITED
     severity: medium
     tags:
@@ -300,23 +300,23 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert obj._helper.call_count == 1   # acopla al detalle interno
+      assert obj._helper.call_count == 1   # couples to internal detail
     example_good: |
-      assert obj.result() == 42   # comportamiento observable
+      assert obj.result() == 42   # observable behavior
     detection: |
-      Tests que afirman sobre detalles internos (llamadas privadas) en vez de comportamiento.
+      Tests that assert on internal details (private calls) instead of behavior.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-011
-    title: Esperado incorrecto
-    symptom: El test compara contra una expectativa que ya no coincide con la 
-      especificación vigente
-    cause: La especificación o el fixture de referencia quedó obsoleto
-    solution: Revisar la fuente de verdad de la expectativa y actualizar el 
-      oráculo
+    title: Incorrect expected value
+    symptom: The test compares against an expectation that no longer matches the
+      current specification
+    cause: The specification or the reference fixture became stale
+    solution: Review the source of truth for the expectation and update the
+      oracle
     status: AUDITED
     severity: medium
     tags:
@@ -328,21 +328,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert tax(100) == 7   # la spec cambio a 8%, el test sigue en 7
+      assert tax(100) == 7   # the spec changed to 8%, the test is still at 7
     example_good: |
       assert tax(100) == SPEC.rate * 100
     detection: |
-      Oraculo que ya no coincide con la especificacion vigente.
+      Oracle that no longer matches the current specification.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-012
-    title: Cobertura sin asserts
-    symptom: Ejecuta sin verificar
-    cause: Métrica vacía
-    solution: Cobertura con oráculos
+    title: Coverage without asserts
+    symptom: Runs without verifying
+    cause: Empty metric
+    solution: Coverage with oracles
     status: PREVENTED
     severity: high
     tags:
@@ -355,26 +355,26 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Llama a todo para subir coverage, pero no afirma nada.
+      # Calls everything to raise coverage, but asserts nothing.
       def test_pipeline():
-          run_stage_a(); run_stage_b(); run_stage_c()   # 100% lineas, 0% verificacion
+          run_stage_a(); run_stage_b(); run_stage_c()   # 100% lines, 0% verification
     example_good: |
       def test_pipeline():
           out = run_stage_c(run_stage_b(run_stage_a(seed)))
           assert out.status == "done" and out.rows == 3
     detection: |
-      Cruzar cobertura con densidad de asserts: archivos con alta cobertura y tests sin
-      asserts activos = cobertura inflada.
+      Cross coverage with assert density: files with high coverage and tests without
+      active asserts = inflated coverage.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: core
   - id: VT-013
-    title: Tests por porcentaje
-    symptom: Cobertura gamificada
-    cause: Incentivo equivocado
-    solution: Calidad de aserciones
+    title: Tests for percentage
+    symptom: Gamified coverage
+    cause: Wrong incentive
+    solution: Assertion quality
     status: PREVENTED
     severity: high
     tags:
@@ -387,26 +387,26 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Tests vacios creados solo para alcanzar el umbral de % de cobertura.
-      def test_a(): import mod          # 'cubre' el import
-      def test_b(): mod.helper()        # llama sin verificar
+      # Empty tests created only to reach the % coverage threshold.
+      def test_a(): import mod          # 'covers' the import
+      def test_b(): mod.helper()        # calls without verifying
     example_good: |
-      # La meta es comportamiento verificado, no el numero de cobertura.
+      # The goal is verified behavior, not the coverage number.
       def test_helper_doubles():
           assert mod.helper(2) == 4
     detection: |
-      Detectar tests cuyo proposito declarado/commit es 'subir coverage' y cuyo cuerpo
-      carece de asserts sobre resultados.
+      Detect tests whose declared purpose/commit is 'raise coverage' and whose body
+      lacks asserts on results.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-014
-    title: Test circular
-    symptom: Auditor se aprueba
-    cause: Verificador no independiente
-    solution: Oráculo externo
+    title: Circular test
+    symptom: The auditor approves itself
+    cause: Non-independent verifier
+    solution: External oracle
     status: AUDITED
     severity: medium
     tags:
@@ -418,21 +418,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert auditor.audit(auditor) == "ok"   # se evalua a si mismo
+      assert auditor.audit(auditor) == "ok"   # evaluates itself
     example_good: |
       assert auditor.audit(subject) == expected_from_spec
     detection: |
-      El sujeto bajo prueba es tambien su propio oraculo (auto-aprobacion).
+      The subject under test is also its own oracle (self-approval).
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: core
   - id: VT-015
-    title: Test demasiado amplio
-    symptom: No localiza falla
-    cause: Granularidad baja
-    solution: Tests focales
+    title: Test too broad
+    symptom: Does not localize the failure
+    cause: Low granularity
+    solution: Focal tests
     status: AUDITED
     severity: medium
     tags:
@@ -444,21 +444,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      def test_everything(): assert run_whole_app() == "ok"   # no localiza la falla
+      def test_everything(): assert run_whole_app() == "ok"   # does not localize the failure
     example_good: |
-      # tests focales por unidad: test_parse, test_validate, test_render
+      # focal tests per unit: test_parse, test_validate, test_render
     detection: |
-      Un test monolitico que cubre todo el pipeline y no localiza la falla a una unidad.
+      A monolithic test that covers the whole pipeline and does not localize the failure to a unit.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-016
-    title: Aserción textual ceremonial
-    symptom: Texto existe
-    cause: Presencia por acción
-    solution: Invocar mandato
+    title: Ceremonial textual assertion
+    symptom: The text exists
+    cause: Presence by action
+    solution: Invoke the mandate
     status: PREVENTED
     severity: high
     tags:
@@ -471,27 +471,27 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Asercion textual debil: pasa con casi cualquier salida.
+      # Weak textual assertion: passes with almost any output.
       def test_report():
           r = build_report()
-          assert "ok" in str(r).lower()   # teatral
+          assert "ok" in str(r).lower()   # theatrical
     example_good: |
       def test_report():
           r = build_report()
           assert r.total == 100 and r.errors == []
     detection: |
-      Marcar asserts que solo comprueban subcadenas vagas ('ok','success','done') sobre
-      str(result) en vez de campos estructurados.
+      Flag asserts that only check vague substrings ('ok','success','done') over
+      str(result) instead of structured fields.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-017
-    title: Evidencia hardcodeada
-    symptom: outcome siempre success
-    cause: Resultado predeterminado
-    solution: Outcome derivado de verificación
+    title: Hardcoded evidence
+    symptom: outcome always success
+    cause: Predetermined result
+    solution: Outcome derived from verification
     status: AUDITED
     severity: medium
     tags:
@@ -503,21 +503,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      def run(): return {"outcome": "success"}   # constante
+      def run(): return {"outcome": "success"}   # constant
     example_good: |
       def run(): return {"outcome": verify().status}
     detection: |
-      Outcome/veredicto constante en vez de derivado de verificacion.
+      Constant outcome/verdict instead of derived from verification.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-018
-    title: String matching frágil
-    symptom: Mensaje cambia resultado
-    cause: Contrato textual frágil
-    solution: Estados estructurados
+    title: Fragile string matching
+    symptom: The message changes the result
+    cause: Fragile textual contract
+    solution: Structured states
     status: AUDITED
     severity: medium
     tags:
@@ -529,21 +529,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert str(err) == "Error: code 42 at line 7"   # rompe si cambia el texto
+      assert str(err) == "Error: code 42 at line 7"   # breaks if the text changes
     example_good: |
       assert err.code == 42
     detection: |
-      Comparacion contra mensajes de texto exactos en vez de estados estructurados.
+      Comparison against exact text messages instead of structured states.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-019
-    title: Hash de error válido
-    symptom: UNREADABLE parece dato
-    cause: Error codificado como valor
-    solution: Fallo explícito
+    title: Valid error hash
+    symptom: UNREADABLE looks like data
+    cause: Error encoded as a value
+    solution: Explicit failure
     status: AUDITED
     severity: medium
     tags:
@@ -556,22 +556,22 @@ items:
     example_lang: python
     example_bad: |
       data = read()
-      assert data   # data == "UNREADABLE" pasa como verdadero
+      assert data   # data == "UNREADABLE" passes as truthy
     example_good: |
       data = read()
-      assert data not in SENTINELS   # fallo explicito ante error
+      assert data not in SENTINELS   # explicit failure on error
     detection: |
-      Sentinelas de error (UNREADABLE/ERROR/N/A) tratados como datos validos.
+      Error sentinels (UNREADABLE/ERROR/N/A) treated as valid data.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-020
-    title: Cien por ciento como objetivo
-    symptom: Se cazan tests
-    cause: Incentivo invertido
-    solution: Cien por ciento solo como consecuencia
+    title: One hundred percent as the goal
+    symptom: Tests are gamed
+    cause: Inverted incentive
+    solution: One hundred percent only as a consequence
     status: AUDITED
     severity: medium
     tags:
@@ -583,21 +583,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # tests vacios anadidos solo para llegar a 100% de cobertura
+      # empty tests added only to reach 100% coverage
     example_good: |
-      # 100% es consecuencia de cubrir comportamiento, no la meta
+      # 100% is a consequence of covering behavior, not the goal
     detection: |
-      Crear tests para alcanzar 100% de cobertura como objetivo en si mismo.
+      Creating tests to reach 100% coverage as a goal in itself.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-021
-    title: Regresión sin centinela
-    symptom: Error viejo reaparece
-    cause: Memoria de fallos no convertida en prueba
-    solution: Cada defecto corregido deja prueba discriminante
+    title: Regression without a sentinel
+    symptom: An old error reappears
+    cause: Failure memory not turned into a test
+    solution: Every fixed defect leaves a discriminating test
     status: AUDITED
     severity: medium
     tags:
@@ -609,23 +609,23 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # se arregla BUG-9 pero no se deja test que lo discrimine
+      # BUG-9 is fixed but no test is left to discriminate it
     example_good: |
-      def test_bug9(): assert safe_divide(1, 0) is None   # centinela de regresion
+      def test_bug9(): assert safe_divide(1, 0) is None   # regression sentinel
     detection: |
-      Defecto corregido sin un test discriminante que impida su reaparicion.
+      Defect fixed without a discriminating test that prevents its reappearance.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-022
-    title: ceremonia del Verde y Aserciones Tautológicas
-    symptom: Pruebas exitosas inútiles que no discriminan rupturas lógicas
-    cause: Gamificación de cobertura priorizando métrica sintáctica sobre 
-      rigurosaidad
-    solution: Exigir aserciones de valores límite y prohibir capturas globales 
-      que silencien fallos
+    title: Green ceremony and Tautological Assertions
+    symptom: Useless passing tests that do not discriminate logical breaks
+    cause: Coverage gamification prioritizing a syntactic metric over
+      rigor
+    solution: Require boundary-value assertions and prohibit global catches
+      that silence failures
     status: PREVENTED
     severity: high
     tags:
@@ -638,26 +638,26 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # 'Verde' garantizado: combinacion de asserts tautologicos.
+      # Guaranteed 'green': a combination of tautological asserts.
       def test_calc():
           assert 1 == 1
-          assert isinstance(calc(2), int)   # no fija el valor
+          assert isinstance(calc(2), int)   # does not fix the value
     example_good: |
       def test_calc():
           assert calc(2) == 4
     detection: |
-      AST: tests cuyos asserts son todos tautologicos o de tipo (isinstance) sin fijar
-      ningun valor esperado concreto.
+      AST: tests whose asserts are all tautological or type-based (isinstance) without fixing
+      any concrete expected value.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-023
-    title: Mock complaciente
-    symptom: Simula éxito
-    cause: Realidad sustituida
-    solution: Calibrar con integración
+    title: Complacent mock
+    symptom: Simulates success
+    cause: Reality substituted
+    solution: Calibrate with integration
     status: AUDITED
     severity: medium
     tags:
@@ -669,21 +669,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      api = Mock(); api.charge.return_value = True   # nunca falla
+      api = Mock(); api.charge.return_value = True   # never fails
     example_good: |
-      # contract test contra el comportamiento real, incluidos sus fallos
+      # contract test against real behavior, including its failures
     detection: |
-      Mock que siempre devuelve exito, sin calibrar contra integracion real.
+      Mock that always returns success, without calibrating against real integration.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-024
-    title: Fake incompleto
-    symptom: Omite casos difíciles
-    cause: Modelo parcial
-    solution: Probar contra sistema real
+    title: Incomplete fake
+    symptom: Omits hard cases
+    cause: Partial model
+    solution: Test against the real system
     status: AUDITED
     severity: medium
     tags:
@@ -696,21 +696,21 @@ items:
     example_lang: python
     example_bad: |
       class FakeDB:
-          def get(self, k): return {"a": 1}[k]   # solo el caso facil
+          def get(self, k): return {"a": 1}[k]   # only the easy case
     example_good: |
-      # fake que respeta los mismos invariantes y errores que el real
+      # fake that respects the same invariants and errors as the real one
     detection: |
-      Fake/double que omite casos dificiles (errores, limites) del sistema real.
+      Fake/double that omits hard cases (errors, limits) of the real system.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-025
-    title: Stub de red
-    symptom: Respuesta vieja
-    cause: Entorno congelado
-    solution: Contract tests vivos
+    title: Network stub
+    symptom: Stale response
+    cause: Frozen environment
+    solution: Live contract tests
     status: AUDITED
     severity: medium
     tags:
@@ -722,21 +722,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      requests_mock.get(url, json=OLD_SNAPSHOT)   # respuesta grabada obsoleta
+      requests_mock.get(url, json=OLD_SNAPSHOT)   # stale recorded response
     example_good: |
-      # contract test vivo contra el esquema actual del proveedor
+      # live contract test against the provider's current schema
     detection: |
-      Stub de red con respuesta grabada obsoleta sin contract test vigente.
+      Network stub with a stale recorded response without a current contract test.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-026
-    title: Base simplificada
-    symptom: Reglas difieren
-    cause: Semántica distinta
-    solution: Probar motor equivalente
+    title: Simplified database
+    symptom: Rules differ
+    cause: Different semantics
+    solution: Test an equivalent engine
     status: AUDITED
     severity: medium
     tags:
@@ -748,21 +748,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # sqlite en test, postgres en prod -> constraints difieren
+      # sqlite in test, postgres in prod -> constraints differ
     example_good: |
-      # probar contra un motor equivalente al de produccion
+      # test against an engine equivalent to production's
     detection: |
-      Base de datos de test con reglas/constraints distintas a produccion.
+      Test database with rules/constraints different from production.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-027
-    title: Reloj fijo
-    symptom: Fechas siempre ideales
-    cause: Variabilidad eliminada
-    solution: Probar frontera temporal
+    title: Fixed clock
+    symptom: Dates always ideal
+    cause: Variability eliminated
+    solution: Test the temporal boundary
     status: AUDITED
     severity: medium
     tags:
@@ -774,21 +774,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      now = datetime(2020, 1, 1)   # siempre la misma fecha
+      now = datetime(2020, 1, 1)   # always the same date
     example_good: |
-      # probar fronteras: fin de mes, ano bisiesto, cambio de DST
+      # test boundaries: end of month, leap year, DST change
     detection: |
-      Reloj fijo en tests que no ejercita fronteras temporales.
+      Fixed clock in tests that does not exercise temporal boundaries.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-028
-    title: Aleatoriedad controlada
-    symptom: No explora distribución
-    cause: Varianza oculta
-    solution: Propiedades estadísticas
+    title: Controlled randomness
+    symptom: Does not explore the distribution
+    cause: Hidden variance
+    solution: Statistical properties
     status: AUDITED
     severity: medium
     tags:
@@ -802,19 +802,19 @@ items:
     example_bad: |
       random.seed(0); assert sample()[0] == 0.844   # un solo draw fijado
     example_good: |
-      # validar propiedades estadisticas (media, rango) sobre N draws
+      # validate statistical properties (mean, range) over N draws
     detection: |
-      Fijar la semilla y afirmar un valor concreto en vez de propiedades estadisticas.
+      Fixing the seed and asserting a concrete value instead of statistical properties.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-029
-    title: Sistema de archivos falso
-    symptom: No prueba permisos ni locks
-    cause: Recurso idealizado
-    solution: Pruebas con recurso real
+    title: Fake filesystem
+    symptom: Does not test permissions or locks
+    cause: Idealized resource
+    solution: Tests with a real resource
     status: AUDITED
     severity: medium
     tags:
@@ -826,21 +826,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      fs = FakeFS()   # nunca lanza PermissionError ni ENOSPC
+      fs = FakeFS()   # never raises PermissionError or ENOSPC
     example_good: |
-      # usar un directorio temporal real: IO con errores reales
+      # use a real temporary directory: IO with real errors
     detection: |
-      FS falso que no reproduce errores reales de IO (permisos, espacio).
+      Fake FS that does not reproduce real IO errors (permissions, space).
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-030
-    title: Monkey patch amable
-    symptom: Sistema real no probado
-    cause: Sustitución invasiva
-    solution: Limitar parches
+    title: Friendly monkey patch
+    symptom: The real system is not tested
+    cause: Invasive substitution
+    solution: Limit patches
     status: AUDITED
     severity: medium
     tags:
@@ -852,21 +852,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      monkeypatch.setattr(mod, "validate", lambda x: True)   # parchea lo que se prueba
+      monkeypatch.setattr(mod, "validate", lambda x: True)   # patches what is being tested
     example_good: |
-      # limitar parches a dependencias externas, nunca al sujeto
+      # limit patches to external dependencies, never to the subject
     detection: |
-      Monkeypatch que reemplaza la propia funcion bajo prueba.
+      Monkeypatch that replaces the very function under test.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-031
-    title: Comando stub
-    symptom: Imprime instalado
-    cause: Acción simulada
-    solution: Verificar efecto externo
+    title: Command stub
+    symptom: Prints "installed"
+    cause: Simulated action
+    solution: Verify the external effect
     status: AUDITED
     severity: medium
     tags:
@@ -878,21 +878,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      run = Mock()   # no se verifica el efecto externo del comando
+      run = Mock()   # the command's external effect is not verified
     example_good: |
-      # ejecutar en sandbox y verificar el efecto (archivo creado, exit code)
+      # run in a sandbox and verify the effect (file created, exit code)
     detection: |
-      Stub de comandos/subprocess sin verificar su efecto externo.
+      Command/subprocess stub without verifying its external effect.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-032
-    title: Mock scan parcial
-    symptom: No cubre tests
-    cause: Universo incompleto
-    solution: Escanear dominio activo
+    title: Partial mock scan
+    symptom: Does not cover the tests
+    cause: Incomplete universe
+    solution: Scan the active domain
     status: AUDITED
     severity: medium
     tags:
@@ -904,21 +904,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      scanner = Mock(); scanner.scan.return_value = ["a"]   # dominio parcial
+      scanner = Mock(); scanner.scan.return_value = ["a"]   # partial domain
     example_good: |
-      # escanear el dominio activo completo
+      # scan the full active domain
     detection: |
-      Mock de un escaner que cubre solo parte del dominio real.
+      Mock of a scanner that covers only part of the real domain.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-033
-    title: Wrapper como remediación
-    symptom: Se crea capa para que el validador no falle
-    cause: Ocultamiento de contrato roto
-    solution: Reparar causa en el sujeto, no adaptar el juez
+    title: Wrapper as remediation
+    symptom: A layer is created so the validator does not fail
+    cause: Hiding a broken contract
+    solution: Fix the cause in the subject, do not adapt the judge
     status: AUDITED
     severity: medium
     tags:
@@ -932,21 +932,21 @@ items:
     example_bad: |
       def safe_audit(x):
           try: return audit(x)
-          except: return 'ok'   # adapta el juez
+          except: return 'ok'   # adapts the judge
     example_good: |
-      # reparar la causa en el sujeto, no envolver al auditor
+      # fix the cause in the subject, do not wrap the auditor
     detection: |
-      Wrapper que adapta el evaluador para ocultar el fallo en vez de corregir el sujeto.
+      Wrapper that adapts the evaluator to hide the failure instead of fixing the subject.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-034
-    title: Placeholder aprobado
-    symptom: El evaluador acepta estructura incompleta
-    cause: Forma confundida con cumplimiento
-    solution: Exigir comportamiento observable antes de aprobar
+    title: Approved placeholder
+    symptom: The evaluator accepts an incomplete structure
+    cause: Form confused with compliance
+    solution: Require observable behavior before approving
     status: AUDITED
     severity: medium
     tags:
@@ -958,21 +958,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert result == "TODO"   # se aprueba el placeholder
+      assert result == "TODO"   # the placeholder is approved
     example_good: |
       assert result == real_expected
     detection: |
-      Aprobar un valor placeholder como si fuera comportamiento observable.
+      Approving a placeholder value as if it were observable behavior.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-035
-    title: xfail permanente
-    symptom: Falla ignorada
-    cause: Deuda normalizada
-    solution: Prohibir xfail como evidencia de salud
+    title: Permanent xfail
+    symptom: Ignored failure
+    cause: Normalized debt
+    solution: Prohibit xfail as evidence of health
     status: PREVENTED
     severity: high
     tags:
@@ -984,27 +984,27 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      @pytest.mark.xfail   # marcado como fallo esperado... para siempre
+      @pytest.mark.xfail   # marked as an expected failure... forever
       def test_refund():
           assert refund(order) == 0
     example_good: |
-      # Si el bug se arreglo, el xfail debe caer; si sigue, lleva fecha y ticket.
-      @pytest.mark.xfail(reason="BUG-123, revisar 2026-07", strict=True)
+      # If the bug was fixed, the xfail must drop; if it persists, it carries a date and ticket.
+      @pytest.mark.xfail(reason="BUG-123, review 2026-07", strict=True)
       def test_refund():
           assert refund(order) == 0
     detection: |
-      Detectar @xfail/@expectedFailure sin reason+fecha/ticket o sin strict=True
-      (xpass silencioso).
+      Detect @xfail/@expectedFailure without reason+date/ticket or without strict=True
+      (silent xpass).
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: core
   - id: VT-036
-    title: Skip permanente
-    symptom: No corre
-    cause: Cobertura ficticia
-    solution: Resultado global inválido si omite prueba crítica
+    title: Permanent skip
+    symptom: Does not run
+    cause: Fictitious coverage
+    solution: Invalid global result if it omits a critical test
     status: PREVENTED
     severity: high
     tags:
@@ -1016,27 +1016,27 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      @pytest.mark.skip   # saltado permanentemente, sin condicion ni motivo
+      @pytest.mark.skip   # permanently skipped, without condition or reason
       def test_payment():
           ...
     example_good: |
-      @pytest.mark.skipif(no_sandbox(), reason="requiere sandbox de pagos, BUG-77")
+      @pytest.mark.skipif(no_sandbox(), reason="requires a payments sandbox, BUG-77")
       def test_payment():
           ...
     detection: |
-      Detectar @skip incondicional sin reason ni fecha de expiracion; preferir skipif con
-      condicion verificable.
+      Detect unconditional @skip without a reason or expiration date; prefer skipif with
+      a verifiable condition.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: core
   - id: VT-037
     detector: vt037_impossible_condition
-    title: Condición imposible
-    symptom: Rama de test nunca entra
-    cause: Control inválido
-    solution: Verificar ejecución del test
+    title: Impossible condition
+    symptom: The test branch is never entered
+    cause: Invalid control flow
+    solution: Verify the test's execution
     status: AUDITED
     severity: medium
     tags:
@@ -1049,21 +1049,21 @@ items:
     example_lang: python
     example_bad: |
       if 1 == 2:
-          assert check()   # rama muerta: nunca corre
+          assert check()   # dead branch: never runs
     example_good: |
       assert check()
     detection: |
-      Aserciones tras una condicion imposible (rama muerta) que nunca se ejecuta.
+      Assertions after an impossible condition (dead branch) that never executes.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-038
-    title: Dependencia de orden
-    symptom: Pasa por estado previo
-    cause: Aislamiento roto
-    solution: Tests independientes
+    title: Order dependency
+    symptom: Passes due to prior state
+    cause: Broken isolation
+    solution: Independent tests
     status: AUDITED
     severity: medium
     tags:
@@ -1075,21 +1075,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # test_b depende del estado dejado por test_a
+      # test_b depends on the state left by test_a
     example_good: |
-      # cada test crea y limpia su propio estado (independiente)
+      # each test creates and cleans up its own state (independent)
     detection: |
-      Tests que dependen del orden de ejecucion (estado compartido entre tests).
+      Tests that depend on the execution order (state shared between tests).
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-039
-    title: Dependencia temporal
-    symptom: Hora o día decide
-    cause: No determinismo
-    solution: Control explícito del tiempo
+    title: Temporal dependency
+    symptom: The hour or day decides
+    cause: Non-determinism
+    solution: Explicit control of time
     status: AUDITED
     severity: medium
     tags:
@@ -1101,22 +1101,22 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      start(); time.sleep(1); assert done()   # flaky por wall-clock
+      start(); time.sleep(1); assert done()   # flaky due to wall-clock
     example_good: |
-      # control explicito del tiempo o espera por condicion
+      # explicit control of time or wait by condition
     detection: |
-      Tests que dependen de sleeps/wall-clock en vez de control explicito del tiempo.
+      Tests that depend on sleeps/wall-clock instead of explicit control of time.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-040
     detector: vt040_blind_except
-    title: Excepción absorbida
-    symptom: Error desaparece
-    cause: Fallo colapsado
-    solution: Fallar explícitamente
+    title: Absorbed exception
+    symptom: The error disappears
+    cause: Collapsed failure
+    solution: Fail explicitly
     status: PREVENTED
     severity: high
     tags:
@@ -1132,25 +1132,25 @@ items:
           try:
               parse(bad_input)
           except Exception:
-              pass   # absorbe el fallo: el test nunca falla
+              pass   # absorbs the failure: the test never fails
     example_good: |
       def test_parse():
           with pytest.raises(ValueError):
-              parse(bad_input)   # afirma la excepcion esperada
+              parse(bad_input)   # asserts the expected exception
     detection: |
-      AST: bloques try/except con cuerpo 'pass' dentro de funciones test_*, que ocultan
-      cualquier excepcion.
+      AST: try/except blocks with a 'pass' body inside test_* functions, which hide
+      any exception.
       Tools: ruff BLE001 (blind-except), flake8-bugbear, pylint W0702.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: core
   - id: VT-041
-    title: Error output ignorado
-    symptom: Señal no observada
-    cause: Canal descartado
-    solution: Capturar error y log
+    title: Ignored error output
+    symptom: Signal not observed
+    cause: Discarded channel
+    solution: Capture error and log
     status: AUDITED
     severity: medium
     tags:
@@ -1162,21 +1162,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      out = run(); assert "ok" in out.stdout   # ignora stderr y exit code
+      out = run(); assert "ok" in out.stdout   # ignores stderr and exit code
     example_good: |
       r = run(); assert r.returncode == 0 and not r.stderr
     detection: |
-      Tests que ignoran stderr o el codigo de salida del proceso.
+      Tests that ignore stderr or the process exit code.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-042
-    title: Log de éxito falso
-    symptom: OK sin comprobar
-    cause: Narrativa no causal
-    solution: Log posterior a verificación
+    title: False success log
+    symptom: OK without checking
+    cause: Non-causal narrative
+    solution: Log after verification
     status: AUDITED
     severity: medium
     tags:
@@ -1188,22 +1188,22 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      log("done"); save()   # log de exito antes de verificar
+      log("done"); save()   # success log before verifying
     example_good: |
-      save(); assert persisted(); log("done")   # log tras verificar
+      save(); assert persisted(); log("done")   # log after verifying
     detection: |
-      Registrar exito antes de verificar el resultado.
+      Logging success before verifying the result.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-043
     detector: vt043_unconditional_exit_zero
-    title: Exit exitoso incondicional
-    symptom: Pipeline verde
-    cause: Código de salida falso
-    solution: Exit refleja estado real
+    title: Unconditional successful exit
+    symptom: Green pipeline
+    cause: False exit code
+    solution: Exit reflects the real state
     status: AUDITED
     severity: medium
     tags:
@@ -1215,21 +1215,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      run_checks(); sys.exit(0)   # exit 0 pase lo que pase
+      run_checks(); sys.exit(0)   # exit 0 no matter what
     example_good: |
       sys.exit(0 if all_ok else 1)
     detection: |
-      Exit code 0 incondicional que no refleja el estado real.
+      Unconditional exit code 0 that does not reflect the real state.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-044
-    title: Retorno ignorado
-    symptom: Resultado error no visto
-    cause: Observación incompleta
-    solution: Asertar retorno
+    title: Ignored return
+    symptom: Error result not seen
+    cause: Incomplete observation
+    solution: Assert the return
     status: AUDITED
     severity: medium
     tags:
@@ -1241,21 +1241,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      process(data)   # no se asierta el retorno
+      process(data)   # the return is not asserted
     example_good: |
       assert process(data).count == 3
     detection: |
-      Llamar la funcion bajo prueba sin asertar su valor de retorno.
+      Calling the function under test without asserting its return value.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-045
-    title: Happy path único
-    symptom: Solo caso ideal
-    cause: Dominio pobre
-    solution: Casos adversos
+    title: Single happy path
+    symptom: Only the ideal case
+    cause: Poor domain
+    solution: Adverse cases
     status: AUDITED
     severity: medium
     tags:
@@ -1267,21 +1267,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      def test(): assert div(10, 2) == 5   # solo caso feliz
+      def test(): assert div(10, 2) == 5   # only the happy case
     example_good: |
-      # incluir div(1, 0), negativos, overflow
+      # include div(1, 0), negatives, overflow
     detection: |
-      Cobertura solo del happy path; faltan casos adversos.
+      Coverage only of the happy path; adverse cases are missing.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-046
-    title: Dato mágico
-    symptom: Input evita bug
-    cause: Sesgo de muestra
-    solution: Generar variaciones
+    title: Magic datum
+    symptom: The input avoids the bug
+    cause: Sample bias
+    solution: Generate variations
     status: AUDITED
     severity: medium
     tags:
@@ -1293,52 +1293,52 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert f(7) == 49   # un solo dato magico
+      assert f(7) == 49   # a single magic datum
     example_good: |
-      # parametrizar con variaciones representativas
+      # parametrize with representative variations
     detection: |
-      Un unico dato magico en vez de variaciones representativas.
+      A single magic datum instead of representative variations.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-047
-    title: Dataset pequeño
-    symptom: Escala rompe
-    cause: Complejidad no ejercida
-    solution: Pruebas de volumen
+    title: Small dataset
+    symptom: Scale breaks it
+    cause: Complexity not exercised
+    solution: Volume tests
     status: PREVENTED
     severity: high
     tags:
       - testing
       - prevented
-    action: 'Volumen real: test ejercita 1000+ sesiones (lo opuesto al dataset pequeño).'
+    action: 'Real volume: the test exercises 1000+ sessions (the opposite of a small dataset).'
     validating_mechanism: test_compress_1000_sessions_returns_structured_dict
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # 'Evaluacion' sobre un unico ejemplo: ruido estadistico, no senal.
+      # 'Evaluation' over a single example: statistical noise, not signal.
       def test_model():
           assert model.predict([sample]) == [1]
     example_good: |
-      # Conjunto representativo + umbral de metrica acordado.
+      # Representative set + agreed metric threshold.
       def test_model_accuracy():
-          acc = evaluate(model, validation_set)   # N>=200 ejemplos
+          acc = evaluate(model, validation_set)   # N>=200 examples
           assert acc >= 0.85
     detection: |
-      Tests de modelo/heuristica que afirman sobre 1-2 muestras fijas en lugar de una
-      metrica agregada sobre un dataset.
+      Model/heuristic tests that assert on 1-2 fixed samples instead of an
+      aggregate metric over a dataset.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-048
-    title: No vacío/nulo/cero
-    symptom: Casos comunes faltan
-    cause: Fronteras omitidas
-    solution: Cubrir valores límite
+    title: No empty/null/zero
+    symptom: Common cases are missing
+    cause: Boundaries omitted
+    solution: Cover boundary values
     status: AUDITED
     severity: medium
     tags:
@@ -1350,21 +1350,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert total([1, 2]) == 3   # nunca prueba [], [0], None
+      assert total([1, 2]) == 3   # never tests [], [0], None
     example_good: |
-      # cubrir [], [0], None y valores limite
+      # cover [], [0], None and boundary values
     detection: |
-      Faltan casos limite vacio/nulo/cero.
+      Empty/null/zero boundary cases are missing.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-049
-    title: No caracteres especiales
-    symptom: Texto real rompe
-    cause: Alfabeto incompleto
-    solution: Datos diversos
+    title: No special characters
+    symptom: Real text breaks it
+    cause: Incomplete alphabet
+    solution: Diverse data
     status: AUDITED
     severity: medium
     tags:
@@ -1376,50 +1376,50 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert slug("hola") == "hola"   # nunca prueba acentos/emojis/espacios
+      assert slug("hello") == "hello"   # never tests accents/emojis/spaces
     example_good: |
       assert slug("Hola Munro!") == "hola-munro"
     detection: |
-      Faltan entradas con caracteres especiales/unicode.
+      Inputs with special/unicode characters are missing.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-050
-    title: No fechas límite
-    symptom: Calendario rompe
-    cause: Fronteras temporales
-    solution: Casos calendarios
+    title: No boundary dates
+    symptom: The calendar breaks it
+    cause: Temporal boundaries
+    solution: Calendar cases
     status: PREVENTED
     severity: high
     tags:
       - testing
       - prevented
-    action: 'Boundary de calendario real: asserta que 29-feb en año no bisiesto lanza
+    action: 'Real calendar boundary: asserts that Feb-29 in a non-leap year raises
       ValueError.'
     validating_mechanism: test_non_leap_year_feb29_raises
     downstream_verification: none
     example_lang: python
     example_bad: |
-      @pytest.mark.skip("arreglar luego")   # sin fecha limite: eterno
+      @pytest.mark.skip("fix later")   # no deadline: eternal
       def test_export(): ...
     example_good: |
-      # Todo skip lleva expiracion; un check de CI falla si la fecha vencio.
-      @pytest.mark.skip("BUG-55, expira 2026-07-01")
+      # Every skip carries an expiration; a CI check fails if the date has passed.
+      @pytest.mark.skip("BUG-55, expires 2026-07-01")
       def test_export(): ...
     detection: |
-      Linter de tests: skip/xfail sin fecha de expiracion parseable, o con fecha ya vencida.
+      Test linter: skip/xfail without a parseable expiration date, or with an already-passed date.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-051
-    title: CI informativo
-    symptom: Fallos no bloquean
-    cause: Señal sin control
-    solution: Fallos críticos bloquean
+    title: Informational CI
+    symptom: Failures do not block
+    cause: Signal without control
+    solution: Critical failures block
     status: AUDITED
     severity: medium
     tags:
@@ -1431,22 +1431,22 @@ items:
     downstream_verification: none
     example_lang: yaml
     example_bad: |
-      # CI muestra fallos pero el merge no se bloquea
+      # CI shows failures but the merge is not blocked
       - run: pytest || true
     example_good: |
-      - run: pytest   # un fallo critico bloquea el merge (required check)
+      - run: pytest   # a critical failure blocks the merge (required check)
     detection: |
-      CI que reporta pero no bloquea el merge ante fallos criticos.
+      CI that reports but does not block the merge on critical failures.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-052
     title: Ignore errors
-    symptom: Pipeline ignora fallo
-    cause: Política permisiva
-    solution: Propagación estricta
+    symptom: The pipeline ignores the failure
+    cause: Permissive policy
+    solution: Strict propagation
     status: PREVENTED
     severity: high
     tags:
@@ -1458,24 +1458,24 @@ items:
     downstream_verification: none
     example_lang: yaml
     example_bad: |
-      # CI configurado para ignorar errores: el rojo se vuelve verde artificialmente.
+      # CI configured to ignore errors: red turns green artificially.
       - run: pytest
         continue-on-error: true
     example_good: |
-      - run: pytest          # un fallo de tests detiene el pipeline
+      - run: pytest          # a test failure stops the pipeline
     detection: |
-      Buscar 'continue-on-error: true', '|| true', o '--exitfirst' invertido en pasos de
-      test del CI que enmascaran fallos.
+      Look for 'continue-on-error: true', '|| true', or an inverted '--exitfirst' in CI
+      test steps that mask failures.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-053
-    title: Tests fuera de rama activa
-    symptom: Nunca protegen
-    cause: Separación de flujo
-    solution: Integrar en ruta activa
+    title: Tests outside the active branch
+    symptom: They never protect
+    cause: Flow separation
+    solution: Integrate into the active path
     status: AUDITED
     severity: medium
     tags:
@@ -1487,21 +1487,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Los tests viven en una carpeta que CI no ejecuta.
+      # The tests live in a folder that CI does not run.
     example_good: |
-      # Integrados en la ruta activa de CI.
+      # Integrated into the active CI path.
     detection: |
-      Tests que existen pero no se ejecutan en la rama/ruta activa de CI.
+      Tests that exist but are not run in the active CI branch/path.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-054
-    title: Tests opcionales
-    symptom: Nadie los corre
-    cause: Voluntariedad
-    solution: Obligatorios por riesgo
+    title: Optional tests
+    symptom: Nobody runs them
+    cause: Voluntariness
+    solution: Mandatory by risk
     status: AUDITED
     severity: medium
     tags:
@@ -1513,21 +1513,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      @pytest.mark.optional   # se saltan cuando hay prisa
+      @pytest.mark.optional   # skipped when in a hurry
     example_good: |
-      # obligatorios segun riesgo (sin marca optional)
+      # mandatory by risk (without an optional marker)
     detection: |
-      Tests marcados opcionales que cubren riesgo y se omiten bajo presion.
+      Tests marked optional that cover risk and are skipped under pressure.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-055
-    title: Notificación no atendida
-    symptom: Fallo invisible
-    cause: Canal muerto
-    solution: Alertas con dueño
+    title: Unattended notification
+    symptom: Invisible failure
+    cause: Dead channel
+    solution: Alerts with an owner
     status: AUDITED
     severity: medium
     tags:
@@ -1539,21 +1539,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # La alerta de test roto va a un canal que nadie lee.
+      # The broken-test alert goes to a channel nobody reads.
     example_good: |
-      # Alertas con dueno explicito y SLA de atencion.
+      # Alerts with an explicit owner and an attention SLA.
     detection: |
-      Alertas de fallos sin dueno asignado que las atienda.
+      Failure alerts without an assigned owner to attend to them.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-056
-    title: Test post-bug complaciente
-    symptom: Pasa con roto
-    cause: Confirmación retrospectiva
-    solution: Test rojo antes del fix
+    title: Complacent post-bug test
+    symptom: Passes while broken
+    cause: Retrospective confirmation
+    solution: Red test before the fix
     status: AUDITED
     severity: medium
     tags:
@@ -1565,21 +1565,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # se escribe el test despues del fix; nunca estuvo en rojo
+      # the test is written after the fix; it was never red
     example_good: |
-      # primero reproducir en rojo, luego arreglar a verde
+      # first reproduce in red, then fix to green
     detection: |
-      Test de regresion que nunca fallo: no se verifico que detecta el bug.
+      Regression test that never failed: it was not verified to detect the bug.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-057
-    title: Skip luego
-    symptom: Deuda infinita
-    cause: Sin vencimiento
-    solution: Fecha límite obligatoria
+    title: Skip later
+    symptom: Infinite debt
+    cause: No expiration
+    solution: Mandatory deadline
     status: PREVENTED
     severity: high
     tags:
@@ -1591,25 +1591,25 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      @pytest.mark.skip("skip luego, lo vemos despues")   # 'despues' nunca llega
+      @pytest.mark.skip("skip later, we'll look at it afterward")   # 'afterward' never comes
       def test_webhook(): ...
     example_good: |
-      # Si no se puede correr ahora, se convierte en backlog con ticket, no en skip mudo.
-      @pytest.mark.skipif(not WEBHOOK_URL, reason="set WEBHOOK_URL; track en BUG-91")
+      # If it cannot run now, it becomes backlog with a ticket, not a mute skip.
+      @pytest.mark.skipif(not WEBHOOK_URL, reason="set WEBHOOK_URL; track in BUG-91")
       def test_webhook(): ...
     detection: |
-      Detectar reasons de skip con lenguaje aplazante ('luego','despues','TODO') sin
-      ticket asociado.
+      Detect skip reasons with deferring language ('later','afterward','TODO') without
+      an associated ticket.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-058
-    title: Feature flag divergente
-    symptom: Test distinto a producción
-    cause: Config bifurcada
-    solution: Probar flags reales
+    title: Divergent feature flag
+    symptom: Test differs from production
+    cause: Forked config
+    solution: Test real flags
     status: AUDITED
     severity: medium
     tags:
@@ -1621,21 +1621,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # el test corre con flag OFF; produccion corre con flag ON
+      # the test runs with the flag OFF; production runs with the flag ON
     example_good: |
-      # probar las combinaciones reales de feature flags
+      # test the real combinations of feature flags
     detection: |
-      Tests que cubren un valor de feature flag distinto al de produccion.
+      Tests that cover a feature-flag value different from production's.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-059
-    title: Variable altera validación
-    symptom: Test desactiva checks
-    cause: Entorno privilegiado
-    solution: Config equivalente
+    title: Variable alters validation
+    symptom: The test disables checks
+    cause: Privileged environment
+    solution: Equivalent config
     status: AUDITED
     severity: medium
     tags:
@@ -1647,21 +1647,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      if os.getenv("TEST"): skip_validation()   # la validacion difiere en test
+      if os.getenv("TEST"): skip_validation()   # validation differs in test
     example_good: |
-      # configuracion equivalente: misma ruta de validacion
+      # equivalent configuration: same validation path
     detection: |
-      Variables de entorno que alteran la ruta de validacion en tests.
+      Environment variables that alter the validation path in tests.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-060
-    title: Setup limpia demasiado
-    symptom: Estado irreal
-    cause: Preparación oculta
-    solution: Probar estado sucio
+    title: Setup cleans too much
+    symptom: Unrealistic state
+    cause: Hidden preparation
+    solution: Test a dirty state
     status: AUDITED
     severity: medium
     tags:
@@ -1673,21 +1673,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      def setup(): db.reset(); db.seed_perfect()   # nunca prueba estado sucio
+      def setup(): db.reset(); db.seed_perfect()   # never tests a dirty state
     example_good: |
-      # probar tambien estados sucios/parciales realistas
+      # also test realistic dirty/partial states
     detection: |
-      Setup que sanea el estado de forma que nunca se prueban estados sucios.
+      Setup that sanitizes the state so that dirty states are never tested.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-061
-    title: UI por delta
-    symptom: UI rota no revisada
-    cause: Deuda exenta
-    solution: Validar flujos críticos
+    title: UI by delta
+    symptom: Broken UI not reviewed
+    cause: Exempt debt
+    solution: Validate critical flows
     status: AUDITED
     severity: medium
     tags:
@@ -1699,21 +1699,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert screenshot_diff() < 0.01   # solo delta visual, no valida flujo
+      assert screenshot_diff() < 0.01   # only visual delta, does not validate flow
     example_good: |
-      # validar flujos criticos: click -> estado -> resultado
+      # validate critical flows: click -> state -> result
     detection: |
-      Tests de UI que solo comparan delta visual sin ejercitar flujos.
+      UI tests that only compare visual delta without exercising flows.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-062
-    title: Archivo lleno muerto
-    symptom: No truncado pero inútil
-    cause: Longitud por funcionalidad
-    solution: Validar ejecución
+    title: Full dead file
+    symptom: Not truncated but useless
+    cause: Length mistaken for functionality
+    solution: Validate execution
     status: AUDITED
     severity: medium
     tags:
@@ -1725,21 +1725,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # test_x.py lleno de tests pero ningun runner lo recoge.
+      # test_x.py full of tests but no runner picks it up.
     example_good: |
-      # asegurar que el archivo se descubre y ejecuta.
+      # ensure the file is discovered and executed.
     detection: |
-      Archivos de test con contenido que no son recogidos/ejecutados por el runner.
+      Test files with content that are not picked up/executed by the runner.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-063
-    title: Interfaz documentada falsa
-    symptom: Flag no soportado
-    cause: Contrato roto
-    solution: Probar interfaz pública
+    title: False documented interface
+    symptom: Unsupported flag
+    cause: Broken contract
+    solution: Test the public interface
     status: AUDITED
     severity: medium
     tags:
@@ -1751,21 +1751,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # se prueba api.v2() que solo existe en los docs
+      # api.v2() is tested but it only exists in the docs
     example_good: |
-      # probar la interfaz publica realmente implementada
+      # test the public interface that is actually implemented
     detection: |
-      Tests sobre una interfaz documentada pero no implementada.
+      Tests against a documented but unimplemented interface.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-064
-    title: Tests rotos invisibles
-    symptom: ImportError no visto
-    cause: Discovery parcial
-    solution: Suite completa activa
+    title: Invisible broken tests
+    symptom: ImportError not seen
+    cause: Partial discovery
+    solution: Full active suite
     status: AUDITED
     severity: medium
     tags:
@@ -1777,21 +1777,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Los tests que fallan se excluyen del run y nadie lo nota.
+      # Failing tests are excluded from the run and nobody notices.
     example_good: |
-      # Suite completa activa; un test roto es visible y bloquea.
+      # Full active suite; a broken test is visible and blocks.
     detection: |
-      Tests rotos excluidos silenciosamente de la suite.
+      Broken tests silently excluded from the suite.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-065
-    title: Captura global rota
-    symptom: Test rompe runner
-    cause: Mutación global
-    solution: Aislar efectos de test
+    title: Broken global capture
+    symptom: The test breaks the runner
+    cause: Global mutation
+    solution: Isolate test effects
     status: AUDITED
     severity: medium
     tags:
@@ -1803,21 +1803,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # un patch global no se revierte y contamina otros tests
+      # a global patch is not reverted and contaminates other tests
     example_good: |
-      # aislar efectos por test (teardown / fixture con scope)
+      # isolate effects per test (teardown / scoped fixture)
     detection: |
-      Captura/patch global que no se revierte y filtra efectos entre tests.
+      Global capture/patch that is not reverted and leaks effects between tests.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-066
-    title: Tests huérfanos
-    symptom: Archivos nunca corren
-    cause: Inventario no comparado
-    solution: Reconciliar inventario
+    title: Orphan tests
+    symptom: Files never run
+    cause: Inventory not compared
+    solution: Reconcile the inventory
     status: PREVENTED
     severity: high
     tags:
@@ -1829,27 +1829,27 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Test que ejercita codigo ya eliminado: pasa por mock, no prueba nada real.
+      # Test that exercises already-removed code: passes via mock, tests nothing real.
       def test_old_engine():
-          eng = Mock(spec=OldEngine)   # OldEngine ya no existe en src/
+          eng = Mock(spec=OldEngine)   # OldEngine no longer exists in src/
           assert eng.run() is not None
     example_good: |
-      # Sin codigo de produccion correspondiente, el test se borra (o se reescribe sobre el nuevo).
+      # With no corresponding production code, the test is deleted (or rewritten over the new one).
       def test_engine_runs():
           assert Engine().run().status == "ok"
     detection: |
-      Detectar tests cuyo simbolo bajo prueba (import/Mock spec) ya no existe en el arbol
-      de produccion = test huerfano.
+      Detect tests whose symbol under test (import/Mock spec) no longer exists in the
+      production tree = orphan test.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-067
-    title: Falso negativo por docstring
-    symptom: Wrapper no detectado
-    cause: Heurística superficial
-    solution: Análisis estructural
+    title: False negative from docstring
+    symptom: Wrapper not detected
+    cause: Superficial heuristic
+    solution: Structural analysis
     status: AUDITED
     severity: medium
     tags:
@@ -1861,21 +1861,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      def f(): "assert que valida X"   # el auditor cuenta el docstring como assert
+      def f(): "assert that validates X"   # the auditor counts the docstring as an assert
     example_good: |
-      # analisis estructural (AST), no por texto
+      # structural analysis (AST), not by text
     detection: |
-      Deteccion de calidad enganada por texto en docstrings en vez de analisis estructural.
+      Quality detection fooled by text in docstrings instead of structural analysis.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-068
-    title: Backups como deprecated
-    symptom: Ruido contamina auditoría
-    cause: Clasificación pobre
-    solution: Tipología de artefactos
+    title: Backups as deprecated
+    symptom: Noise contaminates the audit
+    cause: Poor classification
+    solution: Artifact typology
     status: AUDITED
     severity: medium
     tags:
@@ -1887,21 +1887,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # *.bak tratados como 'deprecated' y excluidos de auditoria.
+      # *.bak treated as 'deprecated' and excluded from the audit.
     example_good: |
-      # tipologia explicita: backup != deprecated != activo.
+      # explicit typology: backup != deprecated != active.
     detection: |
-      Artefactos backup mal clasificados que escapan a la auditoria.
+      Backup artifacts misclassified that escape the audit.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-069
-    title: Nombre engañoso
-    symptom: Loop no mejora nada
-    cause: Contrato semántico falso
-    solution: Nombre igual a comportamiento
+    title: Misleading name
+    symptom: The loop improves nothing
+    cause: False semantic contract
+    solution: Name matching behavior
     status: AUDITED
     severity: medium
     tags:
@@ -1913,21 +1913,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      def test_handles_timeout(): assert add(1, 1) == 2   # nombre != conducta
+      def test_handles_timeout(): assert add(1, 1) == 2   # name != behavior
     example_good: |
-      # el nombre del test refleja el comportamiento que verifica
+      # the test name reflects the behavior it verifies
     detection: |
-      Nombre de test que no corresponde al comportamiento que ejercita.
+      Test name that does not correspond to the behavior it exercises.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-070
-    title: Validación de setup ausente
-    symptom: El test pasa aunque el entorno real no puede iniciar
-    cause: Precondiciones fuera del oráculo
-    solution: Probar arranque, dependencias y permisos mínimos
+    title: Missing setup validation
+    symptom: The test passes even though the real environment cannot start
+    cause: Preconditions outside the oracle
+    solution: Test startup, dependencies, and minimum permissions
     status: REMEDIATED
     severity: high
     tags:
@@ -1940,29 +1940,29 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Asume que el fixture cargo bien; si esta vacio, el test 'pasa' sin probar nada.
+      # Assumes the fixture loaded fine; if empty, the test 'passes' without testing anything.
       def test_rows():
           rows = load_fixture("data.csv")
-          for r in rows:                 # si rows == [] el bucle no corre
+          for r in rows:                 # if rows == [] the loop does not run
               assert r.valid
     example_good: |
       def test_rows():
           rows = load_fixture("data.csv")
-          assert len(rows) == 3          # valida el setup antes de iterar
+          assert len(rows) == 3          # validate the setup before iterating
           assert all(r.valid for r in rows)
     detection: |
-      Bucles 'for ... assert' dentro de tests sin una asercion previa de no-vacuidad del
-      conjunto iterado (assert len > 0).
+      'for ... assert' loops inside tests without a prior non-emptiness assertion of the
+      iterated set (assert len > 0).
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-071
-    title: Handoff no reanudable
-    symptom: Otro actor no puede continuar
-    cause: Estado transferido incompleto
-    solution: Probar continuidad desde checkpoint ajeno
+    title: Non-resumable handoff
+    symptom: Another actor cannot continue
+    cause: Incomplete transferred state
+    solution: Test continuity from another's checkpoint
     status: AUDITED
     severity: medium
     tags:
@@ -1974,21 +1974,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # El checkpoint no incluye lo necesario para reanudar desde cero.
+      # The checkpoint does not include what is needed to resume from scratch.
     example_good: |
-      # probar continuidad reanudando desde un checkpoint ajeno
+      # test continuity by resuming from another's checkpoint
     detection: |
-      Handoff/checkpoint que no permite reanudar el trabajo sin contexto previo.
+      Handoff/checkpoint that does not allow resuming the work without prior context.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-072
-    title: Rollback documental
-    symptom: Se documenta reversibilidad sin ejecutarla
-    cause: Recuperación no observada
-    solution: Verificar retorno real antes de aceptar cambio destructivo
+    title: Documentary rollback
+    symptom: Reversibility is documented without executing it
+    cause: Recovery not observed
+    solution: Verify the real reversal before accepting a destructive change
     status: AUDITED
     severity: medium
     tags:
@@ -2000,21 +2000,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # "rollback: restaurar backup" documentado pero nunca probado.
+      # "rollback: restore backup" documented but never tested.
     example_good: |
-      # verificar el retorno real antes de aceptar el cambio destructivo
+      # verify the real reversal before accepting the destructive change
     detection: |
-      Procedimiento de rollback documentado pero no verificado empiricamente.
+      Rollback procedure documented but not empirically verified.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-073
-    title: Compatibilidad no evaluada
-    symptom: Flujo antiguo se rompe con cambio nuevo
-    cause: Contratos previos no muestreados
-    solution: Mantener suite de consumidores vigentes
+    title: Compatibility not evaluated
+    symptom: An old flow breaks with a new change
+    cause: Prior contracts not sampled
+    solution: Maintain a suite of current consumers
     status: AUDITED
     severity: medium
     tags:
@@ -2026,21 +2026,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Se cambia la API sin probar los consumidores existentes.
+      # The API is changed without testing the existing consumers.
     example_good: |
-      # suite de consumidores vigentes en CI
+      # suite of current consumers in CI
     detection: |
-      Cambios de contrato sin una suite que pruebe consumidores vigentes.
+      Contract changes without a suite that tests current consumers.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-074
-    title: Observabilidad no testeada
-    symptom: Al fallar no hay diagnóstico útil
-    cause: Logs fuera del criterio de calidad
-    solution: Evaluar que el fallo produzca evidencia accionable
+    title: Untested observability
+    symptom: On failure there is no useful diagnostic
+    cause: Logs outside the quality criterion
+    solution: Evaluate that the failure produces actionable evidence
     status: AUDITED
     severity: medium
     tags:
@@ -2052,22 +2052,22 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # nadie verifica que un fallo produzca un log accionable
+      # nobody verifies that a failure produces an actionable log
     example_good: |
       def test_failure_logs(): with fail(): assert log_has("cause")
     detection: |
-      Falta de test que verifique que los fallos producen evidencia accionable.
+      Missing test to verify that failures produce actionable evidence.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-075
-    title: Discovery Incompleto de Pruebas
-    symptom: Suites verdes que ocultan tests rotos o inactivos
-    cause: Nombres de prueba fuera de las convenciones dinámicas del oráculo
-    solution: Auditoría obligatoria de coincidencia física entre archivos de 
-      prueba y descubiertos
+    title: Incomplete Test Discovery
+    symptom: Green suites that hide broken or inactive tests
+    cause: Test names outside the oracle's dynamic conventions
+    solution: Mandatory audit of physical correspondence between test files
+      and discovered ones
     status: AUDITED
     severity: medium
     tags:
@@ -2079,21 +2079,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # tests/ no cubre fisicamente todos los modulos de src/.
+      # tests/ does not physically cover all modules of src/.
     example_good: |
-      # auditoria de coincidencia fisica archivo-a-archivo
+      # file-to-file physical correspondence audit
     detection: |
-      Descubrimiento de pruebas que no cubre fisicamente todos los modulos del sujeto.
+      Test discovery that does not physically cover all modules of the subject.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-076
-    title: Dependencia de sistema
-    symptom: Solo corre en un entorno
-    cause: Portabilidad no probada
-    solution: Matriz de entornos
+    title: System dependency
+    symptom: Only runs in one environment
+    cause: Portability not tested
+    solution: Environment matrix
     status: AUDITED
     severity: medium
     tags:
@@ -2105,21 +2105,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert path == "/tmp/x"   # solo posix
+      assert path == "/tmp/x"   # posix only
     example_good: |
-      # matriz de entornos (windows / linux / mac)
+      # environment matrix (windows / linux / mac)
     detection: |
-      Tests acoplados a un sistema operativo sin matriz de entornos.
+      Tests coupled to one operating system without an environment matrix.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-077
-    title: Timeout engañoso
-    symptom: Lentitud pasa
-    cause: Umbral mal calibrado
-    solution: Límites funcionales
+    title: Misleading timeout
+    symptom: Slowness passes
+    cause: Poorly calibrated threshold
+    solution: Functional limits
     status: AUDITED
     severity: medium
     tags:
@@ -2131,21 +2131,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      @timeout(30)   # 30s arbitrarios ocultan lentitud real
+      @timeout(30)   # arbitrary 30s hides real slowness
     example_good: |
-      # limites funcionales justificados (p95 < X)
+      # justified functional limits (p95 < X)
     detection: |
-      Timeouts arbitrarios que enmascaran lentitud en vez de limites funcionales.
+      Arbitrary timeouts that mask slowness instead of functional limits.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-078
-    title: Máquina local única
-    symptom: Depende de instalación
-    cause: Entorno no portable
-    solution: Reproducibilidad
+    title: Single local machine
+    symptom: Depends on installation
+    cause: Non-portable environment
+    solution: Reproducibility
     status: AUDITED
     severity: medium
     tags:
@@ -2157,21 +2157,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Pasa en la maquina del autor; no es reproducible.
+      # Passes on the author's machine; it is not reproducible.
     example_good: |
-      # reproducible en contenedor / CI limpio
+      # reproducible in a container / clean CI
     detection: |
-      Tests reproducibles solo en la maquina local del autor.
+      Tests reproducible only on the author's local machine.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-079
-    title: Sandbox no perforado
-    symptom: Se declara aislamiento sin intentar fuga
-    cause: Amenaza no inducida
-    solution: Probar violaciones controladas de frontera
+    title: Unpenetrated sandbox
+    symptom: Isolation is declared without attempting an escape
+    cause: Threat not induced
+    solution: Test controlled boundary violations
     status: AUDITED
     severity: medium
     tags:
@@ -2183,22 +2183,22 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # nunca se prueba que el sandbox bloquea accesos prohibidos
+      # it is never tested that the sandbox blocks forbidden accesses
     example_good: |
-      # probar violaciones controladas de frontera (deben fallar)
+      # test controlled boundary violations (they must fail)
     detection: |
-      Sandbox/seguridad sin tests que ejerciten violaciones de frontera.
+      Sandbox/security without tests that exercise boundary violations.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-080
-    title: Acoplamiento de Dirección Física
-    symptom: Fallos de validación al migrar a entornos secundarios
-    cause: Uso de rutas de almacenamiento absoluto de la máquina de origen
-    solution: Parametrizar dinámicamente recursos mediante inyección o variables
-      lógicas
+    title: Physical Address Coupling
+    symptom: Validation failures when migrating to secondary environments
+    cause: Use of absolute storage paths from the origin machine
+    solution: Dynamically parametrize resources via injection or logical
+      variables
     status: REMEDIATED
     severity: high
     tags:
@@ -2210,25 +2210,25 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Afirma sobre el id/orden fisico de memoria, no sobre el contenido.
+      # Asserts on the physical memory id/order, not on the content.
       def test_cache():
-          assert id(cache.get("k")) == 140234567   # fragil y sin sentido
+          assert id(cache.get("k")) == 140234567   # fragile and meaningless
     example_good: |
       def test_cache():
           assert cache.get("k") == expected_value
     detection: |
-      Asserts sobre id(), direcciones de memoria, hash() no determinista u orden de
-      iteracion no garantizado.
+      Asserts on id(), memory addresses, non-deterministic hash(), or non-guaranteed
+      iteration order.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-081
-    title: Autor prueba su implementación
-    symptom: Confirma su modelo
-    cause: Sesgo de autor
-    solution: Revisión independiente
+    title: Author tests their own implementation
+    symptom: Confirms their own model
+    cause: Author bias
+    solution: Independent review
     status: AUDITED
     severity: medium
     tags:
@@ -2240,21 +2240,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # El autor escribe el codigo y su unico revisor es el mismo.
+      # The author writes the code and their only reviewer is themselves.
     example_good: |
-      # revision independiente (otro actor o modelo)
+      # independent review (another actor or model)
     detection: |
-      Implementacion revisada/probada solo por su autor, sin oraculo independiente.
+      Implementation reviewed/tested only by its author, without an independent oracle.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-082
-    title: Review sin tests
-    symptom: Cambios aprobados ciegos
-    cause: Puerta incompleta
-    solution: Revisar pruebas
+    title: Review without tests
+    symptom: Changes approved blindly
+    cause: Incomplete gate
+    solution: Review the tests
     status: AUDITED
     severity: medium
     tags:
@@ -2266,21 +2266,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Se aprueba el PR sin mirar si los tests prueban algo.
+      # The PR is approved without checking whether the tests prove anything.
     example_good: |
-      # la revision incluye la calidad de las pruebas
+      # the review includes the quality of the tests
     detection: |
-      Revisiones que aprueban codigo sin evaluar sus tests.
+      Reviews that approve code without evaluating its tests.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-083
-    title: Expected codificado
-    symptom: El test compara contra una respuesta escrita para pasar
-    cause: Oráculo derivado de la implementación
-    solution: Derivar esperados de especificación independiente
+    title: Encoded expected value
+    symptom: The test compares against an answer written to pass
+    cause: Oracle derived from the implementation
+    solution: Derive expected values from an independent specification
     status: AUDITED
     severity: medium
     tags:
@@ -2292,21 +2292,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      EXPECTED = run(inp)   # el esperado sale del SUT
+      EXPECTED = run(inp)   # the expected value comes from the SUT
     example_good: |
-      # derivar el esperado de una especificacion independiente
+      # derive the expected value from an independent specification
     detection: |
-      Valor esperado derivado del SUT en vez de una especificacion independiente.
+      Expected value derived from the SUT instead of an independent specification.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-084
-    title: Approval hardcodeado
-    symptom: El estado approved se fija manualmente como verdad
-    cause: Autoridad de aprobación no verificable
-    solution: Aprobación basada en evidencia reproducible
+    title: Hardcoded approval
+    symptom: The approved state is set manually as truth
+    cause: Non-verifiable approval authority
+    solution: Approval based on reproducible evidence
     status: AUDITED
     severity: medium
     tags:
@@ -2318,21 +2318,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      APPROVED = True   # aprobacion fija
+      APPROVED = True   # fixed approval
     example_good: |
       APPROVED = evidence_reproducible()
     detection: |
-      Aprobacion hardcodeada en vez de basada en evidencia reproducible.
+      Hardcoded approval instead of based on reproducible evidence.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-085
-    title: Golden file complaciente
-    symptom: Snapshot obsoleto legitima salida rota
-    cause: Oráculo congelado sin revalidación
-    solution: Regenerar golden solo tras revisión semántica
+    title: Complacent golden file
+    symptom: A stale snapshot legitimizes broken output
+    cause: Frozen oracle without revalidation
+    solution: Regenerate the golden only after semantic review
     status: AUDITED
     severity: medium
     tags:
@@ -2344,21 +2344,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Se regenera el golden file cada vez que falla, sin revisar.
+      # The golden file is regenerated every time it fails, without review.
     example_good: |
-      # regenerar golden solo tras revision semantica del cambio
+      # regenerate the golden only after semantic review of the change
     detection: |
-      Golden files regenerados automaticamente sin revision semantica.
+      Golden files regenerated automatically without semantic review.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-086
-    title: Expected failure normalizado
-    symptom: Fallo esperado se vuelve permanente
-    cause: Excepción temporal convertida en contrato
-    solution: Prohibir expected failure como verde
+    title: Normalized expected failure
+    symptom: An expected failure becomes permanent
+    cause: Temporary exception turned into a contract
+    solution: Forbid an expected-failure from counting as green
     status: PREVENTED
     severity: high
     tags:
@@ -2370,25 +2370,25 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # El fallo se 'normaliza' como esperado para que el suite quede verde.
-      EXPECTED_FAILURES = {"test_refund", "test_tax"}   # lista que solo crece
+      # The failure is 'normalized' as expected so the suite stays green.
+      EXPECTED_FAILURES = {"test_refund", "test_tax"}   # list that only grows
     example_good: |
-      # Cada fallo se arregla o se trackea individualmente con causa y fecha; sin lista global.
+      # Each failure is fixed or tracked individually with cause and date; no global list.
       @pytest.mark.xfail(reason="BUG-200", strict=True)
       def test_refund(): ...
     detection: |
-      Detectar listas/allowlists globales de 'fallos esperados' que crecen monotonamente
-      sin expiracion por entrada.
+      Detect global 'expected failure' lists/allowlists that grow monotonically
+      without per-entry expiration.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-087
-    title: Warning tolerado
-    symptom: Suite verde con advertencias
-    cause: Señal débil tratada como ruido
-    solution: Elevar warning a fallo hasta resolver causa
+    title: Tolerated warning
+    symptom: Green suite with warnings
+    cause: Weak signal treated as noise
+    solution: Escalate the warning to a failure until the cause is resolved
     status: AUDITED
     severity: medium
     tags:
@@ -2400,21 +2400,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # los warnings de tests se acumulan sin elevar a fallo
+      # test warnings accumulate without being escalated to failures
     example_good: |
-      filterwarnings = error   # hasta resolver la causa
+      filterwarnings = error   # until the cause is resolved
     detection: |
-      Warnings en tests tolerados en vez de elevados a fallo.
+      Test warnings tolerated instead of escalated to failures.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-088
-    title: Tolerancia de errores
-    symptom: El sistema acepta error conocido
-    cause: Política de excepción infinita
-    solution: Cero errores aceptados en veredicto de salud
+    title: Error tolerance
+    symptom: The system accepts a known error
+    cause: Infinite-exception policy
+    solution: Zero accepted errors in a health verdict
     status: PREVENTED
     severity: high
     tags:
@@ -2426,26 +2426,26 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # El test tolera errores: cualquier resultado pasa.
+      # The test tolerates errors: any result passes.
       def test_sync():
           result = sync()
-          assert result is not None or result is None   # siempre cierto
+          assert result is not None or result is None   # always true
     example_good: |
       def test_sync():
           assert sync().synced_count == 10
     detection: |
-      AST: asserts cuya condicion es una tautologia logica (X or not X) o que aceptan
-      cualquier valor del SUT.
+      AST: asserts whose condition is a logical tautology (X or not X) or that accept
+      any value from the SUT.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-089
-    title: Wrapper de conveniencia
-    symptom: Adaptador oculta fallo real
-    cause: Complejidad desplazada fuera del test
-    solution: Probar interfaz real sin envoltorio simplificador
+    title: Convenience wrapper
+    symptom: An adapter hides the real failure
+    cause: Complexity displaced outside the test
+    solution: Test the real interface with no simplifying wrapper
     status: AUDITED
     severity: medium
     tags:
@@ -2457,21 +2457,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # se prueba helper_simple() que oculta la complejidad real
+      # helper_simple() is tested, hiding the real complexity
     example_good: |
-      # probar la interfaz real sin envoltorio simplificador
+      # test the real interface with no simplifying wrapper
     detection: |
-      Tests que ejercitan un wrapper de conveniencia en vez de la interfaz real.
+      Tests that exercise a convenience wrapper instead of the real interface.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-090
-    title: Placeholder testeado
-    symptom: Marcador satisface aserción
-    cause: Ausencia confundida con implementación
-    solution: Bloquear placeholders en rutas verificadas
+    title: Tested placeholder
+    symptom: A placeholder satisfies the assertion
+    cause: Absence mistaken for implementation
+    solution: Block placeholders on verified paths
     status: PREVENTED
     severity: high
     tags:
@@ -2484,25 +2484,25 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Se testea el valor placeholder en vez del comportamiento real.
+      # The placeholder value is tested instead of the real behavior.
       def get_price(): return 0.0   # placeholder
       def test_price(): assert get_price() == 0.0
     example_good: |
       def get_price(): return catalog.lookup(sku).price
       def test_price(): assert get_price() == 19.99
     detection: |
-      Tests que afirman exactamente valores placeholder conocidos (0, '', 'TODO', None)
-      devueltos por implementaciones no terminadas.
+      Tests that assert exactly known placeholder values (0, '', 'TODO', None)
+      returned by unfinished implementations.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-091
-    title: Dominio documentado no implementado
-    symptom: Regla existe, no corre
-    cause: Brecha especificación-runtime
-    solution: Cada dominio debe tener ejecutor
+    title: Documented domain not implemented
+    symptom: The rule exists but does not run
+    cause: Specification-runtime gap
+    solution: Every domain must have an executor
     status: AUDITED
     severity: medium
     tags:
@@ -2514,21 +2514,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # El dominio D7 esta documentado pero no tiene ejecutor.
+      # Domain D7 is documented but has no executor.
     example_good: |
-      # cada dominio declarado tiene un ejecutor que corre
+      # every declared domain has an executor that runs
     detection: |
-      Dominios de auditoria documentados sin un ejecutor real.
+      Audit domains documented without a real executor.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-092
-    title: Sección como cumplimiento
-    symptom: Encabezado basta
-    cause: Sintaxis por semántica
-    solution: Validar contenido y efecto
+    title: Section as compliance
+    symptom: A heading is enough
+    cause: Syntax in place of semantics
+    solution: Validate content and effect
     status: AUDITED
     severity: medium
     tags:
@@ -2540,21 +2540,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert "## Security" in readme   # la seccion existe = "cumple"
+      assert "## Security" in readme   # the section exists = "compliant"
     example_good: |
-      # validar contenido y efecto, no la mera presencia de la seccion
+      # validate content and effect, not the mere presence of the section
     detection: |
-      Tratar la presencia de una seccion como cumplimiento sin validar su contenido.
+      Treating the presence of a section as compliance without validating its content.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-093
-    title: Docstrings como calidad
-    symptom: Comentarios pasan
-    cause: Metadato por conducta
-    solution: Cruzar uso, llamada y prueba
+    title: Docstrings as quality
+    symptom: Comments pass
+    cause: Metadata in place of behavior
+    solution: Cross-check usage, call, and test
     status: AUDITED
     severity: medium
     tags:
@@ -2566,21 +2566,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert func.__doc__   # tiene docstring = 'calidad'
+      assert func.__doc__   # has a docstring = 'quality'
     example_good: |
-      # cruzar uso, llamada y prueba real del simbolo
+      # cross-check usage, call, and a real test of the symbol
     detection: |
-      Contar docstrings como senal de calidad sin verificar comportamiento.
+      Counting docstrings as a quality signal without verifying behavior.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-094
-    title: Manejo por palabra clave
-    symptom: Token léxico pasa
-    cause: Token por semántica
-    solution: Inducir error real
+    title: Handling by keyword
+    symptom: A lexical token passes
+    cause: Token in place of semantics
+    solution: Induce a real error
     status: AUDITED
     severity: medium
     tags:
@@ -2592,21 +2592,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert "try" in source   # "maneja errores" porque aparece la palabra try
+      assert "try" in source   # "handles errors" because the word try appears
     example_good: |
-      # inducir un error real y verificar el manejo
+      # induce a real error and verify the handling
     detection: |
-      Verificar manejo de errores por presencia de palabras clave en el codigo fuente.
+      Verifying error handling by the presence of keywords in the source code.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-095
-    title: Tests del protocolo, no del sujeto
-    symptom: Proyecto sin tests pasa
-    cause: Universo equivocado
-    solution: Ejecutar suite del sujeto auditado
+    title: Tests of the protocol, not the subject
+    symptom: A project with no tests passes
+    cause: Wrong universe
+    solution: Run the suite of the audited subject
     status: AUDITED
     severity: medium
     tags:
@@ -2618,21 +2618,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Se corre la suite del protocolo, no la del sujeto auditado.
+      # The protocol's suite is run, not the audited subject's.
     example_good: |
-      # ejecutar la suite del sujeto real bajo auditoria
+      # run the suite of the real subject under audit
     detection: |
-      Ejecutar tests del arnes/protocolo en vez de los del sujeto bajo auditoria.
+      Running harness/protocol tests instead of those of the subject under audit.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-096
-    title: Evidencia obsoleta
-    symptom: Artefacto viejo pasa
-    cause: Vínculo causal ausente
-    solution: Evidencia ligada a versión
+    title: Stale evidence
+    symptom: An old artifact passes
+    cause: Missing causal link
+    solution: Evidence bound to the version
     status: AUDITED
     severity: medium
     tags:
@@ -2644,21 +2644,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Se reutiliza evidencia de una version anterior.
+      # Evidence from an earlier version is reused.
     example_good: |
-      # evidencia ligada a la version/commit actual
+      # evidence bound to the current version/commit
     detection: |
-      Evidencia de auditoria no ligada a la version vigente.
+      Audit evidence not bound to the current version.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-097
-    title: Chaos ceremonial
-    symptom: Prueba biblioteca externa, no sistema
-    cause: Sujeto equivocado
-    solution: Fallar componentes reales
+    title: Ceremonial chaos
+    symptom: It tests an external library, not the system
+    cause: Wrong subject
+    solution: Fail real components
     status: AUDITED
     severity: medium
     tags:
@@ -2670,21 +2670,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # se 'falla' un mock, no un componente real
+      # a mock is 'failed', not a real component
     example_good: |
-      # fallar componentes reales (matar pod, cortar red)
+      # fail real components (kill a pod, cut the network)
     detection: |
-      Pruebas de caos que afectan componentes simulados, no reales.
+      Chaos tests that affect mocked components, not real ones.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-098
-    title: Reporte passed mentiroso
-    symptom: Dice todos, corre pocos
-    cause: Reporte no trazable
-    solution: Reportar dominios reales
+    title: Lying passed report
+    symptom: It says all, runs few
+    cause: Untraceable report
+    solution: Report real domains
     status: AUDITED
     severity: medium
     tags:
@@ -2696,21 +2696,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # El reporte dice 'passed' para dominios que se saltaron.
+      # The report says 'passed' for domains that were skipped.
     example_good: |
-      # reportar solo los dominios realmente ejecutados
+      # report only the domains actually executed
     detection: |
-      Reportes que marcan 'passed' dominios omitidos o saltados.
+      Reports that mark omitted or skipped domains as 'passed'.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-099
-    title: Versión inactivo
-    symptom: Fallback antiguo
-    cause: Constante obsoleta
-    solution: Fuente única de versión
+    title: Dead version constant
+    symptom: Old fallback
+    cause: Stale constant
+    solution: Single source of version
     status: AUDITED
     severity: medium
     tags:
@@ -2722,21 +2722,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert __version__ == "1.0"   # fuente de version obsoleta
+      assert __version__ == "1.0"   # stale version source
     example_good: |
-      # fuente unica y vigente de version
+      # single, current source of version
     detection: |
-      Aserciones de version contra una fuente obsoleta o duplicada.
+      Version assertions against a stale or duplicated source.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-100
-    title: Permisos no rigurosaes
-    symptom: Solo se prueba el actor permitido
-    cause: Negación no ejercida
-    solution: Validar permisos positivos y negativos
+    title: Permissions not rigorous
+    symptom: Only the permitted actor is tested
+    cause: Denial not exercised
+    solution: Validate positive and negative permissions
     status: AUDITED
     severity: medium
     tags:
@@ -2748,21 +2748,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      assert can_read(admin)   # solo casos positivos
+      assert can_read(admin)   # only positive cases
     example_good: |
-      assert can_read(admin) and not can_read(guest)   # positivos y negativos
+      assert can_read(admin) and not can_read(guest)   # positive and negative
     detection: |
-      Tests de permisos que solo cubren accesos permitidos, no los denegados.
+      Permission tests that cover only allowed accesses, not denied ones.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-101
-    title: Ruteo no validado
-    symptom: Tareas llegan al flujo incorrecto
-    cause: Clasificador sin oráculo
-    solution: Probar decisiones de ruteo con casos límite
+    title: Unvalidated routing
+    symptom: Tasks reach the wrong flow
+    cause: Classifier without an oracle
+    solution: Test routing decisions with edge cases
     status: AUDITED
     severity: medium
     tags:
@@ -2774,21 +2774,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # no se prueban casos limite de la decision de ruteo
+      # edge cases of the routing decision are not tested
     example_good: |
-      # probar ruteo con casos limite: ambiguo, vacio, conflicto
+      # test routing with edge cases: ambiguous, empty, conflicting
     detection: |
-      Decisiones de ruteo sin tests de casos limite.
+      Routing decisions without edge-case tests.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-102
-    title: Approved list codificada
-    symptom: El validador acepta por nombre, no por comportamiento
-    cause: Whitelist confundida con prueba
-    solution: Toda aprobación debe revalidar propiedades activas
+    title: Hardcoded approved list
+    symptom: The validator accepts by name, not by behavior
+    cause: Whitelist mistaken for a test
+    solution: Every approval must revalidate active properties
     status: AUDITED
     severity: medium
     tags:
@@ -2800,21 +2800,21 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      APPROVED = {"a", "b"}   # lista fija nunca revalidada
+      APPROVED = {"a", "b"}   # fixed list, never revalidated
     example_good: |
-      # toda aprobacion revalida propiedades activas
+      # every approval revalidates active properties
     detection: |
-      Allowlist de aprobacion estatica que no revalida propiedades vigentes.
+      A static approval allowlist that does not revalidate current properties.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-103
-    title: Expected codificado en evaluador
-    symptom: El evaluador sabe de antemano que debe pasar
-    cause: Oráculo contaminado
-    solution: Separar generador, sujeto y juez
+    title: Expected hardcoded in the evaluator
+    symptom: The evaluator knows in advance what must pass
+    cause: Contaminated oracle
+    solution: Separate generator, subject, and judge
     status: AUDITED
     severity: medium
     tags:
@@ -2826,21 +2826,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # El evaluador conoce el esperado: generador == juez.
+      # The evaluator knows the expected value: generator == judge.
     example_good: |
-      # separar generador, sujeto y juez en roles distintos
+      # separate generator, subject, and judge into distinct roles
     detection: |
-      El evaluador contiene el valor esperado: no hay separacion de roles.
+      The evaluator contains the expected value: there is no separation of roles.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-104
-    title: Warnings fuera del score
-    symptom: Advertencias no afectan aprobación
-    cause: Función objetivo incompleta
-    solution: Warnings cuentan como fallo hasta clasificación explícita
+    title: Warnings outside the score
+    symptom: Warnings do not affect approval
+    cause: Incomplete objective function
+    solution: Warnings count as a failure until explicitly classified
     status: AUDITED
     severity: medium
     tags:
@@ -2852,23 +2852,23 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      score = failures   # los warnings no cuentan en el score
+      score = failures   # warnings do not count in the score
     example_good: |
-      # warnings cuentan como fallo hasta clasificacion explicita
+      # warnings count as a failure until explicitly classified
     detection: |
-      Score de calidad que excluye warnings sin clasificarlos.
+      A quality score that excludes warnings without classifying them.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-105
-    title: Sin test de existencia de hooks
-    symptom: Pipeline sin verificación de que git hooks están instalados y son 
-      ejecutables
-    cause: Hook ausente pasa validación de CI porque CI no pregunta por hooks
-    solution: Comprobar presencia y ejecutabilidad de cada hook requerido como 
-      paso explícito de la suite
+    title: No hook-existence test
+    symptom: A pipeline with no verification that git hooks are installed and
+      executable
+    cause: A missing hook passes CI validation because CI does not ask about hooks
+    solution: Check the presence and executability of each required hook as an
+      explicit step of the suite
     status: REMEDIATED
     severity: high
     tags:
@@ -2881,29 +2881,29 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Hay hooks de git/CI criticos pero ningun test verifica que existan/corran.
-      # (sin test) -> alguien borra .pre-commit-config y nadie se entera
+      # There are critical git/CI hooks but no test verifies they exist/run.
+      # (no test) -> someone deletes .pre-commit-config and nobody notices
     example_good: |
       def test_precommit_hooks_present():
           cfg = Path(".pre-commit-config.yaml")
           assert cfg.exists()
           assert "validate_golden_standard_catalogs" in cfg.read_text()
     detection: |
-      Ausencia de un test que afirme la existencia y configuracion de hooks de
-      verificacion declarados como parte del contrato del repo.
+      Absence of a test that asserts the existence and configuration of verification
+      hooks declared as part of the repo contract.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-106
-    title: Exclusión no revalidada
-    symptom: Lista de ignorados no tiene test que verifique que cada exclusión 
-      sigue siendo válida
-    cause: 'Deriva silenciosa: lo que se ignoró puede dejar de ser inofensivo; nadie
-      lo detecta'
-    solution: Test periódico que comprueba que cada ítem de hard_excludes está 
-      en el conjunto aprobado y documentado
+    title: Unrevalidated exclusion
+    symptom: The ignore list has no test verifying that each exclusion is still
+      valid
+    cause: 'Silent drift: what was ignored may stop being harmless; nobody detects
+      it'
+    solution: A periodic test that checks each hard_excludes item is in the
+      approved, documented set
     status: REMEDIATED
     severity: high
     tags:
@@ -2916,28 +2916,28 @@ items:
     downstream_verification: none
     example_lang: ini
     example_bad: |
-      # Exclusion de cobertura que nadie revalida: oculta codigo sin testear para siempre.
+      # A coverage exclusion nobody revalidates: hides untested code forever.
       [coverage:run]
-      omit = src/payments/*   # anadido 'temporalmente' hace 8 meses
+      omit = src/payments/*   # added 'temporarily' 8 months ago
     example_good: |
-      # Cada exclusion lleva motivo y se revisa; payments SI debe estar cubierto.
+      # Each exclusion carries a reason and is reviewed; payments MUST be covered.
       [coverage:run]
-      omit = src/generated/*  # solo codigo autogenerado, justificado
+      omit = src/generated/*  # only auto-generated code, justified
     detection: |
-      Auditar entradas 'omit'/'exclude_lines' de cobertura sin justificacion ni fecha de
-      revision; especialmente sobre codigo de dominio.
+      Audit coverage 'omit'/'exclude_lines' entries without justification or review
+      date; especially over domain code.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-107
     title: Stack incompleto silencioso
-    symptom: Protocolo falla parcialmente sin reportar qué dependencia falta
-    cause: Precondiciones no verificadas en startup; el sistema asume entorno 
-      completo
-    solution: 'Validación activa de stack al inicio: runtime, CLI tools, hooks, archivos
-      esenciales, permisos de escritura'
+    symptom: The protocol fails partially without reporting which dependency is missing
+    cause: Preconditions not verified at startup; the system assumes a complete
+      environment
+    solution: 'Active stack validation at startup: runtime, CLI tools, hooks, essential
+      files, write permissions'
     status: REMEDIATED
     severity: high
     tags:
@@ -2950,33 +2950,32 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Se traga parte del stack: el test pasa aunque una etapa fallo en silencio.
+      # It swallows part of the stack: the test passes even though a stage failed silently.
       def test_flow():
           try:
               a(); b(); c()
           except StepError:
-              pass            # 'c' pudo no ejecutarse y nadie lo sabe
+              pass            # 'c' may not have run and nobody knows
     example_good: |
       def test_flow():
           assert a().ok
           assert b().ok
-          assert c().ok       # cada etapa verificada, sin captura muda
+          assert c().ok       # each stage verified, no silent capture
     detection: |
-      try/except que abarca multiples pasos y absorbe errores intermedios sin reafirmar
-      que cada paso se completo.
+      try/except that spans multiple steps and absorbs intermediate errors without
+      reasserting that each step completed.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-108
-    title: Nombre desconectado del dominio
-    symptom: Componente nombrado con un número o descriptor que no refleja su 
-      implementación actual
-    cause: Contrato semántico ausente entre nombre declarado y comportamiento 
-      real
-    solution: Centinela que compara declaración formal (nombre, count de 
-      dominios, versión) contra implementación real; falla si divergen
+    title: Name disconnected from the domain
+    symptom: A component named with a number or descriptor that does not reflect its
+      current implementation
+    cause: Missing semantic contract between the declared name and real behavior
+    solution: A sentinel that compares the formal declaration (name, domain count,
+      version) against the real implementation; fails if they diverge
     status: AUDITED
     severity: medium
     tags:
@@ -2988,28 +2987,28 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # 'auditor_12d' declara 12 dominios pero implementa 8.
+      # 'auditor_12d' declares 12 domains but implements 8.
     example_good: |
-      # centinela compara nombre, count de dominios y version
+      # sentinel compares name, domain count, and version
     detection: |
-      Nombre/declaracion formal desalineado con la implementacion real.
+      Name/formal declaration misaligned with the real implementation.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-109
-    title: Teatro de Frameworks e Intermediarios Redundantes (Testing Bridge 
+    title: Redundant Frameworks and Middleman Theater (Testing Bridge
       Theater)
-    symptom: Usar frameworks de prueba complejos (`pytest`) para validaciones 
-      estáticas/estructurales simples que pueden resolverse con un script 
-      directo e independiente. Añade dependencias, duplicidad y crea puentes de 
-      compatibilidad que violan los principios de simplicidad y acoplamiento 
-      mínimo (KISS).
-    cause: Inercia técnica de usar herramientas tradicionales de desarrollo en 
-      lugar de unificar la autoridad en un auditor directo y soberano.
-    solution: Eliminar el puente intermediario; el auditor estático se ejecuta 
-      de forma directa y nativa (`exit 0` o `exit 1`).
+    symptom: Using complex test frameworks (`pytest`) for simple
+      static/structural validations that can be resolved with a direct,
+      standalone script. It adds dependencies and duplication, and creates
+      compatibility bridges that violate the principles of simplicity and minimal
+      coupling (KISS).
+    cause: Technical inertia of using traditional development tools instead of
+      unifying authority in a direct, sovereign auditor.
+    solution: Remove the intermediary bridge; the static auditor runs directly
+      and natively (`exit 0` or `exit 1`).
     status: PREVENTED
     severity: high
     tags:
@@ -3021,33 +3020,33 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Teatro de frameworks: capas de mocks que prueban el mock, no el sistema.
+      # Framework theater: layers of mocks that test the mock, not the system.
       def test_service():
           svc = Mock()
           svc.process.return_value = "ok"
-          assert svc.process() == "ok"   # se afirma sobre el mock mismo
+          assert svc.process() == "ok"   # asserts against the mock itself
     example_good: |
       def test_service():
           svc = RealService(repo=InMemoryRepo())
-          assert svc.process(order).state == "ok"   # sistema real
+          assert svc.process(order).state == "ok"   # real system
     detection: |
-      Detectar tests donde el objeto afirmado es un Mock configurado en el propio test
-      (assert sobre return_value preprogramado).
+      Detect tests where the asserted object is a Mock configured in the test itself
+      (assert on a preprogrammed return_value).
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
   - id: VT-110
-    title: Fragmentación de Directorios Ocultos (Dot-Directory Fragmentation)
-    symptom: Dispersión de metadatos de gobernanza, seguridad, backups o estados
-      en múltiples carpetas ocultas en la raíz del repositorio (ej. 
-      `.backup_old`, `.temp_meta`, `.rules_draft`), ensuciando el espacio de 
-      trabajo.
-    cause: Falta de visión unificada y acumulación de nomenclatura inactivo 
-      histórica.
-    solution: Consolidar radicalmente toda la metadata bajo un único directorio 
-      oculto de gobernanza centralizada (ej. `.protocol/`).
+    title: Hidden-Directory Fragmentation (Dot-Directory Fragmentation)
+    symptom: Scattering of governance, security, backup, or state metadata
+      across multiple hidden folders at the repository root (e.g.
+      `.backup_old`, `.temp_meta`, `.rules_draft`), cluttering the
+      workspace.
+    cause: Lack of a unified view and accumulation of historical dead
+      naming.
+    solution: Radically consolidate all metadata under a single hidden
+      directory of centralized governance (e.g. `.protocol/`).
     status: AUDITED
     severity: medium
     tags:
@@ -3059,29 +3058,29 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # .audit/ .cerberus/ .protocol/ dispersos sin consolidar.
+      # .audit/ .cerberus/ .protocol/ scattered without consolidation.
     example_good: |
-      # consolidar la metadata bajo un unico directorio oculto
+      # consolidate metadata under a single hidden directory
     detection: |
-      Metadata fragmentada en multiples dot-directories sin consolidar.
+      Metadata fragmented across multiple dot-directories without consolidation.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-111
-    title: Deferred Without Registration (Diferido Sin Registro)
-    symptom: El agente detecta deuda técnica o un hallazgo, lo clasifica 
-      verbalmente como "posponer / sprint aislado / deferred / luego", y cierra 
-      la respuesta sin abrir `PLAN.md`. El ítem desaparece.
-    cause: Cambio de contexto entre modo análisis y modo implementación 
-      desactiva el trigger de VC-114; el agente asume que "nombrar = registrar".
-    solution: 'Trigger B8 obligatorio: toda clasificación de "diferido" activa apertura
-      inmediata de PLAN.md con ID + evidencia + done-criteria en esa misma respuesta.
-      Sin ID en PLAN.md = olvidado, no diferido. (Lección: La omisión de registro
-      formal de exclusiones estructurales o deudas técnicas en el plan de remediación
-      centralizado conduce a una deriva persistente y a la pérdida del control de
-      calidad).'
+    title: Deferred Without Registration
+    symptom: The agent detects technical debt or a finding, verbally classifies
+      it as "postpone / isolated sprint / deferred / later", and closes the
+      response without opening `PLAN.md`. The item disappears.
+    cause: A context switch between analysis mode and implementation mode
+      disables the VC-114 trigger; the agent assumes that "naming = registering".
+    solution: 'Mandatory B8 trigger: every "deferred" classification triggers immediate
+      opening of PLAN.md with ID + evidence + done-criteria in that same response.
+      No ID in PLAN.md = forgotten, not deferred. (Lesson: omitting the formal
+      registration of structural exclusions or technical debt in the centralized
+      remediation plan leads to persistent drift and loss of quality
+      control).'
     status: AUDITED
     severity: medium
     tags:
@@ -3093,26 +3092,26 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Se marca 'diferido' sin registrar un item ejecutable.
+      # Something is marked 'deferred' without registering an actionable item.
     example_good: |
-      # todo 'diferido' abre una incidencia con ID rastreable
+      # every 'deferred' opens an issue with a trackable ID
     detection: |
-      Clasificar algo como diferido sin registrarlo como item rastreable.
+      Classifying something as deferred without registering it as a trackable item.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-112
-    title: Deriva de Dependencia Fantasma (Ghost Dependency deriva)
-    symptom: Importar e integrar paquetes y módulos en tiempo de codificación 
-      sin registrar explícitamente su existencia en el manifiesto de 
-      dependencias.
-    cause: Falta de control estático de consistencia de imports en los 
-      pre-commit hooks.
-    solution: Diseñar compuertas estáticas (`deptry` o regex AST en python) que 
-      comparen el 100% de los top-level imports contra la base de dependencias 
-      del proyecto.
+    title: Ghost Dependency Drift
+    symptom: Importing and integrating packages and modules at coding time
+      without explicitly registering their existence in the dependency
+      manifest.
+    cause: Lack of static import-consistency checking in the pre-commit
+      hooks.
+    solution: Design static gates (`deptry` or AST regex in Python) that
+      compare 100% of the top-level imports against the project's dependency
+      base.
     status: AUDITED
     severity: medium
     tags:
@@ -3124,24 +3123,24 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # requirements lista libs que ya no se usan y faltan otras.
+      # requirements lists libs no longer used and is missing others.
     example_good: |
-      # compuerta deptry / AST: imports usados == declarados
+      # deptry / AST gate: imports used == declared
     detection: |
-      Deriva entre dependencias declaradas y realmente usadas, sin compuerta.
+      Drift between declared and actually used dependencies, without a gate.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-113
-    title: Ausencia de pruebas de mutación (Lack of Test Mutation Validation)
-    symptom: Tests que siempre pasan (verde) sin importar qué modificaciones 
-      lógicas o roturas se inserten en el código de producción.
-    cause: Teatro de aserciones happy-path y mocks autocomplacientes.
-    solution: Exigir que al menos una suite de pruebas demuestre empíricamente 
-      su capacidad de fallar (criterio de falsabilidad) ante una mutación de 
-      código controlada o inyección de caos.
+    title: Lack of Mutation Testing (Lack of Test Mutation Validation)
+    symptom: Tests that always pass (green) regardless of what logic changes
+      or breakages are inserted into production code.
+    cause: Happy-path assertion theater and self-satisfied mocks.
+    solution: Require that at least one test suite empirically demonstrate
+      its ability to fail (falsifiability criterion) against a controlled code
+      mutation or chaos injection.
     status: AUDITED
     severity: medium
     tags:
@@ -3153,28 +3152,27 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Ninguna mutacion del codigo hace fallar la suite.
+      # No code mutation makes the suite fail.
     example_good: |
-      # mutation testing: la suite debe matar mutantes
+      # mutation testing: the suite must kill mutants
     detection: |
-      Suite sin validacion mutacional: no se prueba que detecta defectos inyectados.
+      Suite without mutation validation: it is not proven to detect injected defects.
       Tools: mutmut / cosmic-ray (Python), Stryker (JS/TS), PITest (Java).
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-114
-    title: Deriva de Sincronización Multirepositorio (Multi-Repository Sync 
-      deriva)
-    symptom: Modificar los archivos de gobernanza o del protocolo en un 
-      repositorio satélite de manera aislada sin integrarlos de vuelta al core 
-      central, rompiendo la paridad operativa del ecosistema.
-    cause: Gobernanza basada en copia física pasiva sin validación activa de 
-      deriva.
-    solution: Implementar una compuerta D12 de deriva Detection activa en el 
-      auditor central que compare checksums y bloquee si hay desvíos en 
-      satélites.
+    title: Multi-Repository Sync Drift
+    symptom: Modifying governance or protocol files in a satellite repository
+      in isolation without integrating them back into the central core,
+      breaking the ecosystem's operational parity.
+    cause: Governance based on passive physical copying without active drift
+      validation.
+    solution: Implement an active D12 drift-detection gate in the central
+      auditor that compares checksums and blocks if there are deviations in
+      satellites.
     status: AUDITED
     severity: medium
     tags:
@@ -3186,27 +3184,27 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # El protocolo en el repo-hijo difiere del central sin deteccion.
+      # The protocol in the child repo differs from the central one without detection.
     example_good: |
-      # compuerta de drift detection multi-repo
+      # multi-repo drift-detection gate
     detection: |
-      Deriva entre copias de un protocolo en multiples repos sin deteccion.
+      Drift between copies of a protocol across multiple repos without detection.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos, sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, over-mocked) in a measurable way."
     tier: extended
   - id: VT-115
-    title: Falso Positivo de deriva por Fin de Línea (CRLF/LF Hash Mismatch)
-    symptom: La auditoría de deriva (D12) falla falsamente al comparar archivos 
-      idénticos en disco (Windows CRLF) contra repositorios Git o satélites 
+    title: False Drift Positive from Line Endings (CRLF/LF Hash Mismatch)
+    symptom: The drift audit (D12) fails falsely when comparing files that are
+      identical on disk (Windows CRLF) against Git repositories or satellites
       (LF).
-    cause: Comparación binaria directa de hashes SHA256 sin normalización previa
-      de caracteres de fin de línea, ignorando las políticas de traducción 
-      automática de Git (`core.autocrlf`).
-    solution: Normalizar obligatoriamente todo byte stream binario 
-      decodificándolo y convirtiendo la secuencia de fin de línea `\r\n` a `\n` 
-      antes de calcular el hash de verificación de integridad o deriva.
+    cause: Direct binary comparison of SHA256 hashes without prior normalization
+      of line-ending characters, ignoring Git's automatic translation
+      policies (`core.autocrlf`).
+    solution: Mandatorily normalize every binary byte stream by decoding it
+      and converting the `\r\n` line-ending sequence to `\n` before computing
+      the integrity- or drift-verification hash.
     status: REMEDIATED
     severity: high
     tags:
@@ -3219,19 +3217,19 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Falso positivo de 'drift': compara bytes crudos y el CRLF/LF dispara diferencia.
+      # False 'drift' positive: compares raw bytes and CRLF/LF triggers a difference.
       def test_no_drift():
           assert open("a.txt","rb").read() == open("b.txt","rb").read()
     example_good: |
-      # Normalizar fin de linea antes de comparar contenido logico.
+      # Normalize line endings before comparing logical content.
       def test_no_drift():
           norm = lambda p: open(p, encoding="utf-8").read().replace("\r\n", "\n")
           assert norm("a.txt") == norm("b.txt")
     detection: |
-      Comparaciones de archivos byte-a-byte que no normalizan EOL (CRLF vs LF) y producen
-      falsos deriva en entornos Windows/Unix mixtos.
+      Byte-by-byte file comparisons that do not normalize EOL (CRLF vs LF) and produce
+      false drift in mixed Windows/Unix environments.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "estudio empirico confirma que los agentes generan tests sin oraculo
-          (sin assert, tautologicos o sobre-mockeados) de forma medible."
+        claim: "an empirical study confirms that agents generate tests without an oracle
+          (no assert, tautological, or over-mocked) in a measurable way."
     tier: extended
