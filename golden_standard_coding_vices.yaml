@@ -2037,21 +2037,21 @@ items:
     downstream_verification: none
     example_lang: bash
     example_bad: |
-      echo "no existe config.yaml"      # tras mirar solo el cwd
+      echo "config.yaml does not exist"      # after looking only at the cwd
     example_good: |
-      find . -name "config*.y*ml"        # agotar busqueda estructural antes de declarar
+      find . -name "config*.y*ml"        # exhaust the structural search before declaring
     detection: |
-      Declarar inexistencia de un archivo sin una busqueda recursiva/estructural previa.
+      Declaring a file non-existent without a prior recursive/structural search.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-092
-    title: Auditoría parcial llamada total
-    symptom: Se omiten superficies críticas
-    cause: Universo auditado mal definido
-    solution: Declarar y cubrir superficies auditables
+    title: Partial audit called total
+    symptom: Critical surfaces are omitted
+    cause: Poorly defined audited universe
+    solution: Declare and cover auditable surfaces
     status: PREVENTED
     severity: medium
     tags:
@@ -2063,21 +2063,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # "auditoria completa OK" cubriendo solo src/, omitiendo migrations/ y scripts/.
+      # "full audit OK" covering only src/, omitting migrations/ and scripts/.
     example_good: |
-      # Declarar las superficies auditables y cubrirlas todas antes de decir 'total'.
+      # Declare the auditable surfaces and cover them all before saying 'total'.
     detection: |
-      Reporte de auditoria 'total' que no enumera ni cubre todas las superficies criticas.
+      A 'total' audit report that does not enumerate or cover all critical surfaces.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-093
-    title: Seguridad optimista
-    symptom: No se buscan abusos
-    cause: Amenaza no modelada
-    solution: Threat model obligatorio
+    title: Optimistic security
+    symptom: Abuses are not sought
+    cause: Unmodeled threat
+    solution: Mandatory threat model
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2092,10 +2092,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-094
-    title: Seguridad mezclada
-    symptom: Controles dispersos
-    cause: Frontera difusa
-    solution: Aislar capa de seguridad
+    title: Mixed security
+    symptom: Scattered controls
+    cause: Blurred boundary
+    solution: Isolate the security layer
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2111,10 +2111,10 @@ items:
     tier: specialist
   - id: VC-095
     detector: vc095_hardcoded_secret
-    title: Acceso directo a producción
-    symptom: Riesgo irreversible
-    cause: Falta de entorno seguro
-    solution: Separar entornos
+    title: Direct production access
+    symptom: Irreversible risk
+    cause: Lack of a safe environment
+    solution: Separate environments
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2128,25 +2128,25 @@ items:
     downstream_verification: required
     example_lang: python
     example_bad: |
-      # URL/credencial de produccion incrustada: cualquier corrida toca prod.
+      # Embedded production URL/credential: any run touches prod.
       DB = connect("postgres://prod-db.internal:5432", password="hunter2")
     example_good: |
-      # Entorno inyectado; prod requiere un paso explicito y separado.
-      DB = connect(os.environ["DATABASE_URL"])   # default apunta a sandbox
+      # Injected environment; prod requires an explicit, separate step.
+      DB = connect(os.environ["DATABASE_URL"])   # default points to sandbox
     detection: |
-      Literales con hosts/credenciales de produccion (prod, internal, claves) en codigo
-      fuente en vez de configuracion por entorno.
-      Tools: gitleaks (secretos en codigo e historial git), trufflehog.
+      Literals with production hosts/credentials (prod, internal, keys) in source
+      code instead of per-environment configuration.
+      Tools: gitleaks (secrets in code and git history), trufflehog.
     evidence:
       - source: "OWASP Top 10 for Agents 2026"
-        claim: "categoria de riesgo reconocida para aplicaciones agenticas (unsafe
+        claim: "recognized risk category for agentic applications (unsafe
           execution / secret exposure)."
     tier: specialist
   - id: VC-096
-    title: Código sin tests
-    symptom: No hay regresión detectable
-    cause: Oráculo ausente
-    solution: Tests como condición de cambio
+    title: Code without tests
+    symptom: No detectable regression
+    cause: Absent oracle
+    solution: Tests as a condition for change
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2161,23 +2161,23 @@ items:
     example_lang: text
     example_bad: |
       src/billing/refund.py        # 0 tests
-      # se cambia refund() y nada detecta la regresion
+      # refund() is changed and nothing detects the regression
     example_good: |
       src/billing/refund.py
-      tests/billing/test_refund.py # cubre el comportamiento antes de cambiarlo
+      tests/billing/test_refund.py # covers the behavior before changing it
     detection: |
-      Modulos de produccion sin archivo de test correspondiente (mapeo src/x.py ->
-      tests/test_x.py ausente) o sin cobertura de sus funciones publicas.
+      Production modules without a corresponding test file (missing src/x.py ->
+      tests/test_x.py mapping) or without coverage of their public functions.
     evidence:
       - source: "arxiv:2602.00409"
-        claim: "los agentes generan codigo sin oraculo de prueba de forma medible;
-          la ausencia de tests amplifica el riesgo."
+        claim: "agents generate code without a test oracle in a measurable way;
+          the absence of tests amplifies the risk."
     tier: specialist
   - id: VC-097
-    title: Tests tardíos
-    symptom: Pruebas adaptadas al resultado
-    cause: Sesgo de confirmación
-    solution: Test-first o test simultáneo
+    title: Late tests
+    symptom: Tests adapted to the result
+    cause: Confirmation bias
+    solution: Test-first or simultaneous testing
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2192,10 +2192,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-098
-    title: Happy path exclusivo
-    symptom: Fallos reales no cubiertos
-    cause: Dominio submuestreado
-    solution: Probar errores y límites
+    title: Happy path only
+    symptom: Real failures not covered
+    cause: Undersampled domain
+    solution: Test errors and boundaries
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2210,10 +2210,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-099
-    title: Sin caos
-    symptom: Resiliencia no observada
-    cause: Fallos no inducidos
-    solution: Inyectar fallos controlados
+    title: No chaos
+    symptom: Resilience not observed
+    cause: Failures not induced
+    solution: Inject controlled failures
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2228,10 +2228,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-100
-    title: No funcional ignorado
-    symptom: Performance o seguridad no medidos
-    cause: Calidad reducida a función
-    solution: Auditar requisitos no funcionales
+    title: Non-functional ignored
+    symptom: Performance or security not measured
+    cause: Quality reduced to function
+    solution: Audit non-functional requirements
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2246,10 +2246,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-101
-    title: Config optimista
-    symptom: Entorno idealizado
-    cause: Variabilidad ignorada
-    solution: Validación pesimista de configuración
+    title: Optimistic config
+    symptom: Idealized environment
+    cause: Ignored variability
+    solution: Pessimistic configuration validation
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2264,10 +2264,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-102
-    title: Debug pobre
-    symptom: Fallo no diagnosticable
-    cause: Observabilidad insuficiente
-    solution: Instrumentación deliberada
+    title: Poor debug
+    symptom: Undiagnosable failure
+    cause: Insufficient observability
+    solution: Deliberate instrumentation
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2282,10 +2282,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-103
-    title: UI sin uso real
-    symptom: Se valida sin flujo
-    cause: Simulación visual
-    solution: Probar interacción observable
+    title: UI without real use
+    symptom: Validated without a flow
+    cause: Visual simulation
+    solution: Test observable interaction
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2300,10 +2300,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-104
-    title: Infraestructura ignorada
-    symptom: Runtime real difiere
-    cause: Fuente equivocada
-    solution: Infraestructura efectiva como verdad
+    title: Ignored infrastructure
+    symptom: Real runtime differs
+    cause: Wrong source
+    solution: Effective infrastructure as truth
     status: PREVENTED
     severity: medium
     tags:
@@ -2316,21 +2316,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Pasa local con python 3.12; prod corre 3.9 -> rompe. Runtime no modelado.
+      # Passes locally with python 3.12; prod runs 3.9 -> breaks. Runtime not modeled.
     example_good: |
-      # CI/tests corren contra la infraestructura efectiva (misma version/imagen que prod).
+      # CI/tests run against the effective infrastructure (same version/image as prod).
     detection: |
-      Supuestos de runtime (version, OS, servicios) que difieren del entorno real de ejecucion.
+      Runtime assumptions (version, OS, services) that differ from the real execution environment.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-105
-    title: Omisión de componentes
-    symptom: HTML/startup/build no auditados
-    cause: Superficie incompleta
-    solution: Checklist de superficies
+    title: Component omission
+    symptom: HTML/startup/build not audited
+    cause: Incomplete surface
+    solution: Surface checklist
     status: PREVENTED
     severity: medium
     tags:
@@ -2342,21 +2342,21 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Se audita el backend; HTML, startup y build quedan sin revisar.
+      # The backend is audited; HTML, startup, and build go unreviewed.
     example_good: |
-      # Checklist de superficies (frontend, build, startup, infra) antes de cerrar.
+      # Surface checklist (frontend, build, startup, infra) before closing.
     detection: |
-      Auditoria sin checklist de superficies que omite componentes no-backend.
+      An audit without a surface checklist that omits non-backend components.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-106
-    title: Setup fantasma
-    symptom: El sistema presupone que el entorno existe
-    cause: Precondiciones no verificadas
-    solution: Validar requisitos de ejecución antes de operar
+    title: Phantom setup
+    symptom: The system presumes the environment exists
+    cause: Unverified preconditions
+    solution: Validate execution requirements before operating
     status: PREVENTED
     severity: medium
     tags:
@@ -2369,22 +2369,22 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      open('./data/cache.db')          # asume que ./data existe; en entorno limpio falla
+      open('./data/cache.db')          # assumes ./data exists; fails in a clean environment
     example_good: |
-      Path('./data').mkdir(exist_ok=True)   # preflight: validar/crear requisitos antes de operar
+      Path('./data').mkdir(exist_ok=True)   # preflight: validate/create requirements before operating
       open('./data/cache.db', 'a')
     detection: |
-      Codigo que presupone directorios/servicios/variables sin validarlos al arrancar.
+      Code that presumes directories/services/variables without validating them at startup.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-107
-    title: Matriz de permisos implícita
-    symptom: Actores ejecutan acciones fuera de rol
-    cause: Política de autorización no modelada
-    solution: Declarar capacidades, límites y denegaciones por rol
+    title: Implicit permission matrix
+    symptom: Actors execute actions outside their role
+    cause: Unmodeled authorization policy
+    solution: Declare capabilities, limits, and denials per role
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2399,24 +2399,24 @@ items:
     example_lang: python
     example_bad: |
       def delete_user(actor, uid):
-          db.delete(uid)         # sin verificar el rol/capacidad del actor
+          db.delete(uid)         # without verifying the actor's role/capability
     example_good: |
       def delete_user(actor, uid):
-          require(actor.can("user.delete"))   # capacidad declarada y verificada
+          require(actor.can("user.delete"))   # declared and verified capability
           db.delete(uid)
     detection: |
-      Acciones sensibles sin verificacion de capacidad/rol, o ausencia de una matriz de
-      autorizacion declarada (capacidades, limites y denegaciones por rol).
+      Sensitive actions without capability/role verification, or the absence of a declared
+      authorization matrix (capabilities, limits, and denials per role).
     evidence:
       - source: "OWASP Top 10 for Agents 2026"
         claim: "recognized risk category (input validation / broken authorization)
           for agentic applications."
     tier: specialist
   - id: VC-108
-    title: Frontera de seguridad por convención
-    symptom: Se confía en disciplina humana
-    cause: Control no ejecutable
-    solution: Convertir límites de seguridad en compuertas verificables
+    title: Security boundary by convention
+    symptom: Reliance on human discipline
+    cause: Non-executable control
+    solution: Turn security boundaries into verifiable gates
     status: PREVENTED
     severity: medium
     tags:
@@ -2431,90 +2431,90 @@ items:
     tier: extended
   - id: VC-109
     detector: vc109_hardcoded_path
-    title: Ruta literal ambiental
-    symptom: Funcionamiento depende de una ubicación fija
-    cause: Estado externo codificado
-    solution: Resolver ubicaciones por contrato configurable
+    title: Environmental literal path
+    symptom: Operation depends on a fixed location
+    cause: Hardcoded external state
+    solution: Resolve locations by configurable contract
     status: PREVENTED
     severity: high
     tags:
       - vibe-coding
       - prevented
-    action: Rutas absolutas hardcodeadas (C:\, /home/, /Users/) detectadas por 
-      escaneo regex discriminante.
+    action: Hardcoded absolute paths (C:\, /home/, /Users/) detected by
+      a discriminating regex scan.
     validating_mechanism: test_vc109_absolute_path_in_scripts
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Ruta absoluta de la maquina del agente: rompe en cualquier otro entorno.
+      # Absolute path from the agent's machine: breaks in any other environment.
       LOG = open("C:/Users/Luis/AI/project/out.log", "w")
     example_good: |
-      # Ruta derivada de configuracion/entorno y relativa a la raiz del proyecto.
+      # Path derived from configuration/environment and relative to the project root.
       from pathlib import Path
       import os
       LOG = open(Path(os.environ.get("PROJECT_ROOT", ".")) / "out.log", "w")
     detection: |
-      Regex/AST: literales de ruta que contengan 'C:\\', '/Users/', '/home/' o
-      separadores de unidad de Windows en codigo de aplicacion.
+      Regex/AST: path literals containing 'C:\\', '/Users/', '/home/' or
+      Windows drive separators in application code.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-110
-    title: Cuota como sorpresa
-    symptom: Operación falla por límites externos
-    cause: Recurso finito no presupuestado
-    solution: Modelar límites, backoff y degradación antes de ejecutar
+    title: Quota as surprise
+    symptom: Operation fails due to external limits
+    cause: Unbudgeted finite resource
+    solution: Model limits, backoff, and degradation before executing
     status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
       - prevented
-    action: validate_gs_topology.py checks that Tokenomics exposes its 
-      subindices and map from the index surface before the category can be 
+    action: validate_gs_topology.py checks that Tokenomics exposes its
+      subindices and map from the index surface before the category can be
       treated as complete.
     validating_mechanism: validate_golden_standard_catalogs.py
     downstream_verification: none
     example_lang: python
     example_bad: |
-      for i in range(10000): call_api(i)   # revienta por rate limit, sin manejo
+      for i in range(10000): call_api(i)   # blows up on rate limit, no handling
     example_good: |
       for i in range(10000):
-          call_with_backoff(call_api, i)   # 429 -> retry/backoff modelado
+          call_with_backoff(call_api, i)   # 429 -> modeled retry/backoff
     detection: |
-      Llamadas a APIs con limites sin backoff/retry/degradacion modelados de antemano.
+      Calls to APIs with limits without backoff/retry/degradation modeled beforehand.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-111
-    title: Exclusión sin auditoría previa
-    symptom: Directorio añadido a lista de ignorados sin verificar su contenido
-    cause: Confianza implícita en que lo invisible es inocuo
-    solution: Auditar contenido antes de excluir; documentar justificación con 
-      fecha; mover a deprecated si tiene vicios
+    title: Exclusion without prior audit
+    symptom: Directory added to the ignore list without verifying its content
+    cause: Implicit trust that the invisible is harmless
+    solution: Audit content before excluding; document the justification with
+      a date; move to deprecated if it has vices
     status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
       - prevented-mechanically
-    action: 'Prevención física mediante verificación de que toda regla de exclusión
-      activa en el archivo .gitignore esté precedida por un comentario explicativo
-      justificando la exclusión en el mismo bloque.'
+    action: 'Physical prevention by verifying that every active exclusion rule
+      in the .gitignore file is preceded by an explanatory comment justifying
+      the exclusion in the same block.'
     validating_mechanism: audit_d2_completeness
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # .gitignore: se ignora un directorio sin saber que contiene.
+      # .gitignore: a directory is ignored without knowing what it contains.
       scratch/
     example_good: |
-      # Cada exclusion lleva motivo y fecha; se audito antes de ignorar.
-      scratch/   # solo artefactos de build, auditado 2026-06-05, sin secretos
+      # Each exclusion carries a reason and date; it was audited before ignoring.
+      scratch/   # build artifacts only, audited 2026-06-05, no secrets
     detection: |
-      Entradas de .gitignore / exclusiones de cobertura sin comentario justificativo,
-      especialmente directorios opacos no auditados.
+      .gitignore entries / coverage exclusions without a justifying comment,
+      especially opaque, unaudited directories.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
