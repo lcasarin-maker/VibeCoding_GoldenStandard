@@ -837,10 +837,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-039
-    title: Deuda invisible
-    symptom: Atajos no registrados
-    cause: Coste futuro oculto
-    solution: Declarar deuda técnica
+    title: Invisible debt
+    symptom: Unrecorded shortcuts
+    cause: Hidden future cost
+    solution: Declare technical debt
     status: DOC_ONLY
     severity: medium
     tags:
@@ -855,24 +855,24 @@ items:
     example_lang: python
     example_bad: |
       def pay(x):
-          return charge(x)   # atajo: sin idempotencia ni reintentos (no registrado)
+          return charge(x)   # shortcut: no idempotency or retries (unrecorded)
     example_good: |
-      # La deuda se declara explicita en un registro rastreable.
+      # The debt is declared explicitly in a trackable register.
       def pay(x):
-          return charge(x)   # DEBT-21: falta idempotencia, ver TECH_DEBT.md
+          return charge(x)   # DEBT-21: missing idempotency, see TECH_DEBT.md
     detection: |
-      Atajos conocidos ('por ahora', sin validacion, sin reintento) que no tengan una
-      entrada correspondiente en un registro de deuda tecnica.
+      Known shortcuts ('for now', no validation, no retry) without a corresponding
+      entry in a technical-debt register.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: specialist
   - id: VC-040
-    title: Mantenibilidad no auditada
-    symptom: Sistema difícil de cambiar
-    cause: Complejidad acumulada
-    solution: Auditar capacidad de cambio
+    title: Unaudited maintainability
+    symptom: System hard to change
+    cause: Accumulated complexity
+    solution: Audit the capacity to change
     status: DOC_ONLY
     severity: medium
     tags:
@@ -887,9 +887,9 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-041
-    title: Deriva operativa
-    symptom: Agente expande alcance
-    cause: Control débil
+    title: Operational drift
+    symptom: Agent expands scope
+    cause: Weak control
     solution: Scope lock
     status: DOC_ONLY
     severity: medium
@@ -905,10 +905,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-042
-    title: Loops de corrección
-    symptom: Fix-revert consume contexto
-    cause: Diagnóstico insuficiente
-    solution: Menos generación, más causa raíz
+    title: Correction loops
+    symptom: Fix-revert consumes context
+    cause: Insufficient diagnosis
+    solution: Less generation, more root cause
     status: DOC_ONLY
     severity: medium
     tags:
@@ -923,10 +923,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-043
-    title: Parches sobre parches
-    symptom: Cada fix introduce otro bug
-    cause: Sistema causal no comprendido
-    solution: Separar diagnóstico y corrección
+    title: Patches over patches
+    symptom: Each fix introduces another bug
+    cause: Causal system not understood
+    solution: Separate diagnosis and correction
     status: DOC_ONLY
     severity: medium
     tags:
@@ -941,10 +941,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-044
-    title: Producción sin dueño técnico
-    symptom: Nadie puede mantener
-    cause: Responsabilidad ausente
-    solution: Owner capaz de explicar y reparar
+    title: Production without a technical owner
+    symptom: No one can maintain it
+    cause: Absent responsibility
+    solution: An owner able to explain and repair it
     status: DOC_ONLY
     severity: medium
     tags:
@@ -959,10 +959,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-045
-    title: Handoff ambiguo
-    symptom: El siguiente actor no sabe estado, riesgo ni próximo paso
-    cause: Transferencia de estado incompleta
-    solution: Handoff estructurado con objetivo, evidencia y bloqueadores
+    title: Ambiguous handoff
+    symptom: The next actor does not know state, risk, or next step
+    cause: Incomplete state transfer
+    solution: Structured handoff with goal, evidence, and blockers
     status: DOC_ONLY
     severity: medium
     tags:
@@ -976,24 +976,24 @@ items:
     downstream_verification: required
     example_lang: text
     example_bad: |
-      # Handoff sin los campos minimos.
-      "segui donde lo dejamos"
+      # Handoff without the minimal fields.
+      "continue where we left off"
     example_good: |
-      # Handoff estructurado y verificable.
-      objetivo: X | estado: Y | evidencia: .protocol/... | bloqueadores: Z | siguiente: W
+      # Structured, verifiable handoff.
+      goal: X | state: Y | evidence: .protocol/... | blockers: Z | next: W
     detection: |
-      Documento de handoff/STATUS que no contiene las secciones requeridas (objetivo,
-      estado, evidencia, bloqueadores, siguiente accion).
+      A handoff/STATUS document that does not contain the required sections (goal,
+      state, evidence, blockers, next action).
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: specialist
   - id: VC-046
-    title: Rescate pre-deprecación omitido
-    symptom: Se archiva o elimina sin extraer valor
-    cause: Poda destructiva sin inventario
-    solution: Auditar, extraer y validar antes de retirar
+    title: Skipped pre-deprecation rescue
+    symptom: Archived or deleted without extracting value
+    cause: Destructive pruning without inventory
+    solution: Audit, extract, and validate before retiring
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1008,10 +1008,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-047
-    title: Estado no vinculante
-    symptom: Memoria/estado difieren de realidad
-    cause: Fuente de verdad múltiple
-    solution: Reconciliar estado declarado con sistema
+    title: Non-binding state
+    symptom: Memory/state differ from reality
+    cause: Multiple sources of truth
+    solution: Reconcile declared state with the system
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1026,37 +1026,37 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-048
-    title: Memoria monolítica
-    symptom: Todo contexto se mezcla
-    cause: Falta de estratificación
-    solution: Separar núcleo, activo, patrones e historia
+    title: Monolithic memory
+    symptom: All context is mixed together
+    cause: Lack of stratification
+    solution: Separate core, active, patterns, and history
     status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
       - prevented
-    action: validate_gs_topology.py checks that GS exposes separate canonical 
+    action: validate_gs_topology.py checks that GS exposes separate canonical
       surfaces for Vices, Tokenomics, Project Insights, and the graph instead of
       one monolithic knowledge page.
     validating_mechanism: validate_golden_standard_catalogs.py
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Un solo CONTEXT.md mezcla nucleo, estado activo, patrones e historia.
+      # A single CONTEXT.md mixes core, active state, patterns, and history.
     example_good: |
-      # Separados por vida util: CORE.md (inmutable), STATUS.md (activo), PATTERNS.md, HISTORY.md.
+      # Separated by lifespan: CORE.md (immutable), STATUS.md (active), PATTERNS.md, HISTORY.md.
     detection: |
-      Un unico archivo de memoria que mezcla capas con vidas distintas (estable vs volatil).
+      A single memory file that mixes layers with different lifespans (stable vs volatile).
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-049
-    title: Audiencias mezcladas
-    symptom: Memoria de agente igual a doc humana
-    cause: Canales con fines distintos
-    solution: Separar documentación operativa y humana
+    title: Mixed audiences
+    symptom: Agent memory equated with human docs
+    cause: Channels with different purposes
+    solution: Separate operational and human documentation
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1071,10 +1071,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-050
-    title: Actualización no dirigida
-    symptom: Estado cambia sin evento
-    cause: Ruido informacional
-    solution: Actualizar memoria solo por eventos relevantes
+    title: Undirected update
+    symptom: State changes without an event
+    cause: Informational noise
+    solution: Update memory only on relevant events
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1089,10 +1089,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-051
-    title: Saturación contextual
-    symptom: El agente olvida requisitos
-    cause: Ventana finita
-    solution: Compactar y reiniciar con checkpoint
+    title: Contextual saturation
+    symptom: The agent forgets requirements
+    cause: Finite window
+    solution: Compact and restart with a checkpoint
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1108,9 +1108,9 @@ items:
     tier: specialist
   - id: VC-052
     title: Context rot
-    symptom: Respuestas empeoran por exceso
-    cause: Ruido semántico
-    solution: Mantener contexto mínimo suficiente
+    symptom: Responses worsen from excess
+    cause: Semantic noise
+    solution: Keep the minimal sufficient context
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1125,10 +1125,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-053
-    title: Sin checkpoint previo
-    symptom: Cambio rompe estado recuperable
-    cause: Ausencia de reversibilidad
-    solution: Crear punto de retorno antes de riesgo
+    title: No prior checkpoint
+    symptom: A change breaks recoverable state
+    cause: Absence of reversibility
+    solution: Create a return point before risk
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1143,10 +1143,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-054
-    title: Estado descentralizado
-    symptom: Varias fuentes compiten
-    cause: Inconsistencia distribuida
-    solution: Ledger canónico
+    title: Decentralized state
+    symptom: Several sources compete
+    cause: Distributed inconsistency
+    solution: Canonical ledger
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1161,10 +1161,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-055
-    title: Concurrencia sin cuarentena
-    symptom: Actores pisan cambios
-    cause: Falta de aislamiento
-    solution: Separar ramas, espacios o locks
+    title: Concurrency without quarantine
+    symptom: Actors overwrite each other's changes
+    cause: Lack of isolation
+    solution: Separate branches, spaces, or locks
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1179,10 +1179,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-056
-    title: Integración alucinada
-    symptom: Dependencias inventadas
-    cause: Mundo externo asumido
-    solution: Verificar integraciones reales
+    title: Hallucinated integration
+    symptom: Invented dependencies
+    cause: External world assumed
+    solution: Verify real integrations
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1197,10 +1197,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-057
-    title: Paridad de versión rota
-    symptom: Documentos, ejecutores y estado declaran versiones distintas
-    cause: Identidad distribuida inconsistente
-    solution: Una versión canónica derivada, no copiada
+    title: Broken version parity
+    symptom: Docs, runners, and state declare different versions
+    cause: Inconsistent distributed identity
+    solution: One canonical version, derived not copied
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1214,26 +1214,26 @@ items:
     downstream_verification: required
     example_lang: text
     example_bad: |
-      # Tres fuentes declaran versiones distintas.
+      # Three sources declare different versions.
       pyproject.toml : version = "1.4.0"
       __init__.py    : __version__ = "1.2.0"
       CHANGELOG.md   : ## 1.5.0
     example_good: |
-      # Una sola fuente canonica; el resto la derivan, no la copian.
+      # A single canonical source; the rest derive it, not copy it.
       __version__ = importlib.metadata.version("mypkg")
     detection: |
-      Extraer todas las cadenas de version del repo (manifiesto, __version__, changelog,
-      tags) y fallar si no coinciden.
+      Extract all version strings from the repo (manifest, __version__, changelog,
+      tags) and fail if they do not match.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: specialist
   - id: VC-058
-    title: Deadlock sin latido
-    symptom: Proceso queda bloqueado sin ser detectado
-    cause: Falta de señal de vida
-    solution: Exigir heartbeat, timeout y política de recuperación
+    title: Deadlock without a heartbeat
+    symptom: A process stays blocked undetected
+    cause: Lack of a liveness signal
+    solution: Require a heartbeat, timeout, and recovery policy
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1247,23 +1247,23 @@ items:
     downstream_verification: required
     example_lang: python
     example_bad: |
-      resp = sock.recv(1024)        # sin timeout: si el peer muere, cuelga para siempre
+      resp = sock.recv(1024)        # no timeout: if the peer dies, it hangs forever
     example_good: |
       sock.settimeout(30)
-      resp = sock.recv(1024)        # timeout + politica de reintento/recuperacion
+      resp = sock.recv(1024)        # timeout + retry/recovery policy
     detection: |
-      Llamadas bloqueantes (recv/lock.acquire/join/await) sin timeout ni heartbeat
-      configurado.
+      Blocking calls (recv/lock.acquire/join/await) without a configured timeout or
+      heartbeat.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: specialist
   - id: VC-059
-    title: Ruteo opaco
-    symptom: Trabajo cae en actor o fase incorrecta
-    cause: Clasificación de tarea ausente
-    solution: Enrutar por capacidad, riesgo y estado observable
+    title: Opaque routing
+    symptom: Work lands in the wrong actor or phase
+    cause: Absent task classification
+    solution: Route by capability, risk, and observable state
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1278,10 +1278,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-060
-    title: Merge textual de memoria
-    symptom: Dos historias se combinan perdiendo decisiones
-    cause: Unión léxica sin semántica
-    solution: Fusionar por entidades, decisiones y causalidad
+    title: Textual memory merge
+    symptom: Two histories combine, losing decisions
+    cause: Lexical union without semantics
+    solution: Merge by entities, decisions, and causality
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1297,10 +1297,10 @@ items:
     tier: specialist
   - id: VC-061
     detector: vc061_constant_stub
-    title: Stub como arquitectura
-    symptom: Simulación temporal se vuelve dependencia
-    cause: Sustituto confundido con componente
-    solution: Retirar stubs antes de validar integración
+    title: Stub as architecture
+    symptom: A temporary simulation becomes a dependency
+    cause: Substitute confused with component
+    solution: Remove stubs before validating integration
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1314,92 +1314,92 @@ items:
     downstream_verification: required
     example_lang: python
     example_bad: |
-      # Un stub temporal queda cableado como dependencia real de produccion.
+      # A temporary stub stays wired as a real production dependency.
       class PaymentGateway:
           def charge(self, amount):
-              return True        # stub: "luego lo conectamos"
+              return True        # stub: "we'll connect it later"
     example_good: |
-      # El stub vive solo en tests; produccion usa la implementacion real.
+      # The stub lives only in tests; production uses the real implementation.
       class PaymentGateway:
           def charge(self, amount):
               return self._provider.charge(amount)
     detection: |
-      Clases/funciones con cuerpo trivial (return True/None/pass) importadas desde modulos
-      de produccion (no de tests/fixtures).
+      Classes/functions with a trivial body (return True/None/pass) imported from production
+      modules (not from tests/fixtures).
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: specialist
   - id: VC-062
-    title: Deriva de Concurrencia de Estado (Dual-Session deriva)
-    symptom: Pérdida de commits y regresiones por sobrescritura paralela
-    cause: Modelos mentales divergentes al omitir la sincronización previa del 
-      filesystem
-    solution: Exigir paso obligatorio de reconciliación física contra el ledger 
-      antes de escribir
+    title: State Concurrency Drift (Dual-Session Drift)
+    symptom: Loss of commits and regressions from parallel overwrites
+    cause: Divergent mental models from skipping prior filesystem
+      synchronization
+    solution: Require a mandatory physical reconciliation step against the ledger
+      before writing
     status: PREVENTED
     severity: high
     tags:
       - vibe-coding
       - prevented
-    action: 'Dual-session deriva: detectado por sync_binding --check (falla si el
-      protocolo divergió entre sesiones).'
+    action: 'Dual-session drift: detected by sync_binding --check (fails if the
+      protocol diverged between sessions).'
     validating_mechanism: test_F6_sync_binding_no_protocol_drift
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Dos sesiones/agentes escriben el mismo estado sin coordinacion.
-      # La ultima escritura gana y se pierde el trabajo de la otra (lost update).
+      # Two sessions/agents write the same state without coordination.
+      # The last write wins and the other's work is lost (lost update).
       state = load_state()
       state["x"] = compute()
-      save_state(state)  # sin verificar version: pisa cambios concurrentes
+      save_state(state)  # without checking version: overwrites concurrent changes
     example_good: |
-      # Optimistic locking: la escritura falla si la version cambio entre medias.
+      # Optimistic locking: the write fails if the version changed in between.
       state = load_state()
       base_version = state["version"]
       state["x"] = compute()
       save_state_if_unchanged(state, expected_version=base_version)
     detection: |
-      Detectar lectura->modificacion->escritura sobre un estado compartido sin token de
-      version, lock, o CAS (compare-and-swap) intermedio.
+      Detect read->modify->write on shared state without a version token,
+      lock, or intermediate CAS (compare-and-swap).
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-063
-    title: Documentación mentirosa
-    symptom: Estado declarado no coincide con sistema
-    cause: Persistencia de afirmaciones no revalidadas
-    solution: Subordinar documentación a ejecución
+    title: Lying documentation
+    symptom: Declared state does not match the system
+    cause: Persistence of unrevalidated claims
+    solution: Subordinate documentation to execution
     status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
       - prevented
-    action: validate_golden_standard_catalogs.py --check-wiki now enforces link 
-      integrity and Home count parity so documentation cannot deriva away from 
+    action: validate_golden_standard_catalogs.py --check-wiki now enforces link
+      integrity and Home count parity so documentation cannot drift away from
       the generated state.
     validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # README dice "soporta OAuth" pero el codigo no lo implementa.
+      # README says "supports OAuth" but the code does not implement it.
     example_good: |
-      # Doc subordinada a ejecucion: un test verifica cada claim declarado en el README.
+      # Doc subordinated to execution: a test verifies each claim declared in the README.
     detection: |
-      Afirmaciones de capacidad en docs sin codigo/test que las respalde (divergencia doc-codigo).
+      Capability claims in docs without code/test backing them (doc-code divergence).
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-064
-    title: Caja negra arquitectónica
-    symptom: Decisiones no explicables
-    cause: Pérdida de modelo causal
-    solution: Toda decisión debe tener razón trazable
+    title: Architectural black box
+    symptom: Unexplainable decisions
+    cause: Loss of the causal model
+    solution: Every decision must have a traceable reason
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1414,10 +1414,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-065
-    title: Esquema tardío
-    symptom: Lógica precede al modelo de datos
-    cause: Estructura causal ausente
-    solution: Definir entidades y relaciones primero
+    title: Late schema
+    symptom: Logic precedes the data model
+    cause: Absent causal structure
+    solution: Define entities and relations first
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1432,10 +1432,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-066
-    title: Ceguera espacial
-    symptom: UI generada sin layout explícito
-    cause: Falta de modelo perceptual
-    solution: Declarar estructura visual antes de ejecutar
+    title: Spatial blindness
+    symptom: UI generated without an explicit layout
+    cause: Lack of a perceptual model
+    solution: Declare the visual structure before executing
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1450,10 +1450,10 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-067
-    title: Políticas implícitas
-    symptom: Reglas no listadas antes del cambio
-    cause: Restricciones ocultas
-    solution: Extraer políticas aplicables antes de mutar
+    title: Implicit policies
+    symptom: Rules not listed before the change
+    cause: Hidden constraints
+    solution: Extract applicable policies before mutating
     status: PREVENTED
     severity: medium
     tags:
@@ -1466,10 +1466,10 @@ items:
     doctrinal: true
     tier: extended
   - id: VC-068
-    title: Conflictos normativos
-    symptom: Reglas chocan en ejecución
-    cause: Sistema lógico inconsistente
-    solution: Definir precedencia antes de automatizar
+    title: Normative conflicts
+    symptom: Rules clash at execution
+    cause: Inconsistent logical system
+    solution: Define precedence before automating
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1484,27 +1484,27 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-069
-    title: Dependencias no mapeadas
-    symptom: Refactor rompe piezas lejanas
-    cause: Grafo causal desconocido
-    solution: Generar mapa de dependencias antes de mover
+    title: Unmapped dependencies
+    symptom: Refactor breaks distant pieces
+    cause: Unknown causal graph
+    solution: Generate a dependency map before moving
     status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
       - prevented
-    action: The wiki graph and link validator enforce that the canonical 
+    action: The wiki graph and link validator enforce that the canonical
       surfaces are mapped and resolved instead of being assumed.
     validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
     downstream_verification: none
     example_lang: bash
     example_bad: |
-      git mv core/auth.py util/        # sin saber quien lo importa -> rompe lejos
+      git mv core/auth.py util/        # without knowing who imports it -> breaks afar
     example_good: |
-      grep -rn "import core.auth" .     # mapear dependientes ANTES de mover
+      grep -rn "import core.auth" .     # map dependents BEFORE moving
       git mv core/auth.py util/
     detection: |
-      Mover/renombrar simbolos sin un mapa previo de referencias entrantes.
+      Moving/renaming symbols without a prior map of incoming references.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
@@ -1512,10 +1512,10 @@ items:
     tier: extended
   - id: VC-070
     detector: vc070_blind_shell_edit
-    title: Manipulación shell ciega
-    symptom: Texto sustituye API estructurada
-    cause: Representación frágil
-    solution: Usar operaciones estructuradas
+    title: Blind shell manipulation
+    symptom: Text replaces a structured API
+    cause: Fragile representation
+    solution: Use structured operations
     status: DOC_ONLY
     severity: medium
     tags:
@@ -1529,24 +1529,24 @@ items:
     downstream_verification: required
     example_lang: bash
     example_bad: |
-      # Editar JSON con sed: fragil, rompe el formato al primer caso raro.
+      # Editing JSON with a stream editor: fragile, breaks on the first odd case.
       sed -i 's/"port": 80/"port": 443/' config.json
     example_good: |
-      # Operacion estructurada con un parser real del formato.
+      # Structured operation with a real parser for the format.
       python -c "import json; d=json.load(open('config.json')); d['port']=443; json.dump(d, open('config.json','w'), indent=2)"
     detection: |
-      Uso de sed/awk/grep para mutar archivos estructurados (.json/.yaml/.toml/.xml) en
-      vez de un parser del formato.
+      Use of sed/awk/grep to mutate structured files (.json/.yaml/.toml/.xml) instead
+      of a parser for the format.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: specialist
   - id: VC-071
-    title: Módulo sin biocontainment
-    symptom: Fallo se propaga
-    cause: Acoplamiento excesivo
-    solution: Interfaces estables y aislamiento
+    title: Module without biocontainment
+    symptom: Failure propagates
+    cause: Excessive coupling
+    solution: Stable interfaces and isolation
     status: DOC_ONLY
     severity: medium
     tags:
