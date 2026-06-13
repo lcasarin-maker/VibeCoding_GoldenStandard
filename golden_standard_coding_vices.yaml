@@ -3221,80 +3221,80 @@ items:
       Changes that contradict recorded decisions (ADR/DECISIONS.md) without justification; the frequency grows with session length. Related to VC-051 and VC-034.
     evidence:
       - source: "HumanLayer ACE"
-        claim: "la deriva de decisiones en sesiones largas es un motivo central de
-          la 'Frequent Intentional Compaction'."
+        claim: "decision drift in long sessions is a central motive for
+          'Frequent Intentional Compaction'."
     tier: specialist
   - id: VC-132
-    title: Cascada de ambiguedad de especificacion (Spec Ambiguity Cascade)
+    title: Spec Ambiguity Cascade
     symptom: |
-      Un prompt vago produce codigo funcionalmente correcto pero semanticamente equivocado, que alimenta prompts posteriores y amplifica el error aguas abajo.
+      A vague prompt produces functionally correct but semantically wrong code, which feeds later prompts and amplifies the error downstream.
     cause: |
-      Ambiguedad de la especificacion no resuelta antes de generar; la interpretacion erronea se propaga a cada paso siguiente.
+      Specification ambiguity unresolved before generating; the wrong interpretation propagates to each subsequent step.
     solution: |
-      Resolver la ambiguedad antes de generar (objetivo, restricciones, ejemplos) y validar la interpretacion en cada punto de bifurcacion.
+      Resolve the ambiguity before generating (goal, constraints, examples) and validate the interpretation at each branch point.
     status: DOC_ONLY
     severity: medium
     tags:
       - vibe-coding
       - ai-native
     action: |
-      Documentado; enforcement downstream. Receta: confirmar interpretacion en puntos de bifurcacion antes de construir sobre ella.
+      Documented; enforcement downstream. Recipe: confirm the interpretation at branch points before building on it.
     validating_mechanism: DOC_ONLY
     downstream_verification: required
     example_lang: text
     example_bad: |
-      # Prompt: 'hazlo rapido'. El agente cachea la capa equivocada.
-      # Los 5 prompts siguientes construyen sobre ese cache mal ubicado.
+      # Prompt: 'make it fast'. The agent caches the wrong layer.
+      # The next 5 prompts build on that misplaced cache.
     example_good: |
-      # Resolver la ambiguedad antes: 'rapido' = p95 < 200ms en el endpoint X.
-      # Se valida la interpretacion antes de que alimente pasos posteriores.
+      # Resolve the ambiguity first: 'fast' = p95 < 200ms on endpoint X.
+      # The interpretation is validated before it feeds later steps.
     detection: |
-      Cadena de cambios derivada de una spec ambigua sin un punto de validacion de interpretacion; divergencia semantica acumulada. Extiende VC-025 (spec vaga) al efecto cascada.
+      A chain of changes derived from an ambiguous spec without an interpretation-validation point; accumulated semantic divergence. Extends VC-025 (vague spec) to the cascade effect.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "los defectos semanticos de especificacion se amplifican cuando alimentan
-          generaciones posteriores."
+        claim: "semantic specification defects are amplified when they feed
+          later generations."
     tier: specialist
   - id: VC-133
-    title: Fallo de tool call no manejado en bucle de agente
+    title: Unhandled tool-call failure in the agent loop
     symptom: |
-      Una llamada a herramienta falla (timeout, error, salida inesperada) y el agente continua como si hubiera tenido exito, o entra en un bucle de reintentos sin backoff.
+      A tool call fails (timeout, error, unexpected output) and the agent continues as if it had succeeded, or enters a retry loop without backoff.
     cause: |
-      No se valida el resultado de cada tool call; ausencia de manejo de error y de politica de backoff/limite en el bucle del agente.
+      The result of each tool call is not validated; absence of error handling and of a backoff/limit policy in the agent loop.
     solution: |
-      Validar cada resultado de tool; aplicar backoff y limite de reintentos; degradar explicitamente ante fallo persistente.
+      Validate each tool result; apply backoff and a retry limit; degrade explicitly on persistent failure.
     status: DOC_ONLY
     severity: high
     tags:
       - vibe-coding
       - ai-native
     action: |
-      Documentado; enforcement downstream. Receta: verificar exito de cada tool call, backoff con limite, y abortar/degradar tras N fallos (ver VC-120).
+      Documented; enforcement downstream. Recipe: verify the success of each tool call, backoff with a limit, and abort/degrade after N failures (see VC-120).
     validating_mechanism: DOC_ONLY
     downstream_verification: required
     example_lang: python
     example_bad: |
-      result = call_tool("read_file", path)   # devolvio un error
-      proceed(result)                          # se usa el error como si fuera contenido
+      result = call_tool("read_file", path)   # returned an error
+      proceed(result)                          # the error is used as if it were content
     example_good: |
       result = call_tool("read_file", path)
       if not result.ok:
-          result = retry_with_backoff(max=3) or degrade()   # backoff + limite + degradacion
+          result = retry_with_backoff(max=3) or degrade()   # backoff + limit + degradation
     detection: |
-      Resultados de tool calls usados sin verificar exito; bucles de reintento sin backoff ni limite. Relacionado con VC-120 (runaway loops) y VC-058 (sin timeout).
+      Tool-call results used without verifying success; retry loops without backoff or limit. Related to VC-120 (runaway loops) and VC-058 (no timeout).
     evidence:
       - source: "OWASP Top 10 for Agents 2026"
-        claim: "el manejo inseguro de salidas de herramientas es un riesgo agentico
-          reconocido."
+        claim: "insecure handling of tool outputs is a recognized agentic
+          risk."
     tier: specialist
   - id: VC-134
-    title: Coordinacion multiagente sin protocolo
+    title: Multi-agent coordination without a protocol
     symptom: |
-      Varios agentes operan sobre el mismo estado/repo sin un protocolo de coordinacion, produciendo condiciones de carrera, handoffs perdidos o trabajo duplicado.
+      Several agents operate on the same state/repo without a coordination protocol, producing race conditions, lost handoffs, or duplicated work.
     cause: |
-      Ausencia de ownership por area, de locking/cuarentena y de un protocolo de handoff entre agentes.
+      Absence of per-area ownership, of locking/quarantine, and of a handoff protocol between agents.
     solution: |
-      Protocolo explicito: ownership por area, locks o cuarentena, handoff estructurado y reconciliacion de estado.
+      Explicit protocol: per-area ownership, locks or quarantine, structured handoff, and state reconciliation.
     status: DOC_ONLY
     severity: high
     tags:
@@ -3302,33 +3302,33 @@ items:
       - ai-native
       - multi-agent
     action: |
-      Documentado; enforcement downstream. Receta: declarar ownership por area, serializar el acceso al estado compartido y exigir handoff estructurado.
+      Documented; enforcement downstream. Recipe: declare per-area ownership, serialize access to shared state, and require structured handoff.
     validating_mechanism: DOC_ONLY
     downstream_verification: required
     example_lang: python
     example_bad: |
-      # Dos agentes editan el mismo archivo en paralelo sin coordinacion.
+      # Two agents edit the same file in parallel without coordination.
       agent_a.edit("config.py"); agent_b.edit("config.py")   # lost update
     example_good: |
-      # Ownership + lock + handoff estructurado.
+      # Ownership + lock + structured handoff.
       with lock("config.py", owner="agent_a"):
           agent_a.edit("config.py")
       handoff(to="agent_b", state=..., next=...)
     detection: |
-      Multiples agentes escribiendo el mismo estado sin lock/ownership/handoff declarado. Extiende VC-062 (dual-session deriva) a N agentes; ver VC-055 y VC-045.
+      Multiple agents writing the same state without a declared lock/ownership/handoff. Extends VC-062 (dual-session drift) to N agents; see VC-055 and VC-045.
     evidence:
       - source: "arxiv:2603.28592"
-        claim: "la coordinacion multiagente sin protocolo introduce condiciones de
-          carrera y perdida de trabajo."
+        claim: "multi-agent coordination without a protocol introduces race
+          conditions and loss of work."
     tier: specialist
   - id: VC-135
-    title: Uso de API obsoleta o alucinada de una libreria real
+    title: Use of an obsolete or hallucinated API of a real library
     symptom: |
-      El modelo llama a un metodo, parametro o endpoint de una libreria que SI existe, pero que no existe en la version fijada (deprecado, renombrado o inventado por conocimiento desactualizado).
+      The model calls a method, parameter, or endpoint of a library that DOES exist, but that does not exist in the pinned version (deprecated, renamed, or invented from outdated knowledge).
     cause: |
-      El conocimiento del modelo va desfasado respecto a la version instalada; nadie verifica la firma contra la API real.
+      The model's knowledge is out of date with respect to the installed version; no one verifies the signature against the real API.
     solution: |
-      Fijar la version y verificar cada simbolo contra la API real (docs up-to-date, MCP de documentacion, o import + inspeccion); rechazar llamadas que no resuelven.
+      Pin the version and verify each symbol against the real API (up-to-date docs, documentation MCP, or import + inspection); reject calls that do not resolve.
     status: DOC_ONLY
     severity: high
     tags:
@@ -3336,34 +3336,34 @@ items:
       - ai-native
       - dependencies
     action: |
-      Documentado; enforcement downstream. Distinto de VC-129 (paquete inexistente): aqui el paquete existe pero el simbolo no. Mitigacion: docs up-to-date via context7 (PI-032).
+      Documented; enforcement downstream. Distinct from VC-129 (nonexistent package): here the package exists but the symbol does not. Mitigation: up-to-date docs via context7 (PI-032).
     validating_mechanism: DOC_ONLY
     downstream_verification: required
     example_lang: python
     example_bad: |
-      # pandas 2.x elimino DataFrame.append; el modelo lo sigue usando.
-      df = df.append(row)            # AttributeError en la version instalada
+      # pandas 2.x removed DataFrame.append; the model keeps using it.
+      df = df.append(row)            # AttributeError in the installed version
     example_good: |
-      # Verificar contra la API real de la version fijada y usar el reemplazo vigente.
+      # Verify against the real API of the pinned version and use the current replacement.
       df = pd.concat([df, pd.DataFrame([row])], ignore_index=True)
     detection: |
-      Resolver cada simbolo llamado (metodo/atributo/kwarg/endpoint) contra la API de la version instalada; un simbolo ausente = API alucinada u obsoleta. Sin detector self-contained (necesita la libreria); ver VC-129 y VC-056.
+      Resolve each called symbol (method/attribute/kwarg/endpoint) against the installed version's API; a missing symbol = hallucinated or obsolete API. No self-contained detector (needs the library); see VC-129 and VC-056.
     evidence:
-      - source: "context7 (upstash, verificado)"
-        claim: "existe para dar a los LLMs documentacion up-to-date precisamente porque
-          generan llamadas a APIs obsoletas o inexistentes."
+      - source: "context7 (upstash, verified)"
+        claim: "it exists to give LLMs up-to-date documentation precisely because
+          they generate calls to obsolete or nonexistent APIs."
       - source: "arxiv:2603.28592"
-        claim: "las APIs alucinadas figuran entre los patrones recurrentes del codigo
-          AI-generado."
+        claim: "hallucinated APIs are among the recurring patterns of AI-generated
+          code."
     tier: specialist
   - id: VC-136
-    title: Memoria persistente envenenada o stale (cross-session)
+    title: Poisoned or stale persistent memory (cross-session)
     symptom: |
-      Un hecho erroneo u obsoleto persiste en la memoria durable del agente (ledger, archivo o MCP de memoria) y contamina sesiones futuras, o la memoria queda desincronizada del estado real.
+      An erroneous or obsolete fact persists in the agent's durable memory (ledger, file, or memory MCP) and contaminates future sessions, or the memory becomes desynchronized from the real state.
     cause: |
-      La memoria persistente se escribe sin verificacion, sin fuente y sin fecha/version; no se reconcilia con la fuente de verdad al cargarla.
+      Persistent memory is written without verification, without a source, and without a date/version; it is not reconciled with the source of truth when loaded.
     solution: |
-      Escribir a memoria solo hechos verificados, con fuente y verified_at; reconciliar contra el estado real al cargar; expirar o invalidar lo stale.
+      Write to memory only verified facts, with source and verified_at; reconcile against the real state when loading; expire or invalidate the stale.
     status: DOC_ONLY
     severity: high
     tags:
@@ -3371,33 +3371,33 @@ items:
       - ai-native
       - context
     action: |
-      Documentado; enforcement downstream. Extiende VC-128 (envenenamiento en contexto) a la memoria DURABLE entre sesiones. Mitigacion: capas de memoria como byterover / claude-context-memsearch (PI-033).
+      Documented; enforcement downstream. Extends VC-128 (context poisoning) to DURABLE memory across sessions. Mitigation: memory layers like byterover / claude-context-memsearch (PI-033).
     validating_mechanism: DOC_ONLY
     downstream_verification: required
     example_lang: python
     example_bad: |
-      # Se persiste un dato sin verificar; 3 sesiones despues sigue contaminando.
-      memory.write("endpoint = /v2/pay")    # nunca se verifico; era /v1/pay
+      # A datum is persisted without verifying; 3 sessions later it still contaminates.
+      memory.write("endpoint = /v2/pay")    # never verified; it was /v1/pay
     example_good: |
-      # Solo hechos verificados, con fuente y fecha; se reconcilia al cargar.
+      # Only verified facts, with source and date; reconciled when loading.
       memory.write_fact("endpoint=/v1/pay", source="openapi.json", verified_at=today())
     detection: |
-      Entradas de memoria persistente sin source/verified_at/version, o que contradicen el estado actual del repo al cargarse. Sin detector self-contained (necesita el store); ver VC-128, VC-090 y VC-047.
+      Persistent memory entries without source/verified_at/version, or that contradict the current repo state when loaded. No self-contained detector (needs the store); see VC-128, VC-090, and VC-047.
     evidence:
-      - source: "byterover-cli / zilliztech claude-context (verificados)"
-        claim: "existen como 'memory layer' persistente para agentes; su modo de fallo
-          es la memoria stale o envenenada que cruza sesiones."
+      - source: "byterover-cli / zilliztech claude-context (verified)"
+        claim: "they exist as a persistent 'memory layer' for agents; their failure mode
+          is stale or poisoned memory that crosses sessions."
       - source: "OWASP Top 10 for Agents 2026"
-        claim: "el envenenamiento de memoria persistente es un riesgo agentico reconocido."
+        claim: "persistent memory poisoning is a recognized agentic risk."
     tier: specialist
   - id: VC-137
-    title: Recuperacion (RAG) que alimenta contexto erroneo
+    title: Retrieval (RAG) that feeds wrong context
     symptom: |
-      La recuperacion devuelve fragmentos irrelevantes, obsoletos (indice stale) o cortados sin semantica, y el agente construye sobre contexto equivocado.
+      Retrieval returns irrelevant, obsolete (stale index), or non-semantically cut fragments, and the agent builds on the wrong context.
     cause: |
-      Indice de embeddings desactualizado respecto al codigo, chunking no-semantico, o recuperacion por similitud sin verificar relevancia.
+      Embeddings index out of date with respect to the code, non-semantic chunking, or similarity retrieval without verifying relevance.
     solution: |
-      Reindexar ante cambios, chunkear por limites semanticos/simbolo, y verificar la relevancia del fragmento antes de usarlo.
+      Reindex on changes, chunk by semantic/symbol boundaries, and verify the fragment's relevance before using it.
     status: DOC_ONLY
     severity: medium
     tags:
@@ -3405,34 +3405,34 @@ items:
       - ai-native
       - context
     action: |
-      Documentado; enforcement downstream. Mitigacion: retrieval a nivel de simbolo (serena) o code-search MCP (claude-context) (PI-034).
+      Documented; enforcement downstream. Mitigation: symbol-level retrieval (serena) or code-search MCP (claude-context) (PI-034).
     validating_mechanism: DOC_ONLY
     downstream_verification: required
     example_lang: python
     example_bad: |
-      # Indice stale + chunk a ciegas: recupera una version vieja de la funcion.
-      ctx = index.search("refund logic")    # el indice no se reconstruyo tras el ultimo commit
+      # Stale index + blind chunk: retrieves an old version of the function.
+      ctx = index.search("refund logic")    # the index was not rebuilt after the last commit
     example_good: |
-      # Reindexar ante cambios y recuperar por limites de simbolo, verificando relevancia.
+      # Reindex on changes and retrieve by symbol boundaries, verifying relevance.
       if index.stale(): index.rebuild()
       ctx = index.search_symbol("refund", verify_relevance=True)
     detection: |
-      Indice de recuperacion mas viejo que el ultimo commit del codigo; chunks que cruzan limites de funcion/clase; fragmento recuperado usado sin verificar relevancia. Sin detector self-contained (necesita indice/repo); ver VC-072 y TK-010.
+      Retrieval index older than the code's last commit; chunks that cross function/class boundaries; a retrieved fragment used without verifying relevance. No self-contained detector (needs index/repo); see VC-072 and TK-010.
     evidence:
-      - source: "oraios/serena (verificado)"
-        claim: "provee retrieval semantico a nivel de simbolo precisamente porque
-          la recuperacion por texto crudo alimenta contexto erroneo."
-      - source: "zilliztech/claude-context (verificado)"
-        claim: "code-search MCP para que el contexto recuperado sea correcto y actualizado."
+      - source: "oraios/serena (verified)"
+        claim: "it provides semantic symbol-level retrieval precisely because
+          raw-text retrieval feeds wrong context."
+      - source: "zilliztech/claude-context (verified)"
+        claim: "code-search MCP so that the retrieved context is correct and up to date."
     tier: specialist
   - id: VC-138
-    title: Codigo generado inseguro por defecto
+    title: Generated code insecure by default
     symptom: |
-      El modelo genera codigo con defaults inseguros: debug activado, CORS abierto, verificacion TLS desactivada, hashing debil o bind a todas las interfaces sin auth.
+      The model generates code with insecure defaults: debug enabled, open CORS, TLS verification disabled, weak hashing, or binding to all interfaces without auth.
     cause: |
-      El modelo optimiza por 'que funcione' y emite los defaults mas permisivos; nadie endurece la configuracion antes de mergear.
+      The model optimizes for 'make it work' and emits the most permissive defaults; no one hardens the configuration before merging.
     solution: |
-      Endurecer los defaults; revisar la configuracion de seguridad del codigo generado contra una checklist; bloquear patrones inseguros conocidos en CI.
+      Harden the defaults; review the generated code's security configuration against a checklist; block known insecure patterns in CI.
     status: PREVENTED
     severity: high
     tags:
@@ -3441,35 +3441,35 @@ items:
       - security
       - prevented-mechanically
     action: |
-      Documentado; enforcement downstream. Firma estatica: detector local en scripts/detectors.py probado contra los ejemplos. Ver VC-101 y VC-095.
+      Documented; enforcement downstream. Static signature: local detector in scripts/detectors.py tested against the examples. See VC-101 and VC-095.
     validating_mechanism: audit_declarative_rules
     downstream_verification: none
     detector: vc138_insecure_defaults
     example_lang: python
     example_bad: |
-      app.run(host="0.0.0.0", debug=True)        # debug en prod, bind a todo
-      requests.get(url, verify=False)            # TLS sin verificar
+      app.run(host="0.0.0.0", debug=True)        # debug in prod, bind to everything
+      requests.get(url, verify=False)            # TLS unverified
     example_good: |
       app.run(host="127.0.0.1", debug=False)
-      requests.get(url)                          # verify=True por defecto
+      requests.get(url)                          # verify=True by default
     detection: |
-      Patrones estaticos de default inseguro: debug=True, verify=False, CORS origins='*', hashlib.md5( para passwords, host='0.0.0.0'. Detectable estaticamente (regex/AST); complementan bandit/semgrep.
+      Static insecure-default patterns: debug=True, verify=False, CORS origins='*', hashlib.md5( for passwords, host='0.0.0.0'. Statically detectable (regex/AST); complement bandit/semgrep.
     evidence:
       - source: "OWASP Top 10 for Agents 2026"
-        claim: "la configuracion insegura por defecto es un vector frecuente en codigo
-          AI-generado."
+        claim: "insecure default configuration is a frequent vector in AI-generated
+          code."
       - source: "PyCQA/bandit"
         claim: "detecta varios de estos patrones (B201 flask debug, B501 verify=False,
           B303 md5)."
     tier: extended
   - id: VC-139
-    title: Confianza ciega en la salida del LLM (Insecure Output Handling)
+    title: Blind trust in LLM output (Insecure Output Handling)
     symptom: |
-      La salida del modelo (SQL, HTML, comando, ruta o codigo) se ejecuta, renderiza o usa en un sink sin sanitizar, asumiendo que es segura.
+      The model's output (SQL, HTML, command, path, or code) is executed, rendered, or used in a sink without sanitizing, assuming it is safe.
     cause: |
-      Se trata la salida del LLM como confiable; no hay frontera entre 'texto generado' y 'accion ejecutada'.
+      The LLM's output is treated as trusted; there is no boundary between 'generated text' and 'executed action'.
     solution: |
-      Tratar la salida del LLM como NO confiable: parametrizar (SQL), escapar (HTML), allowlist (comandos/rutas) y validar contra esquema antes de ejecutar.
+      Treat the LLM's output as UNtrusted: parameterize (SQL), escape (HTML), allowlist (commands/paths), and validate against a schema before executing.
     status: DOC_ONLY
     severity: high
     tags:
@@ -3477,7 +3477,7 @@ items:
       - ai-native
       - security
     action: |
-      Documentado; enforcement downstream. Es el lado OUTPUT de VC-074 (input). Mitigacion via taint analysis: semgrep / CodeQL.
+      Documented; enforcement downstream. It is the OUTPUT side of VC-074 (input). Mitigation via taint analysis: semgrep / CodeQL.
     validating_mechanism: DOC_ONLY
     downstream_verification: required
     example_lang: python
