@@ -939,43 +939,43 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
         depth_sections = build_depth_sections(item)
         detector = str(item.get("detector", "")).strip()
         detector_row = (
-            f"\n| **Detector local** | 🛡️ `scripts/detectors.py::{detector}` (probado contra los ejemplos en CI) |"
+            f"\n| **Local detector** | 🛡️ `scripts/detectors.py::{detector}` (tested against the examples in CI) |"
             if detector else ""
         )
         flaw_content = f"""# {flaw_id}: {item['title']}
 
-| Campo | Detalle |
+| Field | Detail |
 |---|---|
 | **ID** | `{flaw_id}` |
-| **Categoría** | {item['category']} |
-| **Estado** | **{item['status']}** |
-| **Severidad** | **{item['severity']}** |
-| **Profundidad** | {depth_badge(item)} |{detector_row}
+| **Category** | {item['category']} |
+| **Status** | **{item['status']}** |
+| **Severity** | **{item['severity']}** |
+| **Depth** | {depth_badge(item)} |{detector_row}
 | **Tags** | {tag_list} |
 | **Downstream Verification** | `{item.get('downstream_verification', 'none')}` |
-| **Mecanismo de Validación** | `{item['validating_mechanism']}` |
+| **Validation Mechanism** | `{item['validating_mechanism']}` |
 
 ---
 
-### Síntoma (Symptom)
+### Symptom
 > {item['symptom']}
 
-### Causa (Cause)
+### Cause
 {item['cause']}
 
-### Solución (Solution)
+### Solution
 {item['solution']}
 
-### Acción Correctiva / Prevención
+### Corrective Action / Prevention
 {item['action']}{depth_sections}
 
-### Relaciones
+### Relations
 - [[Project_Insights/PI-019|PI-019]]
-- [[Tokenomics_Map|Mapa de Tokenomics]]
-- [[Home|Inicio]]
+- [[Tokenomics_Map|Tokenomics Map]]
+- [[Home|Home]]
 
 ---
-[[Vices_Index|Volver al Índice de Vicios]] | [[Home|Inicio]]
+[[Vices_Index|Back to Vices Index]] | [[Home|Home]]
 """
         (wiki_dir / "Vices" / f"{flaw_id}.md").write_text(flaw_content, encoding="utf-8")
 
@@ -991,33 +991,33 @@ def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
         depth_sections = build_depth_sections(item)
         flaw_content = f"""# {flaw_id}: {item['title']}
 
-| Campo | Detalle |
+| Field | Detail |
 |---|---|
 | **ID** | `{flaw_id}` |
-| **Categoría** | Tokenomics |
-| **Estado** | **{item['status']}** |
-| **Severidad** | **{item['severity']}** |
-| **Profundidad** | {depth_badge(item)} |
+| **Category** | Tokenomics |
+| **Status** | **{item['status']}** |
+| **Severity** | **{item['severity']}** |
+| **Depth** | {depth_badge(item)} |
 | **Tags** | {tag_list} |
 | **Downstream Verification** | `{item.get('downstream_verification', 'none')}` |
-| **Mecanismo de Validación** | `{item['validating_mechanism']}` |
+| **Validation Mechanism** | `{item['validating_mechanism']}` |
 
 ---
 
-### Síntoma (Signal)
+### Symptom (Signal)
 > {item['symptom']}
 
-### Causa (Cause)
+### Cause
 {item['cause']}
 
-### Aplicación / Mitigación
+### Application / Mitigation
 {item['solution']}
 
-### Relevancia Operativa
+### Operational Relevance
 {item['action']}{depth_sections}
 
 ---
-[[Tokenomics_Map|Volver al Mapa de Tokenomics]] | [[Tokenomics_Index|Volver al Índice de Tokenomics]] | [[Home|Inicio]]
+[[Tokenomics_Map|Back to Tokenomics Map]] | [[Tokenomics_Index|Back to Tokenomics Index]] | [[Home|Home]]
 """
         (tokenomics_dir / f"{flaw_id}.md").write_text(flaw_content, encoding="utf-8")
 
@@ -1025,9 +1025,9 @@ def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
 def build_pi_mapping_lines(mappings: list) -> list[str]:
     """Format mapping lines for project insights."""
     if not mappings:
-        return ["*Sin asignaciones activas de dominio.*"]
+        return ["*No active domain assignments.*"]
     return [
-        f"*   **[[Domains/{domain}|{domain}]]** (Proyecto: *{proj}*): {act}"
+        f"*   **[[Domains/{domain}|{domain}]]** (Project: *{proj}*): {act}"
         for domain, proj, act in sorted(mappings)
     ]
 
@@ -1038,23 +1038,23 @@ def write_atomic_project_insights(wiki_dir: Path, insights: dict, pi_to_domains:
         mappings = pi_to_domains.get(pi_id, [])
         mapping_lines = build_pi_mapping_lines(mappings)
 
-        pi_content = f"""# {pi_id}: Insight Satélite
+        pi_content = f"""# {pi_id}: Satellite Insight
 
-### Descripción del Insight
+### Insight Description
 > {text}
 
-### Relaciones
-- [[Tokenomics_Map|Mapa de Tokenomics]]
+### Relations
+- [[Tokenomics_Map|Tokenomics Map]]
 - [[Vices/VC-124|VC-124]]
-- [[Home|Inicio]]
+- [[Home|Home]]
 
 ---
 
-### Mapeo a Lentes Operativos GS
+### Mapping to GS Operational Lenses
 {"\n".join(mapping_lines)}
 
 ---
-[[Project_Insights_Index|Volver al Índice de Insights]] | [[Home|Inicio]]
+[[Project_Insights_Index|Back to Insights Index]] | [[Home|Home]]
 """
         (wiki_dir / "Project_Insights" / f"{pi_id}.md").write_text(pi_content, encoding="utf-8")
 
