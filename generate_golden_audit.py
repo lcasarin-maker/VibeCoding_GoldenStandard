@@ -646,46 +646,46 @@ This map serves as a bridge between the `TK` category and the GS satellite lesso
 ## What it is for
 
 - Navigate relations between context vices, token savings, and operational discipline.
-- Identificar qué lecciones satélite refuerzan cada lente de tokenomics.
-- Detectar huecos donde hay doctrina, pero todavía falta un artefacto de apoyo o una telemetría clara.
+- Identify which satellite lessons reinforce each tokenomics lens.
+- Detect gaps where doctrine exists, but a supporting artifact or clear telemetry is still missing.
 
 ---
 
-## Lentes operativos
+## Operational lenses
 
-| Lente | Subíndice | Project Insights relacionados | Intención |
+| Lens | Subindex | Related Project Insights | Intent |
 |---|---|---|---|
 {lens_rows}
 
 ---
 
-## Project Insights clave
+## Key Project Insights
 
-| Insight | Resumen |
+| Insight | Summary |
 |---|---|
 {insight_rows}
 
 ---
 
-## Cruces adyacentes
+## Adjacent crossings
 
-| Nodo | Relación | Motivo |
+| Node | Relation | Reason |
 |---|---|---|
-| `[[Project_Insights/PI-019|PI-019]]` | Higiene satélite | Expande la disciplina de edición y validación hacia el trabajo diario con herramientas. |
-| `[[Vices/VC-124|VC-124]]` | Vicio espejo | Representa el error de deprecar sin análisis ni trazabilidad. |
+| `[[Project_Insights/PI-019|PI-019]]` | Satellite hygiene | Expands the discipline of editing and validation toward daily work with tools. |
+| `[[Vices/VC-124|VC-124]]` | Mirror vice | Represents the error of deprecating without analysis or traceability. |
 
 ---
 
-## Lectura práctica
+## Practical reading
 
-1. Si un problema consume contexto, revisa primero `Memoria y Headroom`.
-2. Si el problema nace en la entrada, revisa `Entrada y Recuperación`.
-3. Si el costo está en la respuesta, revisa `Salida y Compresión`.
-4. Si no hay evidencia del ahorro, revisa `Medición y Telemetría`.
-5. Si la doctrina no se ejecuta sola, revisa `Automatización y Herramientas`.
+1. If a problem consumes context, first check `Memory and Headroom`.
+2. If the problem originates in the input, check `Input and Retrieval`.
+3. If the cost is in the response, check `Output and Compression`.
+4. If there is no evidence of savings, check `Measurement and Telemetry`.
+5. If the doctrine does not run by itself, check `Automation and Tooling`.
 
 ---
-[[Tokenomics_Index|Volver al Índice de Tokenomics]] | [[Project_Insights_Index|Ir a Insights]] | [[Home|Inicio]]
+[[Tokenomics_Index|Back to Tokenomics Index]] | [[Project_Insights_Index|Go to Insights]] | [[Home|Home]]
 """
     (wiki_dir / "Tokenomics_Map.md").write_text(map_content, encoding="utf-8")
 
@@ -719,33 +719,33 @@ def write_tokenomics_subindices_md(wiki_dir: Path, mapped_database: dict):
     """Write thematic subindices for tokenomics."""
     groups = {
         "memory_headroom": {
-            "title": "Memoria y Headroom",
+            "title": "Memory and Headroom",
             "filename": "Memory_Headroom_Index.md",
-            "blurb": "Checkpoints, handoffs, persistencia externa, cache, drift y control de margen contextual.",
+            "blurb": "Checkpoints, handoffs, external persistence, cache, drift, and control of context margin.",
             "items": [],
         },
         "input_retrieval": {
-            "title": "Entrada y Recuperación",
+            "title": "Input and Retrieval",
             "filename": "Input_Retrieval_Index.md",
-            "blurb": "Recuperación dirigida, poda semántica, chunks y reducción de exploración ciega.",
+            "blurb": "Targeted retrieval, semantic pruning, chunks, and reduction of blind exploration.",
             "items": [],
         },
         "output_compaction": {
-            "title": "Salida y Compresión",
+            "title": "Output and Compression",
             "filename": "Output_Compaction_Index.md",
-            "blurb": "Control de salida, compresión, verbosidad y presupuesto de respuesta.",
+            "blurb": "Output control, compression, verbosity, and response budget.",
             "items": [],
         },
         "measurement_telemetry": {
-            "title": "Medición y Telemetría",
+            "title": "Measurement and Telemetry",
             "filename": "Measurement_Telemetry_Index.md",
-            "blurb": "Evidencia de ahorro, observabilidad, monitoreo y verificación de impacto.",
+            "blurb": "Savings evidence, observability, monitoring, and impact verification.",
             "items": [],
         },
         "automation_tooling": {
-            "title": "Automatización y Herramientas",
+            "title": "Automation and Tooling",
             "filename": "Automation_Tooling_Index.md",
-            "blurb": "Integraciones activas, routing, modos de operación y tooling que realmente ejecuta ahorro.",
+            "blurb": "Active integrations, routing, operation modes, and tooling that actually executes savings.",
             "items": [],
         },
     }
@@ -759,28 +759,28 @@ def write_tokenomics_subindices_md(wiki_dir: Path, mapped_database: dict):
         )
 
     for group_key, group in groups.items():
-        subindex_content = f"""# Índice de Tokenomics: {group['title']}
+        subindex_content = f"""# Tokenomics Index: {group['title']}
 
 {group['blurb']}
 
 ---
 
-## Entradas
+## Entries
 
-{"\n".join(group["items"]) if group["items"] else "*Sin entradas asignadas.*"}
-
----
-
-## Cómo leer este subíndice
-
-- Si la entrada trata de memoria, checkpoint, handoff, cache o headroom, está en Memoria y Headroom.
-- Si trata de búsqueda, poda, recuperación o chunks, está en Entrada y Recuperación.
-- Si trata de verbosidad, compresión o presupuesto de respuesta, está en Salida y Compresión.
-- Si trata de medición, telemetría, evidencia o ahorro verificado, está en Medición y Telemetría.
-- Si trata de tooling, routing, integración o modos operativos, está en Automatización y Herramientas.
+{"\n".join(group["items"]) if group["items"] else "*No entries assigned.*"}
 
 ---
-[[Tokenomics_Map|Volver al Mapa de Tokenomics]] | [[Tokenomics_Index|Índice de Tokenomics]]
+
+## How to read this subindex
+
+- If the entry is about memory, checkpoint, handoff, cache, or headroom, it is in Memory and Headroom.
+- If it is about search, pruning, retrieval, or chunks, it is in Input and Retrieval.
+- If it is about verbosity, compression, or response budget, it is in Output and Compression.
+- If it is about measurement, telemetry, evidence, or verified savings, it is in Measurement and Telemetry.
+- If it is about tooling, routing, integration, or operating modes, it is in Automation and Tooling.
+
+---
+[[Tokenomics_Map|Back to Tokenomics Map]] | [[Tokenomics_Index|Tokenomics Index]]
 """
         (wiki_dir / "Tokenomics" / group["filename"]).write_text(subindex_content, encoding="utf-8")
 
