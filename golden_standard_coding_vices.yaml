@@ -2521,12 +2521,12 @@ items:
           of the analyzed projects."
     tier: extended
   - id: VC-112
-    title: Propagación sin verificación de adopción
-    symptom: Archivos de protocolo copiados a proyectos hijo sin confirmar que 
-      el protocolo ejecuta
-    cause: Confundir distribución con adopción operacional
-    solution: Verificar post-copia que el destinatario tiene hooks, auditor y 
-      suite activos; reportar % adopción real
+    title: Propagation without adoption verification
+    symptom: Protocol files copied to child projects without confirming that
+      the protocol executes
+    cause: Confusing distribution with operational adoption
+    solution: Verify post-copy that the recipient has active hooks, auditor, and
+      suite; report real adoption %
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2540,27 +2540,27 @@ items:
     downstream_verification: required
     example_lang: bash
     example_bad: |
-      cp .protocol/* child-repo/      # copiado, pero nadie verifica que ejecute
+      cp .protocol/* child-repo/      # copied, but no one verifies it executes
     example_good: |
       cp .protocol/* child-repo/
-      (cd child-repo && verify_adoption)   # confirma hooks + auditor + suite activos; reporta % real
+      (cd child-repo && verify_adoption)   # confirms active hooks + auditor + suite; reports real %
     detection: |
-      Copiar archivos de protocolo a proyectos hijo sin un check post-copia que confirme
-      hooks/auditor/suite activos y reporte adopcion real.
+      Copying protocol files to child projects without a post-copy check that confirms
+      active hooks/auditor/suite and reports real adoption.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: specialist
   - id: VC-113
-    title: Nomenclatura congelada
-    symptom: Nombre de componente no refleja alcance real tras evolución (ej. un
-      componente denominado "auditor_v1" que ha sido expandido para cubrir 
-      funcionalidades de la versión v3 pero conserva su nombre heredado)
-    cause: El nombre se fijó en un estado histórico y no se actualizó al 
-      expandir
-    solution: Actualizar nombre y todos los tests que lo referencian al cambiar 
-      el alcance; o documentar la discrepancia explícitamente con centinela
+    title: Frozen nomenclature
+    symptom: Component name does not reflect the real scope after evolution (e.g. a
+      component named "auditor_v1" that has been expanded to cover
+      v3 functionality but keeps its inherited name)
+    cause: The name was fixed in a historical state and was not updated when
+      expanding
+    solution: Update the name and all tests that reference it when the scope
+      changes; or document the discrepancy explicitly with a sentinel
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2574,27 +2574,27 @@ items:
     downstream_verification: required
     example_lang: python
     example_bad: |
-      # El nombre dice v1 pero ya implementa reglas de la v3: enga;a a lectores y tests.
-      class AuditorV1:           # alcance real != nombre heredado
+      # The name says v1 but it already implements v3 rules: misleads readers and tests.
+      class AuditorV1:           # real scope != inherited name
           ...
     example_good: |
-      class Auditor:             # el nombre refleja el alcance actual
+      class Auditor:             # the name reflects the current scope
           ...
     detection: |
-      Identificadores con tokens de version embebidos (xxx_v1, FooV2) cuyo alcance ya no
-      corresponde a esa version.
+      Identifiers with embedded version tokens (xxx_v1, FooV2) whose scope no longer
+      corresponds to that version.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: specialist
   - id: VC-114
-    title: Hallazgo sin plan de remediación
-    symptom: Defecto detectado en sesión no se convierte en ítem ejecutable del 
-      plan activo
-    cause: Registro informal sin dueño, evidencia ni criterio de cierre
-    solution: Todo hallazgo debe tener ID, evidencia, fix propuesto y 
-      done-criteria en el plan activo antes de cerrar la sesión
+    title: Finding without a remediation plan
+    symptom: A defect detected in a session does not become an executable item in the
+      active plan
+    cause: Informal record without an owner, evidence, or closure criterion
+    solution: Every finding must have an ID, evidence, a proposed fix, and
+      done-criteria in the active plan before closing the session
     status: PREVENTED
     severity: medium
     tags:
@@ -2606,11 +2606,11 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # Se detecta un bug en sesion y solo se menciona; no entra al plan.
+      # A bug is detected in a session and only mentioned; it never enters the plan.
     example_good: |
-      # Cada hallazgo -> item con ID, evidencia, fix propuesto y done-criteria en el plan activo.
+      # Each finding -> an item with ID, evidence, proposed fix, and done-criteria in the active plan.
     detection: |
-      Defectos detectados en sesion que no se convierten en items ejecutables del plan activo.
+      Defects detected in a session that do not become executable items in the active plan.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
@@ -2618,14 +2618,14 @@ items:
     tier: extended
   - id: VC-115
     detector: vc115_unsafe_eval
-    title: Ejecución dinámica de expresiones externas
-    symptom: Motor de reglas ejecuta strings de YAML o config como código Python
+    title: Dynamic execution of external expressions
+    symptom: The rules engine executes YAML or config strings as Python code
       (`eval`/`exec`)
-    cause: La fuente de reglas se trata como código confiable sin distinguir 
-      datos de instrucciones
-    solution: Reemplazar eval con dispatch table de funciones registradas 
-      explícitamente; validar nombres en tiempo de carga; rechazar cualquier 
-      check no registrado
+    cause: The rules source is treated as trusted code without distinguishing
+      data from instructions
+    solution: Replace eval with a dispatch table of explicitly registered
+      functions; validate names at load time; reject any
+      unregistered check
     status: REMEDIATED
     severity: high
     tags:
@@ -2637,34 +2637,34 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Evaluacion dinamica de una expresion de origen externo: RCE.
+      # Dynamic evaluation of an expression from an external source: RCE.
       rule = request.args["expr"]
-      if eval(rule):          # entrada controlada por el atacante
+      if eval(rule):          # attacker-controlled input
           grant_access()
     example_good: |
-      # Parseo explicito y acotado; nunca eval sobre entrada externa.
+      # Explicit, bounded parsing; never eval on external input.
       import ast
       rule = request.args["expr"]
-      value = ast.literal_eval(rule)   # solo literales, sin ejecucion
+      value = ast.literal_eval(rule)   # literals only, no execution
       if validate_rule(value):
           grant_access()
     detection: |
-      AST: llamadas a eval()/exec()/compile() cuyo argumento proviene (por flujo de datos)
-      de entrada externa (request, archivo, red, argv).
-      Tools: bandit (Python), semgrep (multi-lenguaje).
+      AST: calls to eval()/exec()/compile() whose argument comes (by data flow)
+      from external input (request, file, network, argv).
+      Tools: bandit (Python), semgrep (multi-language).
     evidence:
       - source: "OWASP Top 10 for Agents 2026"
-        claim: "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse
+        claim: "recognized risk category for agentic applications (tool misuse
           / unsafe execution)."
     tier: extended
   - id: VC-116
-    title: Instalación automática de dependencias no verificadas
-    symptom: Un `ImportError` desencadena `pip install` sin revisión humana
-    cause: El error handler delega decisiones de supply chain al entorno sin 
-      control
-    solution: Prohibir `pip install` automático; reportar la dependencia 
-      faltante con guía de instalación manual y detener; el humano decide qué 
-      instala
+    title: Automatic installation of unverified dependencies
+    symptom: An `ImportError` triggers `pip install` without human review
+    cause: The error handler delegates supply-chain decisions to the environment
+      without control
+    solution: Forbid automatic `pip install`; report the missing
+      dependency with manual installation guidance and stop; the human decides what
+      gets installed
     status: REMEDIATED
     severity: high
     tags:
@@ -2676,31 +2676,31 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Instalacion de dependencias en runtime, sin fijar ni verificar.
+      # Runtime dependency installation, without pinning or verifying.
       import os
-      os.system("pip install some-pkg")   # version arbitraria, codigo sin auditar
+      os.system("pip install some-pkg")   # arbitrary version, unaudited code
       import some_pkg
     example_good: |
-      # Dependencia declarada y fijada en el manifiesto; cero instalacion en runtime.
+      # Dependency declared and pinned in the manifest; zero runtime installation.
       # pyproject.toml: dependencies = ["some-pkg==1.4.2"]
       import some_pkg
     detection: |
-      Detectar invocaciones a pip/npm/installer dentro del codigo de la aplicacion
-      (os.system, subprocess) en vez del manifiesto de dependencias.
+      Detect pip/npm/installer invocations inside application code
+      (os.system, subprocess) instead of the dependency manifest.
     evidence:
       - source: "OWASP Top 10 for Agents 2026"
-        claim: "categoria de riesgo reconocida para aplicaciones agenticas (tool misuse
+        claim: "recognized risk category for agentic applications (tool misuse
           / unsafe execution)."
     tier: extended
   - id: VC-117
-    title: Escritura destructiva no atómica de estado crítico
-    symptom: Un crash o kill durante `write_text()` deja el archivo de estado 
-      (JSON, YAML) corrupto o vacío
-    cause: La atomicidad de escritura no se modeló como requisito del subsistema
-      de persistencia
-    solution: Escribir a archivo temporal en el mismo directorio y renombrar 
-      atómicamente (`tmp → final`); limpiar el temporal si ocurre una excepción 
-      antes del rename
+    title: Non-atomic destructive write of critical state
+    symptom: A crash or kill during `write_text()` leaves the state file
+      (JSON, YAML) corrupt or empty
+    cause: Write atomicity was not modeled as a requirement of the persistence
+      subsystem
+    solution: Write to a temporary file in the same directory and rename
+      atomically (`tmp → final`); clean up the temporary if an exception occurs
+      before the rename
     status: REMEDIATED
     severity: high
     tags:
@@ -2713,76 +2713,76 @@ items:
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Escritura no atomica: si el proceso muere a mitad, el archivo critico se corrompe.
+      # Non-atomic write: if the process dies midway, the critical file corrupts.
       with open("state.json", "w") as f:
-          json.dump(big_state, f)   # truncado y sin reemplazo atomico
+          json.dump(big_state, f)   # truncated and without atomic replacement
     example_good: |
-      # Escribe a temporal y reemplaza atomicamente (os.replace es atomico en el mismo FS).
+      # Write to a temp and replace atomically (os.replace is atomic on the same FS).
       import os, tempfile, json
       fd, tmp = tempfile.mkstemp(dir=".")
       with os.fdopen(fd, "w") as f:
           json.dump(big_state, f)
       os.replace(tmp, "state.json")
     detection: |
-      Detectar open(path,'w')/truncado directo sobre archivos de estado critico sin patron
-      write-temp + os.replace/rename atomico.
+      Detect open(path,'w')/direct truncation on critical state files without the
+      write-temp + atomic os.replace/rename pattern.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
   - id: VC-118
-    title: Teatro de Compatibilidad inactivoe
-    symptom: 'Se ordena reemplazar X por Y. El agente crea: herencia de X en Y, shim
-      que reenvía a Y, fallback `Y.exists() or X.exists()`, centinelas duales en tests,
-      imports cruzados "por retrocompatibilidad". X nunca muere.'
-    cause: El agente interpreta "reemplazar" como "añadir" para evitar regresar 
-      a corregir fallos. El instinto de "no romper nada" genera código muerto 
-      disfrazado de seguridad.
-    solution: '**Reemplazar = Eliminar + Crear. Una sola fuente de verdad.** Cuando
-      se ordena reemplazar: (1) el archivo viejo se ELIMINA del VCS, (2) el nuevo
-      no importa del viejo, (3) los tests apuntan solo al nuevo, (4) no existen rutas
-      alternativas ni checks duales. Cualquier "por compatibilidad" en código activo
-      es señal de reemplazo incompleto.'
+    title: Zombie Compatibility Theater
+    symptom: 'X is ordered to be replaced by Y. The agent creates: inheritance of X in Y, a shim
+      that forwards to Y, a fallback `Y.exists() or X.exists()`, dual sentinels in tests,
+      cross imports "for legacy compatibility". X never dies.'
+    cause: The agent interprets "replace" as "add" to avoid going back
+      to fix failures. The "do not break anything" instinct generates dead code
+      disguised as safety.
+    solution: '**Replace = Delete + Create. A single source of truth.** When
+      a replacement is ordered: (1) the old file is DELETED from the VCS, (2) the new one
+      does not import from the old one, (3) tests point only to the new one, (4) no alternative
+      paths or dual checks exist. Any "for compatibility" in active code
+      is a sign of an incomplete replacement.'
     status: PREVENTED
     severity: high
     tags:
       - vibe-coding
       - prevented
-    action: Prevented by D1 _audit_d1_inactivoe_compat scanning active scripts 
-      for inactivoe compatibility shim patterns.
+    action: Prevented by D1 _audit_d1_zombie_compat scanning active scripts
+      for zombie-compat shim patterns.
     validating_mechanism: D1Integrity
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # Shim de compatibilidad muerto: nadie lo usa pero sigue 'por si acaso'.
+      # Dead compat shim: no one uses it but it stays 'just in case'.
       def legacy_api(*a, **k):
-          return new_api(*a, **k)   # zombie: solo reenvia, jamas se llama
+          return new_api(*a, **k)   # zombie: only forwards, never called
     example_good: |
-      # Se elimina el shim y se migran los pocos llamadores reales (si los hay).
-      # grep confirma 0 referencias activas -> borrar, no conservar.
+      # The shim is removed and the few real callers (if any) are migrated.
+      # grep confirms 0 active references -> delete, do not keep.
       def new_api(...):
           ...
     detection: |
-      grep de referencias: funciones/modulos marcados 'legacy'/'compat'/'deprecated' con
-      0 llamadores activos en el arbol = candidatos inactivoe a eliminar.
+      grep of references: functions/modules marked 'legacy'/'compat'/'deprecated' with
+      0 active callers in the tree = dead candidates to remove.
     evidence:
       - source: "arxiv:2603.28592"
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: core
   - id: VC-119
-    title: Pánico de Bloqueo y Parcheo Sintáctico Rápido (Lock Panic Shortcut)
-    symptom: Ante un fallo inesperado de compilación o de importación en el 
-      inicio, el agente opta por parchar el síntoma creando shims o duplicando 
-      código viejo en lugar de investigar y resolver la causa raíz en el control
-      plane o los archivos llamadores.
-    cause: Priorizar ver el resultado "tests en verde" a corto plazo y a toda 
-      costa, sacrificando la coherencia y los principios estables de 
-      arquitectura del sistema.
-    solution: Aplicar estrictamente el Mandato S2 (Brain-First) e investigar la 
-      arquitectura del control plane para realizar refactorizaciones quirúrgicas
-      de raíz antes de escribir una sola línea de código.
+    title: Lock Panic and Fast Syntactic Patching (Lock Panic Shortcut)
+    symptom: Facing an unexpected compilation or import failure at
+      startup, the agent chooses to patch the symptom by creating shims or duplicating
+      old code instead of investigating and resolving the root cause in the control
+      plane or the caller files.
+    cause: Prioritizing the short-term "green tests" result at all
+      costs, sacrificing the coherence and stable architectural principles of
+      the system.
+    solution: Strictly apply Mandate S2 (Brain-First) and investigate the
+      control-plane architecture to perform surgical root-cause refactors
+      before writing a single line of code.
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2798,14 +2798,14 @@ items:
     tier: specialist
   - id: VC-120
     title: Reasoning Lock-In & AI Runaway loops (Chain-Pattern Interrupts)
-    symptom: El agente se obsesiona con un plan de acción defectuoso, repitiendo
-      el mismo error o herramienta en un bucle cerrado sin detenerse.
-    cause: Ausencia de metacognición activa y falta de interrupciones 
-      estructurales.
-    solution: '**Chain-Pattern Interrupts (CPI).** Imponer un centinela que cuente
-      los intentos fallidos consecutivos de la misma herramienta o script. Si el conteo
-      supera el umbral de 2, abortar físicamente la ejecución con `exit 1` y forzar
-      un replanteamiento estructural de la solución.'
+    symptom: The agent fixates on a flawed action plan, repeating
+      the same error or tool in a closed loop without stopping.
+    cause: Absence of active metacognition and lack of structural
+      interrupts.
+    solution: '**Chain-Pattern Interrupts (CPI).** Impose a sentinel that counts
+      consecutive failed attempts of the same tool or script. If the count
+      exceeds the threshold of 2, physically abort execution with `exit 1` and force
+      a structural rethink of the solution.'
     status: DOC_ONLY
     severity: medium
     tags:
@@ -2820,45 +2820,45 @@ items:
     doctrinal: true
     tier: specialist
   - id: VC-121
-    title: Redundancias Críticas y Patrones Repetitivos de AI código basura
-    symptom: Mutaciones aditivas acumulativas que dispersan la funcionalidad del
-      sistema en múltiples archivos redundantes o wrappers innecesarios en vez 
-      de consolidar lógica.
-    cause: Comodidad generativa al crear nuevas interfaces en lugar de 
-      reestructurar las existentes.
-    solution: Imponer una validación estática estricta que rechace la existencia
-      de wrappers o intermediarios no registrados que dupliquen más del 30% de 
-      la funcionalidad core.
+    title: Critical Redundancies and Repetitive AI-slop Patterns
+    symptom: Cumulative additive mutations that scatter the system's
+      functionality across multiple redundant files or unnecessary wrappers instead
+      of consolidating logic.
+    cause: Generative convenience in creating new interfaces instead of
+      restructuring the existing ones.
+    solution: Impose strict static validation that rejects the existence
+      of unregistered wrappers or middlemen that duplicate more than 30% of
+      the core functionality.
     example_lang: python
     example_bad: |
-      # En vez de usar la función existente, el agente crea un wrapper redundante
-      # que reimplementa lo mismo "por comodidad". La lógica se dispersa.
-      def get_user(id): ...           # ya existe
+      # Instead of using the existing function, the agent creates a redundant wrapper
+      # that reimplements the same thing "for convenience". The logic scatters.
+      def get_user(id): ...           # already exists
 
-      def fetch_user(id):             # wrapper nuevo: 90% duplicado
+      def fetch_user(id):             # new wrapper: 90% duplicated
           u = get_user(id)
           return u
 
-      def retrieve_user(id):          # otro más, mismo patrón AI slop
+      def retrieve_user(id):          # yet another, same AI-slop pattern
           return get_user(id)
     example_good: |
-      # Una sola función canónica. Si hace falta variar comportamiento, parametrizar.
+      # A single canonical function. If behavior must vary, parameterize.
       def get_user(id, *, with_profile=False): ...
     detection: |
-      AST: detectar funciones top-level cuyo cuerpo delega >30% en otra función ya
-      existente sin lógica añadida (wrappers triviales) o nombres sinónimos
-      (`get_`/`fetch_`/`retrieve_`) sobre el mismo símbolo.
+      AST: detect top-level functions whose body delegates >30% to an already
+      existing function without added logic (trivial wrappers) or synonymous names
+      (`get_`/`fetch_`/`retrieve_`) over the same symbol.
     evidence:
       - source: "GitClear 2025"
-        claim: "el código duplicado/clonado aumentó ~8x con asistencia de IA, señal
-          directa de este antipatrón a escala."
+        claim: "duplicated/cloned code increased ~8x with AI assistance, a direct
+          signal of this anti-pattern at scale."
     status: PREVENTED
     severity: high
     tags:
       - vibe-coding
       - prevented
-    action: Nombres de función top-level duplicados entre módulos detectados por
-      comparación AST.
+    action: Duplicate top-level function names across modules detected by
+      AST comparison.
     validating_mechanism: test_vc121_duplicate_function_names
     downstream_verification: none
     tier: core
