@@ -537,33 +537,33 @@ def write_tokenomics_index_md(wiki_dir: Path, mapped_database: dict):
     doc_only_count = len([x for x in mapped_database.values() if x["category"] == "Tokenomics & Context" and x["status"] in ("DOC_ONLY", "AUDITED")])
     total_count = len([x for x in mapped_database.values() if x["category"] == "Tokenomics & Context"])
 
-    tokenomics_index_content = f"""# Índice de Tokenomics
+    tokenomics_index_content = f"""# Tokenomics Index
 
-Tokenomics es una categoría propia del Golden Standard. No describe vicios de código ni de testing: describe cómo reducir ruido, preservar headroom, compactar contexto y externalizar estado sin sacrificar calidad.
+Tokenomics is a category of its own in the Golden Standard. It does not describe code or testing vices: it describes how to reduce noise, preserve headroom, compact context, and externalize state without sacrificing quality.
 
-La utilidad práctica de esta categoría es doble:
+The practical utility of this category is twofold:
 
-1. evitar que el agente queme contexto en relecturas, salidas verbosas o handoffs pobres;
-2. convertir ahorro de tokens en una disciplina medible, no en una intuición.
+1. prevent the agent from burning context on rereads, verbose outputs, or poor handoffs;
+2. turn token savings into a measurable discipline, not an intuition.
 
-Históricamente, esta capa se operó bajo nombres como *headspace*, *compact* y *token saving*. GS conserva el conocimiento y también define la doctrina de uso.
-
----
-
-## Subíndices
-
-- [[Memory_Headroom_Index|Memoria y Headroom]]
-- [[Input_Retrieval_Index|Entrada y Recuperación]]
-- [[Output_Compaction_Index|Salida y Compresión]]
-- [[Measurement_Telemetry_Index|Medición y Telemetría]]
-- [[Automation_Tooling_Index|Automatización y Herramientas]]
-- [[Tokenomics_Map|Mapa de Tokenomics]]
+Historically, this layer was operated under names like *headspace*, *compact*, and *token saving*. GS preserves the knowledge and also defines the doctrine of use.
 
 ---
 
-## Estado de la categoría
+## Subindices
 
-| Estado | Entradas |
+- [[Memory_Headroom_Index|Memory and Headroom]]
+- [[Input_Retrieval_Index|Input and Retrieval]]
+- [[Output_Compaction_Index|Output and Compression]]
+- [[Measurement_Telemetry_Index|Measurement and Telemetry]]
+- [[Automation_Tooling_Index|Automation and Tooling]]
+- [[Tokenomics_Map|Tokenomics Map]]
+
+---
+
+## Category status
+
+| Status | Entries |
 |---|---:|
 | `PREVENTED` / `REMEDIATED` | {prevented_count} |
 | `DOC_ONLY` / `AUDITED` | {doc_only_count} |
@@ -571,20 +571,20 @@ Históricamente, esta capa se operó bajo nombres como *headspace*, *compact* y 
 
 ---
 
-## Entradas
+## Entries
 
 {"\n".join(tk_items)}
 
 ---
-## Referencia de uso
+## Usage reference
 
-- Tokenomics define principios de eficiencia y gestión de contexto.
-- La enforcement real de estos principios pertenece a los repositorios consumidores y herramientas que adopten GS.
-- El vocabulario de la categoría debe mantenerse separado de VC y VT para evitar confusión semántica.
-- Las estrategias modernas de reducción de ruido, como RTK e ICM, confirman que el ahorro de tokens se beneficia de herramientas de filtrado, memoria externa y compacción de contexto.
+- Tokenomics defines principles of efficiency and context management.
+- The real enforcement of these principles belongs to the consuming repositories and tools that adopt GS.
+- The category's vocabulary must be kept separate from VC and VT to avoid semantic confusion.
+- Modern noise-reduction strategies, like RTK and ICM, confirm that token savings benefit from filtering tools, external memory, and context compaction.
 
 ---
-[[Home|Volver al Inicio]]
+[[Home|Back to Home]]
 """
     (wiki_dir / "Tokenomics_Index.md").write_text(tokenomics_index_content, encoding="utf-8")
 
@@ -593,34 +593,34 @@ def write_tokenomics_map_md(wiki_dir: Path, insights: dict):
     """Write a bridge page that links tokenomics lenses with project insights."""
     bridge_rows = [
         (
-            "Memoria y Headroom",
-            "[[Tokenomics/Memory_Headroom_Index|Abrir lente]]",
+            "Memory and Headroom",
+            "[[Tokenomics/Memory_Headroom_Index|Open lens]]",
             "PI-006, PI-010, PI-014, PI-018",
-            "Evita pérdida de contexto, root pollution y aprendizaje olvidado.",
+            "Avoids context loss, root pollution, and forgotten learning.",
         ),
         (
-            "Entrada y Recuperación",
-            "[[Tokenomics/Input_Retrieval_Index|Abrir lente]]",
+            "Input and Retrieval",
+            "[[Tokenomics/Input_Retrieval_Index|Open lens]]",
             "PI-005, PI-012",
-            "Reduce ruido de entrada y hace más precisa la recuperación dirigida.",
+            "Reduces input noise and makes targeted retrieval more precise.",
         ),
         (
-            "Salida y Compresión",
-            "[[Tokenomics/Output_Compaction_Index|Abrir lente]]",
+            "Output and Compression",
+            "[[Tokenomics/Output_Compaction_Index|Open lens]]",
             "PI-003, PI-007, PI-009, PI-016",
-            "Controla verbosidad, costo, pruning y honestidad documental.",
+            "Controls verbosity, cost, pruning, and documentary honesty.",
         ),
         (
-            "Medición y Telemetría",
-            "[[Tokenomics/Measurement_Telemetry_Index|Abrir lente]]",
+            "Measurement and Telemetry",
+            "[[Tokenomics/Measurement_Telemetry_Index|Open lens]]",
             "PI-003, PI-013",
-            "Hace visible el ahorro real, no solo la intención de ahorrar.",
+            "Makes the real savings visible, not just the intention to save.",
         ),
         (
-            "Automatización y Herramientas",
-            "[[Tokenomics/Automation_Tooling_Index|Abrir lente]]",
+            "Automation and Tooling",
+            "[[Tokenomics/Automation_Tooling_Index|Open lens]]",
             "PI-005, PI-006, PI-013",
-            "Conecta la doctrina con tooling ejecutable y observabilidad continua.",
+            "Connects the doctrine with executable tooling and continuous observability.",
         ),
     ]
 
@@ -639,13 +639,13 @@ def write_tokenomics_map_md(wiki_dir: Path, insights: dict):
         for lens, link, pi_refs, intent in bridge_rows
     )
 
-    map_content = f"""# Mapa de Tokenomics
+    map_content = f"""# Tokenomics Map
 
-Este mapa sirve como puente entre la categoría `TK` y las lecciones satélite del GS. No repite el catálogo: muestra cómo leerlo y con qué insights se cruza.
+This map serves as a bridge between the `TK` category and the GS satellite lessons. It does not repeat the catalog: it shows how to read it and which insights it crosses.
 
-## Para qué sirve
+## What it is for
 
-- Navegar relaciones entre vicios de contexto, ahorro de tokens y disciplina operativa.
+- Navigate relations between context vices, token savings, and operational discipline.
 - Identificar qué lecciones satélite refuerzan cada lente de tokenomics.
 - Detectar huecos donde hay doctrina, pero todavía falta un artefacto de apoyo o una telemetría clara.
 
