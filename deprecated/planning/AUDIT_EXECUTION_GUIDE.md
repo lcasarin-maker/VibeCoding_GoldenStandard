@@ -21,19 +21,19 @@ cd auditorias/[FECHA]
 mkdir -p {matriz, evidencia, hallazgos, pruebas}
 
 # Copiar plantillas
-cp ../../Golden_Standard/PLAN_AUDITORIA_MARCO_CONCEPTUAL.md ./plan.md
+cp ../../Golden_Standard/CONCEPTUAL_FRAMEWORK_AUDIT_PLAN.md ./plan.md
 ```
 
 ### Paso 1.2: Verificar archivos base
 
 ```bash
 # Verificar que existen
-ls -la ../../Golden_Standard/CODERCERBERUS_MARCO_CONCEPTUAL.md
+ls -la ../../Golden_Standard/CODERCERBERUS_CONCEPTUAL_FRAMEWORK.md
 ls -la ../../rules/
 ls -la ../../learnings/
 
 # Contar líneas del Marco
-wc -l ../../Golden_Standard/CODERCERBERUS_MARCO_CONCEPTUAL.md
+wc -l ../../Golden_Standard/CODERCERBERUS_CONCEPTUAL_FRAMEWORK.md
 # Esperado: ~1046 líneas
 
 # Contar archivos en Cerberus
@@ -66,7 +66,7 @@ EOF
 
 ### Paso 2.1: Mapear antipatrones de vibe coding
 
-**Entrada:** CODERCERBERUS_MARCO_CONCEPTUAL.md sección 4.1  
+**Entrada:** CODERCERBERUS_CONCEPTUAL_FRAMEWORK.md sección 4.1  
 **Salida:** matriz/cobertura_vibe_coding.csv
 
 ```bash

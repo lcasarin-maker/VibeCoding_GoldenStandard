@@ -1,123 +1,123 @@
-# CODERCERBERUS  
-## Marco conceptual, filosofía operativa y arquitectura funcional
+# CODERCERBERUS
+## Conceptual framework, operational philosophy, and functional architecture
 
 > Deprecated as canonical GS source. The live Golden Standard source of truth is `CONCEPTUAL_FRAMEWORK.md`.
 > This file is preserved as historical lineage and should not be extended as the primary doctrine.
 
-## 1. Idea rectora
+## 1. Guiding idea
 
-CoderCerberus toma su nombre de Cerbero, el guardián del Inframundo. Su función simbólica era impedir el paso de quienes no cumplían los requisitos para ingresar.
+CoderCerberus takes its name from Cerberus, the guardian of the Underworld. Its symbolic role was to prevent passage for those who did not meet the requirements to enter.
 
-Esa es la filosofía central del proyecto: CoderCerberus debe funcionar como guardián, vigilante y gatekeeper de los proyectos de programación asistidos por inteligencia artificial.
+That is the project's central philosophy: CoderCerberus must function as guardian, watcher, and gatekeeper for AI-assisted programming projects.
 
-Su propósito es impedir que llegue a producción, a repositorio o a integración cualquier código:
+Its purpose is to prevent any code from reaching production, the repository, or integration:
 
-- mal hecho;
-- malformado;
-- frágil;
-- no documentado;
-- no reversible;
-- no escalable;
-- difícil de auditar;
-- desconectado de la funcionalidad real;
-- construido solo para “pasar tests”;
-- producto de malas prácticas de vibe coding;
-- generador de retrabajo innecesario.
+- badly made;
+- malformed;
+- fragile;
+- undocumented;
+- non-reversible;
+- non-scalable;
+- hard to audit;
+- disconnected from real functionality;
+- built only to "pass tests";
+- a product of vibe-coding anti-patterns;
+- a generator of unnecessary rework.
 
-CoderCerberus no debe limitarse a verificar formalidades. Su función no es validar que existan archivos, carpetas, tests o documentación de manera ceremonial. Su función es proteger la calidad real del software.
+CoderCerberus must not limit itself to checking formalities. Its function is not to verify that files, folders, tests, or documentation exist in a ceremonial way. Its function is to protect the real quality of the software.
 
-El criterio final no es que el proyecto “parezca correcto”. El criterio final es que el software funcione, sea trazable, sea reversible, sea mantenible, sea escalable y pueda ser usado correctamente por un humano.
+The final criterion is not that the project "looks correct." The final criterion is that the software works, is traceable, is reversible, is maintainable, is scalable, and can be used correctly by a human.
 
 ---
 
-## 2. Problema que busca resolver
+## 2. Problem it aims to solve
 
-La programación asistida por inteligencia artificial, especialmente bajo esquemas de vibe coding, permite avanzar rápido, pero genera riesgos estructurales.
+AI-assisted programming, especially under vibe-coding schemes, allows fast progress but creates structural risks.
 
-Entre ellos:
+Among them:
 
-1. Código que aparenta funcionar pero está mal diseñado.
-2. Tests que validan teatro de seguridad.
-3. Funcionalidades implementadas parcialmente.
-4. Desconexión entre backend, frontend y experiencia de usuario.
-5. Archivos creados para satisfacer instrucciones, sin valor operativo real.
-6. Soluciones no reversibles.
-7. Pérdida de trazabilidad.
-8. Crecimiento desordenado del proyecto.
-9. Acumulación de deuda técnica invisible.
-10. Consumo excesivo de tokens por mala planeación, repetición o falta de estructura.
-11. Falta de memoria institucional entre sesiones, agentes y proyectos.
-12. Repetición de errores ya detectados anteriormente.
+1. Code that appears to work but is poorly designed.
+2. Tests that validate security theater.
+3. Features implemented only partially.
+4. Disconnects between backend, frontend, and user experience.
+5. Files created to satisfy instructions, with no real operational value.
+6. Non-reversible solutions.
+7. Loss of traceability.
+8. Disorderly project growth.
+9. Accumulation of invisible technical debt.
+10. Excessive token consumption due to poor planning, repetition, or lack of structure.
+11. Lack of institutional memory across sessions, agents, and projects.
+12. Repetition of errors already detected earlier.
 
-CoderCerberus existe para evitar que esos vicios entren, permanezcan o se reproduzcan.
+CoderCerberus exists to keep those vices from entering, persisting, or reproducing.
 
 ---
 
 ## 3. Golden Standard
 
-### 3.1. Definición
+### 3.1. Definition
 
-Golden Standard es la biblioteca central de conocimiento de CoderCerberus.
+Golden Standard is the central knowledge library of CoderCerberus.
 
-No es un proyecto de software específico. No es un prompt aislado. No es una lista estática de buenas prácticas.
+It is not a specific software project. It is not an isolated prompt. It is not a static list of best practices.
 
-Golden Standard es un repositorio vivo de conocimiento normativo, técnico y operativo sobre cómo debe programarse con inteligencia artificial sin caer en los vicios comunes del vibe coding.
+Golden Standard is a living repository of normative, technical, and operational knowledge about how to program with AI without falling into the common vices of vibe coding.
 
-Debe ser:
+It must be:
 
 - project agnostic;
 - agent agnostic;
-- dinámico;
-- acumulativo;
+- dynamic;
+- cumulative;
 - refinable;
-- trazable;
-- no destructivo de carga cognitiva;
-- fuente única de verdad para CoderCerberus.
+- traceable;
+- non-destructive of cognitive load;
+- a single source of truth for CoderCerberus.
 
-### 3.2. Función
+### 3.2. Function
 
-Golden Standard debe contener los principios, reglas, antipatrones, mandatos y criterios de validación que rigen tanto a CoderCerberus como a los proyectos vigilados por CoderCerberus.
+Golden Standard must contain the principles, rules, anti-patterns, mandates, and validation criteria that govern both CoderCerberus and the projects monitored by CoderCerberus.
 
-Cada aprendizaje adquirido durante sesiones de programación, auditorías, errores detectados, fallos de testing o malas prácticas observadas debe retroalimentar Golden Standard.
+Every lesson learned during coding sessions, audits, detected errors, testing failures, or observed bad practices must feed back into Golden Standard.
 
-Golden Standard no debe perder conocimiento. Debe refinarlo.
+Golden Standard must not lose knowledge. It must refine it.
 
-El objetivo no es simplificar destruyendo matices, sino sistematizar preservando carga cognitiva.
+The goal is not to simplify by destroying nuance, but to systematize while preserving cognitive load.
 
-### 3.3. Naturaleza dinámica
+### 3.3. Dynamic nature
 
-Golden Standard debe crecer con el uso.
+Golden Standard must grow through use.
 
-Cada vez que CoderCerberus detecte un nuevo vicio, una nueva falla, una nueva forma de simulación, una nueva mala práctica de testing o una nueva estrategia eficiente de tokenomics, ese hallazgo debe convertirse en conocimiento estructurado.
+Every time CoderCerberus detects a new vice, a new failure, a new form of simulation, a new bad testing practice, or a new efficient tokenomics strategy, that finding must become structured knowledge.
 
-Ese conocimiento debe poder transformarse en:
+That knowledge must be transformable into:
 
-1. una regla;
-2. un mandato;
-3. un antipatón;
-4. una prueba;
-5. una advertencia;
-6. una heurística;
-7. una mejora del propio CoderCerberus.
+1. a rule;
+2. a mandate;
+3. an anti-pattern;
+4. a test;
+5. a warning;
+6. a heuristic;
+7. an improvement to CoderCerberus itself.
 
-### 3.4. Función normativa
+### 3.4. Normative function
 
-Todo mandato interno o externo de CoderCerberus debe derivar de Golden Standard.
+Every internal or external mandate in CoderCerberus must derive from Golden Standard.
 
-No debe existir una regla activa en Cerberus que no pueda rastrearse a Golden Standard.
+There must not be any active rule in Cerberus that cannot be traced back to Golden Standard.
 
-No debe existir un ítem crítico en Golden Standard que no tenga reflejo operativo en Cerberus.
+There must not be any critical item in Golden Standard that has no operational reflection in Cerberus.
 
-### 3.5. Regla de operatividad obligatoria
+### 3.5. Mandatory operability rule
 
-Ningún principio, mandato, antipatón, criterio o regla contenido en Golden Standard puede considerarse operativo por el solo hecho de estar documentado.
+No principle, mandate, anti-pattern, criterion, or rule contained in Golden Standard can be considered operational merely because it is documented.
 
-Para que un elemento de Golden Standard sea considerado operativo debe tener, como mínimo:
+For an element of Golden Standard to be considered operational, it must have, at minimum:
 
-1. una regla ejecutable;
-2. una prueba asociada;
-3. una evidencia verificable de ejecución;
-4. una consecuencia definida en caso de incumplimiento.
+1. an executable rule;
+2. an associated test;
+3. verifiable execution evidence;
+4. a defined consequence in case of noncompliance.
 
 La documentación, por sí sola, no convierte un principio en control real.
 
@@ -147,11 +147,11 @@ Ningún elemento no operativo debe utilizarse como base para afirmar que CoderCe
 
 ---
 
-## 4. Tres dominios principales
+## 4. Three main domains
 
-CoderCerberus debe organizarse alrededor de tres grandes dominios.
+CoderCerberus must be organized around three major domains.
 
-### 4.1. Vicios de vibe coding
+### 4.1. Vibe-coding vices
 
 Este dominio contiene los errores, malas prácticas y desviaciones comunes al programar con inteligencia artificial.
 
@@ -174,7 +174,7 @@ Incluye, entre otros:
 - pérdida de sincronía entre módulos;
 - uso de prompts sin control operativo.
 
-### 4.2. Vicios de testing
+### 4.2. Testing vices
 
 Este dominio está al mismo nivel jerárquico que los vicios de vibe coding.
 
@@ -203,7 +203,7 @@ Tokenomics es un dominio de gobernanza separado de los vicios. No describe antip
 
 Debe considerarse importante, pero subordinado a la pureza del código.
 
-Jerarquía correcta:
+Correct hierarchy:
 
 1. Calidad, seguridad, funcionalidad, trazabilidad y reversibilidad del código.
 2. Calidad real del testing.
@@ -213,9 +213,9 @@ Tokenomics no debe justificar atajos que degraden el software. Su función es ev
 
 ---
 
-## 5. Principio de jerarquía entre dominios
+## 5. Principle of hierarchy between domains
 
-Los vicios de vibe coding y los vicios de testing están en el primer nivel de prioridad.
+Vibe-coding vices and testing vices are at the highest-priority level.
 
 Tokenomics está en un segundo nivel.
 
@@ -237,9 +237,9 @@ Regla operativa:
 
 ---
 
-## 6. Arquitectura conceptual de CoderCerberus
+## 6. Conceptual architecture of CoderCerberus
 
-CoderCerberus debe operar en tres capas principales:
+CoderCerberus must operate across three main layers:
 
 1. Golden Standard.
 2. Cerberus al interior.
@@ -247,11 +247,11 @@ CoderCerberus debe operar en tres capas principales:
 
 ---
 
-## 7. Capa 1: Golden Standard
+## 7. Layer 1: Golden Standard
 
 Golden Standard es el repositorio puro de conocimiento.
 
-### 7.1. Características
+### 7.1. Characteristics
 
 Debe ser:
 
@@ -265,15 +265,15 @@ Debe ser:
 - protegido contra pérdida de carga cognitiva;
 - fuente única de verdad.
 
-### 7.2. Función normativa
+### 7.2. Normative function
 
-Todo mandato interno o externo de CoderCerberus debe derivar de Golden Standard.
+Every internal or external CoderCerberus mandate must derive from Golden Standard.
 
 No debe existir una regla activa en Cerberus que no pueda rastrearse a Golden Standard.
 
 No debe existir un ítem crítico en Golden Standard que no tenga reflejo operativo en Cerberus.
 
-### 7.3. Regla de operatividad obligatoria
+### 7.3. Mandatory operability rule
 
 Ningún principio de Golden Standard puede considerarse operativo si no tiene:
 
@@ -299,15 +299,15 @@ La clasificación mínima de cada elemento de Golden Standard debe ser:
 
 ---
 
-## 8. Capa 2: Cerberus al interior
+## 8. Layer 2: Cerberus internally
 
-Cerberus al interior es la dimensión que regula el propio proyecto CoderCerberus.
+Cerberus internally is the layer that governs the CoderCerberus project itself.
 
 Su objetivo es asegurar que CoderCerberus no incurra en los mismos vicios que pretende prevenir.
 
-### 8.1. Principio de autorregulación
+### 8.1. Principle of self-regulation
 
-CoderCerberus debe auditarse a sí mismo.
+CoderCerberus must audit itself.
 
 Debe existir correspondencia entre:
 
@@ -317,7 +317,7 @@ Debe existir correspondencia entre:
 4. una evidencia de ejecución;
 5. una consecuencia si la regla falla.
 
-### 8.2. Exhaustividad
+### 8.2. Exhaustiveness
 
 CoderCerberus debe ser exhaustivo.
 
@@ -325,7 +325,7 @@ Por cada antipatón, vicio, regla o mandato contenido en Golden Standard, debe e
 
 Esa implementación no debe ser decorativa. Debe tener efecto real.
 
-### 8.3. Pruebas reales, no teatro de seguridad
+### 8.3. Real tests, not security theater
 
 Cada regla debe contar con una prueba que evalúe la realidad de su cumplimiento.
 
@@ -337,9 +337,9 @@ No basta con comprobar que existe documentación.
 
 Debe comprobarse que la regla funciona operativamente.
 
-### 8.4. Automatización
+### 8.4. Automation
 
-CoderCerberus debe funcionar de manera automatizada porque el usuario no es programador.
+CoderCerberus must operate automatically because the user is not a programmer.
 
 El sistema debe reducir al mínimo la necesidad de intervención técnica manual.
 
@@ -358,9 +358,9 @@ La automatización debe cubrir:
 
 ---
 
-## 9. Capa 3: Cerberus al exterior
+## 9. Layer 3: Cerberus externally
 
-Cerberus al exterior es la razón principal de existencia del proyecto.
+Cerberus externally is the project's main reason for existence.
 
 Su función es vigilar, auditar y bloquear malas prácticas en otros proyectos de programación.
 
@@ -369,15 +369,15 @@ Debe operar en dos momentos:
 1. en tiempo real;
 2. a posteriori.
 
-### 9.1. Vigilancia en tiempo real
+### 9.1. Real-time monitoring
 
 CoderCerberus debe actuar como gatekeeper antes de que errores, vicios o malas prácticas entren al repositorio o lleguen a GitHub.
 
 Debe impedir commits, cambios o integraciones que incumplan Golden Standard.
 
-### 9.2. Auditoría posterior
+### 9.2. Post-audit
 
-CoderCerberus también debe poder auditar proyectos ya existentes.
+CoderCerberus must also be able to audit existing projects.
 
 Debe detectar:
 
@@ -393,7 +393,7 @@ Debe detectar:
 - desconexión entre backend y frontend;
 - desviaciones respecto de Golden Standard.
 
-### 9.3. Bloqueo de errores
+### 9.3. Error blocking
 
 CoderCerberus no debe limitarse a reportar.
 
@@ -403,9 +403,9 @@ El sistema debe impedir que pasen a GitHub cambios que incumplan reglas crítica
 
 ---
 
-## 10. Repositorios privados, trazabilidad y reversibilidad
+## 10. Private repositories, traceability, and reversibility
 
-Todo proyecto de programación desarrollado con inteligencia artificial debe tener su propio repositorio privado.
+Every AI-developed programming project must have its own private repository.
 
 Este es un principio operativo obligatorio.
 
@@ -429,9 +429,9 @@ Sin reversibilidad, no hay control real del riesgo.
 
 ---
 
-## 11. Higiene, limpieza y organización del repositorio
+## 11. Repository hygiene, cleanliness, and organization
 
-CoderCerberus debe vigilar no solo la calidad del código, sino también la limpieza, organización y mantenibilidad estructural del repositorio.
+CoderCerberus must monitor not only code quality but also the repository's cleanliness, organization, and structural maintainability.
 
 Un repositorio desordenado es deuda técnica visible. Aunque el código funcione, la acumulación de archivos temporales, nombres confusos, carpetas innecesarias, logs residuales, scripts descartables y estructuras infladas degrada la trazabilidad, dificulta la auditoría y aumenta el riesgo de errores futuros.
 
@@ -441,9 +441,9 @@ Esta doctrina se expone también como una capa de navegación dedicada dentro de
 
 GS define la norma; Cerberus debe ejecutar la vigilancia, la evidencia y la consecuencia operativa en los repositorios que consume.
 
-### 11.1. Principio de repositorio limpio
+### 11.1. Clean repository principle
 
-Todo proyecto vigilado por CoderCerberus debe mantener una estructura clara, mínima, legible y justificable.
+Every project monitored by CoderCerberus must maintain a clear, minimal, readable, and justifiable structure.
 
 El repositorio debe contener únicamente archivos, carpetas, scripts, configuraciones, pruebas, documentación y artefactos que tengan una función vigente, verificable y necesaria.
 
@@ -463,9 +463,9 @@ Debe evitarse la acumulación de:
 - pruebas descartadas que ya no forman parte del sistema;
 - archivos con nombres ambiguos, grandilocuentes o no descriptivos.
 
-### 11.2. Nombres sencillos y descriptivos
+### 11.2. Simple and descriptive names
 
-CoderCerberus debe prohibir la tendencia del vibe coding a crear nombres bombásticos, ceremoniales o abstractos que no describen con precisión la función real del archivo, carpeta, módulo o script.
+CoderCerberus must prohibit the vibe-coding tendency to create bombastic, ceremonial, or abstract names that do not accurately describe the real function of a file, folder, module, or script.
 
 Los nombres deben ser:
 
@@ -503,9 +503,9 @@ La regla debe ser:
 
 > El nombre debe explicar qué hace el componente, no vender su importancia.
 
-### 11.3. Estructuras lo más planas posibles
+### 11.3. As-flat-as-possible structures
 
-CoderCerberus debe favorecer estructuras de carpetas lo más planas posibles, siempre que ello no sacrifique claridad, separación de responsabilidades o escalabilidad.
+CoderCerberus must favor as-flat-as-possible folder structures, as long as doing so does not sacrifice clarity, separation of responsibilities, or scalability.
 
 Debe evitarse la sobrearquitectura de carpetas creada por agentes de IA para aparentar diseño avanzado.
 
@@ -632,9 +632,9 @@ Debe incorporarse a Golden Standard un mandato específico de higiene estructura
 
 Este mandato debe tener regla ejecutable, prueba asociada, evidencia generada y consecuencia definida.
 
-### 11.10. Higiene de ejecución y tooling
+### 11.10. Execution and tooling hygiene
 
-La calidad del Golden Standard no depende solo del contenido, sino también de cómo se inspecciona, edita y valida.
+The quality of Golden Standard depends not only on content, but also on how it is inspected, edited, and validated.
 
 Toda interacción con herramientas debe seguir una disciplina de ejecución mínima, estable y reproducible:
 
@@ -655,9 +655,9 @@ Cuando una herramienta no sea estable o no sea necesaria, GS debe favorecer la a
 
 Esta regla queda formalizada como `PI-019` para que ejecución e higiene se puedan rastrear como insight satélite y no solo como texto doctrinal.
 
-## 12. Validación funcional real
+## 12. Real functional validation
 
-CoderCerberus debe validar la funcionalidad real del software.
+CoderCerberus must validate the software's real functionality.
 
 No basta con verificar que el backend funcione aisladamente.
 
@@ -703,9 +703,9 @@ Ejemplos:
 
 ---
 
-## 13. Pruebas específicas por proyecto
+## 13. Project-specific tests
 
-Cada proyecto vigilado por CoderCerberus debe tener pruebas específicas y únicas.
+Every project monitored by CoderCerberus must have specific and unique tests.
 
 No basta con aplicar tests genéricos.
 
@@ -721,23 +721,23 @@ Los tests deben corresponder a:
 - antipatrones detectados;
 - criterios aplicables del Golden Standard.
 
-### 12.1. Pruebas contra vicios de vibe coding
+### 12.1. Tests against vibe-coding vices
 
 Cada proyecto debe contar con pruebas que detecten malas prácticas típicas del vibe coding.
 
-### 12.2. Pruebas contra vicios de testing
+### 12.2. Tests against testing vices
 
 Cada proyecto debe contar con pruebas que detecten si los propios tests son débiles, ceremoniales, irrelevantes o insuficientes.
 
-### 12.3. Pruebas de tokenomics
+### 12.3. Tokenomics tests
 
 Cada proyecto debe desarrollarse y auditarse siguiendo principios de tokenomics, siempre subordinados a la calidad del código.
 
 ---
 
-## 14. Circuito de retroalimentación
+## 14. Feedback loop
 
-Todo hallazgo relevante debe retroalimentar el sistema.
+Every relevant finding must feed back into the system.
 
 El flujo correcto es:
 
@@ -758,9 +758,9 @@ Todo aprendizaje debe convertirse en sistema.
 
 ---
 
-## 15. Mandato de correspondencia total
+## 15. Total correspondence mandate
 
-Debe existir una matriz de correspondencia obligatoria entre Golden Standard, Cerberus interno y Cerberus externo.
+There must be a mandatory correspondence matrix between Golden Standard, Cerberus internal, and Cerberus external.
 
 Esta matriz debe demostrar que cada principio de Golden Standard tiene traducción operativa real.
 
@@ -778,7 +778,7 @@ Cada ítem de Golden Standard debe responder:
 
 Si un ítem de Golden Standard no tiene regla, prueba, evidencia y consecuencia, debe considerarse conocimiento pendiente, no control operativo.
 
-### 14.1. Matriz mínima de correspondencia
+### 14.1. Minimum correspondence matrix
 
 | Campo | Pregunta de control |
 |---|---|
@@ -796,9 +796,9 @@ Si un ítem de Golden Standard no tiene regla, prueba, evidencia y consecuencia,
 
 ---
 
-## 16. Principio contra el teatro de seguridad
+## 16. Principle against security theater
 
-CoderCerberus debe combatir el teatro de seguridad.
+CoderCerberus must fight security theater.
 
 Teatro de seguridad significa que el sistema aparenta controlar riesgos sin controlarlos realmente.
 
@@ -819,9 +819,9 @@ El objetivo es producir control real.
 
 ---
 
-## 17. Principio de consecuencia operativa
+## 17. Principle of operational consequence
 
-Toda regla debe tener consecuencia.
+Every rule must have a consequence.
 
 Una regla sin consecuencia es decoración.
 
@@ -840,9 +840,9 @@ Cada incumplimiento debe generar, según gravedad:
 
 ---
 
-## 18. Principio de reversibilidad
+## 18. Principle of reversibility
 
-Todo cambio debe poder revertirse.
+Every change must be reversible.
 
 CoderCerberus debe proteger la capacidad de volver a un estado anterior funcional.
 
@@ -862,9 +862,9 @@ La reversibilidad es una condición de seguridad.
 
 ---
 
-## 19. Principio de trazabilidad
+## 19. Principle of traceability
 
-Toda decisión relevante debe ser trazable.
+Every relevant decision must be traceable.
 
 Debe poder saberse:
 
@@ -881,9 +881,9 @@ La trazabilidad convierte sesiones dispersas de IA en conocimiento acumulable.
 
 ---
 
-## 20. Principio de automatización para usuario no programador
+## 20. Principle of automation for a non-programmer user
 
-CoderCerberus debe diseñarse bajo el supuesto de que el usuario no es programador.
+CoderCerberus must be designed under the assumption that the user is not a programmer.
 
 El sistema debe ser usable por una persona que necesita resultados técnicos confiables sin tener que intervenir manualmente en cada detalle.
 

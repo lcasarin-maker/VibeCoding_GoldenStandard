@@ -1,4 +1,4 @@
-# Biblioteca de Anti-patrones de Testing y Evaluación
+# Testing and Evaluation Anti-patterns Library
 
 ## Propósito
 

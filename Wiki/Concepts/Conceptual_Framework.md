@@ -243,7 +243,7 @@ Every discovery should become system-level knowledge.
 The Golden Standard was extracted from its original enforcement lineage in June 2026,
 when it became clear that the knowledge base had value independent of any specific enforcement tool.
 
-The original conceptual framework document is preserved in [`deprecated/knowledge_snapshots/CODERCERBERUS_MARCO_CONCEPTUAL_original.md`](deprecated/knowledge_snapshots/CODERCERBERUS_MARCO_CONCEPTUAL_original.md).
+The original conceptual framework document is preserved in [`deprecated/knowledge_snapshots/CODERCERBERUS_CONCEPTUAL_FRAMEWORK_original.md`](deprecated/knowledge_snapshots/CODERCERBERUS_CONCEPTUAL_FRAMEWORK_original.md).
 
 ---
 

@@ -1,4 +1,4 @@
-# Biblioteca de Anti-patrones de Vibe Coding
+# Vibe Coding Anti-patterns Library
 
 ## Propósito
 

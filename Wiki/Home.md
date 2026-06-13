@@ -9,8 +9,8 @@ Bienvenido a la bóveda Obsidian del **Golden Standard** (GS). Esta base de cono
 - 📂 **[[Vices_Index|Índice de Vicios de Ingeniería]]**: Catálogo central de anomalías de código y tests (`VC`, `TV`).
 - 📂 **[[Project_Insights_Index|Índice de Insights Satélite]]**: Lecciones y mejores prácticas (`PI`) extraídas de repositorios externos y automatizaciones.
 - 🕸️ **[[Graph|Mapa de Grafo GS]]**: Hubs, huérfanos intencionales, huérfanos candidatos e impacto local del vault.
-- 📘 **[[Concepts/Marco_Conceptual|Marco Conceptual del Golden Standard]]**: Doctrina epistemológica, niveles y bases de diseño.
-- 🧼 **[[Concepts/Marco_Conceptual#11.-Higiene,-limpieza-y-organización-del-repositorio|Capítulo de Higiene del Repositorio]]**: Norma canónica para limpieza, nombres, root limpio y evidencia de organización.
+- 📘 **[[Concepts/Conceptual_Framework|Marco Conceptual del Golden Standard]]**: Doctrina epistemológica, niveles y bases de diseño.
+- 🧼 **[[Concepts/Conceptual_Framework#11.-Higiene,-limpieza-y-organización-del-repositorio|Capítulo de Higiene del Repositorio]]**: Norma canónica para limpieza, nombres, root limpio y evidencia de organización.
 - 🔧 **[[Project_Insights/PI-019|Higiene de ejecución y tooling]]**: Regla satélite para comandos simples, UTF-8 y pureza técnica.
 - ⚠️ **[[Vices/VC-124|Deprecación precipitada]]**: Vicio espejo que evita mover a `deprecated/` sin análisis.
 - 🏷️ **[[Project_Insights/PI-020|Confidence Tags]]**: Cada afirmación de protocolo debe declarar si es VERIFIED, INFERRED o ASSUMED.
@@ -76,4 +76,4 @@ Bienvenido a la bóveda Obsidian del **Golden Standard** (GS). Esta base de cono
 4. Recompilar con `python generate_golden_audit.py`.
 
 ---
-*Bóveda auto-generada por el compilador `generate_golden_audit.py` el 2026-06-12.*
+*Bóveda auto-generada por el compilador `generate_golden_audit.py` el 2026-06-13.*

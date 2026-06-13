@@ -65,7 +65,7 @@ Cross-cutting lessons and reusable observations that explain, connect, or contex
 
 - **[Wiki Home](Wiki/Home.md)** — Entry point with category indexes
 - **[Conceptual Framework](CONCEPTUAL_FRAMEWORK.md)** — Root doctrine and architectural baseline
-- **[Repository Hygiene](Wiki/Concepts/Marco_Conceptual.md#11-higiene-limpieza-y-organizacion-del-repositorio)** — Canonical cleanup and naming doctrine
+- **[Repository Hygiene](Wiki/Concepts/Conceptual_Framework.md#5-repository-and-execution-hygiene)** — Canonical cleanup and naming doctrine
 - **[Inbox](Inbox/README.md)** — Intake process for raw findings and proposed entries
 - **[Audit Report](golden_standard_audit_report.md)** — Machine-generated coverage map
 - **[Graph](Wiki/Graph.md)** — Local knowledge graph with hubs, intentional templates, orphan candidates, and impact paths
@@ -122,7 +122,7 @@ VibeCoding_GoldenStandard/
  │   ├── Tokenomics_Index.md                ← Dedicated tokenomics index
  │   ├── Tokenomics_Map.md                  ← Bridge between tokenomics lenses and insights
  │   ├── Concepts/
- │   │   └── Marco_Conceptual.md            ← Canonical doctrine with hygiene chapter
+ │   │   └── Conceptual_Framework.md            ← Canonical doctrine with hygiene chapter
  │   ├── Tokenomics/                        ← Individual TK articles
 │   ├── Graph.md                           ← Generated graph summary
 │   └── Vices/                             ← Individual articles (VC/VT)

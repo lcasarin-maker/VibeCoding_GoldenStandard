@@ -1,4 +1,4 @@
-# Biblioteca de Tokenomics y Gestión de Contexto
+# Tokenomics and Context Management Library
 
 ## Propósito
 

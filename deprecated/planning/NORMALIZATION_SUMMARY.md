@@ -65,7 +65,7 @@ After:  TK-002: Coarse-Grained Retrieval — Primitiva Poda
 ### 5. **Positive Principles Relocated** ✅
 
 **TK-P01..P11 migration plan:**
-- **Source:** `deprecated/BIBLIOTECA_TOKENOMICS_CONTEXTO.md` (Principios Positivos Consolidados)
+- **Source:** `deprecated/TOKENOMICS_CONTEXT_LIBRARY.md` (Principios Positivos Consolidados)
 - **Destination:** `Principles/LEVEL_5_TokenSaving/M3_Positive_Principles.md`
 - **Reason:** These are principles, not anti-patterns; belong in Principles, not Patterns
 
@@ -78,9 +78,9 @@ After:  TK-002: Coarse-Grained Retrieval — Primitiva Poda
 These are tracked in the respective stub files as `[ ] Next Steps`:
 
 1. **Populate category files** from deprecated/ sources (19 files)
-   - Migrate VC entries from BIBLIOTECA_VICIOS_VIBE_CODING.md
-   - Migrate VT entries from BIBLIOTECA_VICIOS_TESTING_EVALUACION.md
-   - Migrate TK entries from BIBLIOTECA_TOKENOMICS_CONTEXTO.md
+   - Migrate VC entries from AI_Coding_Anti_Patterns_Library.md
+   - Migrate VT entries from TESTING_EVALUATION_VICES_LIBRARY.md
+   - Migrate TK entries from TOKENOMICS_CONTEXT_LIBRARY.md
 
 2. **Update cross-links** in CORRELATION_MATRIX.md
    - Replace references to non-existent files (e.g., I_Epistemology.md) with INDEX.md

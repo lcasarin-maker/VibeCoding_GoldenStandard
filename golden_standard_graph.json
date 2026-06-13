@@ -1,7 +1,7 @@
 {
-  "generated_on": "2026-06-12",
-  "node_count": 387,
-  "edge_count": 1893,
+  "generated_on": "2026-06-13",
+  "node_count": 383,
+  "edge_count": 1889,
   "nodes": [
     {
       "id": "CODE_OF_CONDUCT",
@@ -67,70 +67,13 @@
       "degree": 7
     },
     {
-      "id": "Inbox/cerberus/2026-06-06_doc-only-enforcement-gap",
-      "path": "Inbox/cerberus/2026-06-06_doc-only-enforcement-gap.md",
-      "title": "2026-06-06_doc-only-enforcement-gap",
-      "kind": "inbox",
-      "outgoing": [],
-      "incoming": [
-        "Inbox/cerberus/README"
-      ],
-      "in_degree": 1,
-      "out_degree": 0,
-      "degree": 1
-    },
-    {
       "id": "Inbox/cerberus/README",
       "path": "Inbox/cerberus/README.md",
       "title": "Inbox / Cerberus",
       "kind": "inbox",
-      "outgoing": [
-        "Inbox/cerberus/2026-06-06_doc-only-enforcement-gap",
-        "Inbox/cerberus/VC-142_structural_hygiene",
-        "Inbox/cerberus/fallos_concretos",
-        "Inbox/cerberus/global_learning_legacy"
-      ],
+      "outgoing": [],
       "incoming": [
         "Inbox/README"
-      ],
-      "in_degree": 1,
-      "out_degree": 4,
-      "degree": 5
-    },
-    {
-      "id": "Inbox/cerberus/VC-142_structural_hygiene",
-      "path": "Inbox/cerberus/VC-142_structural_hygiene.md",
-      "title": "Proposal: VC-142 — Repositorio con código vigilado y estructura salvaje",
-      "kind": "inbox",
-      "outgoing": [],
-      "incoming": [
-        "Inbox/cerberus/README"
-      ],
-      "in_degree": 1,
-      "out_degree": 0,
-      "degree": 1
-    },
-    {
-      "id": "Inbox/cerberus/fallos_concretos",
-      "path": "Inbox/cerberus/fallos_concretos.md",
-      "title": "Fallos Concretos (Rescued from HISTORICO_PROTOCOLO)",
-      "kind": "inbox",
-      "outgoing": [],
-      "incoming": [
-        "Inbox/cerberus/README"
-      ],
-      "in_degree": 1,
-      "out_degree": 0,
-      "degree": 1
-    },
-    {
-      "id": "Inbox/cerberus/global_learning_legacy",
-      "path": "Inbox/cerberus/global_learning_legacy.md",
-      "title": "Legacy Global Learning (Rescued from HISTORICO_PROTOCOLO)",
-      "kind": "inbox",
-      "outgoing": [],
-      "incoming": [
-        "Inbox/cerberus/README"
       ],
       "in_degree": 1,
       "out_degree": 0,
@@ -229,8 +172,8 @@
       "degree": 7
     },
     {
-      "id": "Concepts/Marco_Conceptual",
-      "path": "Wiki/Concepts/Marco_Conceptual.md",
+      "id": "Concepts/Conceptual_Framework",
+      "path": "Wiki/Concepts/Conceptual_Framework.md",
       "title": "[[Home|← Volver al Inicio de la Bóveda]]",
       "kind": "concept",
       "outgoing": [
@@ -498,7 +441,7 @@
       "kind": "wiki",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
-        "Concepts/Marco_Conceptual",
+        "Concepts/Conceptual_Framework",
         "Inbox/README",
         "Project_Insights/PI-019",
         "Project_Insights/PI-020",
@@ -520,7 +463,7 @@
         "Vices_Index"
       ],
       "incoming": [
-        "Concepts/Marco_Conceptual",
+        "Concepts/Conceptual_Framework",
         "Domains/D1",
         "Domains/D10",
         "Domains/D11",
@@ -9444,7 +9387,7 @@
       "kind": "markdown"
     },
     {
-      "source": "Concepts/Marco_Conceptual",
+      "source": "Concepts/Conceptual_Framework",
       "target": "Home",
       "kind": "wikilink"
     },
@@ -9715,7 +9658,7 @@
     },
     {
       "source": "Home",
-      "target": "Concepts/Marco_Conceptual",
+      "target": "Concepts/Conceptual_Framework",
       "kind": "wikilink"
     },
     {
@@ -9832,26 +9775,6 @@
       "source": "Inbox/README",
       "target": "Inbox/templates/README",
       "kind": "markdown"
-    },
-    {
-      "source": "Inbox/cerberus/README",
-      "target": "Inbox/cerberus/2026-06-06_doc-only-enforcement-gap",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Inbox/cerberus/README",
-      "target": "Inbox/cerberus/VC-142_structural_hygiene",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Inbox/cerberus/README",
-      "target": "Inbox/cerberus/fallos_concretos",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Inbox/cerberus/README",
-      "target": "Inbox/cerberus/global_learning_legacy",
-      "kind": "wikilink"
     },
     {
       "source": "Project_Insights/PI-001",
@@ -19491,7 +19414,7 @@
         "kind": "wiki",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
-          "Concepts/Marco_Conceptual",
+          "Concepts/Conceptual_Framework",
           "Inbox/README",
           "Project_Insights/PI-019",
           "Project_Insights/PI-020",
@@ -19513,7 +19436,7 @@
           "Vices_Index"
         ],
         "incoming": [
-          "Concepts/Marco_Conceptual",
+          "Concepts/Conceptual_Framework",
           "Domains/D1",
           "Domains/D10",
           "Domains/D11",
@@ -21782,7 +21705,7 @@
         "kind": "wiki",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
-          "Concepts/Marco_Conceptual",
+          "Concepts/Conceptual_Framework",
           "Inbox/README",
           "Project_Insights/PI-019",
           "Project_Insights/PI-020",
@@ -21804,7 +21727,7 @@
           "Vices_Index"
         ],
         "incoming": [
-          "Concepts/Marco_Conceptual",
+          "Concepts/Conceptual_Framework",
           "Domains/D1",
           "Domains/D10",
           "Domains/D11",

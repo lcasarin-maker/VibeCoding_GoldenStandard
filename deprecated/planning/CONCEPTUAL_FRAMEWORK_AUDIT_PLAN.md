@@ -12,7 +12,7 @@
 
 ### 1.1. Definición de "implementación real"
 
-Conforme a CODERCERBERUS_MARCO_CONCEPTUAL.md sección 3.5:
+Conforme a CODERCERBERUS_CONCEPTUAL_FRAMEWORK.md sección 3.5:
 
 Una implementación real requiere:
 1. **Regla ejecutable** — código, script o procedimiento que se ejecuta

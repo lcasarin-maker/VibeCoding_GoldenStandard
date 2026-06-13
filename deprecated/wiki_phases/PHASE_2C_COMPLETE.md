@@ -80,8 +80,8 @@
 ## WORK REMAINING (Phase 2D — Optional Enhancement)
 
 **If continuing:**
-1. **Populate VT (Testing Vices)** — Migrate from BIBLIOTECA_VICIOS_TESTING_EVALUACION.md
-2. **Populate TK (Tokenomics)** — Migrate from BIBLIOTECA_TOKENOMICS_CONTEXTO.md
+1. **Populate VT (Testing Vices)** — Migrate from TESTING_EVALUATION_VICES_LIBRARY.md
+2. **Populate TK (Tokenomics)** — Migrate from TOKENOMICS_CONTEXT_LIBRARY.md
 3. **Populate VC II-VIII** — Detail entries in existing template structure
 4. **Update DEDUP_LOG.yaml** — Finalize deduplication decisions
 5. **Update CORRELATION_MATRIX.md** — Reflect all cross-links

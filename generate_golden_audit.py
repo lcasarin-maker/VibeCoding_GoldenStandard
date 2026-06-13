@@ -33,7 +33,7 @@ WIKI_DIR = _ROOT / "Wiki"
 GRAPH_OUTPUT = JSON_OUTPUT.with_name("golden_standard_graph.json")
 GRAPH_MARKDOWN = WIKI_DIR / "Graph.md"
 CONCEPTUAL_FRAMEWORK_SRC = _ROOT / "CONCEPTUAL_FRAMEWORK.md"
-LEGACY_CONCEPTUAL_SRC = _ROOT / "CODERCERBERUS_MARCO_CONCEPTUAL.md"
+LEGACY_CONCEPTUAL_SRC = _ROOT / "CODERCERBERUS_CONCEPTUAL_FRAMEWORK.md"
 
 WIKILINK_PATTERN = re.compile(r"\[\[([^\]]+?)\]\]")
 MARKDOWN_LINK_PATTERN = re.compile(r"(?<!\!)\[[^\]]+\]\(([^)]+?\.md)\)")
@@ -418,8 +418,8 @@ Bienvenido a la bóveda Obsidian del **Golden Standard** (GS). Esta base de cono
 - 📂 **[[Vices_Index|Índice de Vicios de Ingeniería]]**: Catálogo central de anomalías de código y tests (`VC`, `TV`).
 - 📂 **[[Project_Insights_Index|Índice de Insights Satélite]]**: Lecciones y mejores prácticas (`PI`) extraídas de repositorios externos y automatizaciones.
 - 🕸️ **[[Graph|Mapa de Grafo GS]]**: Hubs, huérfanos intencionales, huérfanos candidatos e impacto local del vault.
-- 📘 **[[Concepts/Marco_Conceptual|Marco Conceptual del Golden Standard]]**: Doctrina epistemológica, niveles y bases de diseño.
-- 🧼 **[[Concepts/Marco_Conceptual#11.-Higiene,-limpieza-y-organización-del-repositorio|Capítulo de Higiene del Repositorio]]**: Norma canónica para limpieza, nombres, root limpio y evidencia de organización.
+- 📘 **[[Concepts/Conceptual_Framework|Marco Conceptual del Golden Standard]]**: Doctrina epistemológica, niveles y bases de diseño.
+- 🧼 **[[Concepts/Conceptual_Framework#11.-Higiene,-limpieza-y-organización-del-repositorio|Capítulo de Higiene del Repositorio]]**: Norma canónica para limpieza, nombres, root limpio y evidencia de organización.
 - 🔧 **[[Project_Insights/PI-019|Higiene de ejecución y tooling]]**: Regla satélite para comandos simples, UTF-8 y pureza técnica.
 - ⚠️ **[[Vices/VC-124|Deprecación precipitada]]**: Vicio espejo que evita mover a `deprecated/` sin análisis.
 - 🏷️ **[[Project_Insights/PI-020|Confidence Tags]]**: Cada afirmación de protocolo debe declarar si es VERIFIED, INFERRED o ASSUMED.
@@ -843,7 +843,7 @@ def write_conceptual_concepts_md(wiki_dir: Path):
             note = (
                 "> Deprecation note: this page is rendered from the canonical GS root framework; legacy source files are preserved only for historical reference.\n\n---\n\n"
             )
-        (wiki_dir / "Concepts" / "Marco_Conceptual.md").write_text(
+        (wiki_dir / "Concepts" / "Conceptual_Framework.md").write_text(
             nav_header + note + original_text,
             encoding="utf-8",
         )

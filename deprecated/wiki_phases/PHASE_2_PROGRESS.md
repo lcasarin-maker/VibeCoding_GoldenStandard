@@ -37,9 +37,9 @@
 ### 🟡 HIGH PRIORITY
 
 - [ ] **Populate 32 stubs** from deprecated/ sources:
-  - VC-001..123 from BIBLIOTECA_VICIOS_VIBE_CODING.md (14 files)
-  - VT-001..115 from BIBLIOTECA_VICIOS_TESTING_EVALUACION.md (3 files)
-  - TK-001..030 from BIBLIOTECA_TOKENOMICS_CONTEXTO.md (3 files, TK renumbered)
+  - VC-001..123 from AI_Coding_Anti_Patterns_Library.md (14 files)
+  - VT-001..115 from TESTING_EVALUATION_VICES_LIBRARY.md (3 files)
+  - TK-001..030 from TOKENOMICS_CONTEXT_LIBRARY.md (3 files, TK renumbered)
   - Principles modules from N_MODULOS/ (12 files)
 
 - [ ] **Update CORRELATION_MATRIX.md:**
