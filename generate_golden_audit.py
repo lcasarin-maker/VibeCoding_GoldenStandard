@@ -33,7 +33,6 @@ WIKI_DIR = _ROOT / "Wiki"
 GRAPH_OUTPUT = JSON_OUTPUT.with_name("golden_standard_graph.json")
 GRAPH_MARKDOWN = WIKI_DIR / "Graph.md"
 CONCEPTUAL_FRAMEWORK_SRC = _ROOT / "CONCEPTUAL_FRAMEWORK.md"
-LEGACY_CONCEPTUAL_SRC = _ROOT / "CODERCERBERUS_CONCEPTUAL_FRAMEWORK.md"
 
 WIKILINK_PATTERN = re.compile(r"\[\[([^\]]+?)\]\]")
 MARKDOWN_LINK_PATTERN = re.compile(r"(?<!\!)\[[^\]]+\]\(([^)]+?\.md)\)")
@@ -833,20 +832,16 @@ Entries are grouped by type to distinguish actionable principles from system met
 
 
 def write_conceptual_concepts_md(wiki_dir: Path):
-    """Create link-adapted copy of conceptual framework."""
-    conceptual_src = CONCEPTUAL_FRAMEWORK_SRC if CONCEPTUAL_FRAMEWORK_SRC.exists() else LEGACY_CONCEPTUAL_SRC
-    if conceptual_src.exists():
-        original_text = conceptual_src.read_text(encoding="utf-8")
-        nav_header = "# [[Home|← Back to Vault Home]]\n\n---\n\n"
-        note = ""
-        if conceptual_src == LEGACY_CONCEPTUAL_SRC:
-            note = (
-                "> Deprecation note: this page is rendered from the canonical GS root framework; legacy source files are preserved only for historical reference.\n\n---\n\n"
-            )
-        (wiki_dir / "Concepts" / "Conceptual_Framework.md").write_text(
-            nav_header + note + original_text,
-            encoding="utf-8",
-        )
+    """Create link-adapted copy of the canonical conceptual framework."""
+    if not CONCEPTUAL_FRAMEWORK_SRC.exists():
+        raise FileNotFoundError(f"Missing canonical conceptual framework: {CONCEPTUAL_FRAMEWORK_SRC}")
+
+    original_text = CONCEPTUAL_FRAMEWORK_SRC.read_text(encoding="utf-8")
+    nav_header = "# [[Home|← Back to Vault Home]]\n\n---\n\n"
+    (wiki_dir / "Concepts" / "Conceptual_Framework.md").write_text(
+        nav_header + original_text,
+        encoding="utf-8",
+    )
 
 
 def entry_depth(item: dict) -> str:
