@@ -1469,7 +1469,7 @@
       "testing",
       "prevented"
     ],
-    "action": "Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function bodies to reject empty stubs or stub docstrings.",
+    "action": "Prevented by D7 (Completeness) and D8 (Test Coverage) in the AST completeness gate using analysis of function bodies to reject empty stubs or stub docstrings.",
     "validating_mechanism": "audit_d2_completeness",
     "downstream_verification": "none",
     "example_bad": "# The function returns a constant to 'pass' the test; it implements nothing.\ndef total(cart):\n    return 42          # hardcoded so the test goes green\n\ndef test_total():\n    assert total(demo_cart) == 42\n",
@@ -1500,7 +1500,7 @@
       "testing",
       "prevented"
     ],
-    "action": "Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function bodies to reject empty stubs or stub docstrings.",
+    "action": "Prevented by D7 (Completeness) and D8 (Test Coverage) in the AST completeness gate using analysis of function bodies to reject empty stubs or stub docstrings.",
     "validating_mechanism": "audit_d2_completeness",
     "downstream_verification": "none",
     "example_bad": "# Permanent stub shipped to production as if it were implemented.\ndef charge(amount):\n    pass   # TODO: implement (6 months and counting)\n",
@@ -4228,7 +4228,7 @@
       "testing",
       "prevented"
     ],
-    "action": "Prevented by D7 (Completeness) and D8 (Test Coverage) in run_security_audit_12d.py using AST analysis of function bodies to reject empty stubs or stub docstrings.",
+    "action": "Prevented by D7 (Completeness) and D8 (Test Coverage) in the AST completeness gate using analysis of function bodies to reject empty stubs or stub docstrings.",
     "validating_mechanism": "audit_d2_completeness",
     "downstream_verification": "none",
     "example_bad": "# The placeholder value is tested instead of the real behavior.\ndef get_price(): return 0.0   # placeholder\ndef test_price(): assert get_price() == 0.0\n",
@@ -4789,8 +4789,8 @@
     "action": "Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations.",
     "validating_mechanism": "audit_d8_test_coverage",
     "downstream_verification": "none",
-    "example_bad": "# 'auditor_12d' declares 12 domains but implements 8.\n",
-    "example_good": "# sentinel compares name, domain count, and version\n",
+    "example_bad": "# auditor_dimensions declares the full surface but only implements part of it.\n",
+    "example_good": "# sentinel compares the declared surface with the implementation coverage\n",
     "example_lang": "text",
     "detection": "Name/formal declaration misaligned with the real implementation.\n",
     "evidence": [
@@ -7120,7 +7120,7 @@
       "vibe-coding",
       "prevented-mechanically"
     ],
-    "action": "Physical verification: static AST validator in scripts/run_security_audit_12d.py (audit_d6_anti_slop) that requires complete type annotations for parameters and return values on all public functions of protocol_engine/ and dimensions/.\n",
+    "action": "Physical verification: the static AST anti-slop gate (audit_d6_anti_slop) requires complete type annotations for parameters and return values on all public functions of protocol_engine/ and the dimension surfaces.\n",
     "validating_mechanism": "audit_d6_anti_slop",
     "downstream_verification": "none",
     "example_bad": "def handle(data):          # no types: impossible states circulate\n    return data[\"amount\"] * data[\"rate\"]\n",
@@ -8514,7 +8514,7 @@
       "prevented",
       "governance"
     ],
-    "action": "pre_edit_guard blocks writes in deprecated/ without a prior entry in DEPRECATION_LOG.md. The pre-commit hook validates that files staged in deprecated/ are justified. D1 of the 12D auditor verifies coverage of the log.",
+    "action": "pre_edit_guard blocks writes in deprecated/ without a prior entry in DEPRECATION_LOG.md. The pre-commit hook validates that files staged in deprecated/ are justified. The completeness dimension of the auditor verifies coverage of the log.",
     "validating_mechanism": "check_deprecation_log.py + pre_edit_guard S24 + D1 audit",
     "downstream_verification": "none",
     "example_bad": "# Moves to deprecated/ without reading, without searching references, without justifying.\ngit mv module.py deprecated/module.py\n",

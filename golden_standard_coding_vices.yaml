@@ -1657,7 +1657,7 @@ items:
       - vibe-coding
       - prevented-mechanically
     action: |
-      Physical verification: static AST validator in scripts/run_security_audit_12d.py (audit_d6_anti_slop) that requires complete type annotations for parameters and return values on all public functions of protocol_engine/ and dimensions/.
+      Physical verification: the static AST anti-slop gate (audit_d6_anti_slop) requires complete type annotations for parameters and return values on all public functions of protocol_engine/ and the dimension surfaces.
     validating_mechanism: audit_d6_anti_slop
     downstream_verification: none
     example_lang: python
@@ -2957,8 +2957,8 @@ items:
       - governance
     action: pre_edit_guard blocks writes in deprecated/ without a prior entry
       in DEPRECATION_LOG.md. The pre-commit hook validates that files staged in
-      deprecated/ are justified. D1 of the 12D auditor verifies coverage of the
-      log.
+      deprecated/ are justified. The completeness dimension of the auditor
+      verifies coverage of the log.
     validating_mechanism: check_deprecation_log.py + pre_edit_guard S24 + D1 
       audit
     downstream_verification: none

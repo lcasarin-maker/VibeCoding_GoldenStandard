@@ -11,9 +11,9 @@ items:
     tags:
       - testing
       - prevented
-    action: Prevented by D7 (Completeness) and D8 (Test Coverage) in 
-      run_security_audit_12d.py using AST analysis of function bodies to reject 
-      empty stubs or stub docstrings.
+    action: Prevented by D7 (Completeness) and D8 (Test Coverage) in the AST 
+      completeness gate using analysis of function bodies to reject empty stubs 
+      or stub docstrings.
     validating_mechanism: audit_d2_completeness
     downstream_verification: none
     example_lang: python
@@ -49,9 +49,9 @@ items:
     tags:
       - testing
       - prevented
-    action: Prevented by D7 (Completeness) and D8 (Test Coverage) in 
-      run_security_audit_12d.py using AST analysis of function bodies to reject 
-      empty stubs or stub docstrings.
+    action: Prevented by D7 (Completeness) and D8 (Test Coverage) in the AST 
+      completeness gate using analysis of function bodies to reject empty stubs 
+      or stub docstrings.
     validating_mechanism: audit_d2_completeness
     downstream_verification: none
     example_lang: python
@@ -2477,9 +2477,9 @@ items:
     tags:
       - testing
       - prevented
-    action: Prevented by D7 (Completeness) and D8 (Test Coverage) in 
-      run_security_audit_12d.py using AST analysis of function bodies to reject 
-      empty stubs or stub docstrings.
+    action: Prevented by D7 (Completeness) and D8 (Test Coverage) in the AST 
+      completeness gate using analysis of function bodies to reject empty stubs 
+      or stub docstrings.
     validating_mechanism: audit_d2_completeness
     downstream_verification: none
     example_lang: python
@@ -3000,9 +3000,9 @@ items:
     downstream_verification: none
     example_lang: text
     example_bad: |
-      # 'auditor_12d' declares 12 domains but implements 8.
+      # auditor_dimensions declares the full surface but only implements part of it.
     example_good: |
-      # sentinel compares name, domain count, and version
+      # sentinel compares the declared surface with the implementation coverage
     detection: |
       Name/formal declaration misaligned with the real implementation.
     evidence:
