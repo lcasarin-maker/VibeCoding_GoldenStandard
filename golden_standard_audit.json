@@ -9475,5 +9475,37 @@
     "alias_of": "",
     "detector": "",
     "tier": "core"
+  },
+  "VC-154": {
+    "id": "VC-154",
+    "title": "No backlog entry, no work",
+    "category": "Vibe Coding",
+    "symptom": "Planning, execution, or debt accounting begins without a tracked backlog entry, so the work is effectively invisible to the planning gate.",
+    "cause": "The agent treats unregistered work as admissible and starts reasoning before the ledger exists.",
+    "solution": "Require a backlog entry before planning or execution; if it is not in the ledger, it does not get worked.",
+    "status": "AUDITED",
+    "severity": "high",
+    "tags": [
+      "governance",
+      "planning",
+      "source-of-truth"
+    ],
+    "action": "Enforced by the planning gate: no backlog entry => no work / no planning / no debt accounting.",
+    "validating_mechanism": "test_doctrine_before_enforcement_resolves_refs",
+    "downstream_verification": "none",
+    "example_bad": "# Work starts before the backlog records it.\nwork_item: untracked\nstatus: in_progress\n",
+    "example_good": "# The backlog entry exists before any planning or execution begins.\nwork_item: tracked\nstatus: in_progress\n",
+    "example_lang": "yaml",
+    "detection": "Flags planning or implementation that proceeds without a tracked backlog entry in the source ledger.",
+    "evidence": [
+      {
+        "source": "BACKLOG.md operating rule",
+        "claim": "If it is not in this file, it does not get worked."
+      }
+    ],
+    "doctrinal": false,
+    "alias_of": "",
+    "detector": "",
+    "tier": "core"
   }
 }

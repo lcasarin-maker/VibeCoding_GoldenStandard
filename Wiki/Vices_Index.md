@@ -158,6 +158,7 @@ This index classifies the Golden Standard vices into VC and VT. Tokenomics lives
 *   [[Vices/VC-151|VC-151]] — **Envenenamiento de descripciones de herramientas (MCP Tool Poisoning / TP1-TP4)** (PREVENTED, high, downstream:none)
 *   [[Vices/VC-152|VC-152]] — **Canonical source first (no sink patching)** (AUDITED, high, downstream:none)
 *   [[Vices/VC-153|VC-153]] — **Doctrine before enforcement (source-first ordering)** (AUDITED, medium, downstream:none)
+*   [[Vices/VC-154|VC-154]] — **No backlog entry, no work** (AUDITED, high, downstream:none)
 
 ## Testing & Evaluation (TV)
 *   [[Vices/VT-001|VT-001]] — **Hardcoded return** (PREVENTED, high, downstream:none)
