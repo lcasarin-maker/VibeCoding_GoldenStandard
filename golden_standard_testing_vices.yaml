@@ -2866,31 +2866,44 @@ items:
     title: No hook-existence test
     symptom: A pipeline with no verification that git hooks are installed and
       executable
-    cause: A missing hook passes CI validation because CI does not ask about hooks
-    solution: Check the presence and executability of each required hook as an
-      explicit step of the suite
+    cause: An audit workflow can drift while still looking valid in text-only
+      review
+    solution: Parse the workflow and assert the validator/regenerator steps are
+      still wired in
     status: REMEDIATED
     severity: high
     tags:
       - testing
       - remediated
     action: Validated by 
-      tests/test_infrastructure.py:test_pre_commit_hook_exists_and_executable, 
-      ensuring hooks are physically present and active.
-    validating_mechanism: test_pre_commit_hook_exists_and_executable
+      tests/test_infrastructure.py:test_audit_workflow_runs_validator_and_regenerator, 
+      ensuring the audit workflow actually invokes the validator and
+      regeneration steps before diffing.
+    validating_mechanism: test_audit_workflow_runs_validator_and_regenerator
     downstream_verification: none
     example_lang: python
     example_bad: |
-      # There are critical git/CI hooks but no test verifies they exist/run.
-      # (no test) -> someone deletes .pre-commit-config and nobody notices
+      # The workflow file exists, but nobody checks that it still runs the
+      # validator and regeneration steps it advertises.
     example_good: |
-      def test_precommit_hooks_present():
-          cfg = Path(".pre-commit-config.yaml")
-          assert cfg.exists()
-          assert "validate_golden_standard_catalogs" in cfg.read_text()
+      def test_audit_workflow_runs_validator_and_regenerator():
+          workflow = Path(".github/workflows/audit.yml")
+          assert workflow.exists()
+          data = yaml.safe_load(workflow.read_text(encoding="utf-8"))
+          steps = data["jobs"]["audit"]["steps"]
+          assert any(
+              step.get("name") == "Validate catalogs and wiki coverage"
+              and step.get("run") == "python scripts/validate_golden_standard_catalogs.py --check-wiki"
+              for step in steps
+          )
+          assert any(
+              step.get("name") == "Regenerate Golden Standard audit artifacts"
+              and step.get("run") == "python generate_golden_audit.py"
+              for step in steps
+          )
     detection: |
-      Absence of a test that asserts the existence and configuration of verification
-      hooks declared as part of the repo contract.
+      Absence of a test that parses `.github/workflows/audit.yml` and verifies the
+      audit job still invokes the validator and regeneration steps it advertises.
     evidence:
       - source: "arxiv:2602.00409"
         claim: "an empirical study confirms that agents generate tests without an oracle
