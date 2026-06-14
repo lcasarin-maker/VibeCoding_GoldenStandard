@@ -7,35 +7,23 @@ project_insights:
     for correct assertion methods. (Corrects a prior reference to a nonexistent package
     — see VC-129 hallucinated dependency.)'
   PI-003: 'Tokencost – upfront token metering and USD conversion to make spend visible
-    before executing an LLM call. [REMEDIATED Sprint 5: track_tokens.py wired to the
-    D10 gate; visibility confirmed.]'
+    before executing an LLM call.'
   PI-004: Trivy – multi-surface scanning (images, filesystem, git, VMs, Kubernetes)
     for CVEs, secrets, misconfigurations, SBOM, and licenses.
   PI-005: 'Litellm – provider-agnostic gateway with routing, fallback, cost tracking,
-    guardrails, logging, and load balancing. [NOT_APPLICABLE Sprint 10: analysis of
-    36 external repos showed LiteLLM is useful as an architectural reference but the
-    provider abstraction layer is already covered by Cerberus gates; declarative
-    integration, not executable.]'
-  PI-006: 'Cerberus v0.3 – gate between intent and execution that enforces context
-    discipline, observability, redaction, and state control. [ACTIVE Sprint 5-11:
-    WARN to BLOCK in the APPROVED gate (recommendations only with FAILs); 12D domains
-    (D1-D12); 386 adversarial tests; 17 synchronized satellites; verb_noun naming
-    normalized; Golden Standard = pure knowledge (PI-015..PI-018 formalized).]'
-  PI-007: 'Output governance (Cerberus diagnosis 2026-05-30) – the system had INPUT
-    governance (quality gates) but not OUTPUT governance (orphan pruning), so it
-    accumulated refactor residue: 250MB of backups, dead code, 5 plan docs, spectral
-    scripts, divergent GLOBAL_LEARNING, stale base-set, IDs TK-043/44/45 declared
-    without content. Root cause: the gate validated letter (Path.exists) not currency
-    (active route). Lesson: the same gate that blocks bad code blocks the leftover
-    junk. Executable in PLAN.md P0 (orphan-hunt) / P1 (vulture/VC-118) / P5 (catalog=execution).'
+    guardrails, logging, and load balancing.'
+  PI-006: 'Governance gate between intent and execution that enforces context
+    discipline, observability, redaction, and state control.'
+  PI-007: 'Output governance – a system can have INPUT governance (quality gates) but
+    lack OUTPUT governance (orphan pruning), accumulating refactor residue: backups,
+    dead code, stale plan docs, spectral scripts, divergent learning logs, stale
+    base-sets, and IDs declared without content. Root cause: the gate validated letter
+    (Path.exists) not currency (active route). Lesson: the same gate that blocks bad
+    code blocks the leftover junk.'
   PI-008: 'Batch of predictable authorizations – group permissions, clarifications,
     and decisions before a long run to avoid interruptions, rereads, and reactive work.'
   PI-009: 'Zero debt before advancing – every warning or non-blocking finding is
-    treated as an operational error until fixed or explicitly blocked. [IMPLEMENTED
-    Sprint 5: [RECOMMENDATIONS BY DOMAIN] suppressed from the APPROVED gate
-    (non-blocking noise); it only appears when there are domain FAILs to guide the
-    fix. Failing-first test validates both branches. Refactored _print_recommendations
-    (C901 compliance).]'
+    treated as an operational error until fixed or explicitly blocked.'
   PI-010: 'Output hygiene and clean root – historical artifacts are reference, not
     source of truth; when an audit closes the root must be free of operational residue.'
   PI-011: 'Descriptive names and simple topology – prefer scripts and modules that
@@ -64,41 +52,41 @@ project_insights:
     must carry an explicit confidence level: VERIFIED (backed by terminal log or test),
     INFERRED (deduced from indirect evidence), ASSUMED (no evidence, reasonable
     supposition). Claims without a tag are treated as ASSUMED. Applies especially to
-    SPEC.md, HISTORIAL.md, and architectural decision comments. Origin: safishamsi/graphify
+    protocol specs, audit logs, and architectural decision comments. Origin: safishamsi/graphify
     confidence tag system for knowledge graphs.'
   PI-021: 'Semantic Wiki-Lint (Karpathy LLM Wiki pattern) – protocol documents must be
     audited periodically to detect: contradictions between sections, references to
     nonexistent files, mandates mentioned in one doc but absent in another, and
-    inconsistent version claims. The Lint is not syntactic (that is done by sync_binding.py)
-    but semantic: do two documents claim incompatible things about the same state?
+    inconsistent version claims. The Lint is not syntactic (that is handled by a syntactic
+    catalog linter) but semantic: do two documents claim incompatible things about the same state?
     Origin: Karpathy LLM Wiki gist, Lint operation of the agent-maintained wiki framework.'
   PI-022: 'Operational uncertainty list – every session or protocol document must declare
     which subsystems, routes, or claims were not mechanically verified in that turn. The
-    absence of a list equals incomplete verification. Origin: Cerberus B12 / B25 and
-    anti-hallucination control.'
+    absence of a list equals incomplete verification. Origin: operational uncertainty
+    discipline and anti-hallucination control.'
   PI-023: 'Dual-session awareness – before touching shared sources, the agent must verify
     state and latest commits so as not to step on concurrent work. If there are external
-    changes, impact is analyzed before editing. Origin: Cerberus S21 / B15 / multi-agent
-    coexistence discipline.'
+    changes, impact is analyzed before editing. Origin: multi-agent coexistence
+    discipline and serialized shared-source access.'
   PI-024: 'Hub-based review – nodes with the highest fan-in or impact degree must be
     reviewed first when a catalog or index changes. The graph is not decorative: it
-    prioritizes risk and orders the audit. Origin: Cerberus graph report and hub-first
-    review heuristic.'
+    prioritizes risk and orders the audit. Origin: hub-first review heuristic
+    (graph fan-in prioritization).'
   PI-025: 'Exportable retrospective – every session must close with a structured, parseable
-    retrospective that is persisted to a durable ledger before COMPACT/CLEAR. Chat is not
-    reliable memory and new knowledge must survive the context reset. Origin: Cerberus
-    export_retrospective.py and the discipline of HISTORIAL as a source of continuity.'
+    retrospective that is persisted to a durable ledger before a context reset (COMPACT/CLEAR).
+    Chat is not reliable memory and new knowledge must survive the reset. Origin:
+    structured-retrospective export and a durable ledger as a source of continuity.'
   PI-026: 'Exhaustive preflight and no reopening scope post-execution – before executing
     any change, the agent must declare scope, foreseeable impacts, out-of-scope follow-ups,
     and the runner/loader that would be affected if the topology changes. If a new improvement
     emerges after executing, it is first recorded in the backlog; it is not offered as a
-    post-execution suggestion. Origin: Cerberus / GS execution hygiene and the formal
+    post-execution suggestion. Origin: execution hygiene and the formal
     separation of audits between knowledge and consumption.'
   PI-027: 'Serialization of Git operations – Git commands must be executed serially within
     automations and orchestrators to avoid index locks, state races, and inconsistent
     results. When coordination or concurrent tooling exists, the safe discipline is a single
     Git flow at a time with controlled retries, not opportunistic parallelism. Origin:
-    Cerberus global learning on race conditions and .git/index.lock locking.'
+    global learning on race conditions and .git/index.lock locking.'
   PI-028: 'Vibe Check (PV-Bhat/vibe-check-mcp-server, verified) – metacognition MCP server
     that curbs agent tunnel-vision and runaway loops via Chain-Pattern Interrupts; a direct
     implementation of the VC-120 mitigation.'
@@ -107,7 +95,7 @@ project_insights:
     catch); evidence that the catalog vices are statically detectable.'
   PI-030: 'viberails (refractionPOINT/viberails, verified) – AI Firewall that intercepts
     risky agent operations (Claude Code, Cursor, Gemini CLI) via hooks; an enforcement layer
-    conceptually comparable to Cerberus (unrelated to the homonym philips-software/cerberus).'
+    conceptually comparable to a policy-enforcement gate (unrelated to the homonym philips-software/cerberus).'
   PI-031: 'ratelimit (tomasbasham/ratelimit, verified) – rate limiting decorator
     (@limits + sleep_and_retry) as a concrete control against VC-110 (quota as surprise)
     and the tokenomics debt (TK-044).'
