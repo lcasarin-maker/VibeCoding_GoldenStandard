@@ -10,8 +10,8 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 
 | Metric | Value |
 |---|---:|
-| Nodes | 383 |
-| Edges | 1889 |
+| Nodes | 384 |
+| Edges | 1894 |
 | Intentional orphans | 3 |
 | Candidate orphans | 0 |
 | Hubs | 15 |
@@ -49,7 +49,7 @@ Each entry is classified by depth: `deep` (ships bad/good examples and a detecti
 
 | Depth | VC | VT | TK |
 |---|---:|---:|---:|
-| `deep` | 79 | 115 | 47 |
+| `deep` | 79 | 116 | 47 |
 | `stub` | 0 | 0 | 0 |
 | `doctrinal` | 70 | 0 | 0 |
 | `alias` | 2 | 0 | 0 |
@@ -65,7 +65,7 @@ GS explicitly distinguishes which entries expect downstream verification and whi
 | Status | VC | VT | TK |
 |---|---:|---:|---:|
 | `required` | 101 | 0 | 12 |
-| `none` | 50 | 115 | 35 |
+| `none` | 50 | 116 | 35 |
 
 | ID | Title | Category | Downstream Verification |
 |---|---|---|---|
@@ -90,10 +90,10 @@ Pages with the largest impact surface. If they change, review their inbound link
 
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
-| [[Vices_Index]] | `wiki` | 267 | 267 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +261 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +261 more |
-| [[Home]] | `wiki` | 366 | 21 | [[Concepts/Conceptual_Framework]], [[Domains/D1]], [[Domains/D10]], [[Domains/D11]], [[Domains/D12]], [[Domains/D2]] +360 more | [[CONCEPTUAL_FRAMEWORK]], [[Concepts/Conceptual_Framework]], [[Inbox/README]], [[Project_Insights/PI-019]], [[Project_Insights/PI-020]], [[Project_Insights/PI-021]] +15 more |
-| [[Tokenomics_Map]] | `wiki` | 354 | 10 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +348 more | [[Home]], [[Project_Insights/PI-019]], [[Project_Insights_Index]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]] +4 more |
-| [[Project_Insights/PI-019]] | `insight` | 267 | 4 | [[Home]], [[Project_Insights_Index]], [[Tokenomics_Map]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]] +261 more | [[Home]], [[Project_Insights_Index]], [[Tokenomics_Map]], [[Vices/VC-124]] |
+| [[Vices_Index]] | `wiki` | 268 | 268 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +262 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +262 more |
+| [[Home]] | `wiki` | 367 | 21 | [[Concepts/Conceptual_Framework]], [[Domains/D1]], [[Domains/D10]], [[Domains/D11]], [[Domains/D12]], [[Domains/D2]] +361 more | [[CONCEPTUAL_FRAMEWORK]], [[Concepts/Conceptual_Framework]], [[Inbox/README]], [[Project_Insights/PI-019]], [[Project_Insights/PI-020]], [[Project_Insights/PI-021]] +15 more |
+| [[Tokenomics_Map]] | `wiki` | 355 | 10 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +349 more | [[Home]], [[Project_Insights/PI-019]], [[Project_Insights_Index]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]] +4 more |
+| [[Project_Insights/PI-019]] | `insight` | 268 | 4 | [[Home]], [[Project_Insights_Index]], [[Tokenomics_Map]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]] +262 more | [[Home]], [[Project_Insights_Index]], [[Tokenomics_Map]], [[Vices/VC-124]] |
 | [[Tokenomics_Index]] | `wiki` | 55 | 49 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +49 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +43 more |
 | [[Project_Insights_Index]] | `wiki` | 37 | 36 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +31 more | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +30 more |
 | [[Vices/VC-124]] | `vice` | 38 | 4 | [[Home]], [[Project_Insights/PI-001]], [[Project_Insights/PI-002]], [[Project_Insights/PI-003]], [[Project_Insights/PI-004]], [[Project_Insights/PI-005]] +32 more | [[Home]], [[Project_Insights/PI-019]], [[Tokenomics_Map]], [[Vices_Index]] |
@@ -131,7 +131,7 @@ Nodes that link to more than one page type. They are useful for navigating impac
 
 | Node | Type | Reached types | Outbound |
 |---|---|---|---:|
-| [[Vices_Index]] | `wiki` | `vice`, `wiki` | 267 |
+| [[Vices_Index]] | `wiki` | `vice`, `wiki` | 268 |
 | [[Tokenomics_Index]] | `wiki` | `tokenomics`, `wiki` | 49 |
 | [[Project_Insights_Index]] | `wiki` | `insight`, `wiki` | 36 |
 | [[Home]] | `wiki` | `concept`, `conceptual-framework`, `inbox`, `insight`, `root`, `tokenomics`, `vice`, `wiki` | 21 |

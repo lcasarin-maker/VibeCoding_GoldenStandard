@@ -5021,6 +5021,32 @@
     "detector": "",
     "tier": "extended"
   },
+  "VT-116": {
+    "id": "VT-116",
+    "title": "Decoy comment satisfies a text-based validator",
+    "category": "Testing & Evaluation",
+    "symptom": "A coverage or traceability check reports a symbol as physically present when only a commented-out or string-literal mention of it exists; no real function or class backs it.",
+    "cause": "The validator resolves a symbol by scanning raw source text (a substring or regex such as `\"def <name>\" in source`), which also matches inside comments and string literals. A planted `# def <name>` line games the check, deceiving the judge with text that no code backs.",
+    "solution": "Resolve symbols structurally through the AST so that only a real FunctionDef or ClassDef node counts. A comment or string literal can no longer satisfy the validator.",
+    "status": "PREVENTED",
+    "severity": "high",
+    "tags": [
+      "testing",
+      "prevented"
+    ],
+    "action": "Symbol resolution is AST-based, so a planted `# def <name>` comment does not resolve; an additional scanner flags any decoy comment that mirrors a declared validating mechanism.",
+    "validating_mechanism": "test_planted_def_comment_does_not_resolve",
+    "downstream_verification": "none",
+    "example_bad": "# Validator: a symbol is \"covered\" if the text \"def X\" appears in the file.\n# def audit_widget_safety   <- planted decoy; no real function exists\nassert \"def audit_widget_safety\" in source  # passes on the comment alone\n",
+    "example_good": "import ast\ntree = ast.parse(source)\ncovered = any(\n    isinstance(n, (ast.FunctionDef, ast.ClassDef)) and n.name == \"audit_widget_safety\"\n    for n in ast.walk(tree)\n)  # a comment or string literal can never satisfy this\n",
+    "example_lang": "python",
+    "detection": "Coverage or traceability validators that confirm a symbol's existence with a\nraw-text substring or regex over source (matching inside comments and string\nliterals), plus commented-out `def`/`class` lines that mirror a declared\nvalidating mechanism.\n",
+    "evidence": [],
+    "doctrinal": false,
+    "alias_of": "",
+    "detector": "",
+    "tier": "extended"
+  },
   "VC-001": {
     "id": "VC-001",
     "title": "Unassumed incompetence",

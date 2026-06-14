@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-06-13",
-  "node_count": 383,
-  "edge_count": 1889,
+  "node_count": 384,
+  "edge_count": 1894,
   "nodes": [
     {
       "id": "CODE_OF_CONDUCT",
@@ -828,11 +828,12 @@
         "Vices/VT-113",
         "Vices/VT-114",
         "Vices/VT-115",
+        "Vices/VT-116",
         "Vices_Index"
       ],
-      "in_degree": 366,
+      "in_degree": 367,
       "out_degree": 21,
-      "degree": 387
+      "degree": 388
     },
     {
       "id": "Project_Insights/PI-001",
@@ -1511,11 +1512,12 @@
         "Vices/VT-112",
         "Vices/VT-113",
         "Vices/VT-114",
-        "Vices/VT-115"
+        "Vices/VT-115",
+        "Vices/VT-116"
       ],
-      "in_degree": 267,
+      "in_degree": 268,
       "out_degree": 4,
-      "degree": 271
+      "degree": 272
     },
     {
       "id": "Project_Insights/PI-020",
@@ -3463,11 +3465,12 @@
         "Vices/VT-112",
         "Vices/VT-113",
         "Vices/VT-114",
-        "Vices/VT-115"
+        "Vices/VT-115",
+        "Vices/VT-116"
       ],
-      "in_degree": 354,
+      "in_degree": 355,
       "out_degree": 10,
-      "degree": 364
+      "degree": 365
     },
     {
       "id": "Vices/VC-001",
@@ -8828,6 +8831,26 @@
       "downstream_verification": "none"
     },
     {
+      "id": "Vices/VT-116",
+      "path": "Wiki/Vices/VT-116.md",
+      "title": "VT-116: Decoy comment satisfies a text-based validator",
+      "kind": "vice",
+      "outgoing": [
+        "Home",
+        "Project_Insights/PI-019",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Vices_Index"
+      ],
+      "in_degree": 1,
+      "out_degree": 4,
+      "degree": 5,
+      "status": "PREVENTED",
+      "downstream_verification": "none"
+    },
+    {
       "id": "Vices_Index",
       "path": "Wiki/Vices_Index.md",
       "title": "Engineering Vices Index",
@@ -9099,7 +9122,8 @@
         "Vices/VT-112",
         "Vices/VT-113",
         "Vices/VT-114",
-        "Vices/VT-115"
+        "Vices/VT-115",
+        "Vices/VT-116"
       ],
       "incoming": [
         "Home",
@@ -9368,11 +9392,12 @@
         "Vices/VT-112",
         "Vices/VT-113",
         "Vices/VT-114",
-        "Vices/VT-115"
+        "Vices/VT-115",
+        "Vices/VT-116"
       ],
-      "in_degree": 267,
-      "out_degree": 267,
-      "degree": 534
+      "in_degree": 268,
+      "out_degree": 268,
+      "degree": 536
     }
   ],
   "edges": [
@@ -17487,6 +17512,26 @@
       "kind": "wikilink"
     },
     {
+      "source": "Vices/VT-116",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VT-116",
+      "target": "Project_Insights/PI-019",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VT-116",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Vices/VT-116",
+      "target": "Vices_Index",
+      "kind": "wikilink"
+    },
+    {
       "source": "Vices_Index",
       "target": "Home",
       "kind": "wikilink"
@@ -18820,6 +18865,11 @@
       "source": "Vices_Index",
       "target": "Vices/VT-115",
       "kind": "wikilink"
+    },
+    {
+      "source": "Vices_Index",
+      "target": "Vices/VT-116",
+      "kind": "wikilink"
     }
   ],
   "summary": {
@@ -19132,7 +19182,8 @@
           "Vices/VT-112",
           "Vices/VT-113",
           "Vices/VT-114",
-          "Vices/VT-115"
+          "Vices/VT-115",
+          "Vices/VT-116"
         ],
         "incoming": [
           "Home",
@@ -19401,11 +19452,12 @@
           "Vices/VT-112",
           "Vices/VT-113",
           "Vices/VT-114",
-          "Vices/VT-115"
+          "Vices/VT-115",
+          "Vices/VT-116"
         ],
-        "in_degree": 267,
-        "out_degree": 267,
-        "degree": 534
+        "in_degree": 268,
+        "out_degree": 268,
+        "degree": 536
       },
       {
         "id": "Home",
@@ -19801,11 +19853,12 @@
           "Vices/VT-113",
           "Vices/VT-114",
           "Vices/VT-115",
+          "Vices/VT-116",
           "Vices_Index"
         ],
-        "in_degree": 366,
+        "in_degree": 367,
         "out_degree": 21,
-        "degree": 387
+        "degree": 388
       },
       {
         "id": "Tokenomics_Map",
@@ -20178,11 +20231,12 @@
           "Vices/VT-112",
           "Vices/VT-113",
           "Vices/VT-114",
-          "Vices/VT-115"
+          "Vices/VT-115",
+          "Vices/VT-116"
         ],
-        "in_degree": 354,
+        "in_degree": 355,
         "out_degree": 10,
-        "degree": 364
+        "degree": 365
       },
       {
         "id": "Project_Insights/PI-019",
@@ -20462,11 +20516,12 @@
           "Vices/VT-112",
           "Vices/VT-113",
           "Vices/VT-114",
-          "Vices/VT-115"
+          "Vices/VT-115",
+          "Vices/VT-116"
         ],
-        "in_degree": 267,
+        "in_degree": 268,
         "out_degree": 4,
-        "degree": 271
+        "degree": 272
       },
       {
         "id": "Tokenomics_Index",
@@ -21220,7 +21275,8 @@
           "Vices/VT-112",
           "Vices/VT-113",
           "Vices/VT-114",
-          "Vices/VT-115"
+          "Vices/VT-115",
+          "Vices/VT-116"
         ],
         "incoming": [
           "Home",
@@ -21489,11 +21545,12 @@
           "Vices/VT-112",
           "Vices/VT-113",
           "Vices/VT-114",
-          "Vices/VT-115"
+          "Vices/VT-115",
+          "Vices/VT-116"
         ],
-        "in_degree": 267,
-        "out_degree": 267,
-        "degree": 534
+        "in_degree": 268,
+        "out_degree": 268,
+        "degree": 536
       },
       {
         "id": "Tokenomics_Index",
@@ -22092,11 +22149,12 @@
           "Vices/VT-113",
           "Vices/VT-114",
           "Vices/VT-115",
+          "Vices/VT-116",
           "Vices_Index"
         ],
-        "in_degree": 366,
+        "in_degree": 367,
         "out_degree": 21,
-        "degree": 387
+        "degree": 388
       },
       {
         "id": "Tokenomics/Memory_Headroom_Index",
@@ -22558,11 +22616,12 @@
           "Vices/VT-112",
           "Vices/VT-113",
           "Vices/VT-114",
-          "Vices/VT-115"
+          "Vices/VT-115",
+          "Vices/VT-116"
         ],
-        "in_degree": 354,
+        "in_degree": 355,
         "out_degree": 10,
-        "degree": 364
+        "degree": 365
       },
       {
         "id": "Project_Insights/PI-002",

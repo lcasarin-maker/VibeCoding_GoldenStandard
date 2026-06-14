@@ -273,6 +273,7 @@ This index classifies the Golden Standard vices into VC and VT. Tokenomics lives
 *   [[Vices/VT-113|VT-113]] — **Lack of Mutation Testing (Lack of Test Mutation Validation)** (AUDITED, medium, downstream:none)
 *   [[Vices/VT-114|VT-114]] — **Multi-Repository Sync Drift** (AUDITED, medium, downstream:none)
 *   [[Vices/VT-115|VT-115]] — **False Drift Positive from Line Endings (CRLF/LF Hash Mismatch)** (REMEDIATED, high, downstream:none)
+*   [[Vices/VT-116|VT-116]] — **Decoy comment satisfies a text-based validator** (PREVENTED, high, downstream:none)
 
 ---
 [[Home|Back to Home]]

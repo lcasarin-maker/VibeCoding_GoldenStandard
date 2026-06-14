@@ -46,7 +46,7 @@ Antipatterns specific to AI-assisted development: improvised architecture, non-r
 ### 🟡 Testing Vices (`VT-xxx`)
 Ways tests become "security theater": checking file existence instead of behavior, mocks with no real-world correspondence, tests that pass despite broken user flows.
 
-**115 entries** with examples of what bad tests look like and how to detect them.
+**116 entries** with examples of what bad tests look like and how to detect them.
 
 ### 🟢 Tokenomics
 A separate governance category for efficient use of AI context tokens — because wasting tokens is also a form of technical debt. Always subordinate to code quality.
@@ -144,11 +144,11 @@ The knowledge is stored in human-readable YAML files:
 | File | Domain | Entries |
 |---|---|---|
 | `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 151 |
-| `golden_standard_testing_vices.yaml` | Testing failures | 115 |
+| `golden_standard_testing_vices.yaml` | Testing failures | 116 |
 | `golden_standard_tokenomics.yaml` | Token efficiency | 47 |
 | `golden_standard_project_insights.yaml` | Cross-cutting insights | 35 |
 
-**Total: 313 vices + 35 insights (348 entries).** Counts here are the source of truth and are validated against the YAML; the entries badge reflects the total number of flaws (313).
+**Total: 314 vices + 35 insights (349 entries).** Counts here are the source of truth and are validated against the YAML; the entries badge reflects the total number of flaws (314).
 
 Each entry includes:
 - **ID** (e.g., `VC-042`)

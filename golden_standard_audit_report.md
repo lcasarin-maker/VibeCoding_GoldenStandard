@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.5 | Date: 2026-06-13 | Total Audited Items: 313**
+**Golden Standard V0.5 | Date: 2026-06-13 | Total Audited Items: 314**
 
 This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -7,16 +7,16 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
-| **Testing & Evaluation** | 115 | 27 | 88 | 100% |
+| **Testing & Evaluation** | 116 | 28 | 88 | 100% |
 | **Vibe Coding** | 151 | 48 | 103 | 100% |
 | **Tokenomics & Context** | 47 | 35 | 12 | 100% |
-| **Total** | 313 | 110 | 203 | 100% |
+| **Total** | 314 | 111 | 203 | 100% |
 
 ---
 
 ## Full Audit Details
 
-### Testing & Evaluation (115 items)
+### Testing & Evaluation (116 items)
 
 | ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |
 |---|---|---|---|---|---|---|
@@ -135,6 +135,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VT-113` | Lack of Mutation Testing (Lack of Test Mutation Validation) | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
 | `VT-114` | Multi-Repository Sync Drift | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
 | `VT-115` | False Drift Positive from Line Endings (CRLF/LF Hash Mismatch) | **high** | **REMEDIATED** | `none` | Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry. | `test_setup_validation` |
+| `VT-116` | Decoy comment satisfies a text-based validator | **high** | **PREVENTED** | `none` | Symbol resolution is AST-based, so a planted `# def <name>` comment does not resolve; an additional scanner flags any decoy comment that mirrors a declared validating mechanism. | `test_planted_def_comment_does_not_resolve` |
 
 ### Vibe Coding (151 items)
 

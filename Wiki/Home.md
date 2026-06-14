@@ -39,7 +39,7 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 | Domain | Catalog | Entries | Link |
 |---|---|---:|---|
 | Vibe Coding | `VC-xxx` | 151 | [[Vices_Index|Open index]] |
-| Testing & Evaluation | `VT-xxx` | 115 | [[Vices_Index|Open index]] |
+| Testing & Evaluation | `VT-xxx` | 116 | [[Vices_Index|Open index]] |
 | Tokenomics | `TK-xxx` | 47 | [[Tokenomics_Index|Open index]] |
 | Project Insights | `PI-xxx` | 35 | [[Project_Insights_Index|Open index]] |
 
@@ -49,9 +49,9 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 
 | Status | Entries | Meaning |
 |---|---:|---|
-| `PREVENTED` + `REMEDIATED` | 110 | The catalog already has an executable gate or a concrete correction. |
+| `PREVENTED` + `REMEDIATED` | 111 | The catalog already has an executable gate or a concrete correction. |
 | `AUDITED` + `DOC_ONLY` | 203 | The entry exists as knowledge, but remains mainly documentary. |
-| `Total` | 313 | Sum of the VC, VT, and TK entries audited by the compiler. |
+| `Total` | 314 | Sum of the VC, VT, and TK entries audited by the compiler. |
 
 ---
 
