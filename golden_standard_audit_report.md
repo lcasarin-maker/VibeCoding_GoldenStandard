@@ -292,8 +292,8 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-149` | Unauthorized persistent behavior (Rogue Agent / RA1-RA2) | **high** | **PREVENTED** | `none` | Enforced by checking persistence indicators in dimensions/d15_agent_security.py. | `D15AgentSecurity` |
 | `VC-150` | Least-privilege violation in MCP (MCP Least Privilege / LP1-LP4) | **high** | **PREVENTED** | `none` | Enforced by mapping code capabilities to manifest in dimensions/d15_agent_security.py. | `D15AgentSecurity` |
 | `VC-151` | Envenenamiento de descripciones de herramientas (MCP Tool Poisoning / TP1-TP4) | **high** | **PREVENTED** | `none` | Enforced by scanning unicode homoglyphs in dimensions/d15_agent_security.py. | `D15AgentSecurity` |
-| `VC-152` | Canonical source first (no sink patching) | **high** | **AUDITED** | `none` | Change the canonical source or generator first; never hand-patch a derived wiki or report to hide drift. | `validate_golden_standard_catalogs` |
-| `VC-153` | Doctrine before enforcement (source-first ordering) | **medium** | **AUDITED** | `none` | Land the GS doctrine first; treat Cerberus references as downstream consumers that only follow after regeneration proves the rule exists. | `validate_golden_standard_catalogs` |
+| `VC-152` | Canonical source first (no sink patching) | **high** | **AUDITED** | `none` | Change the canonical source or generator first; never hand-patch a derived wiki or report to hide drift. | `test_canonical_source_first_no_sink_patch` |
+| `VC-153` | Doctrine before enforcement (source-first ordering) | **medium** | **AUDITED** | `none` | Land the GS doctrine first; treat Cerberus references as downstream consumers that only follow after regeneration proves the rule exists. | `test_doctrine_before_enforcement_resolves_refs` |
 
 ### Tokenomics & Context (47 items)
 

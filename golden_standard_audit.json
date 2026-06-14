@@ -9427,7 +9427,7 @@
       "source-of-truth"
     ],
     "action": "Change the canonical source or generator first; never hand-patch a derived wiki or report to hide drift.",
-    "validating_mechanism": "validate_golden_standard_catalogs",
+    "validating_mechanism": "test_canonical_source_first_no_sink_patch",
     "downstream_verification": "none",
     "example_bad": "# Fixing the rendered wiki directly while leaving the source catalog stale.\ntitle: \"Canonical source first (no sink patching)\"\nstatus: AUDITED\n",
     "example_good": "# Fix the source catalog, then regenerate the derived artifacts.\ntitle: \"Canonical source first (no sink patching)\"\nstatus: AUDITED\n",
@@ -9459,7 +9459,7 @@
       "cross-repo"
     ],
     "action": "Land the GS doctrine first; treat Cerberus references as downstream consumers that only follow after regeneration proves the rule exists.",
-    "validating_mechanism": "validate_golden_standard_catalogs",
+    "validating_mechanism": "test_doctrine_before_enforcement_resolves_refs",
     "downstream_verification": "none",
     "example_bad": "# Cerberus references the rule id before the GS rule exists.\nrule_id: VC-153\nsource: cerberus\n",
     "example_good": "# GS owns the rule first, then consumers cite it.\nrule_id: VC-153\nsource: golden_standard\n",

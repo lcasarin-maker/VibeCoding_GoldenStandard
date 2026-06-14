@@ -3855,7 +3855,7 @@ items:
       - source-of-truth
     action: "Change the canonical source or generator first; never hand-patch a
       derived wiki or report to hide drift."
-    validating_mechanism: validate_golden_standard_catalogs
+    validating_mechanism: test_canonical_source_first_no_sink_patch
     downstream_verification: none
     example_lang: yaml
     example_bad: |
@@ -3890,7 +3890,7 @@ items:
       - cross-repo
     action: "Land the GS doctrine first; treat Cerberus references as downstream
       consumers that only follow after regeneration proves the rule exists."
-    validating_mechanism: validate_golden_standard_catalogs
+    validating_mechanism: test_doctrine_before_enforcement_resolves_refs
     downstream_verification: none
     example_lang: yaml
     example_bad: |
