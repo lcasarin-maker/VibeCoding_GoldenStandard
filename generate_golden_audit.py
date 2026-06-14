@@ -317,7 +317,7 @@ def _read_version_label() -> str:
         version = VERSION_FILE.read_text(encoding="utf-8").strip()
         if version:
             return f"V{version}"
-    return "V0.5"
+    return "V0.6"
 
 
 def get_flaw_category(flaw_id: str) -> str:
