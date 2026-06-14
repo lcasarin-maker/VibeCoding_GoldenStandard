@@ -3839,3 +3839,72 @@ items:
       - source: "NVIDIA SkillSpector mcp_tool_poisoning.py"
         claim: "Homoglyphs confuse the type system and the instruction parser."
     tier: extended
+  - id: VC-152
+    title: "Canonical source first (no sink patching)"
+    symptom: "The same truth is corrected in multiple tracked files, or a rendered
+      output is hand-patched instead of regenerated from the canonical source."
+    cause: "The agent treats derived artifacts as edit targets instead of outputs
+      owned by the source or generator."
+    solution: "Edit only the canonical source or generator, regenerate all derived
+      artifacts, and verify sink parity before closing."
+    status: AUDITED
+    severity: high
+    tags:
+      - governance
+      - generated-artifacts
+      - source-of-truth
+    action: "Change the canonical source or generator first; never hand-patch a
+      derived wiki or report to hide drift."
+    validating_mechanism: validate_golden_standard_catalogs
+    downstream_verification: none
+    example_lang: yaml
+    example_bad: |
+      # Fixing the rendered wiki directly while leaving the source catalog stale.
+      title: "Canonical source first (no sink patching)"
+      status: AUDITED
+    example_good: |
+      # Fix the source catalog, then regenerate the derived artifacts.
+      title: "Canonical source first (no sink patching)"
+      status: AUDITED
+    detection: "Flags direct edits to generated wiki/report files when the source
+      catalog or generator was not the thing that changed."
+    evidence:
+      - source: "Golden Standard generation pipeline"
+        claim: "Derived outputs are regenerated from catalog sources, not edited
+          as the source of truth."
+    tier: core
+  - id: VC-153
+    title: "Doctrine before enforcement (source-first ordering)"
+    symptom: "Operational sinks or cross-repo consumers are updated before the GS
+      rule exists, forcing later backfills and making the sink behave like the
+      source."
+    cause: "The agent touches enforcement or generated outputs before the GS vice
+      is authored and regenerated."
+    solution: "Author the GS vice first, regenerate Wiki/report outputs, and only
+      then update Cerberus consumers or enforcement hooks."
+    status: AUDITED
+    severity: medium
+    tags:
+      - governance
+      - ordering
+      - cross-repo
+    action: "Land the GS doctrine first; treat Cerberus references as downstream
+      consumers that only follow after regeneration proves the rule exists."
+    validating_mechanism: validate_golden_standard_catalogs
+    downstream_verification: none
+    example_lang: yaml
+    example_bad: |
+      # Cerberus references the rule id before the GS rule exists.
+      rule_id: VC-153
+      source: cerberus
+    example_good: |
+      # GS owns the rule first, then consumers cite it.
+      rule_id: VC-153
+      source: golden_standard
+    detection: "Flags enforcement-layer edits that cite a missing or unregenerated
+      GS rule."
+    evidence:
+      - source: "BACKLOG.md cross-seam contract"
+        claim: "GS-2 must wait for a real GS gate, and cross-layer consumers should
+          follow the GS source rather than create a sink-first shortcut."
+    tier: core

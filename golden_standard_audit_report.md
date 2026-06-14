@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.5 | Date: 2026-06-14 | Total Audited Items: 314**
+**Golden Standard V0.5 | Date: 2026-06-14 | Total Audited Items: 316**
 
 This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -8,9 +8,9 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 116 | 28 | 88 | 100% |
-| **Vibe Coding** | 151 | 48 | 103 | 100% |
+| **Vibe Coding** | 153 | 48 | 105 | 100% |
 | **Tokenomics & Context** | 47 | 35 | 12 | 100% |
-| **Total** | 314 | 111 | 203 | 100% |
+| **Total** | 316 | 111 | 205 | 100% |
 
 ---
 
@@ -137,7 +137,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VT-115` | False Drift Positive from Line Endings (CRLF/LF Hash Mismatch) | **high** | **REMEDIATED** | `none` | Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry. | `test_setup_validation` |
 | `VT-116` | Decoy comment satisfies a text-based validator | **high** | **PREVENTED** | `none` | Symbol resolution is AST-based, so a planted `# def <name>` comment does not resolve; an additional scanner flags any decoy comment that mirrors a declared validating mechanism. | `test_planted_def_comment_does_not_resolve` |
 
-### Vibe Coding (151 items)
+### Vibe Coding (153 items)
 
 | ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |
 |---|---|---|---|---|---|---|
@@ -292,6 +292,8 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-149` | Unauthorized persistent behavior (Rogue Agent / RA1-RA2) | **high** | **PREVENTED** | `none` | Enforced by checking persistence indicators in dimensions/d15_agent_security.py. | `D15AgentSecurity` |
 | `VC-150` | Least-privilege violation in MCP (MCP Least Privilege / LP1-LP4) | **high** | **PREVENTED** | `none` | Enforced by mapping code capabilities to manifest in dimensions/d15_agent_security.py. | `D15AgentSecurity` |
 | `VC-151` | Envenenamiento de descripciones de herramientas (MCP Tool Poisoning / TP1-TP4) | **high** | **PREVENTED** | `none` | Enforced by scanning unicode homoglyphs in dimensions/d15_agent_security.py. | `D15AgentSecurity` |
+| `VC-152` | Canonical source first (no sink patching) | **high** | **AUDITED** | `none` | Change the canonical source or generator first; never hand-patch a derived wiki or report to hide drift. | `validate_golden_standard_catalogs` |
+| `VC-153` | Doctrine before enforcement (source-first ordering) | **medium** | **AUDITED** | `none` | Land the GS doctrine first; treat Cerberus references as downstream consumers that only follow after regeneration proves the rule exists. | `validate_golden_standard_catalogs` |
 
 ### Tokenomics & Context (47 items)
 
