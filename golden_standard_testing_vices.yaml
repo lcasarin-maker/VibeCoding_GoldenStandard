@@ -3085,12 +3085,12 @@ items:
     title: Deferred Without Registration
     symptom: The agent detects technical debt or a finding, verbally classifies
       it as "postpone / isolated sprint / deferred / later", and closes the
-      response without opening `PLAN.md`. The item disappears.
+      response without opening the Sprint Document (e.g., PLAN.md). The item disappears.
     cause: A context switch between analysis mode and implementation mode
       disables the VC-114 trigger; the agent assumes that "naming = registering".
     solution: 'Mandatory B8 trigger: every "deferred" classification triggers immediate
-      opening of BACKLOG.md to register the ID + evidence, and PLAN.md to design the implementation.
-      No ID in BACKLOG.md = forgotten, not deferred. (Lesson: omitting the formal
+      opening of the Debt Registry (e.g., BACKLOG.md) to register the ID + evidence, and the Sprint Document (e.g., PLAN.md) to design the implementation.
+      No ID in the Debt Registry (e.g., BACKLOG.md) = forgotten, not deferred. (Lesson: omitting the formal
       registration of structural exclusions or technical debt in the centralized
       backlog leads to persistent drift and loss of quality
       control).'

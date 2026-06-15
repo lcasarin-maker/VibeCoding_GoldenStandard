@@ -20,6 +20,17 @@ WIKI_INSIGHTS_DIR = ROOT / "Wiki" / "Project_Insights"
 ALLOWED_STATUSES = {"DOC_ONLY", "AUDITED", "PREVENTED", "REMEDIATED"}
 ALLOWED_DOWNSTREAM_VERIFICATIONS = {"required", "none"}
 ALLOWED_SEVERITIES = {"critical", "high", "medium", "low"}
+# AX-020: agnostic vocabulary for validating_mechanism. Enforced ONLY for entries that have
+# already been migrated (i.e. that carry an enforcement.cerberus block). Legacy entries whose
+# validating_mechanism is still a Cerberus-specific handle are tolerated until they are migrated.
+ALLOWED_MECHANISM_TYPES = {
+    "static-ast",
+    "static-regex",
+    "runtime-test",
+    "external-tool",
+    "DOC_ONLY",
+    "doctrinal",
+}
 TAG_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 WIKILINK_PATTERN = re.compile(r"\[\[([^\]]+?)\]\]")
 MARKDOWN_LINK_PATTERN = re.compile(r"(?<!\!)\[[^\]]+\]\(([^)]+)\)")
@@ -136,6 +147,33 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
                         errors.append(
                             f"{path}: {item_id or f'item {index}'} evidence entries must be mappings with a non-empty 'source'."
                         )
+
+        # AX-020 (strict-only-migrated): the optional `enforcement` mapping is free-form, but
+        # an entry that declares an enforcement.cerberus binding is considered migrated and MUST
+        # use an agnostic validating_mechanism type and carry both {dimension, mechanism}.
+        enforcement = item.get("enforcement", None)
+        if enforcement is not None:
+            if not isinstance(enforcement, dict):
+                errors.append(f"{path}: {item_id or f'item {index}'} field enforcement must be a mapping.")
+            else:
+                cerberus = enforcement.get("cerberus", None)
+                if cerberus is not None:
+                    if not isinstance(cerberus, dict):
+                        errors.append(
+                            f"{path}: {item_id or f'item {index}'} enforcement.cerberus must be a mapping."
+                        )
+                    else:
+                        mechanism_type = str(item.get("validating_mechanism", "")).strip()
+                        if mechanism_type not in ALLOWED_MECHANISM_TYPES:
+                            errors.append(
+                                f"{path}: {item_id or f'item {index}'} is migrated (has enforcement.cerberus) "
+                                f"but validating_mechanism {mechanism_type!r} is not in ALLOWED_MECHANISM_TYPES."
+                            )
+                        for required_key in ("dimension", "mechanism"):
+                            if not str(cerberus.get(required_key, "")).strip():
+                                errors.append(
+                                    f"{path}: {item_id or f'item {index}'} enforcement.cerberus missing required key {required_key!r}."
+                                )
 
         has_bad = bool(str(item.get("example_bad", "")).strip())
         has_good = bool(str(item.get("example_good", "")).strip())
@@ -551,6 +589,34 @@ def validate_manifest(path: Path, errors: list[str], check_wiki: bool) -> None:
     validate_wiki_topology(errors)
 
 
+def report_migration_progress() -> str:
+    """AX-020: count migrated entries (carry enforcement.cerberus) vs Cerberus-coupled legacy
+    entries still pending migration (no enforcement and a non-agnostic validating_mechanism).
+    Informational only; never blocks validation."""
+    migrated = 0
+    remaining = 0
+    for catalog in (
+        "golden_standard_coding_vices.yaml",
+        "golden_standard_testing_vices.yaml",
+        "golden_standard_tokenomics.yaml",
+    ):
+        catalog_path = ROOT / catalog
+        if not catalog_path.exists():
+            continue
+        for item in load_yaml(catalog_path).get("items", []):
+            if not isinstance(item, dict):
+                continue
+            enforcement = item.get("enforcement")
+            has_cerberus = isinstance(enforcement, dict) and isinstance(
+                enforcement.get("cerberus"), dict
+            )
+            if has_cerberus:
+                migrated += 1
+            elif str(item.get("validating_mechanism", "")).strip() not in ALLOWED_MECHANISM_TYPES:
+                remaining += 1
+    return f"AX-020 migration: {migrated} migrated / {remaining} CC-coupled remaining"
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -576,6 +642,7 @@ def main() -> int:
         return 1
 
     print("Golden Standard catalogs validated successfully.")
+    print(report_migration_progress())
     if args.check_wiki:
         print("Wiki coverage verified.")
     return 0

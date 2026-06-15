@@ -4870,9 +4870,9 @@
     "id": "VT-111",
     "title": "Deferred Without Registration",
     "category": "Testing & Evaluation",
-    "symptom": "The agent detects technical debt or a finding, verbally classifies it as \"postpone / isolated sprint / deferred / later\", and closes the response without opening `PLAN.md`. The item disappears.",
+    "symptom": "The agent detects technical debt or a finding, verbally classifies it as \"postpone / isolated sprint / deferred / later\", and closes the response without opening the Sprint Document (e.g., PLAN.md). The item disappears.",
     "cause": "A context switch between analysis mode and implementation mode disables the VC-114 trigger; the agent assumes that \"naming = registering\".",
-    "solution": "Mandatory B8 trigger: every \"deferred\" classification triggers immediate opening of BACKLOG.md to register the ID + evidence, and PLAN.md to design the implementation. No ID in BACKLOG.md = forgotten, not deferred. (Lesson: omitting the formal registration of structural exclusions or technical debt in the centralized backlog leads to persistent drift and loss of quality control).",
+    "solution": "Mandatory B8 trigger: every \"deferred\" classification triggers immediate opening of the Debt Registry (e.g., BACKLOG.md) to register the ID + evidence, and the Sprint Document (e.g., PLAN.md) to design the implementation. No ID in the Debt Registry (e.g., BACKLOG.md) = forgotten, not deferred. (Lesson: omitting the formal registration of structural exclusions or technical debt in the centralized backlog leads to persistent drift and loss of quality control).",
     "status": "AUDITED",
     "severity": "medium",
     "tags": [
@@ -5765,9 +5765,9 @@
     "validating_mechanism": "validate_golden_standard_catalogs.py",
     "downstream_verification": "none",
     "example_bad": "# The 6-step plan lives only in the chat; on compaction it is lost.\n",
-    "example_good": "# Versioned PLAN.md: steps, status, and done-criteria outside the chat.\n",
+    "example_good": "# Versioned Sprint Document (e.g., PLAN.md): steps, status, and done-criteria outside the chat.\n",
     "example_lang": "text",
-    "detection": "Multi-step work without a persistent plan artifact (PLAN.md / issue) outside the chat.\n",
+    "detection": "Multi-step work without a persistent plan artifact (e.g., Sprint Document / PLAN.md / issue) \noutside the chat.\n",
     "evidence": [
       {
         "source": "arxiv:2603.28592",
@@ -7120,8 +7120,8 @@
       "vibe-coding",
       "prevented-mechanically"
     ],
-    "action": "Physical verification: the static AST anti-slop gate (audit_d6_anti_slop) requires complete type annotations for parameters and return values on all public functions of protocol_engine/ and the dimension surfaces.\n",
-    "validating_mechanism": "audit_d6_anti_slop",
+    "action": "Static AST analysis requires complete type annotations on public functions: every parameter and the return value must be typed, and an unconstrained `Any` in domain positions is rejected. The checked signature is the function definition's annotation set, independent of any specific tool.\n",
+    "validating_mechanism": "static-ast",
     "downstream_verification": "none",
     "example_bad": "def handle(data):          # no types: impossible states circulate\n    return data[\"amount\"] * data[\"rate\"]\n",
     "example_good": "def handle(order: Order) -> Money:   # invariants represented in the type\n    return order.amount * order.rate\n",
@@ -7136,7 +7136,13 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "core"
+    "tier": "core",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D6",
+        "mechanism": "audit_d6_anti_slop"
+      }
+    }
   },
   "VC-077": {
     "id": "VC-077",
@@ -7177,8 +7183,8 @@
       "vibe-coding",
       "audited"
     ],
-    "action": "Detected by D2 (completeness) via AST: empty function bodies, stub docstrings, and pass-only functions are rejected. D9 (test purity) rejects tests that have no active assertions. Upgrade 2026-06-04: VC-078 leaves DOC_ONLY because D2 and D9 cover the pattern mechanically in scripts/ and tests/.",
-    "validating_mechanism": "audit_d2_completeness",
+    "action": "Static AST analysis rejects incomplete implementations as a structural signature:\nempty function bodies, stub-only docstrings, and pass-only functions; tests whose\nbodies carry no active assertion are likewise rejected as non-discriminating. The\ncheck reads the parsed body, not any specific runner or placeholder literal.\n",
+    "validating_mechanism": "static-ast",
     "downstream_verification": "none",
     "example_bad": "API_KEY = \"REPLACE_ME\"           # placeholder that reaches production\n",
     "example_good": "API_KEY = os.environ[\"API_KEY\"]  # fails if missing; no placeholder\n",
@@ -7193,7 +7199,13 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "vc078_placeholder",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D2",
+        "mechanism": "audit_d2_completeness"
+      }
+    }
   },
   "VC-079": {
     "id": "VC-079",
@@ -7327,8 +7339,8 @@
       "vibe-coding",
       "audited"
     ],
-    "action": "Detected by D1 audit_d1_integrity: scans all code files (excluding non-code by extension) and fails with \"Unregistered file (dead)\" if the file is not in the whitelist nor a legitimate test. Upgrade 2026-06-04: VC-083 leaves DOC_ONLY because D1 already verifies it mechanically.",
-    "validating_mechanism": "D1Integrity",
+    "action": "Static integrity analysis enumerates every code file (excluding non-code by\nextension) and fails with \"unregistered file (dead)\" when a file is neither\ndeclared in the authorized inventory (whitelist) nor a legitimate test. The\nsignature is presence-on-disk without any authorizing reference.\n",
+    "validating_mechanism": "static-ast",
     "downstream_verification": "none",
     "example_bad": "# old_server.py, server_v2_backup.py coexist without being declared or used.\n",
     "example_good": "# Each artifact is authorized, classified, or deleted (explicit inventory).\n",
@@ -7343,7 +7355,13 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D1",
+        "mechanism": "D1Integrity"
+      }
+    }
   },
   "VC-084": {
     "id": "VC-084",
@@ -7436,8 +7454,8 @@
       "vibe-coding",
       "prevented"
     ],
-    "action": "D6 (_check_file_anti_slop) detects filterwarnings(\"ignore\") without a justifying comment in scripts/ (excluding tests). Upgrade 2026-06-04: VC-087 promoted to PREVENTED with static detection in audit_d6_anti_slop. Allowed pattern: filterwarnings(\"ignore\")  # VC-087-OK: <specific reason>.",
-    "validating_mechanism": "audit_d6_anti_slop",
+    "action": "Static source analysis flags a blanket `filterwarnings(\"ignore\")` that carries no\njustifying inline comment on production paths (tests excluded). The allowed pattern\nis a narrowly-scoped suppression accompanied by a specific reason comment; the\nrejected signature is the unqualified global suppression call.\n",
+    "validating_mechanism": "static-ast",
     "downstream_verification": "none",
     "example_bad": "warnings.filterwarnings(\"ignore\")   # all are silenced, without justification\n",
     "example_good": "warnings.filterwarnings(\"ignore\", category=DeprecationWarning)  # only this one, see BUG-30\n",
@@ -7452,7 +7470,13 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "vc087_blanket_filterwarnings",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D6",
+        "mechanism": "audit_d6_anti_slop"
+      }
+    }
   },
   "VC-088": {
     "id": "VC-088",
@@ -7581,7 +7605,7 @@
       "vibe-coding",
       "prevented"
     ],
-    "action": "Enforced by verifying existence of Phase 0 purge evidence files (purge_plan.md and phase_0_purge_result.md) in external audits.",
+    "action": "Enforced by verifying existence of Phase 0 purge evidence files (e.g., purge_plan.md and phase_0_purge_result.md) in external audits.",
     "validating_mechanism": "audit_d2_completeness",
     "downstream_verification": "none",
     "example_bad": "# \"full audit OK\" covering only src/, omitting migrations/ and scripts/.\n",
@@ -8120,8 +8144,8 @@
       "vibe-coding",
       "prevented-mechanically"
     ],
-    "action": "Physical prevention by verifying that every active exclusion rule in the .gitignore file is preceded by an explanatory comment justifying the exclusion in the same block.",
-    "validating_mechanism": "audit_d2_completeness",
+    "action": "Static analysis verifies that every active exclusion rule in the ignore file is\npreceded by an explanatory comment justifying the exclusion in the same block; an\nunannotated exclusion entry is the rejected signature.\n",
+    "validating_mechanism": "static-ast",
     "downstream_verification": "none",
     "example_bad": "# .gitignore: a directory is ignored without knowing what it contains.\nscratch/\n",
     "example_good": "# Each exclusion carries a reason and date; it was audited before ignoring.\nscratch/   # build artifacts only, audited 2026-06-05, no secrets\n",
@@ -8136,7 +8160,13 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D2",
+        "mechanism": "audit_d2_completeness"
+      }
+    }
   },
   "VC-112": {
     "id": "VC-112",
@@ -9467,7 +9497,7 @@
     "detection": "Flags enforcement-layer edits that cite a missing or unregenerated GS rule.",
     "evidence": [
       {
-        "source": "BACKLOG.md cross-seam contract",
+        "source": "Debt Registry (e.g., BACKLOG.md) cross-seam contract",
         "claim": "GS-2 must wait for a real GS gate, and cross-layer consumers should follow the GS source rather than create a sink-first shortcut."
       }
     ],
@@ -9499,7 +9529,7 @@
     "detection": "Flags planning or implementation that proceeds without a tracked backlog entry in the source ledger.",
     "evidence": [
       {
-        "source": "BACKLOG.md operating rule",
+        "source": "Debt Registry (e.g., BACKLOG.md) operating rule",
         "claim": "If it is not in this file, it does not get worked."
       }
     ],

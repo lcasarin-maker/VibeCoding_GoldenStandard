@@ -948,7 +948,7 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 | **Depth** | {depth_badge(item)} |{detector_row}
 | **Tags** | {tag_list} |
 | **Downstream Verification** | `{item.get('downstream_verification', 'none')}` |
-| **Validation Mechanism** | `{item['validating_mechanism']}` |
+| **Validation Mechanism** | `{_display_mechanism(item)}` |
 
 ---
 
@@ -995,7 +995,7 @@ def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
 | **Depth** | {depth_badge(item)} |
 | **Tags** | {tag_list} |
 | **Downstream Verification** | `{item.get('downstream_verification', 'none')}` |
-| **Validation Mechanism** | `{item['validating_mechanism']}` |
+| **Validation Mechanism** | `{_display_mechanism(item)}` |
 
 ---
 
@@ -1598,6 +1598,20 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     print(f"Successfully generated Obsidian Wiki Vault at {wiki_dir}")
 
 
+def _display_mechanism(item: dict) -> str:
+    """AX-020: prefer the concrete Cerberus mechanism for display when an entry has been
+    migrated (enforcement.cerberus.mechanism); otherwise fall back to the agnostic
+    validating_mechanism value. Display-only; does not alter the stored raw field."""
+    enforcement = item.get("enforcement")
+    if isinstance(enforcement, dict):
+        cerberus = enforcement.get("cerberus")
+        if isinstance(cerberus, dict):
+            mechanism = str(cerberus.get("mechanism", "")).strip()
+            if mechanism:
+                return mechanism
+    return str(item.get("validating_mechanism", "")).strip()
+
+
 def extract_catalog_items(config: dict, mapped_database: dict):
     """Parse catalog configuration dict and populate mapped flaws."""
     if not isinstance(config, dict) or "items" not in config:
@@ -1607,7 +1621,7 @@ def extract_catalog_items(config: dict, mapped_database: dict):
         if not downstream_verification:
             downstream_verification = "required" if str(item.get("status", "")).strip() == "DOC_ONLY" else "none"
         flaw_id = item["id"]
-        mapped_database[flaw_id] = {
+        mapped_entry = {
             "id": flaw_id,
             "title": item["title"],
             "category": get_flaw_category(flaw_id),
@@ -1630,6 +1644,11 @@ def extract_catalog_items(config: dict, mapped_database: dict):
             "detector": str(item.get("detector", "")).strip(),
             "tier": str(item.get("tier", "extended")).strip(),
         }
+        # AX-020: carry the enforcement binding through only when present, so migrated entries
+        # expose enforcement.cerberus downstream while legacy entries leave the JSON untouched.
+        if isinstance(item.get("enforcement"), dict):
+            mapped_entry["enforcement"] = item["enforcement"]
+        mapped_database[flaw_id] = mapped_entry
 
 
 def main():
@@ -1680,7 +1699,7 @@ def main():
         for item in sorted(cat_items, key=lambda x: x["id"]):
             action_snippet = item["action"].replace("\n", " ")
             report_lines.append(
-                f"| `{item['id']}` | {item['title']} | **{item['severity']}** | **{item['status']}** | `{item.get('downstream_verification', 'none')}` | {action_snippet} | `{item['validating_mechanism']}` |"
+                f"| `{item['id']}` | {item['title']} | **{item['severity']}** | **{item['status']}** | `{item.get('downstream_verification', 'none')}` | {action_snippet} | `{_display_mechanism(item)}` |"
             )
         report_lines.append("")
 
