@@ -20,122 +20,122 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 
 | ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |
 |---|---|---|---|---|---|---|
-| `VT-001` | Hardcoded return | **high** | **PREVENTED** | `none` | Prevented by D7 (Completeness) and D8 (Test Coverage) in the AST completeness gate using analysis of function bodies to reject empty stubs or stub docstrings. | `audit_d2_completeness` |
-| `VT-002` | Permanent stub | **high** | **PREVENTED** | `none` | Prevented by D7 (Completeness) and D8 (Test Coverage) in the AST completeness gate using analysis of function bodies to reject empty stubs or stub docstrings. | `audit_d2_completeness` |
-| `VT-003` | Response by exact datum | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-004` | Copying the expected value | **medium** | **AUDITED** | `none` | Audited as oracle-contamination in test fixtures or implementation glue; separate from stale-spec mismatches. | `audit_d8_test_coverage` |
-| `VT-005` | Trivial assert | **high** | **PREVENTED** | `none` | Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts. | `audit_d9_test_purity` |
-| `VT-006` | Test without assert | **high** | **PREVENTED** | `none` | Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts. | `audit_d9_test_purity` |
-| `VT-007` | Presence not correctness | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-008` | Message not result | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-009` | Tautology | **high** | **PREVENTED** | `none` | Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts. | `audit_d9_test_purity` |
-| `VT-010` | Implementation test | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-011` | Incorrect expected value | **medium** | **AUDITED** | `none` | Audited as stale-oracle mismatch; separate from copied-expected contamination. | `audit_d8_test_coverage` |
-| `VT-012` | Coverage without asserts | **high** | **PREVENTED** | `none` | Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts. | `audit_d9_test_purity` |
-| `VT-013` | Tests for percentage | **high** | **PREVENTED** | `none` | Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts. | `audit_d9_test_purity` |
-| `VT-014` | Circular test | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-015` | Test too broad | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-016` | Ceremonial textual assertion | **high** | **PREVENTED** | `none` | Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts. | `audit_d9_test_purity` |
-| `VT-017` | Hardcoded evidence | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-018` | Fragile string matching | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-019` | Valid error hash | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-020` | One hundred percent as the goal | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-021` | Regression without a sentinel | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-022` | Green ceremony and Tautological Assertions | **high** | **PREVENTED** | `none` | Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag assert True, assertTrue(True), assertEqual(x, x), and tests without active asserts. | `audit_d9_test_purity` |
-| `VT-023` | Complacent mock | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-024` | Incomplete fake | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-025` | Network stub | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-026` | Simplified database | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-027` | Fixed clock | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-028` | Controlled randomness | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-029` | Fake filesystem | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-030` | Friendly monkey patch | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-031` | Command stub | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-032` | Partial mock scan | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-033` | Wrapper as remediation | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-034` | Approved placeholder | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-035` | Permanent xfail | **high** | **PREVENTED** | `none` | Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or reasons. | `audit_d9_test_purity` |
-| `VT-036` | Permanent skip | **high** | **PREVENTED** | `none` | Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or reasons. | `audit_d9_test_purity` |
-| `VT-037` | Impossible condition | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-038` | Order dependency | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-039` | Temporal dependency | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-040` | Absorbed exception | **high** | **PREVENTED** | `none` | Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements. | `audit_d5_angry_path` |
-| `VT-041` | Ignored error output | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-042` | False success log | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-043` | Unconditional successful exit | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-044` | Ignored return | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-045` | Single happy path | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-046` | Magic datum | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-047` | Small dataset | **high** | **PREVENTED** | `none` | Real volume: the test exercises 1000+ sessions (the opposite of a small dataset). | `test_compress_1000_sessions_returns_structured_dict` |
-| `VT-048` | No empty/null/zero | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-049` | No special characters | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-050` | No boundary dates | **high** | **PREVENTED** | `none` | Real calendar boundary: asserts that Feb-29 in a non-leap year raises ValueError. | `test_non_leap_year_feb29_raises` |
-| `VT-051` | Informational CI | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-052` | Ignore errors | **high** | **PREVENTED** | `none` | Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements. | `audit_d5_angry_path` |
-| `VT-053` | Tests outside the active branch | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-054` | Optional tests | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-055` | Unattended notification | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-056` | Complacent post-bug test | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-057` | Skip later | **high** | **PREVENTED** | `none` | Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or reasons. | `audit_d9_test_purity` |
-| `VT-058` | Divergent feature flag | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-059` | Variable alters validation | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-060` | Setup cleans too much | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-061` | UI by delta | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-062` | Full dead file | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-063` | False documented interface | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-064` | Invisible broken tests | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-065` | Broken global capture | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-066` | Orphan tests | **high** | **PREVENTED** | `none` | Discovery gaps prevented by run_compliance_tests executing full pytest tests/ dynamically, verified in test_infrastructure.py. | `test_infrastructure_checks` |
-| `VT-067` | False negative from docstring | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-068` | Backups as deprecated | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-069` | Misleading name | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-070` | Missing setup validation | **high** | **REMEDIATED** | `none` | Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry. | `test_setup_validation` |
-| `VT-071` | Non-resumable handoff | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-072` | Documentary rollback | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-073` | Compatibility not evaluated | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-074` | Untested observability | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-075` | Incomplete Test Discovery | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-076` | System dependency | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-077` | Misleading timeout | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-078` | Single local machine | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-079` | Unpenetrated sandbox | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-080` | Physical Address Coupling | **high** | **REMEDIATED** | `none` | Enforced by D9 absolute path scanners. In code, resolved via dynamic str(Path(__file__).resolve().parent.parent) path bootstrapping. | `audit_d9_test_purity` |
-| `VT-081` | Author tests their own implementation | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-082` | Review without tests | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-083` | Encoded expected value | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-084` | Hardcoded approval | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-085` | Complacent golden file | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-086` | Normalized expected failure | **high** | **PREVENTED** | `none` | Checked by D9 Test Purity which rejects permanent xfail or skip markers unless annotated with removal criteria or reasons. | `audit_d9_test_purity` |
-| `VT-087` | Tolerated warning | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-088` | Error tolerance | **high** | **PREVENTED** | `none` | Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty try-except blocks or silent pass/continue statements. | `audit_d5_angry_path` |
-| `VT-089` | Convenience wrapper | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-090` | Tested placeholder | **high** | **PREVENTED** | `none` | Prevented by D7 (Completeness) and D8 (Test Coverage) in the AST completeness gate using analysis of function bodies to reject empty stubs or stub docstrings. | `audit_d2_completeness` |
-| `VT-091` | Documented domain not implemented | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-092` | Section as compliance | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-093` | Docstrings as quality | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-094` | Handling by keyword | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-095` | Tests of the protocol, not the subject | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-096` | Stale evidence | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-097` | Ceremonial chaos | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-098` | Lying passed report | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-099` | Dead version constant | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-100` | Permissions not rigorous | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-101` | Unvalidated routing | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-102` | Hardcoded approved list | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-103` | Expected hardcoded in the evaluator | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-104` | Warnings outside the score | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-105` | No hook-existence test | **high** | **REMEDIATED** | `none` | Validated by tests/test_infrastructure.py:test_audit_workflow_runs_validator_and_regenerator, ensuring the audit workflow actually invokes the validator and regeneration steps before diffing. | `test_audit_workflow_runs_validator_and_regenerator` |
-| `VT-106` | Unrevalidated exclusion | **high** | **REMEDIATED** | `none` | Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry. | `test_setup_validation` |
-| `VT-107` | Stack incompleto silencioso | **high** | **REMEDIATED** | `none` | Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry. | `test_setup_validation` |
-| `VT-108` | Name disconnected from the domain | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-109` | Redundant Frameworks and Middleman Theater (Testing Bridge Theater) | **high** | **PREVENTED** | `none` | Testing Bridge Theater is bypassed; static audits and tests run as direct shell pipelines returning native exit codes. | `test_infrastructure_checks` |
-| `VT-110` | Hidden-Directory Fragmentation (Dot-Directory Fragmentation) | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-111` | Deferred Without Registration | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-112` | Ghost Dependency Drift | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-113` | Lack of Mutation Testing (Lack of Test Mutation Validation) | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-114` | Multi-Repository Sync Drift | **medium** | **AUDITED** | `none` | Audited by DeepForensicAuditor D8 and D9 behavioral and static test validations. | `audit_d8_test_coverage` |
-| `VT-115` | False Drift Positive from Line Endings (CRLF/LF Hash Mismatch) | **high** | **REMEDIATED** | `none` | Checked by setup_validate.py which runs comprehensive pre-flight verification of Python, git hooks, write access, encoding, and the project registry. | `test_setup_validation` |
-| `VT-116` | Decoy comment satisfies a text-based validator | **high** | **PREVENTED** | `none` | Symbol resolution is AST-based, so a planted `# def <name>` comment does not resolve; an additional scanner flags any decoy comment that mirrors a declared validating mechanism. | `test_planted_def_comment_does_not_resolve` |
+| `VT-001` | Hardcoded return | **high** | **PREVENTED** | `none` | A test must assert general properties, not a single hardcoded return value that the implementation can trivially satisfy.  | `audit_d2_completeness` |
+| `VT-002` | Permanent stub | **high** | **PREVENTED** | `none` | A placeholder body on an active path is not an implementation: completeness analysis rejects fake bodies that pass without doing the work.  | `audit_d2_completeness` |
+| `VT-003` | Response by exact datum | **medium** | **AUDITED** | `none` | A test must generalize beyond the one input it was written for; an assertion that only holds for a single hardcoded datum proves nothing.  | `audit_d8_test_coverage` |
+| `VT-004` | Copying the expected value | **medium** | **AUDITED** | `none` | The expected value must come from an independent specification, not be copied into the production path or fixture where it stops being an independent observation.  | `audit_d8_test_coverage` |
+| `VT-005` | Trivial assert | **high** | **PREVENTED** | `none` | An assertion must be able to fail: a check that is always true is rejected as non-discriminating.  | `audit_d9_test_purity` |
+| `VT-006` | Test without assert | **high** | **PREVENTED** | `none` | A test that runs without any assertion verifies nothing; at least one discriminating assertion is mandatory.  | `audit_d9_test_purity` |
+| `VT-007` | Presence not correctness | **medium** | **AUDITED** | `none` | Asserting that a file or artifact merely exists is not a test; validate its effect or content.  | `audit_d8_test_coverage` |
+| `VT-008` | Message not result | **medium** | **AUDITED** | `none` | Validate the final state, not the presence of an approval message; matching success text is not verifying the outcome.  | `audit_d8_test_coverage` |
+| `VT-009` | Tautology | **high** | **PREVENTED** | `none` | A test must discriminate the subject's behavior, not restate a universal truth that holds regardless of the code.  | `audit_d9_test_purity` |
+| `VT-010` | Implementation test | **medium** | **AUDITED** | `none` | Test observable behavior, not internal implementation detail, so a behavior-preserving refactor keeps the test meaningful.  | `audit_d8_test_coverage` |
+| `VT-011` | Incorrect expected value | **medium** | **AUDITED** | `none` | The expected value (oracle) must track the current specification; an assertion compared against a stale expectation is invalid.  | `audit_d8_test_coverage` |
+| `VT-012` | Coverage without asserts | **high** | **PREVENTED** | `none` | Coverage means executed-and-verified: lines run without an oracle assertion do not constitute coverage.  | `audit_d9_test_purity` |
+| `VT-013` | Tests for percentage | **high** | **PREVENTED** | `none` | Coverage percentage is not a goal; what matters is the discriminating quality of the assertions, not a gamed number.  | `audit_d9_test_purity` |
+| `VT-014` | Circular test | **medium** | **AUDITED** | `none` | A test must be judged against an external oracle, never approve itself in a circular loop.  | `audit_d8_test_coverage` |
+| `VT-015` | Test too broad | **medium** | **AUDITED** | `none` | A test should localize the failure it detects; an over-broad test that cannot point to the cause has little diagnostic value.  | `audit_d8_test_coverage` |
+| `VT-016` | Ceremonial textual assertion | **high** | **PREVENTED** | `none` | Invoke the real behavior the mandate requires; asserting that some text exists is ceremony.  | `audit_d9_test_purity` |
+| `VT-017` | Hardcoded evidence | **medium** | **AUDITED** | `none` | The recorded outcome must be derived from an actual verification, not a hardcoded success.  | `audit_d8_test_coverage` |
+| `VT-018` | Fragile string matching | **medium** | **AUDITED** | `none` | Validate structured state, not free-text messages whose wording can silently flip the result.  | `audit_d8_test_coverage` |
+| `VT-019` | Valid error hash | **medium** | **AUDITED** | `none` | An error must surface as an explicit failure, not be encoded into data that looks valid.  | `audit_d8_test_coverage` |
+| `VT-020` | One hundred percent as the goal | **medium** | **AUDITED** | `none` | One hundred percent coverage is a consequence of good tests, never the goal; treating it as the target invites gaming.  | `audit_d8_test_coverage` |
+| `VT-021` | Regression without a sentinel | **medium** | **AUDITED** | `none` | Every fixed defect must leave behind a discriminating regression test so the same error cannot silently reappear.  | `audit_d8_test_coverage` |
+| `VT-022` | Green ceremony and Tautological Assertions | **high** | **PREVENTED** | `none` | Require boundary-value assertions and forbid broad catches that silence failures, so a green run cannot be ceremonial.  | `audit_d9_test_purity` |
+| `VT-023` | Complacent mock | **medium** | **AUDITED** | `none` | A mock that always simulates success must be calibrated against a real integration, or it only tests itself.  | `audit_d8_test_coverage` |
+| `VT-024` | Incomplete fake | **medium** | **AUDITED** | `none` | A fake that omits the hard cases gives false assurance; exercise the real system for those paths.  | `audit_d8_test_coverage` |
+| `VT-025` | Network stub | **medium** | **AUDITED** | `none` | A network stub drifts from reality; pin behavior with a live contract test.  | `audit_d8_test_coverage` |
+| `VT-026` | Simplified database | **medium** | **AUDITED** | `none` | Test against an engine equivalent to production; a simplified database whose rules differ hides real failures.  | `audit_d8_test_coverage` |
+| `VT-027` | Fixed clock | **medium** | **AUDITED** | `none` | Exercise temporal boundaries; a permanently fixed clock never reveals date-edge failures.  | `audit_d8_test_coverage` |
+| `VT-028` | Controlled randomness | **medium** | **AUDITED** | `none` | Assert statistical properties over the real distribution; fully controlled randomness explores nothing.  | `audit_d8_test_coverage` |
+| `VT-029` | Fake filesystem | **medium** | **AUDITED** | `none` | Use a real resource for permission- and lock-sensitive paths that a fake filesystem cannot reproduce.  | `audit_d8_test_coverage` |
+| `VT-030` | Friendly monkey patch | **medium** | **AUDITED** | `none` | Limit patching to the boundary; over-patching replaces the system under test with the test's own assumptions.  | `audit_d8_test_coverage` |
+| `VT-031` | Command stub | **medium** | **AUDITED** | `none` | Verify the external effect of a command, not a stub that merely prints success.  | `audit_d8_test_coverage` |
+| `VT-032` | Partial mock scan | **medium** | **AUDITED** | `none` | Scan the full active domain; a partial mock-detection pass leaves untested code unguarded.  | `audit_d8_test_coverage` |
+| `VT-033` | Wrapper as remediation | **medium** | **AUDITED** | `none` | Fix the cause in the subject under test; adding a layer so the judge stops failing adapts the judge, not the defect.  | `audit_d8_test_coverage` |
+| `VT-034` | Approved placeholder | **medium** | **AUDITED** | `none` | Require observable behavior before approval; an evaluator that accepts an incomplete structure rubber-stamps a placeholder.  | `audit_d8_test_coverage` |
+| `VT-035` | Permanent xfail | **high** | **PREVENTED** | `none` | An expected-failure marker is not evidence of health; a permanent xfail hides an ignored failure.  | `audit_d9_test_purity` |
+| `VT-036` | Permanent skip | **high** | **PREVENTED** | `none` | A permanently skipped critical test invalidates the global result; skipping must not silently omit it.  | `audit_d9_test_purity` |
+| `VT-037` | Impossible condition | **medium** | **AUDITED** | `none` | Verify that the test's branch actually executes; a condition that is never entered tests nothing.  | `audit_d8_test_coverage` |
+| `VT-038` | Order dependency | **medium** | **AUDITED** | `none` | Tests must be independent; one that passes only because of another's leftover state is unreliable.  | `audit_d8_test_coverage` |
+| `VT-039` | Temporal dependency | **medium** | **AUDITED** | `none` | Control time explicitly; a test whose result depends on the wall-clock hour or day is non-deterministic.  | `audit_d8_test_coverage` |
+| `VT-040` | Absorbed exception | **high** | **PREVENTED** | `none` | An exception must surface, not be absorbed; swallowing it makes the failure disappear.  | `audit_d5_angry_path` |
+| `VT-041` | Ignored error output | **medium** | **AUDITED** | `none` | Capture and observe error output; an unobserved error stream hides the failure signal.  | `audit_d8_test_coverage` |
+| `VT-042` | False success log | **medium** | **AUDITED** | `none` | Log success only after the verification that justifies it, never before checking.  | `audit_d8_test_coverage` |
+| `VT-043` | Unconditional successful exit | **medium** | **AUDITED** | `none` | The exit code must reflect the real state; an unconditional success exit produces a falsely green pipeline.  | `audit_d8_test_coverage` |
+| `VT-044` | Ignored return | **medium** | **AUDITED** | `none` | Assert the return value; an ignored error result lets a failure pass unseen.  | `audit_d8_test_coverage` |
+| `VT-045` | Single happy path | **medium** | **AUDITED** | `none` | Cover adverse cases, not just the ideal happy path.  | `audit_d8_test_coverage` |
+| `VT-046` | Magic datum | **medium** | **AUDITED** | `none` | Generate input variations; a single magic datum chosen to avoid the bug never triggers it.  | `audit_d8_test_coverage` |
+| `VT-047` | Small dataset | **high** | **PREVENTED** | `none` | Exercise realistic volume; a test on a tiny dataset misses failures that only appear at scale.  | `test_compress_1000_sessions_returns_structured_dict` |
+| `VT-048` | No empty/null/zero | **medium** | **AUDITED** | `none` | Cover empty, null, and zero boundary values, not only populated inputs.  | `audit_d8_test_coverage` |
+| `VT-049` | No special characters | **medium** | **AUDITED** | `none` | Include special characters and diverse real-world data that naive inputs never exercise.  | `audit_d8_test_coverage` |
+| `VT-050` | No boundary dates | **high** | **PREVENTED** | `none` | Cover calendar boundaries such as leap days and month/year edges; ideal dates hide date-arithmetic bugs.  | `test_non_leap_year_feb29_raises` |
+| `VT-051` | Informational CI | **medium** | **AUDITED** | `none` | Critical CI failures must block; an informational-only pipeline lets failures through.  | `audit_d8_test_coverage` |
+| `VT-052` | Ignore errors | **high** | **PREVENTED** | `none` | Propagate errors strictly through the pipeline rather than ignoring them.  | `audit_d5_angry_path` |
+| `VT-053` | Tests outside the active branch | **medium** | **AUDITED** | `none` | Tests must run on the active path; tests living outside it never protect anything.  | `audit_d8_test_coverage` |
+| `VT-054` | Optional tests | **medium** | **AUDITED** | `none` | Make risk-bearing tests mandatory; optional tests are not run and give no protection.  | `audit_d8_test_coverage` |
+| `VT-055` | Unattended notification | **medium** | **AUDITED** | `none` | A failure alert needs an owner; an unattended notification makes the failure invisible.  | `audit_d8_test_coverage` |
+| `VT-056` | Complacent post-bug test | **medium** | **AUDITED** | `none` | Write a failing test before fixing the bug; a post-bug test that passes while the code is broken proves nothing.  | `audit_d8_test_coverage` |
+| `VT-057` | Skip later | **high** | **PREVENTED** | `none` | A deferred skip needs a hard deadline; an open-ended skip becomes permanent debt.  | `audit_d9_test_purity` |
+| `VT-058` | Divergent feature flag | **medium** | **AUDITED** | `none` | Test the real feature-flag configuration; testing a divergent flag state hides production behavior.  | `audit_d8_test_coverage` |
+| `VT-059` | Variable alters validation | **medium** | **AUDITED** | `none` | Run with a configuration equivalent to production; an environment variable that disables checks weakens the test.  | `audit_d8_test_coverage` |
+| `VT-060` | Setup cleans too much | **medium** | **AUDITED** | `none` | Test from a realistic, dirty state; over-cleaning setup creates conditions production never sees.  | `audit_d8_test_coverage` |
+| `VT-061` | UI by delta | **medium** | **AUDITED** | `none` | Validate critical UI flows directly, not only visual deltas that miss functional breakage.  | `audit_d8_test_coverage` |
+| `VT-062` | Full dead file | **medium** | **AUDITED** | `none` | Validate that code actually executes; a complete-but-dead file passes structural checks while doing nothing.  | `audit_d8_test_coverage` |
+| `VT-063` | False documented interface | **medium** | **AUDITED** | `none` | Test the real public interface; documenting a flag the code does not support is a lie the tests must catch.  | `audit_d8_test_coverage` |
+| `VT-064` | Invisible broken tests | **medium** | **AUDITED** | `none` | Run the full active suite so an import error that silently disables tests is surfaced.  | `audit_d8_test_coverage` |
+| `VT-065` | Broken global capture | **medium** | **AUDITED** | `none` | Isolate each test's side effects so one cannot break the runner or other tests.  | `audit_d8_test_coverage` |
+| `VT-066` | Orphan tests | **high** | **PREVENTED** | `none` | Reconcile the test inventory so orphan files that are never discovered or run are surfaced.  | `test_infrastructure_checks` |
+| `VT-067` | False negative from docstring | **medium** | **AUDITED** | `none` | Detect forwarding wrappers by structural analysis; a docstring must not mask a shim.  | `audit_d8_test_coverage` |
+| `VT-068` | Backups as deprecated | **medium** | **AUDITED** | `none` | Classify artifacts by type so backups are not miscounted as deprecated noise that contaminates the audit.  | `audit_d8_test_coverage` |
+| `VT-069` | Misleading name | **medium** | **AUDITED** | `none` | A name must match behavior; a function whose name promises work its body never does is misleading.  | `audit_d8_test_coverage` |
+| `VT-070` | Missing setup validation | **high** | **REMEDIATED** | `none` | Validate that the real environment can start - runtime, dependencies, and minimum permissions - not just that the test passes.  | `test_setup_validation` |
+| `VT-071` | Non-resumable handoff | **medium** | **AUDITED** | `none` | Test continuity from another actor's checkpoint; a handoff that cannot be resumed is broken.  | `audit_d8_test_coverage` |
+| `VT-072` | Documentary rollback | **medium** | **AUDITED** | `none` | Verify the real reversal of a destructive change; a documented-but-unexecuted rollback is unproven.  | `audit_d8_test_coverage` |
+| `VT-073` | Compatibility not evaluated | **medium** | **AUDITED** | `none` | Maintain a suite of current consumers so a change that breaks an existing flow is caught.  | `audit_d8_test_coverage` |
+| `VT-074` | Untested observability | **medium** | **AUDITED** | `none` | Test that a failure produces actionable diagnostic evidence, not silence.  | `audit_d8_test_coverage` |
+| `VT-075` | Incomplete Test Discovery | **medium** | **AUDITED** | `none` | Audit the physical correspondence between test files on disk and tests actually discovered, so a green suite cannot hide inactive ones.  | `audit_d8_test_coverage` |
+| `VT-076` | System dependency | **medium** | **AUDITED** | `none` | Run across an environment matrix; a test that only works in one environment is not portable.  | `audit_d8_test_coverage` |
+| `VT-077` | Misleading timeout | **medium** | **AUDITED** | `none` | Assert functional limits, not just a generous timeout under which slowness passes.  | `audit_d8_test_coverage` |
+| `VT-078` | Single local machine | **medium** | **AUDITED** | `none` | Tests must be reproducible off one developer's machine, independent of a local installation.  | `audit_d8_test_coverage` |
+| `VT-079` | Unpenetrated sandbox | **medium** | **AUDITED** | `none` | Test isolation by attempting controlled boundary violations, not by merely declaring the sandbox secure.  | `audit_d8_test_coverage` |
+| `VT-080` | Physical Address Coupling | **high** | **REMEDIATED** | `none` | Parametrize resources via injection or logical variables so tests do not couple to a physical address and break on migration.  | `audit_d9_test_purity` |
+| `VT-081` | Author tests their own implementation | **medium** | **AUDITED** | `none` | Tests benefit from independent review; an author validating only their own mental model confirms bias.  | `audit_d8_test_coverage` |
+| `VT-082` | Review without tests | **medium** | **AUDITED** | `none` | Review the tests as part of the change; approving code without reviewing its tests is blind.  | `audit_d8_test_coverage` |
+| `VT-083` | Encoded expected value | **medium** | **AUDITED** | `none` | Derive expected values from an independent specification, not an answer written so the test passes.  | `audit_d8_test_coverage` |
+| `VT-084` | Hardcoded approval | **medium** | **AUDITED** | `none` | Base approval on reproducible evidence, not a manually-set approved state treated as truth.  | `audit_d8_test_coverage` |
+| `VT-085` | Complacent golden file | **medium** | **AUDITED** | `none` | Regenerate a golden snapshot only after semantic review; a stale golden legitimizes broken output.  | `audit_d8_test_coverage` |
+| `VT-086` | Normalized expected failure | **high** | **PREVENTED** | `none` | An expected failure must not count as green; normalizing it makes the failure permanent.  | `audit_d9_test_purity` |
+| `VT-087` | Tolerated warning | **medium** | **AUDITED** | `none` | Escalate a warning to a failure until its cause is resolved; a green suite carrying warnings tolerates rot.  | `audit_d8_test_coverage` |
+| `VT-088` | Error tolerance | **high** | **PREVENTED** | `none` | A health verdict accepts zero known errors; tolerating one normalizes it.  | `audit_d5_angry_path` |
+| `VT-089` | Convenience wrapper | **medium** | **AUDITED** | `none` | Test the real interface with no simplifying wrapper that hides the real failure.  | `audit_d8_test_coverage` |
+| `VT-090` | Tested placeholder | **high** | **PREVENTED** | `none` | Block placeholders on verified paths; a placeholder that satisfies the assertion fakes completion.  | `audit_d2_completeness` |
+| `VT-091` | Documented domain not implemented | **medium** | **AUDITED** | `none` | Every documented domain must have a live executor; a rule that exists but never runs is inert.  | `audit_d8_test_coverage` |
+| `VT-092` | Section as compliance | **medium** | **AUDITED** | `none` | Validate content and effect, not the mere presence of a section heading.  | `audit_d8_test_coverage` |
+| `VT-093` | Docstrings as quality | **medium** | **AUDITED** | `none` | Cross-check usage, calls, and tests; docstrings are not evidence of quality.  | `audit_d8_test_coverage` |
+| `VT-094` | Handling by keyword | **medium** | **AUDITED** | `none` | Induce a real error to prove handling; matching a lexical keyword is not error handling.  | `audit_d8_test_coverage` |
+| `VT-095` | Tests of the protocol, not the subject | **medium** | **AUDITED** | `none` | Run the suite of the audited subject; testing the protocol instead lets an untested project pass.  | `audit_d8_test_coverage` |
+| `VT-096` | Stale evidence | **medium** | **AUDITED** | `none` | Bind evidence to the version under test; a stale artifact must not satisfy a current check.  | `audit_d8_test_coverage` |
+| `VT-097` | Ceremonial chaos | **medium** | **AUDITED** | `none` | Exercise the real components of the system, not an external library standing in for them.  | `audit_d8_test_coverage` |
+| `VT-098` | Lying passed report | **medium** | **AUDITED** | `none` | Report the domains actually exercised; a pass report claiming all while running few is a lie.  | `audit_d8_test_coverage` |
+| `VT-099` | Dead version constant | **medium** | **AUDITED** | `none` | Keep a single source of version truth; a dead fallback constant drifts from reality.  | `audit_d8_test_coverage` |
+| `VT-100` | Permissions not rigorous | **medium** | **AUDITED** | `none` | Validate both positive and negative permission cases, not only the permitted actor.  | `audit_d8_test_coverage` |
+| `VT-101` | Unvalidated routing | **medium** | **AUDITED** | `none` | Test routing decisions with edge cases so tasks cannot silently reach the wrong flow.  | `audit_d8_test_coverage` |
+| `VT-102` | Hardcoded approved list | **medium** | **AUDITED** | `none` | Every approval must revalidate active properties; accepting by name from a hardcoded list skips the behavior check.  | `audit_d8_test_coverage` |
+| `VT-103` | Expected hardcoded in the evaluator | **medium** | **AUDITED** | `none` | Separate generator, subject, and judge; an evaluator that already knows the expected answer cannot judge.  | `audit_d8_test_coverage` |
+| `VT-104` | Warnings outside the score | **medium** | **AUDITED** | `none` | Warnings count as failures until explicitly classified; leaving them outside the score hides risk.  | `audit_d8_test_coverage` |
+| `VT-105` | No hook-existence test | **high** | **REMEDIATED** | `none` | Parse the workflow and assert its validator and regenerator steps remain wired, so a pipeline cannot silently lose its verification.  | `test_audit_workflow_runs_validator_and_regenerator` |
+| `VT-106` | Unrevalidated exclusion | **high** | **REMEDIATED** | `none` | Periodically revalidate each exclusion so the ignore list cannot accumulate stale, unjustified entries.  | `test_setup_validation` |
+| `VT-107` | Stack incompleto silencioso | **high** | **REMEDIATED** | `none` | Validate the full active stack at startup - runtime, CLI tools, hooks, essential files, write permissions - and report exactly what is missing.  | `test_setup_validation` |
+| `VT-108` | Name disconnected from the domain | **medium** | **AUDITED** | `none` | Compare the formal declaration (name, domain count, version) against the real implementation and fail when they diverge.  | `audit_d8_test_coverage` |
+| `VT-109` | Redundant Frameworks and Middleman Theater (Testing Bridge Theater) | **high** | **PREVENTED** | `none` | A simple static or structural validation should run directly and natively; wrapping it in a heavy test framework is middleman theater.  | `test_infrastructure_checks` |
+| `VT-110` | Hidden-Directory Fragmentation (Dot-Directory Fragmentation) | **medium** | **AUDITED** | `none` | Consolidate governance and state metadata under a single hidden directory rather than scattering it across many.  | `audit_d8_test_coverage` |
+| `VT-111` | Deferred Without Registration | **medium** | **AUDITED** | `none` | Every deferred classification must immediately open a debt-registry entry; a verbal deferral with no record loses the finding.  | `audit_d8_test_coverage` |
+| `VT-112` | Ghost Dependency Drift | **medium** | **AUDITED** | `none` | A static gate must compare every top-level import against the dependency manifest so an unregistered dependency cannot drift in.  | `audit_d8_test_coverage` |
+| `VT-113` | Lack of Mutation Testing (Lack of Test Mutation Validation) | **medium** | **AUDITED** | `none` | A suite must empirically demonstrate it can fail against a controlled mutation; tests that stay green under any change are not falsifiable.  | `audit_d8_test_coverage` |
+| `VT-114` | Multi-Repository Sync Drift | **medium** | **AUDITED** | `none` | A drift gate must compare checksums across satellite repositories and block when governance files diverge from the central core.  | `audit_d8_test_coverage` |
+| `VT-115` | False Drift Positive from Line Endings (CRLF/LF Hash Mismatch) | **high** | **REMEDIATED** | `none` | Normalize line endings to a single form before hashing so files identical on disk do not raise a false drift positive across platforms.  | `test_setup_validation` |
+| `VT-116` | Decoy comment satisfies a text-based validator | **high** | **PREVENTED** | `none` | Resolve symbols structurally through the AST so only a real definition node counts; a commented-out or string mention must not satisfy the check.  | `test_planted_def_comment_does_not_resolve` |
 
 ### Vibe Coding (154 items)
 

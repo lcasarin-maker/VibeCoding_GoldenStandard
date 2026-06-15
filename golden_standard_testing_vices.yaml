@@ -11,10 +11,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Prevented by D7 (Completeness) and D8 (Test Coverage) in the AST 
-      completeness gate using analysis of function bodies to reject empty stubs 
-      or stub docstrings.
-    validating_mechanism: audit_d2_completeness
+    action: |
+      A test must assert general properties, not a single hardcoded return value that the implementation can trivially satisfy.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D2
+        mechanism: audit_d2_completeness
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -49,10 +52,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Prevented by D7 (Completeness) and D8 (Test Coverage) in the AST 
-      completeness gate using analysis of function bodies to reject empty stubs 
-      or stub docstrings.
-    validating_mechanism: audit_d2_completeness
+    action: |
+      A placeholder body on an active path is not an implementation: completeness analysis rejects fake bodies that pass without doing the work.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D2
+        mechanism: audit_d2_completeness
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -81,9 +87,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      A test must generalize beyond the one input it was written for; an assertion that only holds for a single hardcoded datum proves nothing.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -110,9 +120,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited as oracle-contamination in test fixtures or implementation 
-      glue; separate from stale-spec mismatches.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      The expected value must come from an independent specification, not be copied into the production path or fixture where it stops being an independent observation.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -138,10 +152,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag 
-      assert True, assertTrue(True), assertEqual(x, x), and tests without active
-      asserts.
-    validating_mechanism: audit_d9_test_purity
+    action: |
+      An assertion must be able to fail: a check that is always true is rejected as non-discriminating.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D9
+        mechanism: audit_d9_test_purity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -171,10 +188,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag 
-      assert True, assertTrue(True), assertEqual(x, x), and tests without active
-      asserts.
-    validating_mechanism: audit_d9_test_purity
+    action: |
+      A test that runs without any assertion verifies nothing; at least one discriminating assertion is mandatory.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D9
+        mechanism: audit_d9_test_purity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -210,9 +230,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Asserting that a file or artifact merely exists is not a test; validate its effect or content.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -236,9 +260,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Validate the final state, not the presence of an approval message; matching success text is not verifying the outcome.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -263,10 +291,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag 
-      assert True, assertTrue(True), assertEqual(x, x), and tests without active
-      asserts.
-    validating_mechanism: audit_d9_test_purity
+    action: |
+      A test must discriminate the subject's behavior, not restate a universal truth that holds regardless of the code.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D9
+        mechanism: audit_d9_test_purity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -294,9 +325,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Test observable behavior, not internal implementation detail, so a behavior-preserving refactor keeps the test meaningful.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -322,9 +357,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited as stale-oracle mismatch; separate from copied-expected 
-      contamination.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      The expected value (oracle) must track the current specification; an assertion compared against a stale expectation is invalid.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -348,10 +387,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag 
-      assert True, assertTrue(True), assertEqual(x, x), and tests without active
-      asserts.
-    validating_mechanism: audit_d9_test_purity
+    action: |
+      Coverage means executed-and-verified: lines run without an oracle assertion do not constitute coverage.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D9
+        mechanism: audit_d9_test_purity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -380,10 +422,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag 
-      assert True, assertTrue(True), assertEqual(x, x), and tests without active
-      asserts.
-    validating_mechanism: audit_d9_test_purity
+    action: |
+      Coverage percentage is not a goal; what matters is the discriminating quality of the assertions, not a gamed number.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D9
+        mechanism: audit_d9_test_purity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -412,9 +457,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      A test must be judged against an external oracle, never approve itself in a circular loop.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -438,9 +487,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      A test should localize the failure it detects; an over-broad test that cannot point to the cause has little diagnostic value.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -464,10 +517,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag 
-      assert True, assertTrue(True), assertEqual(x, x), and tests without active
-      asserts.
-    validating_mechanism: audit_d9_test_purity
+    action: |
+      Invoke the real behavior the mandate requires; asserting that some text exists is ceremony.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D9
+        mechanism: audit_d9_test_purity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -497,9 +553,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      The recorded outcome must be derived from an actual verification, not a hardcoded success.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -523,9 +583,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Validate structured state, not free-text messages whose wording can silently flip the result.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -549,9 +613,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      An error must surface as an explicit failure, not be encoded into data that looks valid.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -577,9 +645,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      One hundred percent coverage is a consequence of good tests, never the goal; treating it as the target invites gaming.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -603,9 +675,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Every fixed defect must leave behind a discriminating regression test so the same error cannot silently reappear.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -631,10 +707,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Checked by D9 (Test Purity) using AST TestTheaterVisitor to flag 
-      assert True, assertTrue(True), assertEqual(x, x), and tests without active
-      asserts.
-    validating_mechanism: audit_d9_test_purity
+    action: |
+      Require boundary-value assertions and forbid broad catches that silence failures, so a green run cannot be ceremonial.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D9
+        mechanism: audit_d9_test_purity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -663,9 +742,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      A mock that always simulates success must be calibrated against a real integration, or it only tests itself.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -689,9 +772,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      A fake that omits the hard cases gives false assurance; exercise the real system for those paths.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -716,9 +803,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      A network stub drifts from reality; pin behavior with a live contract test.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -742,9 +833,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Test against an engine equivalent to production; a simplified database whose rules differ hides real failures.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -768,9 +863,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Exercise temporal boundaries; a permanently fixed clock never reveals date-edge failures.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -794,9 +893,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Assert statistical properties over the real distribution; fully controlled randomness explores nothing.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -820,9 +923,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Use a real resource for permission- and lock-sensitive paths that a fake filesystem cannot reproduce.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -846,9 +953,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Limit patching to the boundary; over-patching replaces the system under test with the test's own assumptions.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -872,9 +983,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Verify the external effect of a command, not a stub that merely prints success.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -898,9 +1013,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Scan the full active domain; a partial mock-detection pass leaves untested code unguarded.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -924,9 +1043,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Fix the cause in the subject under test; adding a layer so the judge stops failing adapts the judge, not the defect.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -952,9 +1075,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Require observable behavior before approval; an evaluator that accepts an incomplete structure rubber-stamps a placeholder.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -978,9 +1105,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Checked by D9 Test Purity which rejects permanent xfail or skip 
-      markers unless annotated with removal criteria or reasons.
-    validating_mechanism: audit_d9_test_purity
+    action: |
+      An expected-failure marker is not evidence of health; a permanent xfail hides an ignored failure.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D9
+        mechanism: audit_d9_test_purity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1010,9 +1141,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Checked by D9 Test Purity which rejects permanent xfail or skip 
-      markers unless annotated with removal criteria or reasons.
-    validating_mechanism: audit_d9_test_purity
+    action: |
+      A permanently skipped critical test invalidates the global result; skipping must not silently omit it.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D9
+        mechanism: audit_d9_test_purity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1042,9 +1177,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Verify that the test's branch actually executes; a condition that is never entered tests nothing.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1069,9 +1208,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Tests must be independent; one that passes only because of another's leftover state is unreliable.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1095,9 +1238,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Control time explicitly; a test whose result depends on the wall-clock hour or day is non-deterministic.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1122,9 +1269,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty 
-      try-except blocks or silent pass/continue statements.
-    validating_mechanism: audit_d5_angry_path
+    action: |
+      An exception must surface, not be absorbed; swallowing it makes the failure disappear.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D5
+        mechanism: audit_d5_angry_path
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1156,9 +1307,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Capture and observe error output; an unobserved error stream hides the failure signal.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1182,9 +1337,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Log success only after the verification that justifies it, never before checking.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1209,9 +1368,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      The exit code must reflect the real state; an unconditional success exit produces a falsely green pipeline.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1235,9 +1398,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Assert the return value; an ignored error result lets a failure pass unseen.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1261,9 +1428,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Cover adverse cases, not just the ideal happy path.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1287,9 +1458,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Generate input variations; a single magic datum chosen to avoid the bug never triggers it.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1313,8 +1488,13 @@ items:
     tags:
       - testing
       - prevented
-    action: 'Real volume: the test exercises 1000+ sessions (the opposite of a small dataset).'
-    validating_mechanism: test_compress_1000_sessions_returns_structured_dict
+    action: |
+      Exercise realistic volume; a test on a tiny dataset misses failures that only appear at scale.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D10
+        mechanism: test_compress_1000_sessions_returns_structured_dict
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1344,9 +1524,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Cover empty, null, and zero boundary values, not only populated inputs.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1370,9 +1554,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Include special characters and diverse real-world data that naive inputs never exercise.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1396,9 +1584,13 @@ items:
     tags:
       - testing
       - prevented
-    action: 'Real calendar boundary: asserts that Feb-29 in a non-leap year raises
-      ValueError.'
-    validating_mechanism: test_non_leap_year_feb29_raises
+    action: |
+      Cover calendar boundaries such as leap days and month/year edges; ideal dates hide date-arithmetic bugs.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: test_non_leap_year_feb29_raises
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1425,9 +1617,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Critical CI failures must block; an informational-only pipeline lets failures through.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: yaml
     example_bad: |
@@ -1452,9 +1648,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty 
-      try-except blocks or silent pass/continue statements.
-    validating_mechanism: audit_d5_angry_path
+    action: |
+      Propagate errors strictly through the pipeline rather than ignoring them.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D5
+        mechanism: audit_d5_angry_path
     downstream_verification: none
     example_lang: yaml
     example_bad: |
@@ -1481,9 +1681,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Tests must run on the active path; tests living outside it never protect anything.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1507,9 +1711,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Make risk-bearing tests mandatory; optional tests are not run and give no protection.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1533,9 +1741,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      A failure alert needs an owner; an unattended notification makes the failure invisible.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1559,9 +1771,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Write a failing test before fixing the bug; a post-bug test that passes while the code is broken proves nothing.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1585,9 +1801,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Checked by D9 Test Purity which rejects permanent xfail or skip 
-      markers unless annotated with removal criteria or reasons.
-    validating_mechanism: audit_d9_test_purity
+    action: |
+      A deferred skip needs a hard deadline; an open-ended skip becomes permanent debt.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D9
+        mechanism: audit_d9_test_purity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1615,9 +1835,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Test the real feature-flag configuration; testing a divergent flag state hides production behavior.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1641,9 +1865,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Run with a configuration equivalent to production; an environment variable that disables checks weakens the test.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1667,9 +1895,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Test from a realistic, dirty state; over-cleaning setup creates conditions production never sees.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1693,9 +1925,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Validate critical UI flows directly, not only visual deltas that miss functional breakage.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1719,9 +1955,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Validate that code actually executes; a complete-but-dead file passes structural checks while doing nothing.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1745,9 +1985,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Test the real public interface; documenting a flag the code does not support is a lie the tests must catch.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1771,9 +2015,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Run the full active suite so an import error that silently disables tests is surfaced.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1797,9 +2045,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Isolate each test's side effects so one cannot break the runner or other tests.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1823,9 +2075,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Discovery gaps prevented by run_compliance_tests executing full 
-      pytest tests/ dynamically, verified in test_infrastructure.py.
-    validating_mechanism: test_infrastructure_checks
+    action: |
+      Reconcile the test inventory so orphan files that are never discovered or run are surfaced.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: test_infrastructure_checks
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1855,9 +2111,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Detect forwarding wrappers by structural analysis; a docstring must not mask a shim.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1881,9 +2141,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Classify artifacts by type so backups are not miscounted as deprecated noise that contaminates the audit.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1907,9 +2171,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      A name must match behavior; a function whose name promises work its body never does is misleading.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1933,10 +2201,13 @@ items:
     tags:
       - testing
       - remediated
-    action: Checked by setup_validate.py which runs comprehensive pre-flight 
-      verification of Python, git hooks, write access, encoding, and the project
-      registry.
-    validating_mechanism: test_setup_validation
+    action: |
+      Validate that the real environment can start - runtime, dependencies, and minimum permissions - not just that the test passes.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: test_setup_validation
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1968,9 +2239,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Test continuity from another actor's checkpoint; a handoff that cannot be resumed is broken.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1994,9 +2269,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Verify the real reversal of a destructive change; a documented-but-unexecuted rollback is unproven.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2020,9 +2299,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Maintain a suite of current consumers so a change that breaks an existing flow is caught.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2046,9 +2329,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Test that a failure produces actionable diagnostic evidence, not silence.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2073,9 +2360,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Audit the physical correspondence between test files on disk and tests actually discovered, so a green suite cannot hide inactive ones.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2099,9 +2390,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Run across an environment matrix; a test that only works in one environment is not portable.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2125,9 +2420,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Assert functional limits, not just a generous timeout under which slowness passes.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2151,9 +2450,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Tests must be reproducible off one developer's machine, independent of a local installation.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2177,9 +2480,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Test isolation by attempting controlled boundary violations, not by merely declaring the sandbox secure.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2204,9 +2511,13 @@ items:
     tags:
       - testing
       - remediated
-    action: Enforced by D9 absolute path scanners. In code, resolved via dynamic
-      str(Path(__file__).resolve().parent.parent) path bootstrapping.
-    validating_mechanism: audit_d9_test_purity
+    action: |
+      Parametrize resources via injection or logical variables so tests do not couple to a physical address and break on migration.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D9
+        mechanism: audit_d9_test_purity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2234,9 +2545,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Tests benefit from independent review; an author validating only their own mental model confirms bias.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2260,9 +2575,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Review the tests as part of the change; approving code without reviewing its tests is blind.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2286,9 +2605,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Derive expected values from an independent specification, not an answer written so the test passes.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2312,9 +2635,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Base approval on reproducible evidence, not a manually-set approved state treated as truth.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2338,9 +2665,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Regenerate a golden snapshot only after semantic review; a stale golden legitimizes broken output.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2364,9 +2695,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Checked by D9 Test Purity which rejects permanent xfail or skip 
-      markers unless annotated with removal criteria or reasons.
-    validating_mechanism: audit_d9_test_purity
+    action: |
+      An expected failure must not count as green; normalizing it makes the failure permanent.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D9
+        mechanism: audit_d9_test_purity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2394,9 +2729,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Escalate a warning to a failure until its cause is resolved; a green suite carrying warnings tolerates rot.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2420,9 +2759,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Enforced by D5 (Angry Path) AST TryBlockVisitor flagging empty 
-      try-except blocks or silent pass/continue statements.
-    validating_mechanism: audit_d5_angry_path
+    action: |
+      A health verdict accepts zero known errors; tolerating one normalizes it.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D5
+        mechanism: audit_d5_angry_path
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2451,9 +2794,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Test the real interface with no simplifying wrapper that hides the real failure.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2477,10 +2824,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Prevented by D7 (Completeness) and D8 (Test Coverage) in the AST 
-      completeness gate using analysis of function bodies to reject empty stubs 
-      or stub docstrings.
-    validating_mechanism: audit_d2_completeness
+    action: |
+      Block placeholders on verified paths; a placeholder that satisfies the assertion fakes completion.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D2
+        mechanism: audit_d2_completeness
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2508,9 +2858,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Every documented domain must have a live executor; a rule that exists but never runs is inert.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2534,9 +2888,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Validate content and effect, not the mere presence of a section heading.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2560,9 +2918,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Cross-check usage, calls, and tests; docstrings are not evidence of quality.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2586,9 +2948,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Induce a real error to prove handling; matching a lexical keyword is not error handling.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2612,9 +2978,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Run the suite of the audited subject; testing the protocol instead lets an untested project pass.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2638,9 +3008,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Bind evidence to the version under test; a stale artifact must not satisfy a current check.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2664,9 +3038,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Exercise the real components of the system, not an external library standing in for them.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2690,9 +3068,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Report the domains actually exercised; a pass report claiming all while running few is a lie.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2716,9 +3098,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Keep a single source of version truth; a dead fallback constant drifts from reality.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2742,9 +3128,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Validate both positive and negative permission cases, not only the permitted actor.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2768,9 +3158,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Test routing decisions with edge cases so tasks cannot silently reach the wrong flow.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2794,9 +3188,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Every approval must revalidate active properties; accepting by name from a hardcoded list skips the behavior check.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2820,9 +3218,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Separate generator, subject, and judge; an evaluator that already knows the expected answer cannot judge.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2846,9 +3248,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Warnings count as failures until explicitly classified; leaving them outside the score hides risk.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2875,11 +3281,13 @@ items:
     tags:
       - testing
       - remediated
-    action: Validated by 
-      tests/test_infrastructure.py:test_audit_workflow_runs_validator_and_regenerator, 
-      ensuring the audit workflow actually invokes the validator and
-      regeneration steps before diffing.
-    validating_mechanism: test_audit_workflow_runs_validator_and_regenerator
+    action: |
+      Parse the workflow and assert its validator and regenerator steps remain wired, so a pipeline cannot silently lose its verification.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: test_audit_workflow_runs_validator_and_regenerator
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2922,10 +3330,13 @@ items:
     tags:
       - testing
       - remediated
-    action: Checked by setup_validate.py which runs comprehensive pre-flight 
-      verification of Python, git hooks, write access, encoding, and the project
-      registry.
-    validating_mechanism: test_setup_validation
+    action: |
+      Periodically revalidate each exclusion so the ignore list cannot accumulate stale, unjustified entries.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: test_setup_validation
     downstream_verification: none
     example_lang: ini
     example_bad: |
@@ -2956,10 +3367,13 @@ items:
     tags:
       - testing
       - remediated
-    action: Checked by setup_validate.py which runs comprehensive pre-flight 
-      verification of Python, git hooks, write access, encoding, and the project
-      registry.
-    validating_mechanism: test_setup_validation
+    action: |
+      Validate the full active stack at startup - runtime, CLI tools, hooks, essential files, write permissions - and report exactly what is missing.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: test_setup_validation
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2994,9 +3408,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Compare the formal declaration (name, domain count, version) against the real implementation and fail when they diverge.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -3027,9 +3445,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Testing Bridge Theater is bypassed; static audits and tests run as 
-      direct shell pipelines returning native exit codes.
-    validating_mechanism: test_infrastructure_checks
+    action: |
+      A simple static or structural validation should run directly and natively; wrapping it in a heavy test framework is middleman theater.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: test_infrastructure_checks
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3065,9 +3487,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Consolidate governance and state metadata under a single hidden directory rather than scattering it across many.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -3099,9 +3525,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      Every deferred classification must immediately open a debt-registry entry; a verbal deferral with no record loses the finding.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -3130,9 +3560,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      A static gate must compare every top-level import against the dependency manifest so an unregistered dependency cannot drift in.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -3159,9 +3593,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      A suite must empirically demonstrate it can fail against a controlled mutation; tests that stay green under any change are not falsifiable.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -3191,9 +3629,13 @@ items:
     tags:
       - testing
       - audited
-    action: Audited by DeepForensicAuditor D8 and D9 behavioral and static test 
-      validations.
-    validating_mechanism: audit_d8_test_coverage
+    action: |
+      A drift gate must compare checksums across satellite repositories and block when governance files diverge from the central core.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: audit_d8_test_coverage
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -3223,10 +3665,13 @@ items:
     tags:
       - testing
       - remediated
-    action: Checked by setup_validate.py which runs comprehensive pre-flight 
-      verification of Python, git hooks, write access, encoding, and the project
-      registry.
-    validating_mechanism: test_setup_validation
+    action: |
+      Normalize line endings to a single form before hashing so files identical on disk do not raise a false drift positive across platforms.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: test_setup_validation
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3263,10 +3708,13 @@ items:
     tags:
       - testing
       - prevented
-    action: Symbol resolution is AST-based, so a planted `# def <name>` comment does
-      not resolve; an additional scanner flags any decoy comment that mirrors a
-      declared validating mechanism.
-    validating_mechanism: test_planted_def_comment_does_not_resolve
+    action: |
+      Resolve symbols structurally through the AST so only a real definition node counts; a commented-out or string mention must not satisfy the check.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D8
+        mechanism: test_planted_def_comment_does_not_resolve
     downstream_verification: none
     example_lang: python
     example_bad: |
