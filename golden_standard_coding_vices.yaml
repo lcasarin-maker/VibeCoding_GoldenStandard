@@ -47,9 +47,13 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: 'Anti-optimism without proof: the test fails if there is no JSON evidence
-      in .protocol/evidence/, forcing empirical proof.'
-    validating_mechanism: test_B7_evidence_files_are_valid_json
+    action: |
+      Empirical proof is required before declaring success: closure fails when no structured evidence artifact backs the claim, forcing verification over optimism.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D5
+        mechanism: test_B7_evidence_files_are_valid_json
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -353,9 +357,13 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: 'Anti-optimism without proof: the test fails if there is no JSON evidence
-      in .protocol/evidence/, forcing empirical proof.'
-    validating_mechanism: test_B7_evidence_files_are_valid_json
+    action: |
+      Empirical proof is required before declaring success: closure fails when no structured evidence artifact backs the claim, forcing verification over optimism.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D5
+        mechanism: test_B7_evidence_files_are_valid_json
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -442,10 +450,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: validate_golden_standard_catalogs.py --check-wiki keeps the
-      canonical surfaces, link graph, and coverage counts aligned so a partial
-      close fails the gate.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Closure is all-or-nothing: the catalog validator keeps canonical surfaces, link graph, and coverage counts aligned, so a partial close fails the gate.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -563,9 +570,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: validate_gs_topology.py checks that Inbox is published, linked from
-      Home, and backed by the ingestion protocol and templates.
-    validating_mechanism: validate_golden_standard_catalogs.py
+    action: |
+      The plan must be externalized: topology validation requires the inbox surface to be published, linked from the home page, and backed by an ingestion protocol and templates.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -637,10 +644,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: Regenerated audit artifacts and topology checks prevent the Home,
-      graph, and index surfaces from drifting away from the YAML catalogs.
-    validating_mechanism: generate_golden_audit.py + 
-      validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Generated surfaces must track their source: regenerating audit artifacts and re-checking topology prevents home, graph, and index pages from drifting away from the catalogs.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -800,10 +806,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: generate_golden_audit.py forces a fresh rebuild of the vault before
-      validation, so blind replacement cannot masquerade as a finished state.
-    validating_mechanism: generate_golden_audit.py + 
-      validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Regeneration must precede validation: a fresh rebuild of the vault is forced before checks, so blind replacement cannot masquerade as a finished state.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1036,10 +1041,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: validate_gs_topology.py checks that GS exposes separate canonical
-      surfaces for Vices, Tokenomics, Project Insights, and the graph instead of
-      one monolithic knowledge page.
-    validating_mechanism: validate_golden_standard_catalogs.py
+    action: |
+      Knowledge must be modular: topology validation requires separate canonical surfaces for vices, tokenomics, insights, and the graph rather than one monolithic page.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1344,9 +1348,13 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: 'Dual-session drift: detected by sync_binding --check (fails if the
-      protocol diverged between sessions).'
-    validating_mechanism: test_F6_sync_binding_no_protocol_drift
+    action: |
+      State must stay consistent across concurrent sessions: a parity check fails when the protocol fingerprint diverges between two sessions.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D12
+        mechanism: test_F6_sync_binding_no_protocol_drift
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1379,10 +1387,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: validate_golden_standard_catalogs.py --check-wiki now enforces link
-      integrity and Home count parity so documentation cannot drift away from
-      the generated state.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Documentation must not lie: link-integrity and count-parity validation fail when docs drift away from the generated state.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1460,9 +1467,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: 'Enforced by verifying the presence and format of golden_standard_ref
-      in rules.yaml during audit.'
-    validating_mechanism: audit_declarative_rules
+    action: |
+      Policies must be explicit, not implicit: governing rules are declared in the canonical rule set rather than left to convention.
+    validating_mechanism: doctrinal
     downstream_verification: none
     doctrinal: true
     tier: extended
@@ -1494,9 +1501,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: The wiki graph and link validator enforce that the canonical
-      surfaces are mapped and resolved instead of being assumed.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Dependencies must be mapped: the graph and link validator require canonical surfaces to be linked and resolvable rather than assumed.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: bash
     example_bad: |
@@ -1824,34 +1831,13 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: Ghost import (dependency used but not declared) detected by
-      AST analysis of imports vs manifest.
-    example_lang: python
-    example_bad: |
-      # The agent "hallucinates" a dependency and imports it without declaring it.
-      # The module imports, passes the agent's local linter, and blows up in CI/prod.
-      import requests          # NOT in requirements.txt / pyproject.toml
-      from rich import print   # same
-
-      def fetch(url):
-          return requests.get(url, timeout=5).json()
-    example_good: |
-      # Every used dependency is declared and pinned before being used.
-      # pyproject.toml:
-      #   dependencies = ["requests==2.32.3", "rich==13.9.4"]
-      import requests
-
-      def fetch(url):
-          return requests.get(url, timeout=5).json()
-    detection: |
-      Compare the set of imported modules (AST `import`/`importfrom`) against the set
-      declared in the manifest. An import of a third-party package absent from the
-      manifest is a ghost import. Reference tool: `deptry` (see [[Project_Insights/PI-001|PI-001]]).
-    evidence:
-      - source: "arxiv:2603.28592"
-        claim: "ghost imports/dependencies are among the recurring anti-patterns
-          of AI-generated code, present in 80-100% of the analyzed projects."
-    validating_mechanism: test_vc082_ghost_import_detected
+    action: |
+      Every imported dependency must be declared in the manifest: a check fails when code imports a package that the dependency manifest does not list.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D11
+        mechanism: test_vc082_ghost_import_detected
     downstream_verification: none
     tier: extended
   - id: VC-083
@@ -2025,9 +2011,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: validate_gs_topology.py checks that the canonical memory surfaces
-      are linked from Home, so the GS ledger can be loaded on entry.
-    validating_mechanism: validate_golden_standard_catalogs.py
+    action: |
+      Memory must be loadable on entry: topology validation requires the canonical memory surfaces to be linked from the home page.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2051,9 +2037,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: Broken-link validation now fails if canonical markdown or wiki 
-      targets do not resolve on disk.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Missing files must fail loud: broken-link validation fails when a referenced markdown or wiki target does not resolve on disk.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: bash
     example_bad: |
@@ -2077,9 +2063,13 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: Enforced by verifying existence of Phase 0 purge evidence files 
-      (e.g., purge_plan.md and phase_0_purge_result.md) in external audits.
-    validating_mechanism: audit_d2_completeness
+    action: |
+      An audit may only be reported as total when its mandatory phases ran: completeness analysis fails when required prior-phase evidence is absent, so a partial pass cannot be called total.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D2
+        mechanism: audit_d2_completeness
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2329,10 +2319,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: The audit workflow is now a visible, validated surface and must 
-      include both the compiler and the wiki checker so infra cannot be ignored.
-    validating_mechanism: .github/workflows/audit.yml + 
-      validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Infrastructure is a first-class surface: the audit workflow is a visible, validated file that must run both the generator and the catalog validator, so infra cannot be silently ignored.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2356,9 +2345,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: Topology validation now checks the canonical Home, Vices, 
-      Tokenomics, Graph, and Inbox surfaces so missing components fail the gate.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Components must be complete: topology validation checks the canonical home, vices, tokenomics, graph, and inbox surfaces, so a missing component fails the gate.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2382,10 +2371,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: Inbox topology validation requires the ingestion protocol, knowledge
-      sources contract, and templates to exist before new findings can be 
-      accepted.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Setup must be real, not phantom: inbox topology validation requires the ingestion protocol, knowledge-sources contract, and templates to exist before new findings are accepted.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2442,10 +2430,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: Enforced by executing physical validation gates (verifying 
-      golden_standard_ref in rules.yaml and Phase 0 purge evidence in external 
-      audits).
-    validating_mechanism: audit_d2_completeness
+    action: |
+      Security boundaries must be enforced by gates, not convention: a boundary asserted only in prose, without an executable gate behind it, is not a boundary.
+    validating_mechanism: doctrinal
     downstream_verification: none
     doctrinal: true
     tier: extended
@@ -2460,9 +2447,13 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: Hardcoded absolute paths (C:\, /home/, /Users/) detected by
-      a discriminating regex scan.
-    validating_mechanism: test_vc109_absolute_path_in_scripts
+    action: |
+      Filesystem paths must be portable: a scan fails when a hardcoded absolute path (drive letter or home directory) appears in scripts.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D6
+        mechanism: test_vc109_absolute_path_in_scripts
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2491,10 +2482,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: validate_gs_topology.py checks that Tokenomics exposes its
-      subindices and map from the index surface before the category can be
-      treated as complete.
-    validating_mechanism: validate_golden_standard_catalogs.py
+    action: |
+      Quotas must be visible up front: topology validation requires the tokenomics index to expose its subindices and map before the category is treated as complete.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2625,9 +2615,9 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: Inbox topology validation enforces the ingestion path, template 
-      surface, and protocol docs required for a remediable finding.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Findings need a remediation path: inbox topology validation enforces the ingestion path, templates, and protocol docs required to act on a finding.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -2656,9 +2646,13 @@ items:
     tags:
       - vibe-coding
       - remediated
-    action: Replaced eval-based rules with a pre-registered SAFE_CHECKS dispatch
-      table in rules_engine.py to prevent remote code execution.
-    validating_mechanism: test_rule_security_rejects_arbitrary_check
+    action: |
+      Rules must not evaluate arbitrary expressions: dynamic execution of external strings is rejected in favor of a pre-registered dispatch of safe checks, closing a remote-code-execution path.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D7
+        mechanism: test_rule_security_rejects_arbitrary_check
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2695,9 +2689,13 @@ items:
     tags:
       - vibe-coding
       - remediated
-    action: Disabled automatic subprocess pip installs in 
-      repair_failing_tests.py, forcing manual package guidance.
-    validating_mechanism: test_import_error_guard_does_not_pip_install
+    action: |
+      Dependency installation must never be automatic: an import-time guard must not trigger package installation; missing packages are surfaced for manual decision.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D11
+        mechanism: test_import_error_guard_does_not_pip_install
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2731,10 +2729,13 @@ items:
     tags:
       - vibe-coding
       - remediated
-    action: Atomic state writes via core_utils.write_json_atomic (tempfile + 
-      os.replace + fsync), wired into update_lock_state and 
-      ProtocolSyncManager._save_state.
-    validating_mechanism: test_critical_state_write_is_atomic
+    action: |
+      Writes to critical state must be atomic: state is persisted via a temp-file-plus-atomic-replace path so a crash cannot leave a half-written, corrupted file.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D1
+        mechanism: test_critical_state_write_is_atomic
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2774,9 +2775,13 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: Prevented by D1 _audit_d1_zombie_compat scanning active scripts
-      for zombie-compat shim patterns.
-    validating_mechanism: D1Integrity
+    action: |
+      A replacement is a single source of truth: the superseded unit is deleted and the new one carries no inheritance, shim, fallback, or dual test sentinel back to it; static analysis flags compatibility forwarders left in active code.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D1
+        mechanism: D1Integrity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -2882,9 +2887,13 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: Duplicate top-level function names across modules detected by
-      AST comparison.
-    validating_mechanism: test_vc121_duplicate_function_names
+    action: |
+      Top-level function names must be unique across modules: a structural comparison fails when the same definition name is duplicated, surfacing redundant slop.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D3
+        mechanism: test_vc121_duplicate_function_names
     downstream_verification: none
     tier: core
   - id: VC-122
@@ -2900,9 +2909,13 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: Automatic pip install via subprocess in scripts/ blocked by
-      a detector + active-path repo-guard.
-    validating_mechanism: test_vc122_no_pip_install_in_scripts
+    action: |
+      Scripts must not install packages at runtime: an automatic package install inside a script is blocked to prevent silent supply-chain contamination.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D11
+        mechanism: test_vc122_no_pip_install_in_scripts
     downstream_verification: none
     example_lang: bash
     example_bad: |
@@ -2941,9 +2954,13 @@ items:
     tags:
       - vibe-coding
       - prevented
-    action: git add -A/. (indiscriminate staging) discriminated by a
-      failing-first detector (human intent judgment).
-    validating_mechanism: test_vc123_no_git_add_all_in_scripts
+    action: |
+      Staging must be deliberate: indiscriminate staging of all untracked files is rejected, requiring explicit human intent about what enters a commit.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D1
+        mechanism: test_vc123_no_git_add_all_in_scripts
     downstream_verification: none
     example_lang: bash
     example_bad: |
@@ -2980,12 +2997,13 @@ items:
       - vibe-coding
       - prevented
       - governance
-    action: pre_edit_guard blocks writes in deprecated/ without a prior entry
-      in DEPRECATION_LOG.md. The pre-commit hook validates that files staged in
-      deprecated/ are justified. The completeness dimension of the auditor
-      verifies coverage of the log.
-    validating_mechanism: check_deprecation_log.py + pre_edit_guard S24 + D1 
-      audit
+    action: |
+      Deprecation requires prior analysis: moving code into a deprecated area is blocked unless a justifying log entry exists, and coverage of that log is verified.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D1
+        mechanism: check_deprecation_log
     downstream_verification: none
     example_lang: bash
     example_bad: |
@@ -3020,11 +3038,9 @@ items:
       - vibe-coding
       - prevented
       - governance
-    action: Require every new lesson to be externalized to the catalog or wiki
-      before COMPACT/CLEAR; if there is no structured export, the closure
-      remains incomplete.
-    validating_mechanism: generate_golden_audit.py + wiki coverage + 
-      retrospective export
+    action: |
+      Lessons must be externalized before closure: regeneration plus coverage and retrospective-export checks require every new lesson to reach the catalog or wiki, so closure without a structured export stays incomplete.
+    validating_mechanism: runtime-test
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3166,8 +3182,12 @@ items:
       - supply-chain
       - prevented-mechanically
     action: |
-      Prevented by D11 check in dimensions/d11_dependency.py which queries the official PyPI registry for each dependency in requirements.txt and flags any 404 responses.
-    validating_mechanism: test_pypi_404_is_alucinated_dependency
+      Declared dependencies must exist in the public registry: a lookup fails when a requirement resolves to not-found, catching hallucinated (slopsquatted) packages.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D11
+        mechanism: test_pypi_404_is_alucinated_dependency
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3466,8 +3486,8 @@ items:
       - security
       - prevented-mechanically
     action: |
-      Documented; enforcement downstream. Static signature: local detector in scripts/detectors.py tested against the examples. See VC-101 and VC-095.
-    validating_mechanism: audit_declarative_rules
+      Generated code must be secure by default: a static-signature detector, exercised against the catalog examples, flags insecure default patterns.
+    validating_mechanism: static-regex
     downstream_verification: none
     detector: vc138_insecure_defaults
     example_lang: python
@@ -3535,12 +3555,12 @@ items:
       - agent-agnostic
       - prevented-mechanically
     action: |
-      Physical verification: scripts/check_handoff_freshness.py invoked in the git commit-msg hook
-      (agnostic: runs with any `git commit`, whether Codex/Gemini/Claude). Blocks the commit if
-      there are substantive changes but HANDOFF.md was not updated or is missing schema sections
-      (ESTADO/SIGUIENTE/VERIFICAR). Explicit escape: the [skip-handoff] token in the message or
-      env CERBERUS_SKIP_HANDOFF=1.
-    validating_mechanism: check_handoff_freshness
+      Handoff continuity is mandatory: a commit with substantive changes is blocked when the handoff record was not updated or is missing its required sections; an explicit token allows a conscious skip.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D1
+        mechanism: check_handoff_freshness
     downstream_verification: none
     example_lang: markdown
     example_bad: |
@@ -3577,12 +3597,12 @@ items:
       - agent-agnostic
       - prevented-mechanically
     action: |
-      Physical verification: scripts/check_clean_worktree.py invoked in the git pre-commit hook
-      (agnostic: runs with any `git commit`). Blocks if after staging something is left undecided
-      in the working tree (modified non-staged or untracked non-ignored). The root cause
-      of auto-generated artifact churn is neutralized with idempotent writes and auto-staging
-      of a canonical whitelist. Conscious escape: env CERBERUS_ALLOW_PARTIAL=1.
-    validating_mechanism: check_clean_worktree.py
+      No orphan changes: a commit is blocked when, after staging, the working tree still holds undecided modified or untracked files; idempotent writes and a canonical auto-stage whitelist neutralize artifact churn, and an explicit env escape exists.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D1
+        mechanism: check_clean_worktree
     downstream_verification: none
     example_lang: bash
     example_bad: |
@@ -3613,8 +3633,13 @@ items:
       - security
       - agent-governance
       - prevented-mechanically
-    action: "Enforced by verifying no prompt override directives in dimensions/d15_agent_security.py."
-    validating_mechanism: D15AgentSecurity
+    action: |
+      Agent instructions must be tamper-resistant: static analysis flags directives that attempt to override or hijack the agent's governing prompt.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D15
+        mechanism: D15AgentSecurity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3640,8 +3665,13 @@ items:
       - security
       - agent-governance
       - prevented-mechanically
-    action: "Enforced by verifying no leakage triggers in dimensions/d15_agent_security.py."
-    validating_mechanism: D15AgentSecurity
+    action: |
+      The system prompt must not leak: static analysis flags triggers that would exfiltrate or echo the governing prompt into output.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D15
+        mechanism: D15AgentSecurity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3667,8 +3697,13 @@ items:
       - security
       - agent-governance
       - prevented-mechanically
-    action: "Enforced by scanning network exfiltration patterns in dimensions/d15_agent_security.py."
-    validating_mechanism: D15AgentSecurity
+    action: |
+      Data must not be exfiltrated: static analysis flags network patterns that would send protected data to unauthorized destinations.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D15
+        mechanism: D15AgentSecurity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3693,8 +3728,13 @@ items:
       - security
       - agent-governance
       - prevented-mechanically
-    action: "Enforced by scanning privilege escalation indicators in dimensions/d15_agent_security.py."
-    validating_mechanism: D15AgentSecurity
+    action: |
+      Privileges must not silently escalate: static analysis flags indicators of unauthorized privilege escalation.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D15
+        mechanism: D15AgentSecurity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3718,8 +3758,13 @@ items:
       - security
       - agent-governance
       - prevented-mechanically
-    action: "Enforced by verifying high-impact confirm blocks in dimensions/d15_agent_security.py."
-    validating_mechanism: D15AgentSecurity
+    action: |
+      Agency must stay bounded: static analysis requires confirmation gates around high-impact actions, rejecting excessive autonomous reach.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D15
+        mechanism: D15AgentSecurity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3745,8 +3790,13 @@ items:
       - security
       - agent-governance
       - prevented-mechanically
-    action: "Enforced by verifying memory operations sanitization in dimensions/d15_agent_security.py."
-    validating_mechanism: D15AgentSecurity
+    action: |
+      Persistent memory must not be poisoned: static analysis requires sanitization of memory write operations.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D15
+        mechanism: D15AgentSecurity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3769,8 +3819,13 @@ items:
       - security
       - agent-governance
       - prevented-mechanically
-    action: "Enforced by checking tool parameter limits in dimensions/d15_agent_security.py."
-    validating_mechanism: D15AgentSecurity
+    action: |
+      Tool calls must be constrained: static analysis enforces parameter limits and rejects unsafe tool chaining.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D15
+        mechanism: D15AgentSecurity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3794,8 +3849,13 @@ items:
       - security
       - agent-governance
       - prevented-mechanically
-    action: "Enforced by checking persistence indicators in dimensions/d15_agent_security.py."
-    validating_mechanism: D15AgentSecurity
+    action: |
+      Agents must not establish unauthorized persistence: static analysis flags persistence indicators of rogue behavior.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D15
+        mechanism: D15AgentSecurity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3821,8 +3881,13 @@ items:
       - security
       - agent-governance
       - prevented-mechanically
-    action: "Enforced by mapping code capabilities to manifest in dimensions/d15_agent_security.py."
-    validating_mechanism: D15AgentSecurity
+    action: |
+      Tool access must follow least privilege: static analysis maps declared capabilities to the manifest and flags over-broad grants.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D15
+        mechanism: D15AgentSecurity
     downstream_verification: none
     example_lang: json
     example_bad: |
@@ -3848,8 +3913,13 @@ items:
       - security
       - agent-governance
       - prevented-mechanically
-    action: "Enforced by scanning unicode homoglyphs in dimensions/d15_agent_security.py."
-    validating_mechanism: D15AgentSecurity
+    action: |
+      Tool descriptions must be trustworthy: static analysis scans for unicode homoglyphs and poisoned tool-description content.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D15
+        mechanism: D15AgentSecurity
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -3878,9 +3948,13 @@ items:
       - governance
       - generated-artifacts
       - source-of-truth
-    action: "Change the canonical source or generator first; never hand-patch a
-      derived wiki or report to hide drift."
-    validating_mechanism: test_canonical_source_first_no_sink_patch
+    action: |
+      Edit the canonical source or its generator first: hand-patching a derived artifact to mask drift is rejected; derived files must be regenerated from source.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D1
+        mechanism: test_canonical_source_first_no_sink_patch
     downstream_verification: none
     example_lang: yaml
     example_bad: |
@@ -3913,9 +3987,13 @@ items:
       - governance
       - ordering
       - cross-repo
-    action: "Land the GS doctrine first; treat Cerberus references as downstream
-      consumers that only follow after regeneration proves the rule exists."
-    validating_mechanism: test_doctrine_before_enforcement_resolves_refs
+    action: |
+      Doctrine lands before enforcement: the rule must exist in the canonical knowledge base first, with downstream consumers following only after regeneration proves it.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D12
+        mechanism: test_doctrine_before_enforcement_resolves_refs
     downstream_verification: none
     example_lang: yaml
     example_bad: |
@@ -3947,9 +4025,13 @@ items:
       - governance
       - planning
       - source-of-truth
-    action: "Enforced by the planning gate: no backlog entry => no work / no
-      planning / no debt accounting."
-    validating_mechanism: test_doctrine_before_enforcement_resolves_refs
+    action: |
+      Doctrine lands before enforcement: the rule must exist in the canonical knowledge base first, with downstream consumers following only after regeneration proves it.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D12
+        mechanism: test_doctrine_before_enforcement_resolves_refs
     downstream_verification: none
     example_lang: yaml
     example_bad: |

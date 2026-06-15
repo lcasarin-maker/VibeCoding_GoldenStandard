@@ -11,7 +11,7 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 | Metric | Value |
 |---|---:|
 | Nodes | 387 |
-| Edges | 1909 |
+| Edges | 1908 |
 | Intentional orphans | 3 |
 | Candidate orphans | 0 |
 | Hubs | 15 |
@@ -49,8 +49,8 @@ Each entry is classified by depth: `deep` (ships bad/good examples and a detecti
 
 | Depth | VC | VT | TK |
 |---|---:|---:|---:|
-| `deep` | 82 | 116 | 47 |
-| `stub` | 0 | 0 | 0 |
+| `deep` | 81 | 116 | 47 |
+| `stub` | 1 | 0 | 0 |
 | `doctrinal` | 70 | 0 | 0 |
 | `alias` | 2 | 0 | 0 |
 

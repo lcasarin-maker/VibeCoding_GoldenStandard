@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-06-15",
   "node_count": 387,
-  "edge_count": 1909,
+  "edge_count": 1908,
   "nodes": [
     {
       "id": "CODE_OF_CONDUCT",
@@ -856,12 +856,11 @@
         "Domains/D1",
         "Domains/D2",
         "Domains/D8",
-        "Project_Insights_Index",
-        "Vices/VC-082"
+        "Project_Insights_Index"
       ],
-      "in_degree": 5,
+      "in_degree": 4,
       "out_degree": 7,
-      "degree": 12
+      "degree": 11
     },
     {
       "id": "Project_Insights/PI-002",
@@ -5108,7 +5107,6 @@
       "kind": "vice",
       "outgoing": [
         "Home",
-        "Project_Insights/PI-001",
         "Project_Insights/PI-019",
         "Tokenomics_Map",
         "Vices_Index"
@@ -5117,8 +5115,8 @@
         "Vices_Index"
       ],
       "in_degree": 1,
-      "out_degree": 5,
-      "degree": 6,
+      "out_degree": 4,
+      "degree": 5,
       "status": "PREVENTED",
       "downstream_verification": "none"
     },
@@ -13888,11 +13886,6 @@
     },
     {
       "source": "Vices/VC-082",
-      "target": "Project_Insights/PI-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Vices/VC-082",
       "target": "Project_Insights/PI-019",
       "kind": "wikilink"
     },
@@ -21142,29 +21135,28 @@
         "degree": 13
       },
       {
-        "id": "Project_Insights/PI-001",
-        "path": "Wiki/Project_Insights/PI-001.md",
-        "title": "PI-001: Satellite Insight",
-        "kind": "insight",
+        "id": "Domains/D2",
+        "path": "Wiki/Domains/D2.md",
+        "title": "Audit Domain: D2",
+        "kind": "domain",
         "outgoing": [
-          "Domains/D1",
-          "Domains/D2",
-          "Domains/D8",
           "Home",
-          "Project_Insights_Index",
-          "Tokenomics_Map",
-          "Vices/VC-124"
+          "Project_Insights/PI-001",
+          "Project_Insights/PI-006",
+          "Project_Insights/PI-008",
+          "Project_Insights/PI-014",
+          "Project_Insights/PI-022"
         ],
         "incoming": [
-          "Domains/D1",
-          "Domains/D2",
-          "Domains/D8",
-          "Project_Insights_Index",
-          "Vices/VC-082"
+          "Project_Insights/PI-001",
+          "Project_Insights/PI-006",
+          "Project_Insights/PI-008",
+          "Project_Insights/PI-014",
+          "Project_Insights/PI-022"
         ],
         "in_degree": 5,
-        "out_degree": 7,
-        "degree": 12
+        "out_degree": 6,
+        "degree": 11
       }
     ],
     "bridges": [
@@ -22945,12 +22937,11 @@
           "Domains/D1",
           "Domains/D2",
           "Domains/D8",
-          "Project_Insights_Index",
-          "Vices/VC-082"
+          "Project_Insights_Index"
         ],
-        "in_degree": 5,
+        "in_degree": 4,
         "out_degree": 7,
-        "degree": 12
+        "degree": 11
       },
       {
         "id": "Project_Insights/PI-004",
