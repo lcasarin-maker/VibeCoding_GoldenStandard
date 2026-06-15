@@ -107,10 +107,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: validate_golden_standard_catalogs.py --check-wiki verifies that the 
-      Memory and Headroom tokenomics surface is published and linked from the 
-      canonical index.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Close each session with a durable checkpoint so a new session does not restart from zero; the canonical checkpoint guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -134,9 +136,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Tokenomics topology validation keeps the canonical memory surfaces 
-      visible, so chat is not treated as the only durable store.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Keep authoritative state outside the chat so switching threads does not lose it; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -160,10 +165,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: validate_golden_standard_catalogs.py --check-wiki keeps the 
-      memory/headroom surface linked so project switches must pass through the 
-      canonical layout.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Checkpoint before changing objective so contexts do not contaminate each other; the canonical checkpoint guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -187,10 +194,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Tokenomics topology validation ensures the canonical memory/headroom
-      entry points remain published instead of being reconstructed ad hoc each 
-      session.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Keep a minimal boot-and-health sheet so each session does not spend tokens rebuilding the environment; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -214,9 +223,13 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: 'Atomic handoff: STATUS.md must have structured sections; the detector
-      fails on raw prose.'
-    validating_mechanism: test_tk005_status_md_has_required_sections
+    action: |
+      Session handoff state must use structured sections rather than free prose so it is machine-parseable; a test fails on unstructured handoff.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D10
+        mechanism: test_tk005_status_md_has_required_sections
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -240,10 +253,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: validate_golden_standard_catalogs.py --check-wiki keeps the 
-      canonical tokenomics map and memory lenses linked so history is not merged
-      blindly.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Merge context by decisions and invariants rather than raw text so conflict resolution does not burn context; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -267,9 +282,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: The canonical Tokenomics map and index are now enforced as the 
-      visible source of truth for this category.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Consult one canonical core and archive copies as evidence so contradictory duplicates are not re-read; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -294,9 +312,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Memory/headroom topology validation keeps the stable/volatile split 
-      represented as its own canonical lens.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Separate stable guidelines into an immutable core and compact the transitional buffer so stable specs are not reprocessed; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -408,9 +429,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Input-retrieval topology validation now keeps the reading paths and 
-      map surfaces canonical instead of free-form exploration.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Use indexes, maps, and targeted reading so many tokens are not spent before acting; the canonical input-and-retrieval guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: bash
     example_bad: |
@@ -434,9 +458,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Automation-tooling topology validation keeps the tooling surface 
-      explicit so unused tools do not become invisible context debt.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Load tools on demand so unused schemas do not consume context; the canonical input-and-retrieval guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -517,9 +544,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Output-compaction topology validation keeps the output discipline 
-      lens canonical and linked.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Pursue one concrete task per cycle so attention is not split across objectives; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -574,9 +604,13 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Externalized backlog (.protocol/review_queue.json) verified by
-      detector + repo-guard.
-    validating_mechanism: test_tk018_external_backlog_exists
+    action: |
+      The backlog must be externalized to a durable machine-readable store rather than living only in chat; a test verifies the external backlog artifact exists.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D10
+        mechanism: test_tk018_external_backlog_exists
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -632,9 +666,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Output-compaction topology validation keeps the output budget lens 
-      canonical in the vault.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Define an output budget and format so responses are not long by default; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -658,9 +695,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Output-compaction topology validation keeps the compaction lens and 
-      its index published.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Predefine the start and structure of responses so the format is not variable; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -684,9 +724,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Output-compaction topology validation keeps the compaction lens 
-      visible so example bloat is tracked instead of hidden.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Use minimal, diverse, dense examples so few-shot context is not redundant; the canonical input-and-retrieval guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -710,9 +753,13 @@ items:
     tags:
       - tokenomics
       - remediated
-    action: D10 enforces that all major background loop and orchestrator scripts
-      import and wrap execution inside OutputCompressor.
-    validating_mechanism: audit_d10_tokenomics
+    action: |
+      Long-running background loops and orchestrators must route output through a compression/throttling layer; static analysis flags scripts that do not wrap execution in an output compressor.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D10
+        mechanism: audit_d10_tokenomics
     downstream_verification: none
     example_lang: bash
     example_bad: |
@@ -736,9 +783,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Output-compaction topology validation keeps the summary/compactness 
-      lens canonical and linked.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Preserve critical facts, decisions, and next steps so compaction does not lose them; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -762,9 +812,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Measurement-telemetry topology validation keeps the reporting lens
-      visible so audit output cannot drift into verbosity theater.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Report finding, evidence, and action so the signal is not lost in noise; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -788,9 +841,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Measurement-telemetry topology validation keeps the observability 
-      lens explicit and linked from the tokenomics index.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Log a causal summary and retain detail on demand so extensive logs do not push out the problem; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -815,9 +871,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Measurement-telemetry topology validation keeps the 
-      diagnostic-compression lens published and linked.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Apply controlled lexical-redundancy filtering to execution traces so verbose, repetitive errors do not cost context; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -841,9 +900,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Memory/headroom topology validation keeps the cache/stability lens 
-      canonical so the category does not dissolve into prose.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Mark reusable blocks and avoid reloading them so stable context is not reprocessed; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -924,9 +986,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Output-compaction topology validation keeps the compaction lens and 
-      its linked page visible from the canonical index.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Summarize state and restart with continuity so a long session does not degrade; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -950,9 +1015,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Memory/headroom topology validation keeps the cache/stability lens 
-      canonical instead of hidden in prose.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Manage resumption and checkpoints so pauses do not invalidate the cache benefit; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -976,9 +1044,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Memory/headroom topology validation keeps the headroom lens explicit
-      and linked from the tokenomics index.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Keep a context budget with a safety zone so context does not collapse silently; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1002,9 +1073,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Measurement-telemetry topology validation keeps the rollback-cost 
-      lens linked so it cannot hide in an orphaned note.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Record the cost of fix/revert loops so it does not silently consume the session; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1028,9 +1102,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Automation-tooling topology validation keeps the execution-tool lens
-      visible and linked.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Separate thinking, executing, and reviewing so expensive execution context is not spent deciding; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1054,9 +1131,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Output-compaction topology validation keeps mode discipline surfaced
-      as a canonical tokenomics lens.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Route work by phase - think, execute, review - so the agent knows its mode; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1080,9 +1160,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Measurement-telemetry topology validation keeps the monitoring lens 
-      canonical and visible from the index.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Make thresholds visible and automatable so the user does not manually count messages; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1106,9 +1189,13 @@ items:
     tags:
       - tokenomics
       - remediated
-    action: D10 manifest size gate validates that AGENT.md <= 150 lines, 
-      STATUS.md <= 200 lines, and SPEC.md <= 500 lines.
-    validating_mechanism: audit_d10_tokenomics
+    action: |
+      Core memory manifests must stay under fixed line budgets so context is not saturated; a static size gate fails when a manifest exceeds its budget.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D10
+        mechanism: audit_d10_tokenomics
     downstream_verification: none
     example_lang: python
     example_bad: |
@@ -1132,9 +1219,13 @@ items:
     tags:
       - tokenomics
       - remediated
-    action: D10 check extracts and verifies that all python scripts referenced 
-      in TOKEN_BUDGET.md or AGENT.md exist on disk.
-    validating_mechanism: audit_d10_tokenomics
+    action: |
+      Every script path cited in the authority/budget docs must exist on disk; a static reference check fails on dangling citations (spectral scripts).
+    validating_mechanism: static-regex
+    enforcement:
+      cerberus:
+        dimension: D10
+        mechanism: audit_d10_tokenomics
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1158,9 +1249,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Measurement-telemetry topology validation requires the savings lens 
-      to remain published and linked.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Measure token usage before and after so a reduction is not merely declared; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1184,9 +1278,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Memory/headroom topology validation keeps quota awareness tied to 
-      the canonical tokenomics surfaces.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Plan for limits, backoff, and degradation so the session is not cut off by unbudgeted quotas; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1214,9 +1311,13 @@ items:
     tags:
       - tokenomics
       - remediated
-    action: D10 manifest size gate validates that AGENT.md <= 150 lines, 
-      STATUS.md <= 200 lines, and SPEC.md <= 500 lines.
-    validating_mechanism: audit_d10_tokenomics
+    action: |
+      Core memory manifests must stay under fixed line budgets so context is not saturated; a static size gate fails when a manifest exceeds its budget.
+    validating_mechanism: static-ast
+    enforcement:
+      cerberus:
+        dimension: D10
+        mechanism: audit_d10_tokenomics
     downstream_verification: none
     example_lang: text
     example_bad: |
@@ -1246,9 +1347,12 @@ items:
     tags:
       - tokenomics
       - prevented
-    action: Tokenomics cleanup validation now rejects orphan markdown files in 
-      Wiki/Vices and Wiki/Tokenomics so residual docs cannot linger unnoticed.
-    validating_mechanism: validate_golden_standard_catalogs.py --check-wiki
+    action: |
+      Govern output as strictly as input by hunting orphans and dead artifacts as a gate, not only blocking junk on the way in; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
+    validating_mechanism: runtime-test
+    enforcement:
+      golden_standard:
+        mechanism: "catalog/wiki link check"
     downstream_verification: none
     example_lang: bash
     example_bad: |
@@ -1279,8 +1383,12 @@ items:
       - tokenomics
       - prevented-mechanically
     action: |
-      Physical prevention via budget control and execution blocking when the per-session accumulated tokens exceed the efficiency limits (80K output tokens), forcing the compaction command.
-    validating_mechanism: _check_and_flag_compact
+      Per-session token accumulation must be bounded; when output exceeds the efficiency budget, execution is blocked and compaction forced.
+    validating_mechanism: runtime-test
+    enforcement:
+      cerberus:
+        dimension: D10
+        mechanism: _check_and_flag_compact
     downstream_verification: none
     example_lang: text
     example_bad: |

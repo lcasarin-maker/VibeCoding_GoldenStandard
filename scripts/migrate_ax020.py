@@ -209,9 +209,53 @@ TESTING_VICES = {
     "VT-116": ("Resolve symbols structurally through the AST so only a real definition node counts; a commented-out or string mention must not satisfy the check.", "runtime-test", "D8", "test_planted_def_comment_does_not_resolve"),
 }
 
+# Tokenomics: 5-tuples (action, vm, dim, mech, gs_mech).
+# Regla A (7) bind a real Cerberus mechanism; Regla B (28) are Golden-Standard self-validated.
+_GS_LINK = "catalog/wiki link check"
+TOKENOMICS = {
+    # --- Regla A: real Cerberus mechanisms ---
+    "TK-023": ("Long-running background loops and orchestrators must route output through a compression/throttling layer; static analysis flags scripts that do not wrap execution in an output compressor.", "static-ast", "D10", "audit_d10_tokenomics", None),
+    "TK-038": ("Core memory manifests must stay under fixed line budgets so context is not saturated; a static size gate fails when a manifest exceeds its budget.", "static-ast", "D10", "audit_d10_tokenomics", None),
+    "TK-039": ("Every script path cited in the authority/budget docs must exist on disk; a static reference check fails on dangling citations (spectral scripts).", "static-regex", "D10", "audit_d10_tokenomics", None),
+    "TK-042": ("Core memory manifests must stay under fixed line budgets so context is not saturated; a static size gate fails when a manifest exceeds its budget.", "static-ast", "D10", "audit_d10_tokenomics", None),
+    "TK-005": ("Session handoff state must use structured sections rather than free prose so it is machine-parseable; a test fails on unstructured handoff.", "runtime-test", "D10", "test_tk005_status_md_has_required_sections", None),
+    "TK-018": ("The backlog must be externalized to a durable machine-readable store rather than living only in chat; a test verifies the external backlog artifact exists.", "runtime-test", "D10", "test_tk018_external_backlog_exists", None),
+    "TK-044": ("Per-session token accumulation must be bounded; when output exceeds the efficiency budget, execution is blocked and compaction forced.", "runtime-test", "D10", "_check_and_flag_compact", None),
+    # --- Regla B: Golden-Standard self-validated (catalog/wiki link check) ---
+    "TK-001": ("Close each session with a durable checkpoint so a new session does not restart from zero; the canonical checkpoint guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-002": ("Keep authoritative state outside the chat so switching threads does not lose it; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-003": ("Checkpoint before changing objective so contexts do not contaminate each other; the canonical checkpoint guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-004": ("Keep a minimal boot-and-health sheet so each session does not spend tokens rebuilding the environment; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-006": ("Merge context by decisions and invariants rather than raw text so conflict resolution does not burn context; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-007": ("Consult one canonical core and archive copies as evidence so contradictory duplicates are not re-read; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-008": ("Separate stable guidelines into an immutable core and compact the transitional buffer so stable specs are not reprocessed; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-012": ("Use indexes, maps, and targeted reading so many tokens are not spent before acting; the canonical input-and-retrieval guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-013": ("Load tools on demand so unused schemas do not consume context; the canonical input-and-retrieval guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-016": ("Pursue one concrete task per cycle so attention is not split across objectives; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-020": ("Define an output budget and format so responses are not long by default; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-021": ("Predefine the start and structure of responses so the format is not variable; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-022": ("Use minimal, diverse, dense examples so few-shot context is not redundant; the canonical input-and-retrieval guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-024": ("Preserve critical facts, decisions, and next steps so compaction does not lose them; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-025": ("Report finding, evidence, and action so the signal is not lost in noise; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-026": ("Log a causal summary and retain detail on demand so extensive logs do not push out the problem; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-027": ("Apply controlled lexical-redundancy filtering to execution traces so verbose, repetitive errors do not cost context; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-028": ("Mark reusable blocks and avoid reloading them so stable context is not reprocessed; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-031": ("Summarize state and restart with continuity so a long session does not degrade; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-032": ("Manage resumption and checkpoints so pauses do not invalidate the cache benefit; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-033": ("Keep a context budget with a safety zone so context does not collapse silently; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-034": ("Record the cost of fix/revert loops so it does not silently consume the session; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-035": ("Separate thinking, executing, and reviewing so expensive execution context is not spent deciding; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-036": ("Route work by phase - think, execute, review - so the agent knows its mode; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-037": ("Make thresholds visible and automatable so the user does not manually count messages; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-040": ("Measure token usage before and after so a reduction is not merely declared; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-041": ("Plan for limits, backoff, and degradation so the session is not cut off by unbudgeted quotas; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+    "TK-043": ("Govern output as strictly as input by hunting orphans and dead artifacts as a gate, not only blocking junk on the way in; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.", "runtime-test", None, None, _GS_LINK),
+}
+
 TABLES = {
     "coding_vices": CODING_VICES,
     "testing_vices": TESTING_VICES,
+    "tokenomics": TOKENOMICS,
 }
 
 # Capture the action field plus the FULL validating_mechanism value (which may fold
@@ -222,7 +266,13 @@ ACTION_VM_RE = re.compile(
 )
 
 
-def build_block(action: str, vm: str, dim: str | None, mech: str | None) -> str:
+def build_block(
+    action: str,
+    vm: str,
+    dim: str | None = None,
+    mech: str | None = None,
+    gs_mech: str | None = None,
+) -> str:
     block = "    action: |\n"
     block += f"      {action}\n"
     block += f"    validating_mechanism: {vm}\n"
@@ -231,6 +281,11 @@ def build_block(action: str, vm: str, dim: str | None, mech: str | None) -> str:
         block += "      cerberus:\n"
         block += f"        dimension: {dim}\n"
         block += f"        mechanism: {mech}\n"
+    elif gs_mech:
+        # Golden-Standard self-validation: NOT a Cerberus binding (no enforcement.cerberus).
+        block += "    enforcement:\n"
+        block += "      golden_standard:\n"
+        block += f'        mechanism: "{gs_mech}"\n'
     return block
 
 

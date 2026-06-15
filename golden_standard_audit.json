@@ -105,8 +105,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "validate_golden_standard_catalogs.py --check-wiki verifies that the Memory and Headroom tokenomics surface is published and linked from the canonical index.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Close each session with a durable checkpoint so a new session does not restart from zero; the canonical checkpoint guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# A new session restarts everything: state is re-explained from scratch.\n",
     "example_good": "# Close with a physical checkpoint (STATUS.md) to resume without rebuilding.\n",
@@ -121,7 +121,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-002": {
     "id": "TK-002",
@@ -136,8 +141,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Tokenomics topology validation keeps the canonical memory surfaces visible, so chat is not treated as the only durable store.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Keep authoritative state outside the chat so switching threads does not lose it; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# State lives in the chat thread; switching threads loses it.\n",
     "example_good": "# State outside the chat (STATUS.md) as the primary source.\n",
@@ -152,7 +157,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-003": {
     "id": "TK-003",
@@ -167,8 +177,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "validate_golden_standard_catalogs.py --check-wiki keeps the memory/headroom surface linked so project switches must pass through the canonical layout.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Checkpoint before changing objective so contexts do not contaminate each other; the canonical checkpoint guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# The objective changes without closing; contexts become contaminated.\n",
     "example_good": "# Checkpoint the current project before changing objective.\n",
@@ -183,7 +193,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-004": {
     "id": "TK-004",
@@ -198,8 +213,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Tokenomics topology validation ensures the canonical memory/headroom entry points remain published instead of being reconstructed ad hoc each session.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Keep a minimal boot-and-health sheet so each session does not spend tokens rebuilding the environment; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# Each session spends tokens re-explaining how to start the environment.\n",
     "example_good": "# Minimal boot sheet (BOOT.md): commands, ports, health.\n",
@@ -214,7 +229,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-005": {
     "id": "TK-005",
@@ -229,8 +249,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Atomic handoff: STATUS.md must have structured sections; the detector fails on raw prose.",
-    "validating_mechanism": "test_tk005_status_md_has_required_sections",
+    "action": "Session handoff state must use structured sections rather than free prose so it is machine-parseable; a test fails on unstructured handoff.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# Long-prose handoff: continuing requires reading the entire history.\n",
     "example_good": "# Atomic handoff: objective | state | evidence | risks | next action.\n",
@@ -245,7 +265,13 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "test_tk005_status_md_has_required_sections"
+      }
+    }
   },
   "TK-006": {
     "id": "TK-006",
@@ -260,8 +286,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "validate_golden_standard_catalogs.py --check-wiki keeps the canonical tokenomics map and memory lenses linked so history is not merged blindly.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Merge context by decisions and invariants rather than raw text so conflict resolution does not burn context; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# Resolve the history conflict by re-reading all the raw text.\n",
     "example_good": "# Merge by decisions and invariants, not line-by-line text.\n",
@@ -276,7 +302,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-007": {
     "id": "TK-007",
@@ -291,8 +322,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "The canonical Tokenomics map and index are now enforced as the visible source of truth for this category.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Consult one canonical core and archive copies as evidence so contradictory duplicates are not re-read; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# Two contradictory copies of the state are re-read over and over.\n",
     "example_good": "# One canonical core; copies are archived as evidence, not consulted.\n",
@@ -307,7 +338,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-008": {
     "id": "TK-008",
@@ -322,8 +358,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Memory/headroom topology validation keeps the stable/volatile split represented as its own canonical lens.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Separate stable guidelines into an immutable core and compact the transitional buffer so stable specs are not reprocessed; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# Stable specifications are reprocessed on every turn.\n",
     "example_good": "# Separate Immutable Core (stable) and compact the Transitional Buffer (volatile).\n",
@@ -338,7 +374,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-009": {
     "id": "TK-009",
@@ -446,8 +487,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Input-retrieval topology validation now keeps the reading paths and map surfaces canonical instead of free-form exploration.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Use indexes, maps, and targeted reading so many tokens are not spent before acting; the canonical input-and-retrieval guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "cat src/**/*.py | head -3000   # many tokens before acting\n",
     "example_good": "ctags -R src/ && grep -n 'def target' tags   # index + targeted reading\n",
@@ -462,7 +503,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-013": {
     "id": "TK-013",
@@ -477,8 +523,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Automation-tooling topology validation keeps the tooling surface explicit so unused tools do not become invisible context debt.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Load tools on demand so unused schemas do not consume context; the canonical input-and-retrieval guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "tools = load_all_tools()        # schemas of 40 unused tools occupy context\n",
     "example_good": "tools = load_tools_for(task)    # deferred loading as needed\n",
@@ -493,7 +539,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-014": {
     "id": "TK-014",
@@ -570,8 +621,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Output-compaction topology validation keeps the output discipline lens canonical and linked.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Pursue one concrete task per cycle so attention is not split across objectives; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# One prompt asks for refactor + tests + docs + deploy at once.\n",
     "example_good": "# One concrete task per cycle; the model does not split attention.\n",
@@ -586,7 +637,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-017": {
     "id": "TK-017",
@@ -632,8 +688,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Externalized backlog (.protocol/review_queue.json) verified by detector + repo-guard.",
-    "validating_mechanism": "test_tk018_external_backlog_exists",
+    "action": "The backlog must be externalized to a durable machine-readable store rather than living only in chat; a test verifies the external backlog artifact exists.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# Side ideas accumulate in the objective's active window.\n",
     "example_good": "# Side findings -> external queue (backlog); the window stays for the objective.\n",
@@ -648,7 +704,13 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "test_tk018_external_backlog_exists"
+      }
+    }
   },
   "TK-019": {
     "id": "TK-019",
@@ -694,8 +756,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Output-compaction topology validation keeps the output budget lens canonical in the vault.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Define an output budget and format so responses are not long by default; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# \"Explain in detail...\" -> long responses by default.\n",
     "example_good": "# Define an explicit output budget and format.\n",
@@ -710,7 +772,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-021": {
     "id": "TK-021",
@@ -725,8 +792,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Output-compaction topology validation keeps the compaction lens and its index published.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Predefine the start and structure of responses so the format is not variable; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "resp = call(model, prompt)              # variable output format\n",
     "example_good": "resp = call(model, prompt, prefill=\"{\\\"result\\\":\")  # predefined structure\n",
@@ -741,7 +808,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-022": {
     "id": "TK-022",
@@ -756,8 +828,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Output-compaction topology validation keeps the compaction lens visible so example bloat is tracked instead of hidden.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Use minimal, diverse, dense examples so few-shot context is not redundant; the canonical input-and-retrieval guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# 12 nearly identical few-shot examples saturate the prompt.\n",
     "example_good": "# A few minimal, diverse, and dense examples.\n",
@@ -772,7 +844,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-023": {
     "id": "TK-023",
@@ -787,8 +864,8 @@
       "tokenomics",
       "remediated"
     ],
-    "action": "D10 enforces that all major background loop and orchestrator scripts import and wrap execution inside OutputCompressor.",
-    "validating_mechanism": "audit_d10_tokenomics",
+    "action": "Long-running background loops and orchestrators must route output through a compression/throttling layer; static analysis flags scripts that do not wrap execution in an output compressor.\n",
+    "validating_mechanism": "static-ast",
     "downstream_verification": "none",
     "example_bad": "pytest -v                       # dumps thousands of raw lines into the context\n",
     "example_good": "pytest -q | tail -20            # filter/compress before handing off to the agent\n",
@@ -803,7 +880,13 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "audit_d10_tokenomics"
+      }
+    }
   },
   "TK-024": {
     "id": "TK-024",
@@ -818,8 +901,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Output-compaction topology validation keeps the summary/compactness lens canonical and linked.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Preserve critical facts, decisions, and next steps so compaction does not lose them; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# The closing summary omits the decisions and next steps.\n",
     "example_good": "# Compact while preserving critical facts, decisions, and next steps.\n",
@@ -834,7 +917,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-025": {
     "id": "TK-025",
@@ -849,8 +937,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Measurement-telemetry topology validation keeps the reporting lens visible so audit output cannot drift into verbosity theater.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Report finding, evidence, and action so the signal is not lost in noise; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# The audit finding is lost among filler paragraphs.\n",
     "example_good": "# Report: finding | evidence | action. No filler.\n",
@@ -865,7 +953,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-026": {
     "id": "TK-026",
@@ -880,8 +973,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Measurement-telemetry topology validation keeps the observability lens explicit and linked from the tokenomics index.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Log a causal summary and retain detail on demand so extensive logs do not push out the problem; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# Extensive logs push the problem out of the window.\n",
     "example_good": "# Causal summary in context; detail on demand.\n",
@@ -896,7 +989,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-027": {
     "id": "TK-027",
@@ -911,8 +1009,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Measurement-telemetry topology validation keeps the diagnostic-compression lens published and linked.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Apply controlled lexical-redundancy filtering to execution traces so verbose, repetitive errors do not cost context; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# Repetitive error traces (same frame x500) saturate the context.\n",
     "example_good": "# Controlled elision of lexical redundancy in the traces.\n",
@@ -927,7 +1025,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-028": {
     "id": "TK-028",
@@ -942,8 +1045,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Memory/headroom topology validation keeps the cache/stability lens canonical so the category does not dissolve into prose.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Mark reusable blocks and avoid reloading them so stable context is not reprocessed; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "call(model, system=STABLE_SPEC + turn)   # the stable block is reprocessed\n",
     "example_good": "call(model, system=[{\"text\": STABLE_SPEC, \"cache_control\": {\"type\":\"ephemeral\"}}, turn])\n",
@@ -958,7 +1061,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-029": {
     "id": "TK-029",
@@ -1035,8 +1143,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Output-compaction topology validation keeps the compaction lens and its linked page visible from the canonical index.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Summarize state and restart with continuity so a long session does not degrade; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# Long session: quality degrades from excess context.\n",
     "example_good": "# Summarize the state and restart with continuity (compaction).\n",
@@ -1051,7 +1159,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-032": {
     "id": "TK-032",
@@ -1066,8 +1179,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Memory/headroom topology validation keeps the cache/stability lens canonical instead of hidden in prose.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Manage resumption and checkpoints so pauses do not invalidate the cache benefit; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# A long pause invalidates the cache and everything is paid for again.\n",
     "example_good": "# Manage resumption and checkpoints to avoid falling off the cache cliff.\n",
@@ -1082,7 +1195,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-033": {
     "id": "TK-033",
@@ -1097,8 +1215,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Memory/headroom topology validation keeps the headroom lens explicit and linked from the tokenomics index.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Keep a context budget with a safety zone so context does not collapse silently; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# The context collapses abruptly when it fills up, without warning.\n",
     "example_good": "# Keep a budget with a safety zone (headroom).\n",
@@ -1113,7 +1231,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-034": {
     "id": "TK-034",
@@ -1128,8 +1251,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Measurement-telemetry topology validation keeps the rollback-cost lens linked so it cannot hide in an orphaned note.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Record the cost of fix/revert loops so it does not silently consume the session; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# Fix/revert loops consume the session without recording their cost.\n",
     "example_good": "# Record the rollback cost to make it visible.\n",
@@ -1144,7 +1267,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-035": {
     "id": "TK-035",
@@ -1159,8 +1287,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Automation-tooling topology validation keeps the execution-tool lens visible and linked.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Separate thinking, executing, and reviewing so expensive execution context is not spent deciding; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# The expensive execution context is used to deliberate decisions.\n",
     "example_good": "# Separate thinking / executing / reviewing into distinct spaces.\n",
@@ -1175,7 +1303,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-036": {
     "id": "TK-036",
@@ -1190,8 +1323,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Output-compaction topology validation keeps mode discipline surfaced as a canonical tokenomics lens.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Route work by phase - think, execute, review - so the agent knows its mode; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# The agent does not know whether to think or execute; it mixes both.\n",
     "example_good": "# Route by explicit phase: think -> execute -> review.\n",
@@ -1206,7 +1339,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-037": {
     "id": "TK-037",
@@ -1221,8 +1359,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Measurement-telemetry topology validation keeps the monitoring lens canonical and visible from the index.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Make thresholds visible and automatable so the user does not manually count messages; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# The user counts messages by hand to know when to compact.\n",
     "example_good": "# Visible and automatable thresholds for context usage.\n",
@@ -1237,7 +1375,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-038": {
     "id": "TK-038",
@@ -1252,8 +1395,8 @@
       "tokenomics",
       "remediated"
     ],
-    "action": "D10 manifest size gate validates that AGENT.md <= 150 lines, STATUS.md <= 200 lines, and SPEC.md <= 500 lines.",
-    "validating_mechanism": "audit_d10_tokenomics",
+    "action": "Core memory manifests must stay under fixed line budgets so context is not saturated; a static size gate fails when a manifest exceeds its budget.\n",
+    "validating_mechanism": "static-ast",
     "downstream_verification": "none",
     "example_bad": "ctx = read_full_state()         # each turn drags the full state along\n",
     "example_good": "ctx = read_state_fields(['goal','blockers'])   # small fields\n",
@@ -1268,7 +1411,13 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "audit_d10_tokenomics"
+      }
+    }
   },
   "TK-039": {
     "id": "TK-039",
@@ -1283,8 +1432,8 @@
       "tokenomics",
       "remediated"
     ],
-    "action": "D10 check extracts and verifies that all python scripts referenced in TOKEN_BUDGET.md or AGENT.md exist on disk.",
-    "validating_mechanism": "audit_d10_tokenomics",
+    "action": "Every script path cited in the authority/budget docs must exist on disk; a static reference check fails on dangling citations (spectral scripts).\n",
+    "validating_mechanism": "static-regex",
     "downstream_verification": "none",
     "example_bad": "# Savings strategies exist but are not on the active path.\n",
     "example_good": "# Every optimization must be wired into the flow that runs.\n",
@@ -1299,7 +1448,13 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "audit_d10_tokenomics"
+      }
+    }
   },
   "TK-040": {
     "id": "TK-040",
@@ -1314,8 +1469,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Measurement-telemetry topology validation requires the savings lens to remain published and linked.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Measure token usage before and after so a reduction is not merely declared; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# \"We reduced tokens by 40%\" declared without telemetry.\n",
     "example_good": "# Measure before and after; savings are proven, not asserted.\n",
@@ -1330,7 +1485,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-041": {
     "id": "TK-041",
@@ -1345,8 +1505,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Memory/headroom topology validation keeps quota awareness tied to the canonical tokenomics surfaces.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Plan for limits, backoff, and degradation so the session is not cut off by unbudgeted quotas; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# The session is cut off by unbudgeted quota limits.\n",
     "example_good": "# Include limits, backoff, and degradation in the plan.\n",
@@ -1361,7 +1521,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-042": {
     "id": "TK-042",
@@ -1376,8 +1541,8 @@
       "tokenomics",
       "remediated"
     ],
-    "action": "D10 manifest size gate validates that AGENT.md <= 150 lines, STATUS.md <= 200 lines, and SPEC.md <= 500 lines.",
-    "validating_mechanism": "audit_d10_tokenomics",
+    "action": "Core memory manifests must stay under fixed line budgets so context is not saturated; a static size gate fails when a manifest exceeds its budget.\n",
+    "validating_mechanism": "static-ast",
     "downstream_verification": "none",
     "example_bad": "# AGENT.md / STATUS.md grow without control and saturate the window.\n",
     "example_good": "# Size gate: governance manifests have a limit.\n",
@@ -1392,7 +1557,13 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "audit_d10_tokenomics"
+      }
+    }
   },
   "TK-043": {
     "id": "TK-043",
@@ -1407,8 +1578,8 @@
       "tokenomics",
       "prevented"
     ],
-    "action": "Tokenomics cleanup validation now rejects orphan markdown files in Wiki/Vices and Wiki/Tokenomics so residual docs cannot linger unnoticed.",
-    "validating_mechanism": "validate_golden_standard_catalogs.py --check-wiki",
+    "action": "Govern output as strictly as input by hunting orphans and dead artifacts as a gate, not only blocking junk on the way in; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# The refactor leaves residue; the gate approves because the file 'exists'.\ngit mv old.py new.py        # dead old import, backup, and duplicate doc stay alive\n",
     "example_good": "# Replace = delete + create in the SAME commit; hunt orphans as a gate.\nvulture src/ && git rm old.py backups/old.py docs/old.md && git add new.py\n",
@@ -1423,7 +1594,12 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "golden_standard": {
+        "mechanism": "catalog/wiki link check"
+      }
+    }
   },
   "TK-044": {
     "id": "TK-044",
@@ -1438,8 +1614,8 @@
       "tokenomics",
       "prevented-mechanically"
     ],
-    "action": "Physical prevention via budget control and execution blocking when the per-session accumulated tokens exceed the efficiency limits (80K output tokens), forcing the compaction command.\n",
-    "validating_mechanism": "_check_and_flag_compact",
+    "action": "Per-session token accumulation must be bounded; when output exceeds the efficiency budget, execution is blocked and compaction forced.\n",
+    "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
     "example_bad": "# 4-hour session without compacting; the context reaches 95% and the cost skyrockets.\n",
     "example_good": "# Compaction at thresholds + budget with alerts + per-session cost telemetry.\n",
@@ -1454,7 +1630,13 @@
     "doctrinal": false,
     "alias_of": "",
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "_check_and_flag_compact"
+      }
+    }
   },
   "VT-001": {
     "id": "VT-001",
