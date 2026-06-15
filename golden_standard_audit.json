@@ -9515,7 +9515,7 @@
     "enforcement": {
       "cerberus": {
         "dimension": "D1",
-        "mechanism": "check_deprecation_log"
+        "mechanism": "check_deprecation_log.py"
       }
     }
   },
@@ -10093,7 +10093,7 @@
     "enforcement": {
       "cerberus": {
         "dimension": "D1",
-        "mechanism": "check_clean_worktree"
+        "mechanism": "check_clean_worktree.py"
       }
     }
   },

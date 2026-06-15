@@ -3003,7 +3003,7 @@ items:
     enforcement:
       cerberus:
         dimension: D1
-        mechanism: check_deprecation_log
+        mechanism: check_deprecation_log.py
     downstream_verification: none
     example_lang: bash
     example_bad: |
@@ -3602,7 +3602,7 @@ items:
     enforcement:
       cerberus:
         dimension: D1
-        mechanism: check_clean_worktree
+        mechanism: check_clean_worktree.py
     downstream_verification: none
     example_lang: bash
     example_bad: |

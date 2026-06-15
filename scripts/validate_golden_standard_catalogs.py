@@ -148,9 +148,19 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
                             f"{path}: {item_id or f'item {index}'} evidence entries must be mappings with a non-empty 'source'."
                         )
 
-        # AX-020 (strict-only-migrated): the optional `enforcement` mapping is free-form, but
-        # an entry that declares an enforcement.cerberus binding is considered migrated and MUST
-        # use an agnostic validating_mechanism type and carry both {dimension, mechanism}.
+        # AX-020 CIERRE: migration is complete (0 CC-coupled legacy entries remaining), so every
+        # entry MUST now declare an agnostic validating_mechanism type. Raw Cerberus-specific handles
+        # (e.g. audit_dN_* / test_* / class names left in validating_mechanism) are no longer tolerated.
+        # This hard error replaces the previously-tolerated legacy path.
+        mechanism_type = str(item.get("validating_mechanism", "")).strip()
+        if mechanism_type and mechanism_type not in ALLOWED_MECHANISM_TYPES:
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} has non-agnostic validating_mechanism "
+                f"{mechanism_type!r}; expected one of {sorted(ALLOWED_MECHANISM_TYPES)}."
+            )
+
+        # The optional `enforcement` mapping is free-form; an entry that declares an
+        # enforcement.cerberus binding additionally MUST carry both {dimension, mechanism}.
         enforcement = item.get("enforcement", None)
         if enforcement is not None:
             if not isinstance(enforcement, dict):
@@ -163,12 +173,6 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
                             f"{path}: {item_id or f'item {index}'} enforcement.cerberus must be a mapping."
                         )
                     else:
-                        mechanism_type = str(item.get("validating_mechanism", "")).strip()
-                        if mechanism_type not in ALLOWED_MECHANISM_TYPES:
-                            errors.append(
-                                f"{path}: {item_id or f'item {index}'} is migrated (has enforcement.cerberus) "
-                                f"but validating_mechanism {mechanism_type!r} is not in ALLOWED_MECHANISM_TYPES."
-                            )
                         for required_key in ("dimension", "mechanism"):
                             if not str(cerberus.get(required_key, "")).strip():
                                 errors.append(
