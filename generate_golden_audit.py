@@ -762,6 +762,8 @@ def write_tokenomics_subindices_md(wiki_dir: Path, mapped_database: dict):
 
 {group['blurb']}
 
+> Index page only: this file organizes TK entries and does not count as a TK entry itself.
+
 ---
 
 ## Entries

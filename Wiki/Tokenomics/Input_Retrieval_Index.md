@@ -2,6 +2,8 @@
 
 Targeted retrieval, semantic pruning, chunks, and reduction of blind exploration.
 
+> Index page only: this file organizes TK entries and does not count as a TK entry itself.
+
 ---
 
 ## Entries

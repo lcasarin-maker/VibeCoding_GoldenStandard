@@ -2,6 +2,8 @@
 
 Checkpoints, handoffs, external persistence, cache, drift, and control of context margin.
 
+> Index page only: this file organizes TK entries and does not count as a TK entry itself.
+
 ---
 
 ## Entries

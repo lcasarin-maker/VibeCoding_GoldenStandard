@@ -1544,18 +1544,13 @@
     "action": "Core memory manifests must stay under fixed line budgets so context is not saturated; a static size gate fails when a manifest exceeds its budget.\n",
     "validating_mechanism": "static-ast",
     "downstream_verification": "none",
-    "example_bad": "# AGENT.md / STATUS.md grow without control and saturate the window.\n",
-    "example_good": "# Size gate: governance manifests have a limit.\n",
+    "example_bad": "",
+    "example_good": "",
     "example_lang": "text",
-    "detection": "Governance manifests (AGENT.md, STATUS.md, SPEC.md) without a size limit.\n",
-    "evidence": [
-      {
-        "source": "vexp.dev / HumanLayer ACE",
-        "claim": "unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers."
-      }
-    ],
+    "detection": "",
+    "evidence": [],
     "doctrinal": false,
-    "alias_of": "",
+    "alias_of": "TK-038",
     "detector": "",
     "tier": "extended",
     "enforcement": {

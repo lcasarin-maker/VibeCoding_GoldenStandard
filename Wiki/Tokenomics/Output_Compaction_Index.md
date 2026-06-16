@@ -2,6 +2,8 @@
 
 Output control, compression, verbosity, and response budget.
 
+> Index page only: this file organizes TK entries and does not count as a TK entry itself.
+
 ---
 
 ## Entries

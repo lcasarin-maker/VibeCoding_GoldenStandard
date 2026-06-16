@@ -49,10 +49,10 @@ Each entry is classified by depth: `deep` (ships bad/good examples and a detecti
 
 | Depth | VC | VT | TK |
 |---|---:|---:|---:|
-| `deep` | 81 | 116 | 47 |
+| `deep` | 81 | 116 | 46 |
 | `stub` | 1 | 0 | 0 |
 | `doctrinal` | 70 | 0 | 0 |
-| `alias` | 2 | 0 | 0 |
+| `alias` | 2 | 0 | 1 |
 
 **Local enforcement:** 16 `deep` entries have a real static detector in `scripts/detectors.py`, tested in CI against their own `example_bad`/`example_good` (`scripts/test_detectors.py`). The rest are falsifiable-in-principle (they ship a detection recipe) but without an implemented detector yet.
 

@@ -2,6 +2,8 @@
 
 Savings evidence, observability, monitoring, and impact verification.
 
+> Index page only: this file organizes TK entries and does not count as a TK entry itself.
+
 ---
 
 ## Entries

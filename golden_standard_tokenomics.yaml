@@ -1319,17 +1319,7 @@ items:
         dimension: D10
         mechanism: audit_d10_tokenomics
     downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # AGENT.md / STATUS.md grow without control and saturate the window.
-    example_good: |
-      # Size gate: governance manifests have a limit.
-    detection: |
-      Governance manifests (AGENT.md, STATUS.md, SPEC.md) without a size limit.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
+    alias_of: TK-038
     tier: extended
   - id: TK-043
     title: Entropy without pruning — input governance without output governance
