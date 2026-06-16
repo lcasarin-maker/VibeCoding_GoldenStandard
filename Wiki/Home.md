@@ -8,6 +8,7 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 
 - 📂 **[[Vices_Index|Engineering Vices Index]]**: Central catalog of code and test anomalies (`VC`, `TV`).
 - 📂 **[[Project_Insights_Index|Satellite Insights Index]]**: Lessons and best practices (`PI`) extracted from external repositories and automations.
+- 📘 **[[Principles|Principles Index]]**: First-class doctrinal PI rules, each kept as a linked principle instead of duplicated prose.
 - 🕸️ **[[Graph|GS Graph Map]]**: Hubs, intentional orphans, candidate orphans, and local vault impact.
 - 📘 **[[Concepts/Conceptual_Framework|Golden Standard Conceptual Framework]]**: Epistemological doctrine, levels, and design foundations.
 - 🧼 **[[Concepts/Conceptual_Framework#5.-Repository-and-Execution-Hygiene|Repository Hygiene Chapter]]**: Canonical standard for cleanup, naming, clean root, and organization evidence.

@@ -3,6 +3,8 @@
 Mapping of lessons extracted from reference repositories and external audit tools.
 Entries are grouped by type to distinguish actionable principles from system meta-commentary.
 
+See [[Principles|Principles Index]] for the first-class doctrinal ledger.
+
 ---
 
 ## 🟢 Actionable principles

@@ -66,6 +66,34 @@ def load_yaml(path: Path) -> dict:
     return data
 
 
+def _normalize_project_insight(value: object) -> dict[str, object]:
+    if isinstance(value, str):
+        return {"title": value}
+    if isinstance(value, dict):
+        return dict(value)
+    return {}
+
+
+def _project_insight_text(entry: dict[str, object]) -> str:
+    return str(entry.get("title", entry.get("text", ""))).strip()
+
+
+def _project_insight_has_static_signature(entry: dict[str, object]) -> bool:
+    has_bad = bool(str(entry.get("example_bad", "")).strip())
+    has_detection = bool(
+        str(entry.get("detection", "")).strip() or str(entry.get("detector", "")).strip()
+    )
+    return has_bad and has_detection
+
+
+def _project_insight_target(entry: dict[str, object]) -> str:
+    for key in ("promoted_to", "promotion_target", "promotion"):
+        target = str(entry.get(key, "")).strip()
+        if target:
+            return target
+    return ""
+
+
 def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> None:
     data = load_yaml(path)
     items = data.get("items", [])
@@ -219,7 +247,32 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
                 errors.append(f"Missing wiki article for {item_id}: {wiki_path}")
 
 
-def validate_project_insights(path: Path, errors: list[str], check_wiki: bool) -> None:
+def validate_project_insight_promotion(
+    insights: dict[str, object],
+    promoted_ids: set[str],
+    errors: list[str],
+) -> None:
+    for key, value in insights.items():
+        pi_id = str(key).strip()
+        entry = _normalize_project_insight(value)
+        if _project_insight_has_static_signature(entry):
+            target = _project_insight_target(entry)
+            if not target or target not in promoted_ids:
+                errors.append(
+                    f"{pi_id}: has static signature, must graduate to VC/VT"
+                )
+        else:
+            if bool(entry):
+                doctrinal = entry.get("doctrinal", None)
+                if doctrinal is not True:
+                    errors.append(
+                        f"{pi_id}: behavioral insight must declare doctrinal: true"
+                    )
+
+
+def validate_project_insights(
+    path: Path, errors: list[str], check_wiki: bool, promoted_ids: set[str]
+) -> None:
     data = load_yaml(path)
     insights = data.get("project_insights", {})
     if not isinstance(insights, dict):
@@ -232,8 +285,21 @@ def validate_project_insights(path: Path, errors: list[str], check_wiki: bool) -
             errors.append(f"{path}: invalid insight id {insight_id!r}.")
         if insight_id and not is_ascii_text(insight_id):
             errors.append(f"{path}: invalid insight id {insight_id!r}; technical identifiers must be ASCII-only.")
-        if not str(value).strip():
+        entry = _normalize_project_insight(value)
+        if not _project_insight_text(entry):
             errors.append(f"{path}: {insight_id or 'unknown insight'} has empty text.")
+        if entry and not _project_insight_has_static_signature(entry):
+            doctrinal = entry.get("doctrinal", None)
+            if doctrinal is not True:
+                errors.append(
+                    f"{path}: {insight_id or 'unknown insight'}: behavioral insight must declare doctrinal: true"
+                )
+        elif entry and _project_insight_has_static_signature(entry):
+            target = _project_insight_target(entry)
+            if not target or target not in promoted_ids:
+                errors.append(
+                    f"{path}: {insight_id or 'unknown insight'}: has static signature, must graduate to VC/VT"
+                )
         if check_wiki:
             wiki_path = WIKI_INSIGHTS_DIR / f"{insight_id}.md"
             if not wiki_path.exists():
@@ -457,6 +523,7 @@ def validate_wiki_topology(errors: list[str]) -> None:
         ROOT / "Wiki" / "Home.md": [
             "[[Vices_Index|Engineering Vices Index]]",
             "[[Project_Insights/PI-025|Exportable Retrospective]]",
+            "[[Principles|Principles Index]]",
             "[[Tokenomics_Index|Tokenomics Index]]",
             "[[Tokenomics_Map|Tokenomics Map]]",
             "[Inbox](../Inbox/README.md)",
@@ -599,6 +666,18 @@ def validate_manifest(path: Path, errors: list[str], check_wiki: bool) -> None:
         errors.append(f"{path}: 'catalogs' must be a mapping.")
         return
 
+    promoted_ids: set[str] = set()
+    for catalog_name in ("coding_vices", "testing_vices"):
+        catalog_path = ROOT / str(catalogs.get(catalog_name, ""))
+        if not catalog_path.exists():
+            continue
+        catalog_data = load_yaml(catalog_path)
+        for item in catalog_data.get("items", []):
+            if isinstance(item, dict):
+                item_id = str(item.get("id", "")).strip()
+                if item_id.startswith(("VC-", "VT-")):
+                    promoted_ids.add(item_id)
+
     for catalog_name, relative_path in catalogs.items():
         catalog_path = ROOT / str(relative_path)
         if not catalog_path.exists():
@@ -606,7 +685,7 @@ def validate_manifest(path: Path, errors: list[str], check_wiki: bool) -> None:
             continue
 
         if catalog_name == "project_insights":
-            validate_project_insights(catalog_path, errors, check_wiki)
+            validate_project_insights(catalog_path, errors, check_wiki, promoted_ids)
         else:
             validate_vices_catalog(catalog_path, errors, check_wiki)
 

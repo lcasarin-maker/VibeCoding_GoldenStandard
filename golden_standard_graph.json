@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-06-15",
-  "node_count": 387,
-  "edge_count": 1908,
+  "node_count": 388,
+  "edge_count": 1946,
   "nodes": [
     {
       "id": "CODE_OF_CONDUCT",
@@ -443,6 +443,7 @@
         "CONCEPTUAL_FRAMEWORK",
         "Concepts/Conceptual_Framework",
         "Inbox/README",
+        "Principles",
         "Project_Insights/PI-019",
         "Project_Insights/PI-020",
         "Project_Insights/PI-021",
@@ -476,6 +477,7 @@
         "Domains/D7",
         "Domains/D8",
         "Domains/D9",
+        "Principles",
         "Project_Insights/PI-001",
         "Project_Insights/PI-002",
         "Project_Insights/PI-003",
@@ -834,9 +836,60 @@
         "Vices/VT-116",
         "Vices_Index"
       ],
-      "in_degree": 370,
-      "out_degree": 21,
-      "degree": 391
+      "in_degree": 371,
+      "out_degree": 22,
+      "degree": 393
+    },
+    {
+      "id": "Principles",
+      "path": "Wiki/Principles.md",
+      "title": "Principles",
+      "kind": "wiki",
+      "outgoing": [
+        "Home",
+        "Project_Insights/PI-001",
+        "Project_Insights/PI-002",
+        "Project_Insights/PI-003",
+        "Project_Insights/PI-004",
+        "Project_Insights/PI-005",
+        "Project_Insights/PI-006",
+        "Project_Insights/PI-007",
+        "Project_Insights/PI-008",
+        "Project_Insights/PI-009",
+        "Project_Insights/PI-010",
+        "Project_Insights/PI-011",
+        "Project_Insights/PI-012",
+        "Project_Insights/PI-013",
+        "Project_Insights/PI-014",
+        "Project_Insights/PI-015",
+        "Project_Insights/PI-016",
+        "Project_Insights/PI-017",
+        "Project_Insights/PI-018",
+        "Project_Insights/PI-019",
+        "Project_Insights/PI-020",
+        "Project_Insights/PI-021",
+        "Project_Insights/PI-022",
+        "Project_Insights/PI-023",
+        "Project_Insights/PI-024",
+        "Project_Insights/PI-025",
+        "Project_Insights/PI-026",
+        "Project_Insights/PI-027",
+        "Project_Insights/PI-028",
+        "Project_Insights/PI-029",
+        "Project_Insights/PI-030",
+        "Project_Insights/PI-031",
+        "Project_Insights/PI-032",
+        "Project_Insights/PI-033",
+        "Project_Insights/PI-034",
+        "Project_Insights/PI-035"
+      ],
+      "incoming": [
+        "Home",
+        "Project_Insights_Index"
+      ],
+      "in_degree": 2,
+      "out_degree": 36,
+      "degree": 38
     },
     {
       "id": "Project_Insights/PI-001",
@@ -856,11 +909,12 @@
         "Domains/D1",
         "Domains/D2",
         "Domains/D8",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 4,
+      "in_degree": 5,
       "out_degree": 7,
-      "degree": 11
+      "degree": 12
     },
     {
       "id": "Project_Insights/PI-002",
@@ -882,11 +936,12 @@
         "Domains/D5",
         "Domains/D8",
         "Domains/D9",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 5,
+      "in_degree": 6,
       "out_degree": 8,
-      "degree": 13
+      "degree": 14
     },
     {
       "id": "Project_Insights/PI-003",
@@ -902,11 +957,12 @@
       ],
       "incoming": [
         "Domains/D10",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "Project_Insights/PI-004",
@@ -926,11 +982,12 @@
         "Domains/D1",
         "Domains/D11",
         "Domains/D7",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 4,
+      "in_degree": 5,
       "out_degree": 7,
-      "degree": 11
+      "degree": 12
     },
     {
       "id": "Project_Insights/PI-005",
@@ -948,11 +1005,12 @@
       "incoming": [
         "Domains/D10",
         "Domains/D4",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 6,
-      "degree": 9
+      "degree": 10
     },
     {
       "id": "Project_Insights/PI-006",
@@ -974,11 +1032,12 @@
         "Domains/D3",
         "Domains/D5",
         "Domains/D6",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 5,
+      "in_degree": 6,
       "out_degree": 8,
-      "degree": 13
+      "degree": 14
     },
     {
       "id": "Project_Insights/PI-007",
@@ -994,11 +1053,12 @@
       ],
       "incoming": [
         "Domains/D10",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "Project_Insights/PI-008",
@@ -1014,11 +1074,12 @@
       ],
       "incoming": [
         "Domains/D2",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "Project_Insights/PI-009",
@@ -1036,11 +1097,12 @@
       "incoming": [
         "Domains/D10",
         "Domains/D5",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 6,
-      "degree": 9
+      "degree": 10
     },
     {
       "id": "Project_Insights/PI-010",
@@ -1058,11 +1120,12 @@
       "incoming": [
         "Domains/D1",
         "Domains/D10",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 6,
-      "degree": 9
+      "degree": 10
     },
     {
       "id": "Project_Insights/PI-011",
@@ -1080,11 +1143,12 @@
       "incoming": [
         "Domains/D3",
         "Domains/D4",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 6,
-      "degree": 9
+      "degree": 10
     },
     {
       "id": "Project_Insights/PI-012",
@@ -1106,11 +1170,12 @@
         "Domains/D6",
         "Domains/D8",
         "Domains/D9",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 5,
+      "in_degree": 6,
       "out_degree": 8,
-      "degree": 13
+      "degree": 14
     },
     {
       "id": "Project_Insights/PI-013",
@@ -1128,11 +1193,12 @@
       "incoming": [
         "Domains/D10",
         "Domains/D7",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 6,
-      "degree": 9
+      "degree": 10
     },
     {
       "id": "Project_Insights/PI-014",
@@ -1150,11 +1216,12 @@
       "incoming": [
         "Domains/D12",
         "Domains/D2",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 6,
-      "degree": 9
+      "degree": 10
     },
     {
       "id": "Project_Insights/PI-015",
@@ -1170,11 +1237,12 @@
       ],
       "incoming": [
         "Domains/D8",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "Project_Insights/PI-016",
@@ -1190,11 +1258,12 @@
       ],
       "incoming": [
         "Domains/D9",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "Project_Insights/PI-017",
@@ -1210,11 +1279,12 @@
       ],
       "incoming": [
         "Domains/D8",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "Project_Insights/PI-018",
@@ -1230,11 +1300,12 @@
       ],
       "incoming": [
         "Domains/D12",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "Project_Insights/PI-019",
@@ -1249,6 +1320,7 @@
       ],
       "incoming": [
         "Home",
+        "Principles",
         "Project_Insights_Index",
         "Tokenomics_Map",
         "Vices/VC-001",
@@ -1520,9 +1592,9 @@
         "Vices/VT-115",
         "Vices/VT-116"
       ],
-      "in_degree": 271,
+      "in_degree": 272,
       "out_degree": 4,
-      "degree": 275
+      "degree": 276
     },
     {
       "id": "Project_Insights/PI-020",
@@ -1537,11 +1609,12 @@
       ],
       "incoming": [
         "Home",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 4,
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "Project_Insights/PI-021",
@@ -1556,11 +1629,12 @@
       ],
       "incoming": [
         "Home",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 4,
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "Project_Insights/PI-022",
@@ -1577,11 +1651,12 @@
       "incoming": [
         "Domains/D2",
         "Home",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 5,
-      "degree": 8
+      "degree": 9
     },
     {
       "id": "Project_Insights/PI-023",
@@ -1598,11 +1673,12 @@
       "incoming": [
         "Domains/D12",
         "Home",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 5,
-      "degree": 8
+      "degree": 9
     },
     {
       "id": "Project_Insights/PI-024",
@@ -1619,11 +1695,12 @@
       "incoming": [
         "Domains/D4",
         "Home",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 5,
-      "degree": 8
+      "degree": 9
     },
     {
       "id": "Project_Insights/PI-025",
@@ -1638,11 +1715,12 @@
       ],
       "incoming": [
         "Home",
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 4,
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "Project_Insights/PI-026",
@@ -1656,11 +1734,12 @@
         "Vices/VC-124"
       ],
       "incoming": [
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 4,
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "Project_Insights/PI-027",
@@ -1674,11 +1753,12 @@
         "Vices/VC-124"
       ],
       "incoming": [
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 4,
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "Project_Insights/PI-028",
@@ -1692,11 +1772,12 @@
         "Vices/VC-124"
       ],
       "incoming": [
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 4,
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "Project_Insights/PI-029",
@@ -1710,11 +1791,12 @@
         "Vices/VC-124"
       ],
       "incoming": [
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 4,
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "Project_Insights/PI-030",
@@ -1728,11 +1810,12 @@
         "Vices/VC-124"
       ],
       "incoming": [
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 4,
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "Project_Insights/PI-031",
@@ -1746,11 +1829,12 @@
         "Vices/VC-124"
       ],
       "incoming": [
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 4,
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "Project_Insights/PI-032",
@@ -1764,11 +1848,12 @@
         "Vices/VC-124"
       ],
       "incoming": [
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 4,
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "Project_Insights/PI-033",
@@ -1782,11 +1867,12 @@
         "Vices/VC-124"
       ],
       "incoming": [
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 4,
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "Project_Insights/PI-034",
@@ -1800,11 +1886,12 @@
         "Vices/VC-124"
       ],
       "incoming": [
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 4,
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "Project_Insights/PI-035",
@@ -1818,11 +1905,12 @@
         "Vices/VC-124"
       ],
       "incoming": [
+        "Principles",
         "Project_Insights_Index"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 4,
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "Project_Insights_Index",
@@ -1831,6 +1919,7 @@
       "kind": "wiki",
       "outgoing": [
         "Home",
+        "Principles",
         "Project_Insights/PI-001",
         "Project_Insights/PI-002",
         "Project_Insights/PI-003",
@@ -1907,8 +1996,8 @@
         "Tokenomics_Map"
       ],
       "in_degree": 37,
-      "out_degree": 36,
-      "degree": 73
+      "out_degree": 37,
+      "degree": 74
     },
     {
       "id": "Tokenomics/Automation_Tooling_Index",
@@ -9766,6 +9855,11 @@
     },
     {
       "source": "Home",
+      "target": "Principles",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Home",
       "target": "Project_Insights/PI-019",
       "kind": "wikilink"
     },
@@ -9873,6 +9967,186 @@
       "source": "Inbox/README",
       "target": "Inbox/templates/README",
       "kind": "markdown"
+    },
+    {
+      "source": "Principles",
+      "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-001",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-002",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-003",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-004",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-005",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-006",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-007",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-008",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-009",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-010",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-011",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-012",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-013",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-014",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-015",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-016",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-017",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-018",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-019",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-020",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-021",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-022",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-023",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-024",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-025",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-026",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-027",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-028",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-029",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-030",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-031",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-032",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-033",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-034",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Principles",
+      "target": "Project_Insights/PI-035",
+      "kind": "wikilink"
     },
     {
       "source": "Project_Insights/PI-001",
@@ -10777,6 +11051,11 @@
     {
       "source": "Project_Insights_Index",
       "target": "Home",
+      "kind": "wikilink"
+    },
+    {
+      "source": "Project_Insights_Index",
+      "target": "Principles",
       "kind": "wikilink"
     },
     {
@@ -19617,6 +19896,7 @@
           "CONCEPTUAL_FRAMEWORK",
           "Concepts/Conceptual_Framework",
           "Inbox/README",
+          "Principles",
           "Project_Insights/PI-019",
           "Project_Insights/PI-020",
           "Project_Insights/PI-021",
@@ -19650,6 +19930,7 @@
           "Domains/D7",
           "Domains/D8",
           "Domains/D9",
+          "Principles",
           "Project_Insights/PI-001",
           "Project_Insights/PI-002",
           "Project_Insights/PI-003",
@@ -20008,9 +20289,9 @@
           "Vices/VT-116",
           "Vices_Index"
         ],
-        "in_degree": 370,
-        "out_degree": 21,
-        "degree": 391
+        "in_degree": 371,
+        "out_degree": 22,
+        "degree": 393
       },
       {
         "id": "Tokenomics_Map",
@@ -20405,6 +20686,7 @@
         ],
         "incoming": [
           "Home",
+          "Principles",
           "Project_Insights_Index",
           "Tokenomics_Map",
           "Vices/VC-001",
@@ -20676,9 +20958,9 @@
           "Vices/VT-115",
           "Vices/VT-116"
         ],
-        "in_degree": 271,
+        "in_degree": 272,
         "out_degree": 4,
-        "degree": 275
+        "degree": 276
       },
       {
         "id": "Tokenomics_Index",
@@ -20804,6 +21086,7 @@
         "kind": "wiki",
         "outgoing": [
           "Home",
+          "Principles",
           "Project_Insights/PI-001",
           "Project_Insights/PI-002",
           "Project_Insights/PI-003",
@@ -20880,8 +21163,8 @@
           "Tokenomics_Map"
         ],
         "in_degree": 37,
-        "out_degree": 36,
-        "degree": 73
+        "out_degree": 37,
+        "degree": 74
       },
       {
         "id": "Vices/VC-124",
@@ -20939,6 +21222,57 @@
         "degree": 42,
         "status": "PREVENTED",
         "downstream_verification": "none"
+      },
+      {
+        "id": "Principles",
+        "path": "Wiki/Principles.md",
+        "title": "Principles",
+        "kind": "wiki",
+        "outgoing": [
+          "Home",
+          "Project_Insights/PI-001",
+          "Project_Insights/PI-002",
+          "Project_Insights/PI-003",
+          "Project_Insights/PI-004",
+          "Project_Insights/PI-005",
+          "Project_Insights/PI-006",
+          "Project_Insights/PI-007",
+          "Project_Insights/PI-008",
+          "Project_Insights/PI-009",
+          "Project_Insights/PI-010",
+          "Project_Insights/PI-011",
+          "Project_Insights/PI-012",
+          "Project_Insights/PI-013",
+          "Project_Insights/PI-014",
+          "Project_Insights/PI-015",
+          "Project_Insights/PI-016",
+          "Project_Insights/PI-017",
+          "Project_Insights/PI-018",
+          "Project_Insights/PI-019",
+          "Project_Insights/PI-020",
+          "Project_Insights/PI-021",
+          "Project_Insights/PI-022",
+          "Project_Insights/PI-023",
+          "Project_Insights/PI-024",
+          "Project_Insights/PI-025",
+          "Project_Insights/PI-026",
+          "Project_Insights/PI-027",
+          "Project_Insights/PI-028",
+          "Project_Insights/PI-029",
+          "Project_Insights/PI-030",
+          "Project_Insights/PI-031",
+          "Project_Insights/PI-032",
+          "Project_Insights/PI-033",
+          "Project_Insights/PI-034",
+          "Project_Insights/PI-035"
+        ],
+        "incoming": [
+          "Home",
+          "Project_Insights_Index"
+        ],
+        "in_degree": 2,
+        "out_degree": 36,
+        "degree": 38
       },
       {
         "id": "Tokenomics/Memory_Headroom_Index",
@@ -21003,6 +21337,87 @@
         "degree": 17
       },
       {
+        "id": "Project_Insights/PI-002",
+        "path": "Wiki/Project_Insights/PI-002.md",
+        "title": "PI-002: Satellite Insight",
+        "kind": "insight",
+        "outgoing": [
+          "Domains/D3",
+          "Domains/D5",
+          "Domains/D8",
+          "Domains/D9",
+          "Home",
+          "Project_Insights_Index",
+          "Tokenomics_Map",
+          "Vices/VC-124"
+        ],
+        "incoming": [
+          "Domains/D3",
+          "Domains/D5",
+          "Domains/D8",
+          "Domains/D9",
+          "Principles",
+          "Project_Insights_Index"
+        ],
+        "in_degree": 6,
+        "out_degree": 8,
+        "degree": 14
+      },
+      {
+        "id": "Project_Insights/PI-006",
+        "path": "Wiki/Project_Insights/PI-006.md",
+        "title": "PI-006: Satellite Insight",
+        "kind": "insight",
+        "outgoing": [
+          "Domains/D2",
+          "Domains/D3",
+          "Domains/D5",
+          "Domains/D6",
+          "Home",
+          "Project_Insights_Index",
+          "Tokenomics_Map",
+          "Vices/VC-124"
+        ],
+        "incoming": [
+          "Domains/D2",
+          "Domains/D3",
+          "Domains/D5",
+          "Domains/D6",
+          "Principles",
+          "Project_Insights_Index"
+        ],
+        "in_degree": 6,
+        "out_degree": 8,
+        "degree": 14
+      },
+      {
+        "id": "Project_Insights/PI-012",
+        "path": "Wiki/Project_Insights/PI-012.md",
+        "title": "PI-012: Satellite Insight",
+        "kind": "insight",
+        "outgoing": [
+          "Domains/D11",
+          "Domains/D6",
+          "Domains/D8",
+          "Domains/D9",
+          "Home",
+          "Project_Insights_Index",
+          "Tokenomics_Map",
+          "Vices/VC-124"
+        ],
+        "incoming": [
+          "Domains/D11",
+          "Domains/D6",
+          "Domains/D8",
+          "Domains/D9",
+          "Principles",
+          "Project_Insights_Index"
+        ],
+        "in_degree": 6,
+        "out_degree": 8,
+        "degree": 14
+      },
+      {
         "id": "Tokenomics/Input_Retrieval_Index",
         "path": "Wiki/Tokenomics/Input_Retrieval_Index.md",
         "title": "Tokenomics Index: Input and Retrieval",
@@ -21054,108 +21469,6 @@
         "in_degree": 6,
         "out_degree": 7,
         "degree": 13
-      },
-      {
-        "id": "Project_Insights/PI-002",
-        "path": "Wiki/Project_Insights/PI-002.md",
-        "title": "PI-002: Satellite Insight",
-        "kind": "insight",
-        "outgoing": [
-          "Domains/D3",
-          "Domains/D5",
-          "Domains/D8",
-          "Domains/D9",
-          "Home",
-          "Project_Insights_Index",
-          "Tokenomics_Map",
-          "Vices/VC-124"
-        ],
-        "incoming": [
-          "Domains/D3",
-          "Domains/D5",
-          "Domains/D8",
-          "Domains/D9",
-          "Project_Insights_Index"
-        ],
-        "in_degree": 5,
-        "out_degree": 8,
-        "degree": 13
-      },
-      {
-        "id": "Project_Insights/PI-006",
-        "path": "Wiki/Project_Insights/PI-006.md",
-        "title": "PI-006: Satellite Insight",
-        "kind": "insight",
-        "outgoing": [
-          "Domains/D2",
-          "Domains/D3",
-          "Domains/D5",
-          "Domains/D6",
-          "Home",
-          "Project_Insights_Index",
-          "Tokenomics_Map",
-          "Vices/VC-124"
-        ],
-        "incoming": [
-          "Domains/D2",
-          "Domains/D3",
-          "Domains/D5",
-          "Domains/D6",
-          "Project_Insights_Index"
-        ],
-        "in_degree": 5,
-        "out_degree": 8,
-        "degree": 13
-      },
-      {
-        "id": "Project_Insights/PI-012",
-        "path": "Wiki/Project_Insights/PI-012.md",
-        "title": "PI-012: Satellite Insight",
-        "kind": "insight",
-        "outgoing": [
-          "Domains/D11",
-          "Domains/D6",
-          "Domains/D8",
-          "Domains/D9",
-          "Home",
-          "Project_Insights_Index",
-          "Tokenomics_Map",
-          "Vices/VC-124"
-        ],
-        "incoming": [
-          "Domains/D11",
-          "Domains/D6",
-          "Domains/D8",
-          "Domains/D9",
-          "Project_Insights_Index"
-        ],
-        "in_degree": 5,
-        "out_degree": 8,
-        "degree": 13
-      },
-      {
-        "id": "Domains/D2",
-        "path": "Wiki/Domains/D2.md",
-        "title": "Audit Domain: D2",
-        "kind": "domain",
-        "outgoing": [
-          "Home",
-          "Project_Insights/PI-001",
-          "Project_Insights/PI-006",
-          "Project_Insights/PI-008",
-          "Project_Insights/PI-014",
-          "Project_Insights/PI-022"
-        ],
-        "incoming": [
-          "Project_Insights/PI-001",
-          "Project_Insights/PI-006",
-          "Project_Insights/PI-008",
-          "Project_Insights/PI-014",
-          "Project_Insights/PI-022"
-        ],
-        "in_degree": 5,
-        "out_degree": 6,
-        "degree": 11
       }
     ],
     "bridges": [
@@ -21838,6 +22151,7 @@
         "kind": "wiki",
         "outgoing": [
           "Home",
+          "Principles",
           "Project_Insights/PI-001",
           "Project_Insights/PI-002",
           "Project_Insights/PI-003",
@@ -21914,8 +22228,59 @@
           "Tokenomics_Map"
         ],
         "in_degree": 37,
+        "out_degree": 37,
+        "degree": 74
+      },
+      {
+        "id": "Principles",
+        "path": "Wiki/Principles.md",
+        "title": "Principles",
+        "kind": "wiki",
+        "outgoing": [
+          "Home",
+          "Project_Insights/PI-001",
+          "Project_Insights/PI-002",
+          "Project_Insights/PI-003",
+          "Project_Insights/PI-004",
+          "Project_Insights/PI-005",
+          "Project_Insights/PI-006",
+          "Project_Insights/PI-007",
+          "Project_Insights/PI-008",
+          "Project_Insights/PI-009",
+          "Project_Insights/PI-010",
+          "Project_Insights/PI-011",
+          "Project_Insights/PI-012",
+          "Project_Insights/PI-013",
+          "Project_Insights/PI-014",
+          "Project_Insights/PI-015",
+          "Project_Insights/PI-016",
+          "Project_Insights/PI-017",
+          "Project_Insights/PI-018",
+          "Project_Insights/PI-019",
+          "Project_Insights/PI-020",
+          "Project_Insights/PI-021",
+          "Project_Insights/PI-022",
+          "Project_Insights/PI-023",
+          "Project_Insights/PI-024",
+          "Project_Insights/PI-025",
+          "Project_Insights/PI-026",
+          "Project_Insights/PI-027",
+          "Project_Insights/PI-028",
+          "Project_Insights/PI-029",
+          "Project_Insights/PI-030",
+          "Project_Insights/PI-031",
+          "Project_Insights/PI-032",
+          "Project_Insights/PI-033",
+          "Project_Insights/PI-034",
+          "Project_Insights/PI-035"
+        ],
+        "incoming": [
+          "Home",
+          "Project_Insights_Index"
+        ],
+        "in_degree": 2,
         "out_degree": 36,
-        "degree": 73
+        "degree": 38
       },
       {
         "id": "Home",
@@ -21926,6 +22291,7 @@
           "CONCEPTUAL_FRAMEWORK",
           "Concepts/Conceptual_Framework",
           "Inbox/README",
+          "Principles",
           "Project_Insights/PI-019",
           "Project_Insights/PI-020",
           "Project_Insights/PI-021",
@@ -21959,6 +22325,7 @@
           "Domains/D7",
           "Domains/D8",
           "Domains/D9",
+          "Principles",
           "Project_Insights/PI-001",
           "Project_Insights/PI-002",
           "Project_Insights/PI-003",
@@ -22317,9 +22684,9 @@
           "Vices/VT-116",
           "Vices_Index"
         ],
-        "in_degree": 370,
-        "out_degree": 21,
-        "degree": 391
+        "in_degree": 371,
+        "out_degree": 22,
+        "degree": 393
       },
       {
         "id": "Tokenomics/Memory_Headroom_Index",
@@ -22810,11 +23177,12 @@
           "Domains/D5",
           "Domains/D8",
           "Domains/D9",
+          "Principles",
           "Project_Insights_Index"
         ],
-        "in_degree": 5,
+        "in_degree": 6,
         "out_degree": 8,
-        "degree": 13
+        "degree": 14
       },
       {
         "id": "Project_Insights/PI-006",
@@ -22836,11 +23204,12 @@
           "Domains/D3",
           "Domains/D5",
           "Domains/D6",
+          "Principles",
           "Project_Insights_Index"
         ],
-        "in_degree": 5,
+        "in_degree": 6,
         "out_degree": 8,
-        "degree": 13
+        "degree": 14
       },
       {
         "id": "Project_Insights/PI-012",
@@ -22862,11 +23231,12 @@
           "Domains/D6",
           "Domains/D8",
           "Domains/D9",
+          "Principles",
           "Project_Insights_Index"
         ],
-        "in_degree": 5,
+        "in_degree": 6,
         "out_degree": 8,
-        "degree": 13
+        "degree": 14
       },
       {
         "id": "Tokenomics/Measurement_Telemetry_Index",
@@ -22935,35 +23305,12 @@
           "Domains/D1",
           "Domains/D2",
           "Domains/D8",
+          "Principles",
           "Project_Insights_Index"
         ],
-        "in_degree": 4,
+        "in_degree": 5,
         "out_degree": 7,
-        "degree": 11
-      },
-      {
-        "id": "Project_Insights/PI-004",
-        "path": "Wiki/Project_Insights/PI-004.md",
-        "title": "PI-004: Satellite Insight",
-        "kind": "insight",
-        "outgoing": [
-          "Domains/D1",
-          "Domains/D11",
-          "Domains/D7",
-          "Home",
-          "Project_Insights_Index",
-          "Tokenomics_Map",
-          "Vices/VC-124"
-        ],
-        "incoming": [
-          "Domains/D1",
-          "Domains/D11",
-          "Domains/D7",
-          "Project_Insights_Index"
-        ],
-        "in_degree": 4,
-        "out_degree": 7,
-        "degree": 11
+        "degree": 12
       }
     ]
   }
