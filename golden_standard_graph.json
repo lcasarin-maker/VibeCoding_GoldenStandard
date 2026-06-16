@@ -2794,11 +2794,12 @@
       ],
       "incoming": [
         "Tokenomics/Memory_Headroom_Index",
+        "Tokenomics/TK-042",
         "Tokenomics_Index"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 3,
-      "degree": 5,
+      "degree": 6,
       "status": "REMEDIATED",
       "downstream_verification": "none"
     },
@@ -2869,8 +2870,8 @@
       "kind": "tokenomics",
       "outgoing": [
         "Home",
-        "Tokenomics_Index",
-        "Tokenomics_Map"
+        "Tokenomics/TK-038",
+        "Tokenomics_Index"
       ],
       "incoming": [
         "Tokenomics/Measurement_Telemetry_Index",
@@ -3200,7 +3201,6 @@
         "Tokenomics/TK-039",
         "Tokenomics/TK-040",
         "Tokenomics/TK-041",
-        "Tokenomics/TK-042",
         "Tokenomics/TK-043",
         "Tokenomics/TK-044",
         "Tokenomics/TK-F01",
@@ -3476,9 +3476,9 @@
         "Vices/VT-115",
         "Vices/VT-116"
       ],
-      "in_degree": 358,
+      "in_degree": 357,
       "out_degree": 10,
-      "degree": 368
+      "degree": 367
     },
     {
       "id": "Vices/VC-001",
@@ -5017,8 +5017,8 @@
       "in_degree": 1,
       "out_degree": 3,
       "degree": 4,
-      "status": "DOC_ONLY",
-      "downstream_verification": "required"
+      "status": "PREVENTED",
+      "downstream_verification": "none"
     },
     {
       "id": "Vices/VC-078",
@@ -11891,12 +11891,12 @@
     },
     {
       "source": "Tokenomics/TK-042",
-      "target": "Tokenomics_Index",
+      "target": "Tokenomics/TK-038",
       "kind": "wikilink"
     },
     {
       "source": "Tokenomics/TK-042",
-      "target": "Tokenomics_Map",
+      "target": "Tokenomics_Index",
       "kind": "wikilink"
     },
     {
@@ -20113,7 +20113,6 @@
           "Tokenomics/TK-039",
           "Tokenomics/TK-040",
           "Tokenomics/TK-041",
-          "Tokenomics/TK-042",
           "Tokenomics/TK-043",
           "Tokenomics/TK-044",
           "Tokenomics/TK-F01",
@@ -20389,9 +20388,9 @@
           "Vices/VT-115",
           "Vices/VT-116"
         ],
-        "in_degree": 358,
+        "in_degree": 357,
         "out_degree": 10,
-        "degree": 368
+        "degree": 367
       },
       {
         "id": "Project_Insights/PI-019",
@@ -22512,7 +22511,6 @@
           "Tokenomics/TK-039",
           "Tokenomics/TK-040",
           "Tokenomics/TK-041",
-          "Tokenomics/TK-042",
           "Tokenomics/TK-043",
           "Tokenomics/TK-044",
           "Tokenomics/TK-F01",
@@ -22788,9 +22786,9 @@
           "Vices/VT-115",
           "Vices/VT-116"
         ],
-        "in_degree": 358,
+        "in_degree": 357,
         "out_degree": 10,
-        "degree": 368
+        "degree": 367
       },
       {
         "id": "Project_Insights/PI-002",

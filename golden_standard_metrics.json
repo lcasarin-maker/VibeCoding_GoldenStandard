@@ -2,17 +2,17 @@
   "total_entries": 317,
   "project_insights": 35,
   "depth": {
-    "deep": 243,
+    "deep": 244,
     "doctrinal": 70,
     "alias": 3,
-    "stub": 1
+    "stub": 0
   },
   "deep_pct": 77,
   "ai_native": 13,
   "ai_native_pct": 4,
-  "with_evidence": 242,
-  "with_evidence_pct": 76,
+  "with_evidence": 243,
+  "with_evidence_pct": 77,
   "local_detectors": 16,
   "registered_detectors": 16,
-  "stub": 1
+  "stub": 0
 }

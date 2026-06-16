@@ -23,6 +23,8 @@ Status legend: `OPEN` · `IN_PROGRESS` · `BLOCKED` · `DONE`
 | GS-034 | High | Wiki `Domains/D1..D12` break agnosticism | `Wiki/Domains/` documents Cerberus's 12 enforcement domains inside the agent-agnostic KB. Decide: move to Cerberus, or re-author as agnostic principles without the Dxx (Cerberus-specific) framing. | OPEN |
 | GS-035 | Medium | Tokenomics wiki vs catalog drift | `Wiki/Tokenomics` has 52 pages vs 47 `TK-` catalog entries (5 non-entry pages: indexes/maps/overviews or potential dupes). Reconcile so every data point is a described, deduplicated entry or an explicitly-labeled index. | DONE 2026-06-15: labeled the five subindex pages (`Automation_Tooling_Index`, `Input_Retrieval_Index`, `Measurement_Telemetry_Index`, `Memory_Headroom_Index`, `Output_Compaction_Index`) as index-only pages so they no longer masquerade as TK entries. |
 | GS-035b | Low | TK-038/TK-042 duplicate action | After AX-020, `TK-038` (Full-state re-reading) and `TK-042` (Manifests without a size constraint) carry an identical `action` (the manifest size-gate, `D10`/`audit_d10_tokenomics`). Candidates for merge/alias; do not fuse yet — confirm they are not two distinct facets before collapsing. | DONE 2026-06-15: `TK-042` is now `alias_of: TK-038`. The duplicate is semantically the same action, and references remain in the wiki/graph, so deleting the ID would break consumers; alias preserves stability. |
+| GS-035c | Low | TK-042 alias keeps full duplicate body | DONE 2026-06-15: `TK-042` now keeps only `id`, `title`, and `alias_of: TK-038` in `golden_standard_tokenomics.yaml`; the generator emits a redirect/stub page to the canonical `TK-038` entry, and the catalog validator accepts the alias without duplicated body fields. | DONE |
+| GS-062 | Medium | `stub: 1` violates the repo's own `stubs = 0` contract | DONE 2026-06-15: the stub was `VC-082` (`Dependencies without a gate`). Root cause: AX-020 migration left it with `runtime-test`/mechanism metadata but stripped depth fields. Resolved by adding `example_bad`, `example_good`, `detection`, and real evidence from the YAML-importing GS scripts; `metrics.py` now reports `stub: 0`. | DONE |
 | GS-036 | Medium | Deep Wiki dedup pass (Vices) | 270 Vice articles (= 154 VC + 116 VT). Run overlap/duplicate detection and a per-entry descriptiveness check using `generate_golden_audit.py` + `golden_standard_graph.json`. | OPEN |
 | GS-037 | Medium | Status enum hardening | Replace the ambiguous `DOC_ONLY` / `PREVENTED` reading with a self-describing enum (`ENFORCED_LOCAL` / `ENFORCED_EXTERNAL` / `PROPOSED`). Tracked upstream as GitHub issue #4. | OPEN |
 | GS-061 | High | PI -> VC/VT promotion gate | Verify `project_insights` promotion: a Project Insight that acquires a static signature (an `example_bad` + detector) must graduate to an enforceable `VC/VT` entry; PIs that stay behavioral remain `doctrinal`. Confirm the gate is enforced, not just listed. | OPEN |
@@ -31,9 +33,4 @@ Status legend: `OPEN` · `IN_PROGRESS` · `BLOCKED` · `DONE`
 
 | ID | Severity | Item | Notes | Status |
 |----|----------|------|-------|--------|
-| GS-010 | Medium | Adopt the corruption guard upstream-style | Mirror Cerberus `scripts/check_no_corruption.py` (reject NUL bytes + unparseable sources) in GS CI, so a bad write to a YAML/MD catalog fails fast rather than shipping a truncated catalog. | OPEN |
-| GS-020 | Low | Confirm `Inbox/cerberus/` is the only sanctioned CC->GS coupling | CC feeds GS via `Inbox/cerberus/` + `INGESTION_PROTOCOL.md` + `CONSUMER_CONTRACT.md`. Document this as the minimal interface; everything else is incidental and removable. | OPEN |
-
----
-
-*Created 2026-06-14 by adversarial audit. IDs align with `D:\AI\AUDIT_2026-06-14_Cerberus_GS_adversarial.md`. This file is the GS counterpart to Cerberus `BACKLOG.md`.*
+| GS-010 | Medium | Adopt the corruption guard upstream-style | Mirror Cerberus `scripts/

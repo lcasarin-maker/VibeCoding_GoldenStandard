@@ -81,6 +81,21 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
             continue
 
         item_id = str(item.get("id", "")).strip()
+        alias_of = str(item.get("alias_of", "")).strip()
+        if alias_of:
+            title = str(item.get("title", "")).strip()
+            if not title:
+                errors.append(f"{path}: {item_id or f'item {index}'} missing required field: title")
+            if alias_of == item_id:
+                errors.append(f"{path}: {item_id or f'item {index}'} cannot be an alias of itself.")
+            elif alias_of not in all_ids:
+                errors.append(f"{path}: {item_id or f'item {index}'} alias_of references unknown id {alias_of}.")
+            if bool(item.get("doctrinal")) or str(item.get("example_bad", "")).strip() or str(item.get("example_good", "")).strip():
+                errors.append(
+                    f"{path}: {item_id or f'item {index}'} is an alias and must not also carry examples or the doctrinal flag."
+                )
+            continue
+
         missing = [field for field in CATALOG_REQUIRED_FIELDS if not str(item.get(field, "")).strip()]
         if missing:
             errors.append(f"{path}: {item_id or f'item {index}'} missing required fields: {', '.join(missing)}")
@@ -193,17 +208,6 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
             errors.append(
                 f"{path}: {item_id or f'item {index}'} is flagged doctrinal but also ships examples; a vice is one or the other."
             )
-
-        alias_of = str(item.get("alias_of", "")).strip()
-        if alias_of:
-            if alias_of == item_id:
-                errors.append(f"{path}: {item_id or f'item {index}'} cannot be an alias of itself.")
-            elif alias_of not in all_ids:
-                errors.append(f"{path}: {item_id or f'item {index}'} alias_of references unknown id {alias_of}.")
-            if has_bad or has_good or doctrinal:
-                errors.append(
-                    f"{path}: {item_id or f'item {index}'} is an alias and must not also carry examples or the doctrinal flag."
-                )
 
         if item_id and item_id.startswith(("VC-", "VT-")):
             wiki_path = WIKI_VICES_DIR / f"{item_id}.md"
@@ -358,6 +362,22 @@ def validate_home_counts(errors: list[str]) -> None:
     data = load_yaml(ROOT / "golden_standard_project_insights.yaml")
     insights = data.get("project_insights", {})
 
+    items_by_id = {
+        str(item.get("id", "")).strip(): item
+        for item in vices + tests + tokenomics
+        if isinstance(item, dict) and str(item.get("id", "")).strip()
+    }
+
+    def effective_status(item: dict) -> str:
+        alias_of = str(item.get("alias_of", "")).strip()
+        if alias_of:
+            canonical = items_by_id.get(alias_of)
+            if isinstance(canonical, dict):
+                canonical_status = str(canonical.get("status", "")).strip()
+                if canonical_status:
+                    return canonical_status
+        return str(item.get("status", "")).strip()
+
     expected_counts = {
         "Vibe Coding": len([item for item in vices if str(item.get("id", "")).startswith("VC-")]),
         "Testing & Evaluation": len([item for item in tests if str(item.get("id", "")).startswith("VT-")]),
@@ -373,9 +393,9 @@ def validate_home_counts(errors: list[str]) -> None:
     status_text = home_path.read_text(encoding="utf-8")
     total_expected = len(vices) + len(tests) + len(tokenomics)
     status_expected = Counter(
-        str(item.get("status", "")).strip()
+        status
         for item in vices + tests + tokenomics
-        if str(item.get("status", "")).strip()
+        if (status := effective_status(item))
     )
     prevented_remediated = status_expected.get("PREVENTED", 0) + status_expected.get("REMEDIATED", 0)
     audited_doc_only = status_expected.get("AUDITED", 0) + status_expected.get("DOC_ONLY", 0)
@@ -614,9 +634,13 @@ def report_migration_progress() -> str:
             has_cerberus = isinstance(enforcement, dict) and isinstance(
                 enforcement.get("cerberus"), dict
             )
+            alias_of = str(item.get("alias_of", "")).strip()
+            validating_mechanism = str(item.get("validating_mechanism", "")).strip()
             if has_cerberus:
                 migrated += 1
-            elif str(item.get("validating_mechanism", "")).strip() not in ALLOWED_MECHANISM_TYPES:
+            elif alias_of and not validating_mechanism:
+                migrated += 1
+            elif validating_mechanism not in ALLOWED_MECHANISM_TYPES:
                 remaining += 1
     return f"AX-020 migration: {migrated} migrated / {remaining} CC-coupled remaining"
 

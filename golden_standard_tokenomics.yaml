@@ -1299,28 +1299,7 @@ items:
     tier: extended
   - id: TK-042
     title: Manifests without a size constraint
-    symptom: Governance files (AGENT.md, STATUS.md, SPEC.md) grow without
-      control, saturating the context window in every session
-    cause: Absence of defined and audited physical thresholds for the
-      core Trinity documents
-    solution: Define and enforce line limits in each manifest (e.g.
-      AGENT.md <= 150 lines per Trinity); audit them as a commit gate in
-      the governance validator
-    status: REMEDIATED
-    severity: medium
-    tags:
-      - tokenomics
-      - remediated
-    action: |
-      Core memory manifests must stay under fixed line budgets so context is not saturated; a static size gate fails when a manifest exceeds its budget.
-    validating_mechanism: static-ast
-    enforcement:
-      cerberus:
-        dimension: D10
-        mechanism: audit_d10_tokenomics
-    downstream_verification: none
     alias_of: TK-038
-    tier: extended
   - id: TK-043
     title: Entropy without pruning — input governance without output governance
     symptom: 'The system validates what comes IN (anti-junk-code, large-file, gates)

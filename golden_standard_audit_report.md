@@ -8,9 +8,9 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 116 | 28 | 88 | 100% |
-| **Vibe Coding** | 154 | 48 | 106 | 100% |
+| **Vibe Coding** | 154 | 49 | 105 | 100% |
 | **Tokenomics & Context** | 47 | 35 | 12 | 100% |
-| **Total** | 317 | 111 | 206 | 100% |
+| **Total** | 317 | 112 | 205 | 100% |
 
 ---
 
@@ -217,7 +217,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-074` | I/O without validation | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-075` | Unverified integrations | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-076` | Lax typing | **medium** | **PREVENTED** | `none` | Static AST analysis requires complete type annotations on public functions: every parameter and the return value must be typed, and an unconstrained `Any` in domain positions is rejected. The checked signature is the function definition's annotation set, independent of any specific tool.  | `audit_d6_anti_slop` |
-| `VC-077` | Semantic type ambiguity | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
+| `VC-077` | Semantic type ambiguity | **medium** | **PREVENTED** | `none` | Static AST analysis requires complete type annotations on public functions: every parameter and the return value must be typed, and an unconstrained `Any` in domain positions is rejected. The checked signature is the function definition's annotation set, independent of any specific tool.  | `audit_d6_anti_slop` |
 | `VC-078` | Permanent placeholder | **medium** | **AUDITED** | `none` | Static AST analysis rejects incomplete implementations as a structural signature: empty function bodies, stub-only docstrings, and pass-only functions; tests whose bodies carry no active assertion are likewise rejected as non-discriminating. The check reads the parsed body, not any specific runner or placeholder literal.  | `audit_d2_completeness` |
 | `VC-079` | Core dependent on unstable parts | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-080` | Uncritical copy-paste | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |

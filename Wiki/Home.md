@@ -49,8 +49,8 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 
 | Status | Entries | Meaning |
 |---|---:|---|
-| `PREVENTED` + `REMEDIATED` | 111 | The catalog already has an executable gate or a concrete correction. |
-| `AUDITED` + `DOC_ONLY` | 206 | The entry exists as knowledge, but remains mainly documentary. |
+| `PREVENTED` + `REMEDIATED` | 112 | The catalog already has an executable gate or a concrete correction. |
+| `AUDITED` + `DOC_ONLY` | 205 | The entry exists as knowledge, but remains mainly documentary. |
 | `Total` | 317 | Sum of the VC, VT, and TK entries audited by the compiler. |
 
 ---

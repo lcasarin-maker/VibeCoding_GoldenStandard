@@ -1532,9 +1532,9 @@
     "id": "TK-042",
     "title": "Manifests without a size constraint",
     "category": "Tokenomics & Context",
-    "symptom": "Governance files (AGENT.md, STATUS.md, SPEC.md) grow without control, saturating the context window in every session",
-    "cause": "Absence of defined and audited physical thresholds for the core Trinity documents",
-    "solution": "Define and enforce line limits in each manifest (e.g. AGENT.md <= 150 lines per Trinity); audit them as a commit gate in the governance validator",
+    "symptom": "Each turn drags everything along",
+    "cause": "Non-indexed state",
+    "solution": "Keep small state fields",
     "status": "REMEDIATED",
     "severity": "medium",
     "tags": [
@@ -1544,11 +1544,16 @@
     "action": "Core memory manifests must stay under fixed line budgets so context is not saturated; a static size gate fails when a manifest exceeds its budget.\n",
     "validating_mechanism": "static-ast",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "example_bad": "ctx = read_full_state()         # each turn drags the full state along\n",
+    "example_good": "ctx = read_state_fields(['goal','blockers'])   # small fields\n",
+    "example_lang": "python",
+    "detection": "Re-reading the full state every turn instead of small fields.\n",
+    "evidence": [
+      {
+        "source": "vexp.dev / HumanLayer ACE",
+        "claim": "unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers."
+      }
+    ],
     "doctrinal": false,
     "alias_of": "TK-038",
     "detector": "",
@@ -6668,9 +6673,9 @@
     "id": "VC-028",
     "title": "Step without validation",
     "category": "Vibe Coding",
-    "symptom": "Work advances after untested changes",
-    "cause": "Lack of gates",
-    "solution": "Each stage must demonstrate success",
+    "symptom": "Work accumulates before testing",
+    "cause": "Late feedback",
+    "solution": "Iterate in verifiable slices",
     "status": "DOC_ONLY",
     "severity": "medium",
     "tags": [
@@ -8039,27 +8044,38 @@
     "id": "VC-077",
     "title": "Semantic type ambiguity",
     "category": "Vibe Coding",
-    "symptom": "Anything passes",
-    "cause": "Loss of information",
-    "solution": "Reference type ambiguity",
-    "status": "DOC_ONLY",
+    "symptom": "Impossible states circulate",
+    "cause": "Unconstrained domain",
+    "solution": "Represent invariants",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
-      "doc-only"
+      "prevented-mechanically"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY",
-    "downstream_verification": "required",
-    "example_bad": "",
-    "example_good": "",
-    "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "action": "Static AST analysis requires complete type annotations on public functions: every parameter and the return value must be typed, and an unconstrained `Any` in domain positions is rejected. The checked signature is the function definition's annotation set, independent of any specific tool.\n",
+    "validating_mechanism": "static-ast",
+    "downstream_verification": "none",
+    "example_bad": "def handle(data):          # no types: impossible states circulate\n    return data[\"amount\"] * data[\"rate\"]\n",
+    "example_good": "def handle(order: Order) -> Money:   # invariants represented in the type\n    return order.amount * order.rate\n",
+    "example_lang": "python",
+    "detection": "Public functions without type annotations or with Any in domain signatures\n(mypy --disallow-untyped-defs / --disallow-any-explicit).\n",
+    "evidence": [
+      {
+        "source": "arxiv:2603.28592",
+        "claim": "recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects."
+      }
+    ],
     "doctrinal": false,
     "alias_of": "VC-076",
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D6",
+        "mechanism": "audit_d6_anti_slop"
+      }
+    }
   },
   "VC-078": {
     "id": "VC-078",
@@ -8202,11 +8218,24 @@
     "action": "Every imported dependency must be declared in the manifest: a check fails when code imports a package that the dependency manifest does not list.\n",
     "validating_mechanism": "runtime-test",
     "downstream_verification": "none",
-    "example_bad": "",
-    "example_good": "",
+    "example_bad": "# requirements.txt\nrequests==2.32.3\n\n# app.py\nimport yaml\ndata = yaml.safe_load(\"name: Cerberus\")\n",
+    "example_good": "# requirements.txt\nPyYAML==6.0.2\nrequests==2.32.3\n\n# app.py\nimport yaml\ndata = yaml.safe_load(\"name: Cerberus\")\n",
     "example_lang": "text",
-    "detection": "",
-    "evidence": [],
+    "detection": "Parse the top-level imports and compare them with the dependency manifest (requirements/lock/pyproject metadata); fail when an import resolves to a package that is absent from the manifest.\n",
+    "evidence": [
+      {
+        "source": "generate_golden_audit.py",
+        "claim": "imports yaml to parse the catalogs, so PyYAML is a real runtime dependency of the audit generator."
+      },
+      {
+        "source": "scripts/validate_golden_standard_catalogs.py",
+        "claim": "imports yaml for validation, so the manifest gate must cover that dependency too."
+      },
+      {
+        "source": "scripts/metrics.py",
+        "claim": "imports yaml for metrics generation, so an undeclared PyYAML dependency would break the stubs gate."
+      }
+    ],
     "doctrinal": false,
     "alias_of": "",
     "detector": "",

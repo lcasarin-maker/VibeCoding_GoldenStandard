@@ -984,6 +984,23 @@ def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
     for flaw_id, item in mapped_database.items():
         if item["category"] != "Tokenomics & Context":
             continue
+        alias = str(item.get("alias_of", "")).strip()
+        if alias:
+            redirect = f"""# {flaw_id}: {item['title']}
+
+> 🔗 **Merged entry.** This tokenomics entry is a semantic duplicate of [[Tokenomics/{alias}|{alias}]]; the canonical content lives there. The ID `{flaw_id}` is preserved for reference stability.
+
+| Field | Detail |
+|---|---|
+| **ID** | `{flaw_id}` |
+| **Canonical** | [[Tokenomics/{alias}|{alias}]] |
+| **Depth** | {depth_badge(item)} |
+
+---
+[[Tokenomics/{alias}|Go to the canonical entry {alias}]] | [[Tokenomics_Index|Back to Tokenomics Index]] | [[Home|Home]]
+"""
+            (tokenomics_dir / f"{flaw_id}.md").write_text(redirect, encoding="utf-8")
+            continue
         tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
         depth_sections = build_depth_sections(item)
         flaw_content = f"""# {flaw_id}: {item['title']}
@@ -1619,10 +1636,41 @@ def extract_catalog_items(config: dict, mapped_database: dict):
     if not isinstance(config, dict) or "items" not in config:
         return
     for item in config["items"]:
+        flaw_id = item["id"]
+        alias_of = str(item.get("alias_of", "")).strip()
+        if alias_of:
+            canonical = mapped_database.get(alias_of, {})
+            mapped_entry = {
+                "id": flaw_id,
+                "title": item["title"],
+                "category": get_flaw_category(flaw_id),
+                "symptom": canonical.get("symptom", ""),
+                "cause": canonical.get("cause", ""),
+                "solution": canonical.get("solution", ""),
+                "status": canonical.get("status", "REMEDIATED"),
+                "severity": canonical.get("severity", "medium"),
+                "tags": canonical.get("tags", []),
+                "action": canonical.get("action", ""),
+                "validating_mechanism": canonical.get("validating_mechanism", ""),
+                "downstream_verification": canonical.get("downstream_verification", "none"),
+                "example_bad": canonical.get("example_bad", ""),
+                "example_good": canonical.get("example_good", ""),
+                "example_lang": canonical.get("example_lang", "text"),
+                "detection": canonical.get("detection", ""),
+                "evidence": canonical.get("evidence", []),
+                "doctrinal": False,
+                "alias_of": alias_of,
+                "detector": "",
+                "tier": str(item.get("tier", canonical.get("tier", "extended"))).strip() or "extended",
+            }
+            if isinstance(canonical.get("enforcement"), dict):
+                mapped_entry["enforcement"] = canonical["enforcement"]
+            mapped_database[flaw_id] = mapped_entry
+            continue
+
         downstream_verification = str(item.get("downstream_verification", "")).strip()
         if not downstream_verification:
             downstream_verification = "required" if str(item.get("status", "")).strip() == "DOC_ONLY" else "none"
-        flaw_id = item["id"]
         mapped_entry = {
             "id": flaw_id,
             "title": item["title"],

@@ -1839,6 +1839,31 @@ items:
         dimension: D11
         mechanism: test_vc082_ghost_import_detected
     downstream_verification: none
+    example_lang: text
+    example_bad: |
+      # requirements.txt
+      requests==2.32.3
+
+      # app.py
+      import yaml
+      data = yaml.safe_load("name: Cerberus")
+    example_good: |
+      # requirements.txt
+      PyYAML==6.0.2
+      requests==2.32.3
+
+      # app.py
+      import yaml
+      data = yaml.safe_load("name: Cerberus")
+    detection: |
+      Parse the top-level imports and compare them with the dependency manifest (requirements/lock/pyproject metadata); fail when an import resolves to a package that is absent from the manifest.
+    evidence:
+      - source: "generate_golden_audit.py"
+        claim: "imports yaml to parse the catalogs, so PyYAML is a real runtime dependency of the audit generator."
+      - source: "scripts/validate_golden_standard_catalogs.py"
+        claim: "imports yaml for validation, so the manifest gate must cover that dependency too."
+      - source: "scripts/metrics.py"
+        claim: "imports yaml for metrics generation, so an undeclared PyYAML dependency would break the stubs gate."
     tier: extended
   - id: VC-083
     title: Tolerated dead file

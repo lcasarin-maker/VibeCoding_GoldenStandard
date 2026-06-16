@@ -81,7 +81,7 @@ This index classifies the Golden Standard vices into VC and VT. Tokenomics lives
 *   [[Vices/VC-074|VC-074]] — **I/O without validation** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-075|VC-075]] — **Unverified integrations** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-076|VC-076]] — **Lax typing** (PREVENTED, medium, downstream:none)
-*   [[Vices/VC-077|VC-077]] — **Semantic type ambiguity** (DOC_ONLY, medium, downstream:required)
+*   [[Vices/VC-077|VC-077]] — **Semantic type ambiguity** (PREVENTED, medium, downstream:none)
 *   [[Vices/VC-078|VC-078]] — **Permanent placeholder** (AUDITED, medium, downstream:none)
 *   [[Vices/VC-079|VC-079]] — **Core dependent on unstable parts** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-080|VC-080]] — **Uncritical copy-paste** (DOC_ONLY, medium, downstream:required)
