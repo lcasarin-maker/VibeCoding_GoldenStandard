@@ -1,74 +1,74 @@
 # Inbox — Golden Standard Knowledge Ingestion
 
-Este directorio es el **buzón de entrada** de la base de conocimiento.
-Aquí se depositan hallazgos crudos antes de ser curados y promovidos al catálogo.
+This directory is the **intake mailbox** of the knowledge base.
+Raw findings are deposited here before being curated and promoted to the catalog.
 
-> **Para el protocolo completo de ingesta, ver:** [`INGESTION_PROTOCOL.md`](../INGESTION_PROTOCOL.md)  
-> **Para las fuentes autorizadas y sus contratos, ver:** [`KNOWLEDGE_SOURCES.md`](../KNOWLEDGE_SOURCES.md)
+> **For the full ingestion protocol, see:** [`INGESTION_PROTOCOL.md`](../INGESTION_PROTOCOL.md)  
+> **For authorized sources and their contracts, see:** [`KNOWLEDGE_SOURCES.md`](../KNOWLEDGE_SOURCES.md)
 
 ---
 
-## Estructura de este Directorio
+## Directory Structure
 
 ```
 Inbox/
-├── cerberus/      ← Hallazgos de auditorías de CoderCerberus
-├── manual/        ← Hallazgos de sesiones manuales del DRI
-├── external/      ← Contribuciones externas (triageadas por mantenedores)
+├── cerberus/      ← Findings from CoderCerberus audits
+├── manual/        ← Findings from manual DRI sessions
+├── external/      ← External contributions (triaged by maintainers)
 └── templates/
-    ├── cerberus_finding.md        ← Plantilla para hallazgos de Cerberus
-    ├── manual_finding.md          ← Plantilla para hallazgos manuales
-    └── external_contribution.md  ← Plantilla para contribuciones externas
+    ├── cerberus_finding.md        ← Template for Cerberus findings
+    ├── manual_finding.md          ← Template for manual findings
+    └── external_contribution.md   ← Template for external contributions
 ```
 
-### Notas por Carpeta
+### Notes per Folder
 
-- [`cerberus/README.md`](cerberus/README.md) — qué depositar y cómo nombrarlo.
-- [`manual/README.md`](manual/README.md) — hallazgos observados por la DRI.
-- [`external/README.md`](external/README.md) — flujo para issues y PRs externos; solo evidencia basada en el baseline activo y con purga fresca si se audita limpieza o completitud.
-- [`templates/README.md`](templates/README.md) — referencia rápida de plantillas.
+- [`cerberus/README.md`](cerberus/README.md) — what to deposit and how to name it.
+- [`manual/README.md`](manual/README.md) — findings observed by the DRI.
+- [`external/README.md`](external/README.md) — flow for external issues and PRs; only evidence anchored to the active baseline and with fresh purge if auditing cleanliness or completeness.
+- [`templates/README.md`](templates/README.md) — quick reference for templates.
 
 ---
 
-## Cómo Depositar un Hallazgo (resumen rápido)
+## How to Deposit a Finding (quick summary)
 
-1. Copia la plantilla correspondiente de `Inbox/templates/`
-2. Completa todos los campos requeridos (marcados con ✅ en la plantilla)
-3. Guarda el archivo en el subdirectorio correcto con la convención de nombre:
+1. Copy the appropriate template from `Inbox/templates/`
+2. Fill all required fields (marked with ✅ in the template)
+3. Save the file in the correct subdirectory with the naming convention:
    ```
    YYYY-MM-DD_<slug>.md
    ```
-4. Haz commit con el mensaje: `inbox: <fuente> finding <slug>`
+4. Commit with the message: `inbox: <source> finding <slug>`
 
-El curador revisará el hallazgo y lo promoverá al catálogo YAML + Wiki siguiendo el [`INGESTION_PROTOCOL.md`](../INGESTION_PROTOCOL.md).
+The curator will review the finding and promote it to the YAML catalog + Wiki following [`INGESTION_PROTOCOL.md`](../INGESTION_PROTOCOL.md).
 
-### Requisito de profundidad (Definition of Done)
+### Depth Requirement (Definition of Done)
 
-Para evitar que el catálogo vuelva a llenarse de stubs declarativos, una entrada **no se promueve** hasta cumplir una de estas dos vías:
+To prevent the catalog from filling again with declarative stubs, an entry **is not promoted** until it meets one of these two paths:
 
-- **Falsable (`deep`)** — trae `example_bad`, `example_good`, una `detection` concreta y al menos una `evidence`. Si la firma es estáticamente verificable, debe además registrar un detector en [`scripts/detectors.py`](../scripts/detectors.py) probado contra sus ejemplos.
-- **Doctrinal** — si es un principio conductual/epistémico sin firma estática, se marca `doctrinal: true` de forma explícita (stub por diseño, no por descuido). Fabricarle código de ejemplo está prohibido.
+- **Falsifiable (`deep`)** — brings `example_bad`, `example_good`, a concrete `detection` recipe, and at least one `evidence`. If the signature is statically checkable, it must also register a detector in [`scripts/detectors.py`](../scripts/detectors.py) tested against its examples.
+- **Doctrinal** — if it is a behavioral/epistemic principle with no static signature, it is marked `doctrinal: true` explicitly (stub by design, not by neglect). Fabricating example code for it is prohibited.
 
-Un hallazgo que no es ni `deep` ni `doctrinal` declarado es un **stub** y queda en el Inbox hasta enriquecerse. La métrica `stubs` (badge en el README, calculada por [`scripts/metrics.py`](../scripts/metrics.py)) debe permanecer en **0** en el catálogo curado.
+A finding that is neither `deep` nor explicitly `doctrinal` is a **stub** and stays in the Inbox until enriched. The `stubs` badge (in the README, calculated by [`scripts/metrics.py`](../scripts/metrics.py)) must remain at **0** in the curated catalog.
 
-> Las plantillas bajo `Inbox/templates/` están aisladas por diseño. No son conocimiento vivo todavía; solo son moldes para nuevos hallazgos.
+> Templates under `Inbox/templates/` are intentionally isolated. They are not live knowledge yet; they are molds for new findings.
 
 ---
 
-## Flujo de Ingesta
+## Ingestion Flow
 
 ```
-Fuente (Cerberus / Manual / External)
+Source (Cerberus / Manual / External)
         ↓
-Depositar en Inbox/<fuente>/YYYY-MM-DD_<slug>.md
+Deposit in Inbox/<source>/YYYY-MM-DD_<slug>.md
         ↓
-Curador valida → deduplica → mapea dominio
+Curator validates → deduplicates → maps domain
         ↓
-Agregar entrada en golden_standard_*.yaml (status: KNOWLEDGE)
+Add entry to golden_standard_*.yaml (status: KNOWLEDGE)
         ↓
-Crear artículo en Wiki/Vices/
+Create Wiki article in Wiki/Vices/
         ↓
-Ejecutar generate_golden_audit.py
+Run generate_golden_audit.py
         ↓
-Mover archivo a deprecated/
+Move file to deprecated/
 ```

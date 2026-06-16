@@ -88,10 +88,10 @@ def write_all() -> dict:
     BADGES.mkdir(exist_ok=True)
     badges = {
         "entries": _badge("entries", str(m["total_entries"]), "blue"),
-        "deep": _badge("deep (falsable)", f"{m['deep_pct']}%", _color(m["deep_pct"])),
+        "deep": _badge("deep (falsable)", f"{m['deep_pct']}%", _color(m['deep_pct'])),
         "ai-native": _badge("AI-native", str(m["ai_native"]), "blue"),
-        "evidence": _badge("con evidencia", f"{m['with_evidence_pct']}%", _color(m["with_evidence_pct"])),
-        "detectors": _badge("detectores locales", str(m["local_detectors"]), "brightgreen"),
+        "evidence": _badge("with evidence", f"{m['with_evidence_pct']}%", _color(m['with_evidence_pct'])),
+        "detectors": _badge("local detectors", str(m["local_detectors"]), "brightgreen"),
         "stubs": _badge("stubs", str(m["stub"]), "brightgreen" if m["stub"] == 0 else "yellow"),
     }
     for name, payload in badges.items():

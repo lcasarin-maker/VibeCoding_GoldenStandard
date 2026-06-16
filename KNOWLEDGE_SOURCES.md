@@ -17,13 +17,17 @@ Every entry in the catalog must be traceable to its source.
 
 ## Authorized Sources
 
-### 1. CoderCerberus (Primary Source)
+### 1. CoderCerberus (Historical Source — Example Downstream Consumer)
 
 **Type:** Automated auditor  
 **Canonical name:** `cerberus`  
 **Inbox subdirectory:** `Inbox/cerberus/`  
 **Template:** [`Inbox/templates/cerberus_finding.md`](Inbox/templates/cerberus_finding.md)  
-**Contract document:** [`CERBERUS_CONTRACT.md`](CERBERUS_CONTRACT.md)
+**Contract document:** [`CONSUMER_CONTRACT.md`](CONSUMER_CONTRACT.md)
+
+> **Note:** GS accepts findings from any source that meets the validity contract below.  
+> CoderCerberus is listed here because it was the original source of many entries,  
+> not because GS depends on it.
 
 **What it contributes:**
 - Patterns detected during real-project audits that are not yet in the catalog

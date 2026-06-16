@@ -1,10 +1,14 @@
 # Cerberus ↔ Golden Standard Contract
 
-> This document defines the **consumer-facing interface** between CoderCerberus (the enforcement tool)
+> This document defines the **consumer-facing interface** between a downstream enforcement tool
 > and the Golden Standard (the knowledge base).
 >
+> **Note:** Golden Standard does not require this consumer to exist, to be operational, or to be named
+> "Cerberus" for GS to be valid. The contract is a reference implementation of consumption,
+> not a dependency of GS.
+>
 > Both projects are independent. This contract is a boundary document, not a second source of truth.
-> For Cerberus internal doctrine, `D:\AI\Cerberus\00 audit\00_CONSTITUCION_CERBERUS.md` wins.
+> For the consumer's internal doctrine, `D:\AI\Cerberus\00 audit\00_CONSTITUCION_CERBERUS.md` wins.
 
 ---
 

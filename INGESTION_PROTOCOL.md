@@ -108,26 +108,37 @@ Open the target catalog file and append the new entry in canonical format:
 ```yaml
 - id: VC-701                          # Assigned in Step 3
   title: "Short descriptive title"
-  description: >
-    Full description of the vice, its context, and why it is harmful.
-  severity: high                      # critical | high | medium | low
-  domain: architecture                # Choose appropriate subdomain
-  source: cerberus                    # Canonical source name
-  source_reference: "CR-088"          # Source-internal ID (optional)
-  date_added: "2026-06-05"
-  status: KNOWLEDGE                   # Always starts at KNOWLEDGE
-  symptom: >
+  symptom: |
     What you observe when this vice is present.
-  cause: >
+  cause: |
     Root cause or mechanism.
-  detection_criteria:
-    - "Concrete thing to look for in code"
-    - "Another detection signal"
-  mitigation:
-    - "Concrete prevention action"
-    - "Another prevention action"
-  evidence_notes: ""                  # Leave empty until evidence is generated
-  operativity_status: KNOWLEDGE
+  solution: |
+    What to do instead.
+  status: DOC_ONLY                    # DOC_ONLY | AUDITED | PREVENTED | REMEDIATED
+  severity: high                      # critical | high | medium | low
+  tags:
+    - vibe-coding                    # at least two normalized slugs
+    - ai-native
+  action: |
+    The corrective/preventive action; where enforcement lives, if any.
+  validating_mechanism: DOC_ONLY     # static-ast | static-regex | runtime-test | external-tool | DOC_ONLY | doctrinal
+  downstream_verification: required   # required | none
+  tier: core                          # core | specialist
+  # --- Depth fields (for falsifiable entries) ---
+  example_lang: python
+  example_bad: |
+    # Concrete code that triggers the vice.
+  example_good: |
+    # The corrected version.
+  detection: |
+    A concrete, falsifiable detection recipe (AST/regex/heuristic, or the
+    external tool that catches it). Name a tool only if it really exists.
+  evidence:
+    - source: "arxiv:XXXX.XXXXX"
+      claim: "What that source actually shows."
+  # detector: vc701_my_check        # OPTIONAL: add to scripts/detectors.py if statically checkable
+  # --- OR, for doctrinal entries (no static signature) ---
+  # doctrinal: true
 ```
 
 Save the file.
@@ -146,44 +157,57 @@ Use this template:
 ```markdown
 # <ID> — <Title>
 
-**Severity:** <severity>  
-**Domain:** <domain>  
-**Status:** KNOWLEDGE  
-**Source:** <source> (<source_reference if applicable>)  
-**Date Added:** YYYY-MM-DD  
+| Field | Detail |
+|---|---|
+| **ID** | `<ID>` |
+| **Category** | Vibe Coding / Testing / Tokenomics |
+| **Status** | **<status>** |
+| **Severity** | **<severity>** |
+| **Depth** | 🟢 Deep / ⚪ Doctrinal |
+| **Tags** | `<tag1>`, `<tag2>` |
+| **Downstream Verification** | `required` / `none` |
+| **Validation Mechanism** | `<mechanism>` |
 
 ---
 
-## Description
+### Symptom
+> <What you observe>
 
-<Full description from YAML>
-
-## Symptom
-
-<What you observe>
-
-## Cause
-
+### Cause
 <Root cause>
 
-## Detection Criteria
+### Solution
+<What to do instead>
 
-- <criterion 1>
-- <criterion 2>
+### Corrective Action / Prevention
+<The action from the YAML>
 
-## Mitigation
+### ❌ Example of the vice (Bad)
+```<lang>
+# <example_bad>
+```
 
-- <action 1>
-- <action 2>
+### ✅ Corrected version (Good)
+```<lang>
+# <example_good>
+```
 
-## Evidence
+### 🔎 Concrete detection
+<Detection recipe>
 
-*No evidence generated yet. Status: KNOWLEDGE.*
+### 📚 External evidence
+- **<source>** — <claim>
+
+### Relations
+- [[Project_Insights/PI-019|PI-019]]
+- [[Tokenomics_Map|Tokenomics Map]]
+- [[Home|Home]]
 
 ---
-
-*See also: [back to Vices Index](../Vices_Index.md)*
+[[Vices_Index|Back to Vices Index]] | [[Home|Home]]
 ```
+
+For a doctrinal entry (no static signature), omit the example and detection sections and mark **Depth** as `⚪ Doctrinal`.
 
 ---
 

@@ -160,6 +160,8 @@ Each entry includes:
 
 > **What `PREVENTED` does and does not mean.** A `PREVENTED` status means a guard for this vice exists in a **downstream enforcing project** (e.g. Cerberus) — typically a test that fails when the vice's signature appears (such as missing JSON evidence in `.protocol/evidence/`). **This knowledge-base repo does not itself run those guards.** It catalogs the principle and names the mechanism; it does not execute it. The CI in *this* repo validates catalog/wiki integrity only. Treat `PREVENTED` as "enforceable, and enforced where Cerberus is wired in" — not as protection automatically present in any project that merely clones this repo. The human-facing enum above is the canonical reading.
 >
+> **Independence note:** `PREVENTED` is a claim about a downstream consumer, not a GS-verified property. GS does not independently verify that the downstream enforcer is operational or that the guard catches the vice.
+>
 > _Naming note:_ the "Cerberus" referenced here is this project's own downstream enforcement layer. It is **unrelated** to the unaffiliated `philips-software/cerberus` (a Java build quality-gate); a verified scan found no LLM-space repo colliding with the name.
 - **Tags** (at least two normalized)
 - **Detection criteria**
