@@ -288,22 +288,12 @@ def validate_project_insights(
         entry = _normalize_project_insight(value)
         if not _project_insight_text(entry):
             errors.append(f"{path}: {insight_id or 'unknown insight'} has empty text.")
-        if entry and not _project_insight_has_static_signature(entry):
-            doctrinal = entry.get("doctrinal", None)
-            if doctrinal is not True:
-                errors.append(
-                    f"{path}: {insight_id or 'unknown insight'}: behavioral insight must declare doctrinal: true"
-                )
-        elif entry and _project_insight_has_static_signature(entry):
-            target = _project_insight_target(entry)
-            if not target or target not in promoted_ids:
-                errors.append(
-                    f"{path}: {insight_id or 'unknown insight'}: has static signature, must graduate to VC/VT"
-                )
         if check_wiki:
             wiki_path = WIKI_INSIGHTS_DIR / f"{insight_id}.md"
             if not wiki_path.exists():
                 errors.append(f"Missing wiki article for {insight_id}: {wiki_path}")
+
+    validate_project_insight_promotion(insights, promoted_ids, errors)
 
 
 def resolve_wiki_link_target(source_path: Path, raw_target: str) -> Path | None:
