@@ -10,8 +10,8 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 - 📂 **[[Project_Insights_Index|Satellite Insights Index]]**: Lessons and best practices (`PI`) extracted from external repositories and automations.
 - 📘 **[[Principles|Principles Index]]**: First-class doctrinal PI rules, each kept as a linked principle instead of duplicated prose.
 - 🕸️ **[[Graph|GS Graph Map]]**: Hubs, intentional orphans, candidate orphans, and local vault impact.
-- 📘 **[[Concepts/Conceptual_Framework|Golden Standard Conceptual Framework]]**: Epistemological doctrine, levels, and design foundations.
-- 🧼 **[[Concepts/Conceptual_Framework#5.-Repository-and-Execution-Hygiene|Repository Hygiene Chapter]]**: Canonical standard for cleanup, naming, clean root, and organization evidence.
+- 📘 **[Golden Standard Conceptual Framework](../CONCEPTUAL_FRAMEWORK.md)**: Epistemological doctrine, levels, and design foundations.
+- 🧼 **[Repository Hygiene Chapter](../CONCEPTUAL_FRAMEWORK.md#5-Repository-and-Execution-Hygiene)**: Canonical standard for cleanup, naming, clean root, and organization evidence.
 - 🔧 **[[Project_Insights/PI-019|Execution Hygiene and Tooling]]**: Satellite rule for simple commands, UTF-8, and technical purity.
 - ⚠️ **[[Vices/VC-124|Hasty deprecation]]**: Mirror vice that avoids moving to `deprecated/` without analysis.
 - 🏷️ **[[Project_Insights/PI-020|Confidence Tags]]**: Every protocol claim must declare whether it is VERIFIED, INFERRED, or ASSUMED.

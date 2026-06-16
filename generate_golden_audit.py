@@ -104,233 +104,17 @@ def get_project_insights() -> dict[str, str]:
 
 
 def get_project_insight_recommendations() -> dict[str, list[dict[str, str]]]:
-    """Return domain-oriented recommendations mapped to project insights (cloned from loader)."""
-    return {
-        "D1": [
-            {
-                "insight_id": "PI-001",
-                "project": "deptry",
-                "action": "Compare imports against declared dependencies and fail on missing, unused, transitive or misplaced packages.",
-            },
-            {
-                "insight_id": "PI-004",
-                "project": "trivy",
-                "action": "Scan repos, images and filesystems for secrets, CVEs, misconfigurations and SBOM gaps before release.",
-            },
-            {
-                "insight_id": "PI-010",
-                "project": "cerberus",
-                "action": "Keep the working tree clean after audits; treat historical artifacts as reference material, not active output.",
-            },
-        ],
-        "D2": [
-            {
-                "insight_id": "PI-001",
-                "project": "deptry",
-                "action": "Treat missing or stale dependency declarations as completeness debt and block delivery until reconciled.",
-            },
-            {
-                "insight_id": "PI-006",
-                "project": "cerberus",
-                "action": "Keep the operational contract complete by storing state, evidence and checkpoints outside the chat.",
-            },
-            {
-                "insight_id": "PI-008",
-                "project": "cerberus",
-                "action": "Batch predictable authorizations and questions before long runs so the control plane can execute without interruptions.",
-            },
-            {
-                "insight_id": "PI-014",
-                "project": "cerberus",
-                "action": "Keep the knowledge base alive by continuously absorbing lessons from the core project and its satellites.",
-            },
-            {
-                "insight_id": "PI-022",
-                "project": "cerberus",
-                "action": "Keep an explicit uncertainty ledger so protocol docs separate verified facts from assumptions before they become doctrine.",
-            },
-        ],
-        "D3": [
-            {
-                "insight_id": "PI-002",
-                "project": "pytest-good-assertions",
-                "action": "Require failure messages that explain the mismatch clearly enough to debug without guesswork.",
-            },
-            {
-                "insight_id": "PI-006",
-                "project": "cerberus",
-                "action": "Use explicit state and evidence fields so the system tells a clear causal story instead of relying on memory.",
-            },
-            {
-                "insight_id": "PI-011",
-                "project": "cerberus",
-                "action": "Prefer descriptive names and reduce structural noise so purpose is visible at first glance.",
-            },
-        ],
-        "D4": [
-            {
-                "insight_id": "PI-005",
-                "project": "litellm",
-                "action": "Centralize provider routing and fallbacks so the code does not grow provider-specific branching spaghetti.",
-            },
-            {
-                "insight_id": "PI-011",
-                "project": "cerberus",
-                "action": "Flatten nested structure when it simplifies maintenance and removes needless indirection.",
-            },
-            {
-                "insight_id": "PI-024",
-                "project": "cerberus",
-                "action": "Review graph hubs first when the catalog changes, because high fan-in nodes carry the largest impact radius.",
-            },
-        ],
-        "D5": [
-            {
-                "insight_id": "PI-006",
-                "project": "cerberus",
-                "action": "Turn failure handling into a structured protocol with next steps, evidence and a visible recovery path.",
-            },
-            {
-                "insight_id": "PI-002",
-                "project": "pytest-good-assertions",
-                "action": "Make failing assertions explain what to do next so the angry path is actionable, not noisy.",
-            },
-            {
-                "insight_id": "PI-009",
-                "project": "cerberus",
-                "action": "Treat warnings and known non-blocking findings as operational errors until they are fixed or explicitly blocked.",
-            },
-        ],
-        "D6": [
-            {
-                "insight_id": "PI-006",
-                "project": "cerberus",
-                "action": "Enforce clean boundaries, compact state and explicit handoffs to avoid slop and context drift.",
-            },
-            {
-                "insight_id": "PI-012",
-                "project": "cerberus",
-                "action": "Allow exclusions only when they are minimal, justified and real; do not use theater constructs to simulate progress.",
-            },
-        ],
-        "D7": [
-            {
-                "insight_id": "PI-004",
-                "project": "trivy",
-                "action": "Use security scanning as a mandatory gate for secrets, vulnerabilities and IaC misconfigurations.",
-            },
-            {
-                "insight_id": "PI-013",
-                "project": "cerberus",
-                "action": "Observe risky signals during execution, not after the fact, so live monitoring can interrupt damage early.",
-            },
-        ],
-        "D8": [
-            {
-                "insight_id": "PI-002",
-                "project": "pytest-good-assertions",
-                "action": "Keep tests high-signal: assertions should discriminate behavior, not merely confirm presence.",
-            },
-            {
-                "insight_id": "PI-001",
-                "project": "deptry",
-                "action": "Prevent dependency drift from destabilizing the test suite by validating imports before running coverage gates.",
-            },
-            {
-                "insight_id": "PI-012",
-                "project": "cerberus",
-                "action": "Reject fake coverage patterns such as xfail-as-expected, placeholder tests, mocks without intent or broad skips without evidence.",
-            },
-            {
-                "insight_id": "PI-015",
-                "project": "cerberus",
-                "action": "Require each new guard to break a real circularity and reduce the baseline instead of merely naming the problem.",
-            },
-            {
-                "insight_id": "PI-017",
-                "project": "cerberus",
-                "action": "Split broad coverage theater into discriminative checks so one test never pretends to cover many unrelated vices.",
-            },
-        ],
-        "D9": [
-            {
-                "insight_id": "PI-002",
-                "project": "pytest-good-assertions",
-                "action": "Preserve assertion quality so tests fail with precise, inspectable output instead of theater.",
-            },
-            {
-                "insight_id": "PI-012",
-                "project": "cerberus",
-                "action": "Prefer discriminative tests over symbolic coverage; if a test cannot fail for the right reason, it is not protecting the system.",
-            },
-            {
-                "insight_id": "PI-016",
-                "project": "cerberus",
-                "action": "Mark non-falsifiable lessons as DOC_ONLY instead of pretending they can be proved automatically.",
-            },
-        ],
-        "D10": [
-            {
-                "insight_id": "PI-003",
-                "project": "tokencost",
-                "action": "Meter tokens before and during LLM calls so cost is visible before usage grows.",
-            },
-            {
-                "insight_id": "PI-005",
-                "project": "litellm",
-                "action": "Unify provider routing, fallbacks and telemetry so cost and resilience are handled once.",
-            },
-            {
-                "insight_id": "PI-007",
-                "project": "cerberus",
-                "action": "Treat output trimming, context hygiene and history externalization as a first-class control, not an afterthought.",
-            },
-            {
-                "insight_id": "PI-009",
-                "project": "cerberus",
-                "action": "Convert every warning and findable issue into a tracked operational error until the backlog is clean.",
-            },
-            {
-                "insight_id": "PI-010",
-                "project": "cerberus",
-                "action": "Keep the root workspace clean so historical data lives in archives instead of polluting active context.",
-            },
-            {
-                "insight_id": "PI-013",
-                "project": "cerberus",
-                "action": "Watch token and quality signals live during the run, not only in a post-mortem report.",
-            },
-        ],
-        "D11": [
-            {
-                "insight_id": "PI-004",
-                "project": "trivy",
-                "action": "Use security scanning as a pre-merge and pre-release gate for filesystems, images and IaC.",
-            },
-            {
-                "insight_id": "PI-012",
-                "project": "cerberus",
-                "action": "Keep exclusions minimal and auditable so the security posture stays real instead of ceremonial.",
-            },
-        ],
-        "D12": [
-            {
-                "insight_id": "PI-014",
-                "project": "cerberus",
-                "action": "Fuse satellite learnings into the canonical knowledge base only after normalization and deduplication.",
-            },
-            {
-                "insight_id": "PI-018",
-                "project": "cerberus",
-                "action": "Normalize, deduplicate and record new learnings before folding them into the central knowledge base.",
-            },
-            {
-                "insight_id": "PI-023",
-                "project": "cerberus",
-                "action": "Check shared state and recent commits before editing so concurrent sessions do not overwrite each other silently.",
-            },
-        ],
-    }
+    """Return domain-oriented recommendations mapped to project insights.
+
+    Reads from config/dimension_map.json if present; returns empty dict otherwise.
+    The JSON format matches the historical D1-D12 lens structure with generic consumer refs.
+    """
+    json_path = _ROOT / "config" / "dimension_map.json"
+    if json_path.exists():
+        with open(json_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
 
 
 def _read_version_label() -> str:
@@ -382,7 +166,12 @@ def build_project_insight_recommendations_section() -> list[str]:
         "|---|---|---|---|",
     ]
     for domain in sorted(recommendations):
-        for item in recommendations[domain]:
+        items = recommendations[domain]
+        if not isinstance(items, list):
+            continue
+        for item in items:
+            if not isinstance(item, dict):
+                continue
             lines.append(
                 f"| `{domain}` | `{item['insight_id']}` | {item['project']} | {item['action']} |"
             )
@@ -441,8 +230,8 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 - 📂 **[[Project_Insights_Index|Satellite Insights Index]]**: Lessons and best practices (`PI`) extracted from external repositories and automations.
 - 📘 **[[Principles|Principles Index]]**: First-class doctrinal PI rules, each kept as a linked principle instead of duplicated prose.
 - 🕸️ **[[Graph|GS Graph Map]]**: Hubs, intentional orphans, candidate orphans, and local vault impact.
-- 📘 **[[Concepts/Conceptual_Framework|Golden Standard Conceptual Framework]]**: Epistemological doctrine, levels, and design foundations.
-- 🧼 **[[Concepts/Conceptual_Framework#5.-Repository-and-Execution-Hygiene|Repository Hygiene Chapter]]**: Canonical standard for cleanup, naming, clean root, and organization evidence.
+- 📘 **[Golden Standard Conceptual Framework](../CONCEPTUAL_FRAMEWORK.md)**: Epistemological doctrine, levels, and design foundations.
+- 🧼 **[Repository Hygiene Chapter](../CONCEPTUAL_FRAMEWORK.md#5-Repository-and-Execution-Hygiene)**: Canonical standard for cleanup, naming, clean root, and organization evidence.
 - 🔧 **[[Project_Insights/PI-019|Execution Hygiene and Tooling]]**: Satellite rule for simple commands, UTF-8, and technical purity.
 - ⚠️ **[[Vices/VC-124|Hasty deprecation]]**: Mirror vice that avoids moving to `deprecated/` without analysis.
 - 🏷️ **[[Project_Insights/PI-020|Confidence Tags]]**: Every protocol claim must declare whether it is VERIFIED, INFERRED, or ASSUMED.
@@ -886,18 +675,21 @@ See [[Principles|Principles Index]] for the first-class doctrinal ledger.
 
 
 def write_conceptual_concepts_md(wiki_dir: Path):
-    """Create link-adapted copy of the canonical conceptual framework."""
-    if not CONCEPTUAL_FRAMEWORK_SRC.exists():
-        raise FileNotFoundError(f"Missing canonical conceptual framework: {CONCEPTUAL_FRAMEWORK_SRC}")
+    """Create a stub redirect to the canonical conceptual framework."""
+    stub = """# [[Home|← Back to Vault Home]]
 
-    original_text = CONCEPTUAL_FRAMEWORK_SRC.read_text(encoding="utf-8")
-    nav_header = "# [[Home|← Back to Vault Home]]\n\n---\n\n"
+---
+
+# Golden Standard — Conceptual Framework
+
+> **This is a generated stub.** The canonical source is the root file:
+> **[Conceptual Framework](../CONCEPTUAL_FRAMEWORK.md)**.
+> Do not edit this copy; edit the root file and regenerate the wiki.
+"""
     (wiki_dir / "Concepts" / "Conceptual_Framework.md").write_text(
-        nav_header + original_text,
+        stub,
         encoding="utf-8",
     )
-
-
 def entry_depth(item: dict) -> str:
     """Classify an entry by depth: deep, doctrinal, or stub.
 
@@ -1678,8 +1470,8 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
 
 
 def _display_mechanism(item: dict) -> str:
-    """AX-020: prefer the concrete Cerberus mechanism for display when an entry has been
-    migrated (enforcement.cerberus.mechanism); otherwise fall back to the agnostic
+    """Prefer the concrete downstream mechanism for display when an entry has been
+    migrated (enforcement.<consumer>.mechanism); otherwise fall back to the agnostic
     validating_mechanism value. Display-only; does not alter the stored raw field."""
     enforcement = item.get("enforcement")
     if isinstance(enforcement, dict):
@@ -1754,8 +1546,8 @@ def extract_catalog_items(config: dict, mapped_database: dict):
             "detector": str(item.get("detector", "")).strip(),
             "tier": str(item.get("tier", "extended")).strip(),
         }
-        # AX-020: carry the enforcement binding through only when present, so migrated entries
-        # expose enforcement.cerberus downstream while legacy entries leave the JSON untouched.
+        # carry the enforcement binding through only when present, so migrated entries
+        # expose enforcement downstream while legacy entries leave the JSON untouched.
         if isinstance(item.get("enforcement"), dict):
             mapped_entry["enforcement"] = item["enforcement"]
         mapped_database[flaw_id] = mapped_entry

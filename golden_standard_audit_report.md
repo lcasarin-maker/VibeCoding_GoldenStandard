@@ -398,41 +398,41 @@ These actions are the operational bridge between the project insights and the GS
 |---|---|---|---|
 | `D1` | `PI-001` | deptry | Compare imports against declared dependencies and fail on missing, unused, transitive or misplaced packages. |
 | `D1` | `PI-004` | trivy | Scan repos, images and filesystems for secrets, CVEs, misconfigurations and SBOM gaps before release. |
-| `D1` | `PI-010` | cerberus | Keep the working tree clean after audits; treat historical artifacts as reference material, not active output. |
+| `D1` | `PI-010` | reference | Keep the working tree clean after audits; treat historical artifacts as reference material, not active output. |
 | `D10` | `PI-003` | tokencost | Meter tokens before and during LLM calls so cost is visible before usage grows. |
 | `D10` | `PI-005` | litellm | Unify provider routing, fallbacks and telemetry so cost and resilience are handled once. |
-| `D10` | `PI-007` | cerberus | Treat output trimming, context hygiene and history externalization as a first-class control, not an afterthought. |
-| `D10` | `PI-009` | cerberus | Convert every warning and findable issue into a tracked operational error until the backlog is clean. |
-| `D10` | `PI-010` | cerberus | Keep the root workspace clean so historical data lives in archives instead of polluting active context. |
-| `D10` | `PI-013` | cerberus | Watch token and quality signals live during the run, not only in a post-mortem report. |
+| `D10` | `PI-007` | reference | Treat output trimming, context hygiene and history externalization as a first-class control, not an afterthought. |
+| `D10` | `PI-009` | reference | Convert every warning and findable issue into a tracked operational error until the backlog is clean. |
+| `D10` | `PI-010` | reference | Keep the root workspace clean so historical data lives in archives instead of polluting active context. |
+| `D10` | `PI-013` | reference | Watch token and quality signals live during the run, not only in a post-mortem report. |
 | `D11` | `PI-004` | trivy | Use security scanning as a pre-merge and pre-release gate for filesystems, images and IaC. |
-| `D11` | `PI-012` | cerberus | Keep exclusions minimal and auditable so the security posture stays real instead of ceremonial. |
-| `D12` | `PI-014` | cerberus | Fuse satellite learnings into the canonical knowledge base only after normalization and deduplication. |
-| `D12` | `PI-018` | cerberus | Normalize, deduplicate and record new learnings before folding them into the central knowledge base. |
-| `D12` | `PI-023` | cerberus | Check shared state and recent commits before editing so concurrent sessions do not overwrite each other silently. |
+| `D11` | `PI-012` | reference | Keep exclusions minimal and auditable so the security posture stays real instead of ceremonial. |
+| `D12` | `PI-014` | reference | Fuse satellite learnings into the canonical knowledge base only after normalization and deduplication. |
+| `D12` | `PI-018` | reference | Normalize, deduplicate and record new learnings before folding them into the central knowledge base. |
+| `D12` | `PI-023` | reference | Check shared state and recent commits before editing so concurrent sessions do not overwrite each other silently. |
 | `D2` | `PI-001` | deptry | Treat missing or stale dependency declarations as completeness debt and block delivery until reconciled. |
-| `D2` | `PI-006` | cerberus | Keep the operational contract complete by storing state, evidence and checkpoints outside the chat. |
-| `D2` | `PI-008` | cerberus | Batch predictable authorizations and questions before long runs so the control plane can execute without interruptions. |
-| `D2` | `PI-014` | cerberus | Keep the knowledge base alive by continuously absorbing lessons from the core project and its satellites. |
-| `D2` | `PI-022` | cerberus | Keep an explicit uncertainty ledger so protocol docs separate verified facts from assumptions before they become doctrine. |
+| `D2` | `PI-006` | reference | Keep the operational contract complete by storing state, evidence and checkpoints outside the chat. |
+| `D2` | `PI-008` | reference | Batch predictable authorizations and questions before long runs so the control plane can execute without interruptions. |
+| `D2` | `PI-014` | reference | Keep the knowledge base alive by continuously absorbing lessons from the core project and its satellites. |
+| `D2` | `PI-022` | reference | Keep an explicit uncertainty ledger so protocol docs separate verified facts from assumptions before they become doctrine. |
 | `D3` | `PI-002` | pytest-good-assertions | Require failure messages that explain the mismatch clearly enough to debug without guesswork. |
-| `D3` | `PI-006` | cerberus | Use explicit state and evidence fields so the system tells a clear causal story instead of relying on memory. |
-| `D3` | `PI-011` | cerberus | Prefer descriptive names and reduce structural noise so purpose is visible at first glance. |
+| `D3` | `PI-006` | reference | Use explicit state and evidence fields so the system tells a clear causal story instead of relying on memory. |
+| `D3` | `PI-011` | reference | Prefer descriptive names and reduce structural noise so purpose is visible at first glance. |
 | `D4` | `PI-005` | litellm | Centralize provider routing and fallbacks so the code does not grow provider-specific branching spaghetti. |
-| `D4` | `PI-011` | cerberus | Flatten nested structure when it simplifies maintenance and removes needless indirection. |
-| `D4` | `PI-024` | cerberus | Review graph hubs first when the catalog changes, because high fan-in nodes carry the largest impact radius. |
-| `D5` | `PI-006` | cerberus | Turn failure handling into a structured protocol with next steps, evidence and a visible recovery path. |
+| `D4` | `PI-011` | reference | Flatten nested structure when it simplifies maintenance and removes needless indirection. |
+| `D4` | `PI-024` | reference | Review graph hubs first when the catalog changes, because high fan-in nodes carry the largest impact radius. |
+| `D5` | `PI-006` | reference | Turn failure handling into a structured protocol with next steps, evidence and a visible recovery path. |
 | `D5` | `PI-002` | pytest-good-assertions | Make failing assertions explain what to do next so the angry path is actionable, not noisy. |
-| `D5` | `PI-009` | cerberus | Treat warnings and known non-blocking findings as operational errors until they are fixed or explicitly blocked. |
-| `D6` | `PI-006` | cerberus | Enforce clean boundaries, compact state and explicit handoffs to avoid slop and context drift. |
-| `D6` | `PI-012` | cerberus | Allow exclusions only when they are minimal, justified and real; do not use theater constructs to simulate progress. |
+| `D5` | `PI-009` | reference | Treat warnings and known non-blocking findings as operational errors until they are fixed or explicitly blocked. |
+| `D6` | `PI-006` | reference | Enforce clean boundaries, compact state and explicit handoffs to avoid slop and context drift. |
+| `D6` | `PI-012` | reference | Allow exclusions only when they are minimal, justified and real; do not use theater constructs to simulate progress. |
 | `D7` | `PI-004` | trivy | Use security scanning as a mandatory gate for secrets, vulnerabilities and IaC misconfigurations. |
-| `D7` | `PI-013` | cerberus | Observe risky signals during execution, not after the fact, so live monitoring can interrupt damage early. |
+| `D7` | `PI-013` | reference | Observe risky signals during execution, not after the fact, so live monitoring can interrupt damage early. |
 | `D8` | `PI-002` | pytest-good-assertions | Keep tests high-signal: assertions should discriminate behavior, not merely confirm presence. |
 | `D8` | `PI-001` | deptry | Prevent dependency drift from destabilizing the test suite by validating imports before running coverage gates. |
-| `D8` | `PI-012` | cerberus | Reject fake coverage patterns such as xfail-as-expected, placeholder tests, mocks without intent or broad skips without evidence. |
-| `D8` | `PI-015` | cerberus | Require each new guard to break a real circularity and reduce the baseline instead of merely naming the problem. |
-| `D8` | `PI-017` | cerberus | Split broad coverage theater into discriminative checks so one test never pretends to cover many unrelated vices. |
+| `D8` | `PI-012` | reference | Reject fake coverage patterns such as xfail-as-expected, placeholder tests, mocks without intent or broad skips without evidence. |
+| `D8` | `PI-015` | reference | Require each new guard to break a real circularity and reduce the baseline instead of merely naming the problem. |
+| `D8` | `PI-017` | reference | Split broad coverage theater into discriminative checks so one test never pretends to cover many unrelated vices. |
 | `D9` | `PI-002` | pytest-good-assertions | Preserve assertion quality so tests fail with precise, inspectable output instead of theater. |
-| `D9` | `PI-012` | cerberus | Prefer discriminative tests over symbolic coverage; if a test cannot fail for the right reason, it is not protecting the system. |
-| `D9` | `PI-016` | cerberus | Mark non-falsifiable lessons as DOC_ONLY instead of pretending they can be proved automatically. |
+| `D9` | `PI-012` | reference | Prefer discriminative tests over symbolic coverage; if a test cannot fail for the right reason, it is not protecting the system. |
+| `D9` | `PI-016` | reference | Mark non-falsifiable lessons as DOC_ONLY instead of pretending they can be proved automatically. |
