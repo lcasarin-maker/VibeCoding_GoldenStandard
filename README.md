@@ -155,9 +155,10 @@ Each entry includes:
 - **Title** and **Description**
 - **Severity** (`critical`, `high`, `medium`, `low`)
 - **Status** (`DOC_ONLY`, `AUDITED`, `PREVENTED`, `REMEDIATED`)
+- Read the stored status through the self-describing lens tracked in issue #4: `PROPOSED` (`DOC_ONLY` / `AUDITED`), `ENFORCED_EXTERNAL` (`PREVENTED`), or `ENFORCED_LOCAL` (`REMEDIATED`).
 - `DOC_ONLY` means the rule is documented in GS, not that downstream verification is forbidden. VC/VT/TK entries must declare `downstream_verification` explicitly as `required` or `none`.
 
-> **What `PREVENTED` does and does not mean.** A `PREVENTED` status means a guard for this vice exists in a **downstream enforcing project** (e.g. Cerberus) — typically a test that fails when the vice's signature appears (such as missing JSON evidence in `.protocol/evidence/`). **This knowledge-base repo does not itself run those guards.** It catalogs the principle and names the mechanism; it does not execute it. The CI in *this* repo validates catalog/wiki integrity only. Treat `PREVENTED` as "enforceable, and enforced where Cerberus is wired in" — not as protection automatically present in any project that merely clones this repo. A stricter, self-describing status enum (`ENFORCED_LOCAL` / `ENFORCED_EXTERNAL` / `PROPOSED`) is tracked in issue #4.
+> **What `PREVENTED` does and does not mean.** A `PREVENTED` status means a guard for this vice exists in a **downstream enforcing project** (e.g. Cerberus) — typically a test that fails when the vice's signature appears (such as missing JSON evidence in `.protocol/evidence/`). **This knowledge-base repo does not itself run those guards.** It catalogs the principle and names the mechanism; it does not execute it. The CI in *this* repo validates catalog/wiki integrity only. Treat `PREVENTED` as "enforceable, and enforced where Cerberus is wired in" — not as protection automatically present in any project that merely clones this repo. The human-facing enum above is the canonical reading.
 >
 > _Naming note:_ the "Cerberus" referenced here is this project's own downstream enforcement layer. It is **unrelated** to the unaffiliated `philips-software/cerberus` (a Java build quality-gate); a verified scan found no LLM-space repo colliding with the name.
 - **Tags** (at least two normalized)

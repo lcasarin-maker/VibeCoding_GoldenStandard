@@ -72,11 +72,12 @@ instead of the depth fields (no fabricated example code).
 ### Metadata Rules
 
 - `severity` is mandatory and must be one of `critical`, `high`, `medium`, or `low`.
-- `status` is the canonical operativity field in the catalog and must be one of `DOC_ONLY`, `AUDITED`, `PREVENTED`, or `REMEDIATED`.
+- `status` is the canonical stored operativity field in the catalog and must be one of `DOC_ONLY`, `AUDITED`, `PREVENTED`, or `REMEDIATED`.
+- For human reading, map the stored status to the self-describing enum tracked in issue #4: `PROPOSED` (`DOC_ONLY` / `AUDITED`), `ENFORCED_EXTERNAL` (`PREVENTED`), or `ENFORCED_LOCAL` (`REMEDIATED`).
 - `tags` is mandatory, must be a list of at least two normalized slugs, and should include at least one domain tag plus one lifecycle tag.
 - `downstream_verification` is mandatory metadata on VC/VT/TK catalog entries. Use `required` when the entry is documented in GS but still expects downstream verification in the consumer repo, and `none` when no consumer-side test is expected.
 - Every new VC/VT/TK issue, PR, or catalog edit must choose `downstream_verification` explicitly before merge; `DOC_ONLY` is never a shortcut for "test exempt".
-- `operativity_status` is intentionally not part of the canonical YAML schema to avoid duplicating the meaning already carried by `status`.
+- `operativity_status` is intentionally not part of the canonical YAML schema; the human-facing reading above replaces the ambiguous `DOC_ONLY` / `PREVENTED` interpretation without changing stored data.
 - **Depth is required to merge.** Either provide `example_bad` + `example_good` together (with `detection` and `evidence`), or set `doctrinal: true`. You cannot do both — an entry is falsifiable or doctrinal, not a half-filled stub. The `stubs` badge must stay at 0.
 - `evidence` (when present) is a list of `{source, claim}` mappings. **Only cite tools, packages, or papers that actually exist** — a fabricated reference is itself the `VC-129` (hallucinated dependency) vice. Verify before you cite.
 - `detector` (optional) names a function in `scripts/detectors.py`; it must match the registered detector and pass `scripts/test_detectors.py`.

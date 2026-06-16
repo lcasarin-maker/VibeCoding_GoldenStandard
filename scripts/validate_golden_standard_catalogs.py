@@ -453,15 +453,18 @@ def validate_home_counts(errors: list[str]) -> None:
         for item in vices + tests + tokenomics
         if (status := effective_status(item))
     )
-    prevented_remediated = status_expected.get("PREVENTED", 0) + status_expected.get("REMEDIATED", 0)
-    audited_doc_only = status_expected.get("AUDITED", 0) + status_expected.get("DOC_ONLY", 0)
+    proposed = status_expected.get("AUDITED", 0) + status_expected.get("DOC_ONLY", 0)
+    enforced_external = status_expected.get("PREVENTED", 0)
+    enforced_local = status_expected.get("REMEDIATED", 0)
     total_row = f"| `Total` | {total_expected} |"
     if total_row not in status_text:
         errors.append(f"{home_path}: total count row does not match expected total {total_expected}.")
-    if f"| `PREVENTED` + `REMEDIATED` | {prevented_remediated} |" not in status_text:
-        errors.append(f"{home_path}: prevented/remediated count row mismatch.")
-    if f"| `AUDITED` + `DOC_ONLY` | {audited_doc_only} |" not in status_text:
-        errors.append(f"{home_path}: audited/doc_only count row mismatch.")
+    if f"| `PROPOSED` | {proposed} |" not in status_text:
+        errors.append(f"{home_path}: proposed count row mismatch.")
+    if f"| `ENFORCED_EXTERNAL` | {enforced_external} |" not in status_text:
+        errors.append(f"{home_path}: enforced_external count row mismatch.")
+    if f"| `ENFORCED_LOCAL` | {enforced_local} |" not in status_text:
+        errors.append(f"{home_path}: enforced_local count row mismatch.")
 
 
 def validate_readme_counts(errors: list[str]) -> None:

@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-06-15",
+  "generated_on": "2026-06-16",
   "node_count": 388,
   "edge_count": 1946,
   "nodes": [
@@ -189,7 +189,7 @@
     {
       "id": "Domains/D1",
       "path": "Wiki/Domains/D1.md",
-      "title": "Audit Domain: D1",
+      "title": "Operational Lens 1",
       "kind": "domain",
       "outgoing": [
         "Home",
@@ -209,7 +209,7 @@
     {
       "id": "Domains/D10",
       "path": "Wiki/Domains/D10.md",
-      "title": "Audit Domain: D10",
+      "title": "Operational Lens 10",
       "kind": "domain",
       "outgoing": [
         "Home",
@@ -235,7 +235,7 @@
     {
       "id": "Domains/D11",
       "path": "Wiki/Domains/D11.md",
-      "title": "Audit Domain: D11",
+      "title": "Operational Lens 11",
       "kind": "domain",
       "outgoing": [
         "Home",
@@ -253,7 +253,7 @@
     {
       "id": "Domains/D12",
       "path": "Wiki/Domains/D12.md",
-      "title": "Audit Domain: D12",
+      "title": "Operational Lens 12",
       "kind": "domain",
       "outgoing": [
         "Home",
@@ -273,7 +273,7 @@
     {
       "id": "Domains/D2",
       "path": "Wiki/Domains/D2.md",
-      "title": "Audit Domain: D2",
+      "title": "Operational Lens 2",
       "kind": "domain",
       "outgoing": [
         "Home",
@@ -297,7 +297,7 @@
     {
       "id": "Domains/D3",
       "path": "Wiki/Domains/D3.md",
-      "title": "Audit Domain: D3",
+      "title": "Operational Lens 3",
       "kind": "domain",
       "outgoing": [
         "Home",
@@ -317,7 +317,7 @@
     {
       "id": "Domains/D4",
       "path": "Wiki/Domains/D4.md",
-      "title": "Audit Domain: D4",
+      "title": "Operational Lens 4",
       "kind": "domain",
       "outgoing": [
         "Home",
@@ -337,7 +337,7 @@
     {
       "id": "Domains/D5",
       "path": "Wiki/Domains/D5.md",
-      "title": "Audit Domain: D5",
+      "title": "Operational Lens 5",
       "kind": "domain",
       "outgoing": [
         "Home",
@@ -357,7 +357,7 @@
     {
       "id": "Domains/D6",
       "path": "Wiki/Domains/D6.md",
-      "title": "Audit Domain: D6",
+      "title": "Operational Lens 6",
       "kind": "domain",
       "outgoing": [
         "Home",
@@ -375,7 +375,7 @@
     {
       "id": "Domains/D7",
       "path": "Wiki/Domains/D7.md",
-      "title": "Audit Domain: D7",
+      "title": "Operational Lens 7",
       "kind": "domain",
       "outgoing": [
         "Home",
@@ -393,7 +393,7 @@
     {
       "id": "Domains/D8",
       "path": "Wiki/Domains/D8.md",
-      "title": "Audit Domain: D8",
+      "title": "Operational Lens 8",
       "kind": "domain",
       "outgoing": [
         "Home",
@@ -417,7 +417,7 @@
     {
       "id": "Domains/D9",
       "path": "Wiki/Domains/D9.md",
-      "title": "Audit Domain: D9",
+      "title": "Operational Lens 9",
       "kind": "domain",
       "outgoing": [
         "Home",
@@ -21447,7 +21447,7 @@
       {
         "id": "Domains/D10",
         "path": "Wiki/Domains/D10.md",
-        "title": "Audit Domain: D10",
+        "title": "Operational Lens 10",
         "kind": "domain",
         "outgoing": [
           "Home",
@@ -23264,7 +23264,7 @@
       {
         "id": "Domains/D10",
         "path": "Wiki/Domains/D10.md",
-        "title": "Audit Domain: D10",
+        "title": "Operational Lens 10",
         "kind": "domain",
         "outgoing": [
           "Home",

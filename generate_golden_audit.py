@@ -426,8 +426,9 @@ def write_home_md(
     remediated_count = status_counts.get("REMEDIATED", 0)
     audited_count = status_counts.get("AUDITED", 0)
     doc_only_count = status_counts.get("DOC_ONLY", 0)
-    operational_count = prevented_count + remediated_count
-    documentary_count = audited_count + doc_only_count
+    proposed_count = audited_count + doc_only_count
+    enforced_external_count = prevented_count
+    enforced_local_count = remediated_count
     home_content = f"""# Golden Standard Wiki
 
 Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge base represents the pure doctrine of engineering, vice mitigation, and tokenomics accumulated by the project.
@@ -476,12 +477,13 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 
 ---
 
-## Operability Status
+## Operational Reading
 
-| Status | Entries | Meaning |
+| Reading | Entries | Meaning |
 |---|---:|---|
-| `PREVENTED` + `REMEDIATED` | {operational_count} | The catalog already has an executable gate or a concrete correction. |
-| `AUDITED` + `DOC_ONLY` | {documentary_count} | The entry exists as knowledge, but remains mainly documentary. |
+| `PROPOSED` | {proposed_count} | The entry is documented or audited, but no enforcing implementation exists in the catalog flow. |
+| `ENFORCED_EXTERNAL` | {enforced_external_count} | The guard exists in a downstream enforcing project. |
+| `ENFORCED_LOCAL` | {enforced_local_count} | The guard or remediation is enforced in this repository. |
 | `Total` | {total_vices} | Sum of the VC, VT, and TK entries audited by the compiler. |
 
 ---
@@ -1091,7 +1093,7 @@ def build_pi_mapping_lines(mappings: list) -> list[str]:
     if not mappings:
         return ["*No active domain assignments.*"]
     return [
-        f"*   **[[Domains/{domain}|{domain}]]** (Project: *{proj}*): {act}"
+        f"*   **[[Domains/{domain}|Operational Lens {domain[1:]}]]** (Project: *{proj}*): {act}"
         for domain, proj, act in sorted(mappings)
     ]
 
@@ -1137,9 +1139,9 @@ def write_audit_domains(wiki_dir: Path, recommendations: dict):
             for rec in recommendations[domain]
         ]
 
-        domain_content = f"""# Audit Domain: {domain}
+        domain_content = f"""# Operational Lens {domain[1:]}
 
-This domain covers a specific area of the GS consistency and security protocol. The following satellite insights are linked to this operational lens:
+This page groups the project insights that share this operational lens inside the Golden Standard knowledge base. The domain code is kept only as a stable routing label, not as the public framing:
 
 ---
 
