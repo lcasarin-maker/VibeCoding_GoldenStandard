@@ -5,15 +5,15 @@ items:
   title: Unassumed incompetence
   symptom: Generated output is accepted as correct
   cause: Absence of rigorous validation
-  solution: Treat all output as a hypothesis until validated
+  solution: Treat every output as a hypothesis until validated
   status: DOC_ONLY
   severity: medium
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Generated output is accepted as correct. Root cause: Absence of rigorous validation. Remediation:
+    Treat every output as a hypothesis until validated. It is a behavioral/doctrinal guideline — not statically falsifiable
+    without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -29,9 +29,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses The system responds with unjustified confidence. Root cause: Optimization by superficial
+    similarity. Remediation: Demand explicit uncertainty and evidence. It is a behavioral/doctrinal guideline — not statically
+    falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -47,9 +47,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Something works superficially. Root cause: Insufficient sampling of state. Remediation:
+    Validate flow, boundaries, and persistence. It is a behavioral/doctrinal guideline — not statically falsifiable without
+    human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -65,9 +65,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Pretty UI or docs hide failures. Root cause: Visual signal substitutes for causality.
+    Remediation: Validate logic before presentation. It is a behavioral/doctrinal guideline — not statically falsifiable without
+    human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -75,7 +75,7 @@ items:
   catalog_source: coding_vices
 - id: VC-007
   title: Non-human audit of the core
-  symptom: Critical logic never read
+  symptom: Critical logic avoid read
   cause: Delegation without comprehension
   solution: Human review of critical invariants
   status: DOC_ONLY
@@ -83,9 +83,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Critical logic avoid read. Root cause: Delegation without comprehension. Remediation:
+    Human review of critical invariants. It is a behavioral/doctrinal guideline — not statically falsifiable without human
+    semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -101,9 +101,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Probable regressions are ignored. Root cause: Poorly calibrated priors. Remediation: Assume
+    failure until proven otherwise. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -119,9 +119,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Validation uses prior memory. Root cause: Contextual bias. Remediation: Re-validate from
+    fresh context. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -137,9 +136,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses The error repeats. Root cause: Learning not persisted. Remediation: Record the pattern
+    and a guardrail. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -155,9 +153,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses A nonexistent interaction is declared. Root cause: Absent perceptual channel. Remediation:
+    Real human evidence. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -173,9 +170,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Aesthetics supplant function. Root cause: Wrong metric. Remediation: Usability equals
+    behavior. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -191,9 +187,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Excellence is assigned without proof. Root cause: Uncalibrated scale. Remediation: Grade
+    only with evidence. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -209,9 +204,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Broken system marked OK. Root cause: Superficial validator. Remediation: Empirical audit.
+    It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -227,9 +221,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses User delegates judgment. Root cause: Misassigned authority. Remediation: Human retains
+    responsibility. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -245,9 +238,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses A copied error is patched. Root cause: Diagnosis omitted. Remediation: Reproduce, diagnose,
+    fix, verify. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -263,9 +255,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses The bug returns in another form. Root cause: Root cause not isolated. Remediation: Fix
+    the mechanism, not the manifestation. It is a behavioral/doctrinal guideline — not statically falsifiable without human
+    semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -281,9 +273,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Code is changed without a minimal case. Root cause: Lack of an initial oracle. Remediation:
+    Every bug requires prior reproduction. It is a behavioral/doctrinal guideline — not statically falsifiable without human
+    semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -299,9 +291,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses More changes, less certainty. Root cause: Local optimization of time. Remediation: Validate
+    early, build little. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -317,9 +308,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Writing is saved, debugging is paid. Root cause: Invisible deferred costs. Remediation:
+    Measure rework and reversion. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -335,9 +326,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Work accumulates before testing. Root cause: Late feedback. Remediation: Iterate in verifiable
+    slices. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -353,9 +343,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses The system guesses requirements. Root cause: Ambiguous input. Remediation: Define goal,
+    constraints, and output. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -371,9 +360,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Work continues under high uncertainty. Root cause: Decisional entropy. Remediation: Stop
+    if critical hypotheses exceed a threshold. It is a behavioral/doctrinal guideline — not statically falsifiable without
+    human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -389,9 +378,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Unrequested improvements are added. Root cause: Unstable objective function. Remediation:
+    Send side findings to the backlog. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -407,9 +396,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Validation is abandoned. Root cause: Communicational incentive. Remediation: Do not close
+    without an exit criterion. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -425,9 +414,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses A future agent repeats discussions. Root cause: Lost causality. Remediation: Record the
+    reason, not just the result. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -443,9 +432,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Already-resolved questions are re-asked. Root cause: Lack of a ledger. Remediation: Keep
+    a historical log of clarifications. It is a behavioral/doctrinal guideline — not statically falsifiable without human
+    semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -461,9 +450,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Partial success is reported. Root cause: Incomplete metric. Remediation: Mandatory evidence
+    per claim. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -479,9 +467,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses System hard to change. Root cause: Accumulated complexity. Remediation: Audit the capacity
+    to change. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -497,9 +484,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Agent expands scope. Root cause: Weak control. Remediation: Scope lock. It is a behavioral/doctrinal
+    guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -515,9 +501,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Fix-revert consumes context. Root cause: Insufficient diagnosis. Remediation: Less generation,
+    more root cause. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -533,9 +518,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Each fix introduces another bug. Root cause: Causal system not understood. Remediation:
+    Separate diagnosis and correction. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -551,9 +536,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses No one can maintain it. Root cause: Absent responsibility. Remediation: An owner able
+    to explain and repair it. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -569,9 +553,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Archived or deleted without extracting value. Root cause: Destructive pruning without
+    inventory. Remediation: Audit, extract, and validate before retiring. It is a behavioral/doctrinal guideline — not statically
+    falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -587,9 +571,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Memory/state differ from reality. Root cause: Multiple sources of truth. Remediation:
+    Reconcile declared state with the system. It is a behavioral/doctrinal guideline — not statically falsifiable without
+    human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -605,9 +589,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Agent memory equated with human docs. Root cause: Channels with different purposes. Remediation:
+    Separate operational and human documentation. It is a behavioral/doctrinal guideline — not statically falsifiable without
+    human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -623,9 +607,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses State changes without an event. Root cause: Informational noise. Remediation: Update memory
+    only on relevant events. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -641,9 +624,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses The agent forgets requirements. Root cause: Finite window. Remediation: Compact and restart
+    with a checkpoint. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -659,9 +641,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Responses worsen from excess. Root cause: Semantic noise. Remediation: Keep the minimal
+    sufficient context. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -677,9 +658,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses A change breaks recoverable state. Root cause: Absence of reversibility. Remediation:
+    Create a return point before risk. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -695,9 +676,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Several sources compete. Root cause: Distributed inconsistency. Remediation: Canonical
+    ledger. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -713,9 +693,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Actors overwrite each other''s changes. Root cause: Lack of isolation. Remediation: Separate
+    branches, spaces, or locks. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -731,9 +711,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Work lands in the wrong actor or phase. Root cause: Absent task classification. Remediation:
+    Route by capability, risk, and observable state. It is a behavioral/doctrinal guideline — not statically falsifiable without
+    human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -749,9 +729,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Two histories combine, losing decisions. Root cause: Lexical union without semantics.
+    Remediation: Merge by entities, decisions, and causality. It is a behavioral/doctrinal guideline — not statically falsifiable
+    without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -761,15 +741,15 @@ items:
   title: Architectural black box
   symptom: Unexplainable decisions
   cause: Loss of the causal model
-  solution: Every decision must have a traceable reason
+  solution: Every decision should have a traceable reason
   status: DOC_ONLY
   severity: medium
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Unexplainable decisions. Root cause: Loss of the causal model. Remediation: Every decision
+    should have a traceable reason. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -785,7 +765,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Policies must be explicit, not implicit: governing rules are declared in the canonical rule set rather than left
+  action: 'Policies should be explicit, not implicit: governing rules are declared in the canonical rule set rather than left
     to convention.
 
     '
@@ -804,9 +784,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Rules clash at execution. Root cause: Inconsistent logical system. Remediation: Define
+    precedence before automating. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -822,9 +802,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Failure propagates. Root cause: Excessive coupling. Remediation: Stable interfaces and
+    isolation. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -840,9 +819,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses The cut breaks semantics. Root cause: Partitioning by size. Remediation: Chunking by functional
+    boundaries. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -858,9 +836,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Global coherence is lost. Root cause: Unmodeled dependencies. Remediation: Do not slice
+    without a structural graph. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -876,9 +854,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses External API or data assumed stable. Root cause: Unmodeled external dependency. Remediation:
+    Contracts and boundary tests. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -894,9 +872,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Docs and code diverge. Root cause: Decoupled evolution. Remediation: Update both or invalidate
+    the docs. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -912,9 +889,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Prior consumers break silently. Root cause: Historical contract not modeled. Remediation:
+    Version contracts and test active legacy paths. It is a behavioral/doctrinal guideline — not statically falsifiable without
+    human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -930,9 +907,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Logs exist but do not explain failures. Root cause: Signal without diagnosis. Remediation:
+    Record causal events, decisions, and boundary states. It is a behavioral/doctrinal guideline — not statically falsifiable
+    without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -948,9 +925,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses A new layer avoids touching the real fault. Root cause: Indirection as concealment. Remediation:
+    Resolve the broken contract at its source. It is a behavioral/doctrinal guideline — not statically falsifiable without
+    human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -966,9 +943,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses The failure is documented instead of fixed. Root cause: Exception turned into a stable
+    state. Remediation: Zero known errors at closure. It is a behavioral/doctrinal guideline — not statically falsifiable
+    without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -984,9 +961,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Editing without understanding the repository. Root cause: Incomplete model of the system.
+    Remediation: Map the structure before modifying. It is a behavioral/doctrinal guideline — not statically falsifiable without
+    human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1002,9 +979,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Abuses are not sought. Root cause: Unmodeled threat. Remediation: Mandatory threat model.
+    It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1020,9 +996,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Scattered controls. Root cause: Blurred boundary. Remediation: Isolate the security layer.
+    It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1038,9 +1013,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Tests adapted to the result. Root cause: Confirmation bias. Remediation: Test-first or
+    simultaneous testing. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1056,9 +1030,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Real failures not covered. Root cause: Undersampled domain. Remediation: Test errors and
+    boundaries. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1074,9 +1047,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Resilience not observed. Root cause: Failures not induced. Remediation: Inject controlled
+    failures. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1092,9 +1064,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Performance or security not measured. Root cause: Quality reduced to function. Remediation:
+    Audit non-functional requirements. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
+    judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1110,9 +1082,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Undiagnosable failure. Root cause: Insufficient observability. Remediation: Deliberate
+    instrumentation. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1128,9 +1099,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Validated without a flow. Root cause: Visual simulation. Remediation: Test observable
+    interaction. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1146,8 +1116,8 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Security boundaries must be enforced by gates, not convention: a boundary asserted only in prose, without an executable
-    gate behind it, is not a boundary.
+  action: 'Security boundaries should be enforced by gates, not convention: a boundary asserted only in prose, without an
+    executable gate behind it, is not a boundary.
 
     '
   validating_mechanism: doctrinal
@@ -1160,7 +1130,7 @@ items:
   symptom: Facing an unexpected compilation or import failure at startup, the agent chooses to patch the symptom by creating
     shims or duplicating old code instead of investigating and resolving the root cause in the control plane or the caller
     files.
-  cause: Prioritizing the short-term "green tests" result at all costs, sacrificing the coherence and stable architectural
+  cause: Prioritizing the short-term "green tests" result at every costs, sacrificing the coherence and stable architectural
     principles of the system.
   solution: Strictly apply Mandate S2 (Brain-First) and investigate the control-plane architecture to perform surgical root-cause
     refactors before writing a single line of code.
@@ -1169,9 +1139,12 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses Facing an unexpected compilation or import failure at startup, the agent chooses to patch
+    the symptom by creating shims or duplicating old code instead of investigating and resolving the root cause in the control
+    plane or the caller files.. Root cause: Prioritizing the short-term "green tests" result at every costs, sacrificing the
+    coherence and stable architectural principles of the system.. Remediation: Strictly apply Mandate S2 (Brain-First) and
+    investigate the control-plane architecture to perform surgical root-cause refactors before writing a single line of code..
+    It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1189,9 +1162,11 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'This principle addresses The agent fixates on a flawed action plan, repeating the same error or tool in a closed
+    loop without stopping.. Root cause: Absence of active metacognition and lack of structural interrupts.. Remediation: **Chain-Pattern
+    Interrupts (CPI).** Impose a sentinel that counts consecutive failed attempts of the same tool or script. If the count
+    exceeds the threshold of 2, physically abort execution with `exit 1` and force a structural rethink of the solution..
+    It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1601,6 +1576,10 @@ items:
     dev, and stdlib declared as dependencies.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-002
   title: 'Diagnostic assertions – when a test fails, the message must explain the discrepancy with actionable clarity. Real
     verified tools: pytest native assertion rewriting, pytest-clarity / pytest-icdiff for readable diffs, flake8-assertive
@@ -1608,24 +1587,44 @@ items:
   doctrinal: true
   promotion_candidate: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-003
   title: Tokencost – upfront token metering and USD conversion to make spend visible before executing an LLM call.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-004
   title: Trivy – multi-surface scanning (images, filesystem, git, VMs, Kubernetes) for CVEs, secrets, misconfigurations, SBOM,
     and licenses.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-005
   title: Litellm – provider-agnostic gateway with routing, fallback, cost tracking, guardrails, logging, and load balancing.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-006
   title: Governance gate between intent and execution that enforces context discipline, observability, redaction, and state
     control.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-007
   title: 'Output governance – a system can have INPUT governance (quality gates) but lack OUTPUT governance (orphan pruning),
     accumulating refactor residue: backups, dead code, stale plan docs, spectral scripts, divergent learning logs, stale base-sets,
@@ -1633,67 +1632,119 @@ items:
     the same gate that blocks bad code blocks the leftover junk.'
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-008
   title: Batch of predictable authorizations – group permissions, clarifications, and decisions before a long run to avoid
     interruptions, rereads, and reactive work.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-009
   title: Zero debt before advancing – every warning or non-blocking finding is treated as an operational error until fixed
     or explicitly blocked.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-010
   title: Output hygiene and clean root – historical artifacts are reference, not source of truth; when an audit closes the
     root must be free of operational residue.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-011
   title: Descriptive names and simple topology – prefer scripts and modules that explain their purpose and flatten structure
     when it reduces cognitive friction.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-012
   title: Minimal and real exclusions – whitelists, excludes, skips, xfails, stubs, mocks, and placeholders only with verifiable
     cause; false coverage is debt, not progress.
   doctrinal: true
   promotion_candidate: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-013
   title: Real-time vigilance – observe signals, costs, and deviations during execution, not only in the post-mortem.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-014
   title: Living Golden Standard – preserve pure, agnostic knowledge kept up to date with the lessons from the project and
     the satellites without mixing it with concrete tools.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-015
   title: Circularity ratchet – every new vice must break a real circular relationship and drain the baseline in batches; coverage
     that does not reduce the circle is still theater.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-016
   title: DOC_ONLY honesty – if a lesson is not falsifiable by a physical gate, it must be labeled DOC_ONLY instead of simulating
     automatic coverage.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-017
   title: Anti many-to-one coverage – a test that claims to cover N vices at once loses discrimination; each guard must isolate
     the failure it claims to protect against.
   doctrinal: true
   promotion_candidate: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-018
   title: Canonical ingestion of lessons – normalize, deduplicate, and record new satellite lessons before incorporating them
     into the central knowledge.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-019
   title: Execution and tooling hygiene – prefer simple commands, declarative edits, UTF-8, auditable evidence, and elevated
     permissions only as an exception; temporary helpers must disappear unless they are reusable and documented.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-020
   title: 'Confidence Tags (Graphify pattern) – every state claim in protocol documents must carry an explicit confidence level:
     VERIFIED (backed by terminal log or test), INFERRED (deduced from indirect evidence), ASSUMED (no evidence, reasonable
@@ -1701,6 +1752,10 @@ items:
     decision comments. Origin: safishamsi/graphify confidence tag system for knowledge graphs.'
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-021
   title: 'Semantic Wiki-Lint (Karpathy LLM Wiki pattern) – protocol documents must be audited periodically to detect: contradictions
     between sections, references to nonexistent files, mandates mentioned in one doc but absent in another, and inconsistent
@@ -1710,30 +1765,50 @@ items:
   doctrinal: true
   promotion_candidate: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-022
   title: 'Operational uncertainty list – every session or protocol document must declare which subsystems, routes, or claims
     were not mechanically verified in that turn. The absence of a list equals incomplete verification. Origin: operational
     uncertainty discipline and anti-hallucination control.'
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-023
   title: 'Dual-session awareness – before touching shared sources, the agent must verify state and latest commits so as not
     to step on concurrent work. If there are external changes, impact is analyzed before editing. Origin: multi-agent coexistence
     discipline and serialized shared-source access.'
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-024
   title: 'Hub-based review – nodes with the highest fan-in or impact degree must be reviewed first when a catalog or index
     changes. The graph is not decorative: it prioritizes risk and orders the audit. Origin: hub-first review heuristic (graph
     fan-in prioritization).'
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-025
   title: 'Exportable retrospective – every session must close with a structured, parseable retrospective that is persisted
     to a durable ledger before a context reset (COMPACT/CLEAR). Chat is not reliable memory and new knowledge must survive
     the reset. Origin: structured-retrospective export and a durable ledger as a source of continuity.'
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-026
   title: 'Exhaustive preflight and no reopening scope post-execution – before executing any change, the agent must declare
     scope, foreseeable impacts, out-of-scope follow-ups, and the runner/loader that would be affected if the topology changes.
@@ -1741,6 +1816,10 @@ items:
     suggestion. Origin: execution hygiene and the formal separation of audits between knowledge and consumption.'
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-027
   title: 'Serialization of Git operations – Git commands must be executed serially within automations and orchestrators to
     avoid index locks, state races, and inconsistent results. When coordination or concurrent tooling exists, the safe discipline
@@ -1748,42 +1827,74 @@ items:
     conditions and .git/index.lock locking.'
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-028
   title: Vibe Check (PV-Bhat/vibe-check-mcp-server, verified) – metacognition MCP server that curbs agent tunnel-vision and
     runaway loops via Chain-Pattern Interrupts; a direct implementation of the VC-120 mitigation.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-029
   title: 'vibecheck (yuvrajangadsingh/vibecheck, verified) – ESLint for AI slop: a local linter that detects code smells in
     AI-generated code (hardcoded secrets, eval, empty catch); evidence that the catalog vices are statically detectable.'
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-030
   title: viberails (refractionPOINT/viberails, verified) – AI Firewall that intercepts risky agent operations (Claude Code,
     Cursor, Gemini CLI) via hooks; an enforcement layer conceptually comparable to a policy-enforcement gate (unrelated to
     the homonym philips-software/cerberus).
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-031
   title: ratelimit (tomasbasham/ratelimit, verified) – rate limiting decorator (@limits + sleep_and_retry) as a concrete control
     against VC-110 (quota as surprise) and the tokenomics debt (TK-044).
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-032
   title: context7 (upstash/context7, verified) -- delivers up-to-date code documentation to LLMs to avoid calls to obsolete
     or nonexistent APIs; a direct mitigation of VC-135.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-033
   title: Persistent memory layer (byterover-cli / zilliztech claude-context-memsearch, verified) -- durable cross-session
     memory for agents; its discipline (source, date, reconciliation) mitigates VC-136.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-034
   title: serena (oraios/serena, verified) -- symbol-level (semantic) retrieval and editing so that recovered context is correct;
     mitigates VC-137 against blind chunking.
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
 - id: PI-035
   title: 'Auditing stochastic systems – when behavior depends on chance, sampling, retries, probabilistic routing, or non-deterministic
     generation, it is not evaluated with a single run nor with an exact value. The rule is to declare the target distribution,
@@ -1793,3 +1904,7 @@ items:
     randomness.'
   doctrinal: true
   catalog_source: project_insights
+  action: ''
+  solution: ''
+  symptom: ''
+  cause: ''
