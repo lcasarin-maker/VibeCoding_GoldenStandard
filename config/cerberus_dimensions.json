@@ -1,0 +1,67 @@
+{
+  "TK-011": [
+    "d10_tokenomics"
+  ],
+  "TK-030": [
+    "d10_tokenomics"
+  ],
+  "TK-029": [
+    "d10_tokenomics"
+  ],
+  "TK-034": [
+    "d10_tokenomics"
+  ],
+  "VT-112": [
+    "d11_dependency"
+  ],
+  "VC-052": [
+    "d11_dependency",
+    "d1_integrity"
+  ],
+  "VC-061": [
+    "d11_dependency"
+  ],
+  "VC-027": [
+    "d15_agent_security"
+  ],
+  "VC-028": [
+    "d15_agent_security"
+  ],
+  "VC-029": [
+    "d15_agent_security"
+  ],
+  "VC-030": [
+    "d15_agent_security"
+  ],
+  "VC-031": [
+    "d15_agent_security"
+  ],
+  "VC-083": [
+    "d15_agent_security"
+  ],
+  "VC-026": [
+    "d15_agent_security",
+    "d6_anti_slop"
+  ],
+  "VC-025": [
+    "d15_agent_security"
+  ],
+  "VC-077": [
+    "d15_agent_security"
+  ],
+  "VC-045": [
+    "d2_completeness"
+  ],
+  "VC-035": [
+    "d2_completeness"
+  ],
+  "VC-048": [
+    "d2_completeness"
+  ],
+  "VC-023": [
+    "d4_anti_spaghetti"
+  ],
+  "VC-032": [
+    "d6_anti_slop"
+  ]
+}

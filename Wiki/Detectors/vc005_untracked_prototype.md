@@ -1,0 +1,10 @@
+# vc005_untracked_prototype
+
+> Static detector registered in `scripts/detectors.py`. Tested in CI against the catalog's own `example_bad` / `example_good` corpus.
+
+## Enforces
+
+- [[Vices/VC-002|VC-002]]
+
+---
+[[Home|Back to Home]]

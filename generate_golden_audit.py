@@ -118,6 +118,18 @@ def domain_principle_rows(domain_record: dict[str, object]) -> list[dict[str, st
     return rows if isinstance(rows, list) else []
 
 
+def principle_to_domain_map() -> dict[str, str]:
+    """Return a mapping of principle_id -> domain_id from canonical_domain_map."""
+    domain_map = get_canonical_domain_map()
+    mapping = {}
+    for domain_id, record in domain_map.items():
+        for principle in record.get("principles", []):
+            if isinstance(principle, dict):
+                pr_id = str(principle.get("insight_id", "")).strip()
+                if pr_id:
+                    mapping[pr_id] = domain_id
+    return mapping
+
 
 def _read_version_label() -> str:
     if VERSION_FILE.exists():
@@ -702,6 +714,18 @@ def depth_badge(item: dict) -> str:
     return {"deep": "🟢 Deep", "doctrinal": "⚪ Doctrinal"}.get(entry_depth(item), "🟡 Stub")
 
 
+def evidence_slug(source: str) -> str:
+    """Convert an evidence source string into a filesystem-safe slug."""
+    import re
+    slug = re.sub(r'[^\w\s.-]', '', source.lower())
+    slug = re.sub(r'[\s.:]+', '_', slug)
+    slug = slug.strip('_')
+    # Truncate very long slugs
+    if len(slug) > 80:
+        slug = slug[:80]
+    return slug
+
+
 def build_depth_sections(item: dict) -> str:
     """Render optional depth blocks (examples, detection, evidence) when present.
 
@@ -730,7 +754,9 @@ def build_depth_sections(item: dict) -> str:
             if isinstance(ref, dict):
                 source = str(ref.get("source", "")).strip()
                 claim = str(ref.get("claim", "")).strip()
-                lines.append(f"- **{source}** — {claim}" if claim else f"- **{source}**")
+                slug = evidence_slug(source)
+                source_link = f"[[Evidence/{slug}|{source}]]"
+                lines.append(f"- **{source_link}** — {claim}" if claim else f"- **{source_link}**")
             else:
                 lines.append(f"- {ref}")
         blocks.append("\n".join(lines))
@@ -749,9 +775,34 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
         depth_sections = build_depth_sections(item)
         detector = str(item.get("detector", "")).strip()
         detector_row = (
-            f"\n| **Local detector** | 🛡️ `scripts/detectors.py::{detector}` (tested against the examples in CI) |"
+            f"\n| **Local detector** | 🛡️ [[Detectors/{detector}|{detector}]] (tested against the examples in CI) |"
             if detector else ""
         )
+        
+        # Build related domains from PR mentions in vice text
+        pr_to_domain = principle_to_domain_map()
+        vice_text = " ".join([str(item.get(k, "")) for k in ["title", "symptom", "cause", "solution", "action"]])
+        pr_mentions = set(re.findall(r"PR-\d{3}", vice_text))
+        related_domains = sorted({pr_to_domain.get(pr, "") for pr in pr_mentions if pr_to_domain.get(pr, "")})
+        domain_section = (
+            "\n".join(f"- [[Domains/{d}|{d}]]" for d in related_domains)
+            if related_domains
+            else "*No domain assignments detected.*"
+        )
+        
+        # Consumer usage layer: Cerberus dimensions that enforce this vice
+        _cerberus_map_path = _ROOT / "config" / "cerberus_dimensions.json"
+        cerberus_dimensions = {}
+        if _cerberus_map_path.exists():
+            with open(_cerberus_map_path, "r", encoding="utf-8") as f:
+                cerberus_dimensions = json.load(f)
+        enforced_by = cerberus_dimensions.get(flaw_id, [])
+        enforced_section = (
+            "\n".join(f"- {d}" for d in sorted(enforced_by))
+            if enforced_by
+            else "*No Cerberus enforcement detected.*"
+        )
+        
         flaw_content = f"""# {flaw_id}: {item['title']}
 
 | Field | Detail |
@@ -783,6 +834,16 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 - [[Principles|PR-097]]
 - [[Tokenomics_Map|Tokenomics Map]]
 - [[Home|Home]]
+
+---
+
+### Related Domains
+{domain_section}
+
+---
+
+### Enforced by (Cerberus Dimensions)
+{enforced_section}
 
 ---
 [[Vices_Index|Back to Vices Index]] | [[Home|Home]]
@@ -1064,6 +1125,38 @@ def resolve_markdown_link(source_path: Path, raw_target: str, known_nodes: set[s
     return node_id if node_id in known_nodes else None
 
 
+def _git_timestamps(path: Path) -> tuple[str | None, str | None]:
+    """Return (created, promoted) ISO timestamps from git log for *path*."""
+    try:
+        import subprocess
+        # First commit (created)
+        created_result = subprocess.run(
+            ["git", "log", "--follow", "--format=%aI", "--", str(path)],
+            capture_output=True,
+            text=True,
+            cwd=_ROOT,
+        )
+        if created_result.returncode == 0 and created_result.stdout.strip():
+            lines = created_result.stdout.strip().splitlines()
+            created = lines[-1] if lines else None
+        else:
+            created = None
+        # Last commit (promoted)
+        promoted_result = subprocess.run(
+            ["git", "log", "-1", "--format=%aI", "--", str(path)],
+            capture_output=True,
+            text=True,
+            cwd=_ROOT,
+        )
+        if promoted_result.returncode == 0 and promoted_result.stdout.strip():
+            promoted = promoted_result.stdout.strip().splitlines()[0]
+        else:
+            promoted = None
+        return created, promoted
+    except Exception:
+        return None, None
+
+
 def build_gs_graph() -> dict:
     """Build a deterministic knowledge graph from the live Markdown surface."""
     sources = collect_graph_sources()
@@ -1099,11 +1192,14 @@ def build_gs_graph() -> dict:
         content = path.read_text(encoding="utf-8")
         title_match = re.search(r"^#\s+(.+)$", content, re.MULTILINE)
         title = title_match.group(1).strip() if title_match else path.stem
+        created, promoted = _git_timestamps(path)
         nodes[node_id] = {
             "id": node_id,
             "path": path.relative_to(_ROOT).as_posix(),
             "title": title,
             "kind": classify_graph_node(path),
+            "created": created,
+            "promoted": promoted,
             "outgoing": [],
             "incoming": [],
             "outgoing_edges": [],
@@ -1271,6 +1367,49 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
             if item:
                 node["status"] = item["status"]
                 node["downstream_verification"] = item.get("downstream_verification", "none")
+    # P2/P3: Enrich graph with severity, weight, cluster, and temporal data
+    if mapped_database:
+        # Severity-weighted edges
+        severity_weight = {"critical": 1.0, "high": 0.8, "medium": 0.5, "low": 0.2}
+        for edge in graph["edges"]:
+            source_node = next((n for n in graph["nodes"] if n["id"] == edge["source"]), None)
+            if source_node:
+                item = mapped_database.get(Path(source_node["path"]).stem)
+                if item:
+                    edge["weight"] = round(severity_weight.get(str(item.get("severity", "medium")).strip(), 0.5), 2)
+        
+        # Add severity to vice nodes
+        for node in graph["nodes"]:
+            flaw_id = Path(node["path"]).stem
+            item = mapped_database.get(flaw_id)
+            if item:
+                node["severity"] = str(item.get("severity", "medium")).strip()
+        
+        # Anti-pattern clusters: group vices by shared keywords in title+symptom
+        import re
+        vice_texts = {}
+        for flaw_id, item in mapped_database.items():
+            if item["category"] in {"Vibe Coding", "Testing & Evaluation"}:
+                text = f"{item['title']} {item['symptom']}".lower()
+                vice_texts[flaw_id] = set(re.findall(r'\b\w{5,}\b', text))
+        
+        cluster_map = {}
+        cluster_id = 0
+        for flaw_id, words in vice_texts.items():
+            assigned = None
+            for existing_id, existing_words in list(cluster_map.items()):
+                if len(words & existing_words) >= 2:
+                    assigned = existing_id
+                    cluster_map[existing_id] = words | existing_words
+                    break
+            if assigned is None:
+                cluster_id += 1
+                assigned = f"cluster_{cluster_id}"
+                cluster_map[assigned] = words
+            for node in graph["nodes"]:
+                if Path(node["path"]).stem == flaw_id:
+                    node["cluster"] = assigned
+    
     GRAPH_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     GRAPH_OUTPUT.write_text(json.dumps(graph, indent=2, ensure_ascii=False), encoding="utf-8")
 
@@ -1599,6 +1738,88 @@ Nodes that link to more than one page type. They are useful for navigating impac
     print(f"Successfully generated Golden Standard graph at {GRAPH_OUTPUT} and {GRAPH_MARKDOWN}")
 
 
+
+
+def write_evidence_pages(wiki_dir: Path, mapped_database: dict):
+    """Create evidence citation nodes for every unique source in the catalog."""
+    evidence_dir = wiki_dir / "Evidence"
+    evidence_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Collect all evidence sources and their associated vices
+    sources: dict[str, dict] = {}
+    for flaw_id, item in mapped_database.items():
+        evidence = item.get("evidence", [])
+        if not isinstance(evidence, list):
+            continue
+        for ref in evidence:
+            if not isinstance(ref, dict):
+                continue
+            source = str(ref.get("source", "")).strip()
+            claim = str(ref.get("claim", "")).strip()
+            if not source:
+                continue
+            if source not in sources:
+                sources[source] = {"claims": set(), "vices": set()}
+            if claim:
+                sources[source]["claims"].add(claim)
+            sources[source]["vices"].add(flaw_id)
+    
+    for source, data in sorted(sources.items()):
+        slug = evidence_slug(source)
+        claims = sorted(data["claims"])[:5]  # Top 5 claims
+        vices = sorted(data["vices"])[:10]  # Top 10 vices
+        vice_links = "\n".join(f"- [[Vices/{vid}|{vid}]]" for vid in vices)
+        claim_lines = "\n".join(f"- {c}" for c in claims)
+        
+        content = f"""# {source}
+
+> Citable evidence source referenced by {len(data["vices"])} entries in the Golden Standard catalog.
+
+## Claims
+
+{claim_lines}
+
+## Referenced by
+
+{vice_links}
+
+---
+[[Home|Back to Home]]
+"""
+        (evidence_dir / f"{slug}.md").write_text(content, encoding="utf-8")
+
+
+def write_detector_pages(wiki_dir: Path, mapped_database: dict):
+    """Create detector nodes for every vice with a registered static detector."""
+    detectors_dir = wiki_dir / "Detectors"
+    detectors_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Collect all detectors and their associated vices
+    detectors: dict[str, set[str]] = {}
+    for flaw_id, item in mapped_database.items():
+        detector = str(item.get("detector", "")).strip()
+        if not detector:
+            continue
+        if detector not in detectors:
+            detectors[detector] = set()
+        detectors[detector].add(flaw_id)
+    
+    for detector, vices in sorted(detectors.items()):
+        vice_links = "\n".join(f"- [[Vices/{vid}|{vid}]]" for vid in sorted(vices))
+        content = f"""# {detector}
+
+> Static detector registered in `scripts/detectors.py`. Tested in CI against the catalog's own `example_bad` / `example_good` corpus.
+
+## Enforces
+
+{vice_links}
+
+---
+[[Home|Back to Home]]
+"""
+        (detectors_dir / f"{detector}.md").write_text(content, encoding="utf-8")
+
+
 def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     """Generate a structured, cross-linked Obsidian vault from Compiled Golden Standard data."""
     clean_wiki_directory(wiki_dir)
@@ -1628,6 +1849,8 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     write_atomic_vices(wiki_dir, mapped_database)
     write_atomic_tokenomics(wiki_dir, mapped_database)
     write_audit_domains(wiki_dir, recommendations)
+    write_evidence_pages(wiki_dir, mapped_database)
+    write_detector_pages(wiki_dir, mapped_database)
     write_graph_artifacts(mapped_database)
 
     print(f"Successfully generated Obsidian Wiki Vault at {wiki_dir}")

@@ -10,10 +10,10 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 
 | Metric | Value |
 |---|---:|
-| Nodes | 268 |
-| Edges | 1294 |
-| Reciprocal pairs | 268 |
-| Average edge confidence | 0.938 |
+| Nodes | 318 |
+| Edges | 1681 |
+| Reciprocal pairs | 345 |
+| Average edge confidence | 0.937 |
 | Intentional orphans | 0 |
 | Candidate orphans | 0 |
 | Hubs | 15 |
@@ -26,10 +26,10 @@ The graph now distinguishes link syntax from relation meaning. `kind` records ho
 
 | Relation | Edges |
 |---|---:|
-| `returns_to_index` | 736 |
-| `catalogs` | 236 |
+| `returns_to_index` | 993 |
+| `catalogs` | 313 |
 | `governed_by` | 202 |
-| `references` | 44 |
+| `references` | 97 |
 | `subindex` | 34 |
 | `operationalizes_domain` | 18 |
 | `entrypoint` | 13 |
@@ -70,18 +70,18 @@ This ranking combines severity with graph centrality, semantic reach, and downst
 
 | ID | Title | Severity | Score | Why it matters |
 |---|---|---|---:|---|
-| `VC-059` | Prompt injection in the agent loop (Prompt Injection) | `critical` | `69` | deg=5, types=2, rels=3, consumer-check |
-| `VC-060` | Context Poisoning | `high` | `54` | deg=5, types=2, rels=3, consumer-check |
-| `VC-065` | Unhandled tool-call failure in the agent loop | `high` | `54` | deg=5, types=2, rels=3, consumer-check |
-| `VC-066` | Multi-agent coordination without a protocol | `high` | `54` | deg=5, types=2, rels=3, consumer-check |
-| `VC-067` | Use of an obsolete or hallucinated API of a real library | `high` | `54` | deg=5, types=2, rels=3, consumer-check |
-| `VC-068` | Poisoned or stale persistent memory (cross-session) | `high` | `54` | deg=5, types=2, rels=3, consumer-check |
-| `VC-071` | Blind trust in LLM output (Insecure Output Handling) | `high` | `54` | deg=5, types=2, rels=3, consumer-check |
-| `VC-002` | Prototype turned into debt | `medium` | `39` | deg=5, types=2, rels=3, consumer-check |
-| `VC-003` | Incomprehensible code | `medium` | `39` | deg=5, types=2, rels=3, consumer-check |
-| `VC-007` | Non-surgical scope | `medium` | `39` | deg=5, types=2, rels=3, consumer-check |
-| `VC-009` | Full rewrite | `medium` | `39` | deg=5, types=2, rels=3, consumer-check |
-| `VC-010` | No dry run | `medium` | `39` | deg=5, types=2, rels=3, consumer-check |
+| `VC-059` | Prompt injection in the agent loop (Prompt Injection) | `critical` | `71` | deg=7, types=2, rels=3, consumer-check |
+| `VC-068` | Poisoned or stale persistent memory (cross-session) | `high` | `64` | deg=10, types=3, rels=4, consumer-check |
+| `VC-067` | Use of an obsolete or hallucinated API of a real library | `high` | `63` | deg=9, types=3, rels=4, consumer-check |
+| `VC-060` | Context Poisoning | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
+| `VC-065` | Unhandled tool-call failure in the agent loop | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
+| `VC-071` | Blind trust in LLM output (Insecure Output Handling) | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
+| `VC-066` | Multi-agent coordination without a protocol | `high` | `55` | deg=6, types=2, rels=3, consumer-check |
+| `VC-069` | Retrieval (RAG) that feeds wrong context | `medium` | `49` | deg=10, types=3, rels=4, consumer-check |
+| `VC-002` | Prototype turned into debt | `medium` | `43` | deg=9, types=2, rels=3, consumer-check |
+| `VC-010` | No dry run | `medium` | `43` | deg=9, types=2, rels=3, consumer-check |
+| `VC-036` | Direct production access | `medium` | `43` | deg=9, types=2, rels=3, consumer-check |
+| `VC-018` | Stub as architecture | `medium` | `42` | deg=8, types=2, rels=3, consumer-check |
 
 ---
 
@@ -132,15 +132,15 @@ Pages with the largest impact surface. If they change, review their inbound link
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
 | [[Vices_Index]] | `wiki` | 203 | 203 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +197 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +197 more |
-| [[Home]] | `wiki` | 259 | 13 | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +253 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
+| [[Home]] | `wiki` | 309 | 13 | [[Detectors/audit_d2_completeness]], [[Detectors/vc005_untracked_prototype]], [[Detectors/vc036_destructive_without_dryrun]], [[Detectors/vc061_constant_stub]], [[Detectors/vc070_blind_shell_edit]], [[Detectors/vc087_blanket_filterwarnings]] +303 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
 | [[Tokenomics_Map]] | `wiki` | 244 | 9 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +238 more | [[Home]], [[Principles]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +3 more |
 | [[Principles]] | `principle-index` | 222 | 2 | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +216 more | [[Domains/README]], [[Home]] |
+| [[Evidence/arxiv2602_00409]] | `wiki` | 117 | 11 | [[Vices/VC-015]], [[Vices/VC-037]], [[Vices/VT-001]], [[Vices/VT-002]], [[Vices/VT-003]], [[Vices/VT-004]] +111 more | [[Home]], [[Vices/VC-015]], [[Vices/VC-037]], [[Vices/VT-001]], [[Vices/VT-002]], [[Vices/VT-003]] +5 more |
 | [[Tokenomics_Index]] | `wiki` | 42 | 36 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +36 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +30 more |
+| [[Evidence/arxiv2603_28592]] | `wiki` | 49 | 11 | [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]], [[Vices/VC-006]] +43 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +5 more |
 | [[Domains/README]] | `domain` | 20 | 19 | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +14 more | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +13 more |
-| [[Tokenomics/Memory_Headroom_Index]] | `tokenomics` | 2 | 16 | [[Home]], [[Tokenomics_Map]] | [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]], [[Tokenomics/TK-006]] +10 more |
-| [[Tokenomics/Output_Compaction_Index]] | `tokenomics` | 2 | 14 | [[Home]], [[Tokenomics_Map]] | [[Tokenomics/TK-009]], [[Tokenomics/TK-013]], [[Tokenomics/TK-014]], [[Tokenomics/TK-015]], [[Tokenomics/TK-017]], [[Tokenomics/TK-018]] +8 more |
-| [[Tokenomics/Measurement_Telemetry_Index]] | `tokenomics` | 2 | 6 | [[Home]], [[Tokenomics_Map]] | [[Tokenomics/TK-016]], [[Tokenomics/TK-028]], [[Tokenomics/TK-031]], [[Tokenomics/TK-032]], [[Tokenomics_Index]], [[Tokenomics_Map]] |
-| [[Vices/VC-056]] | `vice` | 3 | 4 | [[Home]], [[Tokenomics_Map]], [[Vices_Index]] | [[Home]], [[Principles]], [[Tokenomics_Map]], [[Vices_Index]] |
+| [[Evidence/vexp_dev_humanlayer_ace]] | `wiki` | 33 | 1 | [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]], [[Tokenomics/TK-006]] +27 more | [[Home]] |
+| [[Evidence/owasp_top_10_for_agents_2026]] | `wiki` | 10 | 11 | [[Vices/VC-025]], [[Vices/VC-036]], [[Vices/VC-042]], [[Vices/VC-049]], [[Vices/VC-050]], [[Vices/VC-054]] +4 more | [[Home]], [[Vices/VC-025]], [[Vices/VC-036]], [[Vices/VC-042]], [[Vices/VC-049]], [[Vices/VC-050]] +5 more |
 
 ---
 
@@ -184,17 +184,17 @@ Nodes that link to more than one page type. They are useful for navigating impac
 | [[Tokenomics_Map]] | `wiki` | `principle-index`, `root`, `tokenomics`, `vice`, `wiki` | `bridges`, `entrypoint`, `references`, `returns_to_index` | 9 |
 | [[Domains/README]] | `domain` | `domain`, `principle-index`, `root`, `wiki` | `entrypoint`, `operationalizes_domain`, `references`, `returns_to_index`, `routes_to_domains` | 19 |
 | [[README]] | `root` | `conceptual-framework`, `contributing`, `domain`, `wiki` | `entrypoint`, `references` | 6 |
+| [[Domains/CD11]] | `domain` | `domain`, `principle-index`, `vice`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
+| [[Domains/CD12]] | `domain` | `domain`, `principle-index`, `vice`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
+| [[Domains/CD17]] | `domain` | `domain`, `principle-index`, `vice`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
 | [[Principles]] | `principle-index` | `domain`, `vice`, `wiki` | `bridges`, `entrypoint`, `governed_by`, `indexes`, `operationalizes_domain`, `routes_to_domains` | 2 |
 | [[Tokenomics_Index]] | `wiki` | `root`, `tokenomics`, `wiki` | `bridges`, `catalogs`, `entrypoint`, `references`, `returns_to_index` | 36 |
+| [[Vices/VC-068]] | `vice` | `domain`, `principle-index`, `wiki` | `catalogs`, `governed_by`, `references`, `returns_to_index` | 7 |
+| [[Vices/VC-069]] | `vice` | `domain`, `principle-index`, `wiki` | `catalogs`, `governed_by`, `references`, `returns_to_index` | 7 |
+| [[Vices/VC-067]] | `vice` | `domain`, `principle-index`, `wiki` | `catalogs`, `governed_by`, `references`, `returns_to_index` | 7 |
 | [[Domains/CD01]] | `domain` | `domain`, `principle-index`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
 | [[Domains/CD02]] | `domain` | `domain`, `principle-index`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
 | [[Domains/CD03]] | `domain` | `domain`, `principle-index`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
-| [[Domains/CD04]] | `domain` | `domain`, `principle-index`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
-| [[Domains/CD05]] | `domain` | `domain`, `principle-index`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
-| [[Domains/CD06]] | `domain` | `domain`, `principle-index`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
-| [[Domains/CD07]] | `domain` | `domain`, `principle-index`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
-| [[Domains/CD08]] | `domain` | `domain`, `principle-index`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
-| [[Domains/CD09]] | `domain` | `domain`, `principle-index`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
 
 ---
 
