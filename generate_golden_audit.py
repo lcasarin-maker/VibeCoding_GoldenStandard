@@ -137,6 +137,14 @@ def principle_wikilink(principle_id: str, label: str | None = None) -> str:
     return f"[[Principles/{principle_id}|{display}]]"
 
 
+def catalog_entry_wikilink(entry_id: str) -> str:
+    """Render a stable link to a GS catalog entry on the right surface."""
+    entry_id = str(entry_id).strip()
+    if entry_id.startswith("TK-"):
+        return f"[[Tokenomics/{entry_id}|{entry_id}]]"
+    return f"[[Vices/{entry_id}|{entry_id}]]"
+
+
 def render_principle_refs(raw_refs: str) -> str:
     """Render comma-separated PR ids as links to atomic principle pages."""
     refs = [ref.strip() for ref in raw_refs.split(",") if ref.strip()]
@@ -1925,7 +1933,7 @@ def write_evidence_pages(wiki_dir: Path, mapped_database: dict):
         slug = evidence_slug(source)
         claims = sorted(data["claims"])[:5]  # Top 5 claims
         vices = sorted(data["vices"])[:10]  # Top 10 vices
-        vice_links = "\n".join(f"- [[Vices/{vid}|{vid}]]" for vid in vices)
+        vice_links = "\n".join(f"- {catalog_entry_wikilink(vid)}" for vid in vices)
         claim_lines = "\n".join(f"- {c}" for c in claims)
         
         content = f"""# {source}
@@ -1962,7 +1970,7 @@ def write_detector_pages(wiki_dir: Path, mapped_database: dict):
         detectors[detector].add(flaw_id)
     
     for detector, vices in sorted(detectors.items()):
-        vice_links = "\n".join(f"- [[Vices/{vid}|{vid}]]" for vid in sorted(vices))
+        vice_links = "\n".join(f"- {catalog_entry_wikilink(vid)}" for vid in sorted(vices))
         content = f"""# {detector}
 
 > Static detector registered in `scripts/detectors.py`. Tested in CI against the catalog's own `example_bad` / `example_good` corpus.

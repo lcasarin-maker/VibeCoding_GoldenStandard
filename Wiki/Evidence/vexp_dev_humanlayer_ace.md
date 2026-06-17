@@ -9,16 +9,16 @@
 
 ## Referenced by
 
-- [[Vices/TK-001|TK-001]]
-- [[Vices/TK-002|TK-002]]
-- [[Vices/TK-003|TK-003]]
-- [[Vices/TK-004|TK-004]]
-- [[Vices/TK-005|TK-005]]
-- [[Vices/TK-006|TK-006]]
-- [[Vices/TK-007|TK-007]]
-- [[Vices/TK-008|TK-008]]
-- [[Vices/TK-009|TK-009]]
-- [[Vices/TK-010|TK-010]]
+- [[Tokenomics/TK-001|TK-001]]
+- [[Tokenomics/TK-002|TK-002]]
+- [[Tokenomics/TK-003|TK-003]]
+- [[Tokenomics/TK-004|TK-004]]
+- [[Tokenomics/TK-005|TK-005]]
+- [[Tokenomics/TK-006|TK-006]]
+- [[Tokenomics/TK-007|TK-007]]
+- [[Tokenomics/TK-008|TK-008]]
+- [[Tokenomics/TK-009|TK-009]]
+- [[Tokenomics/TK-010|TK-010]]
 
 ---
 [[Home|Back to Home]]

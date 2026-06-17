@@ -11,10 +11,10 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 | Metric | Value |
 |---|---:|
 | Nodes | 431 |
-| Edges | 2396 |
-| Reciprocal pairs | 548 |
+| Edges | 2407 |
+| Reciprocal pairs | 559 |
 | Average edge confidence | 0.935 |
-| Semantic density | 0.012928 |
+| Semantic density | 0.012988 |
 | Hub ratio | 1.0 |
 | Bridge ratio | 0.99768 |
 | Intentional orphans | 0 |
@@ -31,7 +31,7 @@ The graph now distinguishes link syntax from relation meaning. `kind` records ho
 |---|---:|
 | `returns_to_index` | 1106 |
 | `references` | 379 |
-| `catalogs` | 313 |
+| `catalogs` | 324 |
 | `governed_by` | 202 |
 | `thematic_bridge` | 122 |
 | `indexes` | 114 |
@@ -144,7 +144,7 @@ Pages with the largest impact surface. If they change, review their inbound link
 | [[Evidence/arxiv2602_00409]] | `wiki` | 117 | 11 | [[Vices/VC-015]], [[Vices/VC-037]], [[Vices/VT-001]], [[Vices/VT-002]], [[Vices/VT-003]], [[Vices/VT-004]] +111 more | [[Home]], [[Vices/VC-015]], [[Vices/VC-037]], [[Vices/VT-001]], [[Vices/VT-002]], [[Vices/VT-003]] +5 more |
 | [[Tokenomics_Index]] | `wiki` | 42 | 36 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +36 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +30 more |
 | [[Evidence/arxiv2603_28592]] | `wiki` | 49 | 11 | [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]], [[Vices/VC-006]] +43 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +5 more |
-| [[Evidence/vexp_dev_humanlayer_ace]] | `wiki` | 33 | 1 | [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]], [[Tokenomics/TK-006]] +27 more | [[Home]] |
+| [[Evidence/vexp_dev_humanlayer_ace]] | `wiki` | 33 | 11 | [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]], [[Tokenomics/TK-006]] +27 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +5 more |
 
 ---
 

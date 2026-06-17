@@ -8,7 +8,7 @@
 
 ## Referenced by
 
-- [[Vices/TK-034|TK-034]]
+- [[Tokenomics/TK-034|TK-034]]
 
 ---
 [[Home|Back to Home]]
