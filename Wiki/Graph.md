@@ -10,10 +10,10 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 
 | Metric | Value |
 |---|---:|
-| Nodes | 384 |
-| Edges | 1420 |
+| Nodes | 270 |
+| Edges | 1037 |
 | Intentional orphans | 3 |
-| Candidate orphans | 25 |
+| Candidate orphans | 12 |
 | Hubs | 15 |
 
 ---
@@ -90,15 +90,15 @@ Pages with the largest impact surface. If they change, review their inbound link
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
 | [[Vices_Index]] | `wiki` | 203 | 203 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +197 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +197 more |
-| [[Home]] | `wiki` | 367 | 14 | [[Domains/D1]], [[Domains/D10]], [[Domains/D11]], [[Domains/D12]], [[Domains/D2]], [[Domains/D3]] +361 more | [[CONCEPTUAL_FRAMEWORK]], [[Inbox/README]], [[Principles]], [[Project_Insights_Index]], [[README]], [[Tokenomics/Automation_Tooling_Index]] +8 more |
-| [[Tokenomics_Map]] | `wiki` | 357 | 9 | [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]], [[Principles/PR-005]] +351 more | [[Home]], [[Project_Insights_Index]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +3 more |
-| [[Vices/VC-001]] | `vice` | 114 | 3 | [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]], [[Principles/PR-005]], [[Principles/PR-006]] +108 more | [[Home]], [[Tokenomics_Map]], [[Vices_Index]] |
+| [[Home]] | `wiki` | 253 | 13 | [[Domains/D1]], [[Domains/D10]], [[Domains/D11]], [[Domains/D12]], [[Domains/D2]], [[Domains/D3]] +247 more | [[CONCEPTUAL_FRAMEWORK]], [[Inbox/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
+| [[Tokenomics_Map]] | `wiki` | 244 | 8 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +238 more | [[Home]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]], [[Tokenomics/Output_Compaction_Index]] +2 more |
 | [[Tokenomics_Index]] | `wiki` | 42 | 36 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +36 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +30 more |
 | [[Tokenomics/Memory_Headroom_Index]] | `tokenomics` | 2 | 16 | [[Home]], [[Tokenomics_Map]] | [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]], [[Tokenomics/TK-006]] +10 more |
 | [[Tokenomics/Output_Compaction_Index]] | `tokenomics` | 2 | 14 | [[Home]], [[Tokenomics_Map]] | [[Tokenomics/TK-009]], [[Tokenomics/TK-013]], [[Tokenomics/TK-014]], [[Tokenomics/TK-015]], [[Tokenomics/TK-017]], [[Tokenomics/TK-018]] +8 more |
 | [[Tokenomics/Measurement_Telemetry_Index]] | `tokenomics` | 2 | 6 | [[Home]], [[Tokenomics_Map]] | [[Tokenomics/TK-016]], [[Tokenomics/TK-028]], [[Tokenomics/TK-031]], [[Tokenomics/TK-032]], [[Tokenomics_Index]], [[Tokenomics_Map]] |
-| [[Domains/D10]] | `domain` | 6 | 1 | [[Principles/PR-081]], [[Principles/PR-083]], [[Principles/PR-085]], [[Principles/PR-087]], [[Principles/PR-088]], [[Principles/PR-091]] | [[Home]] |
 | [[Inbox/README]] | `inbox` | 3 | 4 | [[CONTRIBUTING]], [[Home]], [[README]] | [[Inbox/cerberus/README]], [[Inbox/external/README]], [[Inbox/manual/README]], [[Inbox/templates/README]] |
+| [[README]] | `root` | 1 | 6 | [[Home]] | [[CONCEPTUAL_FRAMEWORK]], [[CONTRIBUTING]], [[Home]], [[Inbox/README]], [[Tokenomics_Index]], [[Tokenomics_Map]] |
+| [[Vices/VC-056]] | `vice` | 3 | 3 | [[Home]], [[Tokenomics_Map]], [[Vices_Index]] | [[Home]], [[Tokenomics_Map]], [[Vices_Index]] |
 
 ---
 
@@ -120,31 +120,18 @@ Pages within the live GS surface that receive no inbound links. If any is import
 
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
-| [[Principles/PR-001]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-002]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-003]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-004]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-005]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-006]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-007]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-008]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-009]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-010]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-011]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-012]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-013]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-014]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-015]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-016]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-017]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-018]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-019]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-020]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-021]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-022]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-023]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-024]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
-| [[Principles/PR-025]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
+| [[Domains/D1]] | `domain` | 0 | 1 | — | [[Home]] |
+| [[Domains/D10]] | `domain` | 0 | 1 | — | [[Home]] |
+| [[Domains/D11]] | `domain` | 0 | 1 | — | [[Home]] |
+| [[Domains/D12]] | `domain` | 0 | 1 | — | [[Home]] |
+| [[Domains/D2]] | `domain` | 0 | 1 | — | [[Home]] |
+| [[Domains/D3]] | `domain` | 0 | 1 | — | [[Home]] |
+| [[Domains/D4]] | `domain` | 0 | 1 | — | [[Home]] |
+| [[Domains/D5]] | `domain` | 0 | 1 | — | [[Home]] |
+| [[Domains/D6]] | `domain` | 0 | 1 | — | [[Home]] |
+| [[Domains/D7]] | `domain` | 0 | 1 | — | [[Home]] |
+| [[Domains/D8]] | `domain` | 0 | 1 | — | [[Home]] |
+| [[Domains/D9]] | `domain` | 0 | 1 | — | [[Home]] |
 
 ---
 
@@ -157,18 +144,14 @@ Nodes that link to more than one page type. They are useful for navigating impac
 | [[Vices_Index]] | `wiki` | `vice`, `wiki` | 203 |
 | [[Tokenomics_Index]] | `wiki` | `tokenomics`, `wiki` | 36 |
 | [[Tokenomics/Memory_Headroom_Index]] | `tokenomics` | `tokenomics`, `wiki` | 16 |
-| [[Home]] | `wiki` | `conceptual-framework`, `inbox`, `root`, `tokenomics`, `vice`, `wiki` | 14 |
 | [[Tokenomics/Output_Compaction_Index]] | `tokenomics` | `tokenomics`, `wiki` | 14 |
-| [[Tokenomics_Map]] | `wiki` | `tokenomics`, `vice`, `wiki` | 9 |
-| [[Principles/PR-080]] | `wiki` | `domain`, `vice`, `wiki` | 7 |
-| [[Principles/PR-084]] | `wiki` | `domain`, `vice`, `wiki` | 7 |
-| [[Principles/PR-090]] | `wiki` | `domain`, `vice`, `wiki` | 7 |
+| [[Home]] | `wiki` | `conceptual-framework`, `inbox`, `root`, `tokenomics`, `vice`, `wiki` | 13 |
+| [[Tokenomics_Map]] | `wiki` | `tokenomics`, `vice`, `wiki` | 8 |
 | [[README]] | `root` | `conceptual-framework`, `contributing`, `inbox`, `wiki` | 6 |
-| [[Principles/PR-079]] | `wiki` | `domain`, `vice`, `wiki` | 6 |
-| [[Principles/PR-082]] | `wiki` | `domain`, `vice`, `wiki` | 6 |
 | [[Tokenomics/Measurement_Telemetry_Index]] | `tokenomics` | `tokenomics`, `wiki` | 6 |
-| [[Principles/PR-083]] | `wiki` | `domain`, `vice`, `wiki` | 5 |
-| [[Principles/PR-087]] | `wiki` | `domain`, `vice`, `wiki` | 5 |
+| [[Tokenomics/Automation_Tooling_Index]] | `tokenomics` | `tokenomics`, `wiki` | 4 |
+| [[Tokenomics/Input_Retrieval_Index]] | `tokenomics` | `tokenomics`, `wiki` | 4 |
+| [[CONTRIBUTING]] | `contributing` | `code-of-conduct`, `inbox` | 2 |
 
 ---
 

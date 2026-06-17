@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-06-16",
-  "node_count": 384,
-  "edge_count": 1420,
+  "node_count": 270,
+  "edge_count": 1037,
   "nodes": [
     {
       "id": "CODE_OF_CONDUCT",
@@ -179,14 +179,10 @@
       "outgoing": [
         "Home"
       ],
-      "incoming": [
-        "Principles/PR-079",
-        "Principles/PR-082",
-        "Principles/PR-088"
-      ],
-      "in_degree": 3,
+      "incoming": [],
+      "in_degree": 0,
       "out_degree": 1,
-      "degree": 4
+      "degree": 1
     },
     {
       "id": "Domains/D10",
@@ -196,17 +192,10 @@
       "outgoing": [
         "Home"
       ],
-      "incoming": [
-        "Principles/PR-081",
-        "Principles/PR-083",
-        "Principles/PR-085",
-        "Principles/PR-087",
-        "Principles/PR-088",
-        "Principles/PR-091"
-      ],
-      "in_degree": 6,
+      "incoming": [],
+      "in_degree": 0,
       "out_degree": 1,
-      "degree": 7
+      "degree": 1
     },
     {
       "id": "Domains/D11",
@@ -216,13 +205,10 @@
       "outgoing": [
         "Home"
       ],
-      "incoming": [
-        "Principles/PR-082",
-        "Principles/PR-090"
-      ],
-      "in_degree": 2,
+      "incoming": [],
+      "in_degree": 0,
       "out_degree": 1,
-      "degree": 3
+      "degree": 1
     },
     {
       "id": "Domains/D12",
@@ -232,14 +218,10 @@
       "outgoing": [
         "Home"
       ],
-      "incoming": [
-        "Principles/PR-092",
-        "Principles/PR-096",
-        "Principles/PR-101"
-      ],
-      "in_degree": 3,
+      "incoming": [],
+      "in_degree": 0,
       "out_degree": 1,
-      "degree": 4
+      "degree": 1
     },
     {
       "id": "Domains/D2",
@@ -249,16 +231,10 @@
       "outgoing": [
         "Home"
       ],
-      "incoming": [
-        "Principles/PR-079",
-        "Principles/PR-084",
-        "Principles/PR-086",
-        "Principles/PR-092",
-        "Principles/PR-100"
-      ],
-      "in_degree": 5,
+      "incoming": [],
+      "in_degree": 0,
       "out_degree": 1,
-      "degree": 6
+      "degree": 1
     },
     {
       "id": "Domains/D3",
@@ -268,14 +244,10 @@
       "outgoing": [
         "Home"
       ],
-      "incoming": [
-        "Principles/PR-080",
-        "Principles/PR-084",
-        "Principles/PR-089"
-      ],
-      "in_degree": 3,
+      "incoming": [],
+      "in_degree": 0,
       "out_degree": 1,
-      "degree": 4
+      "degree": 1
     },
     {
       "id": "Domains/D4",
@@ -285,14 +257,10 @@
       "outgoing": [
         "Home"
       ],
-      "incoming": [
-        "Principles/PR-083",
-        "Principles/PR-089",
-        "Principles/PR-102"
-      ],
-      "in_degree": 3,
+      "incoming": [],
+      "in_degree": 0,
       "out_degree": 1,
-      "degree": 4
+      "degree": 1
     },
     {
       "id": "Domains/D5",
@@ -302,14 +270,10 @@
       "outgoing": [
         "Home"
       ],
-      "incoming": [
-        "Principles/PR-080",
-        "Principles/PR-084",
-        "Principles/PR-087"
-      ],
-      "in_degree": 3,
+      "incoming": [],
+      "in_degree": 0,
       "out_degree": 1,
-      "degree": 4
+      "degree": 1
     },
     {
       "id": "Domains/D6",
@@ -319,13 +283,10 @@
       "outgoing": [
         "Home"
       ],
-      "incoming": [
-        "Principles/PR-084",
-        "Principles/PR-090"
-      ],
-      "in_degree": 2,
+      "incoming": [],
+      "in_degree": 0,
       "out_degree": 1,
-      "degree": 3
+      "degree": 1
     },
     {
       "id": "Domains/D7",
@@ -335,13 +296,10 @@
       "outgoing": [
         "Home"
       ],
-      "incoming": [
-        "Principles/PR-082",
-        "Principles/PR-091"
-      ],
-      "in_degree": 2,
+      "incoming": [],
+      "in_degree": 0,
       "out_degree": 1,
-      "degree": 3
+      "degree": 1
     },
     {
       "id": "Domains/D8",
@@ -351,16 +309,10 @@
       "outgoing": [
         "Home"
       ],
-      "incoming": [
-        "Principles/PR-079",
-        "Principles/PR-080",
-        "Principles/PR-090",
-        "Principles/PR-093",
-        "Principles/PR-095"
-      ],
-      "in_degree": 5,
+      "incoming": [],
+      "in_degree": 0,
       "out_degree": 1,
-      "degree": 6
+      "degree": 1
     },
     {
       "id": "Domains/D9",
@@ -370,14 +322,10 @@
       "outgoing": [
         "Home"
       ],
-      "incoming": [
-        "Principles/PR-080",
-        "Principles/PR-090",
-        "Principles/PR-094"
-      ],
-      "in_degree": 3,
+      "incoming": [],
+      "in_degree": 0,
       "out_degree": 1,
-      "degree": 4
+      "degree": 1
     },
     {
       "id": "Home",
@@ -388,7 +336,6 @@
         "CONCEPTUAL_FRAMEWORK",
         "Inbox/README",
         "Principles",
-        "Project_Insights_Index",
         "README",
         "Tokenomics/Automation_Tooling_Index",
         "Tokenomics/Input_Retrieval_Index",
@@ -414,120 +361,6 @@
         "Domains/D8",
         "Domains/D9",
         "Principles",
-        "Principles/PR-001",
-        "Principles/PR-002",
-        "Principles/PR-003",
-        "Principles/PR-004",
-        "Principles/PR-005",
-        "Principles/PR-006",
-        "Principles/PR-007",
-        "Principles/PR-008",
-        "Principles/PR-009",
-        "Principles/PR-010",
-        "Principles/PR-011",
-        "Principles/PR-012",
-        "Principles/PR-013",
-        "Principles/PR-014",
-        "Principles/PR-015",
-        "Principles/PR-016",
-        "Principles/PR-017",
-        "Principles/PR-018",
-        "Principles/PR-019",
-        "Principles/PR-020",
-        "Principles/PR-021",
-        "Principles/PR-022",
-        "Principles/PR-023",
-        "Principles/PR-024",
-        "Principles/PR-025",
-        "Principles/PR-026",
-        "Principles/PR-027",
-        "Principles/PR-028",
-        "Principles/PR-029",
-        "Principles/PR-030",
-        "Principles/PR-031",
-        "Principles/PR-032",
-        "Principles/PR-033",
-        "Principles/PR-034",
-        "Principles/PR-035",
-        "Principles/PR-036",
-        "Principles/PR-037",
-        "Principles/PR-038",
-        "Principles/PR-039",
-        "Principles/PR-040",
-        "Principles/PR-041",
-        "Principles/PR-042",
-        "Principles/PR-043",
-        "Principles/PR-044",
-        "Principles/PR-045",
-        "Principles/PR-046",
-        "Principles/PR-047",
-        "Principles/PR-048",
-        "Principles/PR-049",
-        "Principles/PR-050",
-        "Principles/PR-051",
-        "Principles/PR-052",
-        "Principles/PR-053",
-        "Principles/PR-054",
-        "Principles/PR-055",
-        "Principles/PR-056",
-        "Principles/PR-057",
-        "Principles/PR-058",
-        "Principles/PR-059",
-        "Principles/PR-060",
-        "Principles/PR-061",
-        "Principles/PR-062",
-        "Principles/PR-063",
-        "Principles/PR-064",
-        "Principles/PR-065",
-        "Principles/PR-066",
-        "Principles/PR-067",
-        "Principles/PR-068",
-        "Principles/PR-069",
-        "Principles/PR-070",
-        "Principles/PR-071",
-        "Principles/PR-072",
-        "Principles/PR-073",
-        "Principles/PR-074",
-        "Principles/PR-075",
-        "Principles/PR-076",
-        "Principles/PR-077",
-        "Principles/PR-078",
-        "Principles/PR-079",
-        "Principles/PR-080",
-        "Principles/PR-081",
-        "Principles/PR-082",
-        "Principles/PR-083",
-        "Principles/PR-084",
-        "Principles/PR-085",
-        "Principles/PR-086",
-        "Principles/PR-087",
-        "Principles/PR-088",
-        "Principles/PR-089",
-        "Principles/PR-090",
-        "Principles/PR-091",
-        "Principles/PR-092",
-        "Principles/PR-093",
-        "Principles/PR-094",
-        "Principles/PR-095",
-        "Principles/PR-096",
-        "Principles/PR-097",
-        "Principles/PR-098",
-        "Principles/PR-099",
-        "Principles/PR-100",
-        "Principles/PR-101",
-        "Principles/PR-102",
-        "Principles/PR-103",
-        "Principles/PR-104",
-        "Principles/PR-105",
-        "Principles/PR-106",
-        "Principles/PR-107",
-        "Principles/PR-108",
-        "Principles/PR-109",
-        "Principles/PR-110",
-        "Principles/PR-111",
-        "Principles/PR-112",
-        "Principles/PR-113",
-        "Project_Insights_Index",
         "README",
         "Tokenomics/TK-001",
         "Tokenomics/TK-002",
@@ -769,9 +602,9 @@
         "Vices/VT-116",
         "Vices_Index"
       ],
-      "in_degree": 367,
-      "out_degree": 14,
-      "degree": 381
+      "in_degree": 253,
+      "out_degree": 13,
+      "degree": 266
     },
     {
       "id": "Principles",
@@ -782,1764 +615,11 @@
         "Home"
       ],
       "incoming": [
-        "Home",
-        "Project_Insights_Index"
+        "Home"
       ],
-      "in_degree": 2,
+      "in_degree": 1,
       "out_degree": 1,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-001",
-      "path": "Wiki/Principles/PR-001.md",
-      "title": "PR-001: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-002",
-      "path": "Wiki/Principles/PR-002.md",
-      "title": "PR-002: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-003",
-      "path": "Wiki/Principles/PR-003.md",
-      "title": "PR-003: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-004",
-      "path": "Wiki/Principles/PR-004.md",
-      "title": "PR-004: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-005",
-      "path": "Wiki/Principles/PR-005.md",
-      "title": "PR-005: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-006",
-      "path": "Wiki/Principles/PR-006.md",
-      "title": "PR-006: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-007",
-      "path": "Wiki/Principles/PR-007.md",
-      "title": "PR-007: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-008",
-      "path": "Wiki/Principles/PR-008.md",
-      "title": "PR-008: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-009",
-      "path": "Wiki/Principles/PR-009.md",
-      "title": "PR-009: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-010",
-      "path": "Wiki/Principles/PR-010.md",
-      "title": "PR-010: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-011",
-      "path": "Wiki/Principles/PR-011.md",
-      "title": "PR-011: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-012",
-      "path": "Wiki/Principles/PR-012.md",
-      "title": "PR-012: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-013",
-      "path": "Wiki/Principles/PR-013.md",
-      "title": "PR-013: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-014",
-      "path": "Wiki/Principles/PR-014.md",
-      "title": "PR-014: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-015",
-      "path": "Wiki/Principles/PR-015.md",
-      "title": "PR-015: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-016",
-      "path": "Wiki/Principles/PR-016.md",
-      "title": "PR-016: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-017",
-      "path": "Wiki/Principles/PR-017.md",
-      "title": "PR-017: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-018",
-      "path": "Wiki/Principles/PR-018.md",
-      "title": "PR-018: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-019",
-      "path": "Wiki/Principles/PR-019.md",
-      "title": "PR-019: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-020",
-      "path": "Wiki/Principles/PR-020.md",
-      "title": "PR-020: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-021",
-      "path": "Wiki/Principles/PR-021.md",
-      "title": "PR-021: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-022",
-      "path": "Wiki/Principles/PR-022.md",
-      "title": "PR-022: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-023",
-      "path": "Wiki/Principles/PR-023.md",
-      "title": "PR-023: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-024",
-      "path": "Wiki/Principles/PR-024.md",
-      "title": "PR-024: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-025",
-      "path": "Wiki/Principles/PR-025.md",
-      "title": "PR-025: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-026",
-      "path": "Wiki/Principles/PR-026.md",
-      "title": "PR-026: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-027",
-      "path": "Wiki/Principles/PR-027.md",
-      "title": "PR-027: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-028",
-      "path": "Wiki/Principles/PR-028.md",
-      "title": "PR-028: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-029",
-      "path": "Wiki/Principles/PR-029.md",
-      "title": "PR-029: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-030",
-      "path": "Wiki/Principles/PR-030.md",
-      "title": "PR-030: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-031",
-      "path": "Wiki/Principles/PR-031.md",
-      "title": "PR-031: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-032",
-      "path": "Wiki/Principles/PR-032.md",
-      "title": "PR-032: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-033",
-      "path": "Wiki/Principles/PR-033.md",
-      "title": "PR-033: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-034",
-      "path": "Wiki/Principles/PR-034.md",
-      "title": "PR-034: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-035",
-      "path": "Wiki/Principles/PR-035.md",
-      "title": "PR-035: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-036",
-      "path": "Wiki/Principles/PR-036.md",
-      "title": "PR-036: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-037",
-      "path": "Wiki/Principles/PR-037.md",
-      "title": "PR-037: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-038",
-      "path": "Wiki/Principles/PR-038.md",
-      "title": "PR-038: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-039",
-      "path": "Wiki/Principles/PR-039.md",
-      "title": "PR-039: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-040",
-      "path": "Wiki/Principles/PR-040.md",
-      "title": "PR-040: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-041",
-      "path": "Wiki/Principles/PR-041.md",
-      "title": "PR-041: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-042",
-      "path": "Wiki/Principles/PR-042.md",
-      "title": "PR-042: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-043",
-      "path": "Wiki/Principles/PR-043.md",
-      "title": "PR-043: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-044",
-      "path": "Wiki/Principles/PR-044.md",
-      "title": "PR-044: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-045",
-      "path": "Wiki/Principles/PR-045.md",
-      "title": "PR-045: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-046",
-      "path": "Wiki/Principles/PR-046.md",
-      "title": "PR-046: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-047",
-      "path": "Wiki/Principles/PR-047.md",
-      "title": "PR-047: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-048",
-      "path": "Wiki/Principles/PR-048.md",
-      "title": "PR-048: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-049",
-      "path": "Wiki/Principles/PR-049.md",
-      "title": "PR-049: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-050",
-      "path": "Wiki/Principles/PR-050.md",
-      "title": "PR-050: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-051",
-      "path": "Wiki/Principles/PR-051.md",
-      "title": "PR-051: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-052",
-      "path": "Wiki/Principles/PR-052.md",
-      "title": "PR-052: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-053",
-      "path": "Wiki/Principles/PR-053.md",
-      "title": "PR-053: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-054",
-      "path": "Wiki/Principles/PR-054.md",
-      "title": "PR-054: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-055",
-      "path": "Wiki/Principles/PR-055.md",
-      "title": "PR-055: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-056",
-      "path": "Wiki/Principles/PR-056.md",
-      "title": "PR-056: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-057",
-      "path": "Wiki/Principles/PR-057.md",
-      "title": "PR-057: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-058",
-      "path": "Wiki/Principles/PR-058.md",
-      "title": "PR-058: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-059",
-      "path": "Wiki/Principles/PR-059.md",
-      "title": "PR-059: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-060",
-      "path": "Wiki/Principles/PR-060.md",
-      "title": "PR-060: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-061",
-      "path": "Wiki/Principles/PR-061.md",
-      "title": "PR-061: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-062",
-      "path": "Wiki/Principles/PR-062.md",
-      "title": "PR-062: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-063",
-      "path": "Wiki/Principles/PR-063.md",
-      "title": "PR-063: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-064",
-      "path": "Wiki/Principles/PR-064.md",
-      "title": "PR-064: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-065",
-      "path": "Wiki/Principles/PR-065.md",
-      "title": "PR-065: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-066",
-      "path": "Wiki/Principles/PR-066.md",
-      "title": "PR-066: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-067",
-      "path": "Wiki/Principles/PR-067.md",
-      "title": "PR-067: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-068",
-      "path": "Wiki/Principles/PR-068.md",
-      "title": "PR-068: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-069",
-      "path": "Wiki/Principles/PR-069.md",
-      "title": "PR-069: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-070",
-      "path": "Wiki/Principles/PR-070.md",
-      "title": "PR-070: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-071",
-      "path": "Wiki/Principles/PR-071.md",
-      "title": "PR-071: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-072",
-      "path": "Wiki/Principles/PR-072.md",
-      "title": "PR-072: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-073",
-      "path": "Wiki/Principles/PR-073.md",
-      "title": "PR-073: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-074",
-      "path": "Wiki/Principles/PR-074.md",
-      "title": "PR-074: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-075",
-      "path": "Wiki/Principles/PR-075.md",
-      "title": "PR-075: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-076",
-      "path": "Wiki/Principles/PR-076.md",
-      "title": "PR-076: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-077",
-      "path": "Wiki/Principles/PR-077.md",
-      "title": "PR-077: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-078",
-      "path": "Wiki/Principles/PR-078.md",
-      "title": "PR-078: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-079",
-      "path": "Wiki/Principles/PR-079.md",
-      "title": "PR-079: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D1",
-        "Domains/D2",
-        "Domains/D8",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 6,
-      "degree": 6
-    },
-    {
-      "id": "Principles/PR-080",
-      "path": "Wiki/Principles/PR-080.md",
-      "title": "PR-080: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D3",
-        "Domains/D5",
-        "Domains/D8",
-        "Domains/D9",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 7,
-      "degree": 7
-    },
-    {
-      "id": "Principles/PR-081",
-      "path": "Wiki/Principles/PR-081.md",
-      "title": "PR-081: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D10",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 4,
-      "degree": 4
-    },
-    {
-      "id": "Principles/PR-082",
-      "path": "Wiki/Principles/PR-082.md",
-      "title": "PR-082: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D1",
-        "Domains/D11",
-        "Domains/D7",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 6,
-      "degree": 6
-    },
-    {
-      "id": "Principles/PR-083",
-      "path": "Wiki/Principles/PR-083.md",
-      "title": "PR-083: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D10",
-        "Domains/D4",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 5,
-      "degree": 5
-    },
-    {
-      "id": "Principles/PR-084",
-      "path": "Wiki/Principles/PR-084.md",
-      "title": "PR-084: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D2",
-        "Domains/D3",
-        "Domains/D5",
-        "Domains/D6",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 7,
-      "degree": 7
-    },
-    {
-      "id": "Principles/PR-085",
-      "path": "Wiki/Principles/PR-085.md",
-      "title": "PR-085: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D10",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 4,
-      "degree": 4
-    },
-    {
-      "id": "Principles/PR-086",
-      "path": "Wiki/Principles/PR-086.md",
-      "title": "PR-086: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D2",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 4,
-      "degree": 4
-    },
-    {
-      "id": "Principles/PR-087",
-      "path": "Wiki/Principles/PR-087.md",
-      "title": "PR-087: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D10",
-        "Domains/D5",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 5,
-      "degree": 5
-    },
-    {
-      "id": "Principles/PR-088",
-      "path": "Wiki/Principles/PR-088.md",
-      "title": "PR-088: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D1",
-        "Domains/D10",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 5,
-      "degree": 5
-    },
-    {
-      "id": "Principles/PR-089",
-      "path": "Wiki/Principles/PR-089.md",
-      "title": "PR-089: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D3",
-        "Domains/D4",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 5,
-      "degree": 5
-    },
-    {
-      "id": "Principles/PR-090",
-      "path": "Wiki/Principles/PR-090.md",
-      "title": "PR-090: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D11",
-        "Domains/D6",
-        "Domains/D8",
-        "Domains/D9",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 7,
-      "degree": 7
-    },
-    {
-      "id": "Principles/PR-091",
-      "path": "Wiki/Principles/PR-091.md",
-      "title": "PR-091: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D10",
-        "Domains/D7",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 5,
-      "degree": 5
-    },
-    {
-      "id": "Principles/PR-092",
-      "path": "Wiki/Principles/PR-092.md",
-      "title": "PR-092: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D12",
-        "Domains/D2",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 5,
-      "degree": 5
-    },
-    {
-      "id": "Principles/PR-093",
-      "path": "Wiki/Principles/PR-093.md",
-      "title": "PR-093: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D8",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 4,
-      "degree": 4
-    },
-    {
-      "id": "Principles/PR-094",
-      "path": "Wiki/Principles/PR-094.md",
-      "title": "PR-094: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D9",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 4,
-      "degree": 4
-    },
-    {
-      "id": "Principles/PR-095",
-      "path": "Wiki/Principles/PR-095.md",
-      "title": "PR-095: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D8",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 4,
-      "degree": 4
-    },
-    {
-      "id": "Principles/PR-096",
-      "path": "Wiki/Principles/PR-096.md",
-      "title": "PR-096: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D12",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 4,
-      "degree": 4
-    },
-    {
-      "id": "Principles/PR-097",
-      "path": "Wiki/Principles/PR-097.md",
-      "title": "PR-097: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-098",
-      "path": "Wiki/Principles/PR-098.md",
-      "title": "PR-098: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-099",
-      "path": "Wiki/Principles/PR-099.md",
-      "title": "PR-099: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-100",
-      "path": "Wiki/Principles/PR-100.md",
-      "title": "PR-100: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D2",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 4,
-      "degree": 4
-    },
-    {
-      "id": "Principles/PR-101",
-      "path": "Wiki/Principles/PR-101.md",
-      "title": "PR-101: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D12",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 4,
-      "degree": 4
-    },
-    {
-      "id": "Principles/PR-102",
-      "path": "Wiki/Principles/PR-102.md",
-      "title": "PR-102: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Domains/D4",
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 4,
-      "degree": 4
-    },
-    {
-      "id": "Principles/PR-103",
-      "path": "Wiki/Principles/PR-103.md",
-      "title": "PR-103: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-104",
-      "path": "Wiki/Principles/PR-104.md",
-      "title": "PR-104: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-105",
-      "path": "Wiki/Principles/PR-105.md",
-      "title": "PR-105: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-106",
-      "path": "Wiki/Principles/PR-106.md",
-      "title": "PR-106: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-107",
-      "path": "Wiki/Principles/PR-107.md",
-      "title": "PR-107: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-108",
-      "path": "Wiki/Principles/PR-108.md",
-      "title": "PR-108: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-109",
-      "path": "Wiki/Principles/PR-109.md",
-      "title": "PR-109: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-110",
-      "path": "Wiki/Principles/PR-110.md",
-      "title": "PR-110: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-111",
-      "path": "Wiki/Principles/PR-111.md",
-      "title": "PR-111: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-112",
-      "path": "Wiki/Principles/PR-112.md",
-      "title": "PR-112: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Principles/PR-113",
-      "path": "Wiki/Principles/PR-113.md",
-      "title": "PR-113: Satellite Insight",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Tokenomics_Map",
-        "Vices/VC-001"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 3,
-      "degree": 3
-    },
-    {
-      "id": "Project_Insights_Index",
-      "path": "Wiki/Project_Insights_Index.md",
-      "title": "Satellite Insights Index",
-      "kind": "wiki",
-      "outgoing": [
-        "Home",
-        "Principles"
-      ],
-      "incoming": [
-        "Home",
-        "Tokenomics_Map"
-      ],
-      "in_degree": 2,
-      "out_degree": 2,
-      "degree": 4
+      "degree": 2
     },
     {
       "id": "Tokenomics/Automation_Tooling_Index",
@@ -3438,7 +1518,6 @@
       "kind": "wiki",
       "outgoing": [
         "Home",
-        "Project_Insights_Index",
         "Tokenomics/Automation_Tooling_Index",
         "Tokenomics/Input_Retrieval_Index",
         "Tokenomics/Measurement_Telemetry_Index",
@@ -3449,119 +1528,6 @@
       ],
       "incoming": [
         "Home",
-        "Principles/PR-001",
-        "Principles/PR-002",
-        "Principles/PR-003",
-        "Principles/PR-004",
-        "Principles/PR-005",
-        "Principles/PR-006",
-        "Principles/PR-007",
-        "Principles/PR-008",
-        "Principles/PR-009",
-        "Principles/PR-010",
-        "Principles/PR-011",
-        "Principles/PR-012",
-        "Principles/PR-013",
-        "Principles/PR-014",
-        "Principles/PR-015",
-        "Principles/PR-016",
-        "Principles/PR-017",
-        "Principles/PR-018",
-        "Principles/PR-019",
-        "Principles/PR-020",
-        "Principles/PR-021",
-        "Principles/PR-022",
-        "Principles/PR-023",
-        "Principles/PR-024",
-        "Principles/PR-025",
-        "Principles/PR-026",
-        "Principles/PR-027",
-        "Principles/PR-028",
-        "Principles/PR-029",
-        "Principles/PR-030",
-        "Principles/PR-031",
-        "Principles/PR-032",
-        "Principles/PR-033",
-        "Principles/PR-034",
-        "Principles/PR-035",
-        "Principles/PR-036",
-        "Principles/PR-037",
-        "Principles/PR-038",
-        "Principles/PR-039",
-        "Principles/PR-040",
-        "Principles/PR-041",
-        "Principles/PR-042",
-        "Principles/PR-043",
-        "Principles/PR-044",
-        "Principles/PR-045",
-        "Principles/PR-046",
-        "Principles/PR-047",
-        "Principles/PR-048",
-        "Principles/PR-049",
-        "Principles/PR-050",
-        "Principles/PR-051",
-        "Principles/PR-052",
-        "Principles/PR-053",
-        "Principles/PR-054",
-        "Principles/PR-055",
-        "Principles/PR-056",
-        "Principles/PR-057",
-        "Principles/PR-058",
-        "Principles/PR-059",
-        "Principles/PR-060",
-        "Principles/PR-061",
-        "Principles/PR-062",
-        "Principles/PR-063",
-        "Principles/PR-064",
-        "Principles/PR-065",
-        "Principles/PR-066",
-        "Principles/PR-067",
-        "Principles/PR-068",
-        "Principles/PR-069",
-        "Principles/PR-070",
-        "Principles/PR-071",
-        "Principles/PR-072",
-        "Principles/PR-073",
-        "Principles/PR-074",
-        "Principles/PR-075",
-        "Principles/PR-076",
-        "Principles/PR-077",
-        "Principles/PR-078",
-        "Principles/PR-079",
-        "Principles/PR-080",
-        "Principles/PR-081",
-        "Principles/PR-082",
-        "Principles/PR-083",
-        "Principles/PR-084",
-        "Principles/PR-085",
-        "Principles/PR-086",
-        "Principles/PR-087",
-        "Principles/PR-088",
-        "Principles/PR-089",
-        "Principles/PR-090",
-        "Principles/PR-091",
-        "Principles/PR-092",
-        "Principles/PR-093",
-        "Principles/PR-094",
-        "Principles/PR-095",
-        "Principles/PR-096",
-        "Principles/PR-097",
-        "Principles/PR-098",
-        "Principles/PR-099",
-        "Principles/PR-100",
-        "Principles/PR-101",
-        "Principles/PR-102",
-        "Principles/PR-103",
-        "Principles/PR-104",
-        "Principles/PR-105",
-        "Principles/PR-106",
-        "Principles/PR-107",
-        "Principles/PR-108",
-        "Principles/PR-109",
-        "Principles/PR-110",
-        "Principles/PR-111",
-        "Principles/PR-112",
-        "Principles/PR-113",
         "README",
         "Tokenomics/Automation_Tooling_Index",
         "Tokenomics/Input_Retrieval_Index",
@@ -3806,9 +1772,9 @@
         "Vices/VT-115",
         "Vices/VT-116"
       ],
-      "in_degree": 357,
-      "out_degree": 9,
-      "degree": 366
+      "in_degree": 244,
+      "out_degree": 8,
+      "degree": 252
     },
     {
       "id": "Vices/VC-001",
@@ -3821,124 +1787,11 @@
         "Vices_Index"
       ],
       "incoming": [
-        "Principles/PR-001",
-        "Principles/PR-002",
-        "Principles/PR-003",
-        "Principles/PR-004",
-        "Principles/PR-005",
-        "Principles/PR-006",
-        "Principles/PR-007",
-        "Principles/PR-008",
-        "Principles/PR-009",
-        "Principles/PR-010",
-        "Principles/PR-011",
-        "Principles/PR-012",
-        "Principles/PR-013",
-        "Principles/PR-014",
-        "Principles/PR-015",
-        "Principles/PR-016",
-        "Principles/PR-017",
-        "Principles/PR-018",
-        "Principles/PR-019",
-        "Principles/PR-020",
-        "Principles/PR-021",
-        "Principles/PR-022",
-        "Principles/PR-023",
-        "Principles/PR-024",
-        "Principles/PR-025",
-        "Principles/PR-026",
-        "Principles/PR-027",
-        "Principles/PR-028",
-        "Principles/PR-029",
-        "Principles/PR-030",
-        "Principles/PR-031",
-        "Principles/PR-032",
-        "Principles/PR-033",
-        "Principles/PR-034",
-        "Principles/PR-035",
-        "Principles/PR-036",
-        "Principles/PR-037",
-        "Principles/PR-038",
-        "Principles/PR-039",
-        "Principles/PR-040",
-        "Principles/PR-041",
-        "Principles/PR-042",
-        "Principles/PR-043",
-        "Principles/PR-044",
-        "Principles/PR-045",
-        "Principles/PR-046",
-        "Principles/PR-047",
-        "Principles/PR-048",
-        "Principles/PR-049",
-        "Principles/PR-050",
-        "Principles/PR-051",
-        "Principles/PR-052",
-        "Principles/PR-053",
-        "Principles/PR-054",
-        "Principles/PR-055",
-        "Principles/PR-056",
-        "Principles/PR-057",
-        "Principles/PR-058",
-        "Principles/PR-059",
-        "Principles/PR-060",
-        "Principles/PR-061",
-        "Principles/PR-062",
-        "Principles/PR-063",
-        "Principles/PR-064",
-        "Principles/PR-065",
-        "Principles/PR-066",
-        "Principles/PR-067",
-        "Principles/PR-068",
-        "Principles/PR-069",
-        "Principles/PR-070",
-        "Principles/PR-071",
-        "Principles/PR-072",
-        "Principles/PR-073",
-        "Principles/PR-074",
-        "Principles/PR-075",
-        "Principles/PR-076",
-        "Principles/PR-077",
-        "Principles/PR-078",
-        "Principles/PR-079",
-        "Principles/PR-080",
-        "Principles/PR-081",
-        "Principles/PR-082",
-        "Principles/PR-083",
-        "Principles/PR-084",
-        "Principles/PR-085",
-        "Principles/PR-086",
-        "Principles/PR-087",
-        "Principles/PR-088",
-        "Principles/PR-089",
-        "Principles/PR-090",
-        "Principles/PR-091",
-        "Principles/PR-092",
-        "Principles/PR-093",
-        "Principles/PR-094",
-        "Principles/PR-095",
-        "Principles/PR-096",
-        "Principles/PR-097",
-        "Principles/PR-098",
-        "Principles/PR-099",
-        "Principles/PR-100",
-        "Principles/PR-101",
-        "Principles/PR-102",
-        "Principles/PR-103",
-        "Principles/PR-104",
-        "Principles/PR-105",
-        "Principles/PR-106",
-        "Principles/PR-107",
-        "Principles/PR-108",
-        "Principles/PR-109",
-        "Principles/PR-110",
-        "Principles/PR-111",
-        "Principles/PR-112",
-        "Principles/PR-113",
         "Vices_Index"
       ],
-      "in_degree": 114,
+      "in_degree": 1,
       "out_degree": 3,
-      "degree": 117,
+      "degree": 4,
       "status": "PREVENTED",
       "downstream_verification": "none"
     },
@@ -8271,11 +6124,6 @@
     },
     {
       "source": "Home",
-      "target": "Project_Insights_Index",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Home",
       "target": "README",
       "kind": "markdown"
     },
@@ -8347,1911 +6195,6 @@
     {
       "source": "Principles",
       "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-001",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-001",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-001",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-002",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-002",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-002",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-003",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-003",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-003",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-004",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-004",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-004",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-005",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-005",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-005",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-006",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-006",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-006",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-007",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-007",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-007",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-008",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-008",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-008",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-009",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-009",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-009",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-010",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-010",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-010",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-011",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-011",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-011",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-012",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-012",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-012",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-013",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-013",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-013",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-014",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-014",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-014",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-015",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-015",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-015",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-016",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-016",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-016",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-017",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-017",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-017",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-018",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-018",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-018",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-019",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-019",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-019",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-020",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-020",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-020",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-021",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-021",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-021",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-022",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-022",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-022",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-023",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-023",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-023",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-024",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-024",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-024",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-025",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-025",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-025",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-026",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-026",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-026",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-027",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-027",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-027",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-028",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-028",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-028",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-029",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-029",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-029",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-030",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-030",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-030",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-031",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-031",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-031",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-032",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-032",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-032",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-033",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-033",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-033",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-034",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-034",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-034",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-035",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-035",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-035",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-036",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-036",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-036",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-037",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-037",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-037",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-038",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-038",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-038",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-039",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-039",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-039",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-040",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-040",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-040",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-041",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-041",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-041",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-042",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-042",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-042",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-043",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-043",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-043",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-044",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-044",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-044",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-045",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-045",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-045",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-046",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-046",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-046",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-047",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-047",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-047",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-048",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-048",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-048",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-049",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-049",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-049",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-050",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-050",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-050",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-051",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-051",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-051",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-052",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-052",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-052",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-053",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-053",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-053",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-054",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-054",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-054",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-055",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-055",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-055",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-056",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-056",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-056",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-057",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-057",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-057",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-058",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-058",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-058",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-059",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-059",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-059",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-060",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-060",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-060",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-061",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-061",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-061",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-062",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-062",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-062",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-063",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-063",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-063",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-064",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-064",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-064",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-065",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-065",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-065",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-066",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-066",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-066",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-067",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-067",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-067",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-068",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-068",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-068",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-069",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-069",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-069",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-070",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-070",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-070",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-071",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-071",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-071",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-072",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-072",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-072",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-073",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-073",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-073",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-074",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-074",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-074",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-075",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-075",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-075",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-076",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-076",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-076",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-077",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-077",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-077",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-078",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-078",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-078",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-079",
-      "target": "Domains/D1",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-079",
-      "target": "Domains/D2",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-079",
-      "target": "Domains/D8",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-079",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-079",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-079",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-080",
-      "target": "Domains/D3",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-080",
-      "target": "Domains/D5",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-080",
-      "target": "Domains/D8",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-080",
-      "target": "Domains/D9",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-080",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-080",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-080",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-081",
-      "target": "Domains/D10",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-081",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-081",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-081",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-082",
-      "target": "Domains/D1",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-082",
-      "target": "Domains/D11",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-082",
-      "target": "Domains/D7",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-082",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-082",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-082",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-083",
-      "target": "Domains/D10",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-083",
-      "target": "Domains/D4",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-083",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-083",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-083",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-084",
-      "target": "Domains/D2",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-084",
-      "target": "Domains/D3",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-084",
-      "target": "Domains/D5",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-084",
-      "target": "Domains/D6",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-084",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-084",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-084",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-085",
-      "target": "Domains/D10",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-085",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-085",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-085",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-086",
-      "target": "Domains/D2",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-086",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-086",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-086",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-087",
-      "target": "Domains/D10",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-087",
-      "target": "Domains/D5",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-087",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-087",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-087",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-088",
-      "target": "Domains/D1",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-088",
-      "target": "Domains/D10",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-088",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-088",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-088",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-089",
-      "target": "Domains/D3",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-089",
-      "target": "Domains/D4",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-089",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-089",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-089",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-090",
-      "target": "Domains/D11",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-090",
-      "target": "Domains/D6",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-090",
-      "target": "Domains/D8",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-090",
-      "target": "Domains/D9",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-090",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-090",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-090",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-091",
-      "target": "Domains/D10",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-091",
-      "target": "Domains/D7",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-091",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-091",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-091",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-092",
-      "target": "Domains/D12",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-092",
-      "target": "Domains/D2",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-092",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-092",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-092",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-093",
-      "target": "Domains/D8",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-093",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-093",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-093",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-094",
-      "target": "Domains/D9",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-094",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-094",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-094",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-095",
-      "target": "Domains/D8",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-095",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-095",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-095",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-096",
-      "target": "Domains/D12",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-096",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-096",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-096",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-097",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-097",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-097",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-098",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-098",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-098",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-099",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-099",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-099",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-100",
-      "target": "Domains/D2",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-100",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-100",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-100",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-101",
-      "target": "Domains/D12",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-101",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-101",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-101",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-102",
-      "target": "Domains/D4",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-102",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-102",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-102",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-103",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-103",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-103",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-104",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-104",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-104",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-105",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-105",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-105",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-106",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-106",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-106",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-107",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-107",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-107",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-108",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-108",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-108",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-109",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-109",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-109",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-110",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-110",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-110",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-111",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-111",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-111",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-112",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-112",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-112",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-113",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-113",
-      "target": "Tokenomics_Map",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Principles/PR-113",
-      "target": "Vices/VC-001",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Project_Insights_Index",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Project_Insights_Index",
-      "target": "Principles",
       "kind": "wikilink"
     },
     {
@@ -11197,11 +7140,6 @@
     {
       "source": "Tokenomics_Map",
       "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Tokenomics_Map",
-      "target": "Project_Insights_Index",
       "kind": "wikilink"
     },
     {
@@ -15323,379 +11261,160 @@
     ],
     "orphan_candidates": [
       {
-        "id": "Principles/PR-001",
-        "path": "Wiki/Principles/PR-001.md",
-        "title": "PR-001: Satellite Insight",
-        "kind": "wiki",
+        "id": "Domains/D1",
+        "path": "Wiki/Domains/D1.md",
+        "title": "Operational Lens 1",
+        "kind": "domain",
         "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Home"
         ],
         "incoming": [],
         "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
+        "out_degree": 1,
+        "degree": 1
       },
       {
-        "id": "Principles/PR-002",
-        "path": "Wiki/Principles/PR-002.md",
-        "title": "PR-002: Satellite Insight",
-        "kind": "wiki",
+        "id": "Domains/D10",
+        "path": "Wiki/Domains/D10.md",
+        "title": "Operational Lens 10",
+        "kind": "domain",
         "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Home"
         ],
         "incoming": [],
         "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
+        "out_degree": 1,
+        "degree": 1
       },
       {
-        "id": "Principles/PR-003",
-        "path": "Wiki/Principles/PR-003.md",
-        "title": "PR-003: Satellite Insight",
-        "kind": "wiki",
+        "id": "Domains/D11",
+        "path": "Wiki/Domains/D11.md",
+        "title": "Operational Lens 11",
+        "kind": "domain",
         "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Home"
         ],
         "incoming": [],
         "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
+        "out_degree": 1,
+        "degree": 1
       },
       {
-        "id": "Principles/PR-004",
-        "path": "Wiki/Principles/PR-004.md",
-        "title": "PR-004: Satellite Insight",
-        "kind": "wiki",
+        "id": "Domains/D12",
+        "path": "Wiki/Domains/D12.md",
+        "title": "Operational Lens 12",
+        "kind": "domain",
         "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Home"
         ],
         "incoming": [],
         "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
+        "out_degree": 1,
+        "degree": 1
       },
       {
-        "id": "Principles/PR-005",
-        "path": "Wiki/Principles/PR-005.md",
-        "title": "PR-005: Satellite Insight",
-        "kind": "wiki",
+        "id": "Domains/D2",
+        "path": "Wiki/Domains/D2.md",
+        "title": "Operational Lens 2",
+        "kind": "domain",
         "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Home"
         ],
         "incoming": [],
         "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
+        "out_degree": 1,
+        "degree": 1
       },
       {
-        "id": "Principles/PR-006",
-        "path": "Wiki/Principles/PR-006.md",
-        "title": "PR-006: Satellite Insight",
-        "kind": "wiki",
+        "id": "Domains/D3",
+        "path": "Wiki/Domains/D3.md",
+        "title": "Operational Lens 3",
+        "kind": "domain",
         "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Home"
         ],
         "incoming": [],
         "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
+        "out_degree": 1,
+        "degree": 1
       },
       {
-        "id": "Principles/PR-007",
-        "path": "Wiki/Principles/PR-007.md",
-        "title": "PR-007: Satellite Insight",
-        "kind": "wiki",
+        "id": "Domains/D4",
+        "path": "Wiki/Domains/D4.md",
+        "title": "Operational Lens 4",
+        "kind": "domain",
         "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Home"
         ],
         "incoming": [],
         "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
+        "out_degree": 1,
+        "degree": 1
       },
       {
-        "id": "Principles/PR-008",
-        "path": "Wiki/Principles/PR-008.md",
-        "title": "PR-008: Satellite Insight",
-        "kind": "wiki",
+        "id": "Domains/D5",
+        "path": "Wiki/Domains/D5.md",
+        "title": "Operational Lens 5",
+        "kind": "domain",
         "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Home"
         ],
         "incoming": [],
         "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
+        "out_degree": 1,
+        "degree": 1
       },
       {
-        "id": "Principles/PR-009",
-        "path": "Wiki/Principles/PR-009.md",
-        "title": "PR-009: Satellite Insight",
-        "kind": "wiki",
+        "id": "Domains/D6",
+        "path": "Wiki/Domains/D6.md",
+        "title": "Operational Lens 6",
+        "kind": "domain",
         "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Home"
         ],
         "incoming": [],
         "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
+        "out_degree": 1,
+        "degree": 1
       },
       {
-        "id": "Principles/PR-010",
-        "path": "Wiki/Principles/PR-010.md",
-        "title": "PR-010: Satellite Insight",
-        "kind": "wiki",
+        "id": "Domains/D7",
+        "path": "Wiki/Domains/D7.md",
+        "title": "Operational Lens 7",
+        "kind": "domain",
         "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Home"
         ],
         "incoming": [],
         "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
+        "out_degree": 1,
+        "degree": 1
       },
       {
-        "id": "Principles/PR-011",
-        "path": "Wiki/Principles/PR-011.md",
-        "title": "PR-011: Satellite Insight",
-        "kind": "wiki",
+        "id": "Domains/D8",
+        "path": "Wiki/Domains/D8.md",
+        "title": "Operational Lens 8",
+        "kind": "domain",
         "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Home"
         ],
         "incoming": [],
         "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
+        "out_degree": 1,
+        "degree": 1
       },
       {
-        "id": "Principles/PR-012",
-        "path": "Wiki/Principles/PR-012.md",
-        "title": "PR-012: Satellite Insight",
-        "kind": "wiki",
+        "id": "Domains/D9",
+        "path": "Wiki/Domains/D9.md",
+        "title": "Operational Lens 9",
+        "kind": "domain",
         "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Home"
         ],
         "incoming": [],
         "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-013",
-        "path": "Wiki/Principles/PR-013.md",
-        "title": "PR-013: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-014",
-        "path": "Wiki/Principles/PR-014.md",
-        "title": "PR-014: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-015",
-        "path": "Wiki/Principles/PR-015.md",
-        "title": "PR-015: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-016",
-        "path": "Wiki/Principles/PR-016.md",
-        "title": "PR-016: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-017",
-        "path": "Wiki/Principles/PR-017.md",
-        "title": "PR-017: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-018",
-        "path": "Wiki/Principles/PR-018.md",
-        "title": "PR-018: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-019",
-        "path": "Wiki/Principles/PR-019.md",
-        "title": "PR-019: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-020",
-        "path": "Wiki/Principles/PR-020.md",
-        "title": "PR-020: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-021",
-        "path": "Wiki/Principles/PR-021.md",
-        "title": "PR-021: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-022",
-        "path": "Wiki/Principles/PR-022.md",
-        "title": "PR-022: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-023",
-        "path": "Wiki/Principles/PR-023.md",
-        "title": "PR-023: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-024",
-        "path": "Wiki/Principles/PR-024.md",
-        "title": "PR-024: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
-      },
-      {
-        "id": "Principles/PR-025",
-        "path": "Wiki/Principles/PR-025.md",
-        "title": "PR-025: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 3,
-        "degree": 3
+        "out_degree": 1,
+        "degree": 1
       }
     ],
     "hubs": [
@@ -16127,7 +11846,6 @@
           "CONCEPTUAL_FRAMEWORK",
           "Inbox/README",
           "Principles",
-          "Project_Insights_Index",
           "README",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
@@ -16153,120 +11871,6 @@
           "Domains/D8",
           "Domains/D9",
           "Principles",
-          "Principles/PR-001",
-          "Principles/PR-002",
-          "Principles/PR-003",
-          "Principles/PR-004",
-          "Principles/PR-005",
-          "Principles/PR-006",
-          "Principles/PR-007",
-          "Principles/PR-008",
-          "Principles/PR-009",
-          "Principles/PR-010",
-          "Principles/PR-011",
-          "Principles/PR-012",
-          "Principles/PR-013",
-          "Principles/PR-014",
-          "Principles/PR-015",
-          "Principles/PR-016",
-          "Principles/PR-017",
-          "Principles/PR-018",
-          "Principles/PR-019",
-          "Principles/PR-020",
-          "Principles/PR-021",
-          "Principles/PR-022",
-          "Principles/PR-023",
-          "Principles/PR-024",
-          "Principles/PR-025",
-          "Principles/PR-026",
-          "Principles/PR-027",
-          "Principles/PR-028",
-          "Principles/PR-029",
-          "Principles/PR-030",
-          "Principles/PR-031",
-          "Principles/PR-032",
-          "Principles/PR-033",
-          "Principles/PR-034",
-          "Principles/PR-035",
-          "Principles/PR-036",
-          "Principles/PR-037",
-          "Principles/PR-038",
-          "Principles/PR-039",
-          "Principles/PR-040",
-          "Principles/PR-041",
-          "Principles/PR-042",
-          "Principles/PR-043",
-          "Principles/PR-044",
-          "Principles/PR-045",
-          "Principles/PR-046",
-          "Principles/PR-047",
-          "Principles/PR-048",
-          "Principles/PR-049",
-          "Principles/PR-050",
-          "Principles/PR-051",
-          "Principles/PR-052",
-          "Principles/PR-053",
-          "Principles/PR-054",
-          "Principles/PR-055",
-          "Principles/PR-056",
-          "Principles/PR-057",
-          "Principles/PR-058",
-          "Principles/PR-059",
-          "Principles/PR-060",
-          "Principles/PR-061",
-          "Principles/PR-062",
-          "Principles/PR-063",
-          "Principles/PR-064",
-          "Principles/PR-065",
-          "Principles/PR-066",
-          "Principles/PR-067",
-          "Principles/PR-068",
-          "Principles/PR-069",
-          "Principles/PR-070",
-          "Principles/PR-071",
-          "Principles/PR-072",
-          "Principles/PR-073",
-          "Principles/PR-074",
-          "Principles/PR-075",
-          "Principles/PR-076",
-          "Principles/PR-077",
-          "Principles/PR-078",
-          "Principles/PR-079",
-          "Principles/PR-080",
-          "Principles/PR-081",
-          "Principles/PR-082",
-          "Principles/PR-083",
-          "Principles/PR-084",
-          "Principles/PR-085",
-          "Principles/PR-086",
-          "Principles/PR-087",
-          "Principles/PR-088",
-          "Principles/PR-089",
-          "Principles/PR-090",
-          "Principles/PR-091",
-          "Principles/PR-092",
-          "Principles/PR-093",
-          "Principles/PR-094",
-          "Principles/PR-095",
-          "Principles/PR-096",
-          "Principles/PR-097",
-          "Principles/PR-098",
-          "Principles/PR-099",
-          "Principles/PR-100",
-          "Principles/PR-101",
-          "Principles/PR-102",
-          "Principles/PR-103",
-          "Principles/PR-104",
-          "Principles/PR-105",
-          "Principles/PR-106",
-          "Principles/PR-107",
-          "Principles/PR-108",
-          "Principles/PR-109",
-          "Principles/PR-110",
-          "Principles/PR-111",
-          "Principles/PR-112",
-          "Principles/PR-113",
-          "Project_Insights_Index",
           "README",
           "Tokenomics/TK-001",
           "Tokenomics/TK-002",
@@ -16508,9 +12112,9 @@
           "Vices/VT-116",
           "Vices_Index"
         ],
-        "in_degree": 367,
-        "out_degree": 14,
-        "degree": 381
+        "in_degree": 253,
+        "out_degree": 13,
+        "degree": 266
       },
       {
         "id": "Tokenomics_Map",
@@ -16519,7 +12123,6 @@
         "kind": "wiki",
         "outgoing": [
           "Home",
-          "Project_Insights_Index",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
           "Tokenomics/Measurement_Telemetry_Index",
@@ -16530,119 +12133,6 @@
         ],
         "incoming": [
           "Home",
-          "Principles/PR-001",
-          "Principles/PR-002",
-          "Principles/PR-003",
-          "Principles/PR-004",
-          "Principles/PR-005",
-          "Principles/PR-006",
-          "Principles/PR-007",
-          "Principles/PR-008",
-          "Principles/PR-009",
-          "Principles/PR-010",
-          "Principles/PR-011",
-          "Principles/PR-012",
-          "Principles/PR-013",
-          "Principles/PR-014",
-          "Principles/PR-015",
-          "Principles/PR-016",
-          "Principles/PR-017",
-          "Principles/PR-018",
-          "Principles/PR-019",
-          "Principles/PR-020",
-          "Principles/PR-021",
-          "Principles/PR-022",
-          "Principles/PR-023",
-          "Principles/PR-024",
-          "Principles/PR-025",
-          "Principles/PR-026",
-          "Principles/PR-027",
-          "Principles/PR-028",
-          "Principles/PR-029",
-          "Principles/PR-030",
-          "Principles/PR-031",
-          "Principles/PR-032",
-          "Principles/PR-033",
-          "Principles/PR-034",
-          "Principles/PR-035",
-          "Principles/PR-036",
-          "Principles/PR-037",
-          "Principles/PR-038",
-          "Principles/PR-039",
-          "Principles/PR-040",
-          "Principles/PR-041",
-          "Principles/PR-042",
-          "Principles/PR-043",
-          "Principles/PR-044",
-          "Principles/PR-045",
-          "Principles/PR-046",
-          "Principles/PR-047",
-          "Principles/PR-048",
-          "Principles/PR-049",
-          "Principles/PR-050",
-          "Principles/PR-051",
-          "Principles/PR-052",
-          "Principles/PR-053",
-          "Principles/PR-054",
-          "Principles/PR-055",
-          "Principles/PR-056",
-          "Principles/PR-057",
-          "Principles/PR-058",
-          "Principles/PR-059",
-          "Principles/PR-060",
-          "Principles/PR-061",
-          "Principles/PR-062",
-          "Principles/PR-063",
-          "Principles/PR-064",
-          "Principles/PR-065",
-          "Principles/PR-066",
-          "Principles/PR-067",
-          "Principles/PR-068",
-          "Principles/PR-069",
-          "Principles/PR-070",
-          "Principles/PR-071",
-          "Principles/PR-072",
-          "Principles/PR-073",
-          "Principles/PR-074",
-          "Principles/PR-075",
-          "Principles/PR-076",
-          "Principles/PR-077",
-          "Principles/PR-078",
-          "Principles/PR-079",
-          "Principles/PR-080",
-          "Principles/PR-081",
-          "Principles/PR-082",
-          "Principles/PR-083",
-          "Principles/PR-084",
-          "Principles/PR-085",
-          "Principles/PR-086",
-          "Principles/PR-087",
-          "Principles/PR-088",
-          "Principles/PR-089",
-          "Principles/PR-090",
-          "Principles/PR-091",
-          "Principles/PR-092",
-          "Principles/PR-093",
-          "Principles/PR-094",
-          "Principles/PR-095",
-          "Principles/PR-096",
-          "Principles/PR-097",
-          "Principles/PR-098",
-          "Principles/PR-099",
-          "Principles/PR-100",
-          "Principles/PR-101",
-          "Principles/PR-102",
-          "Principles/PR-103",
-          "Principles/PR-104",
-          "Principles/PR-105",
-          "Principles/PR-106",
-          "Principles/PR-107",
-          "Principles/PR-108",
-          "Principles/PR-109",
-          "Principles/PR-110",
-          "Principles/PR-111",
-          "Principles/PR-112",
-          "Principles/PR-113",
           "README",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
@@ -16887,141 +12377,9 @@
           "Vices/VT-115",
           "Vices/VT-116"
         ],
-        "in_degree": 357,
-        "out_degree": 9,
-        "degree": 366
-      },
-      {
-        "id": "Vices/VC-001",
-        "path": "Wiki/Vices/VC-001.md",
-        "title": "VC-001: Optimism without proof",
-        "kind": "vice",
-        "outgoing": [
-          "Home",
-          "Tokenomics_Map",
-          "Vices_Index"
-        ],
-        "incoming": [
-          "Principles/PR-001",
-          "Principles/PR-002",
-          "Principles/PR-003",
-          "Principles/PR-004",
-          "Principles/PR-005",
-          "Principles/PR-006",
-          "Principles/PR-007",
-          "Principles/PR-008",
-          "Principles/PR-009",
-          "Principles/PR-010",
-          "Principles/PR-011",
-          "Principles/PR-012",
-          "Principles/PR-013",
-          "Principles/PR-014",
-          "Principles/PR-015",
-          "Principles/PR-016",
-          "Principles/PR-017",
-          "Principles/PR-018",
-          "Principles/PR-019",
-          "Principles/PR-020",
-          "Principles/PR-021",
-          "Principles/PR-022",
-          "Principles/PR-023",
-          "Principles/PR-024",
-          "Principles/PR-025",
-          "Principles/PR-026",
-          "Principles/PR-027",
-          "Principles/PR-028",
-          "Principles/PR-029",
-          "Principles/PR-030",
-          "Principles/PR-031",
-          "Principles/PR-032",
-          "Principles/PR-033",
-          "Principles/PR-034",
-          "Principles/PR-035",
-          "Principles/PR-036",
-          "Principles/PR-037",
-          "Principles/PR-038",
-          "Principles/PR-039",
-          "Principles/PR-040",
-          "Principles/PR-041",
-          "Principles/PR-042",
-          "Principles/PR-043",
-          "Principles/PR-044",
-          "Principles/PR-045",
-          "Principles/PR-046",
-          "Principles/PR-047",
-          "Principles/PR-048",
-          "Principles/PR-049",
-          "Principles/PR-050",
-          "Principles/PR-051",
-          "Principles/PR-052",
-          "Principles/PR-053",
-          "Principles/PR-054",
-          "Principles/PR-055",
-          "Principles/PR-056",
-          "Principles/PR-057",
-          "Principles/PR-058",
-          "Principles/PR-059",
-          "Principles/PR-060",
-          "Principles/PR-061",
-          "Principles/PR-062",
-          "Principles/PR-063",
-          "Principles/PR-064",
-          "Principles/PR-065",
-          "Principles/PR-066",
-          "Principles/PR-067",
-          "Principles/PR-068",
-          "Principles/PR-069",
-          "Principles/PR-070",
-          "Principles/PR-071",
-          "Principles/PR-072",
-          "Principles/PR-073",
-          "Principles/PR-074",
-          "Principles/PR-075",
-          "Principles/PR-076",
-          "Principles/PR-077",
-          "Principles/PR-078",
-          "Principles/PR-079",
-          "Principles/PR-080",
-          "Principles/PR-081",
-          "Principles/PR-082",
-          "Principles/PR-083",
-          "Principles/PR-084",
-          "Principles/PR-085",
-          "Principles/PR-086",
-          "Principles/PR-087",
-          "Principles/PR-088",
-          "Principles/PR-089",
-          "Principles/PR-090",
-          "Principles/PR-091",
-          "Principles/PR-092",
-          "Principles/PR-093",
-          "Principles/PR-094",
-          "Principles/PR-095",
-          "Principles/PR-096",
-          "Principles/PR-097",
-          "Principles/PR-098",
-          "Principles/PR-099",
-          "Principles/PR-100",
-          "Principles/PR-101",
-          "Principles/PR-102",
-          "Principles/PR-103",
-          "Principles/PR-104",
-          "Principles/PR-105",
-          "Principles/PR-106",
-          "Principles/PR-107",
-          "Principles/PR-108",
-          "Principles/PR-109",
-          "Principles/PR-110",
-          "Principles/PR-111",
-          "Principles/PR-112",
-          "Principles/PR-113",
-          "Vices_Index"
-        ],
-        "in_degree": 114,
-        "out_degree": 3,
-        "degree": 117,
-        "status": "PREVENTED",
-        "downstream_verification": "none"
+        "in_degree": 244,
+        "out_degree": 8,
+        "degree": 252
       },
       {
         "id": "Tokenomics_Index",
@@ -17196,26 +12554,6 @@
         "degree": 8
       },
       {
-        "id": "Domains/D10",
-        "path": "Wiki/Domains/D10.md",
-        "title": "Operational Lens 10",
-        "kind": "domain",
-        "outgoing": [
-          "Home"
-        ],
-        "incoming": [
-          "Principles/PR-081",
-          "Principles/PR-083",
-          "Principles/PR-085",
-          "Principles/PR-087",
-          "Principles/PR-088",
-          "Principles/PR-091"
-        ],
-        "in_degree": 6,
-        "out_degree": 1,
-        "degree": 7
-      },
-      {
         "id": "Inbox/README",
         "path": "Inbox/README.md",
         "title": "Inbox — Golden Standard Knowledge Ingestion",
@@ -17256,80 +12594,123 @@
         "degree": 7
       },
       {
-        "id": "Principles/PR-080",
-        "path": "Wiki/Principles/PR-080.md",
-        "title": "PR-080: Satellite Insight",
-        "kind": "wiki",
+        "id": "Vices/VC-056",
+        "path": "Wiki/Vices/VC-056.md",
+        "title": "VC-056: Hasty Deprecation without Analysis (Hasty Deprecation)",
+        "kind": "vice",
         "outgoing": [
-          "Domains/D3",
-          "Domains/D5",
-          "Domains/D8",
-          "Domains/D9",
           "Home",
           "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 7,
-        "degree": 7
-      },
-      {
-        "id": "Principles/PR-084",
-        "path": "Wiki/Principles/PR-084.md",
-        "title": "PR-084: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Domains/D2",
-          "Domains/D3",
-          "Domains/D5",
-          "Domains/D6",
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 7,
-        "degree": 7
-      },
-      {
-        "id": "Principles/PR-090",
-        "path": "Wiki/Principles/PR-090.md",
-        "title": "PR-090: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Domains/D11",
-          "Domains/D6",
-          "Domains/D8",
-          "Domains/D9",
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 7,
-        "degree": 7
-      },
-      {
-        "id": "Domains/D2",
-        "path": "Wiki/Domains/D2.md",
-        "title": "Operational Lens 2",
-        "kind": "domain",
-        "outgoing": [
-          "Home"
+          "Vices_Index"
         ],
         "incoming": [
-          "Principles/PR-079",
-          "Principles/PR-084",
-          "Principles/PR-086",
-          "Principles/PR-092",
-          "Principles/PR-100"
+          "Home",
+          "Tokenomics_Map",
+          "Vices_Index"
         ],
-        "in_degree": 5,
-        "out_degree": 1,
+        "in_degree": 3,
+        "out_degree": 3,
+        "degree": 6,
+        "status": "PREVENTED",
+        "downstream_verification": "none"
+      },
+      {
+        "id": "Tokenomics/Automation_Tooling_Index",
+        "path": "Wiki/Tokenomics/Automation_Tooling_Index.md",
+        "title": "Tokenomics Index: Automation and Tooling",
+        "kind": "tokenomics",
+        "outgoing": [
+          "Tokenomics/TK-010",
+          "Tokenomics/TK-030",
+          "Tokenomics_Index",
+          "Tokenomics_Map"
+        ],
+        "incoming": [
+          "Home",
+          "Tokenomics_Map"
+        ],
+        "in_degree": 2,
+        "out_degree": 4,
         "degree": 6
+      },
+      {
+        "id": "Tokenomics/Input_Retrieval_Index",
+        "path": "Wiki/Tokenomics/Input_Retrieval_Index.md",
+        "title": "Tokenomics Index: Input and Retrieval",
+        "kind": "tokenomics",
+        "outgoing": [
+          "Tokenomics/TK-011",
+          "Tokenomics/TK-012",
+          "Tokenomics_Index",
+          "Tokenomics_Map"
+        ],
+        "incoming": [
+          "Home",
+          "Tokenomics_Map"
+        ],
+        "in_degree": 2,
+        "out_degree": 4,
+        "degree": 6
+      },
+      {
+        "id": "Tokenomics/TK-001",
+        "path": "Wiki/Tokenomics/TK-001.md",
+        "title": "TK-001: Missing checkpoint",
+        "kind": "tokenomics",
+        "outgoing": [
+          "Home",
+          "Tokenomics_Index",
+          "Tokenomics_Map"
+        ],
+        "incoming": [
+          "Tokenomics/Memory_Headroom_Index",
+          "Tokenomics_Index"
+        ],
+        "in_degree": 2,
+        "out_degree": 3,
+        "degree": 5,
+        "status": "PREVENTED",
+        "downstream_verification": "none"
+      },
+      {
+        "id": "Tokenomics/TK-002",
+        "path": "Wiki/Tokenomics/TK-002.md",
+        "title": "TK-002: Chat memory as the primary source",
+        "kind": "tokenomics",
+        "outgoing": [
+          "Home",
+          "Tokenomics_Index",
+          "Tokenomics_Map"
+        ],
+        "incoming": [
+          "Tokenomics/Memory_Headroom_Index",
+          "Tokenomics_Index"
+        ],
+        "in_degree": 2,
+        "out_degree": 3,
+        "degree": 5,
+        "status": "PREVENTED",
+        "downstream_verification": "none"
+      },
+      {
+        "id": "Tokenomics/TK-003",
+        "path": "Wiki/Tokenomics/TK-003.md",
+        "title": "TK-003: Project switch without closure",
+        "kind": "tokenomics",
+        "outgoing": [
+          "Home",
+          "Tokenomics_Index",
+          "Tokenomics_Map"
+        ],
+        "incoming": [
+          "Tokenomics/Memory_Headroom_Index",
+          "Tokenomics_Index"
+        ],
+        "in_degree": 2,
+        "out_degree": 3,
+        "degree": 5,
+        "status": "PREVENTED",
+        "downstream_verification": "none"
       }
     ],
     "bridges": [
@@ -17875,6 +13256,35 @@
         "degree": 18
       },
       {
+        "id": "Tokenomics/Output_Compaction_Index",
+        "path": "Wiki/Tokenomics/Output_Compaction_Index.md",
+        "title": "Tokenomics Index: Output and Compaction",
+        "kind": "tokenomics",
+        "outgoing": [
+          "Tokenomics/TK-009",
+          "Tokenomics/TK-013",
+          "Tokenomics/TK-014",
+          "Tokenomics/TK-015",
+          "Tokenomics/TK-017",
+          "Tokenomics/TK-018",
+          "Tokenomics/TK-019",
+          "Tokenomics/TK-020",
+          "Tokenomics/TK-026",
+          "Tokenomics/TK-027",
+          "Tokenomics/TK-033",
+          "Tokenomics/TK-034",
+          "Tokenomics_Index",
+          "Tokenomics_Map"
+        ],
+        "incoming": [
+          "Home",
+          "Tokenomics_Map"
+        ],
+        "in_degree": 2,
+        "out_degree": 14,
+        "degree": 16
+      },
+      {
         "id": "Home",
         "path": "Wiki/Home.md",
         "title": "Golden Standard Wiki",
@@ -17883,7 +13293,6 @@
           "CONCEPTUAL_FRAMEWORK",
           "Inbox/README",
           "Principles",
-          "Project_Insights_Index",
           "README",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
@@ -17909,120 +13318,6 @@
           "Domains/D8",
           "Domains/D9",
           "Principles",
-          "Principles/PR-001",
-          "Principles/PR-002",
-          "Principles/PR-003",
-          "Principles/PR-004",
-          "Principles/PR-005",
-          "Principles/PR-006",
-          "Principles/PR-007",
-          "Principles/PR-008",
-          "Principles/PR-009",
-          "Principles/PR-010",
-          "Principles/PR-011",
-          "Principles/PR-012",
-          "Principles/PR-013",
-          "Principles/PR-014",
-          "Principles/PR-015",
-          "Principles/PR-016",
-          "Principles/PR-017",
-          "Principles/PR-018",
-          "Principles/PR-019",
-          "Principles/PR-020",
-          "Principles/PR-021",
-          "Principles/PR-022",
-          "Principles/PR-023",
-          "Principles/PR-024",
-          "Principles/PR-025",
-          "Principles/PR-026",
-          "Principles/PR-027",
-          "Principles/PR-028",
-          "Principles/PR-029",
-          "Principles/PR-030",
-          "Principles/PR-031",
-          "Principles/PR-032",
-          "Principles/PR-033",
-          "Principles/PR-034",
-          "Principles/PR-035",
-          "Principles/PR-036",
-          "Principles/PR-037",
-          "Principles/PR-038",
-          "Principles/PR-039",
-          "Principles/PR-040",
-          "Principles/PR-041",
-          "Principles/PR-042",
-          "Principles/PR-043",
-          "Principles/PR-044",
-          "Principles/PR-045",
-          "Principles/PR-046",
-          "Principles/PR-047",
-          "Principles/PR-048",
-          "Principles/PR-049",
-          "Principles/PR-050",
-          "Principles/PR-051",
-          "Principles/PR-052",
-          "Principles/PR-053",
-          "Principles/PR-054",
-          "Principles/PR-055",
-          "Principles/PR-056",
-          "Principles/PR-057",
-          "Principles/PR-058",
-          "Principles/PR-059",
-          "Principles/PR-060",
-          "Principles/PR-061",
-          "Principles/PR-062",
-          "Principles/PR-063",
-          "Principles/PR-064",
-          "Principles/PR-065",
-          "Principles/PR-066",
-          "Principles/PR-067",
-          "Principles/PR-068",
-          "Principles/PR-069",
-          "Principles/PR-070",
-          "Principles/PR-071",
-          "Principles/PR-072",
-          "Principles/PR-073",
-          "Principles/PR-074",
-          "Principles/PR-075",
-          "Principles/PR-076",
-          "Principles/PR-077",
-          "Principles/PR-078",
-          "Principles/PR-079",
-          "Principles/PR-080",
-          "Principles/PR-081",
-          "Principles/PR-082",
-          "Principles/PR-083",
-          "Principles/PR-084",
-          "Principles/PR-085",
-          "Principles/PR-086",
-          "Principles/PR-087",
-          "Principles/PR-088",
-          "Principles/PR-089",
-          "Principles/PR-090",
-          "Principles/PR-091",
-          "Principles/PR-092",
-          "Principles/PR-093",
-          "Principles/PR-094",
-          "Principles/PR-095",
-          "Principles/PR-096",
-          "Principles/PR-097",
-          "Principles/PR-098",
-          "Principles/PR-099",
-          "Principles/PR-100",
-          "Principles/PR-101",
-          "Principles/PR-102",
-          "Principles/PR-103",
-          "Principles/PR-104",
-          "Principles/PR-105",
-          "Principles/PR-106",
-          "Principles/PR-107",
-          "Principles/PR-108",
-          "Principles/PR-109",
-          "Principles/PR-110",
-          "Principles/PR-111",
-          "Principles/PR-112",
-          "Principles/PR-113",
-          "Project_Insights_Index",
           "README",
           "Tokenomics/TK-001",
           "Tokenomics/TK-002",
@@ -18264,38 +13559,9 @@
           "Vices/VT-116",
           "Vices_Index"
         ],
-        "in_degree": 367,
-        "out_degree": 14,
-        "degree": 381
-      },
-      {
-        "id": "Tokenomics/Output_Compaction_Index",
-        "path": "Wiki/Tokenomics/Output_Compaction_Index.md",
-        "title": "Tokenomics Index: Output and Compaction",
-        "kind": "tokenomics",
-        "outgoing": [
-          "Tokenomics/TK-009",
-          "Tokenomics/TK-013",
-          "Tokenomics/TK-014",
-          "Tokenomics/TK-015",
-          "Tokenomics/TK-017",
-          "Tokenomics/TK-018",
-          "Tokenomics/TK-019",
-          "Tokenomics/TK-020",
-          "Tokenomics/TK-026",
-          "Tokenomics/TK-027",
-          "Tokenomics/TK-033",
-          "Tokenomics/TK-034",
-          "Tokenomics_Index",
-          "Tokenomics_Map"
-        ],
-        "incoming": [
-          "Home",
-          "Tokenomics_Map"
-        ],
-        "in_degree": 2,
-        "out_degree": 14,
-        "degree": 16
+        "in_degree": 253,
+        "out_degree": 13,
+        "degree": 266
       },
       {
         "id": "Tokenomics_Map",
@@ -18304,7 +13570,6 @@
         "kind": "wiki",
         "outgoing": [
           "Home",
-          "Project_Insights_Index",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
           "Tokenomics/Measurement_Telemetry_Index",
@@ -18315,119 +13580,6 @@
         ],
         "incoming": [
           "Home",
-          "Principles/PR-001",
-          "Principles/PR-002",
-          "Principles/PR-003",
-          "Principles/PR-004",
-          "Principles/PR-005",
-          "Principles/PR-006",
-          "Principles/PR-007",
-          "Principles/PR-008",
-          "Principles/PR-009",
-          "Principles/PR-010",
-          "Principles/PR-011",
-          "Principles/PR-012",
-          "Principles/PR-013",
-          "Principles/PR-014",
-          "Principles/PR-015",
-          "Principles/PR-016",
-          "Principles/PR-017",
-          "Principles/PR-018",
-          "Principles/PR-019",
-          "Principles/PR-020",
-          "Principles/PR-021",
-          "Principles/PR-022",
-          "Principles/PR-023",
-          "Principles/PR-024",
-          "Principles/PR-025",
-          "Principles/PR-026",
-          "Principles/PR-027",
-          "Principles/PR-028",
-          "Principles/PR-029",
-          "Principles/PR-030",
-          "Principles/PR-031",
-          "Principles/PR-032",
-          "Principles/PR-033",
-          "Principles/PR-034",
-          "Principles/PR-035",
-          "Principles/PR-036",
-          "Principles/PR-037",
-          "Principles/PR-038",
-          "Principles/PR-039",
-          "Principles/PR-040",
-          "Principles/PR-041",
-          "Principles/PR-042",
-          "Principles/PR-043",
-          "Principles/PR-044",
-          "Principles/PR-045",
-          "Principles/PR-046",
-          "Principles/PR-047",
-          "Principles/PR-048",
-          "Principles/PR-049",
-          "Principles/PR-050",
-          "Principles/PR-051",
-          "Principles/PR-052",
-          "Principles/PR-053",
-          "Principles/PR-054",
-          "Principles/PR-055",
-          "Principles/PR-056",
-          "Principles/PR-057",
-          "Principles/PR-058",
-          "Principles/PR-059",
-          "Principles/PR-060",
-          "Principles/PR-061",
-          "Principles/PR-062",
-          "Principles/PR-063",
-          "Principles/PR-064",
-          "Principles/PR-065",
-          "Principles/PR-066",
-          "Principles/PR-067",
-          "Principles/PR-068",
-          "Principles/PR-069",
-          "Principles/PR-070",
-          "Principles/PR-071",
-          "Principles/PR-072",
-          "Principles/PR-073",
-          "Principles/PR-074",
-          "Principles/PR-075",
-          "Principles/PR-076",
-          "Principles/PR-077",
-          "Principles/PR-078",
-          "Principles/PR-079",
-          "Principles/PR-080",
-          "Principles/PR-081",
-          "Principles/PR-082",
-          "Principles/PR-083",
-          "Principles/PR-084",
-          "Principles/PR-085",
-          "Principles/PR-086",
-          "Principles/PR-087",
-          "Principles/PR-088",
-          "Principles/PR-089",
-          "Principles/PR-090",
-          "Principles/PR-091",
-          "Principles/PR-092",
-          "Principles/PR-093",
-          "Principles/PR-094",
-          "Principles/PR-095",
-          "Principles/PR-096",
-          "Principles/PR-097",
-          "Principles/PR-098",
-          "Principles/PR-099",
-          "Principles/PR-100",
-          "Principles/PR-101",
-          "Principles/PR-102",
-          "Principles/PR-103",
-          "Principles/PR-104",
-          "Principles/PR-105",
-          "Principles/PR-106",
-          "Principles/PR-107",
-          "Principles/PR-108",
-          "Principles/PR-109",
-          "Principles/PR-110",
-          "Principles/PR-111",
-          "Principles/PR-112",
-          "Principles/PR-113",
           "README",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
@@ -18672,66 +13824,9 @@
           "Vices/VT-115",
           "Vices/VT-116"
         ],
-        "in_degree": 357,
-        "out_degree": 9,
-        "degree": 366
-      },
-      {
-        "id": "Principles/PR-080",
-        "path": "Wiki/Principles/PR-080.md",
-        "title": "PR-080: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Domains/D3",
-          "Domains/D5",
-          "Domains/D8",
-          "Domains/D9",
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 7,
-        "degree": 7
-      },
-      {
-        "id": "Principles/PR-084",
-        "path": "Wiki/Principles/PR-084.md",
-        "title": "PR-084: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Domains/D2",
-          "Domains/D3",
-          "Domains/D5",
-          "Domains/D6",
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 7,
-        "degree": 7
-      },
-      {
-        "id": "Principles/PR-090",
-        "path": "Wiki/Principles/PR-090.md",
-        "title": "PR-090: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Domains/D11",
-          "Domains/D6",
-          "Domains/D8",
-          "Domains/D9",
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 7,
-        "degree": 7
+        "in_degree": 244,
+        "out_degree": 8,
+        "degree": 252
       },
       {
         "id": "README",
@@ -18752,42 +13847,6 @@
         "in_degree": 1,
         "out_degree": 6,
         "degree": 7
-      },
-      {
-        "id": "Principles/PR-079",
-        "path": "Wiki/Principles/PR-079.md",
-        "title": "PR-079: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Domains/D1",
-          "Domains/D2",
-          "Domains/D8",
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 6,
-        "degree": 6
-      },
-      {
-        "id": "Principles/PR-082",
-        "path": "Wiki/Principles/PR-082.md",
-        "title": "PR-082: Satellite Insight",
-        "kind": "wiki",
-        "outgoing": [
-          "Domains/D1",
-          "Domains/D11",
-          "Domains/D7",
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 6,
-        "degree": 6
       },
       {
         "id": "Tokenomics/Measurement_Telemetry_Index",
@@ -18811,38 +13870,58 @@
         "degree": 8
       },
       {
-        "id": "Principles/PR-083",
-        "path": "Wiki/Principles/PR-083.md",
-        "title": "PR-083: Satellite Insight",
-        "kind": "wiki",
+        "id": "Tokenomics/Automation_Tooling_Index",
+        "path": "Wiki/Tokenomics/Automation_Tooling_Index.md",
+        "title": "Tokenomics Index: Automation and Tooling",
+        "kind": "tokenomics",
         "outgoing": [
-          "Domains/D10",
-          "Domains/D4",
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Tokenomics/TK-010",
+          "Tokenomics/TK-030",
+          "Tokenomics_Index",
+          "Tokenomics_Map"
         ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 5,
-        "degree": 5
+        "incoming": [
+          "Home",
+          "Tokenomics_Map"
+        ],
+        "in_degree": 2,
+        "out_degree": 4,
+        "degree": 6
       },
       {
-        "id": "Principles/PR-087",
-        "path": "Wiki/Principles/PR-087.md",
-        "title": "PR-087: Satellite Insight",
-        "kind": "wiki",
+        "id": "Tokenomics/Input_Retrieval_Index",
+        "path": "Wiki/Tokenomics/Input_Retrieval_Index.md",
+        "title": "Tokenomics Index: Input and Retrieval",
+        "kind": "tokenomics",
         "outgoing": [
-          "Domains/D10",
-          "Domains/D5",
-          "Home",
-          "Tokenomics_Map",
-          "Vices/VC-001"
+          "Tokenomics/TK-011",
+          "Tokenomics/TK-012",
+          "Tokenomics_Index",
+          "Tokenomics_Map"
         ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 5,
-        "degree": 5
+        "incoming": [
+          "Home",
+          "Tokenomics_Map"
+        ],
+        "in_degree": 2,
+        "out_degree": 4,
+        "degree": 6
+      },
+      {
+        "id": "CONTRIBUTING",
+        "path": "CONTRIBUTING.md",
+        "title": "Contributing to the Golden Standard",
+        "kind": "contributing",
+        "outgoing": [
+          "CODE_OF_CONDUCT",
+          "Inbox/README"
+        ],
+        "incoming": [
+          "README"
+        ],
+        "in_degree": 1,
+        "out_degree": 2,
+        "degree": 3
       }
     ]
   }

@@ -302,18 +302,20 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
     (wiki_dir / "Home.md").write_text(home_content, encoding="utf-8")
 
 
-def write_principles_md(wiki_dir: Path, records: dict[str, dict[str, object]]):
-    """Write the first-class doctrinal PI index."""
-    rows = []
-    for pi_id in sorted(records):
-        record = records[pi_id]
-        note = "promotion candidate" if record.get("promotion_candidate") else "doctrinal"
-        rows.append(
-            f"| [[Project_Insights/{pi_id}|{pi_id}]] | {record['title']} | {note} |"
-        )
-    principles_content = f"""# Principles
 
-The 35 project insights are first-class doctrinal rules: they stay linked here, and their bodies remain in the individual PI pages.
+
+def write_principles_index(wiki_dir: Path, records: dict[str, dict[str, object]]):
+    """Write a single consolidated Principles index with all doctrinal entries."""
+    rows = []
+    for pr_id in sorted(records):
+        record = records[pr_id]
+        note = "promotion candidate" if record.get("promotion_candidate") else "doctrinal"
+        title = record.get("title", "—")
+        rows.append(f"| {pr_id} | {title} | {note} |")
+
+    content = f"""# Principles
+
+The {len(records)} principles are first-class doctrinal rules. They are governance knowledge, not mechanically detectable vices.
 
 ---
 
@@ -324,7 +326,7 @@ The 35 project insights are first-class doctrinal rules: they stay linked here, 
 ---
 [[Home|Back to Home]]
 """
-    (wiki_dir / "Principles.md").write_text(principles_content, encoding="utf-8")
+    (wiki_dir / "Principles.md").write_text(content, encoding="utf-8")
 
 
 def write_vices_index_md(wiki_dir: Path, mapped_database: dict):
@@ -625,53 +627,7 @@ def write_tokenomics_subindices_md(wiki_dir: Path, mapped_database: dict):
         (wiki_dir / "Tokenomics" / group["filename"]).write_text(subindex_content, encoding="utf-8")
 
 
-# Editorial classification of Project Insights to separate actionable lessons from
-# system-meta commentary (addresses the audit critique that PIs were self-referential).
-PI_KIND = {
-    "tool": {"PR-079", "PR-080", "PR-081", "PR-082", "PR-083", "PR-098", "PR-099",
-             "PR-106", "PR-107", "PR-108", "PR-109", "PR-110", "PR-111", "PR-112"},
-    "meta": {"PR-084", "PR-085", "PR-092", "PR-096"},
-}
-
-
-def classify_pi(pi_id: str) -> str:
-    if pi_id in PI_KIND["tool"]:
-        return "tool"
-    if pi_id in PI_KIND["meta"]:
-        return "meta"
-    return "principle"
-
-
-def write_project_insights_index_md(wiki_dir: Path, insights: dict):
-    """Write the Project Insights index catalog, grouped by kind."""
-    groups = {
-        "principle": ("🟢 Actionable principles", "Cross-cutting lessons that change how work is done."),
-        "tool": ("🔧 Reference tools and techniques", "Pointers to verified external tools and reusable patterns."),
-        "meta": ("⚪ Meta-system (about the Golden Standard itself)", "Insights that describe GS governance; useful but they do not teach an external technique."),
-    }
-    sections = []
-    for kind, (heading, blurb) in groups.items():
-        ids = sorted(pi for pi in insights if classify_pi(pi) == kind)
-        if not ids:
-            continue
-        rows = "\n".join(f"*   [[Project_Insights/{pi_id}|{pi_id}]] — {insights[pi_id]}" for pi_id in ids)
-        sections.append(f"## {heading}\n\n_{blurb}_ ({len(ids)})\n\n{rows}")
-
-    pi_index_content = f"""# Satellite Insights Index
-
-Mapping of lessons extracted from reference repositories and external audit tools.
-Entries are grouped by type to distinguish actionable principles from system meta-commentary.
-
-See [[Principles|Principles Index]] for the first-class doctrinal ledger.
-
----
-
-{"\n\n---\n\n".join(sections)}
-
----
-[[Home|Back to Home]]
-"""
-    (wiki_dir / "Project_Insights_Index.md").write_text(pi_index_content, encoding="utf-8")
+# Editorial classification removed; all principles are now in a single index.
 
 
 def entry_depth(item: dict) -> str:
@@ -837,38 +793,6 @@ def build_pi_mapping_lines(mappings: list) -> list[str]:
     ]
 
 
-def write_atomic_project_insights(
-    wiki_dir: Path, insights: dict, pi_to_domains: dict, records: dict[str, dict[str, object]]
-):
-    """Create individual atomic files for all principles."""
-    (wiki_dir / "Principles").mkdir(parents=True, exist_ok=True)
-    for pr_id, text in insights.items():
-        mappings = pi_to_domains.get(pr_id, [])
-        mapping_lines = build_pi_mapping_lines(mappings)
-        record = records.get(pr_id, {})
-        candidate_note = "Promotion candidate" if record.get("promotion_candidate") else "Doctrinal"
-
-        pr_content = f"""# {pr_id}: Satellite Insight
-
-**Type:** {candidate_note}
-
-### Insight Description
-> {text}
-
-### Relations
-- [[Tokenomics_Map|Tokenomics Map]]
-- [[Vices/VC-001|VC-001]]
-- [[Home|Home]]
-
----
-
-### Mapping to GS Operational Lenses
-{"\n".join(mapping_lines)}
-
----
-[[Principles_Index|Back to Principles Index]] | [[Home|Home]]
-"""
-        (wiki_dir / "Principles" / f"{pr_id}.md").write_text(pr_content, encoding="utf-8")
 
 
 def write_audit_domains(wiki_dir: Path, recommendations: dict):
@@ -1404,12 +1328,10 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     write_vices_index_md(wiki_dir, mapped_database)
     write_tokenomics_index_md(wiki_dir, mapped_database)
     write_tokenomics_subindices_md(wiki_dir, mapped_database)
-    write_project_insights_index_md(wiki_dir, insights)
-    write_principles_md(wiki_dir, insight_records)
+    write_principles_index(wiki_dir, insight_records)
     write_tokenomics_map_md(wiki_dir, insights)
     write_atomic_vices(wiki_dir, mapped_database)
     write_atomic_tokenomics(wiki_dir, mapped_database)
-    write_atomic_project_insights(wiki_dir, insights, pi_to_domains, insight_records)
     write_audit_domains(wiki_dir, recommendations)
     write_graph_artifacts(mapped_database)
 

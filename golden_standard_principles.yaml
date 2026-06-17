@@ -12,8 +12,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Generated output is accepted as correct. Root cause: Absence of rigorous validation. Remediation:
-    Treat every output as a hypothesis until validated. It is a behavioral/doctrinal guideline — not statically falsifiable
-    without human semantic judgment.'
+    Treat every output as a hypothesis until validated.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -31,8 +30,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses The system responds with unjustified confidence. Root cause: Optimization by superficial
-    similarity. Remediation: Demand explicit uncertainty and evidence. It is a behavioral/doctrinal guideline — not statically
-    falsifiable without human semantic judgment.'
+    similarity. Remediation: Demand explicit uncertainty and evidence.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -50,8 +48,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Something works superficially. Root cause: Insufficient sampling of state. Remediation:
-    Validate flow, boundaries, and persistence. It is a behavioral/doctrinal guideline — not statically falsifiable without
-    human semantic judgment.'
+    Validate flow, boundaries, and persistence.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -69,8 +66,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Pretty UI or docs hide failures. Root cause: Visual signal substitutes for causality.
-    Remediation: Validate logic before presentation. It is a behavioral/doctrinal guideline — not statically falsifiable without
-    human semantic judgment.'
+    Remediation: Validate logic before presentation.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -88,8 +84,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Critical logic avoid read. Root cause: Delegation without comprehension. Remediation:
-    Human review of critical invariants. It is a behavioral/doctrinal guideline — not statically falsifiable without human
-    semantic judgment.'
+    Human review of critical invariants.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -107,8 +102,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Probable regressions are ignored. Root cause: Poorly calibrated priors. Remediation: Assume
-    failure until proven otherwise. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    failure until proven otherwise.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -126,7 +120,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Validation uses prior memory. Root cause: Contextual bias. Remediation: Re-validate from
-    fresh context. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    fresh context.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -144,7 +138,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses The error repeats. Root cause: Learning not persisted. Remediation: Record the pattern
-    and a guardrail. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    and a guardrail.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -162,7 +156,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses A nonexistent interaction is declared. Root cause: Absent perceptual channel. Remediation:
-    Real human evidence. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    Real human evidence.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -180,7 +174,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Aesthetics supplant function. Root cause: Wrong metric. Remediation: Usability equals
-    behavior. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    behavior.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -198,7 +192,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Excellence is assigned without proof. Root cause: Uncalibrated scale. Remediation: Grade
-    only with evidence. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    only with evidence.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -215,8 +209,7 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Broken system marked OK. Root cause: Superficial validator. Remediation: Empirical audit.
-    It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+  action: 'This principle addresses Broken system marked OK. Root cause: Superficial validator. Remediation: Empirical audit.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -234,7 +227,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses User delegates judgment. Root cause: Misassigned authority. Remediation: Human retains
-    responsibility. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    responsibility.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -252,7 +245,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses A copied error is patched. Root cause: Diagnosis omitted. Remediation: Reproduce, diagnose,
-    fix, verify. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    fix, verify.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -270,8 +263,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses The bug returns in another form. Root cause: Root cause not isolated. Remediation: Fix
-    the mechanism, not the manifestation. It is a behavioral/doctrinal guideline — not statically falsifiable without human
-    semantic judgment.'
+    the mechanism, not the manifestation.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -289,8 +281,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Code is changed without a minimal case. Root cause: Lack of an initial oracle. Remediation:
-    Every bug requires prior reproduction. It is a behavioral/doctrinal guideline — not statically falsifiable without human
-    semantic judgment.'
+    Every bug requires prior reproduction.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -308,7 +299,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses More changes, less certainty. Root cause: Local optimization of time. Remediation: Validate
-    early, build little. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    early, build little.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -326,8 +317,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Writing is saved, debugging is paid. Root cause: Invisible deferred costs. Remediation:
-    Measure rework and reversion. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    Measure rework and reversion.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -345,7 +335,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Work accumulates before testing. Root cause: Late feedback. Remediation: Iterate in verifiable
-    slices. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    slices.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -363,7 +353,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses The system guesses requirements. Root cause: Ambiguous input. Remediation: Define goal,
-    constraints, and output. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    constraints, and output.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -381,8 +371,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Work continues under high uncertainty. Root cause: Decisional entropy. Remediation: Stop
-    if critical hypotheses exceed a threshold. It is a behavioral/doctrinal guideline — not statically falsifiable without
-    human semantic judgment.'
+    if critical hypotheses exceed a threshold.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -400,8 +389,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Unrequested improvements are added. Root cause: Unstable objective function. Remediation:
-    Send side findings to the backlog. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    Send side findings to the backlog.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -419,8 +407,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Validation is abandoned. Root cause: Communicational incentive. Remediation: Do not close
-    without an exit criterion. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    without an exit criterion.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -438,8 +425,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses A future agent repeats discussions. Root cause: Lost causality. Remediation: Record the
-    reason, not just the result. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    reason, not just the result.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -457,8 +443,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Already-resolved questions are re-asked. Root cause: Lack of a ledger. Remediation: Keep
-    a historical log of clarifications. It is a behavioral/doctrinal guideline — not statically falsifiable without human
-    semantic judgment.'
+    a historical log of clarifications.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -476,7 +461,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Partial success is reported. Root cause: Incomplete metric. Remediation: Mandatory evidence
-    per claim. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    per claim.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -494,7 +479,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses System hard to change. Root cause: Accumulated complexity. Remediation: Audit the capacity
-    to change. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    to change.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -511,8 +496,7 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Agent expands scope. Root cause: Weak control. Remediation: Scope lock. It is a behavioral/doctrinal
-    guideline — not statically falsifiable without human semantic judgment.'
+  action: 'This principle addresses Agent expands scope. Root cause: Weak control. Remediation: Scope lock.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -530,7 +514,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Fix-revert consumes context. Root cause: Insufficient diagnosis. Remediation: Less generation,
-    more root cause. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    more root cause.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -548,8 +532,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Each fix introduces another bug. Root cause: Causal system not understood. Remediation:
-    Separate diagnosis and correction. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    Separate diagnosis and correction.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -567,7 +550,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses No one can maintain it. Root cause: Absent responsibility. Remediation: An owner able
-    to explain and repair it. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    to explain and repair it.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -585,8 +568,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Archived or deleted without extracting value. Root cause: Destructive pruning without
-    inventory. Remediation: Audit, extract, and validate before retiring. It is a behavioral/doctrinal guideline — not statically
-    falsifiable without human semantic judgment.'
+    inventory. Remediation: Audit, extract, and validate before retiring.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -604,8 +586,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Memory/state differ from reality. Root cause: Multiple sources of truth. Remediation:
-    Reconcile declared state with the system. It is a behavioral/doctrinal guideline — not statically falsifiable without
-    human semantic judgment.'
+    Reconcile declared state with the system.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -623,8 +604,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Agent memory equated with human docs. Root cause: Channels with different purposes. Remediation:
-    Separate operational and human documentation. It is a behavioral/doctrinal guideline — not statically falsifiable without
-    human semantic judgment.'
+    Separate operational and human documentation.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -642,7 +622,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses State changes without an event. Root cause: Informational noise. Remediation: Update memory
-    only on relevant events. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    only on relevant events.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -660,7 +640,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses The agent forgets requirements. Root cause: Finite window. Remediation: Compact and restart
-    with a checkpoint. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    with a checkpoint.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -678,7 +658,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Responses worsen from excess. Root cause: Semantic noise. Remediation: Keep the minimal
-    sufficient context. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    sufficient context.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -696,8 +676,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses A change breaks recoverable state. Root cause: Absence of reversibility. Remediation:
-    Create a return point before risk. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    Create a return point before risk.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -715,7 +694,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Several sources compete. Root cause: Distributed inconsistency. Remediation: Canonical
-    ledger. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    ledger.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -733,8 +712,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Actors overwrite each other''s changes. Root cause: Lack of isolation. Remediation: Separate
-    branches, spaces, or locks. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    branches, spaces, or locks.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -752,8 +730,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Work lands in the wrong actor or phase. Root cause: Absent task classification. Remediation:
-    Route by capability, risk, and observable state. It is a behavioral/doctrinal guideline — not statically falsifiable without
-    human semantic judgment.'
+    Route by capability, risk, and observable state.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -771,8 +748,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Two histories combine, losing decisions. Root cause: Lexical union without semantics.
-    Remediation: Merge by entities, decisions, and causality. It is a behavioral/doctrinal guideline — not statically falsifiable
-    without human semantic judgment.'
+    Remediation: Merge by entities, decisions, and causality.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -790,8 +766,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Unexplainable decisions. Root cause: Loss of the causal model. Remediation: Every decision
-    should have a traceable reason. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    should have a traceable reason.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -829,8 +804,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Rules clash at execution. Root cause: Inconsistent logical system. Remediation: Define
-    precedence before automating. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    precedence before automating.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -848,7 +822,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Failure propagates. Root cause: Excessive coupling. Remediation: Stable interfaces and
-    isolation. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    isolation.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -866,7 +840,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses The cut breaks semantics. Root cause: Partitioning by size. Remediation: Chunking by functional
-    boundaries. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    boundaries.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -884,8 +858,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Global coherence is lost. Root cause: Unmodeled dependencies. Remediation: Do not slice
-    without a structural graph. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    without a structural graph.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -903,8 +876,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses External API or data assumed stable. Root cause: Unmodeled external dependency. Remediation:
-    Contracts and boundary tests. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    Contracts and boundary tests.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -922,7 +894,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Docs and code diverge. Root cause: Decoupled evolution. Remediation: Update both or invalidate
-    the docs. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    the docs.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -940,8 +912,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Prior consumers break silently. Root cause: Historical contract not modeled. Remediation:
-    Version contracts and test active legacy paths. It is a behavioral/doctrinal guideline — not statically falsifiable without
-    human semantic judgment.'
+    Version contracts and test active legacy paths.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -959,8 +930,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Logs exist but do not explain failures. Root cause: Signal without diagnosis. Remediation:
-    Record causal events, decisions, and boundary states. It is a behavioral/doctrinal guideline — not statically falsifiable
-    without human semantic judgment.'
+    Record causal events, decisions, and boundary states.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -978,8 +948,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses A new layer avoids touching the real fault. Root cause: Indirection as concealment. Remediation:
-    Resolve the broken contract at its source. It is a behavioral/doctrinal guideline — not statically falsifiable without
-    human semantic judgment.'
+    Resolve the broken contract at its source.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -997,8 +966,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses The failure is documented instead of fixed. Root cause: Exception turned into a stable
-    state. Remediation: Zero known errors at closure. It is a behavioral/doctrinal guideline — not statically falsifiable
-    without human semantic judgment.'
+    state. Remediation: Zero known errors at closure.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1016,8 +984,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Editing without understanding the repository. Root cause: Incomplete model of the system.
-    Remediation: Map the structure before modifying. It is a behavioral/doctrinal guideline — not statically falsifiable without
-    human semantic judgment.'
+    Remediation: Map the structure before modifying.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1034,8 +1001,7 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Abuses are not sought. Root cause: Unmodeled threat. Remediation: Mandatory threat model.
-    It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+  action: 'This principle addresses Abuses are not sought. Root cause: Unmodeled threat. Remediation: Mandatory threat model.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1052,8 +1018,7 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Scattered controls. Root cause: Blurred boundary. Remediation: Isolate the security layer.
-    It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+  action: 'This principle addresses Scattered controls. Root cause: Blurred boundary. Remediation: Isolate the security layer.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1071,7 +1036,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Tests adapted to the result. Root cause: Confirmation bias. Remediation: Test-first or
-    simultaneous testing. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    simultaneous testing.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1089,7 +1054,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Real failures not covered. Root cause: Undersampled domain. Remediation: Test errors and
-    boundaries. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    boundaries.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1107,7 +1072,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Resilience not observed. Root cause: Failures not induced. Remediation: Inject controlled
-    failures. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    failures.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1125,8 +1090,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Performance or security not measured. Root cause: Quality reduced to function. Remediation:
-    Audit non-functional requirements. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic
-    judgment.'
+    Audit non-functional requirements.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1144,7 +1108,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Undiagnosable failure. Root cause: Insufficient observability. Remediation: Deliberate
-    instrumentation. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    instrumentation.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1162,7 +1126,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'This principle addresses Validated without a flow. Root cause: Visual simulation. Remediation: Test observable
-    interaction. It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    interaction.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1207,8 +1171,7 @@ items:
     the symptom by creating shims or duplicating old code instead of investigating and resolving the root cause in the control
     plane or the caller files.. Root cause: Prioritizing the short-term "green tests" result at every costs, sacrificing the
     coherence and stable architectural principles of the system.. Remediation: Strictly apply Mandate S2 (Brain-First) and
-    investigate the control-plane architecture to perform surgical root-cause refactors before writing a single line of code..
-    It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    investigate the control-plane architecture to perform surgical root-cause refactors before writing a single line of code..'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1230,8 +1193,7 @@ items:
   action: 'This principle addresses The agent fixates on a flawed action plan, repeating the same error or tool in a closed
     loop without stopping.. Root cause: Absence of active metacognition and lack of structural interrupts.. Remediation: **Chain-Pattern
     Interrupts (CPI).** Impose a sentinel that counts consecutive failed attempts of the same tool or script. If the count
-    exceeds the threshold of 2, physically abort execution with `exit 1` and force a structural rethink of the solution..
-    It is a behavioral/doctrinal guideline — not statically falsifiable without human semantic judgment.'
+    exceeds the threshold of 2, physically abort execution with `exit 1` and force a structural rethink of the solution..'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1248,9 +1210,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
-    catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
-    triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+  action: 'This principle addresses The same block is paid for or processed many times. Root cause: Unmodeled reuse. Remediation:
+    Separate stable context from volatile context.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
@@ -1281,9 +1242,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
-    catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
-    triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+  action: 'This principle addresses Small tasks load entire documents. Root cause: Non-selective retrieval. Remediation: Extract
+    only the relevant fragments.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
@@ -1321,9 +1281,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
-    catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
-    triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+  action: 'This principle addresses Preambles, explanations, and closings add no value. Root cause: Missing output budget.
+    Remediation: Constrain output format and length.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: text
@@ -1357,9 +1316,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
-    catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
-    triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+  action: 'This principle addresses Entire files saturate the prompt. Root cause: Retrieval by document, not by need. Remediation:
+    Extract the relevant sections.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
@@ -1389,9 +1347,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
-    catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
-    triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+  action: 'This principle addresses Fragments lose meaning. Root cause: Chunks without parent context. Remediation: Enrich
+    fragments with minimal context.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
@@ -1421,9 +1378,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
-    catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
-    triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+  action: 'This principle addresses Instructions get mixed together. Root cause: Ambiguous boundaries. Remediation: Separate
+    role, context, task, and output.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: text
@@ -1455,9 +1411,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
-    catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
-    triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+  action: 'This principle addresses A large file is sent in its entirety. Root cause: Low granularity. Remediation: Read by
+    ranges, index, or skeleton.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
@@ -1485,9 +1440,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
-    catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
-    triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+  action: 'This principle addresses The agent processes irrelevant information. Root cause: Non-localized query. Remediation:
+    Ask for the exact section.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
@@ -1517,9 +1471,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
-    catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
-    triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+  action: 'This principle addresses Long policies are repeated in prompts. Root cause: Unstructured authorization. Remediation:
+    Represent permissions as a queryable matrix.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: text
@@ -1553,9 +1506,9 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
-    catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
-    triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+  action: 'This principle addresses High consumption from blind exploration of directories or large files. Root cause: Low
+    read granularity and lack of prior contextual maps. Remediation: Use semantic indexes and skeletons to direct surgical
+    queries.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: bash
@@ -1589,9 +1542,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
-    catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
-    triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+  action: 'This principle addresses Deferrable tasks run one at a time. Root cause: Lack of grouping. Remediation: Group non-interactive
+    work.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
@@ -1617,9 +1569,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in a generic way. Documented in the Golden Standard
-    catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4
-    triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
+  action: 'This principle addresses Maximum capacity is used for everything. Root cause: Inefficient resource allocation.
+    Remediation: Choose the minimum sufficient capacity.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
