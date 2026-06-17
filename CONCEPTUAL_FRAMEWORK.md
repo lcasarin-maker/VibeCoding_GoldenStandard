@@ -56,12 +56,30 @@ It is organized around five operational lenses: memory/headroom, input/retrieval
 
 **Current catalog:** [`golden_standard_tokenomics.yaml`](golden_standard_tokenomics.yaml)
 
-### 4. Project Insights (`golden_standard_project_insights.yaml`)
-Cross-cutting lessons from real development sessions that don't fit neatly into the vice categories but are too valuable to lose.
+### 4. Principles (`golden_standard_principles.yaml`)
+Cross-cutting doctrine captured as first-class rules. These principles may be behavioral, operational, or graph-governance oriented; they exist to connect and contextualize the catalogs without duplicating them.
+
+### 5. Canonical Domains (`Wiki/Domains/README.md`)
+GS uses canonical domains (`CDxx`) as its semantic routing layer.
+
+These domains are:
+
+- stable problem spaces,
+- separate from enforcement mechanisms,
+- separate from runtime channels,
+- separate from debt state,
+- and separate from historical numbering conventions.
+
+Their purpose is to make the knowledge graph operational:
+
+- principles route into domains,
+- domains define boundaries and exclusions,
+- graph hubs become semantically meaningful,
+- downstream consumers can map their own dimensions to the same ontology.
 
 ---
 
-### 5. Repository and Execution Hygiene
+### 6. Repository and Execution Hygiene
 Golden Standard also treats the execution surface as part of quality.
 
 The repository should stay clean, descriptive, and auditable:
@@ -89,6 +107,7 @@ To keep that graph useful instead of decorative:
 - hub pages deserve first review when a catalog changes, because they carry the largest impact surface;
 - graph exports are evidence artifacts, not just visualization output;
 - intentional isolation must be explicit, not accidental.
+- canonical domain pages are semantic graph hubs, not decorative indexes.
 
 The graph layer is what makes GS easier to audit adversarially: it reveals clusters, bridges, and gaps that linear reading hides.
 
@@ -160,10 +179,11 @@ VibeCoding_GoldenStandard/
 ├── golden_standard_coding_vices.yaml      ← VC-xxx catalog
 ├── golden_standard_testing_vices.yaml     ← VT-xxx catalog
 ├── golden_standard_tokenomics.yaml        ← Tokenomics principles
-├── golden_standard_project_insights.yaml  ← Cross-cutting insights
+├── golden_standard_principles.yaml        ← Cross-cutting doctrine
 │
 ├── Wiki/
 │   ├── Home.md                            ← Wiki entry point
+│   ├── Domains/                           ← Canonical domain hubs (`CDxx`)
 │   └── Vices/                             ← Individual VC/VT articles
 │       ├── VC-001.md
 │       └── ...
@@ -239,7 +259,7 @@ Every discovery should become system-level knowledge.
 The Golden Standard was extracted from its original enforcement lineage in June 2026,
 when it became clear that the knowledge base had value independent of any specific enforcement tool.
 
-The original conceptual framework document is preserved in [`deprecated/knowledge_snapshots/CODERCERBERUS_CONCEPTUAL_FRAMEWORK_original.md`](deprecated/knowledge_snapshots/CODERCERBERUS_CONCEPTUAL_FRAMEWORK_original.md).
+The original conceptual framework document is preserved in the historical snapshots under `deprecated/knowledge_snapshots/` for traceability.
 
 ---
 

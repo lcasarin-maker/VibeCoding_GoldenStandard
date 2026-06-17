@@ -53,13 +53,15 @@ def compute_metrics() -> dict:
         if str(it.get("detector", "")).strip():
             with_detector += 1
 
-    pi = yaml.safe_load((ROOT / "golden_standard_principles.yaml").read_text(encoding="utf-8"))
-    pi_count = len([i for i in pi.get("items", []) if str(i.get("id", "")).startswith("PI-")])
+    principles = yaml.safe_load((ROOT / "golden_standard_principles.yaml").read_text(encoding="utf-8"))
+    principles_count = len(
+        [i for i in principles.get("items", []) if str(i.get("id", "")).startswith("PR-")]
+    )
 
     pct = lambda n: round(100 * n / total) if total else 0
     return {
         "total_entries": total,
-        "project_insights": pi_count,
+        "principles": principles_count,
         "depth": depth,
         "deep_pct": pct(depth["deep"]),
         "ai_native": ai_native,

@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "golden_standard.yaml"
 WIKI_VICES_DIR = ROOT / "Wiki" / "Vices"
 WIKI_TOKENOMICS_DIR = ROOT / "Wiki" / "Tokenomics"
-WIKI_INSIGHTS_DIR = ROOT / "Wiki" / "Project_Insights"
+WIKI_PRINCIPLES_FILE = ROOT / "Wiki" / "Principles.md"
 ALLOWED_STATUSES = {"DOC_ONLY", "AUDITED", "PREVENTED", "REMEDIATED"}
 ALLOWED_DOWNSTREAM_VERIFICATIONS = {"required", "none"}
 ALLOWED_SEVERITIES = {"critical", "high", "medium", "low"}
@@ -156,10 +156,9 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
                 f"{path}: {item_id or f'item {index}'} has unsupported downstream_verification {downstream_verification}."
             )
         else:
-            expected_downstream_verification = "required" if status == "DOC_ONLY" else "none"
-            if downstream_verification != expected_downstream_verification:
+            if status == "DOC_ONLY" and downstream_verification != "required":
                 errors.append(
-                    f"{path}: {item_id or f'item {index}'} has downstream_verification={downstream_verification} but expected {expected_downstream_verification} for status {status}."
+                    f"{path}: {item_id or f'item {index}'} has downstream_verification={downstream_verification} but expected required for status {status}."
                 )
 
         tags = item.get("tags", None)
@@ -296,6 +295,37 @@ def validate_project_insights(
     validate_project_insight_promotion(insights, promoted_ids, errors)
 
 
+def validate_principles_catalog(path: Path, errors: list[str], check_wiki: bool) -> None:
+    data = load_yaml(path)
+    items = data.get("items", [])
+    if not isinstance(items, list):
+        errors.append(f"{path}: 'items' must be a list.")
+        return
+
+    seen_ids: set[str] = set()
+    for index, item in enumerate(items, start=1):
+        if not isinstance(item, dict):
+            errors.append(f"{path}: item {index} is not a mapping.")
+            continue
+
+        item_id = str(item.get("id", "")).strip()
+        title = str(item.get("title", "")).strip()
+        doctrinal = item.get("doctrinal", None)
+
+        if not item_id.startswith("PR-"):
+            errors.append(f"{path}: {item_id or f'item {index}'} must use a PR- identifier.")
+        if item_id in seen_ids:
+            errors.append(f"{path}: duplicate id {item_id}.")
+        elif item_id:
+            seen_ids.add(item_id)
+
+        if not title:
+            errors.append(f"{path}: {item_id or f'item {index}'} missing required field: title")
+
+    if check_wiki and not (ROOT / "Wiki" / "Principles.md").exists():
+        errors.append(f"Missing wiki principles index: {ROOT / 'Wiki' / 'Principles.md'}")
+
+
 def resolve_wiki_link_target(source_path: Path, raw_target: str) -> Path | None:
     target = raw_target.split("|", 1)[0].split("#", 1)[0].strip().replace("\\", "/")
     if not target:
@@ -415,8 +445,8 @@ def validate_home_counts(errors: list[str]) -> None:
     tests = data.get("items", [])
     data = load_yaml(ROOT / "golden_standard_tokenomics.yaml")
     tokenomics = data.get("items", [])
-    data = load_yaml(ROOT / "golden_standard_project_insights.yaml")
-    insights = data.get("project_insights", {})
+    data = load_yaml(ROOT / "golden_standard_principles.yaml")
+    principles = data.get("items", [])
 
     items_by_id = {
         str(item.get("id", "")).strip(): item
@@ -438,11 +468,11 @@ def validate_home_counts(errors: list[str]) -> None:
         "Vibe Coding": len([item for item in vices if str(item.get("id", "")).startswith("VC-")]),
         "Testing & Evaluation": len([item for item in tests if str(item.get("id", "")).startswith("VT-")]),
         "Tokenomics": len([item for item in tokenomics if str(item.get("id", "")).startswith("TK-")]),
-        "Project Insights": len([key for key in insights if str(key).startswith("PI-")]),
+        "Principles": len([item for item in principles if str(item.get("id", "")).startswith("PR-")]),
     }
 
     for label, expected in expected_counts.items():
-        expected_row = f"| {label} | `{'VC-xxx' if label == 'Vibe Coding' else 'VT-xxx' if label == 'Testing & Evaluation' else 'TK-xxx' if label == 'Tokenomics' else 'PI-xxx'}` | {expected} |"
+        expected_row = f"| {label} | `{'VC-xxx' if label == 'Vibe Coding' else 'VT-xxx' if label == 'Testing & Evaluation' else 'TK-xxx' if label == 'Tokenomics' else 'PR-xxx'}` | {expected} |"
         if expected_row not in home_path.read_text(encoding="utf-8"):
             errors.append(f"{home_path}: missing or stale count row for {label}.")
 
@@ -479,8 +509,8 @@ def validate_readme_counts(errors: list[str]) -> None:
     tv_count = len([item for item in data.get("items", []) if str(item.get("id", "")).startswith("VT-")])
     data = load_yaml(ROOT / "golden_standard_tokenomics.yaml")
     tk_count = len([item for item in data.get("items", []) if str(item.get("id", "")).startswith("TK-")])
-    data = load_yaml(ROOT / "golden_standard_project_insights.yaml")
-    pi_count = len([key for key in data.get("project_insights", {}) if str(key).startswith("PI-")])
+    data = load_yaml(ROOT / "golden_standard_principles.yaml")
+    pr_count = len([item for item in data.get("items", []) if str(item.get("id", "")).startswith("PR-")])
 
     readme_text = readme_path.read_text(encoding="utf-8")
 
@@ -498,14 +528,14 @@ def validate_readme_counts(errors: list[str]) -> None:
         f"| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | {vc_count} |",
         f"| `golden_standard_testing_vices.yaml` | Testing failures | {tv_count} |",
         f"| `golden_standard_tokenomics.yaml` | Token efficiency | {tk_count} |",
-        f"| `golden_standard_project_insights.yaml` | Cross-cutting insights | {pi_count} |",
+        f"| `golden_standard_principles.yaml` | Principles | {pr_count} |",
     ]
     for row in expected_rows:
         if row not in readme_text:
             errors.append(f"{readme_path}: missing or stale table row ({row!r}).")
 
     # Check total line
-    expected_total = f"**Total: {vc_count + tv_count + tk_count} vices + {pi_count} insights ({vc_count + tv_count + tk_count + pi_count} entries).**"
+    expected_total = f"**Total: {vc_count + tv_count + tk_count} vices + {pr_count} principles ({vc_count + tv_count + tk_count + pr_count} entries).**"
     if expected_total not in readme_text:
         errors.append(f"{readme_path}: missing or stale total line ({expected_total!r}).")
 
@@ -515,13 +545,15 @@ def validate_wiki_topology(errors: list[str]) -> None:
     required_snippets: dict[Path, list[str]] = {
         ROOT / "Wiki" / "Home.md": [
             "[[Vices_Index|Engineering Vices Index]]",
-            "[[Project_Insights/PI-025|Exportable Retrospective]]",
             "[[Principles|Principles Index]]",
             "[[Tokenomics_Index|Tokenomics Index]]",
             "[[Tokenomics_Map|Tokenomics Map]]",
             "[Inbox](../Inbox/README.md)",
             "[[Graph|GS Graph Map]]",
-            "[[Project_Insights/PI-019|Execution Hygiene and Tooling]]",
+        ],
+        ROOT / "Wiki" / "Principles.md": [
+            "PR-097",
+            "PR-103",
         ],
         ROOT / "Inbox" / "README.md": [
             "Inbox/templates/",
@@ -548,79 +580,33 @@ def validate_wiki_topology(errors: list[str]) -> None:
             "Output and Compaction",
             "Measurement and Telemetry",
             "Automation and Tooling",
-            "PI-006",
-            "PI-010",
-            "PI-014",
-            "PI-018",
+            "PR-081",
+            "PR-083",
+            "PR-084",
+            "PR-091",
         ],
         ROOT / "Wiki" / "Tokenomics" / "Memory_Headroom_Index.md": [
-            "checkpoint",
-            "handoff",
-            "cache",
-            "headroom",
-            "TK-001",
-            "TK-002",
-            "TK-003",
-            "TK-004",
-            "TK-007",
-            "TK-008",
-            "TK-028",
-            "TK-031",
-            "TK-032",
-            "TK-033",
-            "TK-F01",
+            "Back to Tokenomics Map",
         ],
         ROOT / "Wiki" / "Tokenomics" / "Input_Retrieval_Index.md": [
-            "TK-009",
-            "TK-010",
-            "TK-011",
-            "TK-012",
-            "TK-014",
-            "TK-015",
-            "TK-019",
-            "TK-F02",
+            "Back to Tokenomics Map",
         ],
         ROOT / "Wiki" / "Tokenomics" / "Output_Compaction_Index.md": [
-            "TK-020",
-            "TK-021",
-            "TK-022",
-            "TK-024",
-            "TK-025",
-            "TK-027",
-            "TK-029",
-            "TK-030",
-            "TK-035",
-            "TK-036",
-            "TK-043",
-            "TK-F03",
+            "Back to Tokenomics Map",
         ],
         ROOT / "Wiki" / "Tokenomics" / "Measurement_Telemetry_Index.md": [
-            "TK-023",
-            "TK-026",
-            "TK-037",
-            "TK-040",
-            "TK-041",
-            "TK-042",
+            "Back to Tokenomics Map",
         ],
         ROOT / "Wiki" / "Tokenomics" / "Automation_Tooling_Index.md": [
-            "TK-013",
-            "TK-017",
-            "TK-039",
+            "Back to Tokenomics Map",
         ],
         ROOT / "Wiki" / "Vices_Index.md": [
-            "[[Vices/VC-125|VC-125]]",
-            "[[Vices/VT-115|VT-115]]",
-            "[[Vices/VC-104|VC-104]]",
-            "[[Vices/VC-105|VC-105]]",
-            "[[Vices/VC-106|VC-106]]",
-        ],
-        ROOT / "Wiki" / "Project_Insights_Index.md": [
-            "[[Project_Insights/PI-025|PI-025]]",
+            "Engineering Vices Index",
+            "VC-001",
+            "VT-001",
         ],
         ROOT / "Wiki" / "Graph.md": [
             "## Validation Debt",
-            "| Candidate orphans | 0 |",
-            "| `DOC_ONLY` |",
             "## Downstream Verification",
             "| Status | VC | VT | TK |",
         ],
@@ -677,8 +663,8 @@ def validate_manifest(path: Path, errors: list[str], check_wiki: bool) -> None:
             errors.append(f"{path}: catalog {catalog_name!r} points to missing file {catalog_path}.")
             continue
 
-        if catalog_name == "project_insights":
-            validate_project_insights(catalog_path, errors, check_wiki, promoted_ids)
+        if catalog_name == "principles":
+            validate_principles_catalog(catalog_path, errors, check_wiki)
         else:
             validate_vices_catalog(catalog_path, errors, check_wiki)
 

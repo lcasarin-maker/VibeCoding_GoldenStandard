@@ -1,0 +1,588 @@
+{
+  "CD01": {
+    "title": "Repository Integrity & Surface Hygiene",
+    "summary": "Controls the active repository surface so ghost artifacts, stale residue, and polluted roots do not masquerade as live knowledge or valid output.",
+    "covers": [
+      "Ghost or undeclared active artifacts",
+      "Root hygiene after audits and refactors",
+      "Archive boundaries between active and historical surfaces"
+    ],
+    "excludes": [
+      "Dead code semantics inside otherwise active files",
+      "Dependency CVEs or supply-chain freshness",
+      "Token spend and context cost"
+    ],
+    "legacy_gs_lenses": ["D1", "D10"],
+    "graph_role": "High-value graph hub for active-surface discoverability: if this domain drifts, the graph loses trust in what is live versus archival.",
+    "principles": [
+      {
+        "insight_id": "PR-085",
+        "project": "reference",
+        "action": "Treat leftover backups, stale plan docs, spectral scripts, and orphan residue as governance debt, not harmless clutter."
+      },
+      {
+        "insight_id": "PR-088",
+        "project": "reference",
+        "action": "Keep the root workspace clean after every audit or remediation pass so historical evidence never pollutes active context."
+      },
+      {
+        "insight_id": "PR-097",
+        "project": "reference",
+        "action": "Prefer simple, auditable execution surfaces and remove temporary helpers unless they are reusable and documented."
+      }
+    ]
+  },
+  "CD02": {
+    "title": "Completeness & State Continuity",
+    "summary": "Keeps the operational contract complete by making state, scope, evidence, and checkpoints explicit before and during execution.",
+    "covers": [
+      "Missing required artifacts or incomplete operational contracts",
+      "State continuity across long runs",
+      "Preflight scope declaration and controlled execution boundaries"
+    ],
+    "excludes": [
+      "Naming clarity as a stylistic concern",
+      "Runtime telemetry and post-run evidence streams",
+      "Dependency freshness"
+    ],
+    "legacy_gs_lenses": ["D2"],
+    "graph_role": "Bridge domain between doctrine and execution flow: it keeps principles connected to durable state instead of chat memory.",
+    "principles": [
+      {
+        "insight_id": "PR-084",
+        "project": "reference",
+        "action": "Store state, evidence, checkpoints, and control signals outside the chat so the operational contract stays complete."
+      },
+      {
+        "insight_id": "PR-086",
+        "project": "reference",
+        "action": "Batch predictable authorizations and clarifications before long runs so the control plane can execute without interruptions."
+      },
+      {
+        "insight_id": "PR-104",
+        "project": "reference",
+        "action": "Declare scope, foreseeable impacts, and affected runners before execution, then record new work in backlog instead of reopening scope reactively."
+      }
+    ]
+  },
+  "CD03": {
+    "title": "Legibility & Causal Explainability",
+    "summary": "Makes code, assertions, and protocol prose readable enough to expose causal structure instead of hiding it behind opaque naming or unexplained failure output.",
+    "covers": [
+      "Descriptive names and low-noise topology",
+      "Actionable failure messages",
+      "Confidence-tagged, causally explicit protocol prose"
+    ],
+    "excludes": [
+      "Dead code detection",
+      "Token budgeting",
+      "General discourse style independent of evidence"
+    ],
+    "legacy_gs_lenses": ["D3"],
+    "graph_role": "Semantic bridge between doctrine and graph readability: improves whether the graph edges and their surrounding prose are cognitively inspectable.",
+    "principles": [
+      {
+        "insight_id": "PR-080",
+        "project": "pytest-good-assertions",
+        "action": "Require failure messages that explain the discrepancy with enough clarity to debug without guesswork."
+      },
+      {
+        "insight_id": "PR-089",
+        "project": "reference",
+        "action": "Prefer descriptive names and simple topology so purpose is visible at first glance."
+      },
+      {
+        "insight_id": "PR-098",
+        "project": "graphify",
+        "action": "Tag protocol claims with VERIFIED, INFERRED, or ASSUMED so readers can separate evidence from inference."
+      }
+    ]
+  },
+  "CD04": {
+    "title": "Code Vitality & Dead Surface",
+    "summary": "Distinguishes active, load-bearing logic from inert, spectral, or ceremonial code surface so the repository does not accumulate dead operational mass.",
+    "covers": [
+      "Dead or spectral executable surface",
+      "Residue that pretends to be active logic",
+      "Helpers that survive after their real load-bearing role is gone"
+    ],
+    "excludes": [
+      "Tree-level ghost files as a repository-integrity problem",
+      "Coverage adequacy",
+      "Runtime drift across repos"
+    ],
+    "legacy_gs_lenses": ["D10"],
+    "graph_role": "Candidate-orphan pressure valve: this domain questions whether a file exists because it is alive or because nobody removed it.",
+    "principles": [
+      {
+        "insight_id": "PR-085",
+        "project": "reference",
+        "action": "Treat spectral scripts, stale helper layers, and dead refactor residue as a governance failure, not as harmless leftovers."
+      },
+      {
+        "insight_id": "PR-097",
+        "project": "reference",
+        "action": "Temporary helpers must disappear unless they remain reusable, documented, and visibly load-bearing."
+      },
+      {
+        "insight_id": "PR-107",
+        "project": "vibecheck",
+        "action": "Use local static smell detection to expose low-quality or inert AI-generated code before it becomes accepted surface."
+      }
+    ]
+  },
+  "CD05": {
+    "title": "Structural Simplicity & Blast Radius",
+    "summary": "Controls complexity, indirection, and fan-in so the system stays comprehensible and graph hubs receive the scrutiny their impact deserves.",
+    "covers": [
+      "Spaghetti growth and deep indirection",
+      "Needless branching or provider-specific routing tangles",
+      "High fan-in hub review and blast-radius prioritization"
+    ],
+    "excludes": [
+      "Unused or dead code",
+      "Satellite version drift",
+      "Prose ambiguity"
+    ],
+    "legacy_gs_lenses": ["D4"],
+    "graph_role": "Primary graph-priority domain: this is where hubs stop being decorative and become audit-order signals.",
+    "principles": [
+      {
+        "insight_id": "PR-083",
+        "project": "litellm",
+        "action": "Centralize routing and fallbacks so the code does not grow provider-specific branching spaghetti."
+      },
+      {
+        "insight_id": "PR-089",
+        "project": "reference",
+        "action": "Flatten structure when it reduces cognitive friction and removes needless indirection."
+      },
+      {
+        "insight_id": "PR-102",
+        "project": "reference",
+        "action": "Review graph hubs first when the catalog changes because high fan-in nodes carry the largest impact radius."
+      }
+    ]
+  },
+  "CD06": {
+    "title": "Failure Handling & Recovery Paths",
+    "summary": "Turns failure into a structured operational path with visible next steps, actionable diagnostics, and zero silent debt advancement.",
+    "covers": [
+      "Angry-path discipline",
+      "Structured next steps and recovery paths",
+      "Warnings treated as operational errors until resolved"
+    ],
+    "excludes": [
+      "Security scanning as a separate concern",
+      "Token efficiency",
+      "Coverage discrimination"
+    ],
+    "legacy_gs_lenses": ["D5"],
+    "graph_role": "Failure-oriented bridge node: links doctrine to what happens when the graph surfaces a real break instead of a decorative warning.",
+    "principles": [
+      {
+        "insight_id": "PR-084",
+        "project": "reference",
+        "action": "Turn failure handling into a structured protocol with next steps, evidence, and a visible recovery path."
+      },
+      {
+        "insight_id": "PR-087",
+        "project": "reference",
+        "action": "Treat warnings and known non-blocking findings as operational errors until they are fixed or explicitly blocked."
+      },
+      {
+        "insight_id": "PR-113",
+        "project": "reference",
+        "action": "When behavior is stochastic, define sampling, thresholds, and repetition criteria instead of declaring correctness from one lucky run."
+      }
+    ]
+  },
+  "CD07": {
+    "title": "Boundary Hygiene & Anti-Theater",
+    "summary": "Protects the system against ceremonial progress by enforcing minimal real exclusions, justified handoffs, and anti-theater guard design.",
+    "covers": [
+      "Justified exclusions and minimal bypasses",
+      "Boundary discipline between doctrine, execution, and evidence",
+      "Anti-theater control over mocks, placeholders, and ceremonial guards"
+    ],
+    "excludes": [
+      "Dependency CVEs",
+      "Generic security scanning",
+      "Raw coverage quantity"
+    ],
+    "legacy_gs_lenses": ["D6", "D11"],
+    "graph_role": "Semantic hygiene hub: keeps graph links honest by forcing the repository to justify exceptions instead of normalizing theater.",
+    "principles": [
+      {
+        "insight_id": "PR-090",
+        "project": "reference",
+        "action": "Allow exclusions only when they are minimal, justified, and real; false coverage is debt, not progress."
+      },
+      {
+        "insight_id": "PR-093",
+        "project": "reference",
+        "action": "Require each new guard to break a real circularity and reduce the baseline instead of merely naming the problem."
+      },
+      {
+        "insight_id": "PR-095",
+        "project": "reference",
+        "action": "Split broad coverage theater into discriminative checks so one guard never pretends to cover many unrelated failures."
+      }
+    ]
+  },
+  "CD08": {
+    "title": "Runtime & Data Security",
+    "summary": "Protects live execution surfaces against secrets, dangerous operations, exfiltration, and security-sensitive runtime misuse.",
+    "covers": [
+      "Secrets and dangerous operations in active code paths",
+      "Runtime misuse that can exfiltrate data or expand blast radius",
+      "Security scanning across code and infrastructure surfaces"
+    ],
+    "excludes": [
+      "Package freshness and yanked dependency posture",
+      "Agent jailbreak taxonomy as its own boundary class",
+      "Coverage honesty"
+    ],
+    "legacy_gs_lenses": ["D1", "D7"],
+    "graph_role": "Security-critical bridge between doctrine and live execution: domain edges here should be treated as high-consequence surfaces.",
+    "principles": [
+      {
+        "insight_id": "PR-082",
+        "project": "trivy",
+        "action": "Scan repos, images, filesystems, and IaC for secrets, vulnerabilities, and misconfigurations before release."
+      },
+      {
+        "insight_id": "PR-107",
+        "project": "vibecheck",
+        "action": "Use local linting that catches hardcoded secrets, eval, and empty catch blocks as early runtime-security signals."
+      },
+      {
+        "insight_id": "PR-108",
+        "project": "viberails",
+        "action": "Intercept risky agent operations through a policy-enforcement layer instead of trusting every generated action."
+      }
+    ]
+  },
+  "CD09": {
+    "title": "Coverage Adequacy",
+    "summary": "Asks whether active logic is actually covered by meaningful guards and whether new protection reduces real uncovered surface.",
+    "covers": [
+      "Whether relevant behavior is covered at all",
+      "Coverage planning for high-risk or circularity-heavy areas",
+      "Adequate evaluation of stochastic behavior"
+    ],
+    "excludes": [
+      "Assertion quality inside an existing test",
+      "Generic code complexity",
+      "Dependency posture"
+    ],
+    "legacy_gs_lenses": ["D8"],
+    "graph_role": "Coverage-to-graph connector: domain edges here help determine which active graph surfaces remain unprotected.",
+    "principles": [
+      {
+        "insight_id": "PR-079",
+        "project": "deptry",
+        "action": "Validate dependency declarations before running coverage gates so missing imports do not fake a green test surface."
+      },
+      {
+        "insight_id": "PR-093",
+        "project": "reference",
+        "action": "Each new guard must shrink a real uncovered circularity baseline rather than merely expand the list of names."
+      },
+      {
+        "insight_id": "PR-113",
+        "project": "reference",
+        "action": "Audit stochastic behavior with declared sampling and thresholds instead of single-run optimism."
+      }
+    ]
+  },
+  "CD10": {
+    "title": "Test Falsifiability & Assertion Quality",
+    "summary": "Makes tests fail for the right reason, with precise assertions and honest labeling when no physical gate can yet exist.",
+    "covers": [
+      "Diagnostic assertion quality",
+      "Honest `DOC_ONLY` labeling for non-falsifiable lessons",
+      "Discriminative tests that fail for the claimed reason"
+    ],
+    "excludes": [
+      "Raw amount of coverage",
+      "Dependency declarations",
+      "Runtime security scanning"
+    ],
+    "legacy_gs_lenses": ["D8", "D9"],
+    "graph_role": "Falsifiability anchor: prevents the graph from confusing the existence of a test file with the existence of real protection.",
+    "principles": [
+      {
+        "insight_id": "PR-080",
+        "project": "pytest-good-assertions",
+        "action": "Keep assertion output precise and inspectable so a failing test explains the discrepancy instead of performing theater."
+      },
+      {
+        "insight_id": "PR-094",
+        "project": "reference",
+        "action": "Mark non-falsifiable lessons as DOC_ONLY instead of pretending automatic coverage exists."
+      },
+      {
+        "insight_id": "PR-095",
+        "project": "reference",
+        "action": "Avoid many-to-one guards that claim to protect many vices but cannot isolate the real failure."
+      }
+    ]
+  },
+  "CD11": {
+    "title": "Context Efficiency & Tokenomics",
+    "summary": "Treats token spend, context hygiene, trimming, retrieval, and memory discipline as operational efficiency concerns subordinate to code quality.",
+    "covers": [
+      "Token metering and spend visibility",
+      "Context hygiene, trimming, and memory discipline",
+      "Tooling that reduces rereads and noisy interaction"
+    ],
+    "excludes": [
+      "Security posture",
+      "Discourse rigor as prose quality",
+      "Dependency CVEs"
+    ],
+    "legacy_gs_lenses": ["D10"],
+    "graph_role": "Dense graph bridge between doctrine, telemetry, and tooling: one of the main semantic intersections in GS.",
+    "principles": [
+      {
+        "insight_id": "PR-081",
+        "project": "tokencost",
+        "action": "Meter tokens before and during LLM calls so spend is visible before usage grows."
+      },
+      {
+        "insight_id": "PR-083",
+        "project": "litellm",
+        "action": "Unify provider routing, fallback, and cost tracking so efficiency and resilience are handled once."
+      },
+      {
+        "insight_id": "PR-085",
+        "project": "reference",
+        "action": "Treat output trimming, context hygiene, and history externalization as first-class controls."
+      },
+      {
+        "insight_id": "PR-109",
+        "project": "ratelimit",
+        "action": "Use rate limiting to avoid quota surprises and reduce reactive token waste."
+      },
+      {
+        "insight_id": "PR-112",
+        "project": "serena",
+        "action": "Prefer symbol-level retrieval so recovered context is correct instead of bloated by blind chunking."
+      }
+    ]
+  },
+  "CD12": {
+    "title": "Dependency & Supply-Chain Posture",
+    "summary": "Keeps declared dependencies, package freshness, and third-party intake aligned with the real code surface and vulnerability posture.",
+    "covers": [
+      "Declared versus imported dependency reconciliation",
+      "SCA and yanked-package posture",
+      "Third-party code and package intake discipline"
+    ],
+    "excludes": [
+      "Generic runtime exfiltration logic",
+      "Assertion quality",
+      "Session telemetry"
+    ],
+    "legacy_gs_lenses": ["D1", "D11"],
+    "graph_role": "Supply-chain traceability hub: connects doctrine to package reality and prevents invisible third-party drift.",
+    "principles": [
+      {
+        "insight_id": "PR-079",
+        "project": "deptry",
+        "action": "Compare imports against declared dependencies and fail on missing, unused, transitive, or misplaced packages."
+      },
+      {
+        "insight_id": "PR-082",
+        "project": "trivy",
+        "action": "Audit packages and related build surfaces against vulnerabilities, secrets, and SBOM gaps before release."
+      },
+      {
+        "insight_id": "PR-110",
+        "project": "context7",
+        "action": "Use current documentation sources to reduce reliance on obsolete or hallucinated package APIs."
+      }
+    ]
+  },
+  "CD13": {
+    "title": "Knowledge Canonicalization & Ingestion",
+    "summary": "Preserves GS as a live, deduplicated doctrine by normalizing new lessons and forcing explicit uncertainty handling before they become canon.",
+    "covers": [
+      "Canonical intake of new lessons",
+      "Deduplication and normalization before doctrine promotion",
+      "Explicit uncertainty and semantic consistency across docs"
+    ],
+    "excludes": [
+      "Satellite version parity",
+      "Live runtime telemetry",
+      "Generic code complexity"
+    ],
+    "legacy_gs_lenses": ["D2", "D12"],
+    "graph_role": "Knowledge backbone of the graph: protects hub coherence by ensuring new nodes enter through normalized, deduplicated doctrine.",
+    "principles": [
+      {
+        "insight_id": "PR-092",
+        "project": "reference",
+        "action": "Keep GS alive by absorbing lessons from the core project and satellites without contaminating doctrine with local tooling details."
+      },
+      {
+        "insight_id": "PR-096",
+        "project": "reference",
+        "action": "Normalize, deduplicate, and record new lessons before folding them into the central knowledge base."
+      },
+      {
+        "insight_id": "PR-099",
+        "project": "karpathy-llm-wiki",
+        "action": "Audit protocol documents semantically to detect contradictions, stale references, and incompatible claims."
+      },
+      {
+        "insight_id": "PR-100",
+        "project": "reference",
+        "action": "Keep an explicit uncertainty list so unverified claims are visible before they become doctrine."
+      }
+    ]
+  },
+  "CD14": {
+    "title": "Federation Drift & Version Parity",
+    "summary": "Keeps shared state, concurrent work, and federated repos from diverging silently through disciplined parity and serialized coordination.",
+    "covers": [
+      "Satellite and shared-state drift",
+      "Concurrent editing awareness",
+      "Serialized coordination for stateful Git operations"
+    ],
+    "excludes": [
+      "Doctrine ingestion itself",
+      "Generic observability signals",
+      "Prose clarity"
+    ],
+    "legacy_gs_lenses": ["D12"],
+    "graph_role": "Cross-repo coherence bridge: without this domain, graph-connected doctrine diverges from the federated surfaces that consume it.",
+    "principles": [
+      {
+        "insight_id": "PR-101",
+        "project": "reference",
+        "action": "Check shared state and recent commits before editing so concurrent sessions do not overwrite each other silently."
+      },
+      {
+        "insight_id": "PR-103",
+        "project": "reference",
+        "action": "Persist structured retrospectives before context resets so continuity survives across sessions and federated work."
+      },
+      {
+        "insight_id": "PR-105",
+        "project": "reference",
+        "action": "Execute Git operations serially in orchestrations to avoid index locks, races, and inconsistent shared state."
+      }
+    ]
+  },
+  "CD15": {
+    "title": "Observability & Evidence Telemetry",
+    "summary": "Makes runtime signals, costs, decisions, and evidence streams visible early enough to support intervention rather than decorative post-mortems.",
+    "covers": [
+      "Live token and quality signals",
+      "Decision and event telemetry",
+      "Durable evidence streams and structured session exports"
+    ],
+    "excludes": [
+      "Debt state as a semantic category",
+      "General prose quality",
+      "Package vulnerability posture"
+    ],
+    "legacy_gs_lenses": ["D7", "D10", "D12"],
+    "graph_role": "Graph observability hub: the domain that turns the graph from a static index into a measurable audit surface.",
+    "principles": [
+      {
+        "insight_id": "PR-081",
+        "project": "tokencost",
+        "action": "Make cost visible before execution so token telemetry exists as evidence, not as a hindsight estimate."
+      },
+      {
+        "insight_id": "PR-091",
+        "project": "reference",
+        "action": "Observe risky signals during execution, not after the fact, so monitoring can interrupt damage early."
+      },
+      {
+        "insight_id": "PR-098",
+        "project": "graphify",
+        "action": "Use explicit confidence tags so state claims are measurable against real evidence instead of decorative certainty."
+      },
+      {
+        "insight_id": "PR-103",
+        "project": "reference",
+        "action": "Persist structured retrospective exports to a durable ledger before any context reset."
+      }
+    ]
+  },
+  "CD16": {
+    "title": "Discourse Rigor & Evidence Quality",
+    "summary": "Disciplines protocol prose and agent-facing doctrine so claims stay evidence-backed, scoped, and resistant to ambiguity drift.",
+    "covers": [
+      "Evidence-backed protocol writing",
+      "Ambiguity control in doctrine and handoffs",
+      "Explicit separation of verified facts from assumptions"
+    ],
+    "excludes": [
+      "Repo code quality as code",
+      "Token cost control",
+      "Package-level security"
+    ],
+    "legacy_gs_lenses": ["D3", "D12"],
+    "graph_role": "Narrative integrity layer for the graph: keeps semantic links surrounded by prose that is explicit, bounded, and auditable.",
+    "principles": [
+      {
+        "insight_id": "PR-098",
+        "project": "graphify",
+        "action": "Tag every state claim with explicit confidence so discourse communicates evidence quality directly."
+      },
+      {
+        "insight_id": "PR-099",
+        "project": "karpathy-llm-wiki",
+        "action": "Run semantic wiki-lint so documents do not drift into incompatible or contradictory claims."
+      },
+      {
+        "insight_id": "PR-100",
+        "project": "reference",
+        "action": "Declare which claims were not mechanically verified in the current session instead of letting ambiguity pass as fact."
+      },
+      {
+        "insight_id": "PR-104",
+        "project": "reference",
+        "action": "Declare scope, impacts, and out-of-scope follow-ups before execution so handoff prose remains bounded and honest."
+      }
+    ]
+  },
+  "CD17": {
+    "title": "Agent Boundary Security",
+    "summary": "Protects the agent layer itself against jailbreaks, leakage, runaway loops, and unsafe persistent-memory or prompt-boundary failures.",
+    "covers": [
+      "Prompt injection and jailbreak resistance",
+      "Prompt leakage and unsafe prompt-surface handling",
+      "Agent memory and context-boundary discipline"
+    ],
+    "excludes": [
+      "Generic secrets in ordinary code paths",
+      "Package CVEs",
+      "Pure coverage concerns"
+    ],
+    "legacy_gs_lenses": ["D7", "D12"],
+    "graph_role": "High-risk semantic perimeter: domain links here should be treated as trust-boundary edges, not ordinary knowledge references.",
+    "principles": [
+      {
+        "insight_id": "PR-106",
+        "project": "vibe-check",
+        "action": "Use metacognitive interrupts to curb tunnel vision and runaway loops before the agent crosses unsafe behavioral boundaries."
+      },
+      {
+        "insight_id": "PR-108",
+        "project": "viberails",
+        "action": "Intercept risky agent operations through policy hooks so boundary violations are blocked before execution."
+      },
+      {
+        "insight_id": "PR-111",
+        "project": "persistent-memory",
+        "action": "Treat durable cross-session memory as a trust-boundary surface that requires source, date, and reconciliation discipline."
+      }
+    ]
+  }
+}

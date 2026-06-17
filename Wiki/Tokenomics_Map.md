@@ -1,18 +1,18 @@
 # Tokenomics Map
 
-This map serves as a bridge between the `TK` category and the GS satellite lessons. It does not repeat the catalog: it shows how to read it and which insights it crosses.
+This map serves as a bridge between the `TK` category and the GS principles layer. It does not repeat the catalog: it shows how to read it and which principles it crosses.
 
 ## What it is for
 
 - Navigate relations between context vices, token savings, and operational discipline.
-- Identify which satellite lessons reinforce each tokenomics lens.
+- Identify which principles reinforce each tokenomics lens.
 - Detect gaps where doctrine exists, but a supporting artifact or clear telemetry is still missing.
 
 ---
 
 ## Operational lenses
 
-| Lens | Subindex | Related Project Insights | Intent |
+| Lens | Subindex | Related Principles | Intent |
 |---|---|---|---|
 | Memory and Headroom | [[Tokenomics/Memory_Headroom_Index|Open lens]] | `PR-084, PR-088, PR-092, PR-096` | Avoids context loss, root pollution, and forgotten learning. |
 | Input and Retrieval | [[Tokenomics/Input_Retrieval_Index|Open lens]] | `PR-083, PR-090` | Reduces input noise and makes targeted retrieval more precise. |
@@ -22,9 +22,9 @@ This map serves as a bridge between the `TK` category and the GS satellite lesso
 
 ---
 
-## Key Project Insights
+## Key Principles
 
-| Insight | Summary |
+| Principle | Summary |
 |---|---|
 | `PR-081` | Tokencost – upfront token metering and USD conversion to make spend visible before executing an LLM call. |
 | `PR-083` | Litellm – provider-agnostic gateway with routing, fallback, cost tracking, guardrails, logging, and load balancing. |
@@ -44,7 +44,7 @@ This map serves as a bridge between the `TK` category and the GS satellite lesso
 
 | Node | Relation | Reason |
 |---|---|---|
-| `[[Project_Insights/PR-097|PR-097]]` | Satellite hygiene | Expands the discipline of editing and validation toward daily work with tools. |
+| `[[Principles|PR-097]]` | Principle hygiene | Expands the discipline of editing and validation toward daily work with tools. |
 | `[[Vices/VC-056|VC-056]]` | Mirror vice | Represents the error of deprecating without analysis or traceability. |
 
 ---
@@ -58,4 +58,4 @@ This map serves as a bridge between the `TK` category and the GS satellite lesso
 5. If the doctrine does not run by itself, check `Automation and Tooling`.
 
 ---
-[[Tokenomics_Index|Back to Tokenomics Index]] | [[Project_Insights_Index|Go to Insights]] | [[Home|Home]]
+[[Tokenomics_Index|Back to Tokenomics Index]] | [[Principles|Go to Principles]] | [[Home|Home]]

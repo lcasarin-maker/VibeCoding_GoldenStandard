@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.6 | Date: 2026-06-16 | Total Audited Items: 236**
+**Golden Standard V0.6 | Date: 2026-06-17 | Total Audited Items: 236**
 
 This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -267,11 +267,11 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `TK-033` | Entropy without pruning — input governance without output governance | **low** | **PREVENTED** | `none` | Govern output as strictly as input by hunting orphans and dead artifacts as a gate, not only blocking junk on the way in; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.  | `runtime-test` |
 | `TK-034` | Accumulated tokenomics debt (Cost Compounding) | **medium** | **PREVENTED** | `none` | Per-session token accumulation must be bounded; when output exceeds the efficiency budget, execution is blocked and compaction forced.  | `_check_and_flag_compact` |
 
-## Project Insights
+## Principles
 
-These entries are preserved as project-agnostic knowledge extracted from external references and now consumed by GS users and downstream tools.
+These entries are preserved as project-agnostic doctrine and now consumed as first-class principles by GS users and downstream tools.
 
-| ID | Insight |
+| ID | Principle |
 |---|---|
 | `PR-001` | Unassumed incompetence |
 | `PR-002` | Blind trust |
@@ -387,49 +387,65 @@ These entries are preserved as project-agnostic knowledge extracted from externa
 | `PR-112` | serena (oraios/serena, verified) -- symbol-level (semantic) retrieval and editing so that recovered context is correct; mitigates VC-069 against blind chunking. |
 | `PR-113` | Auditing stochastic systems – when behavior depends on chance, sampling, retries, probabilistic routing, or non-deterministic generation, it is not evaluated with a single run nor with an exact value. The rule is to declare the target distribution, seed when applicable, sample size, acceptable thresholds, and repetition criterion; if the surface should be deterministic, the randomness is eliminated rather than disguised as controlled. Claims about stability or correctness must be reproducible across several runs, not just plausible in one. Origin: GS audit of stochastic systems; complements VT-028 on controlled randomness. |
 
-## Project Insight Recommendations by Domain
+## Principle Recommendations by Canonical Domain
 
-These actions are the operational bridge between the project insights and the GS operational lenses.
+These actions are the operational bridge between the principles and the canonical GS domains.
 
-| Domain | Insight | Project | Action |
-|---|---|---|---|
-| `D1` | `PR-079` | deptry | Compare imports against declared dependencies and fail on missing, unused, transitive or misplaced packages. |
-| `D1` | `PR-082` | trivy | Scan repos, images and filesystems for secrets, CVEs, misconfigurations and SBOM gaps before release. |
-| `D1` | `PR-088` | reference | Keep the working tree clean after audits; treat historical artifacts as reference material, not active output. |
-| `D10` | `PR-081` | tokencost | Meter tokens before and during LLM calls so cost is visible before usage grows. |
-| `D10` | `PR-083` | litellm | Unify provider routing, fallbacks and telemetry so cost and resilience are handled once. |
-| `D10` | `PR-085` | reference | Treat output trimming, context hygiene and history externalization as a first-class control, not an afterthought. |
-| `D10` | `PR-087` | reference | Convert every warning and findable issue into a tracked operational error until the backlog is clean. |
-| `D10` | `PR-088` | reference | Keep the root workspace clean so historical data lives in archives instead of polluting active context. |
-| `D10` | `PR-091` | reference | Watch token and quality signals live during the run, not only in a post-mortem report. |
-| `D11` | `PR-082` | trivy | Use security scanning as a pre-merge and pre-release gate for filesystems, images and IaC. |
-| `D11` | `PR-090` | reference | Keep exclusions minimal and auditable so the security posture stays real instead of ceremonial. |
-| `D12` | `PR-092` | reference | Fuse satellite learnings into the canonical knowledge base only after normalization and deduplication. |
-| `D12` | `PR-096` | reference | Normalize, deduplicate and record new learnings before folding them into the central knowledge base. |
-| `D12` | `PR-101` | reference | Check shared state and recent commits before editing so concurrent sessions do not overwrite each other silently. |
-| `D2` | `PR-079` | deptry | Treat missing or stale dependency declarations as completeness debt and block delivery until reconciled. |
-| `D2` | `PR-084` | reference | Keep the operational contract complete by storing state, evidence and checkpoints outside the chat. |
-| `D2` | `PR-086` | reference | Batch predictable authorizations and questions before long runs so the control plane can execute without interruptions. |
-| `D2` | `PR-092` | reference | Keep the knowledge base alive by continuously absorbing lessons from the core project and its satellites. |
-| `D2` | `PR-100` | reference | Keep an explicit uncertainty ledger so protocol docs separate verified facts from assumptions before they become doctrine. |
-| `D3` | `PR-080` | pytest-good-assertions | Require failure messages that explain the mismatch clearly enough to debug without guesswork. |
-| `D3` | `PR-084` | reference | Use explicit state and evidence fields so the system tells a clear causal story instead of relying on memory. |
-| `D3` | `PR-089` | reference | Prefer descriptive names and reduce structural noise so purpose is visible at first glance. |
-| `D4` | `PR-083` | litellm | Centralize provider routing and fallbacks so the code does not grow provider-specific branching spaghetti. |
-| `D4` | `PR-089` | reference | Flatten nested structure when it simplifies maintenance and removes needless indirection. |
-| `D4` | `PR-102` | reference | Review graph hubs first when the catalog changes, because high fan-in nodes carry the largest impact radius. |
-| `D5` | `PR-084` | reference | Turn failure handling into a structured protocol with next steps, evidence and a visible recovery path. |
-| `D5` | `PR-080` | pytest-good-assertions | Make failing assertions explain what to do next so the angry path is actionable, not noisy. |
-| `D5` | `PR-087` | reference | Treat warnings and known non-blocking findings as operational errors until they are fixed or explicitly blocked. |
-| `D6` | `PR-084` | reference | Enforce clean boundaries, compact state and explicit handoffs to avoid slop and context drift. |
-| `D6` | `PR-090` | reference | Allow exclusions only when they are minimal, justified and real; do not use theater constructs to simulate progress. |
-| `D7` | `PR-082` | trivy | Use security scanning as a mandatory gate for secrets, vulnerabilities and IaC misconfigurations. |
-| `D7` | `PR-091` | reference | Observe risky signals during execution, not after the fact, so live monitoring can interrupt damage early. |
-| `D8` | `PR-080` | pytest-good-assertions | Keep tests high-signal: assertions should discriminate behavior, not merely confirm presence. |
-| `D8` | `PR-079` | deptry | Prevent dependency drift from destabilizing the test suite by validating imports before running coverage gates. |
-| `D8` | `PR-090` | reference | Reject fake coverage patterns such as xfail-as-expected, placeholder tests, mocks without intent or broad skips without evidence. |
-| `D8` | `PR-093` | reference | Require each new guard to break a real circularity and reduce the baseline instead of merely naming the problem. |
-| `D8` | `PR-095` | reference | Split broad coverage theater into discriminative checks so one test never pretends to cover many unrelated vices. |
-| `D9` | `PR-080` | pytest-good-assertions | Preserve assertion quality so tests fail with precise, inspectable output instead of theater. |
-| `D9` | `PR-090` | reference | Prefer discriminative tests over symbolic coverage; if a test cannot fail for the right reason, it is not protecting the system. |
-| `D9` | `PR-094` | reference | Mark non-falsifiable lessons as DOC_ONLY instead of pretending they can be proved automatically. |
+| Domain | Title | Principle | Project | Action |
+|---|---|---|---|---|
+| `CD01` | Repository Integrity & Surface Hygiene | `PR-085` | reference | Treat leftover backups, stale plan docs, spectral scripts, and orphan residue as governance debt, not harmless clutter. |
+| `CD01` | Repository Integrity & Surface Hygiene | `PR-088` | reference | Keep the root workspace clean after every audit or remediation pass so historical evidence never pollutes active context. |
+| `CD01` | Repository Integrity & Surface Hygiene | `PR-097` | reference | Prefer simple, auditable execution surfaces and remove temporary helpers unless they are reusable and documented. |
+| `CD02` | Completeness & State Continuity | `PR-084` | reference | Store state, evidence, checkpoints, and control signals outside the chat so the operational contract stays complete. |
+| `CD02` | Completeness & State Continuity | `PR-086` | reference | Batch predictable authorizations and clarifications before long runs so the control plane can execute without interruptions. |
+| `CD02` | Completeness & State Continuity | `PR-104` | reference | Declare scope, foreseeable impacts, and affected runners before execution, then record new work in backlog instead of reopening scope reactively. |
+| `CD03` | Legibility & Causal Explainability | `PR-080` | pytest-good-assertions | Require failure messages that explain the discrepancy with enough clarity to debug without guesswork. |
+| `CD03` | Legibility & Causal Explainability | `PR-089` | reference | Prefer descriptive names and simple topology so purpose is visible at first glance. |
+| `CD03` | Legibility & Causal Explainability | `PR-098` | graphify | Tag protocol claims with VERIFIED, INFERRED, or ASSUMED so readers can separate evidence from inference. |
+| `CD04` | Code Vitality & Dead Surface | `PR-085` | reference | Treat spectral scripts, stale helper layers, and dead refactor residue as a governance failure, not as harmless leftovers. |
+| `CD04` | Code Vitality & Dead Surface | `PR-097` | reference | Temporary helpers must disappear unless they remain reusable, documented, and visibly load-bearing. |
+| `CD04` | Code Vitality & Dead Surface | `PR-107` | vibecheck | Use local static smell detection to expose low-quality or inert AI-generated code before it becomes accepted surface. |
+| `CD05` | Structural Simplicity & Blast Radius | `PR-083` | litellm | Centralize routing and fallbacks so the code does not grow provider-specific branching spaghetti. |
+| `CD05` | Structural Simplicity & Blast Radius | `PR-089` | reference | Flatten structure when it reduces cognitive friction and removes needless indirection. |
+| `CD05` | Structural Simplicity & Blast Radius | `PR-102` | reference | Review graph hubs first when the catalog changes because high fan-in nodes carry the largest impact radius. |
+| `CD06` | Failure Handling & Recovery Paths | `PR-084` | reference | Turn failure handling into a structured protocol with next steps, evidence, and a visible recovery path. |
+| `CD06` | Failure Handling & Recovery Paths | `PR-087` | reference | Treat warnings and known non-blocking findings as operational errors until they are fixed or explicitly blocked. |
+| `CD06` | Failure Handling & Recovery Paths | `PR-113` | reference | When behavior is stochastic, define sampling, thresholds, and repetition criteria instead of declaring correctness from one lucky run. |
+| `CD07` | Boundary Hygiene & Anti-Theater | `PR-090` | reference | Allow exclusions only when they are minimal, justified, and real; false coverage is debt, not progress. |
+| `CD07` | Boundary Hygiene & Anti-Theater | `PR-093` | reference | Require each new guard to break a real circularity and reduce the baseline instead of merely naming the problem. |
+| `CD07` | Boundary Hygiene & Anti-Theater | `PR-095` | reference | Split broad coverage theater into discriminative checks so one guard never pretends to cover many unrelated failures. |
+| `CD08` | Runtime & Data Security | `PR-082` | trivy | Scan repos, images, filesystems, and IaC for secrets, vulnerabilities, and misconfigurations before release. |
+| `CD08` | Runtime & Data Security | `PR-107` | vibecheck | Use local linting that catches hardcoded secrets, eval, and empty catch blocks as early runtime-security signals. |
+| `CD08` | Runtime & Data Security | `PR-108` | viberails | Intercept risky agent operations through a policy-enforcement layer instead of trusting every generated action. |
+| `CD09` | Coverage Adequacy | `PR-079` | deptry | Validate dependency declarations before running coverage gates so missing imports do not fake a green test surface. |
+| `CD09` | Coverage Adequacy | `PR-093` | reference | Each new guard must shrink a real uncovered circularity baseline rather than merely expand the list of names. |
+| `CD09` | Coverage Adequacy | `PR-113` | reference | Audit stochastic behavior with declared sampling and thresholds instead of single-run optimism. |
+| `CD10` | Test Falsifiability & Assertion Quality | `PR-080` | pytest-good-assertions | Keep assertion output precise and inspectable so a failing test explains the discrepancy instead of performing theater. |
+| `CD10` | Test Falsifiability & Assertion Quality | `PR-094` | reference | Mark non-falsifiable lessons as DOC_ONLY instead of pretending automatic coverage exists. |
+| `CD10` | Test Falsifiability & Assertion Quality | `PR-095` | reference | Avoid many-to-one guards that claim to protect many vices but cannot isolate the real failure. |
+| `CD11` | Context Efficiency & Tokenomics | `PR-081` | tokencost | Meter tokens before and during LLM calls so spend is visible before usage grows. |
+| `CD11` | Context Efficiency & Tokenomics | `PR-083` | litellm | Unify provider routing, fallback, and cost tracking so efficiency and resilience are handled once. |
+| `CD11` | Context Efficiency & Tokenomics | `PR-085` | reference | Treat output trimming, context hygiene, and history externalization as first-class controls. |
+| `CD11` | Context Efficiency & Tokenomics | `PR-109` | ratelimit | Use rate limiting to avoid quota surprises and reduce reactive token waste. |
+| `CD11` | Context Efficiency & Tokenomics | `PR-112` | serena | Prefer symbol-level retrieval so recovered context is correct instead of bloated by blind chunking. |
+| `CD12` | Dependency & Supply-Chain Posture | `PR-079` | deptry | Compare imports against declared dependencies and fail on missing, unused, transitive, or misplaced packages. |
+| `CD12` | Dependency & Supply-Chain Posture | `PR-082` | trivy | Audit packages and related build surfaces against vulnerabilities, secrets, and SBOM gaps before release. |
+| `CD12` | Dependency & Supply-Chain Posture | `PR-110` | context7 | Use current documentation sources to reduce reliance on obsolete or hallucinated package APIs. |
+| `CD13` | Knowledge Canonicalization & Ingestion | `PR-092` | reference | Keep GS alive by absorbing lessons from the core project and satellites without contaminating doctrine with local tooling details. |
+| `CD13` | Knowledge Canonicalization & Ingestion | `PR-096` | reference | Normalize, deduplicate, and record new lessons before folding them into the central knowledge base. |
+| `CD13` | Knowledge Canonicalization & Ingestion | `PR-099` | karpathy-llm-wiki | Audit protocol documents semantically to detect contradictions, stale references, and incompatible claims. |
+| `CD13` | Knowledge Canonicalization & Ingestion | `PR-100` | reference | Keep an explicit uncertainty list so unverified claims are visible before they become doctrine. |
+| `CD14` | Federation Drift & Version Parity | `PR-101` | reference | Check shared state and recent commits before editing so concurrent sessions do not overwrite each other silently. |
+| `CD14` | Federation Drift & Version Parity | `PR-103` | reference | Persist structured retrospectives before context resets so continuity survives across sessions and federated work. |
+| `CD14` | Federation Drift & Version Parity | `PR-105` | reference | Execute Git operations serially in orchestrations to avoid index locks, races, and inconsistent shared state. |
+| `CD15` | Observability & Evidence Telemetry | `PR-081` | tokencost | Make cost visible before execution so token telemetry exists as evidence, not as a hindsight estimate. |
+| `CD15` | Observability & Evidence Telemetry | `PR-091` | reference | Observe risky signals during execution, not after the fact, so monitoring can interrupt damage early. |
+| `CD15` | Observability & Evidence Telemetry | `PR-098` | graphify | Use explicit confidence tags so state claims are measurable against real evidence instead of decorative certainty. |
+| `CD15` | Observability & Evidence Telemetry | `PR-103` | reference | Persist structured retrospective exports to a durable ledger before any context reset. |
+| `CD16` | Discourse Rigor & Evidence Quality | `PR-098` | graphify | Tag every state claim with explicit confidence so discourse communicates evidence quality directly. |
+| `CD16` | Discourse Rigor & Evidence Quality | `PR-099` | karpathy-llm-wiki | Run semantic wiki-lint so documents do not drift into incompatible or contradictory claims. |
+| `CD16` | Discourse Rigor & Evidence Quality | `PR-100` | reference | Declare which claims were not mechanically verified in the current session instead of letting ambiguity pass as fact. |
+| `CD16` | Discourse Rigor & Evidence Quality | `PR-104` | reference | Declare scope, impacts, and out-of-scope follow-ups before execution so handoff prose remains bounded and honest. |
+| `CD17` | Agent Boundary Security | `PR-106` | vibe-check | Use metacognitive interrupts to curb tunnel vision and runaway loops before the agent crosses unsafe behavioral boundaries. |
+| `CD17` | Agent Boundary Security | `PR-108` | viberails | Intercept risky agent operations through policy hooks so boundary violations are blocked before execution. |
+| `CD17` | Agent Boundary Security | `PR-111` | persistent-memory | Treat durable cross-session memory as a trust-boundary surface that requires source, date, and reconciliation discipline. |

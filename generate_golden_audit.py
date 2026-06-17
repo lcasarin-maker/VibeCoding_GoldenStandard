@@ -94,8 +94,8 @@ def load_project_insight_records() -> dict[str, dict[str, object]]:
     return records
 
 
-def get_project_insights() -> dict[str, str]:
-    """Load project insights as a normalized mapping of id -> text."""
+def get_principles() -> dict[str, str]:
+    """Load principles as a normalized mapping of id -> text."""
     return {
         pi_id: record["title"]
         for pi_id, record in load_project_insight_records().items()
@@ -103,17 +103,19 @@ def get_project_insights() -> dict[str, str]:
     }
 
 
-def get_project_insight_recommendations() -> dict[str, list[dict[str, str]]]:
-    """Return domain-oriented recommendations mapped to project insights.
-
-    Reads from config/dimension_map.json if present; returns empty dict otherwise.
-    The JSON format matches the historical D1-D12 lens structure with generic consumer refs.
-    """
-    json_path = _ROOT / "config" / "dimension_map.json"
+def get_canonical_domain_map() -> dict[str, dict[str, object]]:
+    """Return the canonical GS domain map with metadata plus principle assignments."""
+    json_path = _ROOT / "config" / "canonical_domain_map.json"
     if json_path.exists():
         with open(json_path, "r", encoding="utf-8") as f:
             return json.load(f)
     return {}
+
+
+def domain_principle_rows(domain_record: dict[str, object]) -> list[dict[str, str]]:
+    """Return the principle assignment rows for a canonical domain record."""
+    rows = domain_record.get("principles", [])
+    return rows if isinstance(rows, list) else []
 
 
 
@@ -136,16 +138,16 @@ def get_flaw_category(flaw_id: str) -> str:
     return "Other"
 
 
-def build_project_insight_section() -> list[str]:
-    """Build a markdown section for the agnostic project insights layer."""
+def build_principles_section() -> list[str]:
+    """Build a markdown section for the canonical principles layer."""
     insight_records = load_project_insight_records()
-    insights = get_project_insights()
+    insights = get_principles()
     lines = [
-        "## Project Insights",
+        "## Principles",
         "",
-        "These entries are preserved as project-agnostic knowledge extracted from external references and now consumed by GS users and downstream tools.",
+        "These entries are preserved as project-agnostic doctrine and now consumed as first-class principles by GS users and downstream tools.",
         "",
-        "| ID | Insight |",
+        "| ID | Principle |",
         "|---|---|",
     ]
     for insight_id in sorted(insights):
@@ -154,26 +156,26 @@ def build_project_insight_section() -> list[str]:
     return lines
 
 
-def build_project_insight_recommendations_section() -> list[str]:
-    """Build a markdown section mapping insights to audit domains."""
-    recommendations = get_project_insight_recommendations()
+def build_canonical_domains_section() -> list[str]:
+    """Build a markdown section mapping principles to canonical domains."""
+    recommendations = get_canonical_domain_map()
     lines = [
-        "## Project Insight Recommendations by Domain",
+        "## Principle Recommendations by Canonical Domain",
         "",
-        "These actions are the operational bridge between the project insights and the GS operational lenses.",
+        "These actions are the operational bridge between the principles and the canonical GS domains.",
         "",
-        "| Domain | Insight | Project | Action |",
-        "|---|---|---|---|",
+        "| Domain | Title | Principle | Project | Action |",
+        "|---|---|---|---|---|",
     ]
     for domain in sorted(recommendations):
-        items = recommendations[domain]
-        if not isinstance(items, list):
-            continue
+        record = recommendations[domain]
+        items = domain_principle_rows(record)
+        title = str(record.get("title", "—")).strip()
         for item in items:
             if not isinstance(item, dict):
                 continue
             lines.append(
-                f"| `{domain}` | `{item['insight_id']}` | {item['project']} | {item['action']} |"
+                f"| `{domain}` | {title} | `{item['insight_id']}` | {item['project']} | {item['action']} |"
             )
     lines.append("")
     return lines
@@ -227,21 +229,14 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 ## Quick Access
 
 - 📂 **[[Vices_Index|Engineering Vices Index]]**: Central catalog of code and test anomalies (`VC`, `TV`).
-- 📂 **[[Project_Insights_Index|Satellite Insights Index]]**: Lessons and best practices (`PI`) extracted from external repositories and automations.
-- 📘 **[[Principles|Principles Index]]**: First-class doctrinal PI rules, each kept as a linked principle instead of duplicated prose.
+- 📘 **[[Principles|Principles Index]]**: First-class doctrinal rules, each kept as a linked principle instead of duplicated prose.
+- 🧭 **[[Domains/README|Canonical Domains Index]]**: The canonical GS domain taxonomy, with graph-aware navigation from doctrine to enforcement surfaces.
 - 🕸️ **[[Graph|GS Graph Map]]**: Hubs, intentional orphans, candidate orphans, and local vault impact.
 - 📘 **[Golden Standard Conceptual Framework](../CONCEPTUAL_FRAMEWORK.md)**: Epistemological doctrine, levels, and design foundations.
-- 🧼 **[Repository Hygiene Chapter](../CONCEPTUAL_FRAMEWORK.md#5-Repository-and-Execution-Hygiene)**: Canonical standard for cleanup, naming, clean root, and organization evidence.
-- 🔧 **[[Project_Insights/PR-097|Execution Hygiene and Tooling]]**: Satellite rule for simple commands, UTF-8, and technical purity.
+- 🧼 **[Repository Hygiene Chapter](../CONCEPTUAL_FRAMEWORK.md#6-Repository-and-Execution-Hygiene)**: Canonical standard for cleanup, naming, clean root, and organization evidence.
 - ⚠️ **[[Vices/VC-056|Hasty deprecation]]**: Mirror vice that avoids moving to `deprecated/` without analysis.
-- 🏷️ **[[Project_Insights/PR-098|Confidence Tags]]**: Every protocol claim must declare whether it is VERIFIED, INFERRED, or ASSUMED.
-- 🧪 **[[Project_Insights/PR-099|Semantic Wiki-Lint]]**: Detects contradictions, broken references, and mandates without binding.
-- 🧾 **[[Project_Insights/PR-100|Uncertainty list]]**: Documents the unverified so as not to feign certainty.
-- 🧭 **[[Project_Insights/PR-101|Dual-session awareness]]**: Verifies shared state before editing.
-- 🕸️ **[[Project_Insights/PR-102|Hub-based review]]**: Prioritizes high-impact nodes in the graph.
-- 🧷 **[[Project_Insights/PR-103|Exportable Retrospective]]**: Closes each session with a structured, persistent retrospective.
 - 💠 **[[Tokenomics_Index|Tokenomics Index]]**: Separate catalog of efficiency, headroom, and context management (`TK`).
-- 🗺️ **[[Tokenomics_Map|Tokenomics Map]]**: Bridge between the `TK` and `PI` lenses to navigate relations, gaps, and coverage.
+- 🗺️ **[[Tokenomics_Map|Tokenomics Map]]**: Bridge between the `TK` lens and the principles that shape efficient context use.
 - 🔹 **[[Tokenomics/Memory_Headroom_Index|Memory and Headroom]]**: Checkpoints, handoff, persistence, and context margin.
 - 🔹 **[[Tokenomics/Input_Retrieval_Index|Input and Retrieval]]**: Targeted retrieval and input-noise reduction.
 - 🔹 **[[Tokenomics/Output_Compaction_Index|Output and Compaction]]**: Verbosity, compression, and response budget.
@@ -262,7 +257,7 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 | Vibe Coding | `VC-xxx` | {vc_count} | [[Vices_Index|Open index]] |
 | Testing & Evaluation | `VT-xxx` | {tv_count} | [[Vices_Index|Open index]] |
 | Tokenomics | `TK-xxx` | {tk_count} | [[Tokenomics_Index|Open index]] |
-| Project Insights | `PI-xxx` | {pi_count} | [[Project_Insights_Index|Open index]] |
+| Principles | `PR-xxx` | {pi_count} | [[Principles|Open index]] |
 
 ---
 
@@ -294,7 +289,7 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 
 1. Deposit the finding in `Inbox/<source>/YYYY-MM-DD_<slug>.md`.
 2. Validate the minimal fields with `INGESTION_PROTOCOL.md`.
-3. Promote to YAML + Wiki only after deduplicating and mapping the domain.
+3. Promote to YAML + Wiki only after deduplicating and mapping the canonical domain.
 4. Recompile with `python generate_golden_audit.py`.
 
 ---
@@ -315,7 +310,7 @@ def write_principles_index(wiki_dir: Path, records: dict[str, dict[str, object]]
 
     content = f"""# Principles
 
-The {len(records)} principles are first-class doctrinal rules. They are governance knowledge, not mechanically detectable vices.
+The {len(records)} principles are first-class governance rules. Some are doctrinal, some are operational, but all are treated as reusable knowledge instead of ad-hoc commentary.
 
 ---
 
@@ -324,9 +319,63 @@ The {len(records)} principles are first-class doctrinal rules. They are governan
 {chr(10).join(rows)}
 
 ---
+
+## Canonical Domains
+
+These principles are operationalized through the separate [[Domains/README|Canonical Domains Index]], where each domain declares its boundary, graph role, and linked doctrine.
+
+---
 [[Home|Back to Home]]
 """
     (wiki_dir / "Principles.md").write_text(content, encoding="utf-8")
+
+
+def write_domains_index_md(wiki_dir: Path, recommendations: dict):
+    """Write the canonical GS domain index."""
+    rows = []
+    for domain in sorted(recommendations):
+        record = recommendations[domain]
+        items = domain_principle_rows(record)
+        unique_principles = sorted(
+            {
+                str(item.get("insight_id", "")).strip()
+                for item in items
+                if isinstance(item, dict) and str(item.get("insight_id", "")).strip()
+            }
+        )
+        project_names = sorted(
+            {
+                str(item.get("project", "")).strip()
+                for item in items
+                if isinstance(item, dict) and str(item.get("project", "")).strip()
+            }
+        )
+        title = str(record.get("title", "—")).strip()
+        legacy = ", ".join(f"`{value}`" for value in record.get("legacy_gs_lenses", [])) or "—"
+        sample = ", ".join(f"`{pid}`" for pid in unique_principles[:4])
+        if len(unique_principles) > 4:
+            sample += f" +{len(unique_principles) - 4} more"
+        rows.append(
+            f"| [[Domains/{domain}|{domain}]] | {title or '—'} | {len(unique_principles)} | {sample or '—'} | {legacy} |"
+        )
+
+    if not rows:
+        rows = ["| — | — | 0 | — | — |"]
+
+    content = f"""# Canonical Domains Index
+
+This index is the canonical cognitive entrypoint for GS. Each domain page is a graph-aware semantic hub: it declares what the domain covers, what it excludes, which legacy GS lenses fed it, and which principles currently operationalize it.
+
+---
+
+| Domain | Title | Principles | Sample Principles | Legacy GS lenses |
+|---|---|---:|---|---|
+{chr(10).join(rows)}
+
+---
+[[Principles|Principles Index]] | [[Graph|GS Graph Map]] | [[Home|Back to Home]]
+"""
+    (wiki_dir / "Domains" / "README.md").write_text(content, encoding="utf-8")
 
 
 def write_vices_index_md(wiki_dir: Path, mapped_database: dict):
@@ -430,7 +479,7 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 
 
 def write_tokenomics_map_md(wiki_dir: Path, insights: dict):
-    """Write a bridge page that links tokenomics lenses with project insights."""
+    """Write a bridge page that links tokenomics lenses with principles."""
     bridge_rows = [
         (
             "Memory and Headroom",
@@ -481,27 +530,27 @@ def write_tokenomics_map_md(wiki_dir: Path, insights: dict):
 
     map_content = f"""# Tokenomics Map
 
-This map serves as a bridge between the `TK` category and the GS satellite lessons. It does not repeat the catalog: it shows how to read it and which insights it crosses.
+This map serves as a bridge between the `TK` category and the GS principles layer. It does not repeat the catalog: it shows how to read it and which principles it crosses.
 
 ## What it is for
 
 - Navigate relations between context vices, token savings, and operational discipline.
-- Identify which satellite lessons reinforce each tokenomics lens.
+- Identify which principles reinforce each tokenomics lens.
 - Detect gaps where doctrine exists, but a supporting artifact or clear telemetry is still missing.
 
 ---
 
 ## Operational lenses
 
-| Lens | Subindex | Related Project Insights | Intent |
+| Lens | Subindex | Related Principles | Intent |
 |---|---|---|---|
 {lens_rows}
 
 ---
 
-## Key Project Insights
+## Key Principles
 
-| Insight | Summary |
+| Principle | Summary |
 |---|---|
 {insight_rows}
 
@@ -511,7 +560,7 @@ This map serves as a bridge between the `TK` category and the GS satellite lesso
 
 | Node | Relation | Reason |
 |---|---|---|
-| `[[Project_Insights/PR-097|PR-097]]` | Satellite hygiene | Expands the discipline of editing and validation toward daily work with tools. |
+| `[[Principles|PR-097]]` | Principle hygiene | Expands the discipline of editing and validation toward daily work with tools. |
 | `[[Vices/VC-056|VC-056]]` | Mirror vice | Represents the error of deprecating without analysis or traceability. |
 
 ---
@@ -525,7 +574,7 @@ This map serves as a bridge between the `TK` category and the GS satellite lesso
 5. If the doctrine does not run by itself, check `Automation and Tooling`.
 
 ---
-[[Tokenomics_Index|Back to Tokenomics Index]] | [[Project_Insights_Index|Go to Insights]] | [[Home|Home]]
+[[Tokenomics_Index|Back to Tokenomics Index]] | [[Principles|Go to Principles]] | [[Home|Home]]
 """
     (wiki_dir / "Tokenomics_Map.md").write_text(map_content, encoding="utf-8")
 
@@ -731,7 +780,7 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 {item['action']}{depth_sections}
 
 ### Relations
-- [[Project_Insights/PR-097|PR-097]]
+- [[Principles|PR-097]]
 - [[Tokenomics_Map|Tokenomics Map]]
 - [[Home|Home]]
 
@@ -784,11 +833,11 @@ def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
 
 
 def build_pi_mapping_lines(mappings: list) -> list[str]:
-    """Format mapping lines for project insights."""
+    """Format mapping lines for principles."""
     if not mappings:
         return ["*No active domain assignments.*"]
     return [
-        f"*   **[[Domains/{domain}|Operational Lens {domain[1:]}]]** (Project: *{proj}*): {act}"
+        f"*   **[[Domains/{domain}|{domain}]]** (Project: *{proj}*): {act}"
         for domain, proj, act in sorted(mappings)
     ]
 
@@ -796,25 +845,60 @@ def build_pi_mapping_lines(mappings: list) -> list[str]:
 
 
 def write_audit_domains(wiki_dir: Path, recommendations: dict):
-    """Create domains overview files mapping to insights."""
+    """Create canonical domain overview files mapping domains to principles."""
     for domain in sorted(recommendations):
+        record = recommendations[domain]
+        items = domain_principle_rows(record)
         linked_items = [
-            f"*   **[[Project_Insights/{rec['insight_id']}|{rec['insight_id']}]]** (Project: *{rec['project']}*): {rec['action']}"
-            for rec in recommendations[domain]
+            f"*   **[[Principles|{rec['insight_id']}]]** (Project: *{rec['project']}*): {rec['action']}"
+            for rec in items
         ]
+        title = str(record.get("title", "—")).strip()
+        summary = str(record.get("summary", "—")).strip()
+        covers = record.get("covers", [])
+        excludes = record.get("excludes", [])
+        legacy = record.get("legacy_gs_lenses", [])
+        graph_role = str(record.get("graph_role", "")).strip()
+        cover_lines = "\n".join(f"- {item}" for item in covers) if covers else "- No coverage declared."
+        exclude_lines = "\n".join(f"- {item}" for item in excludes) if excludes else "- No explicit exclusions declared."
+        legacy_text = ", ".join(f"`{item}`" for item in legacy) if legacy else "None"
 
-        domain_content = f"""# Operational Lens {domain[1:]}
+        domain_content = f"""# {domain} — {title}
 
-This page groups the project insights that share this operational lens inside the Golden Standard knowledge base. The domain code is kept only as a stable routing label, not as the public framing:
+{summary}
 
 ---
 
-### Linked Insights
+## Graph Role
+
+{graph_role or "Canonical domain hub that bridges doctrine, graph navigation, and downstream enforcement semantics."}
+
+---
+
+## Covers
+
+{cover_lines}
+
+---
+
+## Explicitly Excludes
+
+{exclude_lines}
+
+---
+
+## Legacy GS inputs
+
+{legacy_text}
+
+---
+
+### Linked Principles
 
 {"\n".join(linked_items)}
 
 ---
-[[Home|Back to Home]]
+[[Domains/README|Canonical Domains Index]] | [[Graph|GS Graph Map]] | [[Home|Back to Home]]
         """
         (wiki_dir / "Domains" / f"{domain}.md").write_text(domain_content, encoding="utf-8")
 
@@ -844,8 +928,8 @@ def classify_graph_node(path: Path) -> str:
         return "vice"
     if rel_path.startswith("Wiki/Tokenomics/"):
         return "tokenomics"
-    if rel_path.startswith("Wiki/Project_Insights/"):
-        return "insight"
+    if rel_path == "Wiki/Principles.md":
+        return "principle-index"
     if rel_path.startswith("Wiki/Domains/"):
         return "domain"
     if rel_path.startswith("Wiki/Concepts/"):
@@ -853,6 +937,43 @@ def classify_graph_node(path: Path) -> str:
     if rel_path.startswith("Wiki/"):
         return "wiki"
     return "doc"
+
+
+def infer_graph_relation(
+    source_path: Path, target_path: Path, source_id: str, target_id: str, link_kind: str
+) -> tuple[str, float]:
+    """Infer a semantic relation label and confidence for a graph edge."""
+    if link_kind == "mention":
+        return "mentions", 0.75
+
+    source_kind = classify_graph_node(source_path)
+    target_kind = classify_graph_node(target_path)
+
+    if source_id == "Home":
+        return "entrypoint", 0.95
+    if source_id == "Tokenomics_Map":
+        return "bridges", 0.95
+    if source_id == "Principles" and target_kind == "domain":
+        return "routes_to_domains", 0.95
+    if source_id == "Principles" and target_kind == "wiki":
+        return "indexes", 0.9
+    if source_kind == "domain" and target_kind == "principle-index":
+        return "operationalizes_domain", 0.95
+    if source_kind == "vice" and target_kind == "principle-index":
+        return "governed_by", 0.9
+    if source_kind == "tokenomics" and target_kind == "principle-index":
+        return "thematic_bridge", 0.9
+    if source_kind == "tokenomics" and target_kind == "tokenomics":
+        return "subindex", 0.9
+    if source_kind == "wiki" and target_kind in {"vice", "tokenomics", "principle-index", "domain"}:
+        return "catalogs", 0.95
+    if source_kind in {"vice", "tokenomics", "principle-index", "domain"} and target_kind == "wiki":
+        return "returns_to_index", 0.95
+    if source_kind in {"root", "contributing", "code-of-conduct", "conceptual-framework"}:
+        return "references", 0.9
+    if source_kind == "inbox":
+        return "template_or_intake", 0.8
+    return "references", 0.85
 
 
 def collect_graph_sources() -> list[Path]:
@@ -864,7 +985,7 @@ def collect_graph_sources() -> list[Path]:
         _ROOT / "CODE_OF_CONDUCT.md",
     ]
 
-    for relative_dir in ["Wiki", "Inbox"]:
+    for relative_dir in ["Wiki"]:
         base_dir = _ROOT / relative_dir
         if base_dir.exists():
             sources.extend(sorted(base_dir.rglob("*.md")))
@@ -947,19 +1068,31 @@ def build_gs_graph() -> dict:
     """Build a deterministic knowledge graph from the live Markdown surface."""
     sources = collect_graph_sources()
     known_nodes = {canonical_graph_node_id(path) for path in sources}
+    paths_by_id = {canonical_graph_node_id(path): path for path in sources}
 
     nodes: dict[str, dict] = {}
     edges: list[dict] = []
-    edge_keys: set[tuple[str, str, str]] = set()
+    edge_keys: set[tuple[str, str, str, str]] = set()
 
     def add_edge(source: str, target: str, kind: str) -> None:
         if source == target:
             return
-        key = (source, target, kind)
+        source_path = paths_by_id[source]
+        target_path = paths_by_id[target]
+        relation, confidence = infer_graph_relation(source_path, target_path, source, target, kind)
+        key = (source, target, kind, relation)
         if key in edge_keys:
             return
         edge_keys.add(key)
-        edges.append({"source": source, "target": target, "kind": kind})
+        edges.append(
+            {
+                "source": source,
+                "target": target,
+                "kind": kind,
+                "relation": relation,
+                "confidence": confidence,
+            }
+        )
 
     for path in sources:
         node_id = canonical_graph_node_id(path)
@@ -973,6 +1106,8 @@ def build_gs_graph() -> dict:
             "kind": classify_graph_node(path),
             "outgoing": [],
             "incoming": [],
+            "outgoing_edges": [],
+            "incoming_edges": [],
         }
 
     for path in sources:
@@ -996,13 +1131,56 @@ def build_gs_graph() -> dict:
     for edge in edges:
         nodes[edge["source"]]["outgoing"].append(edge["target"])
         nodes[edge["target"]]["incoming"].append(edge["source"])
+        nodes[edge["source"]]["outgoing_edges"].append(
+            {
+                "target": edge["target"],
+                "kind": edge["kind"],
+                "relation": edge["relation"],
+                "confidence": edge["confidence"],
+            }
+        )
+        nodes[edge["target"]]["incoming_edges"].append(
+            {
+                "source": edge["source"],
+                "kind": edge["kind"],
+                "relation": edge["relation"],
+                "confidence": edge["confidence"],
+            }
+        )
 
     for node in nodes.values():
         node["outgoing"] = sorted(set(node["outgoing"]))
         node["incoming"] = sorted(set(node["incoming"]))
+        node["outgoing_edges"] = sorted(
+            node["outgoing_edges"],
+            key=lambda item: (item["target"], item["relation"], item["kind"]),
+        )
+        node["incoming_edges"] = sorted(
+            node["incoming_edges"],
+            key=lambda item: (item["source"], item["relation"], item["kind"]),
+        )
         node["in_degree"] = len(node["incoming"])
         node["out_degree"] = len(node["outgoing"])
         node["degree"] = node["in_degree"] + node["out_degree"]
+        connected_types = {
+            nodes[item["target"]]["kind"] for item in node["outgoing_edges"]
+        } | {
+            nodes[item["source"]]["kind"] for item in node["incoming_edges"]
+        }
+        relation_types = {
+            item["relation"] for item in node["outgoing_edges"]
+        } | {
+            item["relation"] for item in node["incoming_edges"]
+        }
+        node["connected_types"] = sorted(connected_types)
+        node["relation_types"] = sorted(relation_types)
+        node["semantic_reach"] = len(node["connected_types"])
+        node["relation_diversity"] = len(node["relation_types"])
+        node["hub_score"] = (
+            node["degree"]
+            + (node["semantic_reach"] * 3)
+            + (node["relation_diversity"] * 2)
+        )
 
     intentional_orphans = [
         node
@@ -1015,7 +1193,7 @@ def build_gs_graph() -> dict:
         node
         for node in nodes.values()
         if node["in_degree"] == 0
-        and node["kind"] in {"wiki", "vice", "insight", "domain", "concept", "inbox", "root"}
+        and node["kind"] in {"wiki", "vice", "domain", "concept", "inbox", "root", "tokenomics", "principle-index"}
         and not is_intentional_graph_orphan(_ROOT / node["path"])
     ]
     orphan_candidates.sort(key=lambda node: (node["kind"], node["path"]))
@@ -1025,19 +1203,56 @@ def build_gs_graph() -> dict:
         [
             node
             for node in nodes.values()
-            if len({nodes[target]["kind"] for target in node["outgoing"]}) > 1
+            if len(node["connected_types"]) > 1
         ],
-        key=lambda node: (-len(node["outgoing"]), node["path"]),
+        key=lambda node: (-len(node["connected_types"]), -node["degree"], node["path"]),
     )
+    edge_kind_counts = Counter(edge["kind"] for edge in edges)
+    relation_counts = Counter(edge["relation"] for edge in edges)
+    reciprocal_pairs = {
+        tuple(sorted((edge["source"], edge["target"])))
+        for edge in edges
+        if edge["source"] != edge["target"]
+        and any(
+            reverse["source"] == edge["target"] and reverse["target"] == edge["source"]
+            for reverse in edges
+        )
+    }
+    avg_confidence = round(sum(edge["confidence"] for edge in edges) / len(edges), 3) if edges else 0.0
+    intentional_orphan_review = []
+    for node in intentional_orphans:
+        rel_path = node["path"]
+        recommendation = "keep_isolated"
+        rationale = "Template fixtures should not pollute the main doctrine graph."
+        if rel_path.startswith("Inbox/templates/"):
+            recommendation = "index_anchor_only"
+            rationale = "Templates belong in the graph through the template index, not as free-floating doctrine."
+        intentional_orphan_review.append(
+            {
+                "id": node["id"],
+                "path": node["path"],
+                "kind": node["kind"],
+                "recommendation": recommendation,
+                "rationale": rationale,
+            }
+        )
 
     return {
         "generated_on": date.today().isoformat(),
         "node_count": len(nodes),
         "edge_count": len(edges),
         "nodes": sorted(nodes.values(), key=lambda node: node["path"]),
-        "edges": sorted(edges, key=lambda edge: (edge["source"], edge["target"], edge["kind"])),
+        "edges": sorted(
+            edges,
+            key=lambda edge: (edge["source"], edge["target"], edge["relation"], edge["kind"]),
+        ),
         "summary": {
+            "edge_kinds": dict(sorted(edge_kind_counts.items())),
+            "relation_counts": dict(sorted(relation_counts.items())),
+            "reciprocal_pairs": len(reciprocal_pairs),
+            "average_edge_confidence": avg_confidence,
             "intentional_orphans": intentional_orphans[:25],
+            "intentional_orphan_review": intentional_orphan_review[:25],
             "orphan_candidates": orphan_candidates[:25],
             "hubs": hubs[:15],
             "bridges": bridges[:15],
@@ -1048,6 +1263,7 @@ def build_gs_graph() -> dict:
 def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> None:
     """Persist the graph JSON plus a Markdown summary inside the wiki."""
     graph = build_gs_graph()
+    node_by_stem = {Path(node["path"]).stem: node for node in graph["nodes"]}
     if mapped_database:
         for node in graph["nodes"]:
             flaw_id = Path(node["path"]).stem
@@ -1088,14 +1304,30 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
         orphan_rows = "| — | — | 0 | 0 | — | — |"
 
     bridge_rows = []
-    node_kind_by_id = {node["id"]: node["kind"] for node in graph["nodes"]}
     for node in graph["summary"]["bridges"]:
-        target_kinds = sorted({node_kind_by_id[target] for target in node["outgoing"]})
         bridge_rows.append(
-            f"| [[{node['id']}]] | `{node['kind']}` | {', '.join(f'`{kind}`' for kind in target_kinds)} | {len(node['outgoing'])} |"
+            f"| [[{node['id']}]] | `{node['kind']}` | {', '.join(f'`{kind}`' for kind in node.get('connected_types', [])) or '—'} | "
+            f"{', '.join(f'`{rel}`' for rel in node.get('relation_types', [])) or '—'} | {len(node['outgoing'])} |"
         )
     if not bridge_rows:
-        bridge_rows = ["| — | — | — | 0 |"]
+        bridge_rows = ["| — | — | — | — | 0 |"]
+
+    semantic_relation_rows = "\n".join(
+        f"| `{relation}` | {count} |"
+        for relation, count in sorted(
+            graph["summary"].get("relation_counts", {}).items(),
+            key=lambda item: (-item[1], item[0]),
+        )
+    )
+    if not semantic_relation_rows:
+        semantic_relation_rows = "| — | 0 |"
+
+    orphan_review_rows = "\n".join(
+        f"| [[{node['id']}]] | `{node['recommendation']}` | {node['rationale']} |"
+        for node in graph["summary"].get("intentional_orphan_review", [])
+    )
+    if not orphan_review_rows:
+        orphan_review_rows = "| — | — | No intentional orphan review needed. |"
 
     depth_summary_rows = "| — | 0 | 0 | 0 |"
     detector_count = 0
@@ -1115,12 +1347,14 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
         )
 
     validation_debt_rows = []
+    cognitive_priority_rows = []
     validation_debt_summary = "| — | 0 | 0 | 0 |"
     downstream_verification_summary = "| — | 0 | 0 | 0 |"
     downstream_verification_none_summary = "| — | 0 | 0 | 0 |"
     downstream_verification_rows = ["| — | — | — | — |"]
     if mapped_database:
         severity_order = {"critical": 0, "high": 1, "medium": 2, "low": 3}
+        severity_weight = {"critical": 40, "high": 25, "medium": 10, "low": 5}
         doc_only_items = [
             item
             for item in mapped_database.values()
@@ -1168,8 +1402,45 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
             f"| `{item['id']}` | {item['title']} | `{item['category']}` | `{item['severity']}` | `{item['status']}` |"
             for item in high_priority_debt
         ]
+        doc_only_priorities = []
+        for item in doc_only_items:
+            node = node_by_stem.get(item["id"])
+            if not node:
+                continue
+            downstream_required = str(item.get("downstream_verification", "none")).strip() == "required"
+            score = (
+                severity_weight.get(str(item.get("severity", "medium")), 10)
+                + node["hub_score"]
+                + (12 if downstream_required else 0)
+            )
+            signals = [
+                f"deg={node['degree']}",
+                f"types={node['semantic_reach']}",
+                f"rels={node['relation_diversity']}",
+            ]
+            if downstream_required:
+                signals.append("consumer-check")
+            doc_only_priorities.append(
+                {
+                    "id": item["id"],
+                    "title": item["title"],
+                    "category": item["category"],
+                    "severity": item["severity"],
+                    "score": score,
+                    "signals": ", ".join(signals),
+                }
+            )
+        cognitive_priority_rows = [
+            f"| `{item['id']}` | {item['title']} | `{item['severity']}` | `{item['score']}` | {item['signals']} |"
+            for item in sorted(
+                doc_only_priorities,
+                key=lambda item: (-item["score"], severity_order.get(str(item["severity"]), 2), item["id"]),
+            )[:12]
+        ]
     if not validation_debt_rows:
         validation_debt_rows = ["| — | — | — | — | — |"]
+    if not cognitive_priority_rows:
+        cognitive_priority_rows = ["| — | — | — | 0 | No active DOC_ONLY priority debt. |"]
     if not downstream_verification_rows:
         downstream_verification_rows = ["| — | — | — | — |"]
 
@@ -1177,7 +1448,7 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
 
 Local vault map automatically generated by `generate_golden_audit.py`.
 
-This graph combines Obsidian links, relative Markdown links, and explicit ID mentions (`VC-xxx`, `VT-xxx`, `TK-xxx`, `PI-xxx`).
+This graph combines Obsidian links, relative Markdown links, and explicit ID mentions (`VC-xxx`, `VT-xxx`, `TK-xxx`, `PR-xxx`).
 
 ---
 
@@ -1187,9 +1458,21 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 |---|---:|
 | Nodes | {graph["node_count"]} |
 | Edges | {graph["edge_count"]} |
+| Reciprocal pairs | {graph["summary"].get("reciprocal_pairs", 0)} |
+| Average edge confidence | {graph["summary"].get("average_edge_confidence", 0.0)} |
 | Intentional orphans | {len(graph["summary"]["intentional_orphans"])} |
 | Candidate orphans | {len(graph["summary"]["orphan_candidates"])} |
 | Hubs | {len(graph["summary"]["hubs"])} |
+
+---
+
+## Semantic Layer
+
+The graph now distinguishes link syntax from relation meaning. `kind` records how the connection was found; `relation` records why the connection matters cognitively.
+
+| Relation | Edges |
+|---|---:|
+{semantic_relation_rows}
 
 ---
 
@@ -1204,6 +1487,16 @@ The graph now also highlights entries that remain mainly documentary. This does 
 | ID | Title | Category | Severity | Status |
 |---|---|---|---|---|
 {chr(10).join(validation_debt_rows)}
+
+---
+
+## Cognitive Priority
+
+This ranking combines severity with graph centrality, semantic reach, and downstream verification pressure so we can separate low-visibility doctrine from debt that sits on active navigation paths.
+
+| ID | Title | Severity | Score | Why it matters |
+|---|---|---|---:|---|
+{chr(10).join(cognitive_priority_rows)}
 
 ---
 
@@ -1254,6 +1547,16 @@ Templates or fixtures kept isolated by design. They are not navigation debt, but
 
 ---
 
+## Intentional Orphan Review
+
+This table questions whether a so-called intentional orphan is truly intentional or simply under-indexed.
+
+| Node | Recommendation | Rationale |
+|---|---|---|
+{orphan_review_rows}
+
+---
+
 ## Candidate Orphans
 
 Pages within the live GS surface that receive no inbound links. If any is important, it should be linked from a main index or map.
@@ -1268,17 +1571,26 @@ Pages within the live GS surface that receive no inbound links. If any is import
 
 Nodes that link to more than one page type. They are useful for navigating impact across domains.
 
-| Node | Type | Reached types | Outbound |
-|---|---|---|---:|
+| Node | Type | Reached types | Relations | Outbound |
+|---|---|---|---|---:|
 {chr(10).join(bridge_rows)}
+
+---
+
+## Cognitive Signals
+
+- `Reciprocal pairs` estimates how much of the graph supports bidirectional navigation instead of one-way dumping.
+- `Candidate orphans` point to live knowledge that exists but is not discoverable from a canonical entrypoint.
+- `Relation` density shows whether GS is only linking pages or actually expressing reusable meaning.
 
 ---
 
 ## Quick Use
 
 1. Open `[[Home]]` to enter the vault.
-2. Open this map to see hubs and orphans.
-3. Use the `golden_standard_graph.json` JSON if you want to automate impact analysis.
+2. Open `[[Domains/README]]` if you want to traverse doctrine through canonical domains.
+3. Open this map to see hubs, domain bridges, semantic relations, and graph priority surfaces.
+4. Use the `golden_standard_graph.json` JSON if you want to automate impact analysis.
 
 ---
 [[Home|Back to Home]]
@@ -1287,34 +1599,16 @@ Nodes that link to more than one page type. They are useful for navigating impac
     print(f"Successfully generated Golden Standard graph at {GRAPH_OUTPUT} and {GRAPH_MARKDOWN}")
 
 
-def populate_pi_mappings(domain: str, items: list, pi_to_domains: dict):
-    """Populate project insight to domain mapping dict."""
-    for item in items:
-        pi_id = item["insight_id"]
-        if pi_id not in pi_to_domains:
-            pi_to_domains[pi_id] = []
-        pi_to_domains[pi_id].append((domain, item["project"], item["action"]))
-
-
-def build_pi_to_domains_map(recommendations: dict) -> dict[str, list]:
-    """Group recommendations by project insight ID."""
-    pi_to_domains = {}
-    for domain, items in recommendations.items():
-        populate_pi_mappings(domain, items, pi_to_domains)
-    return pi_to_domains
-
-
 def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     """Generate a structured, cross-linked Obsidian vault from Compiled Golden Standard data."""
     clean_wiki_directory(wiki_dir)
 
-    for folder in ["Concepts", "Domains", "Vices", "Tokenomics", "Principles"]:
+    for folder in ["Domains", "Vices", "Tokenomics"]:
         (wiki_dir / folder).mkdir(parents=True, exist_ok=True)
 
-    insights = get_project_insights()
+    insights = get_principles()
     insight_records = load_project_insight_records()
-    recommendations = get_project_insight_recommendations()
-    pi_to_domains = build_pi_to_domains_map(recommendations)
+    recommendations = get_canonical_domain_map()
 
     total_vices = len(mapped_database)
     vc_count = len([x for x in mapped_database.values() if x["category"] == "Vibe Coding"])
@@ -1329,6 +1623,7 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     write_tokenomics_index_md(wiki_dir, mapped_database)
     write_tokenomics_subindices_md(wiki_dir, mapped_database)
     write_principles_index(wiki_dir, insight_records)
+    write_domains_index_md(wiki_dir, recommendations)
     write_tokenomics_map_md(wiki_dir, insights)
     write_atomic_vices(wiki_dir, mapped_database)
     write_atomic_tokenomics(wiki_dir, mapped_database)
@@ -1357,7 +1652,7 @@ def extract_catalog_items(config: dict, mapped_database: dict):
     if not isinstance(config, dict) or "items" not in config:
         return
     # Skip non-vice catalogs handled separately
-    if config.get("catalog_name") in {"project_insights", "principles"}:
+    if config.get("catalog_name") == "principles":
         return
     for item in config["items"]:
         flaw_id = item["id"]
@@ -1447,8 +1742,8 @@ def main():
             )
         report_lines.append("")
 
-    report_lines.extend(build_project_insight_section())
-    report_lines.extend(build_project_insight_recommendations_section())
+    report_lines.extend(build_principles_section())
+    report_lines.extend(build_canonical_domains_section())
 
     MARKDOWN_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     MARKDOWN_OUTPUT.write_text("\n".join(report_lines), encoding="utf-8")

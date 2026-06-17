@@ -36,12 +36,12 @@ The same mistakes appear in every project, in every language, with every AI agen
 
 ## What It Is
 
-A structured, growing library of knowledge organized into four streams:
+A structured, growing library of knowledge organized into four streams and a canonical domain graph:
 
 ### 🔴 Vibe Coding Vices (`VC-xxx`)
 Antipatterns specific to AI-assisted development: improvised architecture, non-reversible solutions, ghost files, hardcoded paths, invisible technical debt accumulation.
 
-**154 entries** cataloged with severity, description, detection criteria, and mitigation.
+**86 entries** cataloged with severity, description, detection criteria, and mitigation.
 
 ### 🟡 Testing Vices (`VT-xxx`)
 Ways tests become "security theater": checking file existence instead of behavior, mocks with no real-world correspondence, tests that pass despite broken user flows.
@@ -51,11 +51,16 @@ Ways tests become "security theater": checking file existence instead of behavio
 ### 🟢 Tokenomics
 A separate governance category for efficient use of AI context tokens — because wasting tokens is also a form of technical debt. Always subordinate to code quality.
 
-Tokenomics is navigated through its own index, a bridge map, and thematic subindices for memory/headroom, input/retrieval, output/compaction, measurement/telemetry, and automation/tooling.
+Tokenomics is navigated through its own index and thematic subindices for memory/headroom, input/retrieval, output/compaction, measurement/telemetry, and automation/tooling.
 The refined surfaces are memory/headroom, input/retrieval, output/compaction, measurement/telemetry, and automation/tooling.
 
-### 🔵 Project Insights (`PI-xxx`)
-Cross-cutting lessons and reusable observations that explain, connect, or contextualize the rule catalogs without duplicating them.
+### 🔵 Principles (`PR-xxx`)
+Cross-cutting doctrine captured as first-class rules. They explain, connect, or contextualize the rule catalogs without duplicating them.
+
+### 🧭 Canonical Domains (`CDxx`)
+The semantic routing layer of GS. Canonical domains define stable boundaries such as repository integrity, test falsifiability, tokenomics, observability, or agent-boundary security.
+
+They are not tied to historical `D1..D12` labels. Instead, they act as the graph-aware ontology that lets doctrine, vices, tokenomics, and downstream consumers trace to the same semantic surface.
 
 ---
 
@@ -65,12 +70,13 @@ Cross-cutting lessons and reusable observations that explain, connect, or contex
 
 - **[Wiki Home](Wiki/Home.md)** — Entry point with category indexes
 - **[Conceptual Framework](CONCEPTUAL_FRAMEWORK.md)** — Root doctrine and architectural baseline
-- **[Repository Hygiene](Wiki/Concepts/Conceptual_Framework.md#5-repository-and-execution-hygiene)** — Canonical cleanup and naming doctrine
+- **[Repository Hygiene](CONCEPTUAL_FRAMEWORK.md#6-repository-and-execution-hygiene)** — Canonical cleanup and naming doctrine
 - **[Inbox](Inbox/README.md)** — Intake process for raw findings and proposed entries
 - **[Audit Report](golden_standard_audit_report.md)** — Machine-generated coverage map
 - **[Graph](Wiki/Graph.md)** — Local knowledge graph with hubs, intentional templates, orphan candidates, and impact paths
+- **[Canonical Domains](Wiki/Domains/README.md)** — Graph-aware domain taxonomy (`CDxx`) linking principles to semantic governance areas
 - **[Tokenomics Index](Wiki/Tokenomics_Index.md)** — Dedicated token-efficiency catalog
-- **[Tokenomics Map](Wiki/Tokenomics_Map.md)** — Bridge between TK lenses and PI insights
+- **[Tokenomics Map](Wiki/Tokenomics_Map.md)** — Bridge between TK lenses and doctrinal principles
 - **[Coding Vices Index](Wiki/Vices/)** — All VC-xxx and VT-xxx articles
 - **[YAML Catalogs](#catalogs)** — Machine-readable knowledge for tooling
 
@@ -79,7 +85,7 @@ Cross-cutting lessons and reusable observations that explain, connect, or contex
 The Golden Standard is plain Markdown plus YAML plus git. You do **not** need Obsidian, Dataview, Web Clipper, or any other plugin stack for the repo to work.
 
 If you want a nicer local reading experience, Obsidian is a good optional viewer because the `Wiki/` tree is already Obsidian-friendly.
-The graph view is also generated locally in `Wiki/Graph.md` plus `golden_standard_graph.json`, so you can inspect relationships without installing any extra stack.
+The graph view is also generated locally in `Wiki/Graph.md` plus `golden_standard_graph.json`, so you can inspect relationships without installing any extra stack. The canonical domains index is part of that graph contract: it is the semantic hub layer, not just a browsing convenience.
 
 ### Use It in Your Project
 
@@ -112,20 +118,20 @@ VibeCoding_GoldenStandard/
 ├── CODE_OF_CONDUCT.md                     ← Community standards
 │
 ├── golden_standard.yaml                   ← Master index
-├── golden_standard_coding_vices.yaml      ← VC-xxx catalog (154 entries)
-├── golden_standard_testing_vices.yaml     ← VT-xxx catalog (115 entries)
+├── golden_standard_coding_vices.yaml      ← VC-xxx catalog (86 entries)
+├── golden_standard_testing_vices.yaml     ← VT-xxx catalog (116 entries)
 ├── golden_standard_tokenomics.yaml        ← Tokenomics principles
-├── golden_standard_project_insights.yaml  ← Cross-cutting lessons
+├── golden_standard_principles.yaml        ← Cross-cutting doctrine
 │
- ├── Wiki/
- │   ├── Home.md                            ← Wiki entry point
- │   ├── Tokenomics_Index.md                ← Dedicated tokenomics index
- │   ├── Tokenomics_Map.md                  ← Bridge between tokenomics lenses and insights
- │   ├── Concepts/
- │   │   └── Conceptual_Framework.md            ← Canonical doctrine with hygiene chapter
- │   ├── Tokenomics/                        ← Individual TK articles
-│   ├── Graph.md                           ← Generated graph summary
-│   └── Vices/                             ← Individual articles (VC/VT)
+├── Wiki/
+│   ├── Home.md                             ← Wiki entry point
+│   ├── Principles.md                       ← Canonical principles index
+│   ├── Domains/                            ← Canonical domains (`CDxx`) and semantic hub index
+│   ├── Tokenomics_Index.md                 ← Dedicated tokenomics index
+│   ├── Tokenomics_Map.md                   ← Bridge between tokenomics lenses and principles
+│   ├── Tokenomics/                         ← Individual TK articles
+│   ├── Graph.md                            ← Generated graph summary
+│   └── Vices/                              ← Individual articles (VC/VT)
 │
 ├── Inbox/                                 ← Proposed entries (pending review)
 ├── scripts/                               ← Validation helpers for CI and local checks
@@ -137,18 +143,30 @@ VibeCoding_GoldenStandard/
 
 ---
 
+## Canonical Domains
+
+GS now treats domains as a first-class semantic ontology instead of a historical numbering convention.
+
+- Domains are published as `CDxx` canonical surfaces in [`Wiki/Domains/README.md`](Wiki/Domains/README.md).
+- Historical `D1..D12` lens language is treated as legacy input, not final taxonomy.
+- The graph uses the domain pages as hubs to correlate doctrine, catalog entries, and downstream enforcement expectations.
+
+This makes GS usable as an independent semantic source even when consumer projects implement a different number of runtime dimensions.
+
+---
+
 ## Catalogs
 
 The knowledge is stored in human-readable YAML files:
 
 | File | Domain | Entries |
 |---|---|---|
-| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 154 |
+| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 86 |
 | `golden_standard_testing_vices.yaml` | Testing failures | 116 |
-| `golden_standard_tokenomics.yaml` | Token efficiency | 47 |
-| `golden_standard_project_insights.yaml` | Cross-cutting insights | 35 |
+| `golden_standard_tokenomics.yaml` | Token efficiency | 34 |
+| `golden_standard_principles.yaml` | Principles | 113 |
 
-**Total: 317 vices + 35 insights (352 entries).** Counts here are the source of truth and are validated against the YAML; the entries badge reflects the total number of flaws (317).
+**Total: 236 vices + 113 principles (349 entries).** Counts here are the source of truth and are validated against the YAML; the entries badge reflects the total number of flaws (236).
 
 Each entry includes:
 - **ID** (e.g., `VC-042`)

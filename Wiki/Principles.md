@@ -1,6 +1,6 @@
 # Principles
 
-The 113 principles are first-class doctrinal rules. They are governance knowledge, not mechanically detectable vices.
+The 113 principles are first-class governance rules. Some are doctrinal, some are operational, but all are treated as reusable knowledge instead of ad-hoc commentary.
 
 ---
 
@@ -119,6 +119,12 @@ The 113 principles are first-class doctrinal rules. They are governance knowledg
 | PR-111 | Persistent memory layer (byterover-cli / zilliztech claude-context-memsearch, verified) -- durable cross-session memory for agents; its discipline (source, date, reconciliation) mitigates PR-045. | doctrinal |
 | PR-112 | serena (oraios/serena, verified) -- symbol-level (semantic) retrieval and editing so that recovered context is correct; mitigates VC-069 against blind chunking. | doctrinal |
 | PR-113 | Auditing stochastic systems – when behavior depends on chance, sampling, retries, probabilistic routing, or non-deterministic generation, it is not evaluated with a single run nor with an exact value. The rule is to declare the target distribution, seed when applicable, sample size, acceptable thresholds, and repetition criterion; if the surface should be deterministic, the randomness is eliminated rather than disguised as controlled. Claims about stability or correctness must be reproducible across several runs, not just plausible in one. Origin: GS audit of stochastic systems; complements VT-028 on controlled randomness. | doctrinal |
+
+---
+
+## Canonical Domains
+
+These principles are operationalized through the separate [[Domains/README|Canonical Domains Index]], where each domain declares its boundary, graph role, and linked doctrine.
 
 ---
 [[Home|Back to Home]]
