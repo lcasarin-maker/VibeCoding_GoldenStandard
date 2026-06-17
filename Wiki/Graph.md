@@ -10,10 +10,13 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 
 | Metric | Value |
 |---|---:|
-| Nodes | 318 |
-| Edges | 1681 |
-| Reciprocal pairs | 345 |
-| Average edge confidence | 0.937 |
+| Nodes | 431 |
+| Edges | 2396 |
+| Reciprocal pairs | 548 |
+| Average edge confidence | 0.935 |
+| Semantic density | 0.012928 |
+| Hub ratio | 1.0 |
+| Bridge ratio | 0.99768 |
 | Intentional orphans | 0 |
 | Candidate orphans | 0 |
 | Hubs | 15 |
@@ -26,15 +29,16 @@ The graph now distinguishes link syntax from relation meaning. `kind` records ho
 
 | Relation | Edges |
 |---|---:|
-| `returns_to_index` | 993 |
+| `returns_to_index` | 1106 |
+| `references` | 379 |
 | `catalogs` | 313 |
 | `governed_by` | 202 |
-| `references` | 97 |
+| `thematic_bridge` | 122 |
+| `indexes` | 114 |
+| `operationalizes_domain` | 91 |
 | `subindex` | 34 |
-| `operationalizes_domain` | 18 |
+| `bridges` | 21 |
 | `entrypoint` | 13 |
-| `bridges` | 9 |
-| `indexes` | 1 |
 | `routes_to_domains` | 1 |
 
 ---
@@ -131,16 +135,16 @@ Pages with the largest impact surface. If they change, review their inbound link
 
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
+| [[Home]] | `wiki` | 422 | 13 | [[Detectors/audit_d2_completeness]], [[Detectors/vc005_untracked_prototype]], [[Detectors/vc036_destructive_without_dryrun]], [[Detectors/vc061_constant_stub]], [[Detectors/vc070_blind_shell_edit]], [[Detectors/vc087_blanket_filterwarnings]] +416 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
 | [[Vices_Index]] | `wiki` | 203 | 203 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +197 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +197 more |
-| [[Home]] | `wiki` | 309 | 13 | [[Detectors/audit_d2_completeness]], [[Detectors/vc005_untracked_prototype]], [[Detectors/vc036_destructive_without_dryrun]], [[Detectors/vc061_constant_stub]], [[Detectors/vc070_blind_shell_edit]], [[Detectors/vc087_blanket_filterwarnings]] +303 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
-| [[Tokenomics_Map]] | `wiki` | 244 | 9 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +238 more | [[Home]], [[Principles]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +3 more |
-| [[Principles]] | `principle-index` | 222 | 2 | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +216 more | [[Domains/README]], [[Home]] |
+| [[Tokenomics_Map]] | `wiki` | 244 | 21 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +238 more | [[Home]], [[Principles]], [[Principles/PR-081]], [[Principles/PR-083]], [[Principles/PR-084]], [[Principles/PR-085]] +15 more |
+| [[Principles]] | `principle-index` | 116 | 115 | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +110 more | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +109 more |
+| [[Principles/PR-097]] | `principle` | 207 | 5 | [[Domains/CD01]], [[Domains/CD04]], [[Domains/README]], [[Principles]], [[Tokenomics_Map]], [[Vices/VC-001]] +201 more | [[Domains/CD01]], [[Domains/CD04]], [[Domains/README]], [[Home]], [[Principles]] |
+| [[Domains/README]] | `domain` | 133 | 53 | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +127 more | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +47 more |
 | [[Evidence/arxiv2602_00409]] | `wiki` | 117 | 11 | [[Vices/VC-015]], [[Vices/VC-037]], [[Vices/VT-001]], [[Vices/VT-002]], [[Vices/VT-003]], [[Vices/VT-004]] +111 more | [[Home]], [[Vices/VC-015]], [[Vices/VC-037]], [[Vices/VT-001]], [[Vices/VT-002]], [[Vices/VT-003]] +5 more |
 | [[Tokenomics_Index]] | `wiki` | 42 | 36 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +36 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +30 more |
 | [[Evidence/arxiv2603_28592]] | `wiki` | 49 | 11 | [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]], [[Vices/VC-006]] +43 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +5 more |
-| [[Domains/README]] | `domain` | 20 | 19 | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +14 more | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +13 more |
 | [[Evidence/vexp_dev_humanlayer_ace]] | `wiki` | 33 | 1 | [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]], [[Tokenomics/TK-006]] +27 more | [[Home]] |
-| [[Evidence/owasp_top_10_for_agents_2026]] | `wiki` | 10 | 11 | [[Vices/VC-025]], [[Vices/VC-036]], [[Vices/VC-042]], [[Vices/VC-049]], [[Vices/VC-050]], [[Vices/VC-054]] +4 more | [[Home]], [[Vices/VC-025]], [[Vices/VC-036]], [[Vices/VC-042]], [[Vices/VC-049]], [[Vices/VC-050]] +5 more |
 
 ---
 
@@ -180,21 +184,21 @@ Nodes that link to more than one page type. They are useful for navigating impac
 
 | Node | Type | Reached types | Relations | Outbound |
 |---|---|---|---|---:|
-| [[Home]] | `wiki` | `conceptual-framework`, `domain`, `principle-index`, `root`, `tokenomics`, `vice`, `wiki` | `bridges`, `entrypoint`, `indexes`, `references`, `returns_to_index` | 13 |
-| [[Tokenomics_Map]] | `wiki` | `principle-index`, `root`, `tokenomics`, `vice`, `wiki` | `bridges`, `entrypoint`, `references`, `returns_to_index` | 9 |
-| [[Domains/README]] | `domain` | `domain`, `principle-index`, `root`, `wiki` | `entrypoint`, `operationalizes_domain`, `references`, `returns_to_index`, `routes_to_domains` | 19 |
-| [[README]] | `root` | `conceptual-framework`, `contributing`, `domain`, `wiki` | `entrypoint`, `references` | 6 |
-| [[Domains/CD11]] | `domain` | `domain`, `principle-index`, `vice`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
-| [[Domains/CD12]] | `domain` | `domain`, `principle-index`, `vice`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
-| [[Domains/CD17]] | `domain` | `domain`, `principle-index`, `vice`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
-| [[Principles]] | `principle-index` | `domain`, `vice`, `wiki` | `bridges`, `entrypoint`, `governed_by`, `indexes`, `operationalizes_domain`, `routes_to_domains` | 2 |
-| [[Tokenomics_Index]] | `wiki` | `root`, `tokenomics`, `wiki` | `bridges`, `catalogs`, `entrypoint`, `references`, `returns_to_index` | 36 |
-| [[Vices/VC-068]] | `vice` | `domain`, `principle-index`, `wiki` | `catalogs`, `governed_by`, `references`, `returns_to_index` | 7 |
-| [[Vices/VC-069]] | `vice` | `domain`, `principle-index`, `wiki` | `catalogs`, `governed_by`, `references`, `returns_to_index` | 7 |
-| [[Vices/VC-067]] | `vice` | `domain`, `principle-index`, `wiki` | `catalogs`, `governed_by`, `references`, `returns_to_index` | 7 |
-| [[Domains/CD01]] | `domain` | `domain`, `principle-index`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
-| [[Domains/CD02]] | `domain` | `domain`, `principle-index`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
-| [[Domains/CD03]] | `domain` | `domain`, `principle-index`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 3 |
+| [[Home]] | `wiki` | `conceptual-framework`, `domain`, `principle`, `principle-index`, `root`, `tokenomics`, `vice`, `wiki` | `bridges`, `entrypoint`, `indexes`, `references`, `returns_to_index` | 13 |
+| [[Tokenomics_Map]] | `wiki` | `principle`, `principle-index`, `root`, `tokenomics`, `vice`, `wiki` | `bridges`, `entrypoint`, `references`, `returns_to_index` | 21 |
+| [[Domains/README]] | `domain` | `domain`, `principle`, `principle-index`, `root`, `wiki` | `entrypoint`, `operationalizes_domain`, `references`, `returns_to_index`, `routes_to_domains` | 53 |
+| [[Principles/PR-097]] | `principle` | `domain`, `principle-index`, `vice`, `wiki` | `bridges`, `governed_by`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index` | 5 |
+| [[Principles/PR-081]] | `principle` | `domain`, `principle-index`, `tokenomics`, `wiki` | `bridges`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index`, `thematic_bridge` | 5 |
+| [[Principles/PR-084]] | `principle` | `domain`, `principle-index`, `tokenomics`, `wiki` | `bridges`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index`, `thematic_bridge` | 5 |
+| [[Principles/PR-085]] | `principle` | `domain`, `principle-index`, `tokenomics`, `wiki` | `bridges`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index`, `thematic_bridge` | 6 |
+| [[Principles/PR-088]] | `principle` | `domain`, `principle-index`, `tokenomics`, `wiki` | `bridges`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index`, `thematic_bridge` | 4 |
+| [[Principles/PR-092]] | `principle` | `domain`, `principle-index`, `tokenomics`, `wiki` | `bridges`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index`, `thematic_bridge` | 4 |
+| [[Principles/PR-096]] | `principle` | `domain`, `principle-index`, `tokenomics`, `wiki` | `bridges`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index`, `thematic_bridge` | 4 |
+| [[Principles/PR-087]] | `principle` | `domain`, `principle-index`, `tokenomics`, `wiki` | `bridges`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index`, `thematic_bridge` | 4 |
+| [[Principles/PR-094]] | `principle` | `domain`, `principle-index`, `tokenomics`, `wiki` | `bridges`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index`, `thematic_bridge` | 4 |
+| [[Domains/CD11]] | `domain` | `domain`, `principle`, `vice`, `wiki` | `operationalizes_domain`, `references`, `returns_to_index` | 7 |
+| [[Principles/PR-083]] | `principle` | `domain`, `principle-index`, `tokenomics`, `wiki` | `bridges`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index`, `thematic_bridge` | 5 |
+| [[Principles/PR-091]] | `principle` | `domain`, `principle-index`, `tokenomics`, `wiki` | `bridges`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index`, `thematic_bridge` | 4 |
 
 ---
 

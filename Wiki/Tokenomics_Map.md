@@ -14,11 +14,11 @@ This map serves as a bridge between the `TK` category and the GS principles laye
 
 | Lens | Subindex | Related Principles | Intent |
 |---|---|---|---|
-| Memory and Headroom | [[Tokenomics/Memory_Headroom_Index|Open lens]] | `PR-084, PR-088, PR-092, PR-096` | Avoids context loss, root pollution, and forgotten learning. |
-| Input and Retrieval | [[Tokenomics/Input_Retrieval_Index|Open lens]] | `PR-083, PR-090` | Reduces input noise and makes targeted retrieval more precise. |
-| Output and Compaction | [[Tokenomics/Output_Compaction_Index|Open lens]] | `PR-081, PR-085, PR-087, PR-094` | Controls verbosity, cost, pruning, and documentary honesty. |
-| Measurement and Telemetry | [[Tokenomics/Measurement_Telemetry_Index|Open lens]] | `PR-081, PR-091` | Makes the real savings visible, not just the intention to save. |
-| Automation and Tooling | [[Tokenomics/Automation_Tooling_Index|Open lens]] | `PR-083, PR-084, PR-091` | Connects the doctrine with executable tooling and continuous observability. |
+| Memory and Headroom | [[Tokenomics/Memory_Headroom_Index|Open lens]] | [[Principles/PR-084|PR-084]], [[Principles/PR-088|PR-088]], [[Principles/PR-092|PR-092]], [[Principles/PR-096|PR-096]] | Avoids context loss, root pollution, and forgotten learning. |
+| Input and Retrieval | [[Tokenomics/Input_Retrieval_Index|Open lens]] | [[Principles/PR-083|PR-083]], [[Principles/PR-090|PR-090]] | Reduces input noise and makes targeted retrieval more precise. |
+| Output and Compaction | [[Tokenomics/Output_Compaction_Index|Open lens]] | [[Principles/PR-081|PR-081]], [[Principles/PR-085|PR-085]], [[Principles/PR-087|PR-087]], [[Principles/PR-094|PR-094]] | Controls verbosity, cost, pruning, and documentary honesty. |
+| Measurement and Telemetry | [[Tokenomics/Measurement_Telemetry_Index|Open lens]] | [[Principles/PR-081|PR-081]], [[Principles/PR-091|PR-091]] | Makes the real savings visible, not just the intention to save. |
+| Automation and Tooling | [[Tokenomics/Automation_Tooling_Index|Open lens]] | [[Principles/PR-083|PR-083]], [[Principles/PR-084|PR-084]], [[Principles/PR-091|PR-091]] | Connects the doctrine with executable tooling and continuous observability. |
 
 ---
 
@@ -26,17 +26,17 @@ This map serves as a bridge between the `TK` category and the GS principles laye
 
 | Principle | Summary |
 |---|---|
-| `PR-081` | Tokencost – upfront token metering and USD conversion to make spend visible before executing an LLM call. |
-| `PR-083` | Litellm – provider-agnostic gateway with routing, fallback, cost tracking, guardrails, logging, and load balancing. |
-| `PR-084` | Governance gate between intent and execution that enforces context discipline, observability, redaction, and state control. |
-| `PR-085` | Output governance – a system can have INPUT governance (quality gates) but lack OUTPUT governance (orphan pruning), accumulating refactor residue: backups, dead code, stale plan docs, spectral scripts, divergent learning logs, stale base-sets, and IDs declared without content. Root cause: the gate validated letter (Path.exists) not currency (active route). Lesson: the same gate that blocks bad code blocks the leftover junk. |
-| `PR-087` | Zero debt before advancing – every warning or non-blocking finding is treated as an operational error until fixed or explicitly blocked. |
-| `PR-088` | Output hygiene and clean root – historical artifacts are reference, not source of truth; when an audit closes the root must be free of operational residue. |
-| `PR-090` | Minimal and real exclusions – whitelists, excludes, skips, xfails, stubs, mocks, and placeholders only with verifiable cause; false coverage is debt, not progress. |
-| `PR-091` | Real-time vigilance – observe signals, costs, and deviations during execution, not only in the post-mortem. |
-| `PR-092` | Living Golden Standard – preserve pure, agnostic knowledge kept up to date with the lessons from the project and the satellites without mixing it with concrete tools. |
-| `PR-094` | DOC_ONLY honesty – if a lesson is not falsifiable by a physical gate, it must be labeled DOC_ONLY instead of simulating automatic coverage. |
-| `PR-096` | Canonical ingestion of lessons – normalize, deduplicate, and record new satellite lessons before incorporating them into the central knowledge. |
+| [[Principles/PR-081|PR-081]] | Tokencost – upfront token metering and USD conversion to make spend visible before executing an LLM call. |
+| [[Principles/PR-083|PR-083]] | Litellm – provider-agnostic gateway with routing, fallback, cost tracking, guardrails, logging, and load balancing. |
+| [[Principles/PR-084|PR-084]] | Governance gate between intent and execution that enforces context discipline, observability, redaction, and state control. |
+| [[Principles/PR-085|PR-085]] | Output governance – a system can have INPUT governance (quality gates) but lack OUTPUT governance (orphan pruning), accumulating refactor residue: backups, dead code, stale plan docs, spectral scripts, divergent learning logs, stale base-sets, and IDs declared without content. Root cause: the gate validated letter (Path.exists) not currency (active route). Lesson: the same gate that blocks bad code blocks the leftover junk. |
+| [[Principles/PR-087|PR-087]] | Zero debt before advancing – every warning or non-blocking finding is treated as an operational error until fixed or explicitly blocked. |
+| [[Principles/PR-088|PR-088]] | Output hygiene and clean root – historical artifacts are reference, not source of truth; when an audit closes the root must be free of operational residue. |
+| [[Principles/PR-090|PR-090]] | Minimal and real exclusions – whitelists, excludes, skips, xfails, stubs, mocks, and placeholders only with verifiable cause; false coverage is debt, not progress. |
+| [[Principles/PR-091|PR-091]] | Real-time vigilance – observe signals, costs, and deviations during execution, not only in the post-mortem. |
+| [[Principles/PR-092|PR-092]] | Living Golden Standard – preserve pure, agnostic knowledge kept up to date with the lessons from the project and the satellites without mixing it with concrete tools. |
+| [[Principles/PR-094|PR-094]] | DOC_ONLY honesty – if a lesson is not falsifiable by a physical gate, it must be labeled DOC_ONLY instead of simulating automatic coverage. |
+| [[Principles/PR-096|PR-096]] | Canonical ingestion of lessons – normalize, deduplicate, and record new satellite lessons before incorporating them into the central knowledge. |
 
 ---
 
@@ -44,7 +44,7 @@ This map serves as a bridge between the `TK` category and the GS principles laye
 
 | Node | Relation | Reason |
 |---|---|---|
-| `[[Principles|PR-097]]` | Principle hygiene | Expands the discipline of editing and validation toward daily work with tools. |
+| [[Principles/PR-097|PR-097]] | Principle hygiene | Expands the discipline of editing and validation toward daily work with tools. |
 | `[[Vices/VC-056|VC-056]]` | Mirror vice | Represents the error of deprecating without analysis or traceability. |
 
 ---

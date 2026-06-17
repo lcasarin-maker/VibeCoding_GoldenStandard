@@ -131,6 +131,20 @@ def principle_to_domain_map() -> dict[str, str]:
     return mapping
 
 
+def principle_wikilink(principle_id: str, label: str | None = None) -> str:
+    """Render a stable link to an atomic principle page."""
+    display = label or principle_id
+    return f"[[Principles/{principle_id}|{display}]]"
+
+
+def render_principle_refs(raw_refs: str) -> str:
+    """Render comma-separated PR ids as links to atomic principle pages."""
+    refs = [ref.strip() for ref in raw_refs.split(",") if ref.strip()]
+    if not refs:
+        return "—"
+    return ", ".join(principle_wikilink(ref) for ref in refs)
+
+
 def _read_version_label() -> str:
     if VERSION_FILE.exists():
         version = VERSION_FILE.read_text(encoding="utf-8").strip()
@@ -318,7 +332,7 @@ def write_principles_index(wiki_dir: Path, records: dict[str, dict[str, object]]
         record = records[pr_id]
         note = "promotion candidate" if record.get("promotion_candidate") else "doctrinal"
         title = record.get("title", "—")
-        rows.append(f"| {pr_id} | {title} | {note} |")
+        rows.append(f"| {principle_wikilink(pr_id)} | {title} | {note} |")
 
     content = f"""# Principles
 
@@ -342,6 +356,109 @@ These principles are operationalized through the separate [[Domains/README|Canon
     (wiki_dir / "Principles.md").write_text(content, encoding="utf-8")
 
 
+def principle_domain_assignments(
+    recommendations: dict[str, dict[str, object]]
+) -> dict[str, list[tuple[str, str, str]]]:
+    """Collect canonical domain assignments per principle for atomic pages."""
+    assignments: dict[str, list[tuple[str, str, str]]] = {}
+    for domain in sorted(recommendations):
+        record = recommendations[domain]
+        for item in domain_principle_rows(record):
+            if not isinstance(item, dict):
+                continue
+            pr_id = str(item.get("insight_id", "")).strip()
+            if not pr_id:
+                continue
+            assignments.setdefault(pr_id, []).append(
+                (
+                    domain,
+                    str(item.get("project", "")).strip() or "—",
+                    str(item.get("action", "")).strip() or "—",
+                )
+            )
+    return assignments
+
+
+def write_atomic_principles(
+    wiki_dir: Path,
+    records: dict[str, dict[str, object]],
+    recommendations: dict[str, dict[str, object]],
+):
+    """Create individual atomic files for each principle."""
+    principles_dir = wiki_dir / "Principles"
+    principles_dir.mkdir(parents=True, exist_ok=True)
+    assignments = principle_domain_assignments(recommendations)
+
+    for pr_id in sorted(records):
+        record = records[pr_id]
+        title = str(record.get("title", "—")).strip() or "—"
+        catalog_source = str(record.get("catalog_source", "")).strip() or "project_insights"
+        status = str(record.get("status", "")).strip() or "—"
+        tier = str(record.get("tier", "")).strip() or "—"
+        doctrinal = "yes" if record.get("doctrinal") else "no"
+        promotion_candidate = "yes" if record.get("promotion_candidate") else "no"
+        detection = str(record.get("detection", "")).strip() or "—"
+        action = str(record.get("action", "")).strip() or "—"
+        solution = str(record.get("solution", "")).strip() or "—"
+        symptom = str(record.get("symptom", "")).strip() or "—"
+        cause = str(record.get("cause", "")).strip() or "—"
+        assigned_rows = assignments.get(pr_id, [])
+        if assigned_rows:
+            domain_lines = "\n".join(
+                f"- [[Domains/{domain}|{domain}]] (Project: *{project}*): {action_text}"
+                for domain, project, action_text in assigned_rows
+            )
+        else:
+            domain_lines = "*No canonical domain assignments recorded.*"
+
+        content = f"""# {pr_id} — {title}
+
+This is the atomic principle page for `{pr_id}`. It keeps the doctrine at the granularity the graph can navigate
+directly, instead of forcing readers through a bulk index.
+
+---
+
+## Metadata
+
+| Field | Value |
+|---|---|
+| **ID** | `{pr_id}` |
+| **Title** | {title} |
+| **Catalog source** | `{catalog_source}` |
+| **Status** | `{status}` |
+| **Tier** | `{tier}` |
+| **Doctrinal** | `{doctrinal}` |
+| **Promotion candidate** | `{promotion_candidate}` |
+| **Detection** | {detection} |
+
+---
+
+## Doctrine Snapshot
+
+| Field | Value |
+|---|---|
+| **Symptom** | {symptom} |
+| **Cause** | {cause} |
+| **Solution** | {solution} |
+| **Action** | {action} |
+
+---
+
+## Canonical Domain Assignments
+
+{domain_lines}
+
+---
+
+## Navigation
+
+- [[Principles|Principles Index]]
+- [[Domains/README|Canonical Domains Index]]
+- [[Home|Back to Home]]
+"""
+        (principles_dir / f"{pr_id}.md").write_text(content, encoding="utf-8")
+
+
 def write_domains_index_md(wiki_dir: Path, recommendations: dict):
     """Write the canonical GS domain index."""
     rows = []
@@ -363,25 +480,24 @@ def write_domains_index_md(wiki_dir: Path, recommendations: dict):
             }
         )
         title = str(record.get("title", "—")).strip()
-        legacy = ", ".join(f"`{value}`" for value in record.get("legacy_gs_lenses", [])) or "—"
-        sample = ", ".join(f"`{pid}`" for pid in unique_principles[:4])
+        sample = ", ".join(principle_wikilink(pid) for pid in unique_principles[:4])
         if len(unique_principles) > 4:
             sample += f" +{len(unique_principles) - 4} more"
         rows.append(
-            f"| [[Domains/{domain}|{domain}]] | {title or '—'} | {len(unique_principles)} | {sample or '—'} | {legacy} |"
+            f"| [[Domains/{domain}|{domain}]] | {title or '—'} | {len(unique_principles)} | {sample or '—'} |"
         )
 
     if not rows:
-        rows = ["| — | — | 0 | — | — |"]
+        rows = ["| — | — | 0 | — |"]
 
     content = f"""# Canonical Domains Index
 
-This index is the canonical cognitive entrypoint for GS. Each domain page is a graph-aware semantic hub: it declares what the domain covers, what it excludes, which legacy GS lenses fed it, and which principles currently operationalize it.
+This index is the canonical cognitive entrypoint for GS. Each domain page is a graph-aware semantic hub: it declares what the domain covers, what it excludes, and which principles currently operationalize it.
 
 ---
 
-| Domain | Title | Principles | Sample Principles | Legacy GS lenses |
-|---|---|---:|---|---|
+| Domain | Title | Principles | Sample Principles |
+|---|---|---:|---|
 {chr(10).join(rows)}
 
 ---
@@ -531,12 +647,12 @@ def write_tokenomics_map_md(wiki_dir: Path, insights: dict):
             insight_pairs.append((insight_id, insights[insight_id]))
 
     insight_rows = "\n".join(
-        f"| `{insight_id}` | {description} |"
+        f"| {principle_wikilink(insight_id)} | {description} |"
         for insight_id, description in insight_pairs
     )
 
     lens_rows = "\n".join(
-        f"| {lens} | {link} | `{pi_refs}` | {intent} |"
+        f"| {lens} | {link} | {render_principle_refs(pi_refs)} | {intent} |"
         for lens, link, pi_refs, intent in bridge_rows
     )
 
@@ -572,7 +688,7 @@ This map serves as a bridge between the `TK` category and the GS principles laye
 
 | Node | Relation | Reason |
 |---|---|---|
-| `[[Principles|PR-097]]` | Principle hygiene | Expands the discipline of editing and validation toward daily work with tools. |
+| {principle_wikilink("PR-097")} | Principle hygiene | Expands the discipline of editing and validation toward daily work with tools. |
 | `[[Vices/VC-056|VC-056]]` | Mirror vice | Represents the error of deprecating without analysis or traceability. |
 
 ---
@@ -614,6 +730,15 @@ def _tokenomics_subindex_group(item_id: str, title: str) -> str:
     if any(term in lower_title for term in ["tool", "automation", "mode", "router", "integrat", "external"]):
         return "automation_tooling"
     return "output_compaction"
+
+
+TOKENOMICS_SUBINDEX_PRINCIPLES: dict[str, list[str]] = {
+    "memory_headroom": ["PR-084", "PR-088", "PR-092", "PR-096"],
+    "input_retrieval": ["PR-083", "PR-090"],
+    "output_compaction": ["PR-081", "PR-085", "PR-087", "PR-094"],
+    "measurement_telemetry": ["PR-081", "PR-091"],
+    "automation_tooling": ["PR-083", "PR-084", "PR-091"],
+}
 
 
 def write_tokenomics_subindices_md(wiki_dir: Path, mapped_database: dict):
@@ -831,7 +956,7 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 {item['action']}{depth_sections}
 
 ### Relations
-- [[Principles|PR-097]]
+- {principle_wikilink("PR-097")}
 - [[Tokenomics_Map|Tokenomics Map]]
 - [[Home|Home]]
 
@@ -860,6 +985,13 @@ def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
             continue
         tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
         depth_sections = build_depth_sections(item)
+        group_key = _tokenomics_subindex_group(flaw_id, item["title"])
+        related_principles = TOKENOMICS_SUBINDEX_PRINCIPLES.get(group_key, [])
+        principle_lines = (
+            "\n".join(f"- {principle_wikilink(pr_id)}" for pr_id in related_principles)
+            if related_principles
+            else "*No related principles assigned.*"
+        )
         flaw_content = f"""# {flaw_id}: {item['title']}
 
 | Field | Detail |
@@ -888,6 +1020,12 @@ def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
 {item['action']}{depth_sections}
 
 ---
+
+### Related Principles
+
+{principle_lines}
+
+---
 [[Tokenomics_Map|Back to Tokenomics Map]] | [[Tokenomics_Index|Back to Tokenomics Index]] | [[Home|Home]]
 """
         (tokenomics_dir / f"{flaw_id}.md").write_text(flaw_content, encoding="utf-8")
@@ -911,18 +1049,16 @@ def write_audit_domains(wiki_dir: Path, recommendations: dict):
         record = recommendations[domain]
         items = domain_principle_rows(record)
         linked_items = [
-            f"*   **[[Principles|{rec['insight_id']}]]** (Project: *{rec['project']}*): {rec['action']}"
+            f"*   **{principle_wikilink(str(rec['insight_id']))}** (Project: *{rec['project']}*): {rec['action']}"
             for rec in items
         ]
         title = str(record.get("title", "—")).strip()
         summary = str(record.get("summary", "—")).strip()
         covers = record.get("covers", [])
         excludes = record.get("excludes", [])
-        legacy = record.get("legacy_gs_lenses", [])
         graph_role = str(record.get("graph_role", "")).strip()
         cover_lines = "\n".join(f"- {item}" for item in covers) if covers else "- No coverage declared."
         exclude_lines = "\n".join(f"- {item}" for item in excludes) if excludes else "- No explicit exclusions declared."
-        legacy_text = ", ".join(f"`{item}`" for item in legacy) if legacy else "None"
 
         domain_content = f"""# {domain} — {title}
 
@@ -945,12 +1081,6 @@ def write_audit_domains(wiki_dir: Path, recommendations: dict):
 ## Explicitly Excludes
 
 {exclude_lines}
-
----
-
-## Legacy GS inputs
-
-{legacy_text}
 
 ---
 
@@ -991,6 +1121,8 @@ def classify_graph_node(path: Path) -> str:
         return "tokenomics"
     if rel_path == "Wiki/Principles.md":
         return "principle-index"
+    if rel_path.startswith("Wiki/Principles/"):
+        return "principle"
     if rel_path.startswith("Wiki/Domains/"):
         return "domain"
     if rel_path.startswith("Wiki/Concepts/"):
@@ -1016,17 +1148,33 @@ def infer_graph_relation(
         return "bridges", 0.95
     if source_id == "Principles" and target_kind == "domain":
         return "routes_to_domains", 0.95
+    if source_id == "Principles" and target_kind == "principle":
+        return "indexes", 0.95
     if source_id == "Principles" and target_kind == "wiki":
         return "indexes", 0.9
+    if source_kind == "principle-index" and target_kind == "principle":
+        return "indexes", 0.95
     if source_kind == "domain" and target_kind == "principle-index":
+        return "operationalizes_domain", 0.95
+    if source_kind == "domain" and target_kind == "principle":
         return "operationalizes_domain", 0.95
     if source_kind == "vice" and target_kind == "principle-index":
         return "governed_by", 0.9
+    if source_kind == "vice" and target_kind == "principle":
+        return "governed_by", 0.95
     if source_kind == "tokenomics" and target_kind == "principle-index":
+        return "thematic_bridge", 0.9
+    if source_kind == "tokenomics" and target_kind == "principle":
         return "thematic_bridge", 0.9
     if source_kind == "tokenomics" and target_kind == "tokenomics":
         return "subindex", 0.9
+    if source_kind == "principle" and target_kind == "principle-index":
+        return "returns_to_index", 0.95
+    if source_kind == "principle" and target_kind in {"vice", "tokenomics", "domain"}:
+        return "references", 0.9
     if source_kind == "wiki" and target_kind in {"vice", "tokenomics", "principle-index", "domain"}:
+        return "catalogs", 0.95
+    if source_kind == "wiki" and target_kind == "principle":
         return "catalogs", 0.95
     if source_kind in {"vice", "tokenomics", "principle-index", "domain"} and target_kind == "wiki":
         return "returns_to_index", 0.95
@@ -1315,6 +1463,9 @@ def build_gs_graph() -> dict:
         )
     }
     avg_confidence = round(sum(edge["confidence"] for edge in edges) / len(edges), 3) if edges else 0.0
+    semantic_density = round(len(edges) / (len(nodes) * (len(nodes) - 1)), 6) if len(nodes) > 1 else 0.0
+    hub_ratio = round(len(hubs) / len(nodes), 6) if nodes else 0.0
+    bridge_ratio = round(len(bridges) / len(nodes), 6) if nodes else 0.0
     intentional_orphan_review = []
     for node in intentional_orphans:
         rel_path = node["path"]
@@ -1347,6 +1498,9 @@ def build_gs_graph() -> dict:
             "relation_counts": dict(sorted(relation_counts.items())),
             "reciprocal_pairs": len(reciprocal_pairs),
             "average_edge_confidence": avg_confidence,
+            "semantic_density": semantic_density,
+            "hub_ratio": hub_ratio,
+            "bridge_ratio": bridge_ratio,
             "intentional_orphans": intentional_orphans[:25],
             "intentional_orphan_review": intentional_orphan_review[:25],
             "orphan_candidates": orphan_candidates[:25],
@@ -1599,6 +1753,9 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 | Edges | {graph["edge_count"]} |
 | Reciprocal pairs | {graph["summary"].get("reciprocal_pairs", 0)} |
 | Average edge confidence | {graph["summary"].get("average_edge_confidence", 0.0)} |
+| Semantic density | {graph["summary"].get("semantic_density", 0.0)} |
+| Hub ratio | {graph["summary"].get("hub_ratio", 0.0)} |
+| Bridge ratio | {graph["summary"].get("bridge_ratio", 0.0)} |
 | Intentional orphans | {len(graph["summary"]["intentional_orphans"])} |
 | Candidate orphans | {len(graph["summary"]["orphan_candidates"])} |
 | Hubs | {len(graph["summary"]["hubs"])} |
@@ -1846,6 +2003,7 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     write_principles_index(wiki_dir, insight_records)
     write_domains_index_md(wiki_dir, recommendations)
     write_tokenomics_map_md(wiki_dir, insights)
+    write_atomic_principles(wiki_dir, insight_records, recommendations)
     write_atomic_vices(wiki_dir, mapped_database)
     write_atomic_tokenomics(wiki_dir, mapped_database)
     write_audit_domains(wiki_dir, recommendations)

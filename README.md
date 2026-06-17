@@ -60,7 +60,7 @@ Cross-cutting doctrine captured as first-class rules. They explain, connect, or 
 ### 🧭 Canonical Domains (`CDxx`)
 The semantic routing layer of GS. Canonical domains define stable boundaries such as repository integrity, test falsifiability, tokenomics, observability, or agent-boundary security.
 
-They are not tied to historical `D1..D12` labels. Instead, they act as the graph-aware ontology that lets doctrine, vices, tokenomics, and downstream consumers trace to the same semantic surface.
+They are not tied to historical lens labels. Instead, they act as the graph-aware ontology that lets doctrine, vices, tokenomics, and downstream consumers trace to the same semantic surface.
 
 ---
 
@@ -148,7 +148,7 @@ VibeCoding_GoldenStandard/
 GS now treats domains as a first-class semantic ontology instead of a historical numbering convention.
 
 - Domains are published as `CDxx` canonical surfaces in [`Wiki/Domains/README.md`](Wiki/Domains/README.md).
-- Historical `D1..D12` lens language is treated as legacy input, not final taxonomy.
+- Historical lens language is archived only and is not part of the active taxonomy.
 - The graph uses the domain pages as hubs to correlate doctrine, catalog entries, and downstream enforcement expectations.
 
 This makes GS usable as an independent semantic source even when consumer projects implement a different number of runtime dimensions.
