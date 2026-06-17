@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-06-16",
-  "node_count": 388,
-  "edge_count": 1945,
+  "node_count": 386,
+  "edge_count": 1937,
   "nodes": [
     {
       "id": "CODE_OF_CONDUCT",
@@ -588,7 +588,6 @@
         "Vices/VC-025",
         "Vices/VC-026",
         "Vices/VC-027",
-        "Vices/VC-028",
         "Vices/VC-029",
         "Vices/VC-030",
         "Vices/VC-031",
@@ -637,7 +636,6 @@
         "Vices/VC-074",
         "Vices/VC-075",
         "Vices/VC-076",
-        "Vices/VC-077",
         "Vices/VC-078",
         "Vices/VC-079",
         "Vices/VC-080",
@@ -833,9 +831,9 @@
         "Vices/VT-116",
         "Vices_Index"
       ],
-      "in_degree": 371,
+      "in_degree": 369,
       "out_degree": 21,
-      "degree": 392
+      "degree": 390
     },
     {
       "id": "Principles",
@@ -4038,12 +4036,11 @@
         "Vices_Index"
       ],
       "incoming": [
-        "Vices/VC-028",
         "Vices_Index"
       ],
-      "in_degree": 2,
+      "in_degree": 1,
       "out_degree": 4,
-      "degree": 6,
+      "degree": 5,
       "status": "DOC_ONLY",
       "downstream_verification": "required"
     },
@@ -4106,25 +4103,6 @@
       "degree": 5,
       "status": "PREVENTED",
       "downstream_verification": "none"
-    },
-    {
-      "id": "Vices/VC-028",
-      "path": "Wiki/Vices/VC-028.md",
-      "title": "VC-028: Step without validation",
-      "kind": "vice",
-      "outgoing": [
-        "Home",
-        "Vices/VC-024",
-        "Vices_Index"
-      ],
-      "incoming": [
-        "Vices_Index"
-      ],
-      "in_degree": 1,
-      "out_degree": 3,
-      "degree": 4,
-      "status": "DOC_ONLY",
-      "downstream_verification": "required"
     },
     {
       "id": "Vices/VC-029",
@@ -4683,7 +4661,7 @@
       "in_degree": 1,
       "out_degree": 4,
       "degree": 5,
-      "status": "DOC_ONLY",
+      "status": "PREVENTED",
       "downstream_verification": "required"
     },
     {
@@ -4863,7 +4841,7 @@
       "in_degree": 1,
       "out_degree": 4,
       "degree": 5,
-      "status": "DOC_ONLY",
+      "status": "PREVENTED",
       "downstream_verification": "required"
     },
     {
@@ -4883,7 +4861,7 @@
       "in_degree": 1,
       "out_degree": 4,
       "degree": 5,
-      "status": "DOC_ONLY",
+      "status": "PREVENTED",
       "downstream_verification": "required"
     },
     {
@@ -5078,31 +5056,11 @@
         "Vices_Index"
       ],
       "incoming": [
-        "Vices/VC-077",
-        "Vices_Index"
-      ],
-      "in_degree": 2,
-      "out_degree": 4,
-      "degree": 6,
-      "status": "PREVENTED",
-      "downstream_verification": "none"
-    },
-    {
-      "id": "Vices/VC-077",
-      "path": "Wiki/Vices/VC-077.md",
-      "title": "VC-077: Semantic type ambiguity",
-      "kind": "vice",
-      "outgoing": [
-        "Home",
-        "Vices/VC-076",
-        "Vices_Index"
-      ],
-      "incoming": [
         "Vices_Index"
       ],
       "in_degree": 1,
-      "out_degree": 3,
-      "degree": 4,
+      "out_degree": 4,
+      "degree": 5,
       "status": "PREVENTED",
       "downstream_verification": "none"
     },
@@ -5583,7 +5541,7 @@
       "in_degree": 1,
       "out_degree": 4,
       "degree": 5,
-      "status": "DOC_ONLY",
+      "status": "PREVENTED",
       "downstream_verification": "required"
     },
     {
@@ -9037,7 +8995,6 @@
         "Vices/VC-025",
         "Vices/VC-026",
         "Vices/VC-027",
-        "Vices/VC-028",
         "Vices/VC-029",
         "Vices/VC-030",
         "Vices/VC-031",
@@ -9086,7 +9043,6 @@
         "Vices/VC-074",
         "Vices/VC-075",
         "Vices/VC-076",
-        "Vices/VC-077",
         "Vices/VC-078",
         "Vices/VC-079",
         "Vices/VC-080",
@@ -9310,7 +9266,6 @@
         "Vices/VC-025",
         "Vices/VC-026",
         "Vices/VC-027",
-        "Vices/VC-028",
         "Vices/VC-029",
         "Vices/VC-030",
         "Vices/VC-031",
@@ -9359,7 +9314,6 @@
         "Vices/VC-074",
         "Vices/VC-075",
         "Vices/VC-076",
-        "Vices/VC-077",
         "Vices/VC-078",
         "Vices/VC-079",
         "Vices/VC-080",
@@ -9554,9 +9508,9 @@
         "Vices/VT-115",
         "Vices/VT-116"
       ],
-      "in_degree": 271,
-      "out_degree": 271,
-      "degree": 542
+      "in_degree": 269,
+      "out_degree": 269,
+      "degree": 538
     }
   ],
   "edges": [
@@ -13081,21 +13035,6 @@
       "kind": "wikilink"
     },
     {
-      "source": "Vices/VC-028",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Vices/VC-028",
-      "target": "Vices/VC-024",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Vices/VC-028",
-      "target": "Vices_Index",
-      "kind": "wikilink"
-    },
-    {
       "source": "Vices/VC-029",
       "target": "Home",
       "kind": "wikilink"
@@ -14052,21 +13991,6 @@
     },
     {
       "source": "Vices/VC-076",
-      "target": "Vices_Index",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Vices/VC-077",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Vices/VC-077",
-      "target": "Vices/VC-076",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Vices/VC-077",
       "target": "Vices_Index",
       "kind": "wikilink"
     },
@@ -18072,11 +17996,6 @@
     },
     {
       "source": "Vices_Index",
-      "target": "Vices/VC-028",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Vices_Index",
       "target": "Vices/VC-029",
       "kind": "wikilink"
     },
@@ -18313,11 +18232,6 @@
     {
       "source": "Vices_Index",
       "target": "Vices/VC-076",
-      "kind": "wikilink"
-    },
-    {
-      "source": "Vices_Index",
-      "target": "Vices/VC-077",
       "kind": "wikilink"
     },
     {
@@ -19372,7 +19286,6 @@
           "Vices/VC-025",
           "Vices/VC-026",
           "Vices/VC-027",
-          "Vices/VC-028",
           "Vices/VC-029",
           "Vices/VC-030",
           "Vices/VC-031",
@@ -19421,7 +19334,6 @@
           "Vices/VC-074",
           "Vices/VC-075",
           "Vices/VC-076",
-          "Vices/VC-077",
           "Vices/VC-078",
           "Vices/VC-079",
           "Vices/VC-080",
@@ -19645,7 +19557,6 @@
           "Vices/VC-025",
           "Vices/VC-026",
           "Vices/VC-027",
-          "Vices/VC-028",
           "Vices/VC-029",
           "Vices/VC-030",
           "Vices/VC-031",
@@ -19694,7 +19605,6 @@
           "Vices/VC-074",
           "Vices/VC-075",
           "Vices/VC-076",
-          "Vices/VC-077",
           "Vices/VC-078",
           "Vices/VC-079",
           "Vices/VC-080",
@@ -19889,9 +19799,9 @@
           "Vices/VT-115",
           "Vices/VT-116"
         ],
-        "in_degree": 271,
-        "out_degree": 271,
-        "degree": 542
+        "in_degree": 269,
+        "out_degree": 269,
+        "degree": 538
       },
       {
         "id": "Home",
@@ -20049,7 +19959,6 @@
           "Vices/VC-025",
           "Vices/VC-026",
           "Vices/VC-027",
-          "Vices/VC-028",
           "Vices/VC-029",
           "Vices/VC-030",
           "Vices/VC-031",
@@ -20098,7 +20007,6 @@
           "Vices/VC-074",
           "Vices/VC-075",
           "Vices/VC-076",
-          "Vices/VC-077",
           "Vices/VC-078",
           "Vices/VC-079",
           "Vices/VC-080",
@@ -20294,9 +20202,9 @@
           "Vices/VT-116",
           "Vices_Index"
         ],
-        "in_degree": 371,
+        "in_degree": 369,
         "out_degree": 21,
-        "degree": 392
+        "degree": 390
       },
       {
         "id": "Tokenomics_Map",
@@ -21511,7 +21419,6 @@
           "Vices/VC-025",
           "Vices/VC-026",
           "Vices/VC-027",
-          "Vices/VC-028",
           "Vices/VC-029",
           "Vices/VC-030",
           "Vices/VC-031",
@@ -21560,7 +21467,6 @@
           "Vices/VC-074",
           "Vices/VC-075",
           "Vices/VC-076",
-          "Vices/VC-077",
           "Vices/VC-078",
           "Vices/VC-079",
           "Vices/VC-080",
@@ -21784,7 +21690,6 @@
           "Vices/VC-025",
           "Vices/VC-026",
           "Vices/VC-027",
-          "Vices/VC-028",
           "Vices/VC-029",
           "Vices/VC-030",
           "Vices/VC-031",
@@ -21833,7 +21738,6 @@
           "Vices/VC-074",
           "Vices/VC-075",
           "Vices/VC-076",
-          "Vices/VC-077",
           "Vices/VC-078",
           "Vices/VC-079",
           "Vices/VC-080",
@@ -22028,9 +21932,9 @@
           "Vices/VT-115",
           "Vices/VT-116"
         ],
-        "in_degree": 271,
-        "out_degree": 271,
-        "degree": 542
+        "in_degree": 269,
+        "out_degree": 269,
+        "degree": 538
       },
       {
         "id": "Tokenomics_Index",
@@ -22443,7 +22347,6 @@
           "Vices/VC-025",
           "Vices/VC-026",
           "Vices/VC-027",
-          "Vices/VC-028",
           "Vices/VC-029",
           "Vices/VC-030",
           "Vices/VC-031",
@@ -22492,7 +22395,6 @@
           "Vices/VC-074",
           "Vices/VC-075",
           "Vices/VC-076",
-          "Vices/VC-077",
           "Vices/VC-078",
           "Vices/VC-079",
           "Vices/VC-080",
@@ -22688,9 +22590,9 @@
           "Vices/VT-116",
           "Vices_Index"
         ],
-        "in_degree": 371,
+        "in_degree": 369,
         "out_degree": 21,
-        "degree": 392
+        "degree": 390
       },
       {
         "id": "Tokenomics/Memory_Headroom_Index",

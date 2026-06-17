@@ -74,23 +74,40 @@ def load_project_insight_records() -> dict[str, dict[str, object]]:
     path = _ROOT / "golden_standard_project_insights.yaml"
     with open(path, "r", encoding="utf-8") as f:
         data = yaml.safe_load(f)
-    raw = data.get("project_insights", {})
+    items = data.get("items", [])
     records: dict[str, dict[str, object]] = {}
-    if not isinstance(raw, dict):
+    if not isinstance(items, list):
+        # Fallback to legacy dict format
+        raw = data.get("project_insights", {})
+        if not isinstance(raw, dict):
+            return records
+        for k, v in raw.items():
+            if not str(k).startswith("PI-"):
+                continue
+            if isinstance(v, str):
+                records[str(k)] = {"title": normalize_knowledge_text(v)}
+            elif isinstance(v, dict):
+                record = dict(v)
+                record["title"] = normalize_knowledge_text(
+                    record.get("title", record.get("text", ""))
+                )
+                record["doctrinal"] = bool(record.get("doctrinal", False))
+                record["promotion_candidate"] = bool(record.get("promotion_candidate", False))
+                records[str(k)] = record
         return records
-    for k, v in raw.items():
-        if not str(k).startswith("PI-"):
+    for item in items:
+        if not isinstance(item, dict):
             continue
-        if isinstance(v, str):
-            records[str(k)] = {"title": normalize_knowledge_text(v)}
-        elif isinstance(v, dict):
-            record = dict(v)
-            record["title"] = normalize_knowledge_text(
-                record.get("title", record.get("text", ""))
-            )
-            record["doctrinal"] = bool(record.get("doctrinal", False))
-            record["promotion_candidate"] = bool(record.get("promotion_candidate", False))
-            records[str(k)] = record
+        k = str(item.get("id", ""))
+        if not k.startswith("PI-"):
+            continue
+        record = dict(item)
+        record["title"] = normalize_knowledge_text(
+            record.get("title", record.get("text", ""))
+        )
+        record["doctrinal"] = bool(record.get("doctrinal", False))
+        record["promotion_candidate"] = bool(record.get("promotion_candidate", False))
+        records[k] = record
     return records
 
 
@@ -1486,6 +1503,9 @@ def _display_mechanism(item: dict) -> str:
 def extract_catalog_items(config: dict, mapped_database: dict):
     """Parse catalog configuration dict and populate mapped flaws."""
     if not isinstance(config, dict) or "items" not in config:
+        return
+    # Skip project-insights catalog here; PI are handled separately
+    if config.get("catalog_name") == "project_insights":
         return
     for item in config["items"]:
         flaw_id = item["id"]

@@ -1,199 +1,165 @@
-project_insights:
-  PI-001:
-    title: Deptry – reconciliation of imports against declared dependencies to detect
-      missing, unused, transitive, misplaced dev, and stdlib declared as dependencies.
-    doctrinal: true
-  PI-002:
-    title: 'Diagnostic assertions – when a test fails, the message must explain the
-      discrepancy with actionable clarity. Real verified tools: pytest native assertion
-      rewriting, pytest-clarity / pytest-icdiff for readable diffs, flake8-assertive
-      for correct assertion methods. (Corrects a prior reference to a nonexistent
-      package — see VC-129 hallucinated dependency.)'
-    doctrinal: true
-    promotion_candidate: true
-  PI-003:
-    title: Tokencost – upfront token metering and USD conversion to make spend visible
-      before executing an LLM call.
-    doctrinal: true
-  PI-004:
-    title: Trivy – multi-surface scanning (images, filesystem, git, VMs, Kubernetes)
-      for CVEs, secrets, misconfigurations, SBOM, and licenses.
-    doctrinal: true
-  PI-005:
-    title: Litellm – provider-agnostic gateway with routing, fallback, cost tracking,
-      guardrails, logging, and load balancing.
-    doctrinal: true
-  PI-006:
-    title: Governance gate between intent and execution that enforces context discipline,
-      observability, redaction, and state control.
-    doctrinal: true
-  PI-007:
-    title: 'Output governance – a system can have INPUT governance (quality gates)
-      but lack OUTPUT governance (orphan pruning), accumulating refactor residue:
-      backups, dead code, stale plan docs, spectral scripts, divergent learning logs,
-      stale base-sets, and IDs declared without content. Root cause: the gate validated
-      letter (Path.exists) not currency (active route). Lesson: the same gate that
-      blocks bad code blocks the leftover junk.'
-    doctrinal: true
-  PI-008:
-    title: Batch of predictable authorizations – group permissions, clarifications,
-      and decisions before a long run to avoid interruptions, rereads, and reactive
-      work.
-    doctrinal: true
-  PI-009:
-    title: Zero debt before advancing – every warning or non-blocking finding is treated
-      as an operational error until fixed or explicitly blocked.
-    doctrinal: true
-  PI-010:
-    title: Output hygiene and clean root – historical artifacts are reference, not
-      source of truth; when an audit closes the root must be free of operational residue.
-    doctrinal: true
-  PI-011:
-    title: Descriptive names and simple topology – prefer scripts and modules that
-      explain their purpose and flatten structure when it reduces cognitive friction.
-    doctrinal: true
-  PI-012:
-    title: Minimal and real exclusions – whitelists, excludes, skips, xfails, stubs,
-      mocks, and placeholders only with verifiable cause; false coverage is debt,
-      not progress.
-    doctrinal: true
-    promotion_candidate: true
-  PI-013:
-    title: Real-time vigilance – observe signals, costs, and deviations during execution,
-      not only in the post-mortem.
-    doctrinal: true
-  PI-014:
-    title: Living Golden Standard – preserve pure, agnostic knowledge kept up to date
-      with the lessons from the project and the satellites without mixing it with
-      concrete tools.
-    doctrinal: true
-  PI-015:
-    title: Circularity ratchet – every new vice must break a real circular relationship
-      and drain the baseline in batches; coverage that does not reduce the circle
-      is still theater.
-    doctrinal: true
-  PI-016:
-    title: DOC_ONLY honesty – if a lesson is not falsifiable by a physical gate, it
-      must be labeled DOC_ONLY instead of simulating automatic coverage.
-    doctrinal: true
-  PI-017:
-    title: Anti many-to-one coverage – a test that claims to cover N vices at once
-      loses discrimination; each guard must isolate the failure it claims to protect
-      against.
-    doctrinal: true
-    promotion_candidate: true
-  PI-018:
-    title: Canonical ingestion of lessons – normalize, deduplicate, and record new
-      satellite lessons before incorporating them into the central knowledge.
-    doctrinal: true
-  PI-019:
-    title: Execution and tooling hygiene – prefer simple commands, declarative edits,
-      UTF-8, auditable evidence, and elevated permissions only as an exception; temporary
-      helpers must disappear unless they are reusable and documented.
-    doctrinal: true
-  PI-020:
-    title: 'Confidence Tags (Graphify pattern) – every state claim in protocol documents
-      must carry an explicit confidence level: VERIFIED (backed by terminal log or
-      test), INFERRED (deduced from indirect evidence), ASSUMED (no evidence, reasonable
-      supposition). Claims without a tag are treated as ASSUMED. Applies especially
-      to protocol specs, audit logs, and architectural decision comments. Origin:
-      safishamsi/graphify confidence tag system for knowledge graphs.'
-    doctrinal: true
-  PI-021:
-    title: 'Semantic Wiki-Lint (Karpathy LLM Wiki pattern) – protocol documents must
-      be audited periodically to detect: contradictions between sections, references
-      to nonexistent files, mandates mentioned in one doc but absent in another, and
-      inconsistent version claims. The Lint is not syntactic (that is handled by a
-      syntactic catalog linter) but semantic: do two documents claim incompatible
-      things about the same state? Origin: Karpathy LLM Wiki gist, Lint operation
-      of the agent-maintained wiki framework.'
-    doctrinal: true
-    promotion_candidate: true
-  PI-022:
-    title: 'Operational uncertainty list – every session or protocol document must
-      declare which subsystems, routes, or claims were not mechanically verified in
-      that turn. The absence of a list equals incomplete verification. Origin: operational
-      uncertainty discipline and anti-hallucination control.'
-    doctrinal: true
-  PI-023:
-    title: 'Dual-session awareness – before touching shared sources, the agent must
-      verify state and latest commits so as not to step on concurrent work. If there
-      are external changes, impact is analyzed before editing. Origin: multi-agent
-      coexistence discipline and serialized shared-source access.'
-    doctrinal: true
-  PI-024:
-    title: 'Hub-based review – nodes with the highest fan-in or impact degree must
-      be reviewed first when a catalog or index changes. The graph is not decorative:
-      it prioritizes risk and orders the audit. Origin: hub-first review heuristic
-      (graph fan-in prioritization).'
-    doctrinal: true
-  PI-025:
-    title: 'Exportable retrospective – every session must close with a structured,
-      parseable retrospective that is persisted to a durable ledger before a context
-      reset (COMPACT/CLEAR). Chat is not reliable memory and new knowledge must survive
-      the reset. Origin: structured-retrospective export and a durable ledger as a
-      source of continuity.'
-    doctrinal: true
-  PI-026:
-    title: 'Exhaustive preflight and no reopening scope post-execution – before executing
-      any change, the agent must declare scope, foreseeable impacts, out-of-scope
-      follow-ups, and the runner/loader that would be affected if the topology changes.
-      If a new improvement emerges after executing, it is first recorded in the backlog;
-      it is not offered as a post-execution suggestion. Origin: execution hygiene
-      and the formal separation of audits between knowledge and consumption.'
-    doctrinal: true
-  PI-027:
-    title: 'Serialization of Git operations – Git commands must be executed serially
-      within automations and orchestrators to avoid index locks, state races, and
-      inconsistent results. When coordination or concurrent tooling exists, the safe
-      discipline is a single Git flow at a time with controlled retries, not opportunistic
-      parallelism. Origin: global learning on race conditions and .git/index.lock
-      locking.'
-    doctrinal: true
-  PI-028:
-    title: Vibe Check (PV-Bhat/vibe-check-mcp-server, verified) – metacognition MCP
-      server that curbs agent tunnel-vision and runaway loops via Chain-Pattern Interrupts;
-      a direct implementation of the VC-120 mitigation.
-    doctrinal: true
-  PI-029:
-    title: 'vibecheck (yuvrajangadsingh/vibecheck, verified) – ESLint for AI slop:
-      a local linter that detects code smells in AI-generated code (hardcoded secrets,
-      eval, empty catch); evidence that the catalog vices are statically detectable.'
-    doctrinal: true
-  PI-030:
-    title: viberails (refractionPOINT/viberails, verified) – AI Firewall that intercepts
-      risky agent operations (Claude Code, Cursor, Gemini CLI) via hooks; an enforcement
-      layer conceptually comparable to a policy-enforcement gate (unrelated to the
-      homonym philips-software/cerberus).
-    doctrinal: true
-  PI-031:
-    title: ratelimit (tomasbasham/ratelimit, verified) – rate limiting decorator (@limits
-      + sleep_and_retry) as a concrete control against VC-110 (quota as surprise)
-      and the tokenomics debt (TK-044).
-    doctrinal: true
-  PI-032:
-    title: context7 (upstash/context7, verified) -- delivers up-to-date code documentation
-      to LLMs to avoid calls to obsolete or nonexistent APIs; a direct mitigation
-      of VC-135.
-    doctrinal: true
-  PI-033:
-    title: Persistent memory layer (byterover-cli / zilliztech claude-context-memsearch,
-      verified) -- durable cross-session memory for agents; its discipline (source,
-      date, reconciliation) mitigates VC-136.
-    doctrinal: true
-  PI-034:
-    title: serena (oraios/serena, verified) -- symbol-level (semantic) retrieval and
-      editing so that recovered context is correct; mitigates VC-137 against blind
-      chunking.
-    doctrinal: true
-  PI-035:
-    title: 'Auditing stochastic systems – when behavior depends on chance, sampling,
-      retries, probabilistic routing, or non-deterministic generation, it is not evaluated
-      with a single run nor with an exact value. The rule is to declare the target
-      distribution, seed when applicable, sample size, acceptable thresholds, and
-      repetition criterion; if the surface should be deterministic, the randomness
-      is eliminated rather than disguised as controlled. Claims about stability or
-      correctness must be reproducible across several runs, not just plausible in
-      one. Origin: GS audit of stochastic systems; complements VT-028 on controlled
-      randomness.'
-    doctrinal: true
+format_version: '3.0'
+catalog_name: project_insights
+items:
+- id: PI-001
+  title: Deptry – reconciliation of imports against declared dependencies to detect missing, unused, transitive, misplaced
+    dev, and stdlib declared as dependencies.
+  doctrinal: true
+- id: PI-002
+  title: 'Diagnostic assertions – when a test fails, the message must explain the discrepancy with actionable clarity. Real
+    verified tools: pytest native assertion rewriting, pytest-clarity / pytest-icdiff for readable diffs, flake8-assertive
+    for correct assertion methods. (Corrects a prior reference to a nonexistent package — see VC-129 hallucinated dependency.)'
+  doctrinal: true
+  promotion_candidate: true
+- id: PI-003
+  title: Tokencost – upfront token metering and USD conversion to make spend visible before executing an LLM call.
+  doctrinal: true
+- id: PI-004
+  title: Trivy – multi-surface scanning (images, filesystem, git, VMs, Kubernetes) for CVEs, secrets, misconfigurations, SBOM,
+    and licenses.
+  doctrinal: true
+- id: PI-005
+  title: Litellm – provider-agnostic gateway with routing, fallback, cost tracking, guardrails, logging, and load balancing.
+  doctrinal: true
+- id: PI-006
+  title: Governance gate between intent and execution that enforces context discipline, observability, redaction, and state
+    control.
+  doctrinal: true
+- id: PI-007
+  title: 'Output governance – a system can have INPUT governance (quality gates) but lack OUTPUT governance (orphan pruning),
+    accumulating refactor residue: backups, dead code, stale plan docs, spectral scripts, divergent learning logs, stale base-sets,
+    and IDs declared without content. Root cause: the gate validated letter (Path.exists) not currency (active route). Lesson:
+    the same gate that blocks bad code blocks the leftover junk.'
+  doctrinal: true
+- id: PI-008
+  title: Batch of predictable authorizations – group permissions, clarifications, and decisions before a long run to avoid
+    interruptions, rereads, and reactive work.
+  doctrinal: true
+- id: PI-009
+  title: Zero debt before advancing – every warning or non-blocking finding is treated as an operational error until fixed
+    or explicitly blocked.
+  doctrinal: true
+- id: PI-010
+  title: Output hygiene and clean root – historical artifacts are reference, not source of truth; when an audit closes the
+    root must be free of operational residue.
+  doctrinal: true
+- id: PI-011
+  title: Descriptive names and simple topology – prefer scripts and modules that explain their purpose and flatten structure
+    when it reduces cognitive friction.
+  doctrinal: true
+- id: PI-012
+  title: Minimal and real exclusions – whitelists, excludes, skips, xfails, stubs, mocks, and placeholders only with verifiable
+    cause; false coverage is debt, not progress.
+  doctrinal: true
+  promotion_candidate: true
+- id: PI-013
+  title: Real-time vigilance – observe signals, costs, and deviations during execution, not only in the post-mortem.
+  doctrinal: true
+- id: PI-014
+  title: Living Golden Standard – preserve pure, agnostic knowledge kept up to date with the lessons from the project and
+    the satellites without mixing it with concrete tools.
+  doctrinal: true
+- id: PI-015
+  title: Circularity ratchet – every new vice must break a real circular relationship and drain the baseline in batches; coverage
+    that does not reduce the circle is still theater.
+  doctrinal: true
+- id: PI-016
+  title: DOC_ONLY honesty – if a lesson is not falsifiable by a physical gate, it must be labeled DOC_ONLY instead of simulating
+    automatic coverage.
+  doctrinal: true
+- id: PI-017
+  title: Anti many-to-one coverage – a test that claims to cover N vices at once loses discrimination; each guard must isolate
+    the failure it claims to protect against.
+  doctrinal: true
+  promotion_candidate: true
+- id: PI-018
+  title: Canonical ingestion of lessons – normalize, deduplicate, and record new satellite lessons before incorporating them
+    into the central knowledge.
+  doctrinal: true
+- id: PI-019
+  title: Execution and tooling hygiene – prefer simple commands, declarative edits, UTF-8, auditable evidence, and elevated
+    permissions only as an exception; temporary helpers must disappear unless they are reusable and documented.
+  doctrinal: true
+- id: PI-020
+  title: 'Confidence Tags (Graphify pattern) – every state claim in protocol documents must carry an explicit confidence level:
+    VERIFIED (backed by terminal log or test), INFERRED (deduced from indirect evidence), ASSUMED (no evidence, reasonable
+    supposition). Claims without a tag are treated as ASSUMED. Applies especially to protocol specs, audit logs, and architectural
+    decision comments. Origin: safishamsi/graphify confidence tag system for knowledge graphs.'
+  doctrinal: true
+- id: PI-021
+  title: 'Semantic Wiki-Lint (Karpathy LLM Wiki pattern) – protocol documents must be audited periodically to detect: contradictions
+    between sections, references to nonexistent files, mandates mentioned in one doc but absent in another, and inconsistent
+    version claims. The Lint is not syntactic (that is handled by a syntactic catalog linter) but semantic: do two documents
+    claim incompatible things about the same state? Origin: Karpathy LLM Wiki gist, Lint operation of the agent-maintained
+    wiki framework.'
+  doctrinal: true
+  promotion_candidate: true
+- id: PI-022
+  title: 'Operational uncertainty list – every session or protocol document must declare which subsystems, routes, or claims
+    were not mechanically verified in that turn. The absence of a list equals incomplete verification. Origin: operational
+    uncertainty discipline and anti-hallucination control.'
+  doctrinal: true
+- id: PI-023
+  title: 'Dual-session awareness – before touching shared sources, the agent must verify state and latest commits so as not
+    to step on concurrent work. If there are external changes, impact is analyzed before editing. Origin: multi-agent coexistence
+    discipline and serialized shared-source access.'
+  doctrinal: true
+- id: PI-024
+  title: 'Hub-based review – nodes with the highest fan-in or impact degree must be reviewed first when a catalog or index
+    changes. The graph is not decorative: it prioritizes risk and orders the audit. Origin: hub-first review heuristic (graph
+    fan-in prioritization).'
+  doctrinal: true
+- id: PI-025
+  title: 'Exportable retrospective – every session must close with a structured, parseable retrospective that is persisted
+    to a durable ledger before a context reset (COMPACT/CLEAR). Chat is not reliable memory and new knowledge must survive
+    the reset. Origin: structured-retrospective export and a durable ledger as a source of continuity.'
+  doctrinal: true
+- id: PI-026
+  title: 'Exhaustive preflight and no reopening scope post-execution – before executing any change, the agent must declare
+    scope, foreseeable impacts, out-of-scope follow-ups, and the runner/loader that would be affected if the topology changes.
+    If a new improvement emerges after executing, it is first recorded in the backlog; it is not offered as a post-execution
+    suggestion. Origin: execution hygiene and the formal separation of audits between knowledge and consumption.'
+  doctrinal: true
+- id: PI-027
+  title: 'Serialization of Git operations – Git commands must be executed serially within automations and orchestrators to
+    avoid index locks, state races, and inconsistent results. When coordination or concurrent tooling exists, the safe discipline
+    is a single Git flow at a time with controlled retries, not opportunistic parallelism. Origin: global learning on race
+    conditions and .git/index.lock locking.'
+  doctrinal: true
+- id: PI-028
+  title: Vibe Check (PV-Bhat/vibe-check-mcp-server, verified) – metacognition MCP server that curbs agent tunnel-vision and
+    runaway loops via Chain-Pattern Interrupts; a direct implementation of the VC-120 mitigation.
+  doctrinal: true
+- id: PI-029
+  title: 'vibecheck (yuvrajangadsingh/vibecheck, verified) – ESLint for AI slop: a local linter that detects code smells in
+    AI-generated code (hardcoded secrets, eval, empty catch); evidence that the catalog vices are statically detectable.'
+  doctrinal: true
+- id: PI-030
+  title: viberails (refractionPOINT/viberails, verified) – AI Firewall that intercepts risky agent operations (Claude Code,
+    Cursor, Gemini CLI) via hooks; an enforcement layer conceptually comparable to a policy-enforcement gate (unrelated to
+    the homonym philips-software/cerberus).
+  doctrinal: true
+- id: PI-031
+  title: ratelimit (tomasbasham/ratelimit, verified) – rate limiting decorator (@limits + sleep_and_retry) as a concrete control
+    against VC-110 (quota as surprise) and the tokenomics debt (TK-044).
+  doctrinal: true
+- id: PI-032
+  title: context7 (upstash/context7, verified) -- delivers up-to-date code documentation to LLMs to avoid calls to obsolete
+    or nonexistent APIs; a direct mitigation of VC-135.
+  doctrinal: true
+- id: PI-033
+  title: Persistent memory layer (byterover-cli / zilliztech claude-context-memsearch, verified) -- durable cross-session
+    memory for agents; its discipline (source, date, reconciliation) mitigates VC-136.
+  doctrinal: true
+- id: PI-034
+  title: serena (oraios/serena, verified) -- symbol-level (semantic) retrieval and editing so that recovered context is correct;
+    mitigates VC-137 against blind chunking.
+  doctrinal: true
+- id: PI-035
+  title: 'Auditing stochastic systems – when behavior depends on chance, sampling, retries, probabilistic routing, or non-deterministic
+    generation, it is not evaluated with a single run nor with an exact value. The rule is to declare the target distribution,
+    seed when applicable, sample size, acceptable thresholds, and repetition criterion; if the surface should be deterministic,
+    the randomness is eliminated rather than disguised as controlled. Claims about stability or correctness must be reproducible
+    across several runs, not just plausible in one. Origin: GS audit of stochastic systems; complements VT-028 on controlled
+    randomness.'
+  doctrinal: true

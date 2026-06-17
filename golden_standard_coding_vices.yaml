@@ -587,24 +587,6 @@ items:
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: extended
-  - id: VC-028
-    title: Step without validation
-    symptom: Work advances after untested changes
-    cause: Lack of gates
-    solution: Each stage must demonstrate success
-    status: DOC_ONLY
-    severity: medium
-    tags:
-      - vibe-coding
-      - doc-only
-    action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way.
-      Documented in the Golden Standard catalogs as governance knowledge; no automated
-      test can discriminate this without human semantic judgment. Sprint 3.4 triage:
-      reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    alias_of: VC-024
-    tier: specialist
   - id: VC-029
     title: Non-surgical scope
     symptom: Enormous, unsafe changes
@@ -1188,18 +1170,32 @@ items:
     symptom: Invented dependencies
     cause: External world assumed
     solution: Verify real integrations
-    status: DOC_ONLY
+    status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
-      - doc-only
-    action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way.
-      Documented in the Golden Standard catalogs as governance knowledge; no automated
-      test can discriminate this without human semantic judgment. Sprint 3.4 triage:
-      reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
+      - prevented
+    action: |
+      The agent imports or references a package, API, or module that does not exist
+      in the declared dependency manifest or in the public package registry.
+    validating_mechanism: static-ast
     downstream_verification: required
-    doctrinal: true
+    example_lang: python
+    example_bad: |
+      # Importing a package that does not exist in requirements.txt or PyPI.
+      import foobar_ai_sync  # hallucinated package name
+      result = foobar_ai_sync.process(data)
+    example_good: |
+      # Only import packages that are declared in the dependency manifest.
+      import requests  # listed in requirements.txt
+      response = requests.get(url)
+    detection: |
+      AST: parse top-level imports and compare them against the dependency manifest
+      (requirements.txt, pyproject.toml, package-lock.json). Flag imports that resolve
+      to packages absent from the manifest. Also: check PyPI existence for new imports.
+    evidence:
+      - source: "arxiv:2602.00409"
+        claim: "AI agents generate non-existent package names (slopsquatting) in measurable ways."
     tier: specialist
   - id: VC-057
     title: Broken version parity
@@ -1426,36 +1422,71 @@ items:
     symptom: Logic precedes the data model
     cause: Absent causal structure
     solution: Define entities and relations first
-    status: DOC_ONLY
+    status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
-      - doc-only
-    action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way.
-      Documented in the Golden Standard catalogs as governance knowledge; no automated
-      test can discriminate this without human semantic judgment. Sprint 3.4 triage:
-      reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
+      - prevented
+    action: |
+      Code accesses fields that are not declared in the schema or model, leading to
+      runtime AttributeError and silent data corruption when the model changes.
+    validating_mechanism: static-ast
     downstream_verification: required
-    doctrinal: true
+    example_lang: python
+    example_bad: |
+      # Accessing a field that does not exist on the model.
+      user = User(name="Alice")
+      print(user.age)  # AttributeError: 'User' has no attribute 'age'
+    example_good: |
+      # Model declares all fields; access is safe.
+      from pydantic import BaseModel
+      class User(BaseModel):
+          name: str
+          age: int
+      user = User(name="Alice", age=30)
+      print(user.age)  # OK
+    detection: |
+      AST + type checker: access to attributes not declared in the class/schema.
+      Tools: mypy (attr-defined), pylint (E1101), Pydantic validation.
+    evidence:
+      - source: "mypy documentation"
+        claim: "has-attr checks and typed models prevent AttributeError at runtime."
     tier: specialist
   - id: VC-066
     title: Spatial blindness
     symptom: UI generated without an explicit layout
     cause: Lack of a perceptual model
     solution: Declare the visual structure before executing
-    status: DOC_ONLY
+    status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
-      - doc-only
-    action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way.
-      Documented in the Golden Standard catalogs as governance knowledge; no automated
-      test can discriminate this without human semantic judgment. Sprint 3.4 triage:
-      reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
+      - prevented
+    action: |
+      UI code is generated without a structured layout system, producing a fragile
+      visual hierarchy that breaks on different screen sizes and is unmaintainable.
+    validating_mechanism: static-regex
     downstream_verification: required
-    doctrinal: true
+    example_lang: html
+    example_bad: |
+      <!-- Inline styles everywhere; no layout system. -->
+      <div style="position:absolute; top:10px; left:10px;">Header</div>
+      <div style="position:absolute; top:50px; left:10px;">Content</div>
+    example_good: |
+      <!-- Explicit layout system (CSS Grid) defines the visual structure. -->
+      <style>
+        .container { display: grid; grid-template-rows: auto 1fr; }
+      </style>
+      <div class="container">
+        <header>Header</header>
+        <main>Content</main>
+      </div>
+    detection: |
+      Regex: absence of a layout framework (no CSS Grid, no Flexbox, no layout class
+      system) combined with presence of inline `style=` attributes on structural elements.
+    evidence:
+      - source: "MDN Web Docs: CSS Grid Layout"
+        claim: "Grid and Flexbox provide explicit layout systems that replace absolute positioning."
     tier: specialist
   - id: VC-067
     title: Implicit policies
@@ -1687,24 +1718,6 @@ items:
         claim: "recurring anti-pattern of AI-generated code, present in 80-100%
           of the analyzed projects."
     tier: core
-  - id: VC-077
-    title: Semantic type ambiguity
-    symptom: Anything passes
-    cause: Loss of information
-    solution: Reference type ambiguity
-    status: DOC_ONLY
-    severity: medium
-    tags:
-      - vibe-coding
-      - doc-only
-    action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way.
-      Documented in the Golden Standard catalogs as governance knowledge; no automated
-      test can discriminate this without human semantic judgment. Sprint 3.4 triage:
-      reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    alias_of: VC-076
-    tier: specialist
   - id: VC-078
     detector: vc078_placeholder
     title: Permanent placeholder
@@ -2285,18 +2298,35 @@ items:
     symptom: Idealized environment
     cause: Ignored variability
     solution: Pessimistic configuration validation
-    status: DOC_ONLY
+    status: PREVENTED
     severity: medium
     tags:
       - vibe-coding
-      - doc-only
-    action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way.
-      Documented in the Golden Standard catalogs as governance knowledge; no automated
-      test can discriminate this without human semantic judgment. Sprint 3.4 triage:
-      reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
+      - prevented
+    action: |
+      Hardcoded configuration values that assume a perfect development environment
+      will break in production where the environment differs.
+    validating_mechanism: static-regex
     downstream_verification: required
-    doctrinal: true
+    example_lang: python
+    example_bad: |
+      # Hardcoded development config that will fail in production.
+      DEBUG = True
+      DATABASE_URL = "sqlite:///dev.db"
+      API_KEY = "test-key-123"
+    example_good: |
+      # Configuration is read from environment with sensible defaults.
+      import os
+      DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+      DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///dev.db")
+      API_KEY = os.environ.get("API_KEY")
+      assert API_KEY, "API_KEY must be set in production"
+    detection: |
+      Regex: hardcoded config values (DEBUG=True, DATABASE_URL=..., API_KEY=...) in
+      source files instead of environment-variable reads. Also: .env files committed to git.
+    evidence:
+      - source: "OWASP Top 10 2021: A05:2021 – Security Misconfiguration"
+        claim: "Hardcoded credentials and insecure defaults are a top-10 security risk."
     tier: specialist
   - id: VC-102
     title: Poor debug
