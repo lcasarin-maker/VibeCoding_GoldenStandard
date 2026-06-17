@@ -1,7 +1,7 @@
 format_version: 3.0
 catalog_name: coding_vices
 items:
-- id: VC-003
+- id: VC-001
   title: Optimism without proof
   symptom: Success is declared without logs
   cause: Confusion between assertion and verification
@@ -36,7 +36,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: core
-- id: VC-005
+- id: VC-002
   detector: vc005_untracked_prototype
   title: Prototype turned into debt
   symptom: The temporary becomes permanent
@@ -66,7 +66,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-016
+- id: VC-003
   title: Incomprehensible code
   symptom: Only what was asked for is known
   cause: Absent mental model
@@ -96,7 +96,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-017
+- id: VC-004
   title: Stochastic Conversational Optimism without proof
   symptom: Success declarations based solely on superficial aesthetic similarity
   cause: Lack of empirical validation at runtime or persistence
@@ -130,7 +130,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-021
+- id: VC-005
   title: Premature closure
   symptom: Secondary failures stay alive
   cause: Poorly defined closure scope
@@ -157,7 +157,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-027
+- id: VC-006
   title: Non-externalized plan
   symptom: Work lives in the chat
   cause: Ephemeral state
@@ -185,7 +185,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-029
+- id: VC-007
   title: Non-surgical scope
   symptom: Enormous, unsafe changes
   cause: Excessive impact surface
@@ -216,7 +216,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-030
+- id: VC-008
   title: State drift
   symptom: Large edits degrade coherence
   cause: Scattered mutation
@@ -246,7 +246,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-031
+- id: VC-009
   title: Full rewrite
   symptom: Prior integrity is lost
   cause: Non-reversible operation
@@ -282,7 +282,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-036
+- id: VC-010
   detector: vc036_destructive_without_dryrun
   title: No dry run
   symptom: A destructive action runs directly
@@ -320,7 +320,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-037
+- id: VC-011
   title: Blind regeneration
   symptom: Code is replaced without diagnosis
   cause: Erasure of causality
@@ -354,7 +354,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-039
+- id: VC-012
   title: Invisible debt
   symptom: Unrecorded shortcuts
   cause: Hidden future cost
@@ -382,7 +382,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-045
+- id: VC-013
   title: Ambiguous handoff
   symptom: The next actor does not know state, risk, or next step
   cause: Incomplete state transfer
@@ -417,7 +417,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-048
+- id: VC-014
   title: Monolithic memory
   symptom: All context is mixed together
   cause: Lack of stratification
@@ -447,7 +447,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-056
+- id: VC-015
   title: Hallucinated integration
   symptom: Invented dependencies
   cause: External world assumed
@@ -490,7 +490,7 @@ items:
   - source: arxiv:2602.00409
     claim: AI agents generate non-existent package names (slopsquatting) in measurable ways.
   tier: specialist
-- id: VC-057
+- id: VC-016
   title: Broken version parity
   symptom: Docs, runners, and state declare different versions
   cause: Inconsistent distributed identity
@@ -529,7 +529,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-058
+- id: VC-017
   title: Deadlock without a heartbeat
   symptom: A process stays blocked undetected
   cause: Lack of a liveness signal
@@ -562,7 +562,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-061
+- id: VC-018
   detector: vc061_constant_stub
   title: Stub as architecture
   symptom: A temporary simulation becomes a dependency
@@ -592,7 +592,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-062
+- id: VC-019
   title: State Concurrency Drift (Dual-Session Drift)
   symptom: Loss of commits and regressions from parallel overwrites
   cause: Divergent mental models from skipping prior filesystem synchronization
@@ -644,7 +644,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-063
+- id: VC-020
   title: Lying documentation
   symptom: Declared state does not match the system
   cause: Persistence of unrevalidated claims
@@ -674,7 +674,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-065
+- id: VC-021
   title: Late schema
   symptom: Logic precedes the data model
   cause: Absent causal structure
@@ -710,7 +710,7 @@ items:
   - source: mypy documentation
     claim: has-attr checks and typed models prevent AttributeError at runtime.
   tier: specialist
-- id: VC-066
+- id: VC-022
   title: Spatial blindness
   symptom: UI generated without an explicit layout
   cause: Lack of a perceptual model
@@ -747,7 +747,7 @@ items:
   - source: 'MDN Web Docs: CSS Grid Layout'
     claim: Grid and Flexbox provide explicit layout systems that replace absolute positioning.
   tier: specialist
-- id: VC-069
+- id: VC-023
   title: Unmapped dependencies
   symptom: Refactor breaks distant pieces
   cause: Unknown causal graph
@@ -779,7 +779,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-070
+- id: VC-024
   detector: vc070_blind_shell_edit
   title: Blind shell manipulation
   symptom: Text replaces a structured API
@@ -816,7 +816,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-074
+- id: VC-025
   title: I/O without validation
   symptom: Invalid data enters the system
   cause: Permeable boundary
@@ -853,7 +853,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category (input validation / broken authorization) for agentic applications.
   tier: specialist
-- id: VC-076
+- id: VC-026
   title: Lax typing
   symptom: Impossible states circulate
   cause: Unconstrained domain
@@ -887,8 +887,8 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: core
-- id: VC-078
-  detector: vc078_placeholder
+- id: VC-027
+  detector: audit_d2_completeness
   title: Permanent placeholder
   symptom: A marker reaches production
   cause: Incomplete state accepted
@@ -927,7 +927,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-079
+- id: VC-028
   title: Core dependent on unstable parts
   symptom: External changes break the core
   cause: Temporal coupling
@@ -962,7 +962,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-080
+- id: VC-029
   title: Uncritical copy-paste
   symptom: Duplication of failures
   cause: Transfer without comprehension
@@ -1003,7 +1003,7 @@ items:
   - source: GitClear 2025
     claim: duplicated code increased ~8x with AI assistance.
   tier: specialist
-- id: VC-082
+- id: VC-030
   title: Dependencies without a gate
   symptom: Risks are added
   cause: Uncontrolled supply chain
@@ -1062,7 +1062,7 @@ items:
   - source: scripts/metrics.py
     claim: imports yaml for metrics generation, so an undeclared PyYAML dependency would break the stubs gate.
   tier: extended
-- id: VC-083
+- id: VC-031
   title: Tolerated dead file
   symptom: Undeclared artifacts survive
   cause: Non-binding inventory
@@ -1101,7 +1101,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-087
+- id: VC-032
   detector: vc087_blanket_filterwarnings
   title: Normalized warning
   symptom: Warnings accumulate without blocking; filterwarnings("ignore") without justification
@@ -1141,7 +1141,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-090
+- id: VC-033
   title: Memory not loaded
   symptom: Prior errors are repeated
   cause: Historical state ignored
@@ -1171,7 +1171,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-091
+- id: VC-034
   title: Lazy file-not-found
   symptom: Non-existence is declared without searching
   cause: Insufficient exploration
@@ -1201,7 +1201,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-092
+- id: VC-035
   title: Partial audit called total
   symptom: Critical surfaces are omitted
   cause: Poorly defined audited universe
@@ -1235,7 +1235,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-095
+- id: VC-036
   detector: vc095_hardcoded_secret
   title: Direct production access
   symptom: Irreversible risk
@@ -1273,7 +1273,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category for agentic applications (unsafe execution / secret exposure).
   tier: specialist
-- id: VC-096
+- id: VC-037
   title: Code without tests
   symptom: No detectable regression
   cause: Absent oracle
@@ -1308,7 +1308,7 @@ items:
   - source: arxiv:2602.00409
     claim: agents generate code without a test oracle in a measurable way; the absence of tests amplifies the risk.
   tier: specialist
-- id: VC-101
+- id: VC-038
   title: Optimistic config
   symptom: Idealized environment
   cause: Ignored variability
@@ -1357,7 +1357,7 @@ items:
   - source: 'OWASP Top 10 2021: A05:2021 – Security Misconfiguration'
     claim: Hardcoded credentials and insecure defaults are a top-10 security risk.
   tier: specialist
-- id: VC-104
+- id: VC-039
   title: Ignored infrastructure
   symptom: Real runtime differs
   cause: Wrong source
@@ -1387,7 +1387,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-105
+- id: VC-040
   title: Component omission
   symptom: HTML/startup/build not audited
   cause: Incomplete surface
@@ -1417,7 +1417,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-106
+- id: VC-041
   title: Phantom setup
   symptom: The system presumes the environment exists
   cause: Unverified preconditions
@@ -1449,7 +1449,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-107
+- id: VC-042
   title: Implicit permission matrix
   symptom: Actors execute actions outside their role
   cause: Unmodeled authorization policy
@@ -1477,7 +1477,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category (input validation / broken authorization) for agentic applications.
   tier: specialist
-- id: VC-109
+- id: VC-043
   detector: vc109_hardcoded_path
   title: Environmental literal path
   symptom: Operation depends on a fixed location
@@ -1522,7 +1522,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-110
+- id: VC-044
   title: Quota as surprise
   symptom: Operation fails due to external limits
   cause: Unbudgeted finite resource
@@ -1550,7 +1550,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-111
+- id: VC-045
   title: Exclusion without prior audit
   symptom: Directory added to the ignore list without verifying its content
   cause: Implicit trust that the invisible is harmless
@@ -1593,7 +1593,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-112
+- id: VC-046
   title: Propagation without adoption verification
   symptom: Protocol files copied to child projects without confirming that the protocol executes
   cause: Confusing distribution with operational adoption
@@ -1626,7 +1626,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-113
+- id: VC-047
   title: Frozen nomenclature
   symptom: Component name does not reflect the real scope after evolution (e.g. a component named "auditor_v1" that has been
     expanded to cover v3 functionality but keeps its inherited name)
@@ -1656,7 +1656,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-114
+- id: VC-048
   title: Finding without a remediation plan
   symptom: A defect detected in a session does not become an executable item in the active plan
   cause: Informal record without an owner, evidence, or closure criterion
@@ -1687,7 +1687,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-115
+- id: VC-049
   detector: vc115_unsafe_eval
   title: Dynamic execution of external expressions
   symptom: The rules engine executes YAML or config strings as Python code (`eval`/`exec`)
@@ -1725,7 +1725,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category for agentic applications (tool misuse / unsafe execution).
   tier: extended
-- id: VC-116
+- id: VC-050
   title: Automatic installation of unverified dependencies
   symptom: An `ImportError` triggers `pip install` without human review
   cause: The error handler delegates supply-chain decisions to the environment without control
@@ -1772,7 +1772,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category for agentic applications (tool misuse / unsafe execution).
   tier: extended
-- id: VC-117
+- id: VC-051
   title: Non-atomic destructive write of critical state
   symptom: A crash or kill during `write_text()` leaves the state file (JSON, YAML) corrupt or empty
   cause: Write atomicity was not modeled as a requirement of the persistence subsystem
@@ -1808,7 +1808,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-118
+- id: VC-052
   title: Zombie Compatibility Theater
   symptom: 'X is ordered to be replaced by Y. The agent creates: inheritance of X in Y, a shim that forwards to Y, a fallback
     `Y.exists() or X.exists()`, dual sentinels in tests, cross imports "for legacy compatibility". X never dies.'
@@ -1846,7 +1846,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: core
-- id: VC-121
+- id: VC-053
   title: Critical Redundancies and Repetitive AI-slop Patterns
   symptom: Cumulative additive mutations that scatter the system's functionality across multiple redundant files or unnecessary
     wrappers instead of consolidating logic.
@@ -1889,7 +1889,7 @@ items:
       mechanism: test_vc121_duplicate_function_names
   downstream_verification: none
   tier: core
-- id: VC-122
+- id: VC-054
   title: Supply-Chain Contamination via Silent Executions
   symptom: Automatic installation of arbitrary packages or dynamic imports that alter the environment without consent.
   cause: Lack of preventive control in the pre-execution hooks.
@@ -1929,14 +1929,14 @@ items:
 
     downloaded binaries without hash/signature verification.
 
-    Tools (dep CVEs): Trivy (PI-004), OWASP DependencyCheck, Snyk.
+    Tools (dep CVEs): Trivy (PR-082), OWASP DependencyCheck, Snyk.
 
     '
   evidence:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category for agentic applications (tool misuse / unsafe execution).
   tier: extended
-- id: VC-123
+- id: VC-055
   title: Indiscriminate Staging of Untracked Directories (Unfiltered Git Staging)
   symptom: Automated git synchronization commands take indefinitely long, lock the disk (Google Drive virtual mounts), or
     try to track thousands of temporary/hidden files created by external tools.
@@ -1983,7 +1983,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-124
+- id: VC-056
   title: Hasty Deprecation without Analysis (Hasty Deprecation)
   symptom: An agent moves a file to deprecated/ without reading it, without searching for active references, and without verifying
     whether its functionality is still useful or covered elsewhere.
@@ -2033,7 +2033,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-125
+- id: VC-057
   title: Non-externalized retrospective
   symptom: The session's learning is lost when context is closed or compacted, and the next session repeats already-resolved
     work.
@@ -2070,7 +2070,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
-- id: VC-126
+- id: VC-058
   title: Post-execution suggestion that reopens scope
   symptom: After executing a complete instruction, new improvement suggestions appear that were not part of the initial scope
     and make the cycle infinite.
@@ -2101,7 +2101,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
-- id: VC-127
+- id: VC-059
   title: Prompt injection in the agent loop (Prompt Injection)
   symptom: 'Untrusted content (issue, web, file, tool output) enters the agent''s context and alters its instructions or triggers
     unauthorized actions.
@@ -2139,14 +2139,14 @@ items:
     \          data={\"untrusted_issue\": issue},        # data, not orders\n          allowed_tools=[\"read\"], require_confirm=[\"\
     delete\", \"push\"])\n"
   detection: 'Content from untrusted sources (issues, web, files, tool output) concatenated into the agent''s instruction
-    channel without delimitation or an allowlist of actions. Related to VC-074 (boundary validation).
+    channel without delimitation or an allowlist of actions. Related to PR-020 (boundary validation).
 
     '
   evidence:
   - source: OWASP Top 10 for Agents 2026
     claim: 'prompt injection / tool misuse is the #1 risk of agentic applications.'
   tier: specialist
-- id: VC-128
+- id: VC-060
   title: Context Poisoning
   symptom: 'Erroneous, hallucinated, or contradictory information enters the context and self-reinforces in following turns,
     degrading all subsequent responses.
@@ -2181,14 +2181,14 @@ items:
   example_good: "# Verify before persisting; the unconfirmed does not enter the durable context.\nif endpoint_exists(\"/v2/pay\"\
     ):\n    ctx.append_fact(\"endpoint=/v2/pay\", source=\"openapi.json\")\n"
   detection: 'Unverified claims that persist in the context and are cited as facts in later turns; the absence of a verification
-    step before compacting. Related to VC-051 (saturation) and VC-001 (output as hypothesis).
+    step before compacting. Related to PR-036 (saturation) and PR-001 (output as hypothesis).
 
     '
   evidence:
   - source: HumanLayer ACE
     claim: modern context engineering treats 'context poisoning' as a central failure of long sessions.
   tier: specialist
-- id: VC-129
+- id: VC-061
   title: Hallucinated dependency (slopsquatting)
   symptom: 'The agent imports or declares a package that does not exist in the registry (invented or near-correct name), exposing
     it to slopsquatting: an attacker can register that name with malicious code.
@@ -2236,7 +2236,7 @@ items:
 
     '
   detection: 'Packages imported/declared that do not resolve in the language''s official registry, or whose name is a near
-    typo of a popular package. Distinct from VC-082 (used but not declared) and VC-116 (auto-installation). Not covered by
+    typo of a popular package. Distinct from VC-030 (used but not declared) and PR-035 (auto-installation). Not covered by
     traditional SCA.
 
     '
@@ -2244,7 +2244,7 @@ items:
   - source: arxiv:2603.28592
     claim: hallucinated package names are an emerging supply-chain vector in AI-generated code (slopsquatting).
   tier: core
-- id: VC-130
+- id: VC-062
   title: Echo-Chamber Review
   symptom: 'The same model (or the same instance/context) generates the code and then ''reviews'' it, approving its own biases
     and errors.
@@ -2289,7 +2289,7 @@ items:
   - source: arxiv:2603.28592
     claim: self-validation without an independent oracle lets systematic defects from the generator slip through.
   tier: specialist
-- id: VC-131
+- id: VC-063
   title: Architectural drift in long sessions (Architecture Drift)
   symptom: 'In long sessions the agent forgets or contradicts prior architectural decisions, reintroducing patterns it itself
     deprecated.
@@ -2327,14 +2327,14 @@ items:
 
     '
   detection: 'Changes that contradict recorded decisions (ADR/DECISIONS.md) without justification; the frequency grows with
-    session length. Related to VC-051 and VC-034.
+    session length. Related to PR-036 and PR-024.
 
     '
   evidence:
   - source: HumanLayer ACE
     claim: decision drift in long sessions is a central motive for 'Frequent Intentional Compaction'.
   tier: specialist
-- id: VC-132
+- id: VC-064
   title: Spec Ambiguity Cascade
   symptom: 'A vague prompt produces functionally correct but semantically wrong code, which feeds later prompts and amplifies
     the error downstream.
@@ -2369,14 +2369,14 @@ items:
 
     '
   detection: 'A chain of changes derived from an ambiguous spec without an interpretation-validation point; accumulated semantic
-    divergence. Extends VC-025 (vague spec) to the cascade effect.
+    divergence. Extends PR-020 (vague spec) to the cascade effect.
 
     '
   evidence:
   - source: arxiv:2603.28592
     claim: semantic specification defects are amplified when they feed later generations.
   tier: specialist
-- id: VC-133
+- id: VC-065
   title: Unhandled tool-call failure in the agent loop
   symptom: 'A tool call fails (timeout, error, unexpected output) and the agent continues as if it had succeeded, or enters
     a retry loop without backoff.
@@ -2395,7 +2395,7 @@ items:
   - vibe-coding
   - ai-native
   action: 'Documented; enforcement downstream. Recipe: verify the success of each tool call, backoff with a limit, and abort/degrade
-    after N failures (see VC-120).
+    after N failures (see PR-066).
 
     '
   validating_mechanism: DOC_ONLY
@@ -2408,15 +2408,15 @@ items:
     '
   example_good: "result = call_tool(\"read_file\", path)\nif not result.ok:\n    result = retry_with_backoff(max=3) or degrade()\
     \   # backoff + limit + degradation\n"
-  detection: 'Tool-call results used without verifying success; retry loops without backoff or limit. Related to VC-120 (runaway
-    loops) and VC-058 (no timeout).
+  detection: 'Tool-call results used without verifying success; retry loops without backoff or limit. Related to PR-066 (runaway
+    loops) and VC-017 (no timeout).
 
     '
   evidence:
   - source: OWASP Top 10 for Agents 2026
     claim: insecure handling of tool outputs is a recognized agentic risk.
   tier: specialist
-- id: VC-134
+- id: VC-066
   title: Multi-agent coordination without a protocol
   symptom: 'Several agents operate on the same state/repo without a coordination protocol, producing race conditions, lost
     handoffs, or duplicated work.
@@ -2448,15 +2448,15 @@ items:
     '
   example_good: "# Ownership + lock + structured handoff.\nwith lock(\"config.py\", owner=\"agent_a\"):\n    agent_a.edit(\"\
     config.py\")\nhandoff(to=\"agent_b\", state=..., next=...)\n"
-  detection: 'Multiple agents writing the same state without a declared lock/ownership/handoff. Extends VC-062 (dual-session
-    drift) to N agents; see VC-055 and VC-045.
+  detection: 'Multiple agents writing the same state without a declared lock/ownership/handoff. Extends PR-015 (dual-session
+    drift) to N agents; see PR-040 and PR-011.
 
     '
   evidence:
   - source: arxiv:2603.28592
     claim: multi-agent coordination without a protocol introduces race conditions and loss of work.
   tier: specialist
-- id: VC-135
+- id: VC-067
   title: Use of an obsolete or hallucinated API of a real library
   symptom: 'The model calls a method, parameter, or endpoint of a library that DOES exist, but that does not exist in the
     pinned version (deprecated, renamed, or invented from outdated knowledge).
@@ -2476,8 +2476,8 @@ items:
   - vibe-coding
   - ai-native
   - dependencies
-  action: 'Documented; enforcement downstream. Distinct from VC-129 (nonexistent package): here the package exists but the
-    symbol does not. Mitigation: up-to-date docs via context7 (PI-032).
+  action: 'Documented; enforcement downstream. Distinct from VC-061 (nonexistent package): here the package exists but the
+    symbol does not. Mitigation: up-to-date docs via context7 (PR-110).
 
     '
   validating_mechanism: DOC_ONLY
@@ -2494,7 +2494,7 @@ items:
 
     '
   detection: 'Resolve each called symbol (method/attribute/kwarg/endpoint) against the installed version''s API; a missing
-    symbol = hallucinated or obsolete API. No self-contained detector (needs the library); see VC-129 and VC-056.
+    symbol = hallucinated or obsolete API. No self-contained detector (needs the library); see VC-061 and PR-013.
 
     '
   evidence:
@@ -2504,7 +2504,7 @@ items:
   - source: arxiv:2603.28592
     claim: hallucinated APIs are among the recurring patterns of AI-generated code.
   tier: specialist
-- id: VC-136
+- id: VC-068
   title: Poisoned or stale persistent memory (cross-session)
   symptom: 'An erroneous or obsolete fact persists in the agent''s durable memory (ledger, file, or memory MCP) and contaminates
     future sessions, or the memory becomes desynchronized from the real state.
@@ -2524,8 +2524,8 @@ items:
   - vibe-coding
   - ai-native
   - context
-  action: 'Documented; enforcement downstream. Extends VC-128 (context poisoning) to DURABLE memory across sessions. Mitigation:
-    memory layers like byterover / claude-context-memsearch (PI-033).
+  action: 'Documented; enforcement downstream. Extends PR-042 (context poisoning) to DURABLE memory across sessions. Mitigation:
+    memory layers like byterover / claude-context-memsearch (PR-111).
 
     '
   validating_mechanism: DOC_ONLY
@@ -2542,7 +2542,7 @@ items:
 
     '
   detection: 'Persistent memory entries without source/verified_at/version, or that contradict the current repo state when
-    loaded. No self-contained detector (needs the store); see VC-128, VC-090, and VC-047.
+    loaded. No self-contained detector (needs the store); see PR-042, PR-023, and PR-033.
 
     '
   evidence:
@@ -2552,7 +2552,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: persistent memory poisoning is a recognized agentic risk.
   tier: specialist
-- id: VC-137
+- id: VC-069
   title: Retrieval (RAG) that feeds wrong context
   symptom: 'Retrieval returns irrelevant, obsolete (stale index), or non-semantically cut fragments, and the agent builds
     on the wrong context.
@@ -2572,7 +2572,7 @@ items:
   - ai-native
   - context
   action: 'Documented; enforcement downstream. Mitigation: symbol-level retrieval (serena) or code-search MCP (claude-context)
-    (PI-034).
+    (PR-112).
 
     '
   validating_mechanism: DOC_ONLY
@@ -2591,7 +2591,7 @@ items:
 
     '
   detection: 'Retrieval index older than the code''s last commit; chunks that cross function/class boundaries; a retrieved
-    fragment used without verifying relevance. No self-contained detector (needs index/repo); see VC-072 and TK-010.
+    fragment used without verifying relevance. No self-contained detector (needs index/repo); see PR-047 and PR-071.
 
     '
   evidence:
@@ -2600,7 +2600,7 @@ items:
   - source: zilliztech/claude-context (verified)
     claim: code-search MCP so that the retrieved context is correct and up to date.
   tier: specialist
-- id: VC-138
+- id: VC-070
   title: Generated code insecure by default
   symptom: 'The model generates code with insecure defaults: debug enabled, open CORS, TLS verification disabled, weak hashing,
     or binding to all interfaces without auth.
@@ -2649,7 +2649,7 @@ items:
   - source: PyCQA/bandit
     claim: detecta varios de estos patrones (B201 flask debug, B501 verify=False, B303 md5).
   tier: extended
-- id: VC-139
+- id: VC-071
   title: Blind trust in LLM output (Insecure Output Handling)
   symptom: 'The model''s output (SQL, HTML, command, path, or code) is executed, rendered, or used in a sink without sanitizing,
     assuming it is safe.
@@ -2668,7 +2668,7 @@ items:
   - vibe-coding
   - ai-native
   - security
-  action: 'Documented; enforcement downstream. It is the OUTPUT side of VC-074 (input). Mitigation via taint analysis: semgrep
+  action: 'Documented; enforcement downstream. It is the OUTPUT side of PR-020 (input). Mitigation via taint analysis: semgrep
     / CodeQL.
 
     '
@@ -2688,14 +2688,14 @@ items:
 
     '
   detection: 'Model output that flows to a dangerous sink (cursor.execute with a string, os.system, eval/exec, innerHTML)
-    without sanitization. Flow-dependent -> delegates to semgrep/CodeQL (taint). See VC-074, VC-115, VC-127.
+    without sanitization. Flow-dependent -> delegates to semgrep/CodeQL (taint). See PR-020, PR-034, PR-041.
 
     '
   evidence:
   - source: OWASP Top 10 for LLM Applications
     claim: 'LLM02: Insecure Output Handling -- the model''s output used without validation in a downstream sink.'
   tier: specialist
-- id: VC-140
+- id: VC-072
   title: Continuity gap between agents (orphan handoff)
   symptom: The next agent re-derives the context from scratch, spends tokens, or strays from the task.
   cause: Changes committed without an explicit, fresh handoff for the next agent.
@@ -2740,7 +2740,7 @@ items:
   - source: CoderCerberus v0.5 -- multi-agent operation (Codex/Gemini/Claude)
     claim: Context loss between agent handoffs wastes tokens and causes drift; a mandatory fresh handoff prevents it.
   tier: core
-- id: VC-141
+- id: VC-073
   title: Orphan changes evaded (evasive partial commit)
   symptom: After a commit, the working tree is left with someone else's unintegrated changes; the next agent inherits silent
     debt and does not know whether it is intentional or an oversight.
@@ -2790,7 +2790,7 @@ items:
     claim: An agent evaded another's previous changes in selective commits; integrating them and leaving the working tree
       clean avoids inherited silent debt.
   tier: core
-- id: VC-142
+- id: VC-074
   title: Agent instruction hijack (Prompt Injection / P1-P2)
   symptom: The skill or code contains comments, base64 payloads, or directives that override the system context.
   cause: Injection of malicious directives in prompts or metadata.
@@ -2823,7 +2823,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_prompt_injection.py
     claim: Prompt injection is a critical vector for hijacking agent behavior.
   tier: core
-- id: VC-143
+- id: VC-075
   title: System prompt leakage (System Prompt Leakage / P6-P8)
   symptom: The skill contains instructions or calls that exfiltrate the internal directives to the user.
   cause: Lack of output restrictions to avoid revealing system prompts.
@@ -2856,7 +2856,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_system_prompt_leakage.py
     claim: System prompt leakage compromises the agent's governance and restrictions.
   tier: core
-- id: VC-144
+- id: VC-076
   title: Unauthorized data exfiltration (Data Exfiltration / E1-E4)
   symptom: The code makes external network requests to send environment variables or credentials.
   cause: Lack of egress limits and network auditing of the agent.
@@ -2889,7 +2889,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_data_exfiltration.py
     claim: The agent exfiltrates data using unauthorized network calls.
   tier: extended
-- id: VC-145
+- id: VC-077
   title: Unjustified privilege escalation (Privilege Escalation / PE1-PE3)
   symptom: The skill runs commands with sudo/root or accesses private keys without authorization.
   cause: Use of uncontrolled excessive privileges.
@@ -2921,7 +2921,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_privilege_escalation.py
     claim: Privilege escalation lets the agent act outside the sandbox.
   tier: extended
-- id: VC-146
+- id: VC-078
   title: Excessive and uncontrolled agency (Excessive Agency / EA1-EA4)
   symptom: The skill makes critical or destructive decisions without human confirmation.
   cause: Lack of human validation (human-in-the-loop) for high-impact actions.
@@ -2952,7 +2952,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_excessive_agency.py
     claim: Autonomous decision-making without confirmation increases the impact of compromises.
   tier: core
-- id: VC-147
+- id: VC-079
   title: Persistent memory poisoning (Memory Poisoning / MP1-MP3)
   symptom: The skill injects padding or manipulates the agent's memory state across sessions.
   cause: Unvalidated writes to the agent's long-term storage.
@@ -2984,7 +2984,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_memory_poisoning.py
     claim: Memory poisoning alters long-term behavior.
   tier: extended
-- id: VC-148
+- id: VC-080
   title: Insecure tool call or chaining (Tool Misuse / TM1-TM3)
   symptom: Tool calls with dangerous parameters that evade validations.
   cause: Indirect injection through tool parameters.
@@ -3016,7 +3016,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_tool_misuse.py
     claim: Tool misuse allows injections through arguments.
   tier: extended
-- id: VC-149
+- id: VC-081
   title: Unauthorized persistent behavior (Rogue Agent / RA1-RA2)
   symptom: The agent self-modifies or configures local persistence (cron/startup).
   cause: Lack of execution confinement and isolation.
@@ -3048,7 +3048,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_rogue_agent.py
     claim: Persistence lets compromised agents stay active indefinitely.
   tier: extended
-- id: VC-150
+- id: VC-082
   title: Least-privilege violation in MCP (MCP Least Privilege / LP1-LP4)
   symptom: The MCP server declares wildcard permissions or executes unregistered capabilities.
   cause: Evasion of least-privilege policies.
@@ -3081,7 +3081,7 @@ items:
   - source: NVIDIA SkillSpector mcp_least_privilege.py
     claim: Wildcard permissions nullify the security granularity of tool servers.
   tier: extended
-- id: VC-151
+- id: VC-083
   title: Envenenamiento de descripciones de herramientas (MCP Tool Poisoning / TP1-TP4)
   symptom: Tool descriptions contain covert instructions or homoglyphs.
   cause: Use of metadata channels to inject instructions.
@@ -3110,7 +3110,7 @@ items:
   - source: NVIDIA SkillSpector mcp_tool_poisoning.py
     claim: Homoglyphs confuse the type system and the instruction parser.
   tier: extended
-- id: VC-152
+- id: VC-084
   title: Canonical source first (no sink patching)
   symptom: The same truth is corrected in multiple tracked files, or a rendered output is hand-patched instead of regenerated
     from the canonical source.
@@ -3153,7 +3153,7 @@ items:
   - source: Golden Standard generation pipeline
     claim: Derived outputs are regenerated from catalog sources, not edited as the source of truth.
   tier: core
-- id: VC-153
+- id: VC-085
   title: Doctrine before enforcement (source-first ordering)
   symptom: Operational sinks or cross-repo consumers are updated before the GS rule exists, forcing later backfills and making
     the sink behave like the source.
@@ -3197,7 +3197,7 @@ items:
     claim: GS-2 must wait for a real GS gate, and cross-layer consumers should follow the GS source rather than create a sink-first
       shortcut.
   tier: core
-- id: VC-154
+- id: VC-086
   title: No backlog entry, no work
   symptom: Planning, execution, or debt accounting begins without a tracked backlog entry, so the work is effectively invisible
     to the planning gate.

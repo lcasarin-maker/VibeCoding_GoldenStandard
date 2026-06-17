@@ -8,8 +8,8 @@ Active integrations, routing, operation modes, and tooling that actually execute
 
 ## Entries
 
-*   [[Tokenomics/TK-013|TK-013]] — **Bloated tool schemas** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-039|TK-039]] — **Non-integrated external tools** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-010|TK-010]] — **Bloated tool schemas** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-030|TK-030]] — **Non-integrated external tools** (REMEDIATED, medium, downstream:none)
 
 ---
 

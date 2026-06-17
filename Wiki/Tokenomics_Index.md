@@ -26,9 +26,9 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 
 | Status | Entries |
 |---|---:|
-| `PREVENTED` / `REMEDIATED` | 35 |
+| `PREVENTED` / `REMEDIATED` | 34 |
 | `DOC_ONLY` / `AUDITED` | 0 |
-| `Total` | 35 |
+| `Total` | 34 |
 
 ---
 
@@ -42,33 +42,32 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 *   [[Tokenomics/TK-006|TK-006]] — **Manual history merge** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-007|TK-007]] — **Duplicated source of truth** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-008|TK-008]] — **Empirical memory segregation** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-012|TK-012]] — **Exploration tax** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-013|TK-013]] — **Bloated tool schemas** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-016|TK-016]] — **Giant multi-objective prompt** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-018|TK-018]] — **Backlog mixed with the objective** (PREVENTED, medium, downstream:none)
-*   [[Tokenomics/TK-020|TK-020]] — **Output constraint** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-021|TK-021]] — **Prefilling** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-022|TK-022]] — **Example optimization** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-023|TK-023]] — **Raw logs** (REMEDIATED, medium, downstream:none)
-*   [[Tokenomics/TK-024|TK-024]] — **Summary without density** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-025|TK-025]] — **Verbose audit output** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-026|TK-026]] — **Noisy observability** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-027|TK-027]] — **Lexical Compression of Diagnostics** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-028|TK-028]] — **Stable context caching** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-031|TK-031]] — **Context compaction** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-032|TK-032]] — **Cache cliff** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-033|TK-033]] — **No headroom** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-034|TK-034]] — **Invisible rollback cost** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-035|TK-035]] — **Thinking with the execution tool** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-036|TK-036]] — **Response without a mode** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-037|TK-037]] — **Forgettable manual monitoring** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-038|TK-038]] — **Full-state re-reading** (REMEDIATED, medium, downstream:none)
-*   [[Tokenomics/TK-039|TK-039]] — **Non-integrated external tools** (REMEDIATED, medium, downstream:none)
-*   [[Tokenomics/TK-040|TK-040]] — **Promised savings not measured** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-041|TK-041]] — **Invisible quotas** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-042|TK-042]] — **Manifests without a size constraint** (REMEDIATED, medium, downstream:none)
-*   [[Tokenomics/TK-043|TK-043]] — **Entropy without pruning — input governance without output governance** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-044|TK-044]] — **Accumulated tokenomics debt (Cost Compounding)** (PREVENTED, medium, downstream:none)
+*   [[Tokenomics/TK-009|TK-009]] — **Exploration tax** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-010|TK-010]] — **Bloated tool schemas** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-011|TK-011]] — **Giant multi-objective prompt** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-012|TK-012]] — **Backlog mixed with the objective** (PREVENTED, medium, downstream:none)
+*   [[Tokenomics/TK-013|TK-013]] — **Output constraint** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-014|TK-014]] — **Prefilling** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-015|TK-015]] — **Example optimization** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-016|TK-016]] — **Raw logs** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-017|TK-017]] — **Summary without density** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-018|TK-018]] — **Verbose audit output** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-019|TK-019]] — **Noisy observability** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-020|TK-020]] — **Lexical Compression of Diagnostics** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-021|TK-021]] — **Stable context caching** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-022|TK-022]] — **Context compaction** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-023|TK-023]] — **Cache cliff** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-024|TK-024]] — **No headroom** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-025|TK-025]] — **Invisible rollback cost** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-026|TK-026]] — **Thinking with the execution tool** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-027|TK-027]] — **Response without a mode** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-028|TK-028]] — **Forgettable manual monitoring** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-029|TK-029]] — **Full-state re-reading** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-030|TK-030]] — **Non-integrated external tools** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-031|TK-031]] — **Promised savings not measured** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-032|TK-032]] — **Invisible quotas** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-033|TK-033]] — **Entropy without pruning — input governance without output governance** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-034|TK-034]] — **Accumulated tokenomics debt (Cost Compounding)** (PREVENTED, medium, downstream:none)
 
 ---
 ## Usage reference

@@ -1,7 +1,7 @@
 format_version: '3.0'
 catalog_name: principles
 items:
-- id: VC-001
+- id: PR-001
   title: Unassumed incompetence
   symptom: Generated output is accepted as correct
   cause: Absence of rigorous validation
@@ -19,7 +19,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-002
+  detection: ''
+- id: PR-002
   title: Blind trust
   symptom: The system responds with unjustified confidence
   cause: Optimization by superficial similarity
@@ -37,7 +38,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-004
+  detection: ''
+- id: PR-003
   title: Demo as quality
   symptom: Something works superficially
   cause: Insufficient sampling of state
@@ -55,7 +57,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-006
+  detection: ''
+- id: PR-004
   title: Aesthetics as integrity
   symptom: Pretty UI or docs hide failures
   cause: Visual signal substitutes for causality
@@ -73,7 +76,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-007
+  detection: ''
+- id: PR-005
   title: Non-human audit of the core
   symptom: Critical logic avoid read
   cause: Delegation without comprehension
@@ -91,7 +95,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-008
+  detection: ''
+- id: PR-006
   title: Operational optimism
   symptom: Probable regressions are ignored
   cause: Poorly calibrated priors
@@ -109,7 +114,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-009
+  detection: ''
+- id: PR-007
   title: Contaminated self-audit
   symptom: Validation uses prior memory
   cause: Contextual bias
@@ -126,7 +132,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-010
+  detection: ''
+- id: PR-008
   title: Failure not turned into doctrine
   symptom: The error repeats
   cause: Learning not persisted
@@ -143,7 +150,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-011
+  detection: ''
+- id: PR-009
   title: Fake human test
   symptom: A nonexistent interaction is declared
   cause: Absent perceptual channel
@@ -160,7 +168,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-012
+  detection: ''
+- id: PR-010
   title: '"Looks good" as a metric'
   symptom: Aesthetics supplant function
   cause: Wrong metric
@@ -177,7 +186,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-013
+  detection: ''
+- id: PR-011
   title: Free top score
   symptom: Excellence is assigned without proof
   cause: Uncalibrated scale
@@ -194,7 +204,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-014
+  detection: ''
+- id: PR-012
   title: Audit false positive
   symptom: Broken system marked OK
   cause: Superficial validator
@@ -211,7 +222,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-015
+  detection: ''
+- id: PR-013
   title: Agent as autonomous engineer
   symptom: User delegates judgment
   cause: Misassigned authority
@@ -228,7 +240,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-018
+  detection: ''
+- id: PR-014
   title: Blind fix
   symptom: A copied error is patched
   cause: Diagnosis omitted
@@ -245,7 +258,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-019
+  detection: ''
+- id: PR-015
   title: Patched symptom
   symptom: The bug returns in another form
   cause: Root cause not isolated
@@ -263,7 +277,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-020
+  detection: ''
+- id: PR-016
   title: Unreproduced bug
   symptom: Code is changed without a minimal case
   cause: Lack of an initial oracle
@@ -281,7 +296,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-022
+  detection: ''
+- id: PR-017
   title: Speed over precision
   symptom: More changes, less certainty
   cause: Local optimization of time
@@ -298,7 +314,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-023
+  detection: ''
+- id: PR-018
   title: Illusory productivity
   symptom: Writing is saved, debugging is paid
   cause: Invisible deferred costs
@@ -316,7 +333,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-024
+  detection: ''
+- id: PR-019
   title: Building without validation
   symptom: Work accumulates before testing
   cause: Late feedback
@@ -333,7 +351,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-025
+  detection: ''
+- id: PR-020
   title: Vague specification
   symptom: The system guesses requirements
   cause: Ambiguous input
@@ -350,7 +369,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-026
+  detection: ''
+- id: PR-021
   title: Excessive assumptions
   symptom: Work continues under high uncertainty
   cause: Decisional entropy
@@ -368,7 +388,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-032
+  detection: ''
+- id: PR-022
   title: Sidequest
   symptom: Unrequested improvements are added
   cause: Unstable objective function
@@ -386,7 +407,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-033
+  detection: ''
+- id: PR-023
   title: Closure pressure
   symptom: Validation is abandoned
   cause: Communicational incentive
@@ -404,7 +426,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-034
+  detection: ''
+- id: PR-024
   title: Decisions without a why
   symptom: A future agent repeats discussions
   cause: Lost causality
@@ -422,7 +445,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-035
+  detection: ''
+- id: PR-025
   title: Lost clarifications
   symptom: Already-resolved questions are re-asked
   cause: Lack of a ledger
@@ -440,7 +464,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-038
+  detection: ''
+- id: PR-026
   title: Premature victory
   symptom: Partial success is reported
   cause: Incomplete metric
@@ -457,7 +482,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-040
+  detection: ''
+- id: PR-027
   title: Unaudited maintainability
   symptom: System hard to change
   cause: Accumulated complexity
@@ -474,7 +500,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-041
+  detection: ''
+- id: PR-028
   title: Operational drift
   symptom: Agent expands scope
   cause: Weak control
@@ -491,7 +518,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-042
+  detection: ''
+- id: PR-029
   title: Correction loops
   symptom: Fix-revert consumes context
   cause: Insufficient diagnosis
@@ -508,7 +536,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-043
+  detection: ''
+- id: PR-030
   title: Patches over patches
   symptom: Each fix introduces another bug
   cause: Causal system not understood
@@ -526,7 +555,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-044
+  detection: ''
+- id: PR-031
   title: Production without a technical owner
   symptom: No one can maintain it
   cause: Absent responsibility
@@ -543,7 +573,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-046
+  detection: ''
+- id: PR-032
   title: Skipped pre-deprecation rescue
   symptom: Archived or deleted without extracting value
   cause: Destructive pruning without inventory
@@ -561,7 +592,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-047
+  detection: ''
+- id: PR-033
   title: Non-binding state
   symptom: Memory/state differ from reality
   cause: Multiple sources of truth
@@ -579,7 +611,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-049
+  detection: ''
+- id: PR-034
   title: Mixed audiences
   symptom: Agent memory equated with human docs
   cause: Channels with different purposes
@@ -597,7 +630,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-050
+  detection: ''
+- id: PR-035
   title: Undirected update
   symptom: State changes without an event
   cause: Informational noise
@@ -614,7 +648,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-051
+  detection: ''
+- id: PR-036
   title: Contextual saturation
   symptom: The agent forgets requirements
   cause: Finite window
@@ -631,7 +666,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-052
+  detection: ''
+- id: PR-037
   title: Context rot
   symptom: Responses worsen from excess
   cause: Semantic noise
@@ -648,7 +684,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-053
+  detection: ''
+- id: PR-038
   title: No prior checkpoint
   symptom: A change breaks recoverable state
   cause: Absence of reversibility
@@ -666,7 +703,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-054
+  detection: ''
+- id: PR-039
   title: Decentralized state
   symptom: Several sources compete
   cause: Distributed inconsistency
@@ -683,7 +721,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-055
+  detection: ''
+- id: PR-040
   title: Concurrency without quarantine
   symptom: Actors overwrite each other's changes
   cause: Lack of isolation
@@ -701,7 +740,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-059
+  detection: ''
+- id: PR-041
   title: Opaque routing
   symptom: Work lands in the wrong actor or phase
   cause: Absent task classification
@@ -719,7 +759,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-060
+  detection: ''
+- id: PR-042
   title: Textual memory merge
   symptom: Two histories combine, losing decisions
   cause: Lexical union without semantics
@@ -737,7 +778,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-064
+  detection: ''
+- id: PR-043
   title: Architectural black box
   symptom: Unexplainable decisions
   cause: Loss of the causal model
@@ -755,7 +797,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-067
+  detection: ''
+- id: PR-044
   title: Implicit policies
   symptom: Rules not listed before the change
   cause: Hidden constraints
@@ -774,7 +817,8 @@ items:
   doctrinal: true
   tier: extended
   catalog_source: coding_vices
-- id: VC-068
+  detection: ''
+- id: PR-045
   title: Normative conflicts
   symptom: Rules clash at execution
   cause: Inconsistent logical system
@@ -792,7 +836,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-071
+  detection: ''
+- id: PR-046
   title: Module without biocontainment
   symptom: Failure propagates
   cause: Excessive coupling
@@ -809,7 +854,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-072
+  detection: ''
+- id: PR-047
   title: Blind chunking
   symptom: The cut breaks semantics
   cause: Partitioning by size
@@ -826,7 +872,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-073
+  detection: ''
+- id: PR-048
   title: Critical code sliced up
   symptom: Global coherence is lost
   cause: Unmodeled dependencies
@@ -844,7 +891,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-075
+  detection: ''
+- id: PR-049
   title: Unverified integrations
   symptom: External API or data assumed stable
   cause: Unmodeled external dependency
@@ -862,7 +910,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-081
+  detection: ''
+- id: PR-050
   title: Documentation hijack
   symptom: Docs and code diverge
   cause: Decoupled evolution
@@ -879,7 +928,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-084
+  detection: ''
+- id: PR-051
   title: Ignored regressive compatibility
   symptom: Prior consumers break silently
   cause: Historical contract not modeled
@@ -897,7 +947,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-085
+  detection: ''
+- id: PR-052
   title: Ornamental observability
   symptom: Logs exist but do not explain failures
   cause: Signal without diagnosis
@@ -915,7 +966,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-086
+  detection: ''
+- id: PR-053
   title: Evasive wrapper
   symptom: A new layer avoids touching the real fault
   cause: Indirection as concealment
@@ -933,7 +985,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-088
+  detection: ''
+- id: PR-054
   title: Error tolerated by policy
   symptom: The failure is documented instead of fixed
   cause: Exception turned into a stable state
@@ -951,7 +1004,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-089
+  detection: ''
+- id: PR-055
   title: Skipped reconnaissance
   symptom: Editing without understanding the repository
   cause: Incomplete model of the system
@@ -969,7 +1023,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-093
+  detection: ''
+- id: PR-056
   title: Optimistic security
   symptom: Abuses are not sought
   cause: Unmodeled threat
@@ -986,7 +1041,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-094
+  detection: ''
+- id: PR-057
   title: Mixed security
   symptom: Scattered controls
   cause: Blurred boundary
@@ -1003,7 +1059,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-097
+  detection: ''
+- id: PR-058
   title: Late tests
   symptom: Tests adapted to the result
   cause: Confirmation bias
@@ -1020,7 +1077,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-098
+  detection: ''
+- id: PR-059
   title: Happy path only
   symptom: Real failures not covered
   cause: Undersampled domain
@@ -1037,7 +1095,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-099
+  detection: ''
+- id: PR-060
   title: No chaos
   symptom: Resilience not observed
   cause: Failures not induced
@@ -1054,7 +1113,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-100
+  detection: ''
+- id: PR-061
   title: Non-functional ignored
   symptom: Performance or security not measured
   cause: Quality reduced to function
@@ -1072,7 +1132,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-102
+  detection: ''
+- id: PR-062
   title: Poor debug
   symptom: Undiagnosable failure
   cause: Insufficient observability
@@ -1089,7 +1150,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-103
+  detection: ''
+- id: PR-063
   title: UI without real use
   symptom: Validated without a flow
   cause: Visual simulation
@@ -1106,7 +1168,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-108
+  detection: ''
+- id: PR-064
   title: Security boundary by convention
   symptom: Reliance on human discipline
   cause: Non-executable control
@@ -1125,7 +1188,8 @@ items:
   doctrinal: true
   tier: extended
   catalog_source: coding_vices
-- id: VC-119
+  detection: ''
+- id: PR-065
   title: Lock Panic and Fast Syntactic Patching (Lock Panic Shortcut)
   symptom: Facing an unexpected compilation or import failure at startup, the agent chooses to patch the symptom by creating
     shims or duplicating old code instead of investigating and resolving the root cause in the control plane or the caller
@@ -1150,7 +1214,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: VC-120
+  detection: ''
+- id: PR-066
   title: Reasoning Lock-In & AI Runaway loops (Chain-Pattern Interrupts)
   symptom: The agent fixates on a flawed action plan, repeating the same error or tool in a closed loop without stopping.
   cause: Absence of active metacognition and lack of structural interrupts.
@@ -1172,7 +1237,8 @@ items:
   doctrinal: true
   tier: specialist
   catalog_source: coding_vices
-- id: TK-F01
+  detection: ''
+- id: PR-067
   title: Reprocessing stable context
   symptom: The same block is paid for or processed many times
   cause: Unmodeled reuse
@@ -1205,7 +1271,7 @@ items:
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
-- id: TK-F02
+- id: PR-068
   title: Primitive context pruning
   symptom: Small tasks load entire documents
   cause: Non-selective retrieval
@@ -1245,7 +1311,7 @@ items:
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
-- id: TK-F03
+- id: PR-069
   title: Excessive verbal output
   symptom: Preambles, explanations, and closings add no value
   cause: Missing output budget
@@ -1281,7 +1347,7 @@ items:
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
-- id: TK-009
+- id: PR-070
   title: Semantic pruning
   symptom: Entire files saturate the prompt
   cause: Retrieval by document, not by need
@@ -1313,7 +1379,7 @@ items:
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
-- id: TK-010
+- id: PR-071
   title: Contextual retrieval
   symptom: Fragments lose meaning
   cause: Chunks without parent context
@@ -1345,7 +1411,7 @@ items:
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
-- id: TK-011
+- id: PR-072
   title: Structured delimiters
   symptom: Instructions get mixed together
   cause: Ambiguous boundaries
@@ -1379,7 +1445,7 @@ items:
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
-- id: TK-014
+- id: PR-073
   title: Full read by default
   symptom: A large file is sent in its entirety
   cause: Low granularity
@@ -1409,7 +1475,7 @@ items:
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
-- id: TK-015
+- id: PR-074
   title: Whole file for a specific question
   symptom: The agent processes irrelevant information
   cause: Non-localized query
@@ -1441,7 +1507,7 @@ items:
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
-- id: TK-017
+- id: PR-075
   title: Narrated permissions
   symptom: Long policies are repeated in prompts
   cause: Unstructured authorization
@@ -1477,7 +1543,7 @@ items:
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
-- id: TK-019
+- id: PR-076
   title: Hierarchical Dependency Skeleton
   symptom: High consumption from blind exploration of directories or large files
   cause: Low read granularity and lack of prior contextual maps
@@ -1513,7 +1579,7 @@ items:
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
-- id: TK-029
+- id: PR-077
   title: Batch processing
   symptom: Deferrable tasks run one at a time
   cause: Lack of grouping
@@ -1541,7 +1607,7 @@ items:
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
-- id: TK-030
+- id: PR-078
   title: Capability cascade
   symptom: Maximum capacity is used for everything
   cause: Inefficient resource allocation
@@ -1571,7 +1637,7 @@ items:
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
-- id: PI-001
+- id: PR-079
   title: Deptry – reconciliation of imports against declared dependencies to detect missing, unused, transitive, misplaced
     dev, and stdlib declared as dependencies.
   doctrinal: true
@@ -1580,10 +1646,11 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-002
+  detection: ''
+- id: PR-080
   title: 'Diagnostic assertions – when a test fails, the message must explain the discrepancy with actionable clarity. Real
     verified tools: pytest native assertion rewriting, pytest-clarity / pytest-icdiff for readable diffs, flake8-assertive
-    for correct assertion methods. (Corrects a prior reference to a nonexistent package — see VC-129 hallucinated dependency.)'
+    for correct assertion methods. (Corrects a prior reference to a nonexistent package — see VC-061 hallucinated dependency.)'
   doctrinal: true
   promotion_candidate: true
   catalog_source: project_insights
@@ -1591,7 +1658,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-003
+  detection: ''
+- id: PR-081
   title: Tokencost – upfront token metering and USD conversion to make spend visible before executing an LLM call.
   doctrinal: true
   catalog_source: project_insights
@@ -1599,7 +1667,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-004
+  detection: ''
+- id: PR-082
   title: Trivy – multi-surface scanning (images, filesystem, git, VMs, Kubernetes) for CVEs, secrets, misconfigurations, SBOM,
     and licenses.
   doctrinal: true
@@ -1608,7 +1677,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-005
+  detection: ''
+- id: PR-083
   title: Litellm – provider-agnostic gateway with routing, fallback, cost tracking, guardrails, logging, and load balancing.
   doctrinal: true
   catalog_source: project_insights
@@ -1616,7 +1686,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-006
+  detection: ''
+- id: PR-084
   title: Governance gate between intent and execution that enforces context discipline, observability, redaction, and state
     control.
   doctrinal: true
@@ -1625,7 +1696,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-007
+  detection: ''
+- id: PR-085
   title: 'Output governance – a system can have INPUT governance (quality gates) but lack OUTPUT governance (orphan pruning),
     accumulating refactor residue: backups, dead code, stale plan docs, spectral scripts, divergent learning logs, stale base-sets,
     and IDs declared without content. Root cause: the gate validated letter (Path.exists) not currency (active route). Lesson:
@@ -1636,7 +1708,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-008
+  detection: ''
+- id: PR-086
   title: Batch of predictable authorizations – group permissions, clarifications, and decisions before a long run to avoid
     interruptions, rereads, and reactive work.
   doctrinal: true
@@ -1645,7 +1718,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-009
+  detection: ''
+- id: PR-087
   title: Zero debt before advancing – every warning or non-blocking finding is treated as an operational error until fixed
     or explicitly blocked.
   doctrinal: true
@@ -1654,7 +1728,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-010
+  detection: ''
+- id: PR-088
   title: Output hygiene and clean root – historical artifacts are reference, not source of truth; when an audit closes the
     root must be free of operational residue.
   doctrinal: true
@@ -1663,7 +1738,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-011
+  detection: ''
+- id: PR-089
   title: Descriptive names and simple topology – prefer scripts and modules that explain their purpose and flatten structure
     when it reduces cognitive friction.
   doctrinal: true
@@ -1672,7 +1748,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-012
+  detection: ''
+- id: PR-090
   title: Minimal and real exclusions – whitelists, excludes, skips, xfails, stubs, mocks, and placeholders only with verifiable
     cause; false coverage is debt, not progress.
   doctrinal: true
@@ -1682,7 +1759,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-013
+  detection: ''
+- id: PR-091
   title: Real-time vigilance – observe signals, costs, and deviations during execution, not only in the post-mortem.
   doctrinal: true
   catalog_source: project_insights
@@ -1690,7 +1768,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-014
+  detection: ''
+- id: PR-092
   title: Living Golden Standard – preserve pure, agnostic knowledge kept up to date with the lessons from the project and
     the satellites without mixing it with concrete tools.
   doctrinal: true
@@ -1699,7 +1778,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-015
+  detection: ''
+- id: PR-093
   title: Circularity ratchet – every new vice must break a real circular relationship and drain the baseline in batches; coverage
     that does not reduce the circle is still theater.
   doctrinal: true
@@ -1708,7 +1788,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-016
+  detection: ''
+- id: PR-094
   title: DOC_ONLY honesty – if a lesson is not falsifiable by a physical gate, it must be labeled DOC_ONLY instead of simulating
     automatic coverage.
   doctrinal: true
@@ -1717,7 +1798,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-017
+  detection: ''
+- id: PR-095
   title: Anti many-to-one coverage – a test that claims to cover N vices at once loses discrimination; each guard must isolate
     the failure it claims to protect against.
   doctrinal: true
@@ -1727,7 +1809,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-018
+  detection: ''
+- id: PR-096
   title: Canonical ingestion of lessons – normalize, deduplicate, and record new satellite lessons before incorporating them
     into the central knowledge.
   doctrinal: true
@@ -1736,7 +1819,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-019
+  detection: ''
+- id: PR-097
   title: Execution and tooling hygiene – prefer simple commands, declarative edits, UTF-8, auditable evidence, and elevated
     permissions only as an exception; temporary helpers must disappear unless they are reusable and documented.
   doctrinal: true
@@ -1745,7 +1829,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-020
+  detection: ''
+- id: PR-098
   title: 'Confidence Tags (Graphify pattern) – every state claim in protocol documents must carry an explicit confidence level:
     VERIFIED (backed by terminal log or test), INFERRED (deduced from indirect evidence), ASSUMED (no evidence, reasonable
     supposition). Claims without a tag are treated as ASSUMED. Applies especially to protocol specs, audit logs, and architectural
@@ -1756,7 +1841,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-021
+  detection: ''
+- id: PR-099
   title: 'Semantic Wiki-Lint (Karpathy LLM Wiki pattern) – protocol documents must be audited periodically to detect: contradictions
     between sections, references to nonexistent files, mandates mentioned in one doc but absent in another, and inconsistent
     version claims. The Lint is not syntactic (that is handled by a syntactic catalog linter) but semantic: do two documents
@@ -1769,7 +1855,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-022
+  detection: ''
+- id: PR-100
   title: 'Operational uncertainty list – every session or protocol document must declare which subsystems, routes, or claims
     were not mechanically verified in that turn. The absence of a list equals incomplete verification. Origin: operational
     uncertainty discipline and anti-hallucination control.'
@@ -1779,7 +1866,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-023
+  detection: ''
+- id: PR-101
   title: 'Dual-session awareness – before touching shared sources, the agent must verify state and latest commits so as not
     to step on concurrent work. If there are external changes, impact is analyzed before editing. Origin: multi-agent coexistence
     discipline and serialized shared-source access.'
@@ -1789,7 +1877,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-024
+  detection: ''
+- id: PR-102
   title: 'Hub-based review – nodes with the highest fan-in or impact degree must be reviewed first when a catalog or index
     changes. The graph is not decorative: it prioritizes risk and orders the audit. Origin: hub-first review heuristic (graph
     fan-in prioritization).'
@@ -1799,7 +1888,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-025
+  detection: ''
+- id: PR-103
   title: 'Exportable retrospective – every session must close with a structured, parseable retrospective that is persisted
     to a durable ledger before a context reset (COMPACT/CLEAR). Chat is not reliable memory and new knowledge must survive
     the reset. Origin: structured-retrospective export and a durable ledger as a source of continuity.'
@@ -1809,7 +1899,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-026
+  detection: ''
+- id: PR-104
   title: 'Exhaustive preflight and no reopening scope post-execution – before executing any change, the agent must declare
     scope, foreseeable impacts, out-of-scope follow-ups, and the runner/loader that would be affected if the topology changes.
     If a new improvement emerges after executing, it is first recorded in the backlog; it is not offered as a post-execution
@@ -1820,7 +1911,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-027
+  detection: ''
+- id: PR-105
   title: 'Serialization of Git operations – Git commands must be executed serially within automations and orchestrators to
     avoid index locks, state races, and inconsistent results. When coordination or concurrent tooling exists, the safe discipline
     is a single Git flow at a time with controlled retries, not opportunistic parallelism. Origin: global learning on race
@@ -1831,16 +1923,18 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-028
+  detection: ''
+- id: PR-106
   title: Vibe Check (PV-Bhat/vibe-check-mcp-server, verified) – metacognition MCP server that curbs agent tunnel-vision and
-    runaway loops via Chain-Pattern Interrupts; a direct implementation of the VC-120 mitigation.
+    runaway loops via Chain-Pattern Interrupts; a direct implementation of the PR-066 mitigation.
   doctrinal: true
   catalog_source: project_insights
   action: ''
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-029
+  detection: ''
+- id: PR-107
   title: 'vibecheck (yuvrajangadsingh/vibecheck, verified) – ESLint for AI slop: a local linter that detects code smells in
     AI-generated code (hardcoded secrets, eval, empty catch); evidence that the catalog vices are statically detectable.'
   doctrinal: true
@@ -1849,7 +1943,8 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-030
+  detection: ''
+- id: PR-108
   title: viberails (refractionPOINT/viberails, verified) – AI Firewall that intercepts risky agent operations (Claude Code,
     Cursor, Gemini CLI) via hooks; an enforcement layer conceptually comparable to a policy-enforcement gate (unrelated to
     the homonym philips-software/cerberus).
@@ -1859,43 +1954,48 @@ items:
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-031
+  detection: ''
+- id: PR-109
   title: ratelimit (tomasbasham/ratelimit, verified) – rate limiting decorator (@limits + sleep_and_retry) as a concrete control
-    against VC-110 (quota as surprise) and the tokenomics debt (TK-044).
+    against PR-031 (quota as surprise) and the tokenomics debt (TK-034).
   doctrinal: true
   catalog_source: project_insights
   action: ''
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-032
+  detection: ''
+- id: PR-110
   title: context7 (upstash/context7, verified) -- delivers up-to-date code documentation to LLMs to avoid calls to obsolete
-    or nonexistent APIs; a direct mitigation of VC-135.
+    or nonexistent APIs; a direct mitigation of PR-044.
   doctrinal: true
   catalog_source: project_insights
   action: ''
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-033
+  detection: ''
+- id: PR-111
   title: Persistent memory layer (byterover-cli / zilliztech claude-context-memsearch, verified) -- durable cross-session
-    memory for agents; its discipline (source, date, reconciliation) mitigates VC-136.
+    memory for agents; its discipline (source, date, reconciliation) mitigates PR-045.
   doctrinal: true
   catalog_source: project_insights
   action: ''
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-034
+  detection: ''
+- id: PR-112
   title: serena (oraios/serena, verified) -- symbol-level (semantic) retrieval and editing so that recovered context is correct;
-    mitigates VC-137 against blind chunking.
+    mitigates VC-069 against blind chunking.
   doctrinal: true
   catalog_source: project_insights
   action: ''
   solution: ''
   symptom: ''
   cause: ''
-- id: PI-035
+  detection: ''
+- id: PR-113
   title: 'Auditing stochastic systems – when behavior depends on chance, sampling, retries, probabilistic routing, or non-deterministic
     generation, it is not evaluated with a single run nor with an exact value. The rule is to declare the target distribution,
     seed when applicable, sample size, acceptable thresholds, and repetition criterion; if the surface should be deterministic,
@@ -1908,3 +2008,4 @@ items:
   solution: ''
   symptom: ''
   cause: ''
+  detection: ''

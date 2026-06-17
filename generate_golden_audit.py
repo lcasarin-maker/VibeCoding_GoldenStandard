@@ -82,7 +82,7 @@ def load_project_insight_records() -> dict[str, dict[str, object]]:
         if not isinstance(item, dict):
             continue
         k = str(item.get("id", ""))
-        if not k.startswith("PI-"):
+        if not k.startswith("PR-"):
             continue
         record = dict(item)
         record["title"] = normalize_knowledge_text(
@@ -232,14 +232,14 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 - 🕸️ **[[Graph|GS Graph Map]]**: Hubs, intentional orphans, candidate orphans, and local vault impact.
 - 📘 **[Golden Standard Conceptual Framework](../CONCEPTUAL_FRAMEWORK.md)**: Epistemological doctrine, levels, and design foundations.
 - 🧼 **[Repository Hygiene Chapter](../CONCEPTUAL_FRAMEWORK.md#5-Repository-and-Execution-Hygiene)**: Canonical standard for cleanup, naming, clean root, and organization evidence.
-- 🔧 **[[Project_Insights/PI-019|Execution Hygiene and Tooling]]**: Satellite rule for simple commands, UTF-8, and technical purity.
-- ⚠️ **[[Vices/VC-124|Hasty deprecation]]**: Mirror vice that avoids moving to `deprecated/` without analysis.
-- 🏷️ **[[Project_Insights/PI-020|Confidence Tags]]**: Every protocol claim must declare whether it is VERIFIED, INFERRED, or ASSUMED.
-- 🧪 **[[Project_Insights/PI-021|Semantic Wiki-Lint]]**: Detects contradictions, broken references, and mandates without binding.
-- 🧾 **[[Project_Insights/PI-022|Uncertainty list]]**: Documents the unverified so as not to feign certainty.
-- 🧭 **[[Project_Insights/PI-023|Dual-session awareness]]**: Verifies shared state before editing.
-- 🕸️ **[[Project_Insights/PI-024|Hub-based review]]**: Prioritizes high-impact nodes in the graph.
-- 🧷 **[[Project_Insights/PI-025|Exportable Retrospective]]**: Closes each session with a structured, persistent retrospective.
+- 🔧 **[[Project_Insights/PR-097|Execution Hygiene and Tooling]]**: Satellite rule for simple commands, UTF-8, and technical purity.
+- ⚠️ **[[Vices/VC-056|Hasty deprecation]]**: Mirror vice that avoids moving to `deprecated/` without analysis.
+- 🏷️ **[[Project_Insights/PR-098|Confidence Tags]]**: Every protocol claim must declare whether it is VERIFIED, INFERRED, or ASSUMED.
+- 🧪 **[[Project_Insights/PR-099|Semantic Wiki-Lint]]**: Detects contradictions, broken references, and mandates without binding.
+- 🧾 **[[Project_Insights/PR-100|Uncertainty list]]**: Documents the unverified so as not to feign certainty.
+- 🧭 **[[Project_Insights/PR-101|Dual-session awareness]]**: Verifies shared state before editing.
+- 🕸️ **[[Project_Insights/PR-102|Hub-based review]]**: Prioritizes high-impact nodes in the graph.
+- 🧷 **[[Project_Insights/PR-103|Exportable Retrospective]]**: Closes each session with a structured, persistent retrospective.
 - 💠 **[[Tokenomics_Index|Tokenomics Index]]**: Separate catalog of efficiency, headroom, and context management (`TK`).
 - 🗺️ **[[Tokenomics_Map|Tokenomics Map]]**: Bridge between the `TK` and `PI` lenses to navigate relations, gaps, and coverage.
 - 🔹 **[[Tokenomics/Memory_Headroom_Index|Memory and Headroom]]**: Checkpoints, handoff, persistence, and context margin.
@@ -433,37 +433,37 @@ def write_tokenomics_map_md(wiki_dir: Path, insights: dict):
         (
             "Memory and Headroom",
             "[[Tokenomics/Memory_Headroom_Index|Open lens]]",
-            "PI-006, PI-010, PI-014, PI-018",
+            "PR-084, PR-088, PR-092, PR-096",
             "Avoids context loss, root pollution, and forgotten learning.",
         ),
         (
             "Input and Retrieval",
             "[[Tokenomics/Input_Retrieval_Index|Open lens]]",
-            "PI-005, PI-012",
+            "PR-083, PR-090",
             "Reduces input noise and makes targeted retrieval more precise.",
         ),
         (
             "Output and Compaction",
             "[[Tokenomics/Output_Compaction_Index|Open lens]]",
-            "PI-003, PI-007, PI-009, PI-016",
+            "PR-081, PR-085, PR-087, PR-094",
             "Controls verbosity, cost, pruning, and documentary honesty.",
         ),
         (
             "Measurement and Telemetry",
             "[[Tokenomics/Measurement_Telemetry_Index|Open lens]]",
-            "PI-003, PI-013",
+            "PR-081, PR-091",
             "Makes the real savings visible, not just the intention to save.",
         ),
         (
             "Automation and Tooling",
             "[[Tokenomics/Automation_Tooling_Index|Open lens]]",
-            "PI-005, PI-006, PI-013",
+            "PR-083, PR-084, PR-091",
             "Connects the doctrine with executable tooling and continuous observability.",
         ),
     ]
 
     insight_pairs = []
-    for insight_id in ["PI-003", "PI-005", "PI-006", "PI-007", "PI-009", "PI-010", "PI-012", "PI-013", "PI-014", "PI-016", "PI-018"]:
+    for insight_id in ["PR-081", "PR-083", "PR-084", "PR-085", "PR-087", "PR-088", "PR-090", "PR-091", "PR-092", "PR-094", "PR-096"]:
         if insight_id in insights:
             insight_pairs.append((insight_id, insights[insight_id]))
 
@@ -509,8 +509,8 @@ This map serves as a bridge between the `TK` category and the GS satellite lesso
 
 | Node | Relation | Reason |
 |---|---|---|
-| `[[Project_Insights/PI-019|PI-019]]` | Satellite hygiene | Expands the discipline of editing and validation toward daily work with tools. |
-| `[[Vices/VC-124|VC-124]]` | Mirror vice | Represents the error of deprecating without analysis or traceability. |
+| `[[Project_Insights/PR-097|PR-097]]` | Satellite hygiene | Expands the discipline of editing and validation toward daily work with tools. |
+| `[[Vices/VC-056|VC-056]]` | Mirror vice | Represents the error of deprecating without analysis or traceability. |
 
 ---
 
@@ -530,15 +530,15 @@ This map serves as a bridge between the `TK` category and the GS satellite lesso
 
 def _tokenomics_subindex_group(item_id: str, title: str) -> str:
     """Map a tokenomics entry to a thematic subindex."""
-    if item_id.startswith("TK-F01") or item_id in {"TK-001", "TK-002", "TK-003", "TK-004", "TK-005", "TK-006", "TK-007", "TK-008", "TK-028", "TK-031", "TK-032", "TK-033", "TK-034", "TK-038"}:
+    if item_id.startswith("PR-067") or item_id in {"TK-001", "TK-002", "TK-003", "TK-004", "TK-005", "TK-006", "TK-007", "TK-008", "TK-021", "TK-022", "TK-023", "TK-024", "TK-025", "PR-077"}:
         return "memory_headroom"
-    if item_id.startswith("TK-F02") or item_id in {"TK-009", "TK-010", "TK-011", "TK-012", "TK-014", "TK-015", "TK-016", "TK-018", "TK-019"}:
+    if item_id.startswith("PR-068") or item_id in {"PR-070", "PR-071", "PR-072", "PR-070", "PR-073", "PR-074", "PR-072", "TK-012", "PR-076"}:
         return "input_retrieval"
-    if item_id.startswith("TK-F03") or item_id in {"TK-020", "TK-021", "TK-022", "TK-024", "TK-025", "TK-027", "TK-029", "TK-030", "TK-035", "TK-036", "TK-043"}:
+    if item_id.startswith("PR-069") or item_id in {"TK-013", "PR-073", "PR-074", "PR-075", "TK-018", "TK-020", "PR-077", "PR-078", "TK-026", "TK-027", "TK-033"}:
         return "output_compaction"
-    if item_id in {"TK-023", "TK-026", "TK-037", "TK-040", "TK-041", "TK-042"}:
+    if item_id in {"TK-016", "PR-076", "TK-028", "TK-031", "TK-032"}:
         return "measurement_telemetry"
-    if item_id in {"TK-013", "TK-017", "TK-039"}:
+    if item_id in {"PR-071", "PR-075", "PR-078"}:
         return "automation_tooling"
     # Fallback: infer by title when a future TK lands outside the historical ranges.
     lower_title = title.lower()
@@ -628,9 +628,9 @@ def write_tokenomics_subindices_md(wiki_dir: Path, mapped_database: dict):
 # Editorial classification of Project Insights to separate actionable lessons from
 # system-meta commentary (addresses the audit critique that PIs were self-referential).
 PI_KIND = {
-    "tool": {"PI-001", "PI-002", "PI-003", "PI-004", "PI-005", "PI-020", "PI-021",
-             "PI-028", "PI-029", "PI-030", "PI-031", "PI-032", "PI-033", "PI-034"},
-    "meta": {"PI-006", "PI-007", "PI-014", "PI-018"},
+    "tool": {"PR-079", "PR-080", "PR-081", "PR-082", "PR-083", "PR-098", "PR-099",
+             "PR-106", "PR-107", "PR-108", "PR-109", "PR-110", "PR-111", "PR-112"},
+    "meta": {"PR-084", "PR-085", "PR-092", "PR-096"},
 }
 
 
@@ -699,8 +699,7 @@ def entry_depth(item: dict) -> str:
                     code for these would be theater, so we never do.
     - 'stub'      : enrichable but not yet enriched (real depth debt).
     """
-    if str(item.get("alias_of", "")).strip():
-        return "alias"
+    # Aliases removed; all entries are real
     if str(item.get("example_bad", "")).strip() and str(item.get("example_good", "")).strip():
         return "deep"
     if item.get("doctrinal"):
@@ -710,9 +709,7 @@ def entry_depth(item: dict) -> str:
 
 def depth_badge(item: dict) -> str:
     """Human-readable badge for an entry's depth classification."""
-    alias = str(item.get("alias_of", "")).strip()
-    if alias:
-        return f"🔗 Alias → [[Vices/{alias}|{alias}]]"
+    # No aliases; all entries are real
     return {"deep": "🟢 Deep", "doctrinal": "⚪ Doctrinal"}.get(entry_depth(item), "🟡 Stub")
 
 
@@ -759,23 +756,6 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
     for flaw_id, item in mapped_database.items():
         if item["category"] == "Tokenomics & Context":
             continue
-        alias = str(item.get("alias_of", "")).strip()
-        if alias:
-            redirect = f"""# {flaw_id}: {item['title']}
-
-> 🔗 **Merged entry.** This vice is a semantic duplicate of [[Vices/{alias}|{alias}]]; the canonical content (symptom, examples, and detection) lives there. The ID `{flaw_id}` is preserved for reference stability.
-
-| Field | Detail |
-|---|---|
-| **ID** | `{flaw_id}` |
-| **Canonical** | [[Vices/{alias}|{alias}]] |
-| **Depth** | {depth_badge(item)} |
-
----
-[[Vices/{alias}|Go to the canonical entry {alias}]] | [[Vices_Index|Vices Index]] | [[Home|Home]]
-"""
-            (wiki_dir / "Vices" / f"{flaw_id}.md").write_text(redirect, encoding="utf-8")
-            continue
         tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
         depth_sections = build_depth_sections(item)
         detector = str(item.get("detector", "")).strip()
@@ -811,7 +791,7 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 {item['action']}{depth_sections}
 
 ### Relations
-- [[Project_Insights/PI-019|PI-019]]
+- [[Project_Insights/PR-097|PR-097]]
 - [[Tokenomics_Map|Tokenomics Map]]
 - [[Home|Home]]
 
@@ -827,23 +807,6 @@ def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
     tokenomics_dir.mkdir(parents=True, exist_ok=True)
     for flaw_id, item in mapped_database.items():
         if item["category"] != "Tokenomics & Context":
-            continue
-        alias = str(item.get("alias_of", "")).strip()
-        if alias:
-            redirect = f"""# {flaw_id}: {item['title']}
-
-> 🔗 **Merged entry.** This tokenomics entry is a semantic duplicate of [[Tokenomics/{alias}|{alias}]]; the canonical content lives there. The ID `{flaw_id}` is preserved for reference stability.
-
-| Field | Detail |
-|---|---|
-| **ID** | `{flaw_id}` |
-| **Canonical** | [[Tokenomics/{alias}|{alias}]] |
-| **Depth** | {depth_badge(item)} |
-
----
-[[Tokenomics/{alias}|Go to the canonical entry {alias}]] | [[Tokenomics_Index|Back to Tokenomics Index]] | [[Home|Home]]
-"""
-            (tokenomics_dir / f"{flaw_id}.md").write_text(redirect, encoding="utf-8")
             continue
         tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
         depth_sections = build_depth_sections(item)
@@ -893,14 +856,15 @@ def build_pi_mapping_lines(mappings: list) -> list[str]:
 def write_atomic_project_insights(
     wiki_dir: Path, insights: dict, pi_to_domains: dict, records: dict[str, dict[str, object]]
 ):
-    """Create individual atomic files for all project insights."""
-    for pi_id, text in insights.items():
-        mappings = pi_to_domains.get(pi_id, [])
+    """Create individual atomic files for all principles."""
+    (wiki_dir / "Principles").mkdir(parents=True, exist_ok=True)
+    for pr_id, text in insights.items():
+        mappings = pi_to_domains.get(pr_id, [])
         mapping_lines = build_pi_mapping_lines(mappings)
-        record = records.get(pi_id, {})
+        record = records.get(pr_id, {})
         candidate_note = "Promotion candidate" if record.get("promotion_candidate") else "Doctrinal"
 
-        pi_content = f"""# {pi_id}: Satellite Insight
+        pr_content = f"""# {pr_id}: Satellite Insight
 
 **Type:** {candidate_note}
 
@@ -909,7 +873,7 @@ def write_atomic_project_insights(
 
 ### Relations
 - [[Tokenomics_Map|Tokenomics Map]]
-- [[Vices/VC-124|VC-124]]
+- [[Vices/VC-001|VC-001]]
 - [[Home|Home]]
 
 ---
@@ -918,9 +882,9 @@ def write_atomic_project_insights(
 {"\n".join(mapping_lines)}
 
 ---
-[[Project_Insights_Index|Back to Insights Index]] | [[Home|Home]]
+[[Principles_Index|Back to Principles Index]] | [[Home|Home]]
 """
-        (wiki_dir / "Project_Insights" / f"{pi_id}.md").write_text(pi_content, encoding="utf-8")
+        (wiki_dir / "Principles" / f"{pr_id}.md").write_text(pr_content, encoding="utf-8")
 
 
 def write_audit_domains(wiki_dir: Path, recommendations: dict):
@@ -1239,7 +1203,7 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
             f"| `{label}` | {depth_counts['Vibe Coding'].get(label, 0)} | "
             f"{depth_counts['Testing & Evaluation'].get(label, 0)} | "
             f"{depth_counts['Tokenomics & Context'].get(label, 0)} |"
-            for label in ("deep", "stub", "doctrinal", "alias")
+            for label in ("deep", "stub", "doctrinal")
         )
 
     validation_debt_rows = []
@@ -1337,7 +1301,7 @@ The graph now also highlights entries that remain mainly documentary. This does 
 
 ## Depth Debt
 
-Each entry is classified by depth: `deep` (ships bad/good examples and a detection recipe — a falsifiable vice), `doctrinal` (a behavioral/epistemic principle with no static signature; a stub by design, no code is fabricated for it), `stub` (enrichable but not yet with examples — real debt), and `alias` (a semantic duplicate merged into its canonical entry; the ID is preserved for reference stability).
+Each entry is classified by depth: `deep` (ships bad/good examples and a detection recipe — a falsifiable vice), `doctrinal` (a behavioral/epistemic principle with no static signature; a stub by design, no code is fabricated for it), and `stub` (enrichable but not yet with examples — real debt).
 
 | Depth | VC | VT | TK |
 |---|---:|---:|---:|
@@ -1436,7 +1400,7 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     """Generate a structured, cross-linked Obsidian vault from Compiled Golden Standard data."""
     clean_wiki_directory(wiki_dir)
 
-    for folder in ["Concepts", "Domains", "Vices", "Tokenomics", "Project_Insights"]:
+    for folder in ["Concepts", "Domains", "Vices", "Tokenomics", "Principles"]:
         (wiki_dir / folder).mkdir(parents=True, exist_ok=True)
 
     insights = get_project_insights()
@@ -1492,36 +1456,7 @@ def extract_catalog_items(config: dict, mapped_database: dict):
         return
     for item in config["items"]:
         flaw_id = item["id"]
-        alias_of = str(item.get("alias_of", "")).strip()
-        if alias_of:
-            canonical = mapped_database.get(alias_of, {})
-            mapped_entry = {
-                "id": flaw_id,
-                "title": item["title"],
-                "category": get_flaw_category(flaw_id),
-                "symptom": canonical.get("symptom", ""),
-                "cause": canonical.get("cause", ""),
-                "solution": canonical.get("solution", ""),
-                "status": canonical.get("status", "REMEDIATED"),
-                "severity": canonical.get("severity", "medium"),
-                "tags": canonical.get("tags", []),
-                "action": canonical.get("action", ""),
-                "validating_mechanism": canonical.get("validating_mechanism", ""),
-                "downstream_verification": canonical.get("downstream_verification", "none"),
-                "example_bad": canonical.get("example_bad", ""),
-                "example_good": canonical.get("example_good", ""),
-                "example_lang": canonical.get("example_lang", "text"),
-                "detection": canonical.get("detection", ""),
-                "evidence": canonical.get("evidence", []),
-                "doctrinal": False,
-                "alias_of": alias_of,
-                "detector": "",
-                "tier": str(item.get("tier", canonical.get("tier", "extended"))).strip() or "extended",
-            }
-            if isinstance(canonical.get("enforcement"), dict):
-                mapped_entry["enforcement"] = canonical["enforcement"]
-            mapped_database[flaw_id] = mapped_entry
-            continue
+        # Aliases removed; all entries are real
 
         downstream_verification = str(item.get("downstream_verification", "")).strip()
         if not downstream_verification:
@@ -1545,7 +1480,6 @@ def extract_catalog_items(config: dict, mapped_database: dict):
             "detection": item.get("detection", ""),
             "evidence": item.get("evidence", []),
             "doctrinal": bool(item.get("doctrinal", False)),
-            "alias_of": str(item.get("alias_of", "")).strip(),
             "detector": str(item.get("detector", "")).strip(),
             "tier": str(item.get("tier", "extended")).strip(),
         }

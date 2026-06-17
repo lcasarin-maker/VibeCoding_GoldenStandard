@@ -16,12 +16,12 @@ Checkpoints, handoffs, external persistence, cache, drift, and control of contex
 *   [[Tokenomics/TK-006|TK-006]] — **Manual history merge** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-007|TK-007]] — **Duplicated source of truth** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-008|TK-008]] — **Empirical memory segregation** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-028|TK-028]] — **Stable context caching** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-031|TK-031]] — **Context compaction** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-032|TK-032]] — **Cache cliff** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-033|TK-033]] — **No headroom** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-034|TK-034]] — **Invisible rollback cost** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-038|TK-038]] — **Full-state re-reading** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-021|TK-021]] — **Stable context caching** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-022|TK-022]] — **Context compaction** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-023|TK-023]] — **Cache cliff** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-024|TK-024]] — **No headroom** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-025|TK-025]] — **Invisible rollback cost** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-029|TK-029]] — **Full-state re-reading** (REMEDIATED, medium, downstream:none)
 
 ---
 

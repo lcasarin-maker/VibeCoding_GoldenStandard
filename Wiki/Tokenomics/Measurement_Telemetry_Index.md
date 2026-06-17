@@ -8,12 +8,10 @@ Savings evidence, observability, monitoring, and impact verification.
 
 ## Entries
 
-*   [[Tokenomics/TK-023|TK-023]] — **Raw logs** (REMEDIATED, medium, downstream:none)
-*   [[Tokenomics/TK-026|TK-026]] — **Noisy observability** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-037|TK-037]] — **Forgettable manual monitoring** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-040|TK-040]] — **Promised savings not measured** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-041|TK-041]] — **Invisible quotas** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-042|TK-042]] — **Manifests without a size constraint** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-016|TK-016]] — **Raw logs** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-028|TK-028]] — **Forgettable manual monitoring** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-031|TK-031]] — **Promised savings not measured** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-032|TK-032]] — **Invisible quotas** (PREVENTED, low, downstream:none)
 
 ---
 

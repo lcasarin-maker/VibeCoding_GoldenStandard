@@ -8,9 +8,8 @@ Targeted retrieval, semantic pruning, chunks, and reduction of blind exploration
 
 ## Entries
 
-*   [[Tokenomics/TK-012|TK-012]] — **Exploration tax** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-016|TK-016]] — **Giant multi-objective prompt** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-018|TK-018]] — **Backlog mixed with the objective** (PREVENTED, medium, downstream:none)
+*   [[Tokenomics/TK-011|TK-011]] — **Giant multi-objective prompt** (PREVENTED, low, downstream:none)
+*   [[Tokenomics/TK-012|TK-012]] — **Backlog mixed with the objective** (PREVENTED, medium, downstream:none)
 
 ---
 

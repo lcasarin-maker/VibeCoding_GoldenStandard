@@ -266,7 +266,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-012
+- id: TK-009
   title: Exploration tax
   symptom: Many tokens before acting
   cause: Blind exploration
@@ -299,7 +299,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-013
+- id: TK-010
   title: Bloated tool schemas
   symptom: Unused tools consume context
   cause: Excessive upfront loading
@@ -332,7 +332,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-016
+- id: TK-011
   title: Giant multi-objective prompt
   symptom: The model splits its attention
   cause: Objective overload
@@ -365,7 +365,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-018
+- id: TK-012
   title: Backlog mixed with the objective
   symptom: Side ideas occupy the active window
   cause: Prioritization not separated
@@ -399,7 +399,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-020
+- id: TK-013
   title: Output constraint
   symptom: Long responses by default
   cause: Unbounded output space
@@ -432,7 +432,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-021
+- id: TK-014
   title: Prefilling
   symptom: Variable format
   cause: Wide output distribution
@@ -465,7 +465,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-022
+- id: TK-015
   title: Example optimization
   symptom: Redundant few-shot
   cause: Unnecessary repetition
@@ -498,7 +498,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-023
+- id: TK-016
   title: Raw logs
   symptom: Command output saturates the context
   cause: Operational noise
@@ -532,7 +532,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-024
+- id: TK-017
   title: Summary without density
   symptom: Compaction loses decisions
   cause: Compression without invariants
@@ -565,7 +565,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-025
+- id: TK-018
   title: Verbose audit output
   symptom: The finding is lost in the noise
   cause: Low information density
@@ -598,7 +598,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-026
+- id: TK-019
   title: Noisy observability
   symptom: Extensive logs push out the problem
   cause: Signal not prioritized
@@ -631,7 +631,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-027
+- id: TK-020
   title: Lexical Compression of Diagnostics
   symptom: Context loss from verbose, repetitive error traces
   cause: Blind truncation of history from exceeding physical limits
@@ -664,7 +664,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-028
+- id: TK-021
   title: Stable context caching
   symptom: Recurring reprocessing
   cause: Stable memory not separated
@@ -697,7 +697,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-031
+- id: TK-022
   title: Context compaction
   symptom: A long session degrades
   cause: Saturated finite window
@@ -730,7 +730,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-032
+- id: TK-023
   title: Cache cliff
   symptom: Pauses invalidate the cache benefit
   cause: TTL ignored
@@ -763,7 +763,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-033
+- id: TK-024
   title: No headroom
   symptom: Context collapses silently
   cause: Margin not reserved
@@ -796,7 +796,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-034
+- id: TK-025
   title: Invisible rollback cost
   symptom: Fix/revert loops consume the session
   cause: Unmeasured rework
@@ -829,7 +829,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-035
+- id: TK-026
   title: Thinking with the execution tool
   symptom: Expensive context is used to decide
   cause: Incorrect routing
@@ -862,7 +862,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-036
+- id: TK-027
   title: Response without a mode
   symptom: The agent does not know whether to think or execute
   cause: Unclassified intent
@@ -895,7 +895,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-037
+- id: TK-028
   title: Forgettable manual monitoring
   symptom: The user counts messages
   cause: Fragile human control
@@ -928,7 +928,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-038
+- id: TK-029
   title: Full-state re-reading
   symptom: Each turn drags everything along
   cause: Non-indexed state
@@ -962,7 +962,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-039
+- id: TK-030
   title: Non-integrated external tools
   symptom: Strategies exist but do not operate
   cause: Phantom script
@@ -996,7 +996,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-040
+- id: TK-031
   title: Promised savings not measured
   symptom: A reduction is declared without telemetry
   cause: Missing metric
@@ -1029,7 +1029,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-041
+- id: TK-032
   title: Invisible quotas
   symptom: The session is cut off by unbudgeted limits
   cause: Unaccounted external resource
@@ -1062,10 +1062,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
   tier: extended
-- id: TK-042
-  title: Manifests without a size constraint
-  alias_of: TK-038
-- id: TK-043
+- id: TK-033
   title: Entropy without pruning — input governance without output governance
   symptom: 'The system validates what comes IN (anti-junk-code, large-file, gates) but nothing hunts what must go OUT: refactors
     leave residue (dead imports/params, backups, phantom scripts, duplicate docs, orphan IDs in the catalog) that the gate
@@ -1108,7 +1105,7 @@ items:
   - source: vexp.dev / HumanLayer ACE
     claim: unpruned residue inflates context and cost; output governance is as necessary as input governance.
   tier: extended
-- id: TK-044
+- id: TK-034
   title: Accumulated tokenomics debt (Cost Compounding)
   symptom: 'The per-session cost grows silently because it is never compacted or measured; long sessions pay 3-5x more tokens
     than structured work.
@@ -1143,8 +1140,8 @@ items:
   example_good: '# Compaction at thresholds + budget with alerts + per-session cost telemetry.
 
     '
-  detection: 'Long sessions without compaction events or cost telemetry; monotonic context growth. Related to TK-031 (compaction)
-    and TK-040 (unmeasured savings).
+  detection: 'Long sessions without compaction events or cost telemetry; monotonic context growth. Related to TK-022 (compaction)
+    and TK-031 (unmeasured savings).
 
     '
   evidence:

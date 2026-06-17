@@ -12,14 +12,14 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 - 🕸️ **[[Graph|GS Graph Map]]**: Hubs, intentional orphans, candidate orphans, and local vault impact.
 - 📘 **[Golden Standard Conceptual Framework](../CONCEPTUAL_FRAMEWORK.md)**: Epistemological doctrine, levels, and design foundations.
 - 🧼 **[Repository Hygiene Chapter](../CONCEPTUAL_FRAMEWORK.md#5-Repository-and-Execution-Hygiene)**: Canonical standard for cleanup, naming, clean root, and organization evidence.
-- 🔧 **[[Project_Insights/PI-019|Execution Hygiene and Tooling]]**: Satellite rule for simple commands, UTF-8, and technical purity.
-- ⚠️ **[[Vices/VC-124|Hasty deprecation]]**: Mirror vice that avoids moving to `deprecated/` without analysis.
-- 🏷️ **[[Project_Insights/PI-020|Confidence Tags]]**: Every protocol claim must declare whether it is VERIFIED, INFERRED, or ASSUMED.
-- 🧪 **[[Project_Insights/PI-021|Semantic Wiki-Lint]]**: Detects contradictions, broken references, and mandates without binding.
-- 🧾 **[[Project_Insights/PI-022|Uncertainty list]]**: Documents the unverified so as not to feign certainty.
-- 🧭 **[[Project_Insights/PI-023|Dual-session awareness]]**: Verifies shared state before editing.
-- 🕸️ **[[Project_Insights/PI-024|Hub-based review]]**: Prioritizes high-impact nodes in the graph.
-- 🧷 **[[Project_Insights/PI-025|Exportable Retrospective]]**: Closes each session with a structured, persistent retrospective.
+- 🔧 **[[Project_Insights/PR-097|Execution Hygiene and Tooling]]**: Satellite rule for simple commands, UTF-8, and technical purity.
+- ⚠️ **[[Vices/VC-056|Hasty deprecation]]**: Mirror vice that avoids moving to `deprecated/` without analysis.
+- 🏷️ **[[Project_Insights/PR-098|Confidence Tags]]**: Every protocol claim must declare whether it is VERIFIED, INFERRED, or ASSUMED.
+- 🧪 **[[Project_Insights/PR-099|Semantic Wiki-Lint]]**: Detects contradictions, broken references, and mandates without binding.
+- 🧾 **[[Project_Insights/PR-100|Uncertainty list]]**: Documents the unverified so as not to feign certainty.
+- 🧭 **[[Project_Insights/PR-101|Dual-session awareness]]**: Verifies shared state before editing.
+- 🕸️ **[[Project_Insights/PR-102|Hub-based review]]**: Prioritizes high-impact nodes in the graph.
+- 🧷 **[[Project_Insights/PR-103|Exportable Retrospective]]**: Closes each session with a structured, persistent retrospective.
 - 💠 **[[Tokenomics_Index|Tokenomics Index]]**: Separate catalog of efficiency, headroom, and context management (`TK`).
 - 🗺️ **[[Tokenomics_Map|Tokenomics Map]]**: Bridge between the `TK` and `PI` lenses to navigate relations, gaps, and coverage.
 - 🔹 **[[Tokenomics/Memory_Headroom_Index|Memory and Headroom]]**: Checkpoints, handoff, persistence, and context margin.
@@ -41,8 +41,8 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 |---|---|---:|---|
 | Vibe Coding | `VC-xxx` | 86 | [[Vices_Index|Open index]] |
 | Testing & Evaluation | `VT-xxx` | 116 | [[Vices_Index|Open index]] |
-| Tokenomics | `TK-xxx` | 35 | [[Tokenomics_Index|Open index]] |
-| Project Insights | `PI-xxx` | 35 | [[Project_Insights_Index|Open index]] |
+| Tokenomics | `TK-xxx` | 34 | [[Tokenomics_Index|Open index]] |
+| Project Insights | `PI-xxx` | 113 | [[Project_Insights_Index|Open index]] |
 
 ---
 
@@ -52,8 +52,8 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 |---|---:|---|
 | `PROPOSED` | 124 | The entry is documented or audited, but no enforcing implementation exists in the catalog flow. |
 | `ENFORCED_EXTERNAL` | 100 | The guard exists in a downstream enforcing project. |
-| `ENFORCED_LOCAL` | 13 | The guard or remediation is enforced in this repository. |
-| `Total` | 237 | Sum of the VC, VT, and TK entries audited by the compiler. |
+| `ENFORCED_LOCAL` | 12 | The guard or remediation is enforced in this repository. |
+| `Total` | 236 | Sum of the VC, VT, and TK entries audited by the compiler. |
 
 ---
 
