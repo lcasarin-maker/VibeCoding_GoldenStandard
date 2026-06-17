@@ -53,8 +53,8 @@ def compute_metrics() -> dict:
         if str(it.get("detector", "")).strip():
             with_detector += 1
 
-    pi = yaml.safe_load((ROOT / "golden_standard_project_insights.yaml").read_text(encoding="utf-8"))
-    pi_count = len([k for k in pi.get("project_insights", {}) if str(k).startswith("PI-")])
+    pi = yaml.safe_load((ROOT / "golden_standard_principles.yaml").read_text(encoding="utf-8"))
+    pi_count = len([i for i in pi.get("items", []) if str(i.get("id", "")).startswith("PI-")])
 
     pct = lambda n: round(100 * n / total) if total else 0
     return {

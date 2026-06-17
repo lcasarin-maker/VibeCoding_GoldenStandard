@@ -14,13 +14,10 @@ Output control, compression, verbosity, and response budget.
 *   [[Tokenomics/TK-024|TK-024]] — **Summary without density** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-025|TK-025]] — **Verbose audit output** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-027|TK-027]] — **Lexical Compression of Diagnostics** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-029|TK-029]] — **Batch processing** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-030|TK-030]] — **Capability cascade** (DOC_ONLY, low, downstream:required)
 *   [[Tokenomics/TK-035|TK-035]] — **Thinking with the execution tool** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-036|TK-036]] — **Response without a mode** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-043|TK-043]] — **Entropy without pruning — input governance without output governance** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-044|TK-044]] — **Accumulated tokenomics debt (Cost Compounding)** (PREVENTED, medium, downstream:none)
-*   [[Tokenomics/TK-F03|TK-F03]] — **Excessive verbal output** (DOC_ONLY, low, downstream:required)
 
 ---
 

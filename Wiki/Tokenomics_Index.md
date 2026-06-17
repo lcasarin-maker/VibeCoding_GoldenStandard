@@ -27,8 +27,8 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 | Status | Entries |
 |---|---:|
 | `PREVENTED` / `REMEDIATED` | 35 |
-| `DOC_ONLY` / `AUDITED` | 12 |
-| `Total` | 47 |
+| `DOC_ONLY` / `AUDITED` | 0 |
+| `Total` | 35 |
 
 ---
 
@@ -42,17 +42,10 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 *   [[Tokenomics/TK-006|TK-006]] — **Manual history merge** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-007|TK-007]] — **Duplicated source of truth** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-008|TK-008]] — **Empirical memory segregation** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-009|TK-009]] — **Semantic pruning** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-010|TK-010]] — **Contextual retrieval** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-011|TK-011]] — **Structured delimiters** (DOC_ONLY, low, downstream:required)
 *   [[Tokenomics/TK-012|TK-012]] — **Exploration tax** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-013|TK-013]] — **Bloated tool schemas** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-014|TK-014]] — **Full read by default** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-015|TK-015]] — **Whole file for a specific question** (DOC_ONLY, low, downstream:required)
 *   [[Tokenomics/TK-016|TK-016]] — **Giant multi-objective prompt** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-017|TK-017]] — **Narrated permissions** (DOC_ONLY, low, downstream:required)
 *   [[Tokenomics/TK-018|TK-018]] — **Backlog mixed with the objective** (PREVENTED, medium, downstream:none)
-*   [[Tokenomics/TK-019|TK-019]] — **Hierarchical Dependency Skeleton** (DOC_ONLY, low, downstream:required)
 *   [[Tokenomics/TK-020|TK-020]] — **Output constraint** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-021|TK-021]] — **Prefilling** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-022|TK-022]] — **Example optimization** (PREVENTED, low, downstream:none)
@@ -62,8 +55,6 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 *   [[Tokenomics/TK-026|TK-026]] — **Noisy observability** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-027|TK-027]] — **Lexical Compression of Diagnostics** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-028|TK-028]] — **Stable context caching** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-029|TK-029]] — **Batch processing** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-030|TK-030]] — **Capability cascade** (DOC_ONLY, low, downstream:required)
 *   [[Tokenomics/TK-031|TK-031]] — **Context compaction** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-032|TK-032]] — **Cache cliff** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-033|TK-033]] — **No headroom** (PREVENTED, low, downstream:none)
@@ -78,9 +69,6 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 *   [[Tokenomics/TK-042|TK-042]] — **Manifests without a size constraint** (REMEDIATED, medium, downstream:none)
 *   [[Tokenomics/TK-043|TK-043]] — **Entropy without pruning — input governance without output governance** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-044|TK-044]] — **Accumulated tokenomics debt (Cost Compounding)** (PREVENTED, medium, downstream:none)
-*   [[Tokenomics/TK-F01|TK-F01]] — **Reprocessing stable context** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-F02|TK-F02]] — **Primitive context pruning** (DOC_ONLY, low, downstream:required)
-*   [[Tokenomics/TK-F03|TK-F03]] — **Excessive verbal output** (DOC_ONLY, low, downstream:required)
 
 ---
 ## Usage reference

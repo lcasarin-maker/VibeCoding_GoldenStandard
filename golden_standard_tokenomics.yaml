@@ -1,1373 +1,1153 @@
 format_version: 3.0
 catalog_name: tokenomics
 items:
-  - id: TK-F01
-    title: Reprocessing stable context
-    symptom: The same block is paid for or processed many times
-    cause: Unmodeled reuse
-    solution: Separate stable context from volatile context
-    status: DOC_ONLY
-    severity: low
-    tags:
-      - tokenomics
-      - doc-only
-    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
-      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
-      no automated test can discriminate this without human semantic judgment. Sprint
-      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    example_lang: python
-    example_bad: |
-      # The same stable block is resent on every call: paid for N times.
-      for q in questions:
-          call(model, system=BIG_STABLE_DOCS + q)     # no cache
-    example_good: |
-      # Mark the stable prefix as cacheable: paid for once.
-      call(model, system=[{"text": BIG_STABLE_DOCS, "cache_control": {"type": "ephemeral"}}, q])
-    detection: |
-      Repeated calls that resend the same stable prefix without prompt caching /
-      cache_control.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: specialist
-  - id: TK-F02
-    title: Primitive context pruning
-    symptom: Small tasks load entire documents
-    cause: Non-selective retrieval
-    solution: Extract only the relevant fragments
-    status: DOC_ONLY
-    severity: low
-    tags:
-      - tokenomics
-      - doc-only
-    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
-      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
-      no automated test can discriminate this without human semantic judgment. Sprint
-      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    example_lang: python
-    example_bad: |
-      # Tiny task that loads the entire document.
-      ctx = open("manual_500p.md").read()
-      answer = call(model, ctx + "what is the retry limit?")
-    example_good: |
-      # Retrieve only the relevant fragment.
-      ctx = retrieve("manual_500p.md", query="retry limit", k=1)
-      answer = call(model, ctx + "...")
-    detection: |
-      Loading entire documents for localized queries instead of retrieving the
-      relevant fragments.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: specialist
-  - id: TK-F03
-    title: Excessive verbal output
-    symptom: Preambles, explanations, and closings add no value
-    cause: Missing output budget
-    solution: Constrain output format and length
-    status: DOC_ONLY
-    severity: low
-    tags:
-      - tokenomics
-      - doc-only
-    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
-      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
-      no automated test can discriminate this without human semantic judgment. Sprint
-      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    example_lang: text
-    example_bad: |
-      # Prompt with no output budget -> useless preambles and closings.
-      "Explain why and then give me the JSON"   -> 600 tokens of prose + JSON
-    example_good: |
-      # Constrain the output format and length.
-      "Respond ONLY with the JSON, no additional text."   -> ~40 tokens
-    detection: |
-      Outputs with preamble/explanation/closing when the task only requires the
-      datum; absence of format or length constraints.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: specialist
-  - id: TK-001
-    title: Missing checkpoint
-    symptom: A new session restarts everything
-    cause: Ephemeral state
-    solution: Close with a physical or logical summary
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Close each session with a durable checkpoint so a new session does not restart from zero; the canonical checkpoint guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # A new session restarts everything: state is re-explained from scratch.
-    example_good: |
-      # Close with a physical checkpoint (STATUS.md) to resume without rebuilding.
-    detection: |
-      Sessions that start without a reusable prior closing checkpoint.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-002
-    title: Chat memory as the primary source
-    symptom: Switching threads loses state
-    cause: Non-external persistence
-    solution: Keep state outside the chat
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Keep authoritative state outside the chat so switching threads does not lose it; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # State lives in the chat thread; switching threads loses it.
-    example_good: |
-      # State outside the chat (STATUS.md) as the primary source.
-    detection: |
-      Using chat memory as the source of truth for state instead of an external artifact.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-003
-    title: Project switch without closure
-    symptom: Contexts become contaminated
-    cause: Blurry task boundary
-    solution: Checkpoint before changing objective
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Checkpoint before changing objective so contexts do not contaminate each other; the canonical checkpoint guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # The objective changes without closing; contexts become contaminated.
-    example_good: |
-      # Checkpoint the current project before changing objective.
-    detection: |
-      Objective/project switch without a closing checkpoint of the previous one.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-004
-    title: Re-explained setup
-    symptom: Each session spends tokens rebuilding the environment
-    cause: Non-externalized preconditions
-    solution: Keep a minimal boot and health sheet
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Keep a minimal boot-and-health sheet so each session does not spend tokens rebuilding the environment; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # Each session spends tokens re-explaining how to start the environment.
-    example_good: |
-      # Minimal boot sheet (BOOT.md): commands, ports, health.
-    detection: |
-      Rebuilding the environment setup every session instead of a stable boot sheet.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-005
-    title: Prose-heavy handoff
-    symptom: Continuity requires reading the full history
-    cause: Non-normalized state
-    solution: 'Atomic handoff: objective, state, evidence, risks, next action'
-    status: PREVENTED
-    severity: medium
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Session handoff state must use structured sections rather than free prose so it is machine-parseable; a test fails on unstructured handoff.
-    validating_mechanism: runtime-test
-    enforcement:
-      cerberus:
-        dimension: D10
-        mechanism: test_tk005_status_md_has_required_sections
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # Long-prose handoff: continuing requires reading the entire history.
-    example_good: |
-      # Atomic handoff: objective | state | evidence | risks | next action.
-    detection: |
-      Handoffs in extensive prose without an atomic structure of key fields.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-006
-    title: Manual history merge
-    symptom: Resolving a conflict consumes excessive context
-    cause: Non-semantic memory
-    solution: Merge by decisions and invariants, not by raw text
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Merge context by decisions and invariants rather than raw text so conflict resolution does not burn context; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # Resolve the history conflict by re-reading all the raw text.
-    example_good: |
-      # Merge by decisions and invariants, not line-by-line text.
-    detection: |
-      Merging history/state by raw text instead of by decisions and invariants.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-007
-    title: Duplicated source of truth
-    symptom: Contradictory copies are re-read
-    cause: Canonical state not defined
-    solution: Consult one canonical core and archive copies as evidence
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Consult one canonical core and archive copies as evidence so contradictory duplicates are not re-read; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # Two contradictory copies of the state are re-read over and over.
-    example_good: |
-      # One canonical core; copies are archived as evidence, not consulted.
-    detection: |
-      Multiple sources of truth that force re-reading contradictory copies.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-008
-    title: Empirical memory segregation
-    symptom: Redundant reprocessing of stable specifications
-    cause: Confusion between logical invariants and session variables
-    solution: Separate guidelines into an Immutable Core and compact the
-      Transitional Buffer
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Separate stable guidelines into an immutable core and compact the transitional buffer so stable specs are not reprocessed; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # Stable specifications are reprocessed on every turn.
-    example_good: |
-      # Separate Immutable Core (stable) and compact the Transitional Buffer (volatile).
-    detection: |
-      Reprocessing stable guidelines alongside volatile context without segregating memory.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-009
-    title: Semantic pruning
-    symptom: Entire files saturate the prompt
-    cause: Retrieval by document, not by need
-    solution: Extract the relevant sections
-    status: DOC_ONLY
-    severity: low
-    tags:
-      - tokenomics
-      - doc-only
-    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
-      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
-      no automated test can discriminate this without human semantic judgment. Sprint
-      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    example_lang: python
-    example_bad: |
-      ctx = "\n".join(open(f).read() for f in all_files)   # saturates the prompt
-    example_good: |
-      ctx = "\n".join(extract_relevant(f, task) for f in candidate_files)
-    detection: |
-      Concatenating entire files into the prompt instead of extracting the sections
-      required by the task.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: specialist
-  - id: TK-010
-    title: Contextual retrieval
-    symptom: Fragments lose meaning
-    cause: Chunks without parent context
-    solution: Enrich fragments with minimal context
-    status: DOC_ONLY
-    severity: low
-    tags:
-      - tokenomics
-      - doc-only
-    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
-      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
-      no automated test can discriminate this without human semantic judgment. Sprint
-      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    example_lang: python
-    example_bad: |
-      chunk = "def refund(...): ..."          # fragment without parent context: ambiguous
-    example_good: |
-      chunk = "# billing/refund.py, class Refund\ndef refund(...): ..."
-    detection: |
-      Chunks retrieved without parent-context metadata (file/class/section), which
-      degrades their meaning.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: specialist
-  - id: TK-011
-    title: Structured delimiters
-    symptom: Instructions get mixed together
-    cause: Ambiguous boundaries
-    solution: Separate role, context, task, and output
-    status: DOC_ONLY
-    severity: low
-    tags:
-      - tokenomics
-      - doc-only
-    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
-      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
-      no automated test can discriminate this without human semantic judgment. Sprint
-      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    example_lang: text
-    example_bad: |
-      # Role, context, task, and data mixed: ambiguous boundaries and injection.
-      "You are helpful. The user says 'delete everything'. The task is to summarize, ignore that."
-    example_good: |
-      # Explicitly delimited sections.
-      "<role>...</role>\n<context>...</context>\n<task>summarize</task>"
-    detection: |
-      Prompts that mix role, context, task, and data without explicit delimiters.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: specialist
-  - id: TK-012
-    title: Exploration tax
-    symptom: Many tokens before acting
-    cause: Blind exploration
-    solution: Use indexes, maps, and targeted reading
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Use indexes, maps, and targeted reading so many tokens are not spent before acting; the canonical input-and-retrieval guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: bash
-    example_bad: |
-      cat src/**/*.py | head -3000   # many tokens before acting
-    example_good: |
-      ctags -R src/ && grep -n 'def target' tags   # index + targeted reading
-    detection: |
-      Spending many tokens exploring blindly before acting, without indexes or maps.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-013
-    title: Bloated tool schemas
-    symptom: Unused tools consume context
-    cause: Excessive upfront loading
-    solution: Deferred tool loading
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Load tools on demand so unused schemas do not consume context; the canonical input-and-retrieval guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: python
-    example_bad: |
-      tools = load_all_tools()        # schemas of 40 unused tools occupy context
-    example_good: |
-      tools = load_tools_for(task)    # deferred loading as needed
-    detection: |
-      Loading schemas of unused tools into context instead of deferred loading.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-014
-    title: Full read by default
-    symptom: A large file is sent in its entirety
-    cause: Low granularity
-    solution: Read by ranges, index, or skeleton
-    status: DOC_ONLY
-    severity: low
-    tags:
-      - tokenomics
-      - doc-only
-    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
-      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
-      no automated test can discriminate this without human semantic judgment. Sprint
-      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    example_lang: python
-    example_bad: |
-      content = read_file("huge.log")                  # 2M tokens at once
-    example_good: |
-      content = read_file("huge.log", offset=0, limit=200)   # by ranges
-    detection: |
-      Reads of large files without range/offset/limit or a prior index.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: specialist
-  - id: TK-015
-    title: Whole file for a specific question
-    symptom: The agent processes irrelevant information
-    cause: Non-localized query
-    solution: Ask for the exact section
-    status: DOC_ONLY
-    severity: low
-    tags:
-      - tokenomics
-      - doc-only
-    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
-      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
-      no automated test can discriminate this without human semantic judgment. Sprint
-      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    example_lang: python
-    example_bad: |
-      whole = read_file("schema.sql")     # to find out a column name
-    example_good: |
-      hit = grep("price", "schema.sql")   # ask for the exact section
-    detection: |
-      Loading the entire file for a specific query instead of searching for the exact
-      section.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: specialist
-  - id: TK-016
-    title: Giant multi-objective prompt
-    symptom: The model splits its attention
-    cause: Objective overload
-    solution: One concrete task per cycle
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Pursue one concrete task per cycle so attention is not split across objectives; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # One prompt asks for refactor + tests + docs + deploy at once.
-    example_good: |
-      # One concrete task per cycle; the model does not split attention.
-    detection: |
-      Multi-objective prompts that scatter attention instead of one task per cycle.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-017
-    title: Narrated permissions
-    symptom: Long policies are repeated in prompts
-    cause: Unstructured authorization
-    solution: Represent permissions as a queryable matrix
-    status: DOC_ONLY
-    severity: low
-    tags:
-      - tokenomics
-      - doc-only
-    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
-      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
-      no automated test can discriminate this without human semantic judgment. Sprint
-      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    example_lang: text
-    example_bad: |
-      # Permission policy narrated in prose, repeated in every prompt.
-      "The admin role can do X but not Y; the reader role only Z; the auditor role..."
-    example_good: |
-      # Queryable matrix; the prompt references, does not narrate.
-      permissions[role][action] -> allow | deny
-    detection: |
-      Authorization policies narrated in prose inside prompts instead of a
-      queryable matrix/table.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: specialist
-  - id: TK-018
-    title: Backlog mixed with the objective
-    symptom: Side ideas occupy the active window
-    cause: Prioritization not separated
-    solution: Send side findings to an external queue
-    status: PREVENTED
-    severity: medium
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      The backlog must be externalized to a durable machine-readable store rather than living only in chat; a test verifies the external backlog artifact exists.
-    validating_mechanism: runtime-test
-    enforcement:
-      cerberus:
-        dimension: D10
-        mechanism: test_tk018_external_backlog_exists
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # Side ideas accumulate in the objective's active window.
-    example_good: |
-      # Side findings -> external queue (backlog); the window stays for the objective.
-    detection: |
-      Backlog/side ideas mixed with the objective in the active window.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-019
-    title: Hierarchical Dependency Skeleton
-    symptom: High consumption from blind exploration of directories or large
-      files
-    cause: Low read granularity and lack of prior contextual maps
-    solution: Use semantic indexes and skeletons to direct surgical queries
-    status: DOC_ONLY
-    severity: low
-    tags:
-      - tokenomics
-      - doc-only
-    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
-      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
-      no automated test can discriminate this without human semantic judgment. Sprint
-      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    example_lang: bash
-    example_bad: |
-      # Blind exploration: read the whole tree to get oriented.
-      cat src/**/*.py | head -5000
-    example_good: |
-      # Skeleton/index first; surgical query afterward.
-      ctags -R src/ && grep -n "def refund" tags
-    detection: |
-      Directory exploration by reading entire files without a prior semantic
-      index/skeleton.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: specialist
-  - id: TK-020
-    title: Output constraint
-    symptom: Long responses by default
-    cause: Unbounded output space
-    solution: Define a budget and format
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Define an output budget and format so responses are not long by default; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # "Explain in detail..." -> long responses by default.
-    example_good: |
-      # Define an explicit output budget and format.
-    detection: |
-      Output with no defined budget or format, long by default.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-021
-    title: Prefilling
-    symptom: Variable format
-    cause: Wide output distribution
-    solution: Predefine the start and structure
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Predefine the start and structure of responses so the format is not variable; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: python
-    example_bad: |
-      resp = call(model, prompt)              # variable output format
-    example_good: |
-      resp = call(model, prompt, prefill="{\"result\":")  # predefined structure
-    detection: |
-      Output without prefilling/predefined structure when the format must be stable.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-022
-    title: Example optimization
-    symptom: Redundant few-shot
-    cause: Unnecessary repetition
-    solution: Use minimal, diverse, and dense examples
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Use minimal, diverse, dense examples so few-shot context is not redundant; the canonical input-and-retrieval guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # 12 nearly identical few-shot examples saturate the prompt.
-    example_good: |
-      # A few minimal, diverse, and dense examples.
-    detection: |
-      Redundant few-shot (similar examples) instead of a few diverse, dense ones.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-023
-    title: Raw logs
-    symptom: Command output saturates the context
-    cause: Operational noise
-    solution: Compress or filter before handing off to the agent
-    status: REMEDIATED
-    severity: medium
-    tags:
-      - tokenomics
-      - remediated
-    action: |
-      Long-running background loops and orchestrators must route output through a compression/throttling layer; static analysis flags scripts that do not wrap execution in an output compressor.
-    validating_mechanism: static-ast
-    enforcement:
-      cerberus:
-        dimension: D10
-        mechanism: audit_d10_tokenomics
-    downstream_verification: none
-    example_lang: bash
-    example_bad: |
-      pytest -v                       # dumps thousands of raw lines into the context
-    example_good: |
-      pytest -q | tail -20            # filter/compress before handing off to the agent
-    detection: |
-      Raw command output dumped into the context without filtering or compression.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-024
-    title: Summary without density
-    symptom: Compaction loses decisions
-    cause: Compression without invariants
-    solution: Preserve critical facts, decisions, and next steps
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Preserve critical facts, decisions, and next steps so compaction does not lose them; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # The closing summary omits the decisions and next steps.
-    example_good: |
-      # Compact while preserving critical facts, decisions, and next steps.
-    detection: |
-      Compaction/summary that loses critical decisions and next steps.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-025
-    title: Verbose audit output
-    symptom: The finding is lost in the noise
-    cause: Low information density
-    solution: Report findings, evidence, and action
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Report finding, evidence, and action so the signal is not lost in noise; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # The audit finding is lost among filler paragraphs.
-    example_good: |
-      # Report: finding | evidence | action. No filler.
-    detection: |
-      Verbose audit reports where the finding is diluted in noise.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-026
-    title: Noisy observability
-    symptom: Extensive logs push out the problem
-    cause: Signal not prioritized
-    solution: Log a causal summary and retain detail on demand
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Log a causal summary and retain detail on demand so extensive logs do not push out the problem; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # Extensive logs push the problem out of the window.
-    example_good: |
-      # Causal summary in context; detail on demand.
-    detection: |
-      Noisy observability that pushes out the problem instead of a causal summary.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-027
-    title: Lexical Compression of Diagnostics
-    symptom: Context loss from verbose, repetitive error traces
-    cause: Blind truncation of history from exceeding physical limits
-    solution: Apply lexical-redundancy filters (controlled elision) to
-      execution-environment traces
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Apply controlled lexical-redundancy filtering to execution traces so verbose, repetitive errors do not cost context; the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # Repetitive error traces (same frame x500) saturate the context.
-    example_good: |
-      # Controlled elision of lexical redundancy in the traces.
-    detection: |
-      Verbose/repetitive error traces without lexical compression (elision).
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-028
-    title: Stable context caching
-    symptom: Recurring reprocessing
-    cause: Stable memory not separated
-    solution: Mark reusable blocks and avoid reloading
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Mark reusable blocks and avoid reloading them so stable context is not reprocessed; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: python
-    example_bad: |
-      call(model, system=STABLE_SPEC + turn)   # the stable block is reprocessed
-    example_good: |
-      call(model, system=[{"text": STABLE_SPEC, "cache_control": {"type":"ephemeral"}}, turn])
-    detection: |
-      Reusable blocks not marked as cacheable, reprocessed on every turn.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-029
-    title: Batch processing
-    symptom: Deferrable tasks run one at a time
-    cause: Lack of grouping
-    solution: Group non-interactive work
-    status: DOC_ONLY
-    severity: low
-    tags:
-      - tokenomics
-      - doc-only
-    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
-      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
-      no automated test can discriminate this without human semantic judgment. Sprint
-      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    example_lang: python
-    example_bad: |
-      for doc in docs:            # 1000 deferrable interactive calls
-          summarize(doc)
-    example_good: |
-      batch_submit([summarize_job(doc) for doc in docs])   # batch API, non-interactive
-    detection: |
-      Deferrable, homogeneous tasks run one at a time instead of grouped in a batch.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: specialist
-  - id: TK-030
-    title: Capability cascade
-    symptom: Maximum capacity is used for everything
-    cause: Inefficient resource allocation
-    solution: Choose the minimum sufficient capacity
-    status: DOC_ONLY
-    severity: low
-    tags:
-      - tokenomics
-      - doc-only
-    action: 'Behavioral/doctrinal tokenomics vice — not statically falsifiable in
-      a generic way. Documented in the Golden Standard catalogs as governance knowledge;
-      no automated test can discriminate this without human semantic judgment. Sprint
-      3.4 triage: reclassified from AUDITED/test_d10_tokenomics to DOC_ONLY.'
-    validating_mechanism: DOC_ONLY
-    downstream_verification: required
-    example_lang: python
-    example_bad: |
-      answer = call(OPUS, "format this date")     # maximum capacity for something trivial
-    example_good: |
-      answer = call(HAIKU, "format this date")    # minimum sufficient capacity
-    detection: |
-      Using the most expensive model for trivial tasks; no routing by complexity.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: specialist
-  - id: TK-031
-    title: Context compaction
-    symptom: A long session degrades
-    cause: Saturated finite window
-    solution: Summarize state and restart with continuity
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Summarize state and restart with continuity so a long session does not degrade; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # Long session: quality degrades from excess context.
-    example_good: |
-      # Summarize the state and restart with continuity (compaction).
-    detection: |
-      Long sessions without periodic compaction that degrade quality.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-032
-    title: Cache cliff
-    symptom: Pauses invalidate the cache benefit
-    cause: TTL ignored
-    solution: Manage resumption and checkpoints
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Manage resumption and checkpoints so pauses do not invalidate the cache benefit; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # A long pause invalidates the cache and everything is paid for again.
-    example_good: |
-      # Manage resumption and checkpoints to avoid falling off the cache cliff.
-    detection: |
-      Pauses that invalidate the cache benefit without resumption management.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-033
-    title: No headroom
-    symptom: Context collapses silently
-    cause: Margin not reserved
-    solution: Keep a budget with a safety zone
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Keep a context budget with a safety zone so context does not collapse silently; the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # The context collapses abruptly when it fills up, without warning.
-    example_good: |
-      # Keep a budget with a safety zone (headroom).
-    detection: |
-      Operating without headroom: the context collapses silently when saturated.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-034
-    title: Invisible rollback cost
-    symptom: Fix/revert loops consume the session
-    cause: Unmeasured rework
-    solution: Record the rollback cost
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Record the cost of fix/revert loops so it does not silently consume the session; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # Fix/revert loops consume the session without recording their cost.
-    example_good: |
-      # Record the rollback cost to make it visible.
-    detection: |
-      Invisible rollback (fix/revert) cost, without telemetry to record it.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-035
-    title: Thinking with the execution tool
-    symptom: Expensive context is used to decide
-    cause: Incorrect routing
-    solution: Separate thinking, executing, and reviewing
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Separate thinking, executing, and reviewing so expensive execution context is not spent deciding; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # The expensive execution context is used to deliberate decisions.
-    example_good: |
-      # Separate thinking / executing / reviewing into distinct spaces.
-    detection: |
-      Deliberating using the expensive execution context instead of separating phases.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-036
-    title: Response without a mode
-    symptom: The agent does not know whether to think or execute
-    cause: Unclassified intent
-    solution: 'Route by phase: think, execute, review'
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Route work by phase - think, execute, review - so the agent knows its mode; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # The agent does not know whether to think or execute; it mixes both.
-    example_good: |
-      # Route by explicit phase: think -> execute -> review.
-    detection: |
-      Responses without a declared mode (think vs execute vs review).
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-037
-    title: Forgettable manual monitoring
-    symptom: The user counts messages
-    cause: Fragile human control
-    solution: Visible and automatable thresholds
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Make thresholds visible and automatable so the user does not manually count messages; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # The user counts messages by hand to know when to compact.
-    example_good: |
-      # Visible and automatable thresholds for context usage.
-    detection: |
-      Manual/forgettable context monitoring instead of visible thresholds.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-038
-    title: Full-state re-reading
-    symptom: Each turn drags everything along
-    cause: Non-indexed state
-    solution: Keep small state fields
-    status: REMEDIATED
-    severity: medium
-    tags:
-      - tokenomics
-      - remediated
-    action: |
-      Core memory manifests must stay under fixed line budgets so context is not saturated; a static size gate fails when a manifest exceeds its budget.
-    validating_mechanism: static-ast
-    enforcement:
-      cerberus:
-        dimension: D10
-        mechanism: audit_d10_tokenomics
-    downstream_verification: none
-    example_lang: python
-    example_bad: |
-      ctx = read_full_state()         # each turn drags the full state along
-    example_good: |
-      ctx = read_state_fields(['goal','blockers'])   # small fields
-    detection: |
-      Re-reading the full state every turn instead of small fields.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-039
-    title: Non-integrated external tools
-    symptom: Strategies exist but do not operate
-    cause: Phantom script
-    solution: Every optimization must be on the active path
-    status: REMEDIATED
-    severity: medium
-    tags:
-      - tokenomics
-      - remediated
-    action: |
-      Every script path cited in the authority/budget docs must exist on disk; a static reference check fails on dangling citations (spectral scripts).
-    validating_mechanism: static-regex
-    enforcement:
-      cerberus:
-        dimension: D10
-        mechanism: audit_d10_tokenomics
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # Savings strategies exist but are not on the active path.
-    example_good: |
-      # Every optimization must be wired into the flow that runs.
-    detection: |
-      Optimization tools/strategies that exist but are not integrated into the active path.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-040
-    title: Promised savings not measured
-    symptom: A reduction is declared without telemetry
-    cause: Missing metric
-    solution: Measure before and after
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Measure token usage before and after so a reduction is not merely declared; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # "We reduced tokens by 40%" declared without telemetry.
-    example_good: |
-      # Measure before and after; savings are proven, not asserted.
-    detection: |
-      Token savings declared without telemetry to measure it before/after.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-041
-    title: Invisible quotas
-    symptom: The session is cut off by unbudgeted limits
-    cause: Unaccounted external resource
-    solution: Include limits, backoff, and degradation in the plan
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Plan for limits, backoff, and degradation so the session is not cut off by unbudgeted quotas; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # The session is cut off by unbudgeted quota limits.
-    example_good: |
-      # Include limits, backoff, and degradation in the plan.
-    detection: |
-      Unbudgeted quotas/limits that cut off the session by surprise.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unstructured context consumes 3-5x more tokens; selective retrieval,
-          caching, and compaction are the central levers."
-    tier: extended
-  - id: TK-042
-    title: Manifests without a size constraint
-    alias_of: TK-038
-  - id: TK-043
-    title: Entropy without pruning — input governance without output governance
-    symptom: 'The system validates what comes IN (anti-junk-code, large-file, gates)
-      but nothing hunts what must go OUT: refactors leave residue (dead imports/params,
-      backups, phantom scripts, duplicate docs, orphan IDs in the catalog)
-      that the gate approves just for existing'
-    cause: Letter-of-the-law validation (`Path.exists`) instead of relevance;
-      append-only culture; no retention policy or owner for the cleanup
-    solution: Hunt orphans as a GATE (dead-code/vulture, allowlist without
-      a file, dirs without retention, duplicate-purpose docs); REPLACE =
-      `rm` + create in the same commit
-    status: PREVENTED
-    severity: low
-    tags:
-      - tokenomics
-      - prevented
-    action: |
-      Govern output as strictly as input by hunting orphans and dead artifacts as a gate, not only blocking junk on the way in; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
-    validating_mechanism: runtime-test
-    enforcement:
-      golden_standard:
-        mechanism: "catalog/wiki link check"
-    downstream_verification: none
-    example_lang: bash
-    example_bad: |
-      # The refactor leaves residue; the gate approves because the file 'exists'.
-      git mv old.py new.py        # dead old import, backup, and duplicate doc stay alive
-    example_good: |
-      # Replace = delete + create in the SAME commit; hunt orphans as a gate.
-      vulture src/ && git rm old.py backups/old.py docs/old.md && git add new.py
-    detection: |
-      Output gate: dead-code (vulture), allowlists without a file, directories without
-      a retention policy, and duplicate-purpose docs; fails if a refactor leaves residue.
-    evidence:
-      - source: "vexp.dev / HumanLayer ACE"
-        claim: "unpruned residue inflates context and cost; output governance is
-          as necessary as input governance."
-    tier: extended
-  - id: TK-044
-    title: Accumulated tokenomics debt (Cost Compounding)
-    symptom: |
-      The per-session cost grows silently because it is never compacted or measured; long sessions pay 3-5x more tokens than structured work.
-    cause: |
-      Without periodic compaction or cost telemetry, the context grows monotonically and each turn drags along the entire history.
-    solution: |
-      Compact at usage thresholds, measure the per-session cost, and operate with a budget and alerts.
-    status: PREVENTED
-    severity: medium
-    tags:
-      - tokenomics
-      - prevented-mechanically
-    action: |
-      Per-session token accumulation must be bounded; when output exceeds the efficiency budget, execution is blocked and compaction forced.
-    validating_mechanism: runtime-test
-    enforcement:
-      cerberus:
-        dimension: D10
-        mechanism: _check_and_flag_compact
-    downstream_verification: none
-    example_lang: text
-    example_bad: |
-      # 4-hour session without compacting; the context reaches 95% and the cost skyrockets.
-    example_good: |
-      # Compaction at thresholds + budget with alerts + per-session cost telemetry.
-    detection: |
-      Long sessions without compaction events or cost telemetry; monotonic context growth. Related to TK-031 (compaction) and TK-040 (unmeasured savings).
-    evidence:
-      - source: "vexp.dev"
-        claim: "unstructured vibe coding costs ~3-5x more (~$300-450/month vs ~$90-135/month
-          structured)."
-    tier: extended
+- id: TK-001
+  title: Missing checkpoint
+  symptom: A new session restarts everything
+  cause: Ephemeral state
+  solution: Close with a physical or logical summary
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Close each session with a durable checkpoint so a new session does not restart from zero; the canonical checkpoint
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# A new session restarts everything: state is re-explained from scratch.
+
+    '
+  example_good: '# Close with a physical checkpoint (STATUS.md) to resume without rebuilding.
+
+    '
+  detection: 'Sessions that start without a reusable prior closing checkpoint.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-002
+  title: Chat memory as the primary source
+  symptom: Switching threads loses state
+  cause: Non-external persistence
+  solution: Keep state outside the chat
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Keep authoritative state outside the chat so switching threads does not lose it; the canonical memory-and-headroom
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# State lives in the chat thread; switching threads loses it.
+
+    '
+  example_good: '# State outside the chat (STATUS.md) as the primary source.
+
+    '
+  detection: 'Using chat memory as the source of truth for state instead of an external artifact.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-003
+  title: Project switch without closure
+  symptom: Contexts become contaminated
+  cause: Blurry task boundary
+  solution: Checkpoint before changing objective
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Checkpoint before changing objective so contexts do not contaminate each other; the canonical checkpoint guidance
+    must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# The objective changes without closing; contexts become contaminated.
+
+    '
+  example_good: '# Checkpoint the current project before changing objective.
+
+    '
+  detection: 'Objective/project switch without a closing checkpoint of the previous one.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-004
+  title: Re-explained setup
+  symptom: Each session spends tokens rebuilding the environment
+  cause: Non-externalized preconditions
+  solution: Keep a minimal boot and health sheet
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Keep a minimal boot-and-health sheet so each session does not spend tokens rebuilding the environment; the canonical
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# Each session spends tokens re-explaining how to start the environment.
+
+    '
+  example_good: '# Minimal boot sheet (BOOT.md): commands, ports, health.
+
+    '
+  detection: 'Rebuilding the environment setup every session instead of a stable boot sheet.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-005
+  title: Prose-heavy handoff
+  symptom: Continuity requires reading the full history
+  cause: Non-normalized state
+  solution: 'Atomic handoff: objective, state, evidence, risks, next action'
+  status: PREVENTED
+  severity: medium
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Session handoff state must use structured sections rather than free prose so it is machine-parseable; a test fails
+    on unstructured handoff.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D10
+      mechanism: test_tk005_status_md_has_required_sections
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# Long-prose handoff: continuing requires reading the entire history.
+
+    '
+  example_good: '# Atomic handoff: objective | state | evidence | risks | next action.
+
+    '
+  detection: 'Handoffs in extensive prose without an atomic structure of key fields.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-006
+  title: Manual history merge
+  symptom: Resolving a conflict consumes excessive context
+  cause: Non-semantic memory
+  solution: Merge by decisions and invariants, not by raw text
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Merge context by decisions and invariants rather than raw text so conflict resolution does not burn context; the
+    canonical guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# Resolve the history conflict by re-reading all the raw text.
+
+    '
+  example_good: '# Merge by decisions and invariants, not line-by-line text.
+
+    '
+  detection: 'Merging history/state by raw text instead of by decisions and invariants.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-007
+  title: Duplicated source of truth
+  symptom: Contradictory copies are re-read
+  cause: Canonical state not defined
+  solution: Consult one canonical core and archive copies as evidence
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Consult one canonical core and archive copies as evidence so contradictory duplicates are not re-read; the canonical
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# Two contradictory copies of the state are re-read over and over.
+
+    '
+  example_good: '# One canonical core; copies are archived as evidence, not consulted.
+
+    '
+  detection: 'Multiple sources of truth that force re-reading contradictory copies.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-008
+  title: Empirical memory segregation
+  symptom: Redundant reprocessing of stable specifications
+  cause: Confusion between logical invariants and session variables
+  solution: Separate guidelines into an Immutable Core and compact the Transitional Buffer
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Separate stable guidelines into an immutable core and compact the transitional buffer so stable specs are not reprocessed;
+    the canonical memory-and-headroom guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# Stable specifications are reprocessed on every turn.
+
+    '
+  example_good: '# Separate Immutable Core (stable) and compact the Transitional Buffer (volatile).
+
+    '
+  detection: 'Reprocessing stable guidelines alongside volatile context without segregating memory.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-012
+  title: Exploration tax
+  symptom: Many tokens before acting
+  cause: Blind exploration
+  solution: Use indexes, maps, and targeted reading
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Use indexes, maps, and targeted reading so many tokens are not spent before acting; the canonical input-and-retrieval
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: bash
+  example_bad: 'cat src/**/*.py | head -3000   # many tokens before acting
+
+    '
+  example_good: 'ctags -R src/ && grep -n ''def target'' tags   # index + targeted reading
+
+    '
+  detection: 'Spending many tokens exploring blindly before acting, without indexes or maps.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-013
+  title: Bloated tool schemas
+  symptom: Unused tools consume context
+  cause: Excessive upfront loading
+  solution: Deferred tool loading
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Load tools on demand so unused schemas do not consume context; the canonical input-and-retrieval guidance must
+    stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: python
+  example_bad: 'tools = load_all_tools()        # schemas of 40 unused tools occupy context
+
+    '
+  example_good: 'tools = load_tools_for(task)    # deferred loading as needed
+
+    '
+  detection: 'Loading schemas of unused tools into context instead of deferred loading.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-016
+  title: Giant multi-objective prompt
+  symptom: The model splits its attention
+  cause: Objective overload
+  solution: One concrete task per cycle
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Pursue one concrete task per cycle so attention is not split across objectives; the canonical guidance must stay
+    published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# One prompt asks for refactor + tests + docs + deploy at once.
+
+    '
+  example_good: '# One concrete task per cycle; the model does not split attention.
+
+    '
+  detection: 'Multi-objective prompts that scatter attention instead of one task per cycle.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-018
+  title: Backlog mixed with the objective
+  symptom: Side ideas occupy the active window
+  cause: Prioritization not separated
+  solution: Send side findings to an external queue
+  status: PREVENTED
+  severity: medium
+  tags:
+  - tokenomics
+  - prevented
+  action: 'The backlog must be externalized to a durable machine-readable store rather than living only in chat; a test verifies
+    the external backlog artifact exists.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D10
+      mechanism: test_tk018_external_backlog_exists
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# Side ideas accumulate in the objective''s active window.
+
+    '
+  example_good: '# Side findings -> external queue (backlog); the window stays for the objective.
+
+    '
+  detection: 'Backlog/side ideas mixed with the objective in the active window.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-020
+  title: Output constraint
+  symptom: Long responses by default
+  cause: Unbounded output space
+  solution: Define a budget and format
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Define an output budget and format so responses are not long by default; the canonical output-and-compaction guidance
+    must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# "Explain in detail..." -> long responses by default.
+
+    '
+  example_good: '# Define an explicit output budget and format.
+
+    '
+  detection: 'Output with no defined budget or format, long by default.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-021
+  title: Prefilling
+  symptom: Variable format
+  cause: Wide output distribution
+  solution: Predefine the start and structure
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Predefine the start and structure of responses so the format is not variable; the canonical output-and-compaction
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: python
+  example_bad: 'resp = call(model, prompt)              # variable output format
+
+    '
+  example_good: 'resp = call(model, prompt, prefill="{\"result\":")  # predefined structure
+
+    '
+  detection: 'Output without prefilling/predefined structure when the format must be stable.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-022
+  title: Example optimization
+  symptom: Redundant few-shot
+  cause: Unnecessary repetition
+  solution: Use minimal, diverse, and dense examples
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Use minimal, diverse, dense examples so few-shot context is not redundant; the canonical input-and-retrieval guidance
+    must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# 12 nearly identical few-shot examples saturate the prompt.
+
+    '
+  example_good: '# A few minimal, diverse, and dense examples.
+
+    '
+  detection: 'Redundant few-shot (similar examples) instead of a few diverse, dense ones.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-023
+  title: Raw logs
+  symptom: Command output saturates the context
+  cause: Operational noise
+  solution: Compress or filter before handing off to the agent
+  status: REMEDIATED
+  severity: medium
+  tags:
+  - tokenomics
+  - remediated
+  action: 'Long-running background loops and orchestrators must route output through a compression/throttling layer; static
+    analysis flags scripts that do not wrap execution in an output compressor.
+
+    '
+  validating_mechanism: static-ast
+  enforcement:
+    cerberus:
+      dimension: D10
+      mechanism: audit_d10_tokenomics
+  downstream_verification: none
+  example_lang: bash
+  example_bad: 'pytest -v                       # dumps thousands of raw lines into the context
+
+    '
+  example_good: 'pytest -q | tail -20            # filter/compress before handing off to the agent
+
+    '
+  detection: 'Raw command output dumped into the context without filtering or compression.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-024
+  title: Summary without density
+  symptom: Compaction loses decisions
+  cause: Compression without invariants
+  solution: Preserve critical facts, decisions, and next steps
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Preserve critical facts, decisions, and next steps so compaction does not lose them; the canonical output-and-compaction
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# The closing summary omits the decisions and next steps.
+
+    '
+  example_good: '# Compact while preserving critical facts, decisions, and next steps.
+
+    '
+  detection: 'Compaction/summary that loses critical decisions and next steps.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-025
+  title: Verbose audit output
+  symptom: The finding is lost in the noise
+  cause: Low information density
+  solution: Report findings, evidence, and action
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Report finding, evidence, and action so the signal is not lost in noise; the canonical output-and-compaction guidance
+    must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# The audit finding is lost among filler paragraphs.
+
+    '
+  example_good: '# Report: finding | evidence | action. No filler.
+
+    '
+  detection: 'Verbose audit reports where the finding is diluted in noise.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-026
+  title: Noisy observability
+  symptom: Extensive logs push out the problem
+  cause: Signal not prioritized
+  solution: Log a causal summary and retain detail on demand
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Log a causal summary and retain detail on demand so extensive logs do not push out the problem; the canonical measurement-and-telemetry
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# Extensive logs push the problem out of the window.
+
+    '
+  example_good: '# Causal summary in context; detail on demand.
+
+    '
+  detection: 'Noisy observability that pushes out the problem instead of a causal summary.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-027
+  title: Lexical Compression of Diagnostics
+  symptom: Context loss from verbose, repetitive error traces
+  cause: Blind truncation of history from exceeding physical limits
+  solution: Apply lexical-redundancy filters (controlled elision) to execution-environment traces
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Apply controlled lexical-redundancy filtering to execution traces so verbose, repetitive errors do not cost context;
+    the canonical output-and-compaction guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# Repetitive error traces (same frame x500) saturate the context.
+
+    '
+  example_good: '# Controlled elision of lexical redundancy in the traces.
+
+    '
+  detection: 'Verbose/repetitive error traces without lexical compression (elision).
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-028
+  title: Stable context caching
+  symptom: Recurring reprocessing
+  cause: Stable memory not separated
+  solution: Mark reusable blocks and avoid reloading
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Mark reusable blocks and avoid reloading them so stable context is not reprocessed; the canonical memory-and-headroom
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: python
+  example_bad: 'call(model, system=STABLE_SPEC + turn)   # the stable block is reprocessed
+
+    '
+  example_good: 'call(model, system=[{"text": STABLE_SPEC, "cache_control": {"type":"ephemeral"}}, turn])
+
+    '
+  detection: 'Reusable blocks not marked as cacheable, reprocessed on every turn.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-031
+  title: Context compaction
+  symptom: A long session degrades
+  cause: Saturated finite window
+  solution: Summarize state and restart with continuity
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Summarize state and restart with continuity so a long session does not degrade; the canonical memory-and-headroom
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# Long session: quality degrades from excess context.
+
+    '
+  example_good: '# Summarize the state and restart with continuity (compaction).
+
+    '
+  detection: 'Long sessions without periodic compaction that degrade quality.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-032
+  title: Cache cliff
+  symptom: Pauses invalidate the cache benefit
+  cause: TTL ignored
+  solution: Manage resumption and checkpoints
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Manage resumption and checkpoints so pauses do not invalidate the cache benefit; the canonical memory-and-headroom
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# A long pause invalidates the cache and everything is paid for again.
+
+    '
+  example_good: '# Manage resumption and checkpoints to avoid falling off the cache cliff.
+
+    '
+  detection: 'Pauses that invalidate the cache benefit without resumption management.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-033
+  title: No headroom
+  symptom: Context collapses silently
+  cause: Margin not reserved
+  solution: Keep a budget with a safety zone
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Keep a context budget with a safety zone so context does not collapse silently; the canonical memory-and-headroom
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# The context collapses abruptly when it fills up, without warning.
+
+    '
+  example_good: '# Keep a budget with a safety zone (headroom).
+
+    '
+  detection: 'Operating without headroom: the context collapses silently when saturated.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-034
+  title: Invisible rollback cost
+  symptom: Fix/revert loops consume the session
+  cause: Unmeasured rework
+  solution: Record the rollback cost
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Record the cost of fix/revert loops so it does not silently consume the session; the canonical measurement-and-telemetry
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# Fix/revert loops consume the session without recording their cost.
+
+    '
+  example_good: '# Record the rollback cost to make it visible.
+
+    '
+  detection: 'Invisible rollback (fix/revert) cost, without telemetry to record it.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-035
+  title: Thinking with the execution tool
+  symptom: Expensive context is used to decide
+  cause: Incorrect routing
+  solution: Separate thinking, executing, and reviewing
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Separate thinking, executing, and reviewing so expensive execution context is not spent deciding; the canonical
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# The expensive execution context is used to deliberate decisions.
+
+    '
+  example_good: '# Separate thinking / executing / reviewing into distinct spaces.
+
+    '
+  detection: 'Deliberating using the expensive execution context instead of separating phases.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-036
+  title: Response without a mode
+  symptom: The agent does not know whether to think or execute
+  cause: Unclassified intent
+  solution: 'Route by phase: think, execute, review'
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Route work by phase - think, execute, review - so the agent knows its mode; the canonical guidance must stay published
+    and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# The agent does not know whether to think or execute; it mixes both.
+
+    '
+  example_good: '# Route by explicit phase: think -> execute -> review.
+
+    '
+  detection: 'Responses without a declared mode (think vs execute vs review).
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-037
+  title: Forgettable manual monitoring
+  symptom: The user counts messages
+  cause: Fragile human control
+  solution: Visible and automatable thresholds
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Make thresholds visible and automatable so the user does not manually count messages; the canonical measurement-and-telemetry
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# The user counts messages by hand to know when to compact.
+
+    '
+  example_good: '# Visible and automatable thresholds for context usage.
+
+    '
+  detection: 'Manual/forgettable context monitoring instead of visible thresholds.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-038
+  title: Full-state re-reading
+  symptom: Each turn drags everything along
+  cause: Non-indexed state
+  solution: Keep small state fields
+  status: REMEDIATED
+  severity: medium
+  tags:
+  - tokenomics
+  - remediated
+  action: 'Core memory manifests must stay under fixed line budgets so context is not saturated; a static size gate fails
+    when a manifest exceeds its budget.
+
+    '
+  validating_mechanism: static-ast
+  enforcement:
+    cerberus:
+      dimension: D10
+      mechanism: audit_d10_tokenomics
+  downstream_verification: none
+  example_lang: python
+  example_bad: 'ctx = read_full_state()         # each turn drags the full state along
+
+    '
+  example_good: 'ctx = read_state_fields([''goal'',''blockers''])   # small fields
+
+    '
+  detection: 'Re-reading the full state every turn instead of small fields.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-039
+  title: Non-integrated external tools
+  symptom: Strategies exist but do not operate
+  cause: Phantom script
+  solution: Every optimization must be on the active path
+  status: REMEDIATED
+  severity: medium
+  tags:
+  - tokenomics
+  - remediated
+  action: 'Every script path cited in the authority/budget docs must exist on disk; a static reference check fails on dangling
+    citations (spectral scripts).
+
+    '
+  validating_mechanism: static-regex
+  enforcement:
+    cerberus:
+      dimension: D10
+      mechanism: audit_d10_tokenomics
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# Savings strategies exist but are not on the active path.
+
+    '
+  example_good: '# Every optimization must be wired into the flow that runs.
+
+    '
+  detection: 'Optimization tools/strategies that exist but are not integrated into the active path.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-040
+  title: Promised savings not measured
+  symptom: A reduction is declared without telemetry
+  cause: Missing metric
+  solution: Measure before and after
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Measure token usage before and after so a reduction is not merely declared; the canonical measurement-and-telemetry
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# "We reduced tokens by 40%" declared without telemetry.
+
+    '
+  example_good: '# Measure before and after; savings are proven, not asserted.
+
+    '
+  detection: 'Token savings declared without telemetry to measure it before/after.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-041
+  title: Invisible quotas
+  symptom: The session is cut off by unbudgeted limits
+  cause: Unaccounted external resource
+  solution: Include limits, backoff, and degradation in the plan
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Plan for limits, backoff, and degradation so the session is not cut off by unbudgeted quotas; the canonical measurement-and-telemetry
+    guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# The session is cut off by unbudgeted quota limits.
+
+    '
+  example_good: '# Include limits, backoff, and degradation in the plan.
+
+    '
+  detection: 'Unbudgeted quotas/limits that cut off the session by surprise.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+  tier: extended
+- id: TK-042
+  title: Manifests without a size constraint
+  alias_of: TK-038
+- id: TK-043
+  title: Entropy without pruning — input governance without output governance
+  symptom: 'The system validates what comes IN (anti-junk-code, large-file, gates) but nothing hunts what must go OUT: refactors
+    leave residue (dead imports/params, backups, phantom scripts, duplicate docs, orphan IDs in the catalog) that the gate
+    approves just for existing'
+  cause: Letter-of-the-law validation (`Path.exists`) instead of relevance; append-only culture; no retention policy or owner
+    for the cleanup
+  solution: Hunt orphans as a GATE (dead-code/vulture, allowlist without a file, dirs without retention, duplicate-purpose
+    docs); REPLACE = `rm` + create in the same commit
+  status: PREVENTED
+  severity: low
+  tags:
+  - tokenomics
+  - prevented
+  action: 'Govern output as strictly as input by hunting orphans and dead artifacts as a gate, not only blocking junk on the
+    way in; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    golden_standard:
+      mechanism: catalog/wiki link check
+  downstream_verification: none
+  example_lang: bash
+  example_bad: '# The refactor leaves residue; the gate approves because the file ''exists''.
+
+    git mv old.py new.py        # dead old import, backup, and duplicate doc stay alive
+
+    '
+  example_good: '# Replace = delete + create in the SAME commit; hunt orphans as a gate.
+
+    vulture src/ && git rm old.py backups/old.py docs/old.md && git add new.py
+
+    '
+  detection: 'Output gate: dead-code (vulture), allowlists without a file, directories without
+
+    a retention policy, and duplicate-purpose docs; fails if a refactor leaves residue.
+
+    '
+  evidence:
+  - source: vexp.dev / HumanLayer ACE
+    claim: unpruned residue inflates context and cost; output governance is as necessary as input governance.
+  tier: extended
+- id: TK-044
+  title: Accumulated tokenomics debt (Cost Compounding)
+  symptom: 'The per-session cost grows silently because it is never compacted or measured; long sessions pay 3-5x more tokens
+    than structured work.
+
+    '
+  cause: 'Without periodic compaction or cost telemetry, the context grows monotonically and each turn drags along the entire
+    history.
+
+    '
+  solution: 'Compact at usage thresholds, measure the per-session cost, and operate with a budget and alerts.
+
+    '
+  status: PREVENTED
+  severity: medium
+  tags:
+  - tokenomics
+  - prevented-mechanically
+  action: 'Per-session token accumulation must be bounded; when output exceeds the efficiency budget, execution is blocked
+    and compaction forced.
+
+    '
+  validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D10
+      mechanism: _check_and_flag_compact
+  downstream_verification: none
+  example_lang: text
+  example_bad: '# 4-hour session without compacting; the context reaches 95% and the cost skyrockets.
+
+    '
+  example_good: '# Compaction at thresholds + budget with alerts + per-session cost telemetry.
+
+    '
+  detection: 'Long sessions without compaction events or cost telemetry; monotonic context growth. Related to TK-031 (compaction)
+    and TK-040 (unmeasured savings).
+
+    '
+  evidence:
+  - source: vexp.dev
+    claim: unstructured vibe coding costs ~3-5x more (~$300-450/month vs ~$90-135/month structured).
+  tier: extended

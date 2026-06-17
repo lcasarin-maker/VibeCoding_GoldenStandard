@@ -70,30 +70,13 @@ def is_ascii_text(value: object) -> bool:
 
 
 def load_project_insight_records() -> dict[str, dict[str, object]]:
-    """Load structured project-insight records directly from the GS catalog."""
-    path = _ROOT / "golden_standard_project_insights.yaml"
+    """Load structured project-insight records from the principles catalog."""
+    path = _ROOT / "golden_standard_principles.yaml"
     with open(path, "r", encoding="utf-8") as f:
         data = yaml.safe_load(f)
     items = data.get("items", [])
     records: dict[str, dict[str, object]] = {}
     if not isinstance(items, list):
-        # Fallback to legacy dict format
-        raw = data.get("project_insights", {})
-        if not isinstance(raw, dict):
-            return records
-        for k, v in raw.items():
-            if not str(k).startswith("PI-"):
-                continue
-            if isinstance(v, str):
-                records[str(k)] = {"title": normalize_knowledge_text(v)}
-            elif isinstance(v, dict):
-                record = dict(v)
-                record["title"] = normalize_knowledge_text(
-                    record.get("title", record.get("text", ""))
-                )
-                record["doctrinal"] = bool(record.get("doctrinal", False))
-                record["promotion_candidate"] = bool(record.get("promotion_candidate", False))
-                records[str(k)] = record
         return records
     for item in items:
         if not isinstance(item, dict):
@@ -1504,8 +1487,8 @@ def extract_catalog_items(config: dict, mapped_database: dict):
     """Parse catalog configuration dict and populate mapped flaws."""
     if not isinstance(config, dict) or "items" not in config:
         return
-    # Skip project-insights catalog here; PI are handled separately
-    if config.get("catalog_name") == "project_insights":
+    # Skip non-vice catalogs handled separately
+    if config.get("catalog_name") in {"project_insights", "principles"}:
         return
     for item in config["items"]:
         flaw_id = item["id"]

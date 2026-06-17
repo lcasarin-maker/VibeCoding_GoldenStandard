@@ -3,7 +3,7 @@ catalogs:
   tokenomics: golden_standard_tokenomics.yaml
   testing_vices: golden_standard_testing_vices.yaml
   coding_vices: golden_standard_coding_vices.yaml
-  project_insights: golden_standard_project_insights.yaml
+  principles: golden_standard_principles.yaml
 description: >
   Golden Standard — Pure knowledge repository (agent-agnostic, project-agnostic).
   This repository contains the structured catalogs mapping coding/testing vices, tokenomics, and project insights.

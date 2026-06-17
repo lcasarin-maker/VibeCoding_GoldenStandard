@@ -22,7 +22,6 @@ Checkpoints, handoffs, external persistence, cache, drift, and control of contex
 *   [[Tokenomics/TK-033|TK-033]] — **No headroom** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-034|TK-034]] — **Invisible rollback cost** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-038|TK-038]] — **Full-state re-reading** (REMEDIATED, medium, downstream:none)
-*   [[Tokenomics/TK-F01|TK-F01]] — **Reprocessing stable context** (DOC_ONLY, low, downstream:required)
 
 ---
 
