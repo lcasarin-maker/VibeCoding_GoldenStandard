@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-06-16",
-  "node_count": 385,
-  "edge_count": 1421,
+  "node_count": 384,
+  "edge_count": 1420,
   "nodes": [
     {
       "id": "CODE_OF_CONDUCT",
@@ -170,19 +170,6 @@
       "in_degree": 1,
       "out_degree": 6,
       "degree": 7
-    },
-    {
-      "id": "Concepts/Conceptual_Framework",
-      "path": "Wiki/Concepts/Conceptual_Framework.md",
-      "title": "[[Home|← Back to Vault Home]]",
-      "kind": "concept",
-      "outgoing": [
-        "Home"
-      ],
-      "incoming": [],
-      "in_degree": 0,
-      "out_degree": 1,
-      "degree": 1
     },
     {
       "id": "Domains/D1",
@@ -414,7 +401,6 @@
         "Vices_Index"
       ],
       "incoming": [
-        "Concepts/Conceptual_Framework",
         "Domains/D1",
         "Domains/D10",
         "Domains/D11",
@@ -783,9 +769,9 @@
         "Vices/VT-116",
         "Vices_Index"
       ],
-      "in_degree": 368,
+      "in_degree": 367,
       "out_degree": 14,
-      "degree": 382
+      "degree": 381
     },
     {
       "id": "Principles",
@@ -8209,11 +8195,6 @@
       "kind": "markdown"
     },
     {
-      "source": "Concepts/Conceptual_Framework",
-      "target": "Home",
-      "kind": "wikilink"
-    },
-    {
       "source": "Domains/D1",
       "target": "Home",
       "kind": "wikilink"
@@ -15342,19 +15323,6 @@
     ],
     "orphan_candidates": [
       {
-        "id": "Concepts/Conceptual_Framework",
-        "path": "Wiki/Concepts/Conceptual_Framework.md",
-        "title": "[[Home|← Back to Vault Home]]",
-        "kind": "concept",
-        "outgoing": [
-          "Home"
-        ],
-        "incoming": [],
-        "in_degree": 0,
-        "out_degree": 1,
-        "degree": 1
-      },
-      {
         "id": "Principles/PR-001",
         "path": "Wiki/Principles/PR-001.md",
         "title": "PR-001: Satellite Insight",
@@ -15703,6 +15671,21 @@
         "id": "Principles/PR-024",
         "path": "Wiki/Principles/PR-024.md",
         "title": "PR-024: Satellite Insight",
+        "kind": "wiki",
+        "outgoing": [
+          "Home",
+          "Tokenomics_Map",
+          "Vices/VC-001"
+        ],
+        "incoming": [],
+        "in_degree": 0,
+        "out_degree": 3,
+        "degree": 3
+      },
+      {
+        "id": "Principles/PR-025",
+        "path": "Wiki/Principles/PR-025.md",
+        "title": "PR-025: Satellite Insight",
         "kind": "wiki",
         "outgoing": [
           "Home",
@@ -16157,7 +16140,6 @@
           "Vices_Index"
         ],
         "incoming": [
-          "Concepts/Conceptual_Framework",
           "Domains/D1",
           "Domains/D10",
           "Domains/D11",
@@ -16526,9 +16508,9 @@
           "Vices/VT-116",
           "Vices_Index"
         ],
-        "in_degree": 368,
+        "in_degree": 367,
         "out_degree": 14,
-        "degree": 382
+        "degree": 381
       },
       {
         "id": "Tokenomics_Map",
@@ -17914,7 +17896,6 @@
           "Vices_Index"
         ],
         "incoming": [
-          "Concepts/Conceptual_Framework",
           "Domains/D1",
           "Domains/D10",
           "Domains/D11",
@@ -18283,9 +18264,9 @@
           "Vices/VT-116",
           "Vices_Index"
         ],
-        "in_degree": 368,
+        "in_degree": 367,
         "out_degree": 14,
-        "degree": 382
+        "degree": 381
       },
       {
         "id": "Tokenomics/Output_Compaction_Index",

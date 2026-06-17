@@ -674,22 +674,6 @@ See [[Principles|Principles Index]] for the first-class doctrinal ledger.
     (wiki_dir / "Project_Insights_Index.md").write_text(pi_index_content, encoding="utf-8")
 
 
-def write_conceptual_concepts_md(wiki_dir: Path):
-    """Create a stub redirect to the canonical conceptual framework."""
-    stub = """# [[Home|← Back to Vault Home]]
-
----
-
-# Golden Standard — Conceptual Framework
-
-> **This is a generated stub.** The canonical source is the root file:
-> **[Conceptual Framework](../CONCEPTUAL_FRAMEWORK.md)**.
-> Do not edit this copy; edit the root file and regenerate the wiki.
-"""
-    (wiki_dir / "Concepts" / "Conceptual_Framework.md").write_text(
-        stub,
-        encoding="utf-8",
-    )
 def entry_depth(item: dict) -> str:
     """Classify an entry by depth: deep, doctrinal, or stub.
 
@@ -1423,7 +1407,6 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     write_project_insights_index_md(wiki_dir, insights)
     write_principles_md(wiki_dir, insight_records)
     write_tokenomics_map_md(wiki_dir, insights)
-    write_conceptual_concepts_md(wiki_dir)
     write_atomic_vices(wiki_dir, mapped_database)
     write_atomic_tokenomics(wiki_dir, mapped_database)
     write_atomic_project_insights(wiki_dir, insights, pi_to_domains, insight_records)

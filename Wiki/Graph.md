@@ -10,8 +10,8 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 
 | Metric | Value |
 |---|---:|
-| Nodes | 385 |
-| Edges | 1421 |
+| Nodes | 384 |
+| Edges | 1420 |
 | Intentional orphans | 3 |
 | Candidate orphans | 25 |
 | Hubs | 15 |
@@ -90,7 +90,7 @@ Pages with the largest impact surface. If they change, review their inbound link
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
 | [[Vices_Index]] | `wiki` | 203 | 203 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +197 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +197 more |
-| [[Home]] | `wiki` | 368 | 14 | [[Concepts/Conceptual_Framework]], [[Domains/D1]], [[Domains/D10]], [[Domains/D11]], [[Domains/D12]], [[Domains/D2]] +362 more | [[CONCEPTUAL_FRAMEWORK]], [[Inbox/README]], [[Principles]], [[Project_Insights_Index]], [[README]], [[Tokenomics/Automation_Tooling_Index]] +8 more |
+| [[Home]] | `wiki` | 367 | 14 | [[Domains/D1]], [[Domains/D10]], [[Domains/D11]], [[Domains/D12]], [[Domains/D2]], [[Domains/D3]] +361 more | [[CONCEPTUAL_FRAMEWORK]], [[Inbox/README]], [[Principles]], [[Project_Insights_Index]], [[README]], [[Tokenomics/Automation_Tooling_Index]] +8 more |
 | [[Tokenomics_Map]] | `wiki` | 357 | 9 | [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]], [[Principles/PR-005]] +351 more | [[Home]], [[Project_Insights_Index]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +3 more |
 | [[Vices/VC-001]] | `vice` | 114 | 3 | [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]], [[Principles/PR-005]], [[Principles/PR-006]] +108 more | [[Home]], [[Tokenomics_Map]], [[Vices_Index]] |
 | [[Tokenomics_Index]] | `wiki` | 42 | 36 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +36 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +30 more |
@@ -120,7 +120,6 @@ Pages within the live GS surface that receive no inbound links. If any is import
 
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
-| [[Concepts/Conceptual_Framework]] | `concept` | 0 | 1 | — | [[Home]] |
 | [[Principles/PR-001]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
 | [[Principles/PR-002]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
 | [[Principles/PR-003]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
@@ -145,6 +144,7 @@ Pages within the live GS surface that receive no inbound links. If any is import
 | [[Principles/PR-022]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
 | [[Principles/PR-023]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
 | [[Principles/PR-024]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
+| [[Principles/PR-025]] | `wiki` | 0 | 3 | — | [[Home]], [[Tokenomics_Map]], [[Vices/VC-001]] |
 
 ---
 
