@@ -29,6 +29,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -64,6 +68,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -99,6 +107,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -134,6 +146,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -205,6 +221,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -240,6 +260,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -275,6 +299,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -310,6 +338,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -345,6 +377,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -380,6 +416,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -451,6 +491,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -486,6 +530,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -521,6 +569,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -592,6 +644,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -627,6 +683,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -662,6 +722,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -697,6 +761,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -732,6 +800,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -767,6 +839,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -802,6 +878,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -837,6 +917,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -872,6 +956,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -907,6 +995,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -942,6 +1034,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -977,6 +1073,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -1084,6 +1184,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -1119,6 +1223,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -1154,6 +1262,10 @@
     "detector": "",
     "tier": "extended",
     "enforcement": {
+      "cerberus": {
+        "dimension": "D10",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -5526,7 +5638,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-006": {
     "id": "VC-006",
@@ -5556,7 +5674,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-007": {
     "id": "VC-007",
@@ -5616,7 +5740,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-009": {
     "id": "VC-009",
@@ -5706,7 +5836,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-012": {
     "id": "VC-012",
@@ -5796,7 +5932,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-015": {
     "id": "VC-015",
@@ -5826,7 +5968,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-016": {
     "id": "VC-016",
@@ -5982,7 +6130,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-021": {
     "id": "VC-021",
@@ -6012,7 +6166,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-022": {
     "id": "VC-022",
@@ -6042,7 +6202,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-023": {
     "id": "VC-023",
@@ -6072,7 +6238,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-024": {
     "id": "VC-024",
@@ -6410,7 +6582,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-034": {
     "id": "VC-034",
@@ -6440,7 +6618,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-035": {
     "id": "VC-035",
@@ -6566,7 +6750,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-039": {
     "id": "VC-039",
@@ -6596,7 +6786,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-040": {
     "id": "VC-040",
@@ -6626,7 +6822,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-041": {
     "id": "VC-041",
@@ -6656,7 +6858,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-042": {
     "id": "VC-042",
@@ -6752,7 +6960,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-045": {
     "id": "VC-045",
@@ -6878,7 +7092,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-049": {
     "id": "VC-049",
@@ -7198,7 +7418,13 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-058": {
     "id": "VC-058",
@@ -7623,7 +7849,13 @@
     ],
     "doctrinal": false,
     "detector": "vc138_insecure_defaults",
-    "tier": "extended"
+    "tier": "extended",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-071": {
     "id": "VC-071",
@@ -8188,9 +8420,9 @@
       "planning",
       "source-of-truth"
     ],
-    "action": "Doctrine lands before enforcement: the rule must exist in the canonical knowledge base first, with downstream consumers following only after regeneration proves it.\n",
-    "validating_mechanism": "runtime-test",
-    "downstream_verification": "none",
+    "action": "Require a backlog entry before planning or execution; if it is not in the ledger, it does not get worked.\n",
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required",
     "example_bad": "# Work starts before the backlog records it.\nwork_item: untracked\nstatus: in_progress\n",
     "example_good": "# The backlog entry exists before any planning or execution begins.\nwork_item: tracked\nstatus: in_progress\n",
     "example_lang": "yaml",
@@ -8203,12 +8435,6 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "core",
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D12",
-        "mechanism": "test_doctrine_before_enforcement_resolves_refs"
-      }
-    }
+    "tier": "core"
   }
 }

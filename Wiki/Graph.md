@@ -49,7 +49,7 @@ The graph now also highlights entries that remain mainly documentary. This does 
 
 | Catalog | VC DOC_ONLY | VT DOC_ONLY | TK DOC_ONLY |
 |---|---:|---:|---:|
-| `DOC_ONLY` | 31 | 0 | 0 |
+| `DOC_ONLY` | 32 | 0 | 0 |
 
 | ID | Title | Category | Severity | Status |
 |---|---|---|---|---|
@@ -60,11 +60,11 @@ The graph now also highlights entries that remain mainly documentary. This does 
 | `VC-067` | Use of an obsolete or hallucinated API of a real library | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-068` | Poisoned or stale persistent memory (cross-session) | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-071` | Blind trust in LLM output (Insecure Output Handling) | `Vibe Coding` | `high` | `DOC_ONLY` |
+| `VC-086` | No backlog entry, no work | `Vibe Coding` | `high` | `AUDITED` |
 | `VC-002` | Prototype turned into debt | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-003` | Incomprehensible code | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-007` | Non-surgical scope | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-009` | Full rewrite | `Vibe Coding` | `medium` | `DOC_ONLY` |
-| `VC-010` | No dry run | `Vibe Coding` | `medium` | `DOC_ONLY` |
 
 ---
 
@@ -80,12 +80,12 @@ This ranking combines severity with graph centrality, semantic reach, and downst
 | `VC-060` | Context Poisoning | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
 | `VC-065` | Unhandled tool-call failure in the agent loop | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
 | `VC-071` | Blind trust in LLM output (Insecure Output Handling) | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
+| `VC-086` | No backlog entry, no work | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
 | `VC-066` | Multi-agent coordination without a protocol | `high` | `55` | deg=6, types=2, rels=3, consumer-check |
 | `VC-069` | Retrieval (RAG) that feeds wrong context | `medium` | `49` | deg=10, types=3, rels=4, consumer-check |
 | `VC-002` | Prototype turned into debt | `medium` | `43` | deg=9, types=2, rels=3, consumer-check |
 | `VC-010` | No dry run | `medium` | `43` | deg=9, types=2, rels=3, consumer-check |
 | `VC-036` | Direct production access | `medium` | `43` | deg=9, types=2, rels=3, consumer-check |
-| `VC-018` | Stub as architecture | `medium` | `42` | deg=8, types=2, rels=3, consumer-check |
 
 ---
 
@@ -109,8 +109,8 @@ GS explicitly distinguishes which entries expect downstream verification and whi
 
 | Status | VC | VT | TK |
 |---|---:|---:|---:|
-| `required` | 35 | 0 | 0 |
-| `none` | 51 | 116 | 34 |
+| `required` | 36 | 0 | 0 |
+| `none` | 50 | 116 | 34 |
 
 | ID | Title | Category | Downstream Verification |
 |---|---|---|---|
@@ -121,11 +121,11 @@ GS explicitly distinguishes which entries expect downstream verification and whi
 | `VC-067` | Use of an obsolete or hallucinated API of a real library | `Vibe Coding` | `required` |
 | `VC-068` | Poisoned or stale persistent memory (cross-session) | `Vibe Coding` | `required` |
 | `VC-071` | Blind trust in LLM output (Insecure Output Handling) | `Vibe Coding` | `required` |
+| `VC-086` | No backlog entry, no work | `Vibe Coding` | `required` |
 | `VC-002` | Prototype turned into debt | `Vibe Coding` | `required` |
 | `VC-003` | Incomprehensible code | `Vibe Coding` | `required` |
 | `VC-007` | Non-surgical scope | `Vibe Coding` | `required` |
 | `VC-009` | Full rewrite | `Vibe Coding` | `required` |
-| `VC-010` | No dry run | `Vibe Coding` | `required` |
 
 ---
 

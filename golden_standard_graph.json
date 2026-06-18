@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-06-17",
+  "generated_on": "2026-06-18",
   "node_count": 431,
   "edge_count": 2407,
   "nodes": [
@@ -7127,7 +7127,7 @@
       "title": "vexp.dev",
       "kind": "wiki",
       "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-17T16:19:15-06:00",
       "outgoing": [
         "Home",
         "Tokenomics/TK-034"
@@ -7179,7 +7179,7 @@
       "title": "vexp.dev / HumanLayer ACE",
       "kind": "wiki",
       "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-17T16:19:15-06:00",
       "outgoing": [
         "Home",
         "Tokenomics/TK-001",
@@ -36331,7 +36331,7 @@
       "relation_diversity": 3,
       "hub_score": 19,
       "status": "AUDITED",
-      "downstream_verification": "none",
+      "downstream_verification": "required",
       "severity": "high",
       "cluster": "cluster_5"
     },
@@ -80768,7 +80768,7 @@
         "title": "vexp.dev / HumanLayer ACE",
         "kind": "wiki",
         "created": "2026-06-17T12:15:26-06:00",
-        "promoted": "2026-06-17T12:15:26-06:00",
+        "promoted": "2026-06-17T16:19:15-06:00",
         "outgoing": [
           "Home",
           "Tokenomics/TK-001",

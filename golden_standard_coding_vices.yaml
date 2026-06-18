@@ -145,6 +145,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: python
   example_bad: "def fix():\n    patch_login()        # fixes the main bug\n    # the log also reveals a secondary KeyError\
@@ -172,6 +176,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: text
   example_bad: '# The 6-step plan lives only in the chat; on compaction it is lost.
@@ -231,6 +239,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: text
   example_bad: '# Successive massive edits without a checkpoint -> real state diverges from expected.
@@ -335,6 +347,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: python
   example_bad: '# The whole function is replaced without diagnosing why it failed.
@@ -432,6 +448,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: text
   example_bad: '# A single CONTEXT.md mixes core, active state, patterns, and history.
@@ -463,6 +483,10 @@ items:
 
     '
   validating_mechanism: static-ast
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: required
   example_lang: python
   example_bad: '# Importing a package that does not exist in requirements.txt or PyPI.
@@ -659,6 +683,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: text
   example_bad: '# README says "supports OAuth" but the code does not implement it.
@@ -690,6 +718,10 @@ items:
 
     '
   validating_mechanism: static-ast
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: required
   example_lang: python
   example_bad: '# Accessing a field that does not exist on the model.
@@ -726,6 +758,10 @@ items:
 
     '
   validating_mechanism: static-regex
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: required
   example_lang: html
   example_bad: '<!-- Inline styles everywhere; no layout system. -->
@@ -762,6 +798,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: bash
   example_bad: 'git mv core/auth.py util/        # without knowing who imports it -> breaks afar
@@ -1156,6 +1196,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: text
   example_bad: '# The session starts without reading the ledger -> repeats an already-resolved error.
@@ -1186,6 +1230,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: bash
   example_bad: 'echo "config.yaml does not exist"      # after looking only at the cwd
@@ -1324,6 +1372,10 @@ items:
 
     '
   validating_mechanism: static-regex
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: required
   example_lang: python
   example_bad: '# Hardcoded development config that will fail in production.
@@ -1372,6 +1424,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: text
   example_bad: '# Passes locally with python 3.12; prod runs 3.9 -> breaks. Runtime not modeled.
@@ -1402,6 +1458,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: text
   example_bad: '# The backend is audited; HTML, startup, and build go unreviewed.
@@ -1432,6 +1492,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: python
   example_bad: 'open(''./data/cache.db'')          # assumes ./data exists; fails in a clean environment
@@ -1537,6 +1601,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: python
   example_bad: 'for i in range(10000): call_api(i)   # blows up on rate limit, no handling
@@ -1672,6 +1740,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: text
   example_bad: '# A bug is detected in a session and only mentioned; it never enters the plan.
@@ -2051,6 +2123,10 @@ items:
 
     '
   validating_mechanism: runtime-test
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   example_lang: python
   example_bad: '# The session''s learning lives only in the chat: lost on compaction.
@@ -2626,6 +2702,10 @@ items:
 
     '
   validating_mechanism: static-regex
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   downstream_verification: none
   detector: vc138_insecure_defaults
   example_lang: python
@@ -3209,16 +3289,11 @@ items:
   - governance
   - planning
   - source-of-truth
-  action: 'Doctrine lands before enforcement: the rule must exist in the canonical knowledge base first, with downstream consumers
-    following only after regeneration proves it.
+  action: 'Require a backlog entry before planning or execution; if it is not in the ledger, it does not get worked.
 
     '
-  validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D12
-      mechanism: test_doctrine_before_enforcement_resolves_refs
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
   example_lang: yaml
   example_bad: '# Work starts before the backlog records it.
 
