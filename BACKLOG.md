@@ -35,7 +35,7 @@ Status legend: `OPEN` · `IN_PROGRESS` · `BLOCKED` · `DONE`
 | GS-068 | Medium | INGESTION_PROTOCOL.md shows stale schema | DONE 2026-06-16: template updated to v3.0 schema with all required fields. | DONE |
 | GS-069 | Medium | generate_golden_audit.py hardcodes Cerberus dimensions | DONE 2026-06-16: hardcoded D1-D12 dimension map extracted to `config/dimension_map.json`; all "project: cerberus" replaced with "project: reference"; generator reads from JSON. | DONE |
 | GS-070 | Low | Duplicate doctrine files (CONCEPTUAL_FRAMEWORK root + wiki) | DONE 2026-06-16: `generate_golden_audit.py` now emits a 9-line stub redirect to the canonical `CONCEPTUAL_FRAMEWORK.md` at root instead of copying the full 268-line document. | DONE |
-| GS-071 | Low | 70 VC entries are doctrinal (not falsifiable) | IN_PROGRESS 2026-06-16: Batch 1 converted 4 entries (VC-056, VC-065, VC-066, VC-101) from doctrinal to deep with concrete examples, detection, and evidence. 66 doctrinal entries remain; continue in future batch. | IN_PROGRESS |
+| GS-071 | Low | 31 VC entries are DOC_ONLY (not falsifiable) | IN_PROGRESS 2026-06-18: Batch 1 converted 4 entries (VC-056, VC-065, VC-066, VC-101) from doctrinal to deep with concrete examples, detection, and evidence. 31 DOC_ONLY entries remain; continue in future batch. | IN_PROGRESS |
 | GS-072 | Low | TV/VT typo in Wiki/Home.md | "TV" used instead of "VT" for Testing Vices. Remediation: fixed. | DONE |
 | GS-073 | Medium | Cache directories tracked in repo | DONE 2026-06-16: all cache directories added to `.gitignore` and removed from git tracking. | DONE |
 
