@@ -10,13 +10,13 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 
 | Metric | Value |
 |---|---:|
-| Nodes | 431 |
-| Edges | 2407 |
-| Reciprocal pairs | 559 |
-| Average edge confidence | 0.935 |
-| Semantic density | 0.012988 |
+| Nodes | 446 |
+| Edges | 2452 |
+| Reciprocal pairs | 574 |
+| Average edge confidence | 0.934 |
+| Semantic density | 0.012355 |
 | Hub ratio | 1.0 |
-| Bridge ratio | 0.99768 |
+| Bridge ratio | 0.997758 |
 | Intentional orphans | 0 |
 | Candidate orphans | 0 |
 | Hubs | 15 |
@@ -29,9 +29,9 @@ The graph now distinguishes link syntax from relation meaning. `kind` records ho
 
 | Relation | Edges |
 |---|---:|
-| `returns_to_index` | 1106 |
-| `references` | 379 |
-| `catalogs` | 324 |
+| `returns_to_index` | 1121 |
+| `references` | 394 |
+| `catalogs` | 339 |
 | `governed_by` | 202 |
 | `thematic_bridge` | 122 |
 | `indexes` | 114 |
@@ -49,22 +49,22 @@ The graph now also highlights entries that remain mainly documentary. This does 
 
 | Catalog | VC DOC_ONLY | VT DOC_ONLY | TK DOC_ONLY |
 |---|---:|---:|---:|
-| `DOC_ONLY` | 27 | 0 | 0 |
+| `DOC_ONLY` | 15 | 0 | 0 |
 
 | ID | Title | Category | Severity | Status |
 |---|---|---|---|---|
-| `VC-059` | Prompt injection in the agent loop (Prompt Injection) | `Vibe Coding` | `critical` | `DOC_ONLY` |
 | `VC-060` | Context Poisoning | `Vibe Coding` | `high` | `DOC_ONLY` |
-| `VC-065` | Unhandled tool-call failure in the agent loop | `Vibe Coding` | `high` | `DOC_ONLY` |
-| `VC-066` | Multi-agent coordination without a protocol | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-067` | Use of an obsolete or hallucinated API of a real library | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-068` | Poisoned or stale persistent memory (cross-session) | `Vibe Coding` | `high` | `DOC_ONLY` |
-| `VC-071` | Blind trust in LLM output (Insecure Output Handling) | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-086` | No backlog entry, no work | `Vibe Coding` | `high` | `AUDITED` |
-| `VC-003` | Incomprehensible code | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-007` | Non-surgical scope | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-009` | Full rewrite | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-012` | Invisible debt | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-037` | Code without tests | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-042` | Implicit permission matrix | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-046` | Propagation without adoption verification | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-058` | Post-execution suggestion that reopens scope | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-062` | Echo-Chamber Review | `Vibe Coding` | `medium` | `DOC_ONLY` |
 
 ---
 
@@ -74,18 +74,18 @@ This ranking combines severity with graph centrality, semantic reach, and downst
 
 | ID | Title | Severity | Score | Why it matters |
 |---|---|---|---:|---|
-| `VC-059` | Prompt injection in the agent loop (Prompt Injection) | `critical` | `71` | deg=7, types=2, rels=3, consumer-check |
 | `VC-068` | Poisoned or stale persistent memory (cross-session) | `high` | `64` | deg=10, types=3, rels=4, consumer-check |
 | `VC-067` | Use of an obsolete or hallucinated API of a real library | `high` | `63` | deg=9, types=3, rels=4, consumer-check |
 | `VC-060` | Context Poisoning | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
-| `VC-065` | Unhandled tool-call failure in the agent loop | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
-| `VC-071` | Blind trust in LLM output (Insecure Output Handling) | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
 | `VC-086` | No backlog entry, no work | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
-| `VC-066` | Multi-agent coordination without a protocol | `high` | `55` | deg=6, types=2, rels=3, consumer-check |
 | `VC-069` | Retrieval (RAG) that feeds wrong context | `medium` | `49` | deg=10, types=3, rels=4, consumer-check |
-| `VC-003` | Incomprehensible code | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
 | `VC-007` | Non-surgical scope | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
 | `VC-009` | Full rewrite | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
+| `VC-037` | Code without tests | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
+| `VC-042` | Implicit permission matrix | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
+| `VC-063` | Architectural drift in long sessions (Architecture Drift) | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
+| `VC-012` | Invisible debt | `medium` | `40` | deg=6, types=2, rels=3, consumer-check |
+| `VC-046` | Propagation without adoption verification | `medium` | `40` | deg=6, types=2, rels=3, consumer-check |
 
 ---
 
@@ -99,7 +99,7 @@ Each entry is classified by depth: `deep` (ships bad/good examples and a detecti
 | `stub` | 0 | 0 | 0 |
 | `doctrinal` | 0 | 0 | 0 |
 
-**Local enforcement:** 16 `deep` entries have a real static detector in `scripts/detectors.py`, tested in CI against their own `example_bad`/`example_good` (`scripts/test_detectors.py`). The rest are falsifiable-in-principle (they ship a detection recipe) but without an implemented detector yet.
+**Local enforcement:** 31 `deep` entries have a real static detector in `scripts/detectors.py`, tested in CI against their own `example_bad`/`example_good` (`scripts/test_detectors.py`). The rest are falsifiable-in-principle (they ship a detection recipe) but without an implemented detector yet.
 
 ---
 
@@ -135,7 +135,7 @@ Pages with the largest impact surface. If they change, review their inbound link
 
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
-| [[Home]] | `wiki` | 422 | 13 | [[Detectors/audit_d2_completeness]], [[Detectors/vc005_untracked_prototype]], [[Detectors/vc036_destructive_without_dryrun]], [[Detectors/vc061_constant_stub]], [[Detectors/vc070_blind_shell_edit]], [[Detectors/vc087_blanket_filterwarnings]] +416 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
+| [[Home]] | `wiki` | 437 | 13 | [[Detectors/audit_d2_completeness]], [[Detectors/vc003_incomprehensible_code]], [[Detectors/vc005_premature_closure]], [[Detectors/vc005_untracked_prototype]], [[Detectors/vc013_ambiguous_handoff]], [[Detectors/vc016_broken_version_parity]] +431 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
 | [[Vices_Index]] | `wiki` | 203 | 203 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +197 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +197 more |
 | [[Tokenomics_Map]] | `wiki` | 244 | 21 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +238 more | [[Home]], [[Principles]], [[Principles/PR-081]], [[Principles/PR-083]], [[Principles/PR-084]], [[Principles/PR-085]] +15 more |
 | [[Principles]] | `principle-index` | 116 | 115 | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +110 more | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +109 more |

@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-06-18",
-  "node_count": 431,
-  "edge_count": 2407,
+  "node_count": 446,
+  "edge_count": 2452,
   "nodes": [
     {
       "id": "CODE_OF_CONDUCT",
@@ -255,6 +255,110 @@
       "hub_score": 15
     },
     {
+      "id": "Detectors/vc003_incomprehensible_code",
+      "path": "Wiki/Detectors/vc003_incomprehensible_code.md",
+      "title": "vc003_incomprehensible_code",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-003"
+      ],
+      "incoming": [
+        "Vices/VC-003"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-003",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-003",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc005_premature_closure",
+      "path": "Wiki/Detectors/vc005_premature_closure.md",
+      "title": "vc005_premature_closure",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-005"
+      ],
+      "incoming": [
+        "Vices/VC-005"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-005",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-005",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
       "id": "Detectors/vc005_untracked_prototype",
       "path": "Wiki/Detectors/vc005_untracked_prototype.md",
       "title": "vc005_untracked_prototype",
@@ -285,6 +389,318 @@
       "incoming_edges": [
         {
           "source": "Vices/VC-002",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc013_ambiguous_handoff",
+      "path": "Wiki/Detectors/vc013_ambiguous_handoff.md",
+      "title": "vc013_ambiguous_handoff",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-013"
+      ],
+      "incoming": [
+        "Vices/VC-013"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-013",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-013",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc016_broken_version_parity",
+      "path": "Wiki/Detectors/vc016_broken_version_parity.md",
+      "title": "vc016_broken_version_parity",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-016"
+      ],
+      "incoming": [
+        "Vices/VC-016"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-016",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-016",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc017_deadlock_without_heartbeat",
+      "path": "Wiki/Detectors/vc017_deadlock_without_heartbeat.md",
+      "title": "vc017_deadlock_without_heartbeat",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-017"
+      ],
+      "incoming": [
+        "Vices/VC-017"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-017",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-017",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc025_io_without_validation",
+      "path": "Wiki/Detectors/vc025_io_without_validation.md",
+      "title": "vc025_io_without_validation",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-025"
+      ],
+      "incoming": [
+        "Vices/VC-025"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-025",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-025",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc028_core_dependent_on_unstable_parts",
+      "path": "Wiki/Detectors/vc028_core_dependent_on_unstable_parts.md",
+      "title": "vc028_core_dependent_on_unstable_parts",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-028"
+      ],
+      "incoming": [
+        "Vices/VC-028"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-028",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-028",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc029_uncritical_copy_paste",
+      "path": "Wiki/Detectors/vc029_uncritical_copy_paste.md",
+      "title": "vc029_uncritical_copy_paste",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-029"
+      ],
+      "incoming": [
+        "Vices/VC-029"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-029",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-029",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -359,6 +775,110 @@
       "hub_score": 15
     },
     {
+      "id": "Detectors/vc047_frozen_nomenclature",
+      "path": "Wiki/Detectors/vc047_frozen_nomenclature.md",
+      "title": "vc047_frozen_nomenclature",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-047"
+      ],
+      "incoming": [
+        "Vices/VC-047"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-047",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-047",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc059_prompt_injection_in_agent_loop",
+      "path": "Wiki/Detectors/vc059_prompt_injection_in_agent_loop.md",
+      "title": "vc059_prompt_injection_in_agent_loop",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-059"
+      ],
+      "incoming": [
+        "Vices/VC-059"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-059",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-059",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
       "id": "Detectors/vc061_constant_stub",
       "path": "Wiki/Detectors/vc061_constant_stub.md",
       "title": "vc061_constant_stub",
@@ -411,6 +931,162 @@
       "hub_score": 15
     },
     {
+      "id": "Detectors/vc061_hallucinated_dependency",
+      "path": "Wiki/Detectors/vc061_hallucinated_dependency.md",
+      "title": "vc061_hallucinated_dependency",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-061"
+      ],
+      "incoming": [
+        "Vices/VC-061"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-061",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-061",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc065_unhandled_tool_call_failure",
+      "path": "Wiki/Detectors/vc065_unhandled_tool_call_failure.md",
+      "title": "vc065_unhandled_tool_call_failure",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-065"
+      ],
+      "incoming": [
+        "Vices/VC-065"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-065",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-065",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc066_multi_agent_without_protocol",
+      "path": "Wiki/Detectors/vc066_multi_agent_without_protocol.md",
+      "title": "vc066_multi_agent_without_protocol",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-066"
+      ],
+      "incoming": [
+        "Vices/VC-066"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-066",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-066",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
       "id": "Detectors/vc070_blind_shell_edit",
       "path": "Wiki/Detectors/vc070_blind_shell_edit.md",
       "title": "vc070_blind_shell_edit",
@@ -441,6 +1117,110 @@
       "incoming_edges": [
         {
           "source": "Vices/VC-024",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc071_blind_trust_in_llm_output",
+      "path": "Wiki/Detectors/vc071_blind_trust_in_llm_output.md",
+      "title": "vc071_blind_trust_in_llm_output",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-071"
+      ],
+      "incoming": [
+        "Vices/VC-071"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-071",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-071",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc078_excessive_agency",
+      "path": "Wiki/Detectors/vc078_excessive_agency.md",
+      "title": "vc078_excessive_agency",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-078"
+      ],
+      "incoming": [
+        "Vices/VC-078"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-078",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-078",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -7570,7 +8350,7 @@
       "title": "Golden Standard Wiki",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-06-18T20:12:38-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
@@ -7588,10 +8368,25 @@
       ],
       "incoming": [
         "Detectors/audit_d2_completeness",
+        "Detectors/vc003_incomprehensible_code",
+        "Detectors/vc005_premature_closure",
         "Detectors/vc005_untracked_prototype",
+        "Detectors/vc013_ambiguous_handoff",
+        "Detectors/vc016_broken_version_parity",
+        "Detectors/vc017_deadlock_without_heartbeat",
+        "Detectors/vc025_io_without_validation",
+        "Detectors/vc028_core_dependent_on_unstable_parts",
+        "Detectors/vc029_uncritical_copy_paste",
         "Detectors/vc036_destructive_without_dryrun",
+        "Detectors/vc047_frozen_nomenclature",
+        "Detectors/vc059_prompt_injection_in_agent_loop",
         "Detectors/vc061_constant_stub",
+        "Detectors/vc061_hallucinated_dependency",
+        "Detectors/vc065_unhandled_tool_call_failure",
+        "Detectors/vc066_multi_agent_without_protocol",
         "Detectors/vc070_blind_shell_edit",
+        "Detectors/vc071_blind_trust_in_llm_output",
+        "Detectors/vc078_excessive_agency",
         "Detectors/vc087_blanket_filterwarnings",
         "Detectors/vc095_hardcoded_secret",
         "Detectors/vc109_hardcoded_path",
@@ -8098,7 +8893,55 @@
           "confidence": 0.85
         },
         {
+          "source": "Detectors/vc003_incomprehensible_code",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc005_premature_closure",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Detectors/vc005_untracked_prototype",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc013_ambiguous_handoff",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc016_broken_version_parity",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc017_deadlock_without_heartbeat",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc025_io_without_validation",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc028_core_dependent_on_unstable_parts",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc029_uncritical_copy_paste",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
@@ -8110,13 +8953,55 @@
           "confidence": 0.85
         },
         {
+          "source": "Detectors/vc047_frozen_nomenclature",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc059_prompt_injection_in_agent_loop",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Detectors/vc061_constant_stub",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
+          "source": "Detectors/vc061_hallucinated_dependency",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc065_unhandled_tool_call_failure",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc066_multi_agent_without_protocol",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Detectors/vc070_blind_shell_edit",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc071_blind_trust_in_llm_output",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc078_excessive_agency",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
@@ -10624,9 +11509,9 @@
           "confidence": 0.85
         }
       ],
-      "in_degree": 422,
+      "in_degree": 437,
       "out_degree": 13,
-      "degree": 435,
+      "degree": 450,
       "connected_types": [
         "conceptual-framework",
         "domain",
@@ -10646,7 +11531,7 @@
       ],
       "semantic_reach": 8,
       "relation_diversity": 5,
-      "hub_score": 469
+      "hub_score": 484
     },
     {
       "id": "Principles",
@@ -29207,7 +30092,7 @@
       "title": "VC-002: Prototype turned into debt",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:12:38-06:00",
       "outgoing": [
         "Detectors/vc005_untracked_prototype",
         "Evidence/arxiv2603_28592",
@@ -29307,6 +30192,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc003_incomprehensible_code",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -29314,10 +30200,17 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc003_incomprehensible_code",
         "Evidence/arxiv2603_28592",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc003_incomprehensible_code",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/arxiv2603_28592",
           "kind": "wikilink",
@@ -29351,6 +30244,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc003_incomprehensible_code",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Evidence/arxiv2603_28592",
           "kind": "wikilink",
           "relation": "catalogs",
@@ -29363,9 +30262,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
-      "out_degree": 5,
-      "degree": 7,
+      "in_degree": 3,
+      "out_degree": 6,
+      "degree": 9,
       "connected_types": [
         "principle",
         "wiki"
@@ -29377,8 +30276,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
-      "status": "DOC_ONLY",
+      "hub_score": 21,
+      "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "medium",
       "cluster": "cluster_98"
@@ -29475,6 +30374,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-18T00:40:25-06:00",
       "outgoing": [
+        "Detectors/vc005_premature_closure",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -29482,10 +30382,17 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc005_premature_closure",
         "Evidence/arxiv2603_28592",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc005_premature_closure",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/arxiv2603_28592",
           "kind": "wikilink",
@@ -29519,6 +30426,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc005_premature_closure",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Evidence/arxiv2603_28592",
           "kind": "wikilink",
           "relation": "catalogs",
@@ -29531,9 +30444,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
-      "out_degree": 5,
-      "degree": 7,
+      "in_degree": 3,
+      "out_degree": 6,
+      "degree": 9,
       "connected_types": [
         "principle",
         "wiki"
@@ -29545,7 +30458,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
+      "hub_score": 21,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "medium",
@@ -29893,7 +30806,7 @@
       "title": "VC-010: No dry run",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:12:38-06:00",
       "outgoing": [
         "Detectors/vc036_destructive_without_dryrun",
         "Evidence/arxiv2603_28592",
@@ -30147,6 +31060,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc013_ambiguous_handoff",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -30154,9 +31068,16 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc013_ambiguous_handoff",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc013_ambiguous_handoff",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/arxiv2603_28592",
           "kind": "wikilink",
@@ -30190,15 +31111,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc013_ambiguous_handoff",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
-      "out_degree": 5,
-      "degree": 6,
+      "in_degree": 2,
+      "out_degree": 6,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -30210,8 +31137,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 18,
-      "status": "DOC_ONLY",
+      "hub_score": 20,
+      "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "medium",
       "cluster": "cluster_63"
@@ -30385,6 +31312,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc016_broken_version_parity",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -30392,9 +31320,16 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc016_broken_version_parity",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc016_broken_version_parity",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/arxiv2603_28592",
           "kind": "wikilink",
@@ -30428,15 +31363,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc016_broken_version_parity",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
-      "out_degree": 5,
-      "degree": 6,
+      "in_degree": 2,
+      "out_degree": 6,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -30448,8 +31389,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 18,
-      "status": "DOC_ONLY",
+      "hub_score": 20,
+      "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "medium",
       "cluster": "cluster_108"
@@ -30462,6 +31403,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc017_deadlock_without_heartbeat",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -30469,9 +31411,16 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc017_deadlock_without_heartbeat",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc017_deadlock_without_heartbeat",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/arxiv2603_28592",
           "kind": "wikilink",
@@ -30505,15 +31454,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc017_deadlock_without_heartbeat",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
-      "out_degree": 5,
-      "degree": 6,
+      "in_degree": 2,
+      "out_degree": 6,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -30525,8 +31480,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 18,
-      "status": "DOC_ONLY",
+      "hub_score": 20,
+      "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "medium",
       "cluster": "cluster_109"
@@ -30537,7 +31492,7 @@
       "title": "VC-018: Stub as architecture",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:12:38-06:00",
       "outgoing": [
         "Detectors/vc061_constant_stub",
         "Evidence/arxiv2603_28592",
@@ -31027,7 +31982,7 @@
       "title": "VC-024: Blind shell manipulation",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:12:38-06:00",
       "outgoing": [
         "Detectors/vc070_blind_shell_edit",
         "Evidence/arxiv2603_28592",
@@ -31120,6 +32075,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc025_io_without_validation",
         "Evidence/owasp_top_10_for_agents_2026",
         "Home",
         "Principles/PR-097",
@@ -31127,10 +32083,17 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc025_io_without_validation",
         "Evidence/owasp_top_10_for_agents_2026",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc025_io_without_validation",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/owasp_top_10_for_agents_2026",
           "kind": "wikilink",
@@ -31164,6 +32127,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc025_io_without_validation",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Evidence/owasp_top_10_for_agents_2026",
           "kind": "wikilink",
           "relation": "catalogs",
@@ -31176,9 +32145,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
-      "out_degree": 5,
-      "degree": 7,
+      "in_degree": 3,
+      "out_degree": 6,
+      "degree": 9,
       "connected_types": [
         "principle",
         "wiki"
@@ -31190,8 +32159,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
-      "status": "DOC_ONLY",
+      "hub_score": 21,
+      "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "medium",
       "cluster": "cluster_115"
@@ -31372,6 +32341,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc028_core_dependent_on_unstable_parts",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -31379,9 +32349,16 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc028_core_dependent_on_unstable_parts",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc028_core_dependent_on_unstable_parts",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/arxiv2603_28592",
           "kind": "wikilink",
@@ -31415,15 +32392,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc028_core_dependent_on_unstable_parts",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
-      "out_degree": 5,
-      "degree": 6,
+      "in_degree": 2,
+      "out_degree": 6,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -31435,8 +32418,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 18,
-      "status": "DOC_ONLY",
+      "hub_score": 20,
+      "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "medium",
       "cluster": "cluster_118"
@@ -31449,6 +32432,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc029_uncritical_copy_paste",
         "Evidence/gitclear_2025",
         "Home",
         "Principles/PR-097",
@@ -31456,10 +32440,17 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc029_uncritical_copy_paste",
         "Evidence/gitclear_2025",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc029_uncritical_copy_paste",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/gitclear_2025",
           "kind": "wikilink",
@@ -31493,6 +32484,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc029_uncritical_copy_paste",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Evidence/gitclear_2025",
           "kind": "wikilink",
           "relation": "catalogs",
@@ -31505,9 +32502,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
-      "out_degree": 5,
-      "degree": 7,
+      "in_degree": 3,
+      "out_degree": 6,
+      "degree": 9,
       "connected_types": [
         "principle",
         "wiki"
@@ -31519,8 +32516,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
-      "status": "DOC_ONLY",
+      "hub_score": 21,
+      "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "medium",
       "cluster": "cluster_119"
@@ -32042,7 +33039,7 @@
       "title": "VC-036: Direct production access",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:12:38-06:00",
       "outgoing": [
         "Detectors/vc095_hardcoded_secret",
         "Evidence/owasp_top_10_for_agents_2026",
@@ -32947,6 +33944,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc047_frozen_nomenclature",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -32954,9 +33952,16 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc047_frozen_nomenclature",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc047_frozen_nomenclature",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/arxiv2603_28592",
           "kind": "wikilink",
@@ -32990,15 +33995,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc047_frozen_nomenclature",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
-      "out_degree": 5,
-      "degree": 6,
+      "in_degree": 2,
+      "out_degree": 6,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -33010,8 +34021,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 18,
-      "status": "DOC_ONLY",
+      "hub_score": 20,
+      "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "medium",
       "cluster": "cluster_93"
@@ -33929,6 +34940,7 @@
       "created": "2026-06-05T12:50:31-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc059_prompt_injection_in_agent_loop",
         "Evidence/owasp_top_10_for_agents_2026",
         "Home",
         "Principles/PR-097",
@@ -33936,10 +34948,17 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc059_prompt_injection_in_agent_loop",
         "Evidence/owasp_top_10_for_agents_2026",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc059_prompt_injection_in_agent_loop",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/owasp_top_10_for_agents_2026",
           "kind": "wikilink",
@@ -33973,6 +34992,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc059_prompt_injection_in_agent_loop",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Evidence/owasp_top_10_for_agents_2026",
           "kind": "wikilink",
           "relation": "catalogs",
@@ -33985,9 +35010,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
-      "out_degree": 5,
-      "degree": 7,
+      "in_degree": 3,
+      "out_degree": 6,
+      "degree": 9,
       "connected_types": [
         "principle",
         "wiki"
@@ -33999,8 +35024,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
-      "status": "DOC_ONLY",
+      "hub_score": 21,
+      "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "critical",
       "cluster": "cluster_5"
@@ -34097,6 +35122,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc061_hallucinated_dependency",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -34104,9 +35130,16 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc061_hallucinated_dependency",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc061_hallucinated_dependency",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/arxiv2603_28592",
           "kind": "wikilink",
@@ -34140,15 +35173,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc061_hallucinated_dependency",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
-      "out_degree": 5,
-      "degree": 6,
+      "in_degree": 2,
+      "out_degree": 6,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -34160,7 +35199,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 18,
+      "hub_score": 20,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "high",
@@ -34412,6 +35451,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc065_unhandled_tool_call_failure",
         "Evidence/owasp_top_10_for_agents_2026",
         "Home",
         "Principles/PR-097",
@@ -34419,10 +35459,17 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc065_unhandled_tool_call_failure",
         "Evidence/owasp_top_10_for_agents_2026",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc065_unhandled_tool_call_failure",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/owasp_top_10_for_agents_2026",
           "kind": "wikilink",
@@ -34456,6 +35503,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc065_unhandled_tool_call_failure",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Evidence/owasp_top_10_for_agents_2026",
           "kind": "wikilink",
           "relation": "catalogs",
@@ -34468,9 +35521,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
-      "out_degree": 5,
-      "degree": 7,
+      "in_degree": 3,
+      "out_degree": 6,
+      "degree": 9,
       "connected_types": [
         "principle",
         "wiki"
@@ -34482,8 +35535,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
-      "status": "DOC_ONLY",
+      "hub_score": 21,
+      "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "high",
       "cluster": "cluster_5"
@@ -34496,6 +35549,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc066_multi_agent_without_protocol",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -34503,9 +35557,16 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc066_multi_agent_without_protocol",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc066_multi_agent_without_protocol",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/arxiv2603_28592",
           "kind": "wikilink",
@@ -34539,15 +35600,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc066_multi_agent_without_protocol",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
-      "out_degree": 5,
-      "degree": 6,
+      "in_degree": 2,
+      "out_degree": 6,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -34559,8 +35626,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 18,
-      "status": "DOC_ONLY",
+      "hub_score": 20,
+      "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "high",
       "cluster": "cluster_5"
@@ -34999,6 +36066,7 @@
       "created": "2026-06-05T15:59:06-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc071_blind_trust_in_llm_output",
         "Evidence/owasp_top_10_for_llm_applications",
         "Home",
         "Principles/PR-097",
@@ -35006,10 +36074,17 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc071_blind_trust_in_llm_output",
         "Evidence/owasp_top_10_for_llm_applications",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc071_blind_trust_in_llm_output",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/owasp_top_10_for_llm_applications",
           "kind": "wikilink",
@@ -35043,6 +36118,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc071_blind_trust_in_llm_output",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Evidence/owasp_top_10_for_llm_applications",
           "kind": "wikilink",
           "relation": "catalogs",
@@ -35055,9 +36136,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
-      "out_degree": 5,
-      "degree": 7,
+      "in_degree": 3,
+      "out_degree": 6,
+      "degree": 9,
       "connected_types": [
         "principle",
         "wiki"
@@ -35069,8 +36150,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
-      "status": "DOC_ONLY",
+      "hub_score": 21,
+      "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "high",
       "cluster": "cluster_5"
@@ -35587,6 +36668,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc078_excessive_agency",
         "Evidence/nvidia_skillspector_static_patterns_excessive_agency_py",
         "Home",
         "Principles/PR-097",
@@ -35594,10 +36676,17 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc078_excessive_agency",
         "Evidence/nvidia_skillspector_static_patterns_excessive_agency_py",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc078_excessive_agency",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/nvidia_skillspector_static_patterns_excessive_agency_py",
           "kind": "wikilink",
@@ -35631,6 +36720,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc078_excessive_agency",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Evidence/nvidia_skillspector_static_patterns_excessive_agency_py",
           "kind": "wikilink",
           "relation": "catalogs",
@@ -35643,9 +36738,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
-      "out_degree": 5,
-      "degree": 7,
+      "in_degree": 3,
+      "out_degree": 6,
+      "degree": 9,
       "connected_types": [
         "principle",
         "wiki"
@@ -35657,7 +36752,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
+      "hub_score": 21,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "high",
@@ -45406,7 +46501,7 @@
       "title": "Engineering Vices Index",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-06-18T20:12:38-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-001",
@@ -48298,6 +49393,34 @@
       "confidence": 0.95
     },
     {
+      "source": "Detectors/vc003_incomprehensible_code",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc003_incomprehensible_code",
+      "target": "Vices/VC-003",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc005_premature_closure",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc005_premature_closure",
+      "target": "Vices/VC-005",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
       "source": "Detectors/vc005_untracked_prototype",
       "target": "Home",
       "kind": "wikilink",
@@ -48307,6 +49430,90 @@
     {
       "source": "Detectors/vc005_untracked_prototype",
       "target": "Vices/VC-002",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc013_ambiguous_handoff",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc013_ambiguous_handoff",
+      "target": "Vices/VC-013",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc016_broken_version_parity",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc016_broken_version_parity",
+      "target": "Vices/VC-016",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc017_deadlock_without_heartbeat",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc017_deadlock_without_heartbeat",
+      "target": "Vices/VC-017",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc025_io_without_validation",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc025_io_without_validation",
+      "target": "Vices/VC-025",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc028_core_dependent_on_unstable_parts",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc028_core_dependent_on_unstable_parts",
+      "target": "Vices/VC-028",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc029_uncritical_copy_paste",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc029_uncritical_copy_paste",
+      "target": "Vices/VC-029",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
@@ -48326,6 +49533,34 @@
       "confidence": 0.95
     },
     {
+      "source": "Detectors/vc047_frozen_nomenclature",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc047_frozen_nomenclature",
+      "target": "Vices/VC-047",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc059_prompt_injection_in_agent_loop",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc059_prompt_injection_in_agent_loop",
+      "target": "Vices/VC-059",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
       "source": "Detectors/vc061_constant_stub",
       "target": "Home",
       "kind": "wikilink",
@@ -48340,6 +49575,48 @@
       "confidence": 0.95
     },
     {
+      "source": "Detectors/vc061_hallucinated_dependency",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc061_hallucinated_dependency",
+      "target": "Vices/VC-061",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc065_unhandled_tool_call_failure",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc065_unhandled_tool_call_failure",
+      "target": "Vices/VC-065",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc066_multi_agent_without_protocol",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc066_multi_agent_without_protocol",
+      "target": "Vices/VC-066",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
       "source": "Detectors/vc070_blind_shell_edit",
       "target": "Home",
       "kind": "wikilink",
@@ -48349,6 +49626,34 @@
     {
       "source": "Detectors/vc070_blind_shell_edit",
       "target": "Vices/VC-024",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc071_blind_trust_in_llm_output",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc071_blind_trust_in_llm_output",
+      "target": "Vices/VC-071",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc078_excessive_agency",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc078_excessive_agency",
+      "target": "Vices/VC-078",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
@@ -56814,6 +58119,14 @@
     },
     {
       "source": "Vices/VC-003",
+      "target": "Detectors/vc003_incomprehensible_code",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-003",
       "target": "Evidence/arxiv2603_28592",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -56891,6 +58204,14 @@
       "relation": "returns_to_index",
       "confidence": 0.95,
       "weight": 0.8
+    },
+    {
+      "source": "Vices/VC-005",
+      "target": "Detectors/vc005_premature_closure",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
     },
     {
       "source": "Vices/VC-005",
@@ -57222,6 +58543,14 @@
     },
     {
       "source": "Vices/VC-013",
+      "target": "Detectors/vc013_ambiguous_handoff",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-013",
       "target": "Evidence/arxiv2603_28592",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -57342,6 +58671,14 @@
     },
     {
       "source": "Vices/VC-016",
+      "target": "Detectors/vc016_broken_version_parity",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-016",
       "target": "Evidence/arxiv2603_28592",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -57375,6 +58712,14 @@
     {
       "source": "Vices/VC-016",
       "target": "Vices_Index",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-017",
+      "target": "Detectors/vc017_deadlock_without_heartbeat",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -57718,6 +59063,14 @@
     },
     {
       "source": "Vices/VC-025",
+      "target": "Detectors/vc025_io_without_validation",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-025",
       "target": "Evidence/owasp_top_10_for_agents_2026",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -57846,6 +59199,14 @@
     },
     {
       "source": "Vices/VC-028",
+      "target": "Detectors/vc028_core_dependent_on_unstable_parts",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-028",
       "target": "Evidence/arxiv2603_28592",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -57879,6 +59240,14 @@
     {
       "source": "Vices/VC-028",
       "target": "Vices_Index",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-029",
+      "target": "Detectors/vc029_uncritical_copy_paste",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -58646,6 +60015,14 @@
     },
     {
       "source": "Vices/VC-047",
+      "target": "Detectors/vc047_frozen_nomenclature",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-047",
       "target": "Evidence/arxiv2603_28592",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -59134,6 +60511,14 @@
     },
     {
       "source": "Vices/VC-059",
+      "target": "Detectors/vc059_prompt_injection_in_agent_loop",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 1.0
+    },
+    {
+      "source": "Vices/VC-059",
       "target": "Evidence/owasp_top_10_for_agents_2026",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -59214,6 +60599,14 @@
     },
     {
       "source": "Vices/VC-061",
+      "target": "Detectors/vc061_hallucinated_dependency",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.8
+    },
+    {
+      "source": "Vices/VC-061",
       "target": "Evidence/arxiv2603_28592",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -59374,6 +60767,14 @@
     },
     {
       "source": "Vices/VC-065",
+      "target": "Detectors/vc065_unhandled_tool_call_failure",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.8
+    },
+    {
+      "source": "Vices/VC-065",
       "target": "Evidence/owasp_top_10_for_agents_2026",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -59407,6 +60808,14 @@
     {
       "source": "Vices/VC-065",
       "target": "Vices_Index",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.8
+    },
+    {
+      "source": "Vices/VC-066",
+      "target": "Detectors/vc066_multi_agent_without_protocol",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -59671,6 +61080,14 @@
     {
       "source": "Vices/VC-070",
       "target": "Vices_Index",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.8
+    },
+    {
+      "source": "Vices/VC-071",
+      "target": "Detectors/vc071_blind_trust_in_llm_output",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -59951,6 +61368,14 @@
     {
       "source": "Vices/VC-077",
       "target": "Vices_Index",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.8
+    },
+    {
+      "source": "Vices/VC-078",
+      "target": "Detectors/vc078_excessive_agency",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -66421,26 +67846,26 @@
   "summary": {
     "edge_kinds": {
       "markdown": 9,
-      "wikilink": 2398
+      "wikilink": 2443
     },
     "relation_counts": {
       "bridges": 21,
-      "catalogs": 324,
+      "catalogs": 339,
       "entrypoint": 13,
       "governed_by": 202,
       "indexes": 114,
       "operationalizes_domain": 91,
-      "references": 379,
-      "returns_to_index": 1106,
+      "references": 394,
+      "returns_to_index": 1121,
       "routes_to_domains": 1,
       "subindex": 34,
       "thematic_bridge": 122
     },
-    "reciprocal_pairs": 559,
-    "average_edge_confidence": 0.935,
-    "semantic_density": 0.012988,
+    "reciprocal_pairs": 574,
+    "average_edge_confidence": 0.934,
+    "semantic_density": 0.012355,
     "hub_ratio": 1.0,
-    "bridge_ratio": 0.99768,
+    "bridge_ratio": 0.997758,
     "intentional_orphans": [],
     "intentional_orphan_review": [],
     "orphan_candidates": [],
@@ -66451,7 +67876,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-18T00:40:25-06:00",
+        "promoted": "2026-06-18T20:12:38-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -66469,10 +67894,25 @@
         ],
         "incoming": [
           "Detectors/audit_d2_completeness",
+          "Detectors/vc003_incomprehensible_code",
+          "Detectors/vc005_premature_closure",
           "Detectors/vc005_untracked_prototype",
+          "Detectors/vc013_ambiguous_handoff",
+          "Detectors/vc016_broken_version_parity",
+          "Detectors/vc017_deadlock_without_heartbeat",
+          "Detectors/vc025_io_without_validation",
+          "Detectors/vc028_core_dependent_on_unstable_parts",
+          "Detectors/vc029_uncritical_copy_paste",
           "Detectors/vc036_destructive_without_dryrun",
+          "Detectors/vc047_frozen_nomenclature",
+          "Detectors/vc059_prompt_injection_in_agent_loop",
           "Detectors/vc061_constant_stub",
+          "Detectors/vc061_hallucinated_dependency",
+          "Detectors/vc065_unhandled_tool_call_failure",
+          "Detectors/vc066_multi_agent_without_protocol",
           "Detectors/vc070_blind_shell_edit",
+          "Detectors/vc071_blind_trust_in_llm_output",
+          "Detectors/vc078_excessive_agency",
           "Detectors/vc087_blanket_filterwarnings",
           "Detectors/vc095_hardcoded_secret",
           "Detectors/vc109_hardcoded_path",
@@ -66979,7 +68419,55 @@
             "confidence": 0.85
           },
           {
+            "source": "Detectors/vc003_incomprehensible_code",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc005_premature_closure",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
             "source": "Detectors/vc005_untracked_prototype",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc013_ambiguous_handoff",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc016_broken_version_parity",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc017_deadlock_without_heartbeat",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc025_io_without_validation",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc028_core_dependent_on_unstable_parts",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc029_uncritical_copy_paste",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -66991,13 +68479,55 @@
             "confidence": 0.85
           },
           {
+            "source": "Detectors/vc047_frozen_nomenclature",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc059_prompt_injection_in_agent_loop",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
             "source": "Detectors/vc061_constant_stub",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
+            "source": "Detectors/vc061_hallucinated_dependency",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc065_unhandled_tool_call_failure",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc066_multi_agent_without_protocol",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
             "source": "Detectors/vc070_blind_shell_edit",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc071_blind_trust_in_llm_output",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc078_excessive_agency",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -69505,9 +71035,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 422,
+        "in_degree": 437,
         "out_degree": 13,
-        "degree": 435,
+        "degree": 450,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -69527,7 +71057,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 469
+        "hub_score": 484
       },
       {
         "id": "Vices_Index",
@@ -69535,7 +71065,7 @@
         "title": "Engineering Vices Index",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-18T00:40:25-06:00",
+        "promoted": "2026-06-18T20:12:38-06:00",
         "outgoing": [
           "Home",
           "Vices/VC-001",
@@ -82129,7 +83659,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-18T00:40:25-06:00",
+        "promoted": "2026-06-18T20:12:38-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -82147,10 +83677,25 @@
         ],
         "incoming": [
           "Detectors/audit_d2_completeness",
+          "Detectors/vc003_incomprehensible_code",
+          "Detectors/vc005_premature_closure",
           "Detectors/vc005_untracked_prototype",
+          "Detectors/vc013_ambiguous_handoff",
+          "Detectors/vc016_broken_version_parity",
+          "Detectors/vc017_deadlock_without_heartbeat",
+          "Detectors/vc025_io_without_validation",
+          "Detectors/vc028_core_dependent_on_unstable_parts",
+          "Detectors/vc029_uncritical_copy_paste",
           "Detectors/vc036_destructive_without_dryrun",
+          "Detectors/vc047_frozen_nomenclature",
+          "Detectors/vc059_prompt_injection_in_agent_loop",
           "Detectors/vc061_constant_stub",
+          "Detectors/vc061_hallucinated_dependency",
+          "Detectors/vc065_unhandled_tool_call_failure",
+          "Detectors/vc066_multi_agent_without_protocol",
           "Detectors/vc070_blind_shell_edit",
+          "Detectors/vc071_blind_trust_in_llm_output",
+          "Detectors/vc078_excessive_agency",
           "Detectors/vc087_blanket_filterwarnings",
           "Detectors/vc095_hardcoded_secret",
           "Detectors/vc109_hardcoded_path",
@@ -82657,7 +84202,55 @@
             "confidence": 0.85
           },
           {
+            "source": "Detectors/vc003_incomprehensible_code",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc005_premature_closure",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
             "source": "Detectors/vc005_untracked_prototype",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc013_ambiguous_handoff",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc016_broken_version_parity",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc017_deadlock_without_heartbeat",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc025_io_without_validation",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc028_core_dependent_on_unstable_parts",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc029_uncritical_copy_paste",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -82669,13 +84262,55 @@
             "confidence": 0.85
           },
           {
+            "source": "Detectors/vc047_frozen_nomenclature",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc059_prompt_injection_in_agent_loop",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
             "source": "Detectors/vc061_constant_stub",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
+            "source": "Detectors/vc061_hallucinated_dependency",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc065_unhandled_tool_call_failure",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc066_multi_agent_without_protocol",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
             "source": "Detectors/vc070_blind_shell_edit",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc071_blind_trust_in_llm_output",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc078_excessive_agency",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -85183,9 +86818,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 422,
+        "in_degree": 437,
         "out_degree": 13,
-        "degree": 435,
+        "degree": 450,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -85205,7 +86840,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 469
+        "hub_score": 484
       },
       {
         "id": "Tokenomics_Map",
