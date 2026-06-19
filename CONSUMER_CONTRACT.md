@@ -71,6 +71,7 @@ Every rule implemented in Cerberus MUST:
 5. **Reject stale external audit baselines.** This is the reusable GS-side principle behind Cerberus's external audit contract: an external verdict is only valid when it is tied to the active baseline being exercised. Findings based on retired `00 audit` artifacts, stale snapshots, or pre-purge states must be returned as `NEEDS_INFO`, not accepted as clean evidence.
 6. **Require Cerberus-new functional proof.** GS keeps the abstract rule; Cerberus owns the procedural enforcement. “Passes tests” is not sufficient if the test harness or enforcement layer is retired, mismatched, or legacy. External audits must be re-targeted to the current Cerberus baseline and prove the actual functionality being claimed; otherwise the result is not a valid acceptance.
 7. **Emit origin-rich findings.** Every consumer-facing warning or finding must include the exact origin of the signal (`path:line`, `catalog:id`, or an equivalent stable locus). Aggregate counts alone are not actionable and must be treated as incomplete evidence.
+8. **Make unavailability actionable.** When a dependency, scanner, or hook is unavailable, the finding must name the missing tool, the blocked capability, and the manual recovery step. A bare `UNAVAILABLE` status is insufficient for downstream consumers.
 
 ### What Cerberus May NOT Do
 
@@ -183,5 +184,6 @@ When breaking changes to the contract are needed, they are announced via:
 
 ---
 
-*Last updated: 2026-06-05*  
+*Last updated: 2026-06-19*  
 *This contract is binding on both projects.*
+

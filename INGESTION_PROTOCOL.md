@@ -50,6 +50,7 @@ Open the file in `Inbox/<source>/` and verify it contains at minimum:
 - [ ] `proposed_severity` — one of: `critical`, `high`, `medium`, `low`
 - [ ] `mitigation_proposal` — at least one actionable prevention step
 - [ ] `origin` — exact locus of the observation (`path:line`, `catalog:id`, or equivalent stable source)
+- [ ] If the finding is about a missing tool, scanner, or hook, `mitigation_proposal` states the manual install/recovery step and the blocked capability.
 
 If any required field is missing: **return the finding to the source** with a note.
 Do not proceed.
@@ -282,3 +283,4 @@ Actions:
 
 *Last updated: 2026-06-05*  
 *Authoritative document — do not modify the protocol without curator consensus.*
+
