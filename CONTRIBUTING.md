@@ -207,9 +207,9 @@ Check the current max IDs in:
 - If a file is intentionally isolated, keep it in `Inbox/templates/` or `deprecated/` and say so explicitly.
 - Prefer graph connections that carry meaning over decorative cross-links; every link should help navigation, coverage, or impact analysis.
 - When writing protocol prose, prefer explicit confidence labels for claims that are not directly verified by logs or tests.
-- Before any execution, do a preflight that names scope, likely impacts, explicit out-of-scope follow-ups, and any runner or loader that must change when the topology changes; do not introduce new non-blocking suggestions after execution unless they are moved to backlog first.
+- Before any execution, do a preflight that names scope, likely impacts, explicit out-of-scope follow-ups, and any runner or loader that must change when the topology changes; execute deterministic safe follow-through immediately, and send only genuinely blocked or deferred follow-ups to backlog.
 - If a change touches the audit topology, the preflight must name the corresponding consumer runner/script and the exact file-order or filename impact before any edit lands.
-- After execution, do not reopen scope with "next natural step" style suggestions for blocked or deferred work; deterministic safe follow-through should be executed immediately, and only genuinely blocked work goes to backlog first.
+- After execution, do not reopen scope with "next natural step" style suggestions for work that can still be done now; deterministic safe follow-through should be executed immediately, and only genuinely blocked or deferred work goes to backlog first.
 - Every issue and PR that changes VC/VT/TK knowledge must carry a completed preflight checklist in the template; if the checklist is missing or incomplete, treat the submission as not ready.
 
 ---
