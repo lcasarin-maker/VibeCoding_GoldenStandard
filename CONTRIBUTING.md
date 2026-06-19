@@ -21,9 +21,10 @@ At the end of work:
 2. Keep hypotheses in the intake lane until they are confirmed repeatedly.
 3. Promote a hypothesis after 3+ confirmations or equivalent evidence.
 4. Demote a rule back to hypothesis if new evidence contradicts it.
-5. If a follow-up is deterministic, safe, and still inside the current task scope, execute it immediately instead of suggesting it again.
-6. Do not end a task by re-listing obvious next steps that you already know you can carry out.
-7. If a useful follow-up is blocked by ambiguity, risk, or a human decision, record the blocker clearly and stop there.
+5. If it is safe, deterministic, and still in scope: execute it.
+6. If it is useful but crosses a boundary of scope: ask for a specific authorization.
+7. If it is ambiguous or blocked: move it to backlog.
+8. Do not end a task by re-listing obvious next steps that you already know you can carry out.
 
 ---
 
@@ -207,9 +208,9 @@ Check the current max IDs in:
 - If a file is intentionally isolated, keep it in `Inbox/templates/` or `deprecated/` and say so explicitly.
 - Prefer graph connections that carry meaning over decorative cross-links; every link should help navigation, coverage, or impact analysis.
 - When writing protocol prose, prefer explicit confidence labels for claims that are not directly verified by logs or tests.
-- Before any execution, do a preflight that names scope, likely impacts, explicit out-of-scope follow-ups, and any runner or loader that must change when the topology changes; execute deterministic safe follow-through immediately, and send only genuinely blocked or deferred follow-ups to backlog.
+- Before any execution, do a preflight that names scope, likely impacts, explicit out-of-scope follow-ups, and any runner or loader that must change when the topology changes; execute deterministic safe follow-through immediately, ask for authorization when a useful follow-up crosses scope, and send only ambiguous or blocked work to backlog.
 - If a change touches the audit topology, the preflight must name the corresponding consumer runner/script and the exact file-order or filename impact before any edit lands.
-- After execution, do not reopen scope with "next natural step" style suggestions for work that can still be done now; deterministic safe follow-through should be executed immediately, and only genuinely blocked or deferred work goes to backlog first.
+- After execution, do not reopen scope with "next natural step" style suggestions for work that can still be done now; deterministic safe follow-through should be executed immediately, boundary-crossing follow-ups should be escalated for authorization, and only ambiguous or blocked work goes to backlog first.
 - Every issue and PR that changes VC/VT/TK knowledge must carry a completed preflight checklist in the template; if the checklist is missing or incomplete, treat the submission as not ready.
 
 ---
