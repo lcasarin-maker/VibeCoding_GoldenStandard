@@ -49,7 +49,7 @@ The graph now also highlights entries that remain mainly documentary. This does 
 
 | Catalog | VC DOC_ONLY | VT DOC_ONLY | TK DOC_ONLY |
 |---|---:|---:|---:|
-| `DOC_ONLY` | 32 | 0 | 0 |
+| `DOC_ONLY` | 27 | 0 | 0 |
 
 | ID | Title | Category | Severity | Status |
 |---|---|---|---|---|
@@ -61,10 +61,10 @@ The graph now also highlights entries that remain mainly documentary. This does 
 | `VC-068` | Poisoned or stale persistent memory (cross-session) | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-071` | Blind trust in LLM output (Insecure Output Handling) | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-086` | No backlog entry, no work | `Vibe Coding` | `high` | `AUDITED` |
-| `VC-002` | Prototype turned into debt | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-003` | Incomprehensible code | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-007` | Non-surgical scope | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-009` | Full rewrite | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-012` | Invisible debt | `Vibe Coding` | `medium` | `DOC_ONLY` |
 
 ---
 
@@ -83,9 +83,9 @@ This ranking combines severity with graph centrality, semantic reach, and downst
 | `VC-086` | No backlog entry, no work | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
 | `VC-066` | Multi-agent coordination without a protocol | `high` | `55` | deg=6, types=2, rels=3, consumer-check |
 | `VC-069` | Retrieval (RAG) that feeds wrong context | `medium` | `49` | deg=10, types=3, rels=4, consumer-check |
-| `VC-002` | Prototype turned into debt | `medium` | `43` | deg=9, types=2, rels=3, consumer-check |
-| `VC-010` | No dry run | `medium` | `43` | deg=9, types=2, rels=3, consumer-check |
-| `VC-036` | Direct production access | `medium` | `43` | deg=9, types=2, rels=3, consumer-check |
+| `VC-003` | Incomprehensible code | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
+| `VC-007` | Non-surgical scope | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
+| `VC-009` | Full rewrite | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
 
 ---
 

@@ -5521,14 +5521,14 @@
     "symptom": "The temporary becomes permanent",
     "cause": "Lack of an expiration boundary",
     "solution": "Every prototype must have a date, owner, and exit",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
       "doc-only"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY",
+    "action": "Static detector `vc005_untracked_prototype` flags TODO/FIXME/HACK/prototype comments that lack owner, expiration, and ticket metadata.",
+    "validating_mechanism": "static-regex",
     "downstream_verification": "required",
     "example_bad": "# \"Temporary\" prototype with no date or owner: it stays forever.\ndef quick_hack():            # TODO: temporary, remove\n    return cached_guess()\n",
     "example_good": "# Every prototype carries explicit, trackable expiration and owner.\ndef quick_hack():            # PROTOTYPE owner=luis expires=2026-07-01 ticket=BUG-12\n    return cached_guess()\n",
@@ -5542,7 +5542,13 @@
     ],
     "doctrinal": false,
     "detector": "vc005_untracked_prototype",
-    "tier": "specialist"
+    "tier": "specialist",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-003": {
     "id": "VC-003",
@@ -5785,14 +5791,14 @@
     "symptom": "A destructive action runs directly",
     "cause": "Lack of simulation",
     "solution": "Simulate before applying",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
       "doc-only"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY",
+    "action": "Static detector `vc036_destructive_without_dryrun` flags destructive operations that appear without a dry-run or simulation step in the same flow.",
+    "validating_mechanism": "static-regex",
     "downstream_verification": "required",
     "example_bad": "# Mass deletion run directly, without simulating.\nfind . -name \"*.tmp\" -delete\n",
     "example_good": "# Simulate first; apply only after reviewing the list.\nfind . -name \"*.tmp\" -print     # dry-run: what would be deleted\nfind . -name \"*.tmp\" -delete    # apply after confirming\n",
@@ -5806,7 +5812,13 @@
     ],
     "doctrinal": false,
     "detector": "vc036_destructive_without_dryrun",
-    "tier": "specialist"
+    "tier": "specialist",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-011": {
     "id": "VC-011",
@@ -6043,14 +6055,14 @@
     "symptom": "A temporary simulation becomes a dependency",
     "cause": "Substitute confused with component",
     "solution": "Remove stubs before validating integration",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
       "doc-only"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY",
+    "action": "Static detector `vc061_constant_stub` flags production functions or classes whose body collapses to a stub such as pass, ellipsis, or a constant return.",
+    "validating_mechanism": "static-ast",
     "downstream_verification": "required",
     "example_bad": "# A temporary stub stays wired as a real production dependency.\nclass PaymentGateway:\n    def charge(self, amount):\n        return True        # stub: \"we'll connect it later\"\n",
     "example_good": "# The stub lives only in tests; production uses the real implementation.\nclass PaymentGateway:\n    def charge(self, amount):\n        return self._provider.charge(amount)\n",
@@ -6064,7 +6076,13 @@
     ],
     "doctrinal": false,
     "detector": "vc061_constant_stub",
-    "tier": "specialist"
+    "tier": "specialist",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-019": {
     "id": "VC-019",
@@ -6253,14 +6271,14 @@
     "symptom": "Text replaces a structured API",
     "cause": "Fragile representation",
     "solution": "Use structured operations",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
       "doc-only"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY",
+    "action": "Static detector `vc070_blind_shell_edit` flags shell-based mutation of structured files; use a parser instead of sed/awk/grep-based edits.",
+    "validating_mechanism": "static-regex",
     "downstream_verification": "required",
     "example_bad": "# Editing JSON with a stream editor: fragile, breaks on the first odd case.\nsed -i 's/\"port\": 80/\"port\": 443/' config.json\n",
     "example_good": "# Structured operation with a real parser for the format.\npython -c \"import json; d=json.load(open('config.json')); d['port']=443; json.dump(d, open('config.json','w'), indent=2)\"\n",
@@ -6274,7 +6292,13 @@
     ],
     "doctrinal": false,
     "detector": "vc070_blind_shell_edit",
-    "tier": "specialist"
+    "tier": "specialist",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-025": {
     "id": "VC-025",
@@ -6669,14 +6693,14 @@
     "symptom": "Irreversible risk",
     "cause": "Lack of a safe environment",
     "solution": "Separate environments",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
       "doc-only"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY",
+    "action": "Static detector `vc095_hardcoded_secret` flags production hosts or credentials in source; keep production access out of code and validate secrets scanning before merge.",
+    "validating_mechanism": "static-regex",
     "downstream_verification": "required",
     "example_bad": "# Embedded production URL/credential: any run touches prod.\nDB = connect(\"postgres://prod-db.internal:5432\", password=\"hunter2\")\n",
     "example_good": "# Injected environment; prod requires an explicit, separate step.\nDB = connect(os.environ[\"DATABASE_URL\"])   # default points to sandbox\n",
@@ -6690,7 +6714,13 @@
     ],
     "doctrinal": false,
     "detector": "vc095_hardcoded_secret",
-    "tier": "specialist"
+    "tier": "specialist",
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D17",
+        "mechanism": "scripts/validate_golden_standard_catalogs.py"
+      }
+    }
   },
   "VC-037": {
     "id": "VC-037",

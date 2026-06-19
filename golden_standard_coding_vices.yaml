@@ -42,15 +42,13 @@ items:
   symptom: The temporary becomes permanent
   cause: Lack of an expiration boundary
   solution: Every prototype must have a date, owner, and exit
-  status: DOC_ONLY
+  status: PREVENTED
   severity: medium
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
+  action: 'Static detector `vc005_untracked_prototype` flags TODO/FIXME/HACK/prototype comments that lack owner, expiration, and ticket metadata.'
+  validating_mechanism: static-regex
   downstream_verification: required
   example_lang: python
   example_bad: "# \"Temporary\" prototype with no date or owner: it stays forever.\ndef quick_hack():            # TODO: temporary,\
@@ -65,6 +63,10 @@ items:
   evidence:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   tier: specialist
 - id: VC-003
   title: Incomprehensible code
@@ -300,15 +302,13 @@ items:
   symptom: A destructive action runs directly
   cause: Lack of simulation
   solution: Simulate before applying
-  status: DOC_ONLY
+  status: PREVENTED
   severity: medium
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
+  action: 'Static detector `vc036_destructive_without_dryrun` flags destructive operations that appear without a dry-run or simulation step in the same flow.'
+  validating_mechanism: static-regex
   downstream_verification: required
   example_lang: bash
   example_bad: '# Mass deletion run directly, without simulating.
@@ -331,6 +331,10 @@ items:
   evidence:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   tier: specialist
 - id: VC-011
   title: Blind regeneration
@@ -592,15 +596,13 @@ items:
   symptom: A temporary simulation becomes a dependency
   cause: Substitute confused with component
   solution: Remove stubs before validating integration
-  status: DOC_ONLY
+  status: PREVENTED
   severity: medium
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
+  action: 'Static detector `vc061_constant_stub` flags production functions or classes whose body collapses to a stub such as pass, ellipsis, or a constant return.'
+  validating_mechanism: static-ast
   downstream_verification: required
   example_lang: python
   example_bad: "# A temporary stub stays wired as a real production dependency.\nclass PaymentGateway:\n    def charge(self,\
@@ -615,6 +617,10 @@ items:
   evidence:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   tier: specialist
 - id: VC-019
   title: State Concurrency Drift (Dual-Session Drift)
@@ -825,15 +831,13 @@ items:
   symptom: Text replaces a structured API
   cause: Fragile representation
   solution: Use structured operations
-  status: DOC_ONLY
+  status: PREVENTED
   severity: medium
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
+  action: 'Static detector `vc070_blind_shell_edit` flags shell-based mutation of structured files; use a parser instead of sed/awk/grep-based edits.'
+  validating_mechanism: static-regex
   downstream_verification: required
   example_lang: bash
   example_bad: '# Editing JSON with a stream editor: fragile, breaks on the first odd case.
@@ -855,6 +859,10 @@ items:
   evidence:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   tier: specialist
 - id: VC-025
   title: I/O without validation
@@ -1289,15 +1297,13 @@ items:
   symptom: Irreversible risk
   cause: Lack of a safe environment
   solution: Separate environments
-  status: DOC_ONLY
+  status: PREVENTED
   severity: medium
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
+  action: 'Static detector `vc095_hardcoded_secret` flags production hosts or credentials in source; keep production access out of code and validate secrets scanning before merge.'
+  validating_mechanism: static-regex
   downstream_verification: required
   example_lang: python
   example_bad: '# Embedded production URL/credential: any run touches prod.
@@ -1320,6 +1326,10 @@ items:
   evidence:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category for agentic applications (unsafe execution / secret exposure).
+  enforcement:
+    cerberus:
+      dimension: D17
+      mechanism: scripts/validate_golden_standard_catalogs.py
   tier: specialist
 - id: VC-037
   title: Code without tests
