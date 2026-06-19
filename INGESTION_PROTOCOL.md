@@ -49,6 +49,7 @@ Open the file in `Inbox/<source>/` and verify it contains at minimum:
 - [ ] `proposed_domain` — one of: `VC`, `VT`, `TK`, `PI`
 - [ ] `proposed_severity` — one of: `critical`, `high`, `medium`, `low`
 - [ ] `mitigation_proposal` — at least one actionable prevention step
+- [ ] `origin` — exact locus of the observation (`path:line`, `catalog:id`, or equivalent stable source)
 
 If any required field is missing: **return the finding to the source** with a note.
 Do not proceed.

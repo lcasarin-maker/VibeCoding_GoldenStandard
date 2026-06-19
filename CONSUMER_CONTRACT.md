@@ -70,6 +70,7 @@ Every rule implemented in Cerberus MUST:
 4. **Preflight the consumer impact.** If a change alters the audit topology, loader order, or runner path, the preflight must name the impacted Cerberus script, the file-order delta, and the validation step before the edit is considered ready.
 5. **Reject stale external audit baselines.** This is the reusable GS-side principle behind Cerberus's external audit contract: an external verdict is only valid when it is tied to the active baseline being exercised. Findings based on retired `00 audit` artifacts, stale snapshots, or pre-purge states must be returned as `NEEDS_INFO`, not accepted as clean evidence.
 6. **Require Cerberus-new functional proof.** GS keeps the abstract rule; Cerberus owns the procedural enforcement. “Passes tests” is not sufficient if the test harness or enforcement layer is retired, mismatched, or legacy. External audits must be re-targeted to the current Cerberus baseline and prove the actual functionality being claimed; otherwise the result is not a valid acceptance.
+7. **Emit origin-rich findings.** Every consumer-facing warning or finding must include the exact origin of the signal (`path:line`, `catalog:id`, or an equivalent stable locus). Aggregate counts alone are not actionable and must be treated as incomplete evidence.
 
 ### What Cerberus May NOT Do
 
@@ -124,6 +125,7 @@ Inbox/templates/cerberus_finding.md
 | `evidence_artifact` | ⚠️ | Link to audit log/report if available |
 | `refinement_target` | ⚠️ | Existing GS entry ID if this refines one |
 | `evidence_for` | ⚠️ | Existing GS entry ID if this provides evidence |
+| `origin` | ⚠️ | Exact locus that produced the finding (`path:line`, `catalog:id`, or equivalent) |
 
 ---
 

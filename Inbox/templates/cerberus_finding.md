@@ -11,6 +11,7 @@ source: cerberus
 cerberus_rule_id: CR-           # ✅ e.g. CR-042, or PENDING if not yet assigned
 project_audited:                # ✅ Project name (anonymized is acceptable)
 date_detected: YYYY-MM-DD       # ✅ ISO 8601
+origin:                         # ✅ Exact locus: path:line, catalog:id, or equivalent stable source
 
 ## Classification
 
