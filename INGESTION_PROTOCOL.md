@@ -10,6 +10,12 @@
 The Ingestion Protocol is the **quality gate** between raw observations and codified knowledge.
 Its job is to ensure that only well-formed, deduplicated, actionable knowledge enters the catalog.
 
+Unconfirmed observations are hypotheses, not facts. Keep them in the intake lane
+until they have enough evidence to become durable knowledge.
+
+If a hypothesis can be tested with today's work, test it now instead of leaving
+it as a speculative note.
+
 ```
 Raw finding (Inbox/)
       ↓
@@ -73,6 +79,9 @@ grep -i "<keyword>" golden_standard_testing_vices.yaml
 - If the finding adds new evidence or nuance → update the existing entry's `evidence_notes` field
 - If the finding is a duplicate with no new information → discard, move to `deprecated/`
 - In both cases, note the existing entry ID in the Inbox file before closing
+
+If the finding is still a hypothesis, keep it in `Inbox/` or an analysis note
+until it is confirmed 3+ times or otherwise supported by strong evidence.
 
 **If no existing entry covers the finding:**
 - Proceed to Step 3

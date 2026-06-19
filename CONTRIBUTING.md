@@ -4,6 +4,26 @@ Thank you for helping make this knowledge base better. Every real failure you've
 
 ---
 
+## Working Loop
+
+Before starting new work:
+
+1. Review [`knowledge/INDEX.md`](knowledge/INDEX.md) if present, plus
+   [`INGESTION_PROTOCOL.md`](INGESTION_PROTOCOL.md), [`CONSUMER_CONTRACT.md`](CONSUMER_CONTRACT.md),
+   and the relevant Wiki domain pages.
+2. Apply existing rules by default.
+3. If a hypothesis can be tested with today's work, test it now.
+4. Treat unresolved observations as hypotheses until they are verified.
+
+At the end of work:
+
+1. Externalize confirmed lessons into the right domain surface.
+2. Keep hypotheses in the intake lane until they are confirmed repeatedly.
+3. Promote a hypothesis after 3+ confirmations or equivalent evidence.
+4. Demote a rule back to hypothesis if new evidence contradicts it.
+
+---
+
 ## Types of Contributions
 
 ### 1. New Vice Entry (most common)
