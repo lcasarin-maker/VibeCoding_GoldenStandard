@@ -21,6 +21,9 @@ At the end of work:
 2. Keep hypotheses in the intake lane until they are confirmed repeatedly.
 3. Promote a hypothesis after 3+ confirmations or equivalent evidence.
 4. Demote a rule back to hypothesis if new evidence contradicts it.
+5. If a follow-up is deterministic, safe, and still inside the current task scope, execute it immediately instead of suggesting it again.
+6. Do not end a task by re-listing obvious next steps that you already know you can carry out.
+7. If a useful follow-up is blocked by ambiguity, risk, or a human decision, record the blocker clearly and stop there.
 
 ---
 
@@ -206,7 +209,7 @@ Check the current max IDs in:
 - When writing protocol prose, prefer explicit confidence labels for claims that are not directly verified by logs or tests.
 - Before any execution, do a preflight that names scope, likely impacts, explicit out-of-scope follow-ups, and any runner or loader that must change when the topology changes; do not introduce new non-blocking suggestions after execution unless they are moved to backlog first.
 - If a change touches the audit topology, the preflight must name the corresponding consumer runner/script and the exact file-order or filename impact before any edit lands.
-- After execution, do not reopen scope with "next natural step" style suggestions; any new improvement must first be logged to backlog and only then reintroduced as a new task.
+- After execution, do not reopen scope with "next natural step" style suggestions for blocked or deferred work; deterministic safe follow-through should be executed immediately, and only genuinely blocked work goes to backlog first.
 - Every issue and PR that changes VC/VT/TK knowledge must carry a completed preflight checklist in the template; if the checklist is missing or incomplete, treat the submission as not ready.
 
 ---

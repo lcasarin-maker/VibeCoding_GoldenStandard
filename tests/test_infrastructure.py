@@ -37,6 +37,9 @@ def test_onboarding_knowledge_loop_is_documented() -> None:
         "If a hypothesis can be tested with today's work, test it now." in contributing
     )
     assert "3+ confirmations" in contributing
+    assert "deterministic, safe, and still inside the current task scope" in contributing
+    assert "Do not end a task by re-listing obvious next steps" in contributing
+    assert "deterministic safe follow-through should be executed immediately" in contributing
     assert "Unconfirmed observations are hypotheses" in ingestion
     assert "today's work" in ingestion
     assert "knowledge.md" in index
