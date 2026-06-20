@@ -1,0 +1,11 @@
+[project]
+name = "vibecoding-golden-standard"
+version = "0.0.0"
+description = "Agnostic Golden Standard: rules, vices, and governance knowledge."
+# Python of record: 3.13. The catalog generator (generate_golden_audit.py)
+# uses f-strings containing backslashes, which require Python >= 3.12, so the
+# declared floor must not be lower. GS is a knowledge repository, not a
+# distributed package; this file exists only to declare the Python-of-record
+# for its scripts. Version is non-semantic (the catalogs carry their own
+# format_version in golden_standard.yaml).
+requires-python = ">=3.13"
