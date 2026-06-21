@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-06-18",
+  "generated_on": "2026-06-20",
   "node_count": 446,
   "edge_count": 2452,
   "nodes": [
@@ -42,7 +42,7 @@
       "title": "Golden Standard — Conceptual Framework",
       "kind": "conceptual-framework",
       "created": "2026-06-04T20:05:31-06:00",
-      "promoted": "2026-06-17T10:54:00-06:00",
+      "promoted": "2026-06-20T21:05:31-06:00",
       "outgoing": [],
       "incoming": [
         "Home",
@@ -84,7 +84,7 @@
       "title": "Contributing to the Golden Standard",
       "kind": "contributing",
       "created": "2026-06-04T20:05:31-06:00",
-      "promoted": "2026-06-16T00:03:13-06:00",
+      "promoted": "2026-06-19T11:24:29-06:00",
       "outgoing": [
         "CODE_OF_CONDUCT"
       ],
@@ -259,8 +259,8 @@
       "path": "Wiki/Detectors/vc003_incomprehensible_code.md",
       "title": "vc003_incomprehensible_code",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-003"
@@ -311,8 +311,8 @@
       "path": "Wiki/Detectors/vc005_premature_closure.md",
       "title": "vc005_premature_closure",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-005"
@@ -415,8 +415,8 @@
       "path": "Wiki/Detectors/vc013_ambiguous_handoff.md",
       "title": "vc013_ambiguous_handoff",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-013"
@@ -467,8 +467,8 @@
       "path": "Wiki/Detectors/vc016_broken_version_parity.md",
       "title": "vc016_broken_version_parity",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-016"
@@ -519,8 +519,8 @@
       "path": "Wiki/Detectors/vc017_deadlock_without_heartbeat.md",
       "title": "vc017_deadlock_without_heartbeat",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-017"
@@ -571,8 +571,8 @@
       "path": "Wiki/Detectors/vc025_io_without_validation.md",
       "title": "vc025_io_without_validation",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-025"
@@ -623,8 +623,8 @@
       "path": "Wiki/Detectors/vc028_core_dependent_on_unstable_parts.md",
       "title": "vc028_core_dependent_on_unstable_parts",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-028"
@@ -675,8 +675,8 @@
       "path": "Wiki/Detectors/vc029_uncritical_copy_paste.md",
       "title": "vc029_uncritical_copy_paste",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-029"
@@ -779,8 +779,8 @@
       "path": "Wiki/Detectors/vc047_frozen_nomenclature.md",
       "title": "vc047_frozen_nomenclature",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-047"
@@ -831,8 +831,8 @@
       "path": "Wiki/Detectors/vc059_prompt_injection_in_agent_loop.md",
       "title": "vc059_prompt_injection_in_agent_loop",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-059"
@@ -935,8 +935,8 @@
       "path": "Wiki/Detectors/vc061_hallucinated_dependency.md",
       "title": "vc061_hallucinated_dependency",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-061"
@@ -987,8 +987,8 @@
       "path": "Wiki/Detectors/vc065_unhandled_tool_call_failure.md",
       "title": "vc065_unhandled_tool_call_failure",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-065"
@@ -1039,8 +1039,8 @@
       "path": "Wiki/Detectors/vc066_multi_agent_without_protocol.md",
       "title": "vc066_multi_agent_without_protocol",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-066"
@@ -1143,8 +1143,8 @@
       "path": "Wiki/Detectors/vc071_blind_trust_in_llm_output.md",
       "title": "vc071_blind_trust_in_llm_output",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-071"
@@ -1195,8 +1195,8 @@
       "path": "Wiki/Detectors/vc078_excessive_agency.md",
       "title": "vc078_excessive_agency",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-078"
@@ -8350,7 +8350,7 @@
       "title": "Golden Standard Wiki",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:12:38-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
@@ -19015,7 +19015,7 @@
       "title": "PR-087 — Zero debt before advancing – every warning or non-blocking finding is treated as an operational error until fixed or explicitly blocked.",
       "kind": "principle",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-19T00:36:50-06:00",
       "outgoing": [
         "Domains/CD06",
         "Domains/README",
@@ -30190,7 +30190,7 @@
       "title": "VC-003: Incomprehensible code",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc003_incomprehensible_code",
         "Evidence/arxiv2603_28592",
@@ -30372,7 +30372,7 @@
       "title": "VC-005: Premature closure",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc005_premature_closure",
         "Evidence/arxiv2603_28592",
@@ -31058,7 +31058,7 @@
       "title": "VC-013: Ambiguous handoff",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc013_ambiguous_handoff",
         "Evidence/arxiv2603_28592",
@@ -31310,7 +31310,7 @@
       "title": "VC-016: Broken version parity",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc016_broken_version_parity",
         "Evidence/arxiv2603_28592",
@@ -31401,7 +31401,7 @@
       "title": "VC-017: Deadlock without a heartbeat",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc017_deadlock_without_heartbeat",
         "Evidence/arxiv2603_28592",
@@ -32073,7 +32073,7 @@
       "title": "VC-025: I/O without validation",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc025_io_without_validation",
         "Evidence/owasp_top_10_for_agents_2026",
@@ -32248,7 +32248,7 @@
       "title": "VC-027: Permanent placeholder",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/audit_d2_completeness",
         "Evidence/arxiv2603_28592",
@@ -32339,7 +32339,7 @@
       "title": "VC-028: Core dependent on unstable parts",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc028_core_dependent_on_unstable_parts",
         "Evidence/arxiv2603_28592",
@@ -32430,7 +32430,7 @@
       "title": "VC-029: Uncritical copy-paste",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc029_uncritical_copy_paste",
         "Evidence/gitclear_2025",
@@ -33865,7 +33865,7 @@
       "title": "VC-046: Propagation without adoption verification",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -33942,7 +33942,7 @@
       "title": "VC-047: Frozen nomenclature",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc047_frozen_nomenclature",
         "Evidence/arxiv2603_28592",
@@ -34938,7 +34938,7 @@
       "title": "VC-059: Prompt injection in the agent loop (Prompt Injection)",
       "kind": "vice",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc059_prompt_injection_in_agent_loop",
         "Evidence/owasp_top_10_for_agents_2026",
@@ -35120,7 +35120,7 @@
       "title": "VC-061: Hallucinated dependency (slopsquatting)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc061_hallucinated_dependency",
         "Evidence/arxiv2603_28592",
@@ -35449,7 +35449,7 @@
       "title": "VC-065: Unhandled tool-call failure in the agent loop",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc065_unhandled_tool_call_failure",
         "Evidence/owasp_top_10_for_agents_2026",
@@ -35547,7 +35547,7 @@
       "title": "VC-066: Multi-agent coordination without a protocol",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc066_multi_agent_without_protocol",
         "Evidence/arxiv2603_28592",
@@ -36064,7 +36064,7 @@
       "title": "VC-071: Blind trust in LLM output (Insecure Output Handling)",
       "kind": "vice",
       "created": "2026-06-05T15:59:06-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc071_blind_trust_in_llm_output",
         "Evidence/owasp_top_10_for_llm_applications",
@@ -36666,7 +36666,7 @@
       "title": "VC-078: Excessive and uncontrolled agency (Excessive Agency / EA1-EA4)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Detectors/vc078_excessive_agency",
         "Evidence/nvidia_skillspector_static_patterns_excessive_agency_py",
@@ -44198,7 +44198,7 @@
       "title": "VT-087: Tolerated warning",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-19T00:36:50-06:00",
       "outgoing": [
         "Evidence/arxiv2602_00409",
         "Home",
@@ -46501,7 +46501,7 @@
       "title": "Engineering Vices Index",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:12:38-06:00",
+      "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-001",
@@ -67876,7 +67876,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-18T20:12:38-06:00",
+        "promoted": "2026-06-18T20:53:01-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -71065,7 +71065,7 @@
         "title": "Engineering Vices Index",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-18T20:12:38-06:00",
+        "promoted": "2026-06-18T20:53:01-06:00",
         "outgoing": [
           "Home",
           "Vices/VC-001",
@@ -83659,7 +83659,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-18T20:12:38-06:00",
+        "promoted": "2026-06-18T20:53:01-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -92807,7 +92807,7 @@
         "title": "PR-087 — Zero debt before advancing – every warning or non-blocking finding is treated as an operational error until fixed or explicitly blocked.",
         "kind": "principle",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-19T00:36:50-06:00",
         "outgoing": [
           "Domains/CD06",
           "Domains/README",

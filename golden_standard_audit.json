@@ -5773,7 +5773,7 @@
       "vibe-coding",
       "doc-only"
     ],
-    "action": "Full rewrite vs surgical edit: behavioral judgment vice (when a rewrite is justified). No static test in test_cerberus_core discriminates intent. Sprint 3.4 manual review: honest DOC_ONLY.",
+    "action": "Full rewrite vs surgical edit: behavioral judgment vice (when a rewrite is justified). No static test discriminates intent, so this stays a manual-review DOC_ONLY entry.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "# The agent rewrites the whole file to change two lines.\n# diff: 198 deletions(-), 200 insertions(+)  -> history and invariants are lost\n",

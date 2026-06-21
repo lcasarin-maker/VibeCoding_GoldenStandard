@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.6 | Date: 2026-06-18 | Total Audited Items: 236**
+**Golden Standard V0.6 | Date: 2026-06-20 | Total Audited Items: 236**
 
 This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -149,7 +149,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-006` | Non-externalized plan | **medium** | **PREVENTED** | `none` | The plan must be externalized: topology validation requires the inbox surface to be published, linked from the home page, and backed by an ingestion protocol and templates.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-007` | Non-surgical scope | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
 | `VC-008` | State drift | **medium** | **PREVENTED** | `none` | Generated surfaces must track their source: regenerating audit artifacts and re-checking topology prevents home, graph, and index pages from drifting away from the catalogs.  | `scripts/validate_golden_standard_catalogs.py` |
-| `VC-009` | Full rewrite | **medium** | **DOC_ONLY** | `required` | Full rewrite vs surgical edit: behavioral judgment vice (when a rewrite is justified). No static test in test_cerberus_core discriminates intent. Sprint 3.4 manual review: honest DOC_ONLY. | `DOC_ONLY` |
+| `VC-009` | Full rewrite | **medium** | **DOC_ONLY** | `required` | Full rewrite vs surgical edit: behavioral judgment vice (when a rewrite is justified). No static test discriminates intent, so this stays a manual-review DOC_ONLY entry. | `DOC_ONLY` |
 | `VC-010` | No dry run | **medium** | **PREVENTED** | `required` | Static detector `vc036_destructive_without_dryrun` flags destructive operations that appear without a dry-run or simulation step in the same flow. | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-011` | Blind regeneration | **medium** | **PREVENTED** | `none` | Regeneration must precede validation: a fresh rebuild of the vault is forced before checks, so blind replacement cannot masquerade as a finished state.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-012` | Invisible debt | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
