@@ -682,6 +682,29 @@ def validate_backlog_counts(errors: list[str]) -> None:
         )
 
 
+def validate_backlog_future_only(errors: list[str]) -> None:
+    """Phase 6.4: the BACKLOG is future-only — no DONE rows (closed work lives in
+    git/AUDIT_TRAIL), and deprecated/ must stay empty (history is in tag
+    pre-reset-2026-06-20)."""
+    backlog_path = ROOT / "BACKLOG.md"
+    if backlog_path.exists():
+        done = [
+            ln.strip()
+            for ln in backlog_path.read_text(encoding="utf-8").splitlines()
+            if re.search(r"\|\s*DONE\s*\|", ln, re.IGNORECASE)
+        ]
+        if done:
+            errors.append(
+                f"{backlog_path}: future-only — move DONE rows to git/AUDIT_TRAIL: {done}"
+            )
+
+    deprecated = ROOT / "deprecated"
+    if deprecated.exists():
+        files = [str(p.relative_to(ROOT)) for p in deprecated.rglob("*") if p.is_file()]
+        if files:
+            errors.append(f"deprecated/ must be empty (history is in git tag): {files}")
+
+
 def validate_wiki_topology(errors: list[str]) -> None:
     """Check that the wiki exposes the canonical navigation and memory surfaces."""
     required_snippets: dict[Path, list[str]] = {
@@ -811,6 +834,7 @@ def validate_wiki_topology(errors: list[str]) -> None:
     validate_home_counts(errors)
     validate_readme_counts(errors)
     validate_backlog_counts(errors)
+    validate_backlog_future_only(errors)
 
 
 def validate_manifest(path: Path, errors: list[str], check_wiki: bool) -> None:

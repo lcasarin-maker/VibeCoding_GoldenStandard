@@ -9,55 +9,35 @@
 > This mirrors the downstream Cerberus "Technical-Debt Trinity" so both repos share one
 > discipline. Counts and statuses below are validated against the YAML catalogs by CI.
 
-Status legend: `OPEN` · `IN_PROGRESS` · `BLOCKED` · `DONE`
+Status legend: `OPEN` · `IN_PROGRESS` · `BLOCKED` (this file is future-only — closed
+items move to `git log` / `AUDIT_TRAIL.md`; a guard rejects any `DONE` row, see
+`validate_golden_standard_catalogs.py`).
 
 <!-- CANONICAL-COUNTS (generated truth; asserted by validate_golden_standard_catalogs.py::validate_backlog_counts) -->
 **Catalog counts (canonical, post-renumber `VC-001..086` / `VT-001..116` / `TK-001..034` / `PR-001..113`):** VC 86 / VT 116 / TK 34 / PR 113.
-Historical evidence rows below may cite pre-renumber figures (e.g. "154 VC / 47 TK / 35 PI"); the line above is the single source enforced against the YAML by CI.
+This line is the single source enforced against the YAML by CI.
 
 ---
 
-## Live debt
+## Live debt (OPEN / IN_PROGRESS only)
 
-| ID | Severity | Item | Evidence / Notes | Status |
-|----|----------|------|------------------|--------|
-| GS-031 | High | README + badge counts are stale vs YAML | DONE 2026-06-15 (Batch 6): push AX-020 (schema migration to v3.0) + AX-024 (line-ending normalization) to remote. README:151 already correct: "317 vices + 35 insights (352 entries)" — 154 VC / 116 VT / 47 TK / 35 PI; `entries` badge intentionally = 317 (flaws only, documented in README). No badge regeneration needed. | DONE |
-| GS-032 | Medium | Detector count mismatch | DONE 2026-06-15 (Batch 6): `detectors.py` has 16 real detectors (18 top-level defs − 2 private helpers). `badges/detectors.json` already = "16". Fixed GS About via `gh repo edit` 15→16. | DONE |
-| GS-033 | High | CC-specific docs inside agnostic repo | DONE 2026-06-15 (Batch 6): pushed AX-023 (CC-specific doc removal) commit (d2a1c9a in CC, committed in GS history) that removed `CODERCERBERUS_MARCO_CONCEPTUAL.md` and renamed `CERBERUS_CONTRACT.md` → `CONSUMER_CONTRACT.md`. Remote now clean. | DONE |
-| GS-034 | High | Wiki `Domains/D1..D12` break agnosticism | DONE 2026-06-15: regenerated `Wiki/Domains/*` as `Operational Lens 1..12` pages with agnostic framing, and PI pages now link to those lenses as routing labels instead of public Cerberus-specific wording. | DONE |
-| GS-035 | Medium | Tokenomics wiki vs catalog drift | `Wiki/Tokenomics` has 52 pages vs 47 `TK-` catalog entries (5 non-entry pages: indexes/maps/overviews or potential dupes). Reconcile so every data point is a described, deduplicated entry or an explicitly-labeled index. | DONE 2026-06-15: labeled the five subindex pages (`Automation_Tooling_Index`, `Input_Retrieval_Index`, `Measurement_Telemetry_Index`, `Memory_Headroom_Index`, `Output_Compaction_Index`) as index-only pages so they no longer masquerade as TK entries. |
-| GS-035b | Low | TK-038/TK-042 duplicate action | After AX-020, `TK-038` (Full-state re-reading) and `TK-042` (Manifests without a size constraint) carry an identical `action` (the manifest size-gate, `D10`/`audit_d10_tokenomics`). Candidates for merge/alias; do not fuse yet — confirm they are not two distinct facets before collapsing. | DONE 2026-06-15: `TK-042` is now `alias_of: TK-038`. The duplicate is semantically the same action, and references remain in the wiki/graph, so deleting the ID would break consumers; alias preserves stability. |
-| GS-035c | Low | TK-042 alias keeps full duplicate body | DONE 2026-06-15: `TK-042` now keeps only `id`, `title`, and `alias_of: TK-038` in `golden_standard_tokenomics.yaml`; the generator emits a redirect/stub page to the canonical `TK-038` entry, and the catalog validator accepts the alias without duplicated body fields. | DONE |
-| GS-062 | Medium | `stub: 1` violates the repo's own `stubs = 0` contract | DONE 2026-06-15: the stub was `VC-082` (`Dependencies without a gate`). Root cause: AX-020 (schema migration) left it with `runtime-test`/mechanism metadata but stripped depth fields. Resolved by adding `example_bad`, `example_good`, `detection`, and real evidence from the YAML-importing GS scripts; `metrics.py` now reports `stub: 0`. | DONE |
-| GS-036 | Medium | Deep Wiki dedup pass (Vices) | DONE 2026-06-15: vice wiki dedup audit found exactly 2 merged entries (`VC-028`, `VC-077`), 0 duplicate titles, and no extra duplicate markers in the 270-page vice set. **UPDATE 2026-06-16**: VC-028 and VC-077 alias entries removed from catalog; merged entries colapsed. | DONE |
-| GS-037 | Medium | Status enum hardening | DONE 2026-06-15: README, CONTRIBUTING, and generated `Wiki/Home.md` now read the stored statuses through the self-describing enum (`PROPOSED` / `ENFORCED_EXTERNAL` / `ENFORCED_LOCAL`) while leaving the raw catalog values unchanged; the validator now checks the new wording. | DONE |
-| GS-061 | High | PI -> VC/VT promotion gate | DONE 2026-06-15: enforced promotion gate added to `scripts/validate_golden_standard_catalogs.py` with a synthetic fixture test proving red/green behavior; all 35 PIs now declare `doctrinal: true`, four are marked `promotion_candidate: true`, the generated wiki gained `Wiki/Principles.md`, `generate_golden_audit.py`/regeneration succeeded, `validate_golden_standard_catalogs.py --check-wiki` passed, metrics remain `154 VC / 116 VT / 47 TK / 35 PI` with `stub: 0`, and the CC `test_project_insights_integration.py` consumer test passed against the structured catalog. | DONE |
-| GS-064 | Low | Promotion-gate logic duplicated | DONE 2026-06-15: `validate_project_insights()` now delegates to `validate_project_insight_promotion()` instead of carrying a second inline gate; the error strings remain unchanged, the synthetic gate test still passes on the helper, and the real flow (`validate_golden_standard_catalogs.py --check-wiki`) plus `python -m pytest -q` stayed green. | DONE |
-| GS-065 | High | Spanish text in active files | DONE 2026-06-16: `Inbox/README.md` translated to English; badge labels normalized to English. | DONE |
-| GS-066 | Medium | Broken link to CERBERUS_CONTRACT.md | DONE 2026-06-16: link updated to `CONSUMER_CONTRACT.md` in `KNOWLEDGE_SOURCES.md`. | DONE |
-| GS-067 | Medium | Cerberus contamination in active docs | DONE 2026-06-16: Cerberus references reframed as historical source in `KNOWLEDGE_SOURCES.md`; Wiki/Domains and PI pages now use generic consumer references. | DONE |
-| GS-068 | Medium | INGESTION_PROTOCOL.md shows stale schema | DONE 2026-06-16: template updated to v3.0 schema with all required fields. | DONE |
-| GS-069 | Medium | generate_golden_audit.py hardcodes Cerberus dimensions | DONE 2026-06-16: hardcoded D1-D12 dimension map extracted to `config/dimension_map.json`; all "project: cerberus" replaced with "project: reference"; generator reads from JSON. | DONE |
-| GS-070 | Low | Duplicate doctrine files (CONCEPTUAL_FRAMEWORK root + wiki) | DONE 2026-06-16: `generate_golden_audit.py` now emits a 9-line stub redirect to the canonical `CONCEPTUAL_FRAMEWORK.md` at root instead of copying the full 268-line document. | DONE |
-| GS-071 | Low | 26 VC entries are DOC_ONLY (not falsifiable) | IN_PROGRESS 2026-06-18: Batch 2 promoted 5 live-detector entries (VC-002, VC-010, VC-018, VC-024, VC-036) from DOC_ONLY to PREVENTED via existing detectors and catalog validation. 26 DOC_ONLY entries remain; continue in future batch. | IN_PROGRESS |
-| GS-072 | Low | TV/VT typo in Wiki/Home.md | "TV" used instead of "VT" for Testing Vices. Remediation: fixed. | DONE |
-| GS-073 | Medium | Cache directories tracked in repo | DONE 2026-06-16: all cache directories added to `.gitignore` and removed from git tracking. | DONE |
-| GS-074 | Low | BACKLOG jargon scrub (audit 2026-06-16 item 5) | Live BACKLOG still carries downstream project jargon (`Eje 6`, `AX-020/023/024`) inside historical DONE evidence. Replace with human-readable descriptions or commit links so the ledger reads without insider knowledge. Verified live: 4 jargon hits remain. | OPEN |
-| GS-075 | Low | Generator maintainability (audit 2026-06-16 item 11) | `generate_golden_audit.py` is ~77KB and mixes audit-report generation with wiki generation. GS-069 already extracted the Cerberus dimension map to `config/dimension_map.json`; the remaining debt is size/separation. Split report vs wiki generation and add a documented fallback if the generator breaks. | OPEN |
-| GS-076 | Low | Graph layer hardening (audit 2026-06-16 items 22/25/26) | `Wiki/Graph.md` count drift vs YAML; the validator checks wiki existence but not graph connectivity (new entries can be silent orphans); the validation-debt table is a static snapshot. Add a connectivity check to `validate_golden_standard_catalogs.py` and regenerate graph debt on commit. | OPEN |
-| GS-078 | High | `enforcement.cerberus` blocks couple agnostic catalogs to a consumer | Every catalog entry embeds `enforcement.cerberus.{dimension,mechanism}` (≈230 blocks). This is downstream-specific data inside an agnostic standard, and it generates the Wiki "Validation Mechanism" field (so `Wiki/Vices/VC-001.md` shows the CC test name `test_B7_evidence_files_are_valid_json`). It CANNOT be removed blindly: the consumer reads it at `knowledge_loader.py:252` and `federated_linter.py:165`. Coordinated fix: move the vice→dimension/mechanism map to a consumer-side overlay (GS-069 already created `config/dimension_map.json`), replace the in-body block with provenance `origin: cerberus`, rewire the consumer + regenerate the Wiki. Gate: `grep -c cerberus golden_standard_*.yaml` matches only `origin:`/evidence-source lines. Free-text `action` mention already cleaned (VC-008). | OPEN |
-| GS-077 | Medium | Detector registry parity (local vs registered) | Live diff 2026-06-20: catalogs reference detectors by function-name (`detector: vc003_incomprehensible_code`) while `scripts/detectors.py` `DETECTORS` is keyed by ID (`"VC-003"`) — a naming-convention split that makes the raw set-diff look worse than it is. After ID-mapping, catalog detector refs with **no implementation**: `vc087_blanket_filterwarnings`, `vc095_hardcoded_secret`, `vc109_hardcoded_path`, `vc115_unsafe_eval`, `vc138_insecure_defaults`, plus `audit_d2_completeness` (a consumer-dimension ref, not a GS detector). Resolve by either implementing the missing detectors or degrading those entries' `validating_mechanism` to DOC_ONLY, then add a parity assert so `implemented == referenced`. (The cross-audit report's "4 unregistered" figure does not match the live count of ~6 — itself a truth-drift to note.) | OPEN |
+| ID | Severity | Item | Acceptance criteria | Status |
+|----|----------|------|---------------------|--------|
+| GS-071 | Low | 26 VC entries are DOC_ONLY (not falsifiable) | Promote remaining DOC_ONLY VC entries to PREVENTED via real detectors, or justify each as doctrinal. Metrics shows the DOC_ONLY count trending to a justified floor. Batch 2 (2026-06-18) promoted VC-002/010/018/024/036; 26 remain. | IN_PROGRESS |
+| GS-075 | Low | Generator maintainability (audit 2026-06-16 item 11) | `generate_golden_audit.py` (~77KB) mixes audit-report and wiki generation. Split the two, add a documented fallback if it breaks. Accept: report and wiki generation are separable and independently testable. | OPEN |
+| GS-076 | Low | Graph layer hardening (audit 2026-06-16 items 22/25/26) | `Wiki/Graph.md` count drift vs YAML; the validator checks wiki existence but not graph connectivity; the validation-debt table is static. Accept: a connectivity check lands in `validate_golden_standard_catalogs.py` and graph debt regenerates on commit. | OPEN |
+| GS-077 | Medium | Detector registry parity (local vs registered) | Catalogs reference detectors by function-name while `scripts/detectors.py` keys by ID. After ID-mapping, these refs have no implementation: `vc087/vc095/vc109/vc115/vc138` + `audit_d2_completeness`. Accept: implement them or degrade to DOC_ONLY, then add a parity assert so `implemented == referenced`. | OPEN |
+| GS-078 | High | `enforcement.cerberus` blocks couple agnostic catalogs to a consumer | ≈230 entries embed `enforcement.cerberus.{dimension,mechanism}` — downstream data in an agnostic standard that also generates the Wiki "Validation Mechanism" field. The consumer reads it at `knowledge_loader.py:252` / `federated_linter.py:165`, so it needs a coordinated change: move the map to a consumer-side overlay, replace the block with `origin: cerberus`, rewire + regenerate. Accept: `grep -c cerberus golden_standard_*.yaml` matches only `origin:`/evidence-source lines. | OPEN |
 
-> Residual findings from `deprecated/audits/GS_Independent_Adversarial_Audit_2026-06-16.md`
-> verified live 2026-06-20: items 1-4,6-10,12-18,20,23-24,27 are RESOLVED (TK-F01..F03
-> normalized away, `AGENT_CONSUMPTION.md` present, README `PREVENTED` clarification present,
-> PI catalog restructured into `golden_standard_principles.yaml`, `deprecated/planning/`
-> removed, one-shot scripts moved to `deprecated/scripts/`). Item 19 = GS-071 (IN_PROGRESS).
-> Items 5/11/21/22/25/26 → GS-074/075/076 above (21's downstream_verification is present on
-> all 34 live TK entries). This closes the audit's diff: every unresolved finding is tracked.
+> Audit recovery note: residual unresolved findings from the 2026-06-16 independent
+> audit (preserved in git tag `pre-reset-2026-06-20`) are tracked above as
+> GS-075/076/077/078 (and GS-071). All other audit items were verified RESOLVED
+> against the live tree on 2026-06-20; their closure detail lives in `AUDIT_TRAIL.md`
+> and `git log`. The BACKLOG jargon-scrub item (ex GS-074) is resolved by emptying the
+> historical DONE rows from this file.
 
 ## Process / cross-repo
 
-| ID | Severity | Item | Notes | Status |
-|----|----------|------|-------|--------|
-| GS-010 | Medium | Adopt the corruption guard upstream-style | Mirror Cerberus `scripts/
+| ID | Severity | Item | Acceptance criteria | Status |
+|----|----------|------|---------------------|--------|
+| GS-010 | Medium | Adopt the corruption guard upstream-style | Mirror the Cerberus corruption/encoding guard as a GS-side pre-commit check. Accept: a guard rejects mojibake / truncation in the catalogs before commit. | OPEN |
