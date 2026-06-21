@@ -14,7 +14,7 @@ items move to `git log` / `AUDIT_TRAIL.md`; a guard rejects any `DONE` row, see
 `validate_golden_standard_catalogs.py`).
 
 <!-- CANONICAL-COUNTS (generated truth; asserted by validate_golden_standard_catalogs.py::validate_backlog_counts) -->
-**Catalog counts (canonical, post-renumber `VC-001..086` / `VT-001..116` / `TK-001..034` / `PR-001..113`):** VC 86 / VT 116 / TK 34 / PR 113.
+**Catalog counts (canonical, post-renumber `VC-001..087` / `VT-001..116` / `TK-001..034` / `PR-001..113`):** VC 87 / VT 116 / TK 34 / PR 113.
 This line is the single source enforced against the YAML by CI.
 
 ---

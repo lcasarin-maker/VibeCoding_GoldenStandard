@@ -8526,5 +8526,36 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core"
+  },
+  "VC-087": {
+    "id": "VC-087",
+    "title": "Self-polluting tooling (scratch written into the tracked working tree)",
+    "category": "Vibe Coding",
+    "symptom": "Tests, scripts, or hooks leave untracked temp, probe, or backup files inside the working tree; the integrity gate flags them as zombie corruption, producing recurring fake-RED or transient-GREEN gate flips that agents \"fix\" by deleting the files.",
+    "cause": "Scratch is created at repo-relative locations (TemporaryDirectory(dir=<repo>), mkdtemp(dir=<repo>), or probe/backup files written into tracked dirs) and/or cleanup is not guaranteed when a run is interrupted, so residue survives inside the tracked tree.",
+    "solution": "Scratch must live in the OS temp dir (no dir=<repo>); cleanup runs in finally or a context manager; any unavoidable residue is gitignored. The full suite and tooling must leave `git status --porcelain` empty.",
+    "status": "PREVENTED",
+    "severity": "high",
+    "tags": [
+      "hygiene",
+      "agent-agnostic",
+      "prevented-mechanically"
+    ],
+    "action": "No scratch in the tracked tree: a test or script that creates temp/probe/backup artifacts at a repo-relative path, or whose run leaves untracked non-ignored files, is rejected. Scratch goes to OS temp with guaranteed cleanup; unavoidable residue is gitignored.",
+    "validating_mechanism": "static-regex",
+    "downstream_verification": "none",
+    "example_bad": "with tempfile.TemporaryDirectory(dir=ROOT) as d: ...  # leaks tmpXXXX/ into the repo on interrupted runs",
+    "example_good": "with tempfile.TemporaryDirectory() as d: ...  # scratch in OS temp, guaranteed cleanup",
+    "example_lang": "python",
+    "detection": "Source under tests/ or scripts/ contains TemporaryDirectory(dir=<repo-root>), mkdtemp(dir=<repo-root>), or tempfile.tempdir set to a repo path; or running the suite leaves new untracked non-ignored files. Verified by test_no_scratch_in_tree in CC.",
+    "evidence": [
+      {
+        "source": "Adversarial audit 2026-06-21 (Claude Opus), CoderCerberus",
+        "claim": "A test using TemporaryDirectory(dir=ROOT) leaked tmp*/empty.py into the tree on interrupted runs and flipped the D1 integrity gate to REJECTED; it recurred 3 times because prior sessions deleted the zombies instead of fixing the writer."
+      }
+    ],
+    "doctrinal": false,
+    "detector": "",
+    "tier": "core"
   }
 }

@@ -41,7 +41,7 @@ A structured, growing library of knowledge organized into four streams and a can
 ### 🔴 Vibe Coding Vices (`VC-xxx`)
 Antipatterns specific to AI-assisted development: improvised architecture, non-reversible solutions, ghost files, hardcoded paths, invisible technical debt accumulation.
 
-**86 entries** cataloged with severity, description, detection criteria, and mitigation.
+**87 entries** cataloged with severity, description, detection criteria, and mitigation.
 
 ### 🟡 Testing Vices (`VT-xxx`)
 Ways tests become "security theater": checking file existence instead of behavior, mocks with no real-world correspondence, tests that pass despite broken user flows.
@@ -118,7 +118,7 @@ VibeCoding_GoldenStandard/
 ├── CODE_OF_CONDUCT.md                     ← Community standards
 │
 ├── golden_standard.yaml                   ← Master index
-├── golden_standard_coding_vices.yaml      ← VC-xxx catalog (86 entries)
+├── golden_standard_coding_vices.yaml      ← VC-xxx catalog (87 entries)
 ├── golden_standard_testing_vices.yaml     ← VT-xxx catalog (116 entries)
 ├── golden_standard_tokenomics.yaml        ← Tokenomics principles
 ├── golden_standard_principles.yaml        ← Cross-cutting doctrine
@@ -161,12 +161,12 @@ The knowledge is stored in human-readable YAML files:
 
 | File | Domain | Entries |
 |---|---|---|
-| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 86 |
+| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 87 |
 | `golden_standard_testing_vices.yaml` | Testing failures | 116 |
 | `golden_standard_tokenomics.yaml` | Token efficiency | 34 |
 | `golden_standard_principles.yaml` | Principles | 113 |
 
-**Total: 236 vices + 113 principles (349 entries).** Counts here are the source of truth and are validated against the YAML; the entries badge reflects the total number of flaws (236).
+**Total: 237 vices + 113 principles (350 entries).** Counts here are the source of truth and are validated against the YAML; the entries badge reflects the total number of flaws (237).
 
 Each entry includes:
 - **ID** (e.g., `VC-042`)

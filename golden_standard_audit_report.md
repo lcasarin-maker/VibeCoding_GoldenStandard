@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.6 | Date: 2026-06-21 | Total Audited Items: 236**
+**Golden Standard V0.6 | Date: 2026-06-21 | Total Audited Items: 237**
 
 This document is generated automatically by `generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -8,9 +8,9 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 116 | 28 | 88 | 100% |
-| **Vibe Coding** | 86 | 67 | 19 | 100% |
+| **Vibe Coding** | 87 | 68 | 19 | 100% |
 | **Tokenomics & Context** | 34 | 34 | 0 | 100% |
-| **Total** | 236 | 129 | 107 | 100% |
+| **Total** | 237 | 130 | 107 | 100% |
 
 ---
 
@@ -137,7 +137,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VT-115` | False Drift Positive from Line Endings (CRLF/LF Hash Mismatch) | **high** | **REMEDIATED** | `none` | Normalize line endings to a single form before hashing so files identical on disk do not raise a false drift positive across platforms.  | `test_setup_validation` |
 | `VT-116` | Decoy comment satisfies a text-based validator | **high** | **PREVENTED** | `none` | Resolve symbols structurally through the AST so only a real definition node counts; a commented-out or string mention must not satisfy the check.  | `test_planted_def_comment_does_not_resolve` |
 
-### Vibe Coding (86 items)
+### Vibe Coding (87 items)
 
 | ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |
 |---|---|---|---|---|---|---|
@@ -227,6 +227,7 @@ This document is generated automatically by `generate_golden_audit.py` to map ev
 | `VC-084` | Canonical source first (no sink patching) | **high** | **AUDITED** | `none` | Edit the canonical source or its generator first: hand-patching a derived artifact to mask drift is rejected; derived files must be regenerated from source.  | `test_canonical_source_first_no_sink_patch` |
 | `VC-085` | Doctrine before enforcement (source-first ordering) | **medium** | **AUDITED** | `none` | Doctrine lands before enforcement: the rule must exist in the canonical knowledge base first, with downstream consumers following only after regeneration proves it.  | `test_doctrine_before_enforcement_resolves_refs` |
 | `VC-086` | No backlog entry, no work | **high** | **AUDITED** | `required` | Require a backlog entry before planning or execution; if it is not in the ledger, it does not get worked.  | `DOC_ONLY` |
+| `VC-087` | Self-polluting tooling (scratch written into the tracked working tree) | **high** | **PREVENTED** | `none` | No scratch in the tracked tree: a test or script that creates temp/probe/backup artifacts at a repo-relative path, or whose run leaves untracked non-ignored files, is rejected. Scratch goes to OS temp with guaranteed cleanup; unavoidable residue is gitignored. | `static-regex` |
 
 ### Tokenomics & Context (34 items)
 

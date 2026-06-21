@@ -91,6 +91,7 @@ This index classifies the Golden Standard vices into VC and VT. Tokenomics lives
 *   [[Vices/VC-084|VC-084]] — **Canonical source first (no sink patching)** (AUDITED, high, downstream:none)
 *   [[Vices/VC-085|VC-085]] — **Doctrine before enforcement (source-first ordering)** (AUDITED, medium, downstream:none)
 *   [[Vices/VC-086|VC-086]] — **No backlog entry, no work** (AUDITED, high, downstream:required)
+*   [[Vices/VC-087|VC-087]] — **Self-polluting tooling (scratch written into the tracked working tree)** (PREVENTED, high, downstream:none)
 
 ## Testing & Evaluation (TV)
 *   [[Vices/VT-001|VT-001]] — **Hardcoded return** (PREVENTED, high, downstream:none)

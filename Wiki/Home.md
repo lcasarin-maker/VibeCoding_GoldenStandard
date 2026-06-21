@@ -32,7 +32,7 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 
 | Domain | Catalog | Entries | Link |
 |---|---|---:|---|
-| Vibe Coding | `VC-xxx` | 86 | [[Vices_Index|Open index]] |
+| Vibe Coding | `VC-xxx` | 87 | [[Vices_Index|Open index]] |
 | Testing & Evaluation | `VT-xxx` | 116 | [[Vices_Index|Open index]] |
 | Tokenomics | `TK-xxx` | 34 | [[Tokenomics_Index|Open index]] |
 | Principles | `PR-xxx` | 113 | [[Principles|Open index]] |
@@ -44,9 +44,9 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 | Reading | Entries | Meaning |
 |---|---:|---|
 | `PROPOSED` | 107 | The entry is documented or audited, but no enforcing implementation exists in the catalog flow. |
-| `ENFORCED_EXTERNAL` | 117 | The guard exists in a downstream enforcing project. |
+| `ENFORCED_EXTERNAL` | 118 | The guard exists in a downstream enforcing project. |
 | `ENFORCED_LOCAL` | 12 | The guard or remediation is enforced in this repository. |
-| `Total` | 236 | Sum of the VC, VT, and TK entries audited by the compiler. |
+| `Total` | 237 | Sum of the VC, VT, and TK entries audited by the compiler. |
 
 ---
 
