@@ -5,9 +5,11 @@ Everything here is derived from the YAML at build time, so a badge can never dri
 reality: CI regenerates these files and fails if the committed copies are stale (the same
 'artifacts up to date' gate used for the wiki). No hardcoded or inflated numbers.
 """
+
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -28,7 +30,10 @@ CATALOGS = (
 def _depth(item: dict) -> str:
     if str(item.get("alias_of", "")).strip():
         return "alias"
-    if str(item.get("example_bad", "")).strip() and str(item.get("example_good", "")).strip():
+    if (
+        str(item.get("example_bad", "")).strip()
+        and str(item.get("example_good", "")).strip()
+    ):
         return "deep"
     if item.get("doctrinal"):
         return "doctrinal"
@@ -43,19 +48,43 @@ def compute_metrics() -> dict:
 
     total = len(items)
     depth = {"deep": 0, "doctrinal": 0, "alias": 0, "stub": 0}
-    ai_native = with_evidence = with_detector = 0
+    ai_native = with_evidence = 0
+    detector_refs: list[str] = []
     for it in items:
         depth[_depth(it)] += 1
         if "ai-native" in it.get("tags", []):
             ai_native += 1
         if it.get("evidence"):
             with_evidence += 1
-        if str(it.get("detector", "")).strip():
-            with_detector += 1
+        ref = str(it.get("detector", "")).strip()
+        if ref:
+            detector_refs.append(ref)
 
-    principles = yaml.safe_load((ROOT / "golden_standard_principles.yaml").read_text(encoding="utf-8"))
+    # B1: reconcile catalog detector refs against the actual DETECTORS registry.
+    # The catalog references detectors by function-name (`vc003_...`) while the
+    # registry is keyed by id (`VC-003`); count only refs that resolve to a real
+    # registered detector, and surface the rest so the badge cannot overclaim.
+    _registered = set(DETECTORS)
+
+    def _ref_to_id(ref: str) -> str | None:
+        m = re.match(r"(vc|vt)0*(\d+)", ref.lower())
+        return f"{m.group(1).upper()}-{int(m.group(2)):03d}" if m else None
+
+    wired = {rid for r in detector_refs if (rid := _ref_to_id(r)) in _registered}
+    unregistered = sorted(
+        {r for r in detector_refs if _ref_to_id(r) not in _registered}
+    )
+    with_detector = len(wired)
+
+    principles = yaml.safe_load(
+        (ROOT / "golden_standard_principles.yaml").read_text(encoding="utf-8")
+    )
     principles_count = len(
-        [i for i in principles.get("items", []) if str(i.get("id", "")).startswith("PR-")]
+        [
+            i
+            for i in principles.get("items", [])
+            if str(i.get("id", "")).startswith("PR-")
+        ]
     )
 
     pct = lambda n: round(100 * n / total) if total else 0
@@ -70,6 +99,7 @@ def compute_metrics() -> dict:
         "with_evidence_pct": pct(with_evidence),
         "local_detectors": with_detector,
         "registered_detectors": len(DETECTORS),
+        "unregistered_detector_refs": unregistered,
         "stub": depth["stub"],
     }
 
@@ -90,11 +120,17 @@ def write_all() -> dict:
     BADGES.mkdir(exist_ok=True)
     badges = {
         "entries": _badge("entries", str(m["total_entries"]), "blue"),
-        "deep": _badge("deep (falsable)", f"{m['deep_pct']}%", _color(m['deep_pct'])),
+        "deep": _badge("deep (falsable)", f"{m['deep_pct']}%", _color(m["deep_pct"])),
         "ai-native": _badge("AI-native", str(m["ai_native"]), "blue"),
-        "evidence": _badge("with evidence", f"{m['with_evidence_pct']}%", _color(m['with_evidence_pct'])),
-        "detectors": _badge("local detectors", str(m["local_detectors"]), "brightgreen"),
-        "stubs": _badge("stubs", str(m["stub"]), "brightgreen" if m["stub"] == 0 else "yellow"),
+        "evidence": _badge(
+            "with evidence",
+            f"{m['with_evidence_pct']}%",
+            _color(m["with_evidence_pct"]),
+        ),
+        "detectors": _badge("detectors", str(m["registered_detectors"]), "brightgreen"),
+        "stubs": _badge(
+            "stubs", str(m["stub"]), "brightgreen" if m["stub"] == 0 else "yellow"
+        ),
     }
     for name, payload in badges.items():
         (BADGES / f"{name}.json").write_text(

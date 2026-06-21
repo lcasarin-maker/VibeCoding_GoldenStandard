@@ -12,7 +12,15 @@
   "ai_native_pct": 6,
   "with_evidence": 235,
   "with_evidence_pct": 100,
-  "local_detectors": 31,
+  "local_detectors": 23,
   "registered_detectors": 27,
+  "unregistered_detector_refs": [
+    "audit_d2_completeness",
+    "vc087_blanket_filterwarnings",
+    "vc095_hardcoded_secret",
+    "vc109_hardcoded_path",
+    "vc115_unsafe_eval",
+    "vc138_insecure_defaults"
+  ],
   "stub": 0
 }
