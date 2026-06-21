@@ -38,6 +38,17 @@ Status legend: `OPEN` · `IN_PROGRESS` · `BLOCKED` · `DONE`
 | GS-071 | Low | 26 VC entries are DOC_ONLY (not falsifiable) | IN_PROGRESS 2026-06-18: Batch 2 promoted 5 live-detector entries (VC-002, VC-010, VC-018, VC-024, VC-036) from DOC_ONLY to PREVENTED via existing detectors and catalog validation. 26 DOC_ONLY entries remain; continue in future batch. | IN_PROGRESS |
 | GS-072 | Low | TV/VT typo in Wiki/Home.md | "TV" used instead of "VT" for Testing Vices. Remediation: fixed. | DONE |
 | GS-073 | Medium | Cache directories tracked in repo | DONE 2026-06-16: all cache directories added to `.gitignore` and removed from git tracking. | DONE |
+| GS-074 | Low | BACKLOG jargon scrub (audit 2026-06-16 item 5) | Live BACKLOG still carries downstream project jargon (`Eje 6`, `AX-020/023/024`) inside historical DONE evidence. Replace with human-readable descriptions or commit links so the ledger reads without insider knowledge. Verified live: 4 jargon hits remain. | OPEN |
+| GS-075 | Low | Generator maintainability (audit 2026-06-16 item 11) | `generate_golden_audit.py` is ~77KB and mixes audit-report generation with wiki generation. GS-069 already extracted the Cerberus dimension map to `config/dimension_map.json`; the remaining debt is size/separation. Split report vs wiki generation and add a documented fallback if the generator breaks. | OPEN |
+| GS-076 | Low | Graph layer hardening (audit 2026-06-16 items 22/25/26) | `Wiki/Graph.md` count drift vs YAML; the validator checks wiki existence but not graph connectivity (new entries can be silent orphans); the validation-debt table is a static snapshot. Add a connectivity check to `validate_golden_standard_catalogs.py` and regenerate graph debt on commit. | OPEN |
+
+> Residual findings from `deprecated/audits/GS_Independent_Adversarial_Audit_2026-06-16.md`
+> verified live 2026-06-20: items 1-4,6-10,12-18,20,23-24,27 are RESOLVED (TK-F01..F03
+> normalized away, `AGENT_CONSUMPTION.md` present, README `PREVENTED` clarification present,
+> PI catalog restructured into `golden_standard_principles.yaml`, `deprecated/planning/`
+> removed, one-shot scripts moved to `deprecated/scripts/`). Item 19 = GS-071 (IN_PROGRESS).
+> Items 5/11/21/22/25/26 → GS-074/075/076 above (21's downstream_verification is present on
+> all 34 live TK entries). This closes the audit's diff: every unresolved finding is tracked.
 
 ## Process / cross-repo
 
