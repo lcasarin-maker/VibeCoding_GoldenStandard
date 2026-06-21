@@ -11,6 +11,10 @@
 
 Status legend: `OPEN` · `IN_PROGRESS` · `BLOCKED` · `DONE`
 
+<!-- CANONICAL-COUNTS (generated truth; asserted by validate_golden_standard_catalogs.py::validate_backlog_counts) -->
+**Catalog counts (canonical, post-renumber `VC-001..086` / `VT-001..116` / `TK-001..034` / `PR-001..113`):** VC 86 / VT 116 / TK 34 / PR 113.
+Historical evidence rows below may cite pre-renumber figures (e.g. "154 VC / 47 TK / 35 PI"); the line above is the single source enforced against the YAML by CI.
+
 ---
 
 ## Live debt
@@ -41,6 +45,7 @@ Status legend: `OPEN` · `IN_PROGRESS` · `BLOCKED` · `DONE`
 | GS-074 | Low | BACKLOG jargon scrub (audit 2026-06-16 item 5) | Live BACKLOG still carries downstream project jargon (`Eje 6`, `AX-020/023/024`) inside historical DONE evidence. Replace with human-readable descriptions or commit links so the ledger reads without insider knowledge. Verified live: 4 jargon hits remain. | OPEN |
 | GS-075 | Low | Generator maintainability (audit 2026-06-16 item 11) | `generate_golden_audit.py` is ~77KB and mixes audit-report generation with wiki generation. GS-069 already extracted the Cerberus dimension map to `config/dimension_map.json`; the remaining debt is size/separation. Split report vs wiki generation and add a documented fallback if the generator breaks. | OPEN |
 | GS-076 | Low | Graph layer hardening (audit 2026-06-16 items 22/25/26) | `Wiki/Graph.md` count drift vs YAML; the validator checks wiki existence but not graph connectivity (new entries can be silent orphans); the validation-debt table is a static snapshot. Add a connectivity check to `validate_golden_standard_catalogs.py` and regenerate graph debt on commit. | OPEN |
+| GS-077 | Medium | Detector registry parity (local vs registered) | Live diff 2026-06-20: catalogs reference detectors by function-name (`detector: vc003_incomprehensible_code`) while `scripts/detectors.py` `DETECTORS` is keyed by ID (`"VC-003"`) — a naming-convention split that makes the raw set-diff look worse than it is. After ID-mapping, catalog detector refs with **no implementation**: `vc087_blanket_filterwarnings`, `vc095_hardcoded_secret`, `vc109_hardcoded_path`, `vc115_unsafe_eval`, `vc138_insecure_defaults`, plus `audit_d2_completeness` (a consumer-dimension ref, not a GS detector). Resolve by either implementing the missing detectors or degrading those entries' `validating_mechanism` to DOC_ONLY, then add a parity assert so `implemented == referenced`. (The cross-audit report's "4 unregistered" figure does not match the live count of ~6 — itself a truth-drift to note.) | OPEN |
 
 > Residual findings from `deprecated/audits/GS_Independent_Adversarial_Audit_2026-06-16.md`
 > verified live 2026-06-20: items 1-4,6-10,12-18,20,23-24,27 are RESOLVED (TK-F01..F03

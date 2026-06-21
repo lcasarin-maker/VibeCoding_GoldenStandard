@@ -11,7 +11,6 @@ from pathlib import Path
 
 import yaml
 
-
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "golden_standard.yaml"
 WIKI_VICES_DIR = ROOT / "Wiki" / "Vices"
@@ -81,7 +80,8 @@ def _project_insight_text(entry: dict[str, object]) -> str:
 def _project_insight_has_static_signature(entry: dict[str, object]) -> bool:
     has_bad = bool(str(entry.get("example_bad", "")).strip())
     has_detection = bool(
-        str(entry.get("detection", "")).strip() or str(entry.get("detector", "")).strip()
+        str(entry.get("detection", "")).strip()
+        or str(entry.get("detector", "")).strip()
     )
     return has_bad and has_detection
 
@@ -113,23 +113,41 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
         if alias_of:
             title = str(item.get("title", "")).strip()
             if not title:
-                errors.append(f"{path}: {item_id or f'item {index}'} missing required field: title")
+                errors.append(
+                    f"{path}: {item_id or f'item {index}'} missing required field: title"
+                )
             if alias_of == item_id:
-                errors.append(f"{path}: {item_id or f'item {index}'} cannot be an alias of itself.")
+                errors.append(
+                    f"{path}: {item_id or f'item {index}'} cannot be an alias of itself."
+                )
             elif alias_of not in all_ids:
-                errors.append(f"{path}: {item_id or f'item {index}'} alias_of references unknown id {alias_of}.")
-            if bool(item.get("doctrinal")) or str(item.get("example_bad", "")).strip() or str(item.get("example_good", "")).strip():
+                errors.append(
+                    f"{path}: {item_id or f'item {index}'} alias_of references unknown id {alias_of}."
+                )
+            if (
+                bool(item.get("doctrinal"))
+                or str(item.get("example_bad", "")).strip()
+                or str(item.get("example_good", "")).strip()
+            ):
                 errors.append(
                     f"{path}: {item_id or f'item {index}'} is an alias and must not also carry examples or the doctrinal flag."
                 )
             continue
 
-        missing = [field for field in CATALOG_REQUIRED_FIELDS if not str(item.get(field, "")).strip()]
+        missing = [
+            field
+            for field in CATALOG_REQUIRED_FIELDS
+            if not str(item.get(field, "")).strip()
+        ]
         if missing:
-            errors.append(f"{path}: {item_id or f'item {index}'} missing required fields: {', '.join(missing)}")
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} missing required fields: {', '.join(missing)}"
+            )
 
         if item_id and not is_ascii_text(item_id):
-            errors.append(f"{path}: {item_id or f'item {index}'} must use ASCII-only technical identifiers.")
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} must use ASCII-only technical identifiers."
+            )
 
         if item_id in seen_ids:
             errors.append(f"{path}: duplicate id {item_id}.")
@@ -138,19 +156,27 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
 
         status = str(item.get("status", "")).strip()
         if status and status not in ALLOWED_STATUSES:
-            errors.append(f"{path}: {item_id or f'item {index}'} has unsupported status {status}.")
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} has unsupported status {status}."
+            )
 
         severity = str(item.get("severity", "")).strip()
         if severity and severity not in ALLOWED_SEVERITIES:
-            errors.append(f"{path}: {item_id or f'item {index}'} has unsupported severity {severity}.")
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} has unsupported severity {severity}."
+            )
 
         tier = str(item.get("tier", "")).strip()
         if tier and tier not in {"core", "extended", "specialist"}:
-            errors.append(f"{path}: {item_id or f'item {index}'} has unsupported tier {tier}.")
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} has unsupported tier {tier}."
+            )
 
         downstream_verification = str(item.get("downstream_verification", "")).strip()
         if not downstream_verification:
-            errors.append(f"{path}: {item_id or f'item {index}'} missing required field: downstream_verification")
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} missing required field: downstream_verification"
+            )
         elif downstream_verification not in ALLOWED_DOWNSTREAM_VERIFICATIONS:
             errors.append(
                 f"{path}: {item_id or f'item {index}'} has unsupported downstream_verification {downstream_verification}."
@@ -163,29 +189,50 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
 
         tags = item.get("tags", None)
         if not isinstance(tags, list) or len(tags) < 2:
-            errors.append(f"{path}: {item_id or f'item {index}'} must define at least two tags.")
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} must define at least two tags."
+            )
         else:
             for tag in tags:
                 tag_text = str(tag).strip()
                 if not tag_text:
-                    errors.append(f"{path}: {item_id or f'item {index}'} contains an empty tag value.")
+                    errors.append(
+                        f"{path}: {item_id or f'item {index}'} contains an empty tag value."
+                    )
                 elif not TAG_PATTERN.fullmatch(tag_text):
-                    errors.append(f"{path}: {item_id or f'item {index}'} has non-normalized tag {tag_text!r}.")
+                    errors.append(
+                        f"{path}: {item_id or f'item {index}'} has non-normalized tag {tag_text!r}."
+                    )
                 elif not is_ascii_text(tag_text):
-                    errors.append(f"{path}: {item_id or f'item {index}'} has non-ASCII tag {tag_text!r}.")
+                    errors.append(
+                        f"{path}: {item_id or f'item {index}'} has non-ASCII tag {tag_text!r}."
+                    )
 
-        for text_field in ("example_bad", "example_good", "example_lang", "detection", "detector"):
+        for text_field in (
+            "example_bad",
+            "example_good",
+            "example_lang",
+            "detection",
+            "detector",
+        ):
             value = item.get(text_field, None)
             if value is not None and not isinstance(value, str):
-                errors.append(f"{path}: {item_id or f'item {index}'} field {text_field} must be a string.")
+                errors.append(
+                    f"{path}: {item_id or f'item {index}'} field {text_field} must be a string."
+                )
 
         evidence = item.get("evidence", None)
         if evidence is not None:
             if not isinstance(evidence, list):
-                errors.append(f"{path}: {item_id or f'item {index}'} field evidence must be a list.")
+                errors.append(
+                    f"{path}: {item_id or f'item {index}'} field evidence must be a list."
+                )
             else:
                 for ref in evidence:
-                    if not isinstance(ref, dict) or not str(ref.get("source", "")).strip():
+                    if (
+                        not isinstance(ref, dict)
+                        or not str(ref.get("source", "")).strip()
+                    ):
                         errors.append(
                             f"{path}: {item_id or f'item {index}'} evidence entries must be mappings with a non-empty 'source'."
                         )
@@ -206,7 +253,9 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
         enforcement = item.get("enforcement", None)
         if enforcement is not None:
             if not isinstance(enforcement, dict):
-                errors.append(f"{path}: {item_id or f'item {index}'} field enforcement must be a mapping.")
+                errors.append(
+                    f"{path}: {item_id or f'item {index}'} field enforcement must be a mapping."
+                )
             else:
                 cerberus = enforcement.get("cerberus", None)
                 if cerberus is not None:
@@ -230,7 +279,9 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
 
         doctrinal = item.get("doctrinal", None)
         if doctrinal is not None and not isinstance(doctrinal, bool):
-            errors.append(f"{path}: {item_id or f'item {index}'} field doctrinal must be a boolean.")
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} field doctrinal must be a boolean."
+            )
         if doctrinal and (has_bad or has_good):
             errors.append(
                 f"{path}: {item_id or f'item {index}'} is flagged doctrinal but also ships examples; a vice is one or the other."
@@ -257,9 +308,7 @@ def validate_project_insight_promotion(
         if _project_insight_has_static_signature(entry):
             target = _project_insight_target(entry)
             if not target or target not in promoted_ids:
-                errors.append(
-                    f"{pi_id}: has static signature, must graduate to VC/VT"
-                )
+                errors.append(f"{pi_id}: has static signature, must graduate to VC/VT")
         else:
             if bool(entry):
                 doctrinal = entry.get("doctrinal", None)
@@ -283,7 +332,9 @@ def validate_project_insights(
         if not insight_id.startswith("PI-"):
             errors.append(f"{path}: invalid insight id {insight_id!r}.")
         if insight_id and not is_ascii_text(insight_id):
-            errors.append(f"{path}: invalid insight id {insight_id!r}; technical identifiers must be ASCII-only.")
+            errors.append(
+                f"{path}: invalid insight id {insight_id!r}; technical identifiers must be ASCII-only."
+            )
         entry = _normalize_project_insight(value)
         if not _project_insight_text(entry):
             errors.append(f"{path}: {insight_id or 'unknown insight'} has empty text.")
@@ -295,7 +346,9 @@ def validate_project_insights(
     validate_project_insight_promotion(insights, promoted_ids, errors)
 
 
-def validate_principles_catalog(path: Path, errors: list[str], check_wiki: bool) -> None:
+def validate_principles_catalog(
+    path: Path, errors: list[str], check_wiki: bool
+) -> None:
     data = load_yaml(path)
     items = data.get("items", [])
     if not isinstance(items, list):
@@ -313,17 +366,23 @@ def validate_principles_catalog(path: Path, errors: list[str], check_wiki: bool)
         doctrinal = item.get("doctrinal", None)
 
         if not item_id.startswith("PR-"):
-            errors.append(f"{path}: {item_id or f'item {index}'} must use a PR- identifier.")
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} must use a PR- identifier."
+            )
         if item_id in seen_ids:
             errors.append(f"{path}: duplicate id {item_id}.")
         elif item_id:
             seen_ids.add(item_id)
 
         if not title:
-            errors.append(f"{path}: {item_id or f'item {index}'} missing required field: title")
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} missing required field: title"
+            )
 
     if check_wiki and not (ROOT / "Wiki" / "Principles.md").exists():
-        errors.append(f"Missing wiki principles index: {ROOT / 'Wiki' / 'Principles.md'}")
+        errors.append(
+            f"Missing wiki principles index: {ROOT / 'Wiki' / 'Principles.md'}"
+        )
 
 
 def resolve_wiki_link_target(source_path: Path, raw_target: str) -> Path | None:
@@ -344,7 +403,9 @@ def resolve_wiki_link_target(source_path: Path, raw_target: str) -> Path | None:
         if resolved.exists():
             return resolved
 
-    basename_matches = sorted({path.resolve() for path in ROOT.rglob(f"{Path(cleaned).name}.md")})
+    basename_matches = sorted(
+        {path.resolve() for path in ROOT.rglob(f"{Path(cleaned).name}.md")}
+    )
     if len(basename_matches) == 1:
         return basename_matches[0]
     return None
@@ -371,13 +432,23 @@ def validate_link_targets(errors: list[str], sources: list[Path]) -> None:
             if not resolved.exists() and target.endswith("/"):
                 resolved = (ROOT / target.rstrip("/")).resolve()
             if not resolved.exists():
-                errors.append(f"{path}: unresolved markdown link target ({raw_target}).")
+                errors.append(
+                    f"{path}: unresolved markdown link target ({raw_target})."
+                )
 
 
 def validate_wiki_file_sets(errors: list[str]) -> None:
     """Ensure generated wiki folders do not accumulate orphan markdown files."""
-    expected_vices = {item.stem for item in WIKI_VICES_DIR.glob("*.md")} if WIKI_VICES_DIR.exists() else set()
-    expected_tokenomics = {item.stem for item in WIKI_TOKENOMICS_DIR.glob("*.md")} if WIKI_TOKENOMICS_DIR.exists() else set()
+    expected_vices = (
+        {item.stem for item in WIKI_VICES_DIR.glob("*.md")}
+        if WIKI_VICES_DIR.exists()
+        else set()
+    )
+    expected_tokenomics = (
+        {item.stem for item in WIKI_TOKENOMICS_DIR.glob("*.md")}
+        if WIKI_TOKENOMICS_DIR.exists()
+        else set()
+    )
 
     catalog_data = load_yaml(MANIFEST)
     catalogs = catalog_data.get("catalogs", {})
@@ -396,7 +467,11 @@ def validate_wiki_file_sets(errors: list[str]) -> None:
 
     allowed_tokenomics: set[str] = {
         str(item.get("id", "")).strip()
-        for item in (load_yaml(tokenomics_path).get("items", []) if tokenomics_path.exists() else [])
+        for item in (
+            load_yaml(tokenomics_path).get("items", [])
+            if tokenomics_path.exists()
+            else []
+        )
         if str(item.get("id", "")).strip().startswith("TK-")
     }
 
@@ -465,10 +540,18 @@ def validate_home_counts(errors: list[str]) -> None:
         return str(item.get("status", "")).strip()
 
     expected_counts = {
-        "Vibe Coding": len([item for item in vices if str(item.get("id", "")).startswith("VC-")]),
-        "Testing & Evaluation": len([item for item in tests if str(item.get("id", "")).startswith("VT-")]),
-        "Tokenomics": len([item for item in tokenomics if str(item.get("id", "")).startswith("TK-")]),
-        "Principles": len([item for item in principles if str(item.get("id", "")).startswith("PR-")]),
+        "Vibe Coding": len(
+            [item for item in vices if str(item.get("id", "")).startswith("VC-")]
+        ),
+        "Testing & Evaluation": len(
+            [item for item in tests if str(item.get("id", "")).startswith("VT-")]
+        ),
+        "Tokenomics": len(
+            [item for item in tokenomics if str(item.get("id", "")).startswith("TK-")]
+        ),
+        "Principles": len(
+            [item for item in principles if str(item.get("id", "")).startswith("PR-")]
+        ),
     }
 
     for label, expected in expected_counts.items():
@@ -488,7 +571,9 @@ def validate_home_counts(errors: list[str]) -> None:
     enforced_local = status_expected.get("REMEDIATED", 0)
     total_row = f"| `Total` | {total_expected} |"
     if total_row not in status_text:
-        errors.append(f"{home_path}: total count row does not match expected total {total_expected}.")
+        errors.append(
+            f"{home_path}: total count row does not match expected total {total_expected}."
+        )
     if f"| `PROPOSED` | {proposed} |" not in status_text:
         errors.append(f"{home_path}: proposed count row mismatch.")
     if f"| `ENFORCED_EXTERNAL` | {enforced_external} |" not in status_text:
@@ -504,24 +589,52 @@ def validate_readme_counts(errors: list[str]) -> None:
         return
 
     data = load_yaml(ROOT / "golden_standard_coding_vices.yaml")
-    vc_count = len([item for item in data.get("items", []) if str(item.get("id", "")).startswith("VC-")])
+    vc_count = len(
+        [
+            item
+            for item in data.get("items", [])
+            if str(item.get("id", "")).startswith("VC-")
+        ]
+    )
     data = load_yaml(ROOT / "golden_standard_testing_vices.yaml")
-    tv_count = len([item for item in data.get("items", []) if str(item.get("id", "")).startswith("VT-")])
+    tv_count = len(
+        [
+            item
+            for item in data.get("items", [])
+            if str(item.get("id", "")).startswith("VT-")
+        ]
+    )
     data = load_yaml(ROOT / "golden_standard_tokenomics.yaml")
-    tk_count = len([item for item in data.get("items", []) if str(item.get("id", "")).startswith("TK-")])
+    tk_count = len(
+        [
+            item
+            for item in data.get("items", [])
+            if str(item.get("id", "")).startswith("TK-")
+        ]
+    )
     data = load_yaml(ROOT / "golden_standard_principles.yaml")
-    pr_count = len([item for item in data.get("items", []) if str(item.get("id", "")).startswith("PR-")])
+    pr_count = len(
+        [
+            item
+            for item in data.get("items", [])
+            if str(item.get("id", "")).startswith("PR-")
+        ]
+    )
 
     readme_text = readme_path.read_text(encoding="utf-8")
 
     # Check paragraphs counts
     expected_vc_str = f"**{vc_count} entries** cataloged with severity"
     expected_tv_str = f"**{tv_count} entries** with examples"
-    
+
     if expected_vc_str not in readme_text:
-        errors.append(f"{readme_path}: missing or stale VC count ({expected_vc_str!r}).")
+        errors.append(
+            f"{readme_path}: missing or stale VC count ({expected_vc_str!r})."
+        )
     if expected_tv_str not in readme_text:
-        errors.append(f"{readme_path}: missing or stale VT count ({expected_tv_str!r}).")
+        errors.append(
+            f"{readme_path}: missing or stale VT count ({expected_tv_str!r})."
+        )
 
     # Check catalog table rows
     expected_rows = [
@@ -537,13 +650,44 @@ def validate_readme_counts(errors: list[str]) -> None:
     # Check total line
     expected_total = f"**Total: {vc_count + tv_count + tk_count} vices + {pr_count} principles ({vc_count + tv_count + tk_count + pr_count} entries).**"
     if expected_total not in readme_text:
-        errors.append(f"{readme_path}: missing or stale total line ({expected_total!r}).")
+        errors.append(
+            f"{readme_path}: missing or stale total line ({expected_total!r})."
+        )
+
+
+def validate_backlog_counts(errors: list[str]) -> None:
+    """Phase 2.2: the BACKLOG canonical-counts line must match the live YAML.
+
+    Historical evidence rows may cite pre-renumber figures; the single line marked
+    CANONICAL-COUNTS is generated truth and must not drift from the catalogs.
+    """
+    backlog_path = ROOT / "BACKLOG.md"
+    if not backlog_path.exists():
+        errors.append(f"Missing BACKLOG: {backlog_path}")
+        return
+
+    def _count(filename: str, prefix: str) -> int:
+        items = load_yaml(ROOT / filename).get("items", [])
+        return len([i for i in items if str(i.get("id", "")).startswith(prefix)])
+
+    expected = (
+        f"VC {_count('golden_standard_coding_vices.yaml', 'VC-')} / "
+        f"VT {_count('golden_standard_testing_vices.yaml', 'VT-')} / "
+        f"TK {_count('golden_standard_tokenomics.yaml', 'TK-')} / "
+        f"PR {_count('golden_standard_principles.yaml', 'PR-')}"
+    )
+    if expected not in backlog_path.read_text(encoding="utf-8"):
+        errors.append(
+            f"{backlog_path}: canonical-counts line missing or stale; expected '{expected}'."
+        )
 
 
 def validate_wiki_topology(errors: list[str]) -> None:
     """Check that the wiki exposes the canonical navigation and memory surfaces."""
     required_snippets: dict[Path, list[str]] = {
-        ROOT / "Wiki" / "Home.md": [
+        ROOT
+        / "Wiki"
+        / "Home.md": [
             "[[Vices_Index|Engineering Vices Index]]",
             "[[Principles|Principles Index]]",
             "[[Tokenomics_Index|Tokenomics Index]]",
@@ -551,20 +695,29 @@ def validate_wiki_topology(errors: list[str]) -> None:
             "[Inbox](../Inbox/README.md)",
             "[[Graph|GS Graph Map]]",
         ],
-        ROOT / "Wiki" / "Principles.md": [
+        ROOT
+        / "Wiki"
+        / "Principles.md": [
             "PR-097",
             "PR-103",
         ],
-        ROOT / "Inbox" / "README.md": [
+        ROOT
+        / "Inbox"
+        / "README.md": [
             "Inbox/templates/",
             "INGESTION_PROTOCOL.md",
             "KNOWLEDGE_SOURCES.md",
         ],
-        ROOT / ".github" / "workflows" / "audit.yml": [
+        ROOT
+        / ".github"
+        / "workflows"
+        / "audit.yml": [
             "generate_golden_audit.py",
             "validate_golden_standard_catalogs.py",
         ],
-        ROOT / "Wiki" / "Tokenomics_Index.md": [
+        ROOT
+        / "Wiki"
+        / "Tokenomics_Index.md": [
             "[[Memory_Headroom_Index|Memory and Headroom]]",
             "[[Input_Retrieval_Index|Input and Retrieval]]",
             "[[Output_Compaction_Index|Output and Compaction]]",
@@ -574,7 +727,9 @@ def validate_wiki_topology(errors: list[str]) -> None:
             "RTK",
             "ICM",
         ],
-        ROOT / "Wiki" / "Tokenomics_Map.md": [
+        ROOT
+        / "Wiki"
+        / "Tokenomics_Map.md": [
             "Memory and Headroom",
             "Input and Retrieval",
             "Output and Compaction",
@@ -585,27 +740,46 @@ def validate_wiki_topology(errors: list[str]) -> None:
             "PR-084",
             "PR-091",
         ],
-        ROOT / "Wiki" / "Tokenomics" / "Memory_Headroom_Index.md": [
+        ROOT
+        / "Wiki"
+        / "Tokenomics"
+        / "Memory_Headroom_Index.md": [
             "Back to Tokenomics Map",
         ],
-        ROOT / "Wiki" / "Tokenomics" / "Input_Retrieval_Index.md": [
+        ROOT
+        / "Wiki"
+        / "Tokenomics"
+        / "Input_Retrieval_Index.md": [
             "Back to Tokenomics Map",
         ],
-        ROOT / "Wiki" / "Tokenomics" / "Output_Compaction_Index.md": [
+        ROOT
+        / "Wiki"
+        / "Tokenomics"
+        / "Output_Compaction_Index.md": [
             "Back to Tokenomics Map",
         ],
-        ROOT / "Wiki" / "Tokenomics" / "Measurement_Telemetry_Index.md": [
+        ROOT
+        / "Wiki"
+        / "Tokenomics"
+        / "Measurement_Telemetry_Index.md": [
             "Back to Tokenomics Map",
         ],
-        ROOT / "Wiki" / "Tokenomics" / "Automation_Tooling_Index.md": [
+        ROOT
+        / "Wiki"
+        / "Tokenomics"
+        / "Automation_Tooling_Index.md": [
             "Back to Tokenomics Map",
         ],
-        ROOT / "Wiki" / "Vices_Index.md": [
+        ROOT
+        / "Wiki"
+        / "Vices_Index.md": [
             "Engineering Vices Index",
             "VC-001",
             "VT-001",
         ],
-        ROOT / "Wiki" / "Graph.md": [
+        ROOT
+        / "Wiki"
+        / "Graph.md": [
             "## Validation Debt",
             "## Downstream Verification",
             "| Status | VC | VT | TK |",
@@ -636,6 +810,7 @@ def validate_wiki_topology(errors: list[str]) -> None:
     validate_wiki_file_sets(errors)
     validate_home_counts(errors)
     validate_readme_counts(errors)
+    validate_backlog_counts(errors)
 
 
 def validate_manifest(path: Path, errors: list[str], check_wiki: bool) -> None:
@@ -660,7 +835,9 @@ def validate_manifest(path: Path, errors: list[str], check_wiki: bool) -> None:
     for catalog_name, relative_path in catalogs.items():
         catalog_path = ROOT / str(relative_path)
         if not catalog_path.exists():
-            errors.append(f"{path}: catalog {catalog_name!r} points to missing file {catalog_path}.")
+            errors.append(
+                f"{path}: catalog {catalog_name!r} points to missing file {catalog_path}."
+            )
             continue
 
         if catalog_name == "principles":
