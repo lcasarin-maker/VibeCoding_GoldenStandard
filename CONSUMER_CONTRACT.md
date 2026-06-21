@@ -50,6 +50,24 @@ Cerberus must not treat Golden Standard as a live submodule or internal snapshot
 If Cerberus needs a local mirror, it must be an explicitly managed read-only copy, not the source of truth.
 If this contract ever conflicts with Cerberus's Constitution, the Constitution is authoritative for Cerberus behavior and this document must be updated to match.
 
+### Input contract (resolution, manifest, degraded mode)
+
+The consumer's loader (`protocol_engine/knowledge_loader.py`) resolves Golden
+Standard by this contract, which the consumer and this document MUST keep in sync:
+
+- **Root resolution.** The consumer reads `CERBERUS_GOLDEN_STANDARD_ROOT` (or
+  `GOLDEN_STANDARD_ROOT`) if set; otherwise it falls back to the sibling path
+  `../VibeCoding_GoldenStandard`. There is no in-repo copy of the catalogs.
+- **Manifest.** A directory is a valid Golden Standard root only if it contains
+  `golden_standard.yaml`. That manifest lists the catalog files the consumer reads
+  (`coding_vices`, `testing_vices`, `tokenomics`, `principles`).
+- **Degraded mode (required).** When no valid root is found, the consumer MUST
+  degrade, not crash. `golden_standard_available()` returns `False`; the knowledge
+  domain (D17) emits `GS not found — SKIPPED` (a non-blocking WARN), and the
+  normalized audit database falls back to the consumer-local cache
+  (`.protocol/metadata/golden_standard_audit.json`) or an empty map. A clean
+  consumer checkout without Golden Standard on disk still reaches a verdict.
+
 ### Rules for Cerberus Rules
 
 Every rule implemented in Cerberus MUST:
