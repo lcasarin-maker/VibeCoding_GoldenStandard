@@ -206,7 +206,7 @@ VibeCoding_GoldenStandard/
 Golden Standard is now a standalone knowledge base with its own canonical source of truth, public documentation, and generated wiki.
 
 Its historical lineage includes an earlier enforcement context, but that lineage is no longer the active framing for this repository.
-Legacy materials are preserved under [`deprecated/`](deprecated/) for traceability and historical context.
+Legacy materials are preserved in git history (tag `pre-reset-2026-06-20`) for traceability and historical context.
 
 ---
 
