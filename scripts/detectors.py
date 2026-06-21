@@ -8,6 +8,7 @@ Detectors are intentionally small and conservative: they aim to fire on the cata
 example_bad and stay silent on example_good, not to be production-grade linters. A
 green test run is the contract: every registered detector discriminates its own pair.
 """
+
 from __future__ import annotations
 
 import copy
@@ -24,13 +25,21 @@ def _parse(code: str) -> ast.AST | None:
 
 
 def _test_funcs(tree: ast.AST) -> list[ast.FunctionDef]:
-    return [n for n in ast.walk(tree)
-            if isinstance(n, ast.FunctionDef) and n.name.startswith("test")]
+    return [
+        n
+        for n in ast.walk(tree)
+        if isinstance(n, ast.FunctionDef) and n.name.startswith("test")
+    ]
 
 
 def _body_without_docstring(fn: ast.FunctionDef) -> list[ast.stmt]:
     body = list(fn.body)
-    if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) and isinstance(body[0].value.value, str):
+    if (
+        body
+        and isinstance(body[0], ast.Expr)
+        and isinstance(body[0].value, ast.Constant)
+        and isinstance(body[0].value.value, str)
+    ):
         return body[1:]
     return body
 
@@ -50,7 +59,10 @@ def _stmt_signature(stmt: ast.stmt) -> str:
         def visit_Constant(self, node: ast.Constant) -> ast.AST:
             if isinstance(node.value, str):
                 return ast.copy_location(ast.Constant(value="_"), node)
-            if isinstance(node.value, (int, float, complex, bool)) or node.value is None:
+            if (
+                isinstance(node.value, (int, float, complex, bool))
+                or node.value is None
+            ):
                 return ast.copy_location(ast.Constant(value="_"), node)
             return node
 
@@ -66,7 +78,20 @@ def _stmt_signature(stmt: ast.stmt) -> str:
 def _function_complexity(fn: ast.FunctionDef) -> int:
     complexity = 1
     for node in ast.walk(fn):
-        if isinstance(node, (ast.If, ast.For, ast.While, ast.With, ast.Try, ast.IfExp, ast.ExceptHandler, ast.Match, ast.comprehension)):
+        if isinstance(
+            node,
+            (
+                ast.If,
+                ast.For,
+                ast.While,
+                ast.With,
+                ast.Try,
+                ast.IfExp,
+                ast.ExceptHandler,
+                ast.Match,
+                ast.comprehension,
+            ),
+        ):
             complexity += 1
         elif isinstance(node, ast.BoolOp):
             complexity += len(node.values) - 1
@@ -79,13 +104,19 @@ def vc115_unsafe_eval(code: str) -> bool:
     if tree is None:
         return False
     for n in ast.walk(tree):
-        if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id in {"eval", "exec", "compile"}:
+        if (
+            isinstance(n, ast.Call)
+            and isinstance(n.func, ast.Name)
+            and n.func.id in {"eval", "exec", "compile"}
+        ):
             return True
     return False
 
 
 # --- VC-095: hardcoded secrets / production credentials ---
-_SECRET = re.compile(r"""(password|passwd|pwd|secret|api[_-]?key|token)\s*=\s*['"][^'"]+['"]""", re.I)
+_SECRET = re.compile(
+    r"""(password|passwd|pwd|secret|api[_-]?key|token)\s*=\s*['"][^'"]+['"]""", re.I
+)
 _DSN = re.compile(r"""[a-z][a-z0-9+.\-]*://[^'"\s/]+:[^'"\s/@]+@""", re.I)
 
 
@@ -95,7 +126,8 @@ def vc095_hardcoded_secret(code: str) -> bool:
 
 # --- VC-078: placeholder values reaching code ---
 _PLACEHOLDER = re.compile(
-    r"""=\s*['"]\s*(REPLACE_ME|CHANGE_?ME|YOUR_[A-Z_]+|X{4,}|TODO|FIXME|placeholder)\s*['"]""", re.I
+    r"""=\s*['"]\s*(REPLACE_ME|CHANGE_?ME|YOUR_[A-Z_]+|X{4,}|TODO|FIXME|placeholder)\s*['"]""",
+    re.I,
 )
 
 
@@ -110,7 +142,9 @@ def vt006_test_without_assert(code: str) -> bool:
         return False
     for fn in _test_funcs(tree):
         has_assert = any(isinstance(n, ast.Assert) for n in ast.walk(fn))
-        has_with = any(isinstance(n, ast.With) for n in ast.walk(fn))  # pytest.raises context
+        has_with = any(
+            isinstance(n, ast.With) for n in ast.walk(fn)
+        )  # pytest.raises context
         if not has_assert and not has_with:
             return True
     return False
@@ -122,7 +156,11 @@ def vt005_assert_true(code: str) -> bool:
     if tree is None:
         return False
     for n in ast.walk(tree):
-        if isinstance(n, ast.Assert) and isinstance(n.test, ast.Constant) and n.test.value is True:
+        if (
+            isinstance(n, ast.Assert)
+            and isinstance(n.test, ast.Constant)
+            and n.test.value is True
+        ):
             return True
     return False
 
@@ -133,7 +171,11 @@ def vt009_tautological_assert(code: str) -> bool:
     if tree is None:
         return False
     for n in ast.walk(tree):
-        if isinstance(n, ast.Assert) and isinstance(n.test, ast.Compare) and len(n.test.ops) == 1:
+        if (
+            isinstance(n, ast.Assert)
+            and isinstance(n.test, ast.Compare)
+            and len(n.test.ops) == 1
+        ):
             if ast.dump(n.test.left) == ast.dump(n.test.comparators[0]):
                 return True
     return False
@@ -145,10 +187,18 @@ def vt037_impossible_condition(code: str) -> bool:
     if tree is None:
         return False
     for n in ast.walk(tree):
-        if (isinstance(n, ast.If) and isinstance(n.test, ast.Compare)
-                and len(n.test.ops) == 1 and isinstance(n.test.ops[0], ast.Eq)):
+        if (
+            isinstance(n, ast.If)
+            and isinstance(n.test, ast.Compare)
+            and len(n.test.ops) == 1
+            and isinstance(n.test.ops[0], ast.Eq)
+        ):
             left, right = n.test.left, n.test.comparators[0]
-            if isinstance(left, ast.Constant) and isinstance(right, ast.Constant) and left.value != right.value:
+            if (
+                isinstance(left, ast.Constant)
+                and isinstance(right, ast.Constant)
+                and left.value != right.value
+            ):
                 return True
     return False
 
@@ -159,7 +209,11 @@ def vt040_blind_except(code: str) -> bool:
     if tree is None:
         return False
     for n in ast.walk(tree):
-        if isinstance(n, ast.ExceptHandler) and len(n.body) == 1 and isinstance(n.body[0], ast.Pass):
+        if (
+            isinstance(n, ast.ExceptHandler)
+            and len(n.body) == 1
+            and isinstance(n.body[0], ast.Pass)
+        ):
             return True
     return False
 
@@ -172,7 +226,7 @@ def vc005_untracked_prototype(code: str) -> bool:
     for line in code.splitlines():
         m = _TODO_MARK.search(line)
         if m:
-            comment = line[m.start():]
+            comment = line[m.start() :]
             if not ("owner=" in comment and "expires=" in comment):
                 return True
     return False
@@ -185,11 +239,17 @@ def vc005_premature_closure(code: str) -> bool:
         return False
     if "assert not scan_logs().errors" in text:
         return False
-    return "ignored and closed" in text or "secondary keyerror" in text or "secondary failures" in text
+    return (
+        "ignored and closed" in text
+        or "secondary keyerror" in text
+        or "secondary failures" in text
+    )
 
 
 # --- VC-036: destructive command with no dry-run/simulation in the same flow ---
-_DESTRUCTIVE = re.compile(r"(-delete\b|rm\s+-rf|\bDROP\s|\bTRUNCATE\b|git\s+reset\s+--hard)")
+_DESTRUCTIVE = re.compile(
+    r"(-delete\b|rm\s+-rf|\bDROP\s|\bTRUNCATE\b|git\s+reset\s+--hard)"
+)
 _DRYRUN = re.compile(r"(-print\b|--dry-run\b|\bEXPLAIN\b|\becho\b)")
 
 
@@ -205,7 +265,11 @@ def vc003_incomprehensible_code(code: str) -> bool:
     for fn in ast.walk(tree):
         if isinstance(fn, ast.FunctionDef) and not fn.name.startswith("test"):
             stmt_count = sum(1 for node in ast.walk(fn) if isinstance(node, ast.stmt))
-            if ast.get_docstring(fn) is None and stmt_count >= 5 and _function_complexity(fn) >= 5:
+            if (
+                ast.get_docstring(fn) is None
+                and stmt_count >= 5
+                and _function_complexity(fn) >= 5
+            ):
                 return True
     return False
 
@@ -229,13 +293,19 @@ _VERSION_LITERAL = re.compile(
 
 
 def vc016_broken_version_parity(code: str) -> bool:
-    versions = {match.group(1) or match.group(2) for match in _VERSION_LITERAL.finditer(code) if (match.group(1) or match.group(2))}
+    versions = {
+        match.group(1) or match.group(2)
+        for match in _VERSION_LITERAL.finditer(code)
+        if (match.group(1) or match.group(2))
+    }
     return len(versions) >= 2
 
 
 # --- VC-017: blocking call without timeout / heartbeat ---
 _BLOCKING_CALL = re.compile(r"\b(recv|join|acquire|wait)\s*\(", re.I)
-_LIVENESS_MARK = re.compile(r"\b(?:settimeout|timeout\s*=|heartbeat|wait_for|deadline)\b", re.I)
+_LIVENESS_MARK = re.compile(
+    r"\b(?:settimeout|timeout\s*=|heartbeat|wait_for|deadline)\b", re.I
+)
 
 
 def vc017_deadlock_without_heartbeat(code: str) -> bool:
@@ -243,17 +313,30 @@ def vc017_deadlock_without_heartbeat(code: str) -> bool:
 
 
 # --- VC-025: external input reaches a sink without validation ---
-_EXTERNAL_IO = re.compile(r"\b(request\.(?:args|files|form|json)|sys\.argv|argv\b|input\()", re.I)
-_IO_SINK = re.compile(r"\b(?:execute|exec|system|popen|subprocess\.(?:run|call|Popen))\s*\(", re.I)
-_IO_VALIDATION = re.compile(r"(?:validate_|safe_|schema|parameteri[sz]e|escape_|allowlist|whitelist)", re.I)
+_EXTERNAL_IO = re.compile(
+    r"\b(request\.(?:args|files|form|json)|sys\.argv|argv\b|input\()", re.I
+)
+_IO_SINK = re.compile(
+    r"\b(?:execute|exec|system|popen|subprocess\.(?:run|call|Popen))\s*\(", re.I
+)
+_IO_VALIDATION = re.compile(
+    r"(?:validate_|safe_|schema|parameteri[sz]e|escape_|allowlist|whitelist)", re.I
+)
 
 
 def vc025_io_without_validation(code: str) -> bool:
-    return bool(_EXTERNAL_IO.search(code)) and bool(_IO_SINK.search(code)) and not bool(_IO_VALIDATION.search(code))
+    return (
+        bool(_EXTERNAL_IO.search(code))
+        and bool(_IO_SINK.search(code))
+        and not bool(_IO_VALIDATION.search(code))
+    )
 
 
 # --- VC-028: core code imports experimental / unstable modules ---
-_UNSTABLE_IMPORT = re.compile(r"\bfrom\s+(experimental|unstable|beta|volatile)(?:[\.\w]*)\s+import\b|\bimport\s+(experimental|unstable|beta|volatile)\b", re.I)
+_UNSTABLE_IMPORT = re.compile(
+    r"\bfrom\s+(experimental|unstable|beta|volatile)(?:[\.\w]*)\s+import\b|\bimport\s+(experimental|unstable|beta|volatile)\b",
+    re.I,
+)
 
 
 def vc028_core_dependent_on_unstable_parts(code: str) -> bool:
@@ -315,7 +398,9 @@ def vc059_prompt_injection_in_agent_loop(code: str) -> bool:
 def vc065_unhandled_tool_call_failure(code: str) -> bool:
     if "call_tool(" not in code:
         return False
-    return ".ok" not in code and "retry_with_backoff" not in code and "degrade" not in code
+    return (
+        ".ok" not in code and "retry_with_backoff" not in code and "degrade" not in code
+    )
 
 
 # --- VC-066: multiple agents mutate the same state without protocol ---
@@ -334,12 +419,21 @@ def vc066_multi_agent_without_protocol(code: str) -> bool:
 
 # --- VC-071: model output reaches a dangerous sink unsafely ---
 _MODEL_OUTPUT = re.compile(r"\bmodel\.generate(?:_json)?\s*\(", re.I)
-_DANGEROUS_SINK = re.compile(r"\b(?:cursor\.execute|execute|os\.system|subprocess\.(?:run|call|Popen)|eval|exec|innerHTML)\s*\(", re.I)
-_OUTPUT_GUARD = re.compile(r"\b(?:validate_schema|parameteri[sz]e|escape|allowlist|sanitize|safe_)\b", re.I)
+_DANGEROUS_SINK = re.compile(
+    r"\b(?:cursor\.execute|execute|os\.system|subprocess\.(?:run|call|Popen)|eval|exec|innerHTML)\s*\(",
+    re.I,
+)
+_OUTPUT_GUARD = re.compile(
+    r"\b(?:validate_schema|parameteri[sz]e|escape|allowlist|sanitize|safe_)\b", re.I
+)
 
 
 def vc071_blind_trust_in_llm_output(code: str) -> bool:
-    return bool(_MODEL_OUTPUT.search(code)) and bool(_DANGEROUS_SINK.search(code)) and not bool(_OUTPUT_GUARD.search(code))
+    return (
+        bool(_MODEL_OUTPUT.search(code))
+        and bool(_DANGEROUS_SINK.search(code))
+        and not bool(_OUTPUT_GUARD.search(code))
+    )
 
 
 # --- VC-061: non-test function whose whole body is a constant return (stub) ---
@@ -349,8 +443,16 @@ def vc061_constant_stub(code: str) -> bool:
         return False
     for fn in ast.walk(tree):
         if isinstance(fn, ast.FunctionDef) and not fn.name.startswith("test"):
-            body = [n for n in fn.body if not (isinstance(n, ast.Expr) and isinstance(n.value, ast.Constant))]
-            if len(body) == 1 and isinstance(body[0], ast.Return) and isinstance(body[0].value, ast.Constant):
+            body = [
+                n
+                for n in fn.body
+                if not (isinstance(n, ast.Expr) and isinstance(n.value, ast.Constant))
+            ]
+            if (
+                len(body) == 1
+                and isinstance(body[0], ast.Return)
+                and isinstance(body[0].value, ast.Constant)
+            ):
                 return True
     return False
 
@@ -407,8 +509,17 @@ def vt043_unconditional_exit_zero(code: str) -> bool:
     for n in ast.walk(tree):
         if isinstance(n, ast.Call):
             func = n.func
-            name = func.attr if isinstance(func, ast.Attribute) else (func.id if isinstance(func, ast.Name) else "")
-            if name == "exit" and n.args and isinstance(n.args[0], ast.Constant) and n.args[0].value == 0:
+            name = (
+                func.attr
+                if isinstance(func, ast.Attribute)
+                else (func.id if isinstance(func, ast.Name) else "")
+            )
+            if (
+                name == "exit"
+                and n.args
+                and isinstance(n.args[0], ast.Constant)
+                and n.args[0].value == 0
+            ):
                 return True
     return False
 
@@ -424,12 +535,16 @@ def vc138_insecure_defaults(code: str) -> bool:
 
 
 # --- VC-078: destructive action without an explicit confirmation gate ---
-_DESTRUCTIVE_ACTION = re.compile(r"\b(delete_database|drop_database|destroy_|rm\s+-rf|shutdown)\s*\(", re.I)
+_DESTRUCTIVE_ACTION = re.compile(
+    r"\b(delete_database|drop_database|destroy_|rm\s+-rf|shutdown)\s*\(", re.I
+)
 _CONFIRM_GATE = re.compile(r"\bconfirm_with_user\s*\(", re.I)
 
 
 def vc078_excessive_agency(code: str) -> bool:
-    return bool(_DESTRUCTIVE_ACTION.search(code)) and not bool(_CONFIRM_GATE.search(code))
+    return bool(_DESTRUCTIVE_ACTION.search(code)) and not bool(
+        _CONFIRM_GATE.search(code)
+    )
 
 
 # Registry: catalog id -> detector. Keep in sync with the entries' `detector` field.
@@ -461,4 +576,11 @@ DETECTORS = {
     "VT-009": vt009_tautological_assert,
     "VT-037": vt037_impossible_condition,
     "VT-040": vt040_blind_except,
+    # B1/GS-077 parity: these four functions already existed and discriminate
+    # their catalog pairs, but were never wired into the registry, so the
+    # catalog advertised them while metrics counted them as dangling.
+    "VC-002": vc005_untracked_prototype,
+    "VC-018": vc061_constant_stub,
+    "VC-024": vc070_blind_shell_edit,
+    "VC-027": vc078_placeholder,
 }

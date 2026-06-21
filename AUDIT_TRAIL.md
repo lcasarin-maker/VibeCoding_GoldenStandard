@@ -1,5 +1,9 @@
 # AUDIT TRAIL
 
+## 2026-06-21
+
+- GS-077 (B1 detector parity) CLOSED. Root cause was a measurement bug in `metrics.py`: it resolved a catalog `detector:` ref by parsing the number out of the function name (`vc087_...` -> `VC-087`) and checking it against the registry keys, but the registry maps id -> function whose `__name__` need not match the id (e.g. `DETECTORS["VC-032"] == vc087_blanket_filterwarnings`). So 5 real detectors were counted as dangling and `local`=23 vs `registered`=27. Fixed `metrics.py` to resolve a ref by registered function name. Then closed the genuine gaps: 4 catalog entries (VC-002/018/024/027) advertised detectors that were not wired — registered the 3 existing-and-discriminating overloads (`vc005_untracked_prototype`, `vc061_constant_stub`, `vc070_blind_shell_edit`) and repointed VC-027 from the nonexistent `audit_d2_completeness` to the existing, discriminating `vc078_placeholder`. Result: `local == registered == 31`, `unregistered_detector_refs == []`, badge reads 31. Added a parity gate in `scripts/test_detectors.py` (already run in CI) that fails if `local != registered` or any ref is unregistered; proven failing-first (unregistering one detector returns exit 1). Regenerated all artifacts (report/audit.json/graph/metrics/badges/wiki); `validate_golden_standard_catalogs.py --check-wiki` green.
+
 ## 2026-06-15
 
 - GS-061 Stage 2 completed in GS: added an enforced PI->VC/VT promotion gate with a synthetic fail-first test, marked all 35 project insights `doctrinal: true`, tagged `PI-002`, `PI-012`, `PI-017`, and `PI-021` as promotion candidates, regenerated the wiki with a new `Principles` index, and verified the CC consumer loader still ingests the structured catalog cleanly.

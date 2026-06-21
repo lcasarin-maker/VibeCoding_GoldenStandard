@@ -1,4 +1,4 @@
-# audit_d2_completeness
+# vc078_placeholder
 
 > Static detector registered in `scripts/detectors.py`. Tested in CI against the catalog's own `example_bad` / `example_good` corpus.
 

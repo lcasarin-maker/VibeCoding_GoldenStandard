@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-06-20",
+  "generated_on": "2026-06-21",
   "node_count": 446,
   "edge_count": 2452,
   "nodes": [
@@ -201,58 +201,6 @@
       "semantic_reach": 4,
       "relation_diversity": 2,
       "hub_score": 23
-    },
-    {
-      "id": "Detectors/audit_d2_completeness",
-      "path": "Wiki/Detectors/audit_d2_completeness.md",
-      "title": "audit_d2_completeness",
-      "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-027"
-      ],
-      "incoming": [
-        "Vices/VC-027"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-027",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-027",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
     },
     {
       "id": "Detectors/vc003_incomprehensible_code",
@@ -1221,6 +1169,58 @@
       "incoming_edges": [
         {
           "source": "Vices/VC-078",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc078_placeholder",
+      "path": "Wiki/Detectors/vc078_placeholder.md",
+      "title": "vc078_placeholder",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-027"
+      ],
+      "incoming": [
+        "Vices/VC-027"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-027",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-027",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -8350,7 +8350,7 @@
       "title": "Golden Standard Wiki",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-06-20T22:29:00-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
@@ -8367,7 +8367,6 @@
         "Vices_Index"
       ],
       "incoming": [
-        "Detectors/audit_d2_completeness",
         "Detectors/vc003_incomprehensible_code",
         "Detectors/vc005_premature_closure",
         "Detectors/vc005_untracked_prototype",
@@ -8387,6 +8386,7 @@
         "Detectors/vc070_blind_shell_edit",
         "Detectors/vc071_blind_trust_in_llm_output",
         "Detectors/vc078_excessive_agency",
+        "Detectors/vc078_placeholder",
         "Detectors/vc087_blanket_filterwarnings",
         "Detectors/vc095_hardcoded_secret",
         "Detectors/vc109_hardcoded_path",
@@ -8887,12 +8887,6 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/audit_d2_completeness",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
           "source": "Detectors/vc003_incomprehensible_code",
           "kind": "wikilink",
           "relation": "references",
@@ -9002,6 +8996,12 @@
         },
         {
           "source": "Detectors/vc078_excessive_agency",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc078_placeholder",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
@@ -19015,7 +19015,7 @@
       "title": "PR-087 — Zero debt before advancing – every warning or non-blocking finding is treated as an operational error until fixed or explicitly blocked.",
       "kind": "principle",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-19T00:36:50-06:00",
+      "promoted": "2026-06-20T22:29:00-06:00",
       "outgoing": [
         "Domains/CD06",
         "Domains/README",
@@ -30722,7 +30722,7 @@
       "title": "VC-009: Full rewrite",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-20T22:29:00-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -32250,7 +32250,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
-        "Detectors/audit_d2_completeness",
+        "Detectors/vc078_placeholder",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -32258,12 +32258,12 @@
         "Vices_Index"
       ],
       "incoming": [
-        "Detectors/audit_d2_completeness",
+        "Detectors/vc078_placeholder",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/audit_d2_completeness",
+          "target": "Detectors/vc078_placeholder",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -32301,7 +32301,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/audit_d2_completeness",
+          "source": "Detectors/vc078_placeholder",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -44198,7 +44198,7 @@
       "title": "VT-087: Tolerated warning",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-19T00:36:50-06:00",
+      "promoted": "2026-06-20T22:29:00-06:00",
       "outgoing": [
         "Evidence/arxiv2602_00409",
         "Home",
@@ -49379,20 +49379,6 @@
       "confidence": 0.9
     },
     {
-      "source": "Detectors/audit_d2_completeness",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/audit_d2_completeness",
-      "target": "Vices/VC-027",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
       "source": "Detectors/vc003_incomprehensible_code",
       "target": "Home",
       "kind": "wikilink",
@@ -49654,6 +49640,20 @@
     {
       "source": "Detectors/vc078_excessive_agency",
       "target": "Vices/VC-078",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc078_placeholder",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc078_placeholder",
+      "target": "Vices/VC-027",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
@@ -59151,7 +59151,7 @@
     },
     {
       "source": "Vices/VC-027",
-      "target": "Detectors/audit_d2_completeness",
+      "target": "Detectors/vc078_placeholder",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -67876,7 +67876,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-18T20:53:01-06:00",
+        "promoted": "2026-06-20T22:29:00-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -67893,7 +67893,6 @@
           "Vices_Index"
         ],
         "incoming": [
-          "Detectors/audit_d2_completeness",
           "Detectors/vc003_incomprehensible_code",
           "Detectors/vc005_premature_closure",
           "Detectors/vc005_untracked_prototype",
@@ -67913,6 +67912,7 @@
           "Detectors/vc070_blind_shell_edit",
           "Detectors/vc071_blind_trust_in_llm_output",
           "Detectors/vc078_excessive_agency",
+          "Detectors/vc078_placeholder",
           "Detectors/vc087_blanket_filterwarnings",
           "Detectors/vc095_hardcoded_secret",
           "Detectors/vc109_hardcoded_path",
@@ -68413,12 +68413,6 @@
         ],
         "incoming_edges": [
           {
-            "source": "Detectors/audit_d2_completeness",
-            "kind": "wikilink",
-            "relation": "references",
-            "confidence": 0.85
-          },
-          {
             "source": "Detectors/vc003_incomprehensible_code",
             "kind": "wikilink",
             "relation": "references",
@@ -68528,6 +68522,12 @@
           },
           {
             "source": "Detectors/vc078_excessive_agency",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc078_placeholder",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -83659,7 +83659,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-18T20:53:01-06:00",
+        "promoted": "2026-06-20T22:29:00-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -83676,7 +83676,6 @@
           "Vices_Index"
         ],
         "incoming": [
-          "Detectors/audit_d2_completeness",
           "Detectors/vc003_incomprehensible_code",
           "Detectors/vc005_premature_closure",
           "Detectors/vc005_untracked_prototype",
@@ -83696,6 +83695,7 @@
           "Detectors/vc070_blind_shell_edit",
           "Detectors/vc071_blind_trust_in_llm_output",
           "Detectors/vc078_excessive_agency",
+          "Detectors/vc078_placeholder",
           "Detectors/vc087_blanket_filterwarnings",
           "Detectors/vc095_hardcoded_secret",
           "Detectors/vc109_hardcoded_path",
@@ -84196,12 +84196,6 @@
         ],
         "incoming_edges": [
           {
-            "source": "Detectors/audit_d2_completeness",
-            "kind": "wikilink",
-            "relation": "references",
-            "confidence": 0.85
-          },
-          {
             "source": "Detectors/vc003_incomprehensible_code",
             "kind": "wikilink",
             "relation": "references",
@@ -84311,6 +84305,12 @@
           },
           {
             "source": "Detectors/vc078_excessive_agency",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc078_placeholder",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -92807,7 +92807,7 @@
         "title": "PR-087 — Zero debt before advancing – every warning or non-blocking finding is treated as an operational error until fixed or explicitly blocked.",
         "kind": "principle",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-19T00:36:50-06:00",
+        "promoted": "2026-06-20T22:29:00-06:00",
         "outgoing": [
           "Domains/CD06",
           "Domains/README",

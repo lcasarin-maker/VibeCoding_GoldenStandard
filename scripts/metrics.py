@@ -9,7 +9,6 @@ reality: CI regenerates these files and fails if the committed copies are stale 
 from __future__ import annotations
 
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -61,19 +60,15 @@ def compute_metrics() -> dict:
             detector_refs.append(ref)
 
     # B1: reconcile catalog detector refs against the actual DETECTORS registry.
-    # The catalog references detectors by function-name (`vc003_...`) while the
-    # registry is keyed by id (`VC-003`); count only refs that resolve to a real
-    # registered detector, and surface the rest so the badge cannot overclaim.
-    _registered = set(DETECTORS)
+    # The catalog declares a detector by FUNCTION NAME (`vc078_placeholder`), and
+    # the registry maps id -> function whose `__name__` need not match the id
+    # (e.g. DETECTORS["VC-032"] == vc087_blanket_filterwarnings). So a ref is
+    # "wired" iff it names a function actually registered; resolving by the
+    # number in the function name was wrong and under-counted real coverage.
+    _registered_names = {fn.__name__ for fn in DETECTORS.values()}
 
-    def _ref_to_id(ref: str) -> str | None:
-        m = re.match(r"(vc|vt)0*(\d+)", ref.lower())
-        return f"{m.group(1).upper()}-{int(m.group(2)):03d}" if m else None
-
-    wired = {rid for r in detector_refs if (rid := _ref_to_id(r)) in _registered}
-    unregistered = sorted(
-        {r for r in detector_refs if _ref_to_id(r) not in _registered}
-    )
+    wired = {r for r in detector_refs if r in _registered_names}
+    unregistered = sorted({r for r in detector_refs if r not in _registered_names})
     with_detector = len(wired)
 
     principles = yaml.safe_load(

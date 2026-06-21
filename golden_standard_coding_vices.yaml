@@ -945,7 +945,7 @@ items:
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: core
 - id: VC-027
-  detector: audit_d2_completeness
+  detector: vc078_placeholder
   title: Permanent placeholder
   symptom: A marker reaches production
   cause: Incomplete state accepted

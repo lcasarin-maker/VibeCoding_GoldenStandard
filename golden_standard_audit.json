@@ -6411,7 +6411,7 @@
       }
     ],
     "doctrinal": false,
-    "detector": "audit_d2_completeness",
+    "detector": "vc078_placeholder",
     "tier": "extended",
     "enforcement": {
       "cerberus": {
