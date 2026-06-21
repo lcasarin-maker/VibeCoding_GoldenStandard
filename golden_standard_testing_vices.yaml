@@ -16,10 +16,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D2
-      mechanism: audit_d2_completeness
   downstream_verification: none
   example_lang: python
   example_bad: "# The function returns a constant to 'pass' the test; it implements nothing.\ndef total(cart):\n    return\
@@ -51,10 +47,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D2
-      mechanism: audit_d2_completeness
   downstream_verification: none
   example_lang: python
   example_bad: "# Permanent stub shipped to production as if it were implemented.\ndef charge(amount):\n    pass   # TODO:\
@@ -86,10 +78,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'def classify(s): return "spam" if s == "BUY NOW" else "ham"  # only the test''s input
@@ -121,10 +109,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'EXPECTED = compute(x)
@@ -158,10 +142,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D9
-      mechanism: audit_d9_test_purity
   downstream_verification: none
   example_lang: python
   example_bad: "def test_login():\n    user = login(\"a\", \"b\")\n    assert True    # trivial assert: always passes, does\
@@ -193,10 +173,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D9
-      mechanism: audit_d9_test_purity
   downstream_verification: none
   example_lang: python
   example_bad: "# The agent generates a test that runs the code but verifies nothing.\n# Always passes (even if discount()\
@@ -230,10 +206,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert os.path.exists("out.csv")   # exists, but the content is not validated
@@ -264,10 +236,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert "approved" in output   # looks for the approval text
@@ -299,10 +267,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D9
-      mechanism: audit_d9_test_purity
   downstream_verification: none
   example_lang: python
   example_bad: "def test_norm():\n    x = normalize(payload)\n    assert x == x   # tautology: true for any value\n"
@@ -332,10 +296,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert obj._helper.call_count == 1   # couples to internal detail
@@ -367,10 +327,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert tax(100) == 7   # the spec changed to 8%, the test is still at 7
@@ -401,10 +357,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D9
-      mechanism: audit_d9_test_purity
   downstream_verification: none
   example_lang: python
   example_bad: "# Calls everything to raise coverage, but asserts nothing.\ndef test_pipeline():\n    run_stage_a(); run_stage_b();\
@@ -435,10 +387,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D9
-      mechanism: audit_d9_test_purity
   downstream_verification: none
   example_lang: python
   example_bad: '# Empty tests created only to reach the % coverage threshold.
@@ -474,10 +422,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert auditor.audit(auditor) == "ok"   # evaluates itself
@@ -509,10 +453,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'def test_everything(): assert run_whole_app() == "ok"   # does not localize the failure
@@ -543,10 +483,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D9
-      mechanism: audit_d9_test_purity
   downstream_verification: none
   example_lang: python
   example_bad: "# Weak textual assertion: passes with almost any output.\ndef test_report():\n    r = build_report()\n   \
@@ -576,10 +512,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'def run(): return {"outcome": "success"}   # constant
@@ -610,10 +542,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert str(err) == "Error: code 42 at line 7"   # breaks if the text changes
@@ -644,10 +572,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'data = read()
@@ -683,10 +607,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# empty tests added only to reach 100% coverage
@@ -717,10 +637,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# BUG-9 is fixed but no test is left to discriminate it
@@ -751,10 +667,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D9
-      mechanism: audit_d9_test_purity
   downstream_verification: none
   example_lang: python
   example_bad: "# Guaranteed 'green': a combination of tautological asserts.\ndef test_calc():\n    assert 1 == 1\n    assert\
@@ -784,10 +696,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'api = Mock(); api.charge.return_value = True   # never fails
@@ -818,10 +726,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: "class FakeDB:\n    def get(self, k): return {\"a\": 1}[k]   # only the easy case\n"
@@ -850,10 +754,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'requests_mock.get(url, json=OLD_SNAPSHOT)   # stale recorded response
@@ -884,10 +784,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# sqlite in test, postgres in prod -> constraints differ
@@ -918,10 +814,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'now = datetime(2020, 1, 1)   # always the same date
@@ -952,10 +844,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'random.seed(0); assert sample()[0] == 0.844   # un solo draw fijado
@@ -986,10 +874,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'fs = FakeFS()   # never raises PermissionError or ENOSPC
@@ -1020,10 +904,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'monkeypatch.setattr(mod, "validate", lambda x: True)   # patches what is being tested
@@ -1054,10 +934,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'run = Mock()   # the command''s external effect is not verified
@@ -1088,10 +964,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'scanner = Mock(); scanner.scan.return_value = ["a"]   # partial domain
@@ -1122,10 +994,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: "def safe_audit(x):\n    try: return audit(x)\n    except: return 'ok'   # adapts the judge\n"
@@ -1155,10 +1023,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert result == "TODO"   # the placeholder is approved
@@ -1189,10 +1053,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D9
-      mechanism: audit_d9_test_purity
   downstream_verification: none
   example_lang: python
   example_bad: "@pytest.mark.xfail   # marked as an expected failure... forever\ndef test_refund():\n    assert refund(order)\
@@ -1223,10 +1083,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D9
-      mechanism: audit_d9_test_purity
   downstream_verification: none
   example_lang: python
   example_bad: "@pytest.mark.skip   # permanently skipped, without condition or reason\ndef test_payment():\n    ...\n"
@@ -1257,10 +1113,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: "if 1 == 2:\n    assert check()   # dead branch: never runs\n"
@@ -1289,10 +1141,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# test_b depends on the state left by test_a
@@ -1323,10 +1171,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'start(); time.sleep(1); assert done()   # flaky due to wall-clock
@@ -1358,10 +1202,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D5
-      mechanism: audit_d5_angry_path
   downstream_verification: none
   example_lang: python
   example_bad: "def test_parse():\n    try:\n        parse(bad_input)\n    except Exception:\n        pass   # absorbs the\
@@ -1394,10 +1234,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'out = run(); assert "ok" in out.stdout   # ignores stderr and exit code
@@ -1428,10 +1264,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'log("done"); save()   # success log before verifying
@@ -1463,10 +1295,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'run_checks(); sys.exit(0)   # exit 0 no matter what
@@ -1497,10 +1325,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'process(data)   # the return is not asserted
@@ -1531,10 +1355,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'def test(): assert div(10, 2) == 5   # only the happy case
@@ -1565,10 +1385,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert f(7) == 49   # a single magic datum
@@ -1599,10 +1415,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: test_compress_1000_sessions_returns_structured_dict
   downstream_verification: none
   example_lang: python
   example_bad: "# 'Evaluation' over a single example: statistical noise, not signal.\ndef test_model():\n    assert model.predict([sample])\
@@ -1633,10 +1445,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert total([1, 2]) == 3   # never tests [], [0], None
@@ -1667,10 +1475,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert slug("hello") == "hello"   # never tests accents/emojis/spaces
@@ -1701,10 +1505,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: test_non_leap_year_feb29_raises
   downstream_verification: none
   example_lang: python
   example_bad: '@pytest.mark.skip("fix later")   # no deadline: eternal
@@ -1741,10 +1541,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: yaml
   example_bad: '# CI shows failures but the merge is not blocked
@@ -1777,10 +1573,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D5
-      mechanism: audit_d5_angry_path
   downstream_verification: none
   example_lang: yaml
   example_bad: "# CI configured to ignore errors: red turns green artificially.\n- run: pytest\n  continue-on-error: true\n"
@@ -1811,10 +1603,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# The tests live in a folder that CI does not run.
@@ -1845,10 +1633,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '@pytest.mark.optional   # skipped when in a hurry
@@ -1879,10 +1663,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# The broken-test alert goes to a channel nobody reads.
@@ -1913,10 +1693,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# the test is written after the fix; it was never red
@@ -1947,10 +1723,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D9
-      mechanism: audit_d9_test_purity
   downstream_verification: none
   example_lang: python
   example_bad: '@pytest.mark.skip("skip later, we''ll look at it afterward")   # ''afterward'' never comes
@@ -1989,10 +1761,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# the test runs with the flag OFF; production runs with the flag ON
@@ -2023,10 +1791,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'if os.getenv("TEST"): skip_validation()   # validation differs in test
@@ -2057,10 +1821,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'def setup(): db.reset(); db.seed_perfect()   # never tests a dirty state
@@ -2091,10 +1851,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert screenshot_diff() < 0.01   # only visual delta, does not validate flow
@@ -2125,10 +1881,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# test_x.py full of tests but no runner picks it up.
@@ -2159,10 +1911,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# api.v2() is tested but it only exists in the docs
@@ -2193,10 +1941,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# Failing tests are excluded from the run and nobody notices.
@@ -2227,10 +1971,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# a global patch is not reverted and contaminates other tests
@@ -2261,10 +2001,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: test_infrastructure_checks
   downstream_verification: none
   example_lang: python
   example_bad: "# Test that exercises already-removed code: passes via mock, tests nothing real.\ndef test_old_engine():\n\
@@ -2295,10 +2031,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'def f(): "assert that validates X"   # the auditor counts the docstring as an assert
@@ -2329,10 +2061,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# *.bak treated as ''deprecated'' and excluded from the audit.
@@ -2363,10 +2091,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'def test_handles_timeout(): assert add(1, 1) == 2   # name != behavior
@@ -2398,10 +2122,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: test_setup_validation
   downstream_verification: none
   example_lang: python
   example_bad: "# Assumes the fixture loaded fine; if empty, the test 'passes' without testing anything.\ndef test_rows():\n\
@@ -2433,10 +2153,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# The checkpoint does not include what is needed to resume from scratch.
@@ -2467,10 +2183,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# "rollback: restore backup" documented but never tested.
@@ -2501,10 +2213,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# The API is changed without testing the existing consumers.
@@ -2535,10 +2243,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# nobody verifies that a failure produces an actionable log
@@ -2570,10 +2274,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# tests/ does not physically cover all modules of src/.
@@ -2604,10 +2304,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert path == "/tmp/x"   # posix only
@@ -2638,10 +2334,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '@timeout(30)   # arbitrary 30s hides real slowness
@@ -2672,10 +2364,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# Passes on the author''s machine; it is not reproducible.
@@ -2706,10 +2394,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# it is never tested that the sandbox blocks forbidden accesses
@@ -2741,10 +2425,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D9
-      mechanism: audit_d9_test_purity
   downstream_verification: none
   example_lang: python
   example_bad: "# Asserts on the physical memory id/order, not on the content.\ndef test_cache():\n    assert id(cache.get(\"\
@@ -2774,10 +2454,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# The author writes the code and their only reviewer is themselves.
@@ -2808,10 +2484,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# The PR is approved without checking whether the tests prove anything.
@@ -2842,10 +2514,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'EXPECTED = run(inp)   # the expected value comes from the SUT
@@ -2876,10 +2544,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'APPROVED = True   # fixed approval
@@ -2910,10 +2574,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# The golden file is regenerated every time it fails, without review.
@@ -2944,10 +2604,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D9
-      mechanism: audit_d9_test_purity
   downstream_verification: none
   example_lang: python
   example_bad: '# The failure is ''normalized'' as expected so the suite stays green.
@@ -2986,10 +2642,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# test warnings accumulate without being escalated to failures
@@ -3020,10 +2672,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D5
-      mechanism: audit_d5_angry_path
   downstream_verification: none
   example_lang: python
   example_bad: "# The test tolerates errors: any result passes.\ndef test_sync():\n    result = sync()\n    assert result\
@@ -3053,10 +2701,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# helper_simple() is tested, hiding the real complexity
@@ -3087,10 +2731,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D2
-      mechanism: audit_d2_completeness
   downstream_verification: none
   example_lang: python
   example_bad: '# The placeholder value is tested instead of the real behavior.
@@ -3129,10 +2769,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# Domain D7 is documented but has no executor.
@@ -3163,10 +2799,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert "## Security" in readme   # the section exists = "compliant"
@@ -3197,10 +2829,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert func.__doc__   # has a docstring = ''quality''
@@ -3231,10 +2859,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert "try" in source   # "handles errors" because the word try appears
@@ -3265,10 +2889,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# The protocol''s suite is run, not the audited subject''s.
@@ -3299,10 +2919,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# Evidence from an earlier version is reused.
@@ -3333,10 +2949,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# a mock is ''failed'', not a real component
@@ -3367,10 +2979,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# The report says ''passed'' for domains that were skipped.
@@ -3401,10 +3009,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert __version__ == "1.0"   # stale version source
@@ -3435,10 +3039,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'assert can_read(admin)   # only positive cases
@@ -3469,10 +3069,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: '# edge cases of the routing decision are not tested
@@ -3503,10 +3099,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'APPROVED = {"a", "b"}   # fixed list, never revalidated
@@ -3537,10 +3129,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# The evaluator knows the expected value: generator == judge.
@@ -3571,10 +3159,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: python
   example_bad: 'score = failures   # warnings do not count in the score
@@ -3606,10 +3190,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: test_audit_workflow_runs_validator_and_regenerator
   downstream_verification: none
   example_lang: python
   example_bad: '# The workflow file exists, but nobody checks that it still runs the
@@ -3647,10 +3227,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: test_setup_validation
   downstream_verification: none
   example_lang: ini
   example_bad: '# A coverage exclusion nobody revalidates: hides untested code forever.
@@ -3692,10 +3268,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: test_setup_validation
   downstream_verification: none
   example_lang: python
   example_bad: "# It swallows part of the stack: the test passes even though a stage failed silently.\ndef test_flow():\n\
@@ -3728,10 +3300,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# auditor_dimensions declares the full surface but only implements part of it.
@@ -3765,10 +3333,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: test_infrastructure_checks
   downstream_verification: none
   example_lang: python
   example_bad: "# Framework theater: layers of mocks that test the mock, not the system.\ndef test_service():\n    svc = Mock()\n\
@@ -3800,10 +3364,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# .audit/ .cerberus/ .protocol/ scattered without consolidation.
@@ -3840,10 +3400,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# Something is marked ''deferred'' without registering an actionable item.
@@ -3877,10 +3433,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# requirements lists libs no longer used and is missing others.
@@ -3913,10 +3465,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# No code mutation makes the suite fail.
@@ -3952,10 +3500,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: audit_d8_test_coverage
   downstream_verification: none
   example_lang: text
   example_bad: '# The protocol in the child repo differs from the central one without detection.
@@ -3990,10 +3534,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: test_setup_validation
   downstream_verification: none
   example_lang: python
   example_bad: "# False 'drift' positive: compares raw bytes and CRLF/LF triggers a difference.\ndef test_no_drift():\n  \
@@ -4029,10 +3569,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D8
-      mechanism: test_planted_def_comment_does_not_resolve
   downstream_verification: none
   example_lang: python
   example_bad: '# Validator: a symbol is "covered" if the text "def X" appears in the file.

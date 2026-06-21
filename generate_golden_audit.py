@@ -17,6 +17,26 @@ import yaml
 
 _ROOT = Path(__file__).resolve().parent
 
+_CERBERUS_ENFORCEMENT_CACHE: dict | None = None
+
+
+def _cerberus_enforcement() -> dict:
+    """Load the consumer-side enforcement binding (id -> {dimension, mechanism}).
+
+    B2/GS-078: the binding was lifted out of the agnostic catalogs into
+    config/cerberus_enforcement.json so the YAML stays consumer-neutral. The
+    generator re-injects it into the downstream audit JSON so consumers that
+    read the generated DB keep resolving their concrete mechanism unchanged.
+    """
+    global _CERBERUS_ENFORCEMENT_CACHE
+    if _CERBERUS_ENFORCEMENT_CACHE is None:
+        path = _ROOT / "config" / "cerberus_enforcement.json"
+        _CERBERUS_ENFORCEMENT_CACHE = (
+            json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+        )
+    return _CERBERUS_ENFORCEMENT_CACHE
+
+
 # Detect if we are inside the legacy parent workspace configuration
 parent_dir = _ROOT.parent
 if (parent_dir / ".protocol" / "metadata").is_dir():
@@ -45,7 +65,7 @@ def load_golden_standard_catalogs() -> dict[str, dict]:
     manifest_path = _ROOT / "golden_standard.yaml"
     with open(manifest_path, "r", encoding="utf-8") as f:
         manifest = yaml.safe_load(f)
-    
+
     catalogs = manifest.get("catalogs", {})
     loaded = {}
     for name, rel_path in catalogs.items():
@@ -331,14 +351,14 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
     (wiki_dir / "Home.md").write_text(home_content, encoding="utf-8")
 
 
-
-
 def write_principles_index(wiki_dir: Path, records: dict[str, dict[str, object]]):
     """Write a single consolidated Principles index with all doctrinal entries."""
     rows = []
     for pr_id in sorted(records):
         record = records[pr_id]
-        note = "promotion candidate" if record.get("promotion_candidate") else "doctrinal"
+        note = (
+            "promotion candidate" if record.get("promotion_candidate") else "doctrinal"
+        )
         title = record.get("title", "—")
         rows.append(f"| {principle_wikilink(pr_id)} | {title} | {note} |")
 
@@ -365,7 +385,7 @@ These principles are operationalized through the separate [[Domains/README|Canon
 
 
 def principle_domain_assignments(
-    recommendations: dict[str, dict[str, object]]
+    recommendations: dict[str, dict[str, object]],
 ) -> dict[str, list[tuple[str, str, str]]]:
     """Collect canonical domain assignments per principle for atomic pages."""
     assignments: dict[str, list[tuple[str, str, str]]] = {}
@@ -400,7 +420,9 @@ def write_atomic_principles(
     for pr_id in sorted(records):
         record = records[pr_id]
         title = str(record.get("title", "—")).strip() or "—"
-        catalog_source = str(record.get("catalog_source", "")).strip() or "project_insights"
+        catalog_source = (
+            str(record.get("catalog_source", "")).strip() or "project_insights"
+        )
         status = str(record.get("status", "")).strip() or "—"
         tier = str(record.get("tier", "")).strip() or "—"
         doctrinal = "yes" if record.get("doctrinal") else "no"
@@ -558,9 +580,25 @@ def write_tokenomics_index_md(wiki_dir: Path, mapped_database: dict):
         )
         tk_items.append(line)
 
-    prevented_count = len([x for x in mapped_database.values() if x["category"] == "Tokenomics & Context" and x["status"] in ("PREVENTED", "REMEDIATED")])
-    doc_only_count = len([x for x in mapped_database.values() if x["category"] == "Tokenomics & Context" and x["status"] in ("DOC_ONLY", "AUDITED")])
-    total_count = len([x for x in mapped_database.values() if x["category"] == "Tokenomics & Context"])
+    prevented_count = len(
+        [
+            x
+            for x in mapped_database.values()
+            if x["category"] == "Tokenomics & Context"
+            and x["status"] in ("PREVENTED", "REMEDIATED")
+        ]
+    )
+    doc_only_count = len(
+        [
+            x
+            for x in mapped_database.values()
+            if x["category"] == "Tokenomics & Context"
+            and x["status"] in ("DOC_ONLY", "AUDITED")
+        ]
+    )
+    total_count = len(
+        [x for x in mapped_database.values() if x["category"] == "Tokenomics & Context"]
+    )
 
     tokenomics_index_content = f"""# Tokenomics Index
 
@@ -611,7 +649,9 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 ---
 [[Home|Back to Home]]
 """
-    (wiki_dir / "Tokenomics_Index.md").write_text(tokenomics_index_content, encoding="utf-8")
+    (wiki_dir / "Tokenomics_Index.md").write_text(
+        tokenomics_index_content, encoding="utf-8"
+    )
 
 
 def write_tokenomics_map_md(wiki_dir: Path, insights: dict):
@@ -650,7 +690,19 @@ def write_tokenomics_map_md(wiki_dir: Path, insights: dict):
     ]
 
     insight_pairs = []
-    for insight_id in ["PR-081", "PR-083", "PR-084", "PR-085", "PR-087", "PR-088", "PR-090", "PR-091", "PR-092", "PR-094", "PR-096"]:
+    for insight_id in [
+        "PR-081",
+        "PR-083",
+        "PR-084",
+        "PR-085",
+        "PR-087",
+        "PR-088",
+        "PR-090",
+        "PR-091",
+        "PR-092",
+        "PR-094",
+        "PR-096",
+    ]:
         if insight_id in insights:
             insight_pairs.append((insight_id, insights[insight_id]))
 
@@ -717,11 +769,48 @@ This map serves as a bridge between the `TK` category and the GS principles laye
 
 def _tokenomics_subindex_group(item_id: str, title: str) -> str:
     """Map a tokenomics entry to a thematic subindex."""
-    if item_id.startswith("PR-067") or item_id in {"TK-001", "TK-002", "TK-003", "TK-004", "TK-005", "TK-006", "TK-007", "TK-008", "TK-021", "TK-022", "TK-023", "TK-024", "TK-025", "PR-077"}:
+    if item_id.startswith("PR-067") or item_id in {
+        "TK-001",
+        "TK-002",
+        "TK-003",
+        "TK-004",
+        "TK-005",
+        "TK-006",
+        "TK-007",
+        "TK-008",
+        "TK-021",
+        "TK-022",
+        "TK-023",
+        "TK-024",
+        "TK-025",
+        "PR-077",
+    }:
         return "memory_headroom"
-    if item_id.startswith("PR-068") or item_id in {"PR-070", "PR-071", "PR-072", "PR-070", "PR-073", "PR-074", "PR-072", "TK-012", "PR-076"}:
+    if item_id.startswith("PR-068") or item_id in {
+        "PR-070",
+        "PR-071",
+        "PR-072",
+        "PR-070",
+        "PR-073",
+        "PR-074",
+        "PR-072",
+        "TK-012",
+        "PR-076",
+    }:
         return "input_retrieval"
-    if item_id.startswith("PR-069") or item_id in {"TK-013", "PR-073", "PR-074", "PR-075", "TK-018", "TK-020", "PR-077", "PR-078", "TK-026", "TK-027", "TK-033"}:
+    if item_id.startswith("PR-069") or item_id in {
+        "TK-013",
+        "PR-073",
+        "PR-074",
+        "PR-075",
+        "TK-018",
+        "TK-020",
+        "PR-077",
+        "PR-078",
+        "TK-026",
+        "TK-027",
+        "TK-033",
+    }:
         return "output_compaction"
     if item_id in {"TK-016", "PR-076", "TK-028", "TK-031", "TK-032"}:
         return "measurement_telemetry"
@@ -729,13 +818,52 @@ def _tokenomics_subindex_group(item_id: str, title: str) -> str:
         return "automation_tooling"
     # Fallback: infer by title when a future TK lands outside the historical ranges.
     lower_title = title.lower()
-    if any(term in lower_title for term in ["memory", "memoria", "state", "estado", "checkpoint", "hand-off", "handoff", "headroom", "cache", "drift"]):
+    if any(
+        term in lower_title
+        for term in [
+            "memory",
+            "memoria",
+            "state",
+            "estado",
+            "checkpoint",
+            "hand-off",
+            "handoff",
+            "headroom",
+            "cache",
+            "drift",
+        ]
+    ):
         return "memory_headroom"
-    if any(term in lower_title for term in ["input", "ingest", "retrieval", "poda", "recuper", "chunk", "prompt"]):
+    if any(
+        term in lower_title
+        for term in [
+            "input",
+            "ingest",
+            "retrieval",
+            "poda",
+            "recuper",
+            "chunk",
+            "prompt",
+        ]
+    ):
         return "input_retrieval"
-    if any(term in lower_title for term in ["measure", "medir", "telemetry", "telemet", "audit", "evidence", "monitor"]):
+    if any(
+        term in lower_title
+        for term in [
+            "measure",
+            "medir",
+            "telemetry",
+            "telemet",
+            "audit",
+            "evidence",
+            "monitor",
+        ]
+    ):
         return "measurement_telemetry"
-    if any(term in lower_title for term in ["tool", "automation", "mode", "router", "integrat", "external"]):
+    if any(
+        term in lower_title
+        for term in ["tool", "automation", "mode", "router", "integrat", "external"]
+    ):
         return "automation_tooling"
     return "output_compaction"
 
@@ -818,7 +946,9 @@ def write_tokenomics_subindices_md(wiki_dir: Path, mapped_database: dict):
 ---
 [[Tokenomics_Map|Back to Tokenomics Map]] | [[Tokenomics_Index|Tokenomics Index]]
 """
-        (wiki_dir / "Tokenomics" / group["filename"]).write_text(subindex_content, encoding="utf-8")
+        (wiki_dir / "Tokenomics" / group["filename"]).write_text(
+            subindex_content, encoding="utf-8"
+        )
 
 
 # Editorial classification removed; all principles are now in a single index.
@@ -834,7 +964,10 @@ def entry_depth(item: dict) -> str:
     - 'stub'      : enrichable but not yet enriched (real depth debt).
     """
     # Aliases removed; all entries are real
-    if str(item.get("example_bad", "")).strip() and str(item.get("example_good", "")).strip():
+    if (
+        str(item.get("example_bad", "")).strip()
+        and str(item.get("example_good", "")).strip()
+    ):
         return "deep"
     if item.get("doctrinal"):
         return "doctrinal"
@@ -844,15 +977,18 @@ def entry_depth(item: dict) -> str:
 def depth_badge(item: dict) -> str:
     """Human-readable badge for an entry's depth classification."""
     # No aliases; all entries are real
-    return {"deep": "🟢 Deep", "doctrinal": "⚪ Doctrinal"}.get(entry_depth(item), "🟡 Stub")
+    return {"deep": "🟢 Deep", "doctrinal": "⚪ Doctrinal"}.get(
+        entry_depth(item), "🟡 Stub"
+    )
 
 
 def evidence_slug(source: str) -> str:
     """Convert an evidence source string into a filesystem-safe slug."""
     import re
-    slug = re.sub(r'[^\w\s.-]', '', source.lower())
-    slug = re.sub(r'[\s.:]+', '_', slug)
-    slug = slug.strip('_')
+
+    slug = re.sub(r"[^\w\s.-]", "", source.lower())
+    slug = re.sub(r"[\s.:]+", "_", slug)
+    slug = slug.strip("_")
     # Truncate very long slugs
     if len(slug) > 80:
         slug = slug[:80]
@@ -870,11 +1006,15 @@ def build_depth_sections(item: dict) -> str:
 
     example_bad = str(item.get("example_bad", "")).strip()
     if example_bad:
-        blocks.append(f"### ❌ Example of the vice (Bad)\n```{lang}\n{example_bad}\n```")
+        blocks.append(
+            f"### ❌ Example of the vice (Bad)\n```{lang}\n{example_bad}\n```"
+        )
 
     example_good = str(item.get("example_good", "")).strip()
     if example_good:
-        blocks.append(f"### ✅ Corrected version (Good)\n```{lang}\n{example_good}\n```")
+        blocks.append(
+            f"### ✅ Corrected version (Good)\n```{lang}\n{example_good}\n```"
+        )
 
     detection = str(item.get("detection", "")).strip()
     if detection:
@@ -889,7 +1029,11 @@ def build_depth_sections(item: dict) -> str:
                 claim = str(ref.get("claim", "")).strip()
                 slug = evidence_slug(source)
                 source_link = f"[[Evidence/{slug}|{source}]]"
-                lines.append(f"- **{source_link}** — {claim}" if claim else f"- **{source_link}**")
+                lines.append(
+                    f"- **{source_link}** — {claim}"
+                    if claim
+                    else f"- **{source_link}**"
+                )
             else:
                 lines.append(f"- {ref}")
         blocks.append("\n".join(lines))
@@ -904,25 +1048,37 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
     for flaw_id, item in mapped_database.items():
         if item["category"] == "Tokenomics & Context":
             continue
-        tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
+        tag_list = (
+            ", ".join(f"`{tag}`" for tag in item["tags"])
+            if item.get("tags")
+            else "`untagged`"
+        )
         depth_sections = build_depth_sections(item)
         detector = str(item.get("detector", "")).strip()
         detector_row = (
             f"\n| **Local detector** | 🛡️ [[Detectors/{detector}|{detector}]] (tested against the examples in CI) |"
-            if detector else ""
+            if detector
+            else ""
         )
-        
+
         # Build related domains from PR mentions in vice text
         pr_to_domain = principle_to_domain_map()
-        vice_text = " ".join([str(item.get(k, "")) for k in ["title", "symptom", "cause", "solution", "action"]])
+        vice_text = " ".join(
+            [
+                str(item.get(k, ""))
+                for k in ["title", "symptom", "cause", "solution", "action"]
+            ]
+        )
         pr_mentions = set(re.findall(r"PR-\d{3}", vice_text))
-        related_domains = sorted({pr_to_domain.get(pr, "") for pr in pr_mentions if pr_to_domain.get(pr, "")})
+        related_domains = sorted(
+            {pr_to_domain.get(pr, "") for pr in pr_mentions if pr_to_domain.get(pr, "")}
+        )
         domain_section = (
             "\n".join(f"- [[Domains/{d}|{d}]]" for d in related_domains)
             if related_domains
             else "*No domain assignments detected.*"
         )
-        
+
         # Consumer usage layer: Cerberus dimensions that enforce this vice
         _cerberus_map_path = _ROOT / "config" / "cerberus_dimensions.json"
         cerberus_dimensions = {}
@@ -935,7 +1091,7 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
             if enforced_by
             else "*No Cerberus enforcement detected.*"
         )
-        
+
         flaw_content = f"""# {flaw_id}: {item['title']}
 
 | Field | Detail |
@@ -981,7 +1137,9 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
 ---
 [[Vices_Index|Back to Vices Index]] | [[Home|Home]]
 """
-        (wiki_dir / "Vices" / f"{flaw_id}.md").write_text(flaw_content, encoding="utf-8")
+        (wiki_dir / "Vices" / f"{flaw_id}.md").write_text(
+            flaw_content, encoding="utf-8"
+        )
 
 
 def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
@@ -991,7 +1149,11 @@ def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
     for flaw_id, item in mapped_database.items():
         if item["category"] != "Tokenomics & Context":
             continue
-        tag_list = ", ".join(f"`{tag}`" for tag in item["tags"]) if item.get("tags") else "`untagged`"
+        tag_list = (
+            ", ".join(f"`{tag}`" for tag in item["tags"])
+            if item.get("tags")
+            else "`untagged`"
+        )
         depth_sections = build_depth_sections(item)
         group_key = _tokenomics_subindex_group(flaw_id, item["title"])
         related_principles = TOKENOMICS_SUBINDEX_PRINCIPLES.get(group_key, [])
@@ -1049,8 +1211,6 @@ def build_pi_mapping_lines(mappings: list) -> list[str]:
     ]
 
 
-
-
 def write_audit_domains(wiki_dir: Path, recommendations: dict):
     """Create canonical domain overview files mapping domains to principles."""
     for domain in sorted(recommendations):
@@ -1065,8 +1225,16 @@ def write_audit_domains(wiki_dir: Path, recommendations: dict):
         covers = record.get("covers", [])
         excludes = record.get("excludes", [])
         graph_role = str(record.get("graph_role", "")).strip()
-        cover_lines = "\n".join(f"- {item}" for item in covers) if covers else "- No coverage declared."
-        exclude_lines = "\n".join(f"- {item}" for item in excludes) if excludes else "- No explicit exclusions declared."
+        cover_lines = (
+            "\n".join(f"- {item}" for item in covers)
+            if covers
+            else "- No coverage declared."
+        )
+        exclude_lines = (
+            "\n".join(f"- {item}" for item in excludes)
+            if excludes
+            else "- No explicit exclusions declared."
+        )
 
         domain_content = f"""# {domain} — {title}
 
@@ -1099,7 +1267,9 @@ def write_audit_domains(wiki_dir: Path, recommendations: dict):
 ---
 [[Domains/README|Canonical Domains Index]] | [[Graph|GS Graph Map]] | [[Home|Back to Home]]
         """
-        (wiki_dir / "Domains" / f"{domain}.md").write_text(domain_content, encoding="utf-8")
+        (wiki_dir / "Domains" / f"{domain}.md").write_text(
+            domain_content, encoding="utf-8"
+        )
 
 
 def canonical_graph_node_id(path: Path) -> str:
@@ -1180,13 +1350,26 @@ def infer_graph_relation(
         return "returns_to_index", 0.95
     if source_kind == "principle" and target_kind in {"vice", "tokenomics", "domain"}:
         return "references", 0.9
-    if source_kind == "wiki" and target_kind in {"vice", "tokenomics", "principle-index", "domain"}:
+    if source_kind == "wiki" and target_kind in {
+        "vice",
+        "tokenomics",
+        "principle-index",
+        "domain",
+    }:
         return "catalogs", 0.95
     if source_kind == "wiki" and target_kind == "principle":
         return "catalogs", 0.95
-    if source_kind in {"vice", "tokenomics", "principle-index", "domain"} and target_kind == "wiki":
+    if (
+        source_kind in {"vice", "tokenomics", "principle-index", "domain"}
+        and target_kind == "wiki"
+    ):
         return "returns_to_index", 0.95
-    if source_kind in {"root", "contributing", "code-of-conduct", "conceptual-framework"}:
+    if source_kind in {
+        "root",
+        "contributing",
+        "code-of-conduct",
+        "conceptual-framework",
+    }:
         return "references", 0.9
     if source_kind == "inbox":
         return "template_or_intake", 0.8
@@ -1229,7 +1412,9 @@ def extract_graph_mentions(text: str) -> set[str]:
     return mentions
 
 
-def resolve_wikilink_target(source_path: Path, raw_target: str, known_nodes: set[str]) -> str | None:
+def resolve_wikilink_target(
+    source_path: Path, raw_target: str, known_nodes: set[str]
+) -> str | None:
     """Resolve an Obsidian-style wikilink target to a graph node id."""
     target = raw_target.split("|", 1)[0].split("#", 1)[0].strip().replace("\\", "/")
     if not target:
@@ -1262,7 +1447,9 @@ def resolve_wikilink_target(source_path: Path, raw_target: str, known_nodes: set
     return None
 
 
-def resolve_markdown_link(source_path: Path, raw_target: str, known_nodes: set[str]) -> str | None:
+def resolve_markdown_link(
+    source_path: Path, raw_target: str, known_nodes: set[str]
+) -> str | None:
     """Resolve a relative Markdown link to a graph node id."""
     target = raw_target.split("#", 1)[0].split("?", 1)[0].strip().replace("\\", "/")
     if not target:
@@ -1285,6 +1472,7 @@ def _git_timestamps(path: Path) -> tuple[str | None, str | None]:
     """Return (created, promoted) ISO timestamps from git log for *path*."""
     try:
         import subprocess
+
         # First commit (created)
         created_result = subprocess.run(
             ["git", "log", "--follow", "--format=%aI", "--", str(path)],
@@ -1328,7 +1516,9 @@ def build_gs_graph() -> dict:
             return
         source_path = paths_by_id[source]
         target_path = paths_by_id[target]
-        relation, confidence = infer_graph_relation(source_path, target_path, source, target, kind)
+        relation, confidence = infer_graph_relation(
+            source_path, target_path, source, target, kind
+        )
         key = (source, target, kind, relation)
         if key in edge_keys:
             return
@@ -1416,12 +1606,8 @@ def build_gs_graph() -> dict:
         node["degree"] = node["in_degree"] + node["out_degree"]
         connected_types = {
             nodes[item["target"]]["kind"] for item in node["outgoing_edges"]
-        } | {
-            nodes[item["source"]]["kind"] for item in node["incoming_edges"]
-        }
-        relation_types = {
-            item["relation"] for item in node["outgoing_edges"]
-        } | {
+        } | {nodes[item["source"]]["kind"] for item in node["incoming_edges"]}
+        relation_types = {item["relation"] for item in node["outgoing_edges"]} | {
             item["relation"] for item in node["incoming_edges"]
         }
         node["connected_types"] = sorted(connected_types)
@@ -1445,18 +1631,27 @@ def build_gs_graph() -> dict:
         node
         for node in nodes.values()
         if node["in_degree"] == 0
-        and node["kind"] in {"wiki", "vice", "domain", "concept", "inbox", "root", "tokenomics", "principle-index"}
+        and node["kind"]
+        in {
+            "wiki",
+            "vice",
+            "domain",
+            "concept",
+            "inbox",
+            "root",
+            "tokenomics",
+            "principle-index",
+        }
         and not is_intentional_graph_orphan(_ROOT / node["path"])
     ]
     orphan_candidates.sort(key=lambda node: (node["kind"], node["path"]))
 
-    hubs = sorted(nodes.values(), key=lambda node: (-node["degree"], -node["in_degree"], node["path"]))
+    hubs = sorted(
+        nodes.values(),
+        key=lambda node: (-node["degree"], -node["in_degree"], node["path"]),
+    )
     bridges = sorted(
-        [
-            node
-            for node in nodes.values()
-            if len(node["connected_types"]) > 1
-        ],
+        [node for node in nodes.values() if len(node["connected_types"]) > 1],
         key=lambda node: (-len(node["connected_types"]), -node["degree"], node["path"]),
     )
     edge_kind_counts = Counter(edge["kind"] for edge in edges)
@@ -1470,8 +1665,16 @@ def build_gs_graph() -> dict:
             for reverse in edges
         )
     }
-    avg_confidence = round(sum(edge["confidence"] for edge in edges) / len(edges), 3) if edges else 0.0
-    semantic_density = round(len(edges) / (len(nodes) * (len(nodes) - 1)), 6) if len(nodes) > 1 else 0.0
+    avg_confidence = (
+        round(sum(edge["confidence"] for edge in edges) / len(edges), 3)
+        if edges
+        else 0.0
+    )
+    semantic_density = (
+        round(len(edges) / (len(nodes) * (len(nodes) - 1)), 6)
+        if len(nodes) > 1
+        else 0.0
+    )
     hub_ratio = round(len(hubs) / len(nodes), 6) if nodes else 0.0
     bridge_ratio = round(len(bridges) / len(nodes), 6) if nodes else 0.0
     intentional_orphan_review = []
@@ -1499,7 +1702,12 @@ def build_gs_graph() -> dict:
         "nodes": sorted(nodes.values(), key=lambda node: node["path"]),
         "edges": sorted(
             edges,
-            key=lambda edge: (edge["source"], edge["target"], edge["relation"], edge["kind"]),
+            key=lambda edge: (
+                edge["source"],
+                edge["target"],
+                edge["relation"],
+                edge["kind"],
+            ),
         ),
         "summary": {
             "edge_kinds": dict(sorted(edge_kind_counts.items())),
@@ -1528,33 +1736,43 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
             item = mapped_database.get(flaw_id)
             if item:
                 node["status"] = item["status"]
-                node["downstream_verification"] = item.get("downstream_verification", "none")
+                node["downstream_verification"] = item.get(
+                    "downstream_verification", "none"
+                )
     # P2/P3: Enrich graph with severity, weight, cluster, and temporal data
     if mapped_database:
         # Severity-weighted edges
         severity_weight = {"critical": 1.0, "high": 0.8, "medium": 0.5, "low": 0.2}
         for edge in graph["edges"]:
-            source_node = next((n for n in graph["nodes"] if n["id"] == edge["source"]), None)
+            source_node = next(
+                (n for n in graph["nodes"] if n["id"] == edge["source"]), None
+            )
             if source_node:
                 item = mapped_database.get(Path(source_node["path"]).stem)
                 if item:
-                    edge["weight"] = round(severity_weight.get(str(item.get("severity", "medium")).strip(), 0.5), 2)
-        
+                    edge["weight"] = round(
+                        severity_weight.get(
+                            str(item.get("severity", "medium")).strip(), 0.5
+                        ),
+                        2,
+                    )
+
         # Add severity to vice nodes
         for node in graph["nodes"]:
             flaw_id = Path(node["path"]).stem
             item = mapped_database.get(flaw_id)
             if item:
                 node["severity"] = str(item.get("severity", "medium")).strip()
-        
+
         # Anti-pattern clusters: group vices by shared keywords in title+symptom
         import re
+
         vice_texts = {}
         for flaw_id, item in mapped_database.items():
             if item["category"] in {"Vibe Coding", "Testing & Evaluation"}:
                 text = f"{item['title']} {item['symptom']}".lower()
-                vice_texts[flaw_id] = set(re.findall(r'\b\w{5,}\b', text))
-        
+                vice_texts[flaw_id] = set(re.findall(r"\b\w{5,}\b", text))
+
         cluster_map = {}
         cluster_id = 0
         for flaw_id, words in vice_texts.items():
@@ -1571,9 +1789,11 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
             for node in graph["nodes"]:
                 if Path(node["path"]).stem == flaw_id:
                     node["cluster"] = assigned
-    
+
     GRAPH_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    GRAPH_OUTPUT.write_text(json.dumps(graph, indent=2, ensure_ascii=False), encoding="utf-8")
+    GRAPH_OUTPUT.write_text(
+        json.dumps(graph, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
 
     def compact_links(values: list[str], limit: int = 6) -> str:
         if not values:
@@ -1691,13 +1911,23 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
         downstream_verification_rows = [
             f"| `{item['id']}` | {item['title']} | `{item['category']}` | `{item.get('downstream_verification', 'none')}` |"
             for item in sorted(
-                [item for item in mapped_database.values() if item.get("downstream_verification") == "required"],
-                key=lambda item: (severity_order.get(str(item.get("severity", "medium")), 2), item["id"]),
+                [
+                    item
+                    for item in mapped_database.values()
+                    if item.get("downstream_verification") == "required"
+                ],
+                key=lambda item: (
+                    severity_order.get(str(item.get("severity", "medium")), 2),
+                    item["id"],
+                ),
             )[:12]
         ]
         high_priority_debt = sorted(
             doc_only_items,
-            key=lambda item: (severity_order.get(str(item.get("severity", "medium")), 2), item["id"]),
+            key=lambda item: (
+                severity_order.get(str(item.get("severity", "medium")), 2),
+                item["id"],
+            ),
         )[:12]
         validation_debt_rows = [
             f"| `{item['id']}` | {item['title']} | `{item['category']}` | `{item['severity']}` | `{item['status']}` |"
@@ -1708,7 +1938,9 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
             node = node_by_stem.get(item["id"])
             if not node:
                 continue
-            downstream_required = str(item.get("downstream_verification", "none")).strip() == "required"
+            downstream_required = (
+                str(item.get("downstream_verification", "none")).strip() == "required"
+            )
             score = (
                 severity_weight.get(str(item.get("severity", "medium")), 10)
                 + node["hub_score"]
@@ -1735,13 +1967,19 @@ def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> Non
             f"| `{item['id']}` | {item['title']} | `{item['severity']}` | `{item['score']}` | {item['signals']} |"
             for item in sorted(
                 doc_only_priorities,
-                key=lambda item: (-item["score"], severity_order.get(str(item["severity"]), 2), item["id"]),
+                key=lambda item: (
+                    -item["score"],
+                    severity_order.get(str(item["severity"]), 2),
+                    item["id"],
+                ),
             )[:12]
         ]
     if not validation_debt_rows:
         validation_debt_rows = ["| — | — | — | — | — |"]
     if not cognitive_priority_rows:
-        cognitive_priority_rows = ["| — | — | — | 0 | No active DOC_ONLY priority debt. |"]
+        cognitive_priority_rows = [
+            "| — | — | — | 0 | No active DOC_ONLY priority debt. |"
+        ]
     if not downstream_verification_rows:
         downstream_verification_rows = ["| — | — | — | — |"]
 
@@ -1900,16 +2138,16 @@ Nodes that link to more than one page type. They are useful for navigating impac
 [[Home|Back to Home]]
 """
     GRAPH_MARKDOWN.write_text(graph_md, encoding="utf-8")
-    print(f"Successfully generated Golden Standard graph at {GRAPH_OUTPUT} and {GRAPH_MARKDOWN}")
-
-
+    print(
+        f"Successfully generated Golden Standard graph at {GRAPH_OUTPUT} and {GRAPH_MARKDOWN}"
+    )
 
 
 def write_evidence_pages(wiki_dir: Path, mapped_database: dict):
     """Create evidence citation nodes for every unique source in the catalog."""
     evidence_dir = wiki_dir / "Evidence"
     evidence_dir.mkdir(parents=True, exist_ok=True)
-    
+
     # Collect all evidence sources and their associated vices
     sources: dict[str, dict] = {}
     for flaw_id, item in mapped_database.items():
@@ -1928,14 +2166,14 @@ def write_evidence_pages(wiki_dir: Path, mapped_database: dict):
             if claim:
                 sources[source]["claims"].add(claim)
             sources[source]["vices"].add(flaw_id)
-    
+
     for source, data in sorted(sources.items()):
         slug = evidence_slug(source)
         claims = sorted(data["claims"])[:5]  # Top 5 claims
         vices = sorted(data["vices"])[:10]  # Top 10 vices
         vice_links = "\n".join(f"- {catalog_entry_wikilink(vid)}" for vid in vices)
         claim_lines = "\n".join(f"- {c}" for c in claims)
-        
+
         content = f"""# {source}
 
 > Citable evidence source referenced by {len(data["vices"])} entries in the Golden Standard catalog.
@@ -1958,7 +2196,7 @@ def write_detector_pages(wiki_dir: Path, mapped_database: dict):
     """Create detector nodes for every vice with a registered static detector."""
     detectors_dir = wiki_dir / "Detectors"
     detectors_dir.mkdir(parents=True, exist_ok=True)
-    
+
     # Collect all detectors and their associated vices
     detectors: dict[str, set[str]] = {}
     for flaw_id, item in mapped_database.items():
@@ -1968,9 +2206,11 @@ def write_detector_pages(wiki_dir: Path, mapped_database: dict):
         if detector not in detectors:
             detectors[detector] = set()
         detectors[detector].add(flaw_id)
-    
+
     for detector, vices in sorted(detectors.items()):
-        vice_links = "\n".join(f"- {catalog_entry_wikilink(vid)}" for vid in sorted(vices))
+        vice_links = "\n".join(
+            f"- {catalog_entry_wikilink(vid)}" for vid in sorted(vices)
+        )
         content = f"""# {detector}
 
 > Static detector registered in `scripts/detectors.py`. Tested in CI against the catalog's own `example_bad` / `example_good` corpus.
@@ -1997,14 +2237,22 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     recommendations = get_canonical_domain_map()
 
     total_vices = len(mapped_database)
-    vc_count = len([x for x in mapped_database.values() if x["category"] == "Vibe Coding"])
-    tv_count = len([x for x in mapped_database.values() if x["category"] == "Testing & Evaluation"])
-    tk_count = len([x for x in mapped_database.values() if x["category"] == "Tokenomics & Context"])
+    vc_count = len(
+        [x for x in mapped_database.values() if x["category"] == "Vibe Coding"]
+    )
+    tv_count = len(
+        [x for x in mapped_database.values() if x["category"] == "Testing & Evaluation"]
+    )
+    tk_count = len(
+        [x for x in mapped_database.values() if x["category"] == "Tokenomics & Context"]
+    )
     pi_count = len(insights)
 
     status_counts = Counter(x["status"] for x in mapped_database.values())
 
-    write_home_md(wiki_dir, total_vices, vc_count, tv_count, tk_count, pi_count, status_counts)
+    write_home_md(
+        wiki_dir, total_vices, vc_count, tv_count, tk_count, pi_count, status_counts
+    )
     write_vices_index_md(wiki_dir, mapped_database)
     write_tokenomics_index_md(wiki_dir, mapped_database)
     write_tokenomics_subindices_md(wiki_dir, mapped_database)
@@ -2023,16 +2271,14 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
 
 
 def _display_mechanism(item: dict) -> str:
-    """Prefer the concrete downstream mechanism for display when an entry has been
-    migrated (enforcement.<consumer>.mechanism); otherwise fall back to the agnostic
-    validating_mechanism value. Display-only; does not alter the stored raw field."""
-    enforcement = item.get("enforcement")
-    if isinstance(enforcement, dict):
-        cerberus = enforcement.get("cerberus")
-        if isinstance(cerberus, dict):
-            mechanism = str(cerberus.get("mechanism", "")).strip()
-            if mechanism:
-                return mechanism
+    """Prefer the concrete downstream mechanism for display when an entry has a
+    consumer binding (config/cerberus_enforcement.json); otherwise fall back to the
+    agnostic validating_mechanism value. Display-only; does not alter the raw field."""
+    binding = _cerberus_enforcement().get(str(item.get("id", "")).strip())
+    if isinstance(binding, dict):
+        mechanism = str(binding.get("mechanism", "")).strip()
+        if mechanism:
+            return mechanism
     return str(item.get("validating_mechanism", "")).strip()
 
 
@@ -2049,7 +2295,11 @@ def extract_catalog_items(config: dict, mapped_database: dict):
 
         downstream_verification = str(item.get("downstream_verification", "")).strip()
         if not downstream_verification:
-            downstream_verification = "required" if str(item.get("status", "")).strip() == "DOC_ONLY" else "none"
+            downstream_verification = (
+                "required"
+                if str(item.get("status", "")).strip() == "DOC_ONLY"
+                else "none"
+            )
         mapped_entry = {
             "id": flaw_id,
             "title": item["title"],
@@ -2072,10 +2322,22 @@ def extract_catalog_items(config: dict, mapped_database: dict):
             "detector": str(item.get("detector", "")).strip(),
             "tier": str(item.get("tier", "extended")).strip(),
         }
-        # carry the enforcement binding through only when present, so migrated entries
-        # expose enforcement downstream while legacy entries leave the JSON untouched.
-        if isinstance(item.get("enforcement"), dict):
-            mapped_entry["enforcement"] = item["enforcement"]
+        # Re-inject the consumer binding from config/cerberus_enforcement.json
+        # (B2/GS-078): the agnostic YAML no longer carries enforcement.cerberus, so
+        # the downstream DB rebuilds it from the overlay while preserving any
+        # agnostic enforcement sub-keys (e.g. golden_standard) still inline.
+        # cerberus is emitted first to keep the generated DB byte-stable.
+        enforcement = {}
+        binding = _cerberus_enforcement().get(flaw_id)
+        if isinstance(binding, dict):
+            enforcement["cerberus"] = binding
+        inline = item.get("enforcement")
+        if isinstance(inline, dict):
+            for key, value in inline.items():
+                if key != "cerberus":
+                    enforcement[key] = value
+        if enforcement:
+            mapped_entry["enforcement"] = enforcement
         mapped_database[flaw_id] = mapped_entry
 
 
@@ -2084,7 +2346,7 @@ def main():
 
     catalogs = load_golden_standard_catalogs()
     mapped_database = {}
-    
+
     for _, config in catalogs.items():
         extract_catalog_items(config, mapped_database)
 
@@ -2145,8 +2407,10 @@ def main():
     from metrics import write_all as write_metrics
 
     metrics = write_metrics()
-    print(f"Successfully generated quality metrics and badges "
-          f"(deep {metrics['deep_pct']}%, {metrics['local_detectors']} detectors, {metrics['stub']} stubs).")
+    print(
+        f"Successfully generated quality metrics and badges "
+        f"(deep {metrics['deep_pct']}%, {metrics['local_detectors']} detectors, {metrics['stub']} stubs)."
+    )
 
 
 if __name__ == "__main__":
@@ -2154,6 +2418,7 @@ if __name__ == "__main__":
         main()
     except Exception:
         import traceback
+
         print("Error compiling audit report:", file=sys.stderr)
         traceback.print_exc(file=sys.stderr)
         sys.exit(1)

@@ -17,9 +17,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -53,9 +50,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -89,9 +83,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -125,9 +116,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -160,10 +148,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: test_tk005_status_md_has_required_sections
   downstream_verification: none
   example_lang: text
   example_bad: '# Long-prose handoff: continuing requires reading the entire history.
@@ -195,9 +179,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -231,9 +212,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -267,9 +245,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -303,9 +278,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -339,9 +311,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -375,9 +344,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -410,10 +376,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: test_tk018_external_backlog_exists
   downstream_verification: none
   example_lang: text
   example_bad: '# Side ideas accumulate in the objective''s active window.
@@ -445,9 +407,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -481,9 +440,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -517,9 +473,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -552,10 +505,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: audit_d10_tokenomics
   downstream_verification: none
   example_lang: bash
   example_bad: 'pytest -v                       # dumps thousands of raw lines into the context
@@ -587,9 +536,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -623,9 +569,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -659,9 +602,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -695,9 +635,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -731,9 +668,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -767,9 +701,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -803,9 +734,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -839,9 +767,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -875,9 +800,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -911,9 +833,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -947,9 +866,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -983,9 +899,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -1018,10 +931,6 @@ items:
 
     '
   validating_mechanism: static-ast
-  enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: audit_d10_tokenomics
   downstream_verification: none
   example_lang: python
   example_bad: 'ctx = read_full_state()         # each turn drags the full state along
@@ -1052,10 +961,6 @@ items:
 
     '
   validating_mechanism: static-regex
-  enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: audit_d10_tokenomics
   downstream_verification: none
   example_lang: text
   example_bad: '# Savings strategies exist but are not on the active path.
@@ -1087,9 +992,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -1123,9 +1025,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -1163,9 +1062,6 @@ items:
     '
   validating_mechanism: runtime-test
   enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: scripts/validate_golden_standard_catalogs.py
     golden_standard:
       mechanism: catalog/wiki link check
   downstream_verification: none
@@ -1212,10 +1108,6 @@ items:
 
     '
   validating_mechanism: runtime-test
-  enforcement:
-    cerberus:
-      dimension: D10
-      mechanism: _check_and_flag_compact
   downstream_verification: none
   example_lang: text
   example_bad: '# 4-hour session without compacting; the context reaches 95% and the cost skyrockets.

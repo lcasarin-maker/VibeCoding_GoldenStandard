@@ -1,0 +1,878 @@
+{
+  "TK-001": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-002": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-003": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-004": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-005": {
+    "dimension": "D10",
+    "mechanism": "test_tk005_status_md_has_required_sections"
+  },
+  "TK-006": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-007": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-008": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-009": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-010": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-011": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-012": {
+    "dimension": "D10",
+    "mechanism": "test_tk018_external_backlog_exists"
+  },
+  "TK-013": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-014": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-015": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-016": {
+    "dimension": "D10",
+    "mechanism": "audit_d10_tokenomics"
+  },
+  "TK-017": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-018": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-019": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-020": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-021": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-022": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-023": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-024": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-025": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-026": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-027": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-028": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-029": {
+    "dimension": "D10",
+    "mechanism": "audit_d10_tokenomics"
+  },
+  "TK-030": {
+    "dimension": "D10",
+    "mechanism": "audit_d10_tokenomics"
+  },
+  "TK-031": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-032": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-033": {
+    "dimension": "D10",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "TK-034": {
+    "dimension": "D10",
+    "mechanism": "_check_and_flag_compact"
+  },
+  "VC-001": {
+    "dimension": "D5",
+    "mechanism": "test_B7_evidence_files_are_valid_json"
+  },
+  "VC-002": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-003": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-004": {
+    "dimension": "D5",
+    "mechanism": "test_B7_evidence_files_are_valid_json"
+  },
+  "VC-005": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-006": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-008": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-010": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-011": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-014": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-015": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-016": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-017": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-018": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-019": {
+    "dimension": "D12",
+    "mechanism": "test_F6_sync_binding_no_protocol_drift"
+  },
+  "VC-020": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-021": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-022": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-023": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-024": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-026": {
+    "dimension": "D6",
+    "mechanism": "audit_d6_anti_slop"
+  },
+  "VC-027": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-028": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-030": {
+    "dimension": "D11",
+    "mechanism": "test_vc082_ghost_import_detected"
+  },
+  "VC-031": {
+    "dimension": "D1",
+    "mechanism": "D1Integrity"
+  },
+  "VC-032": {
+    "dimension": "D6",
+    "mechanism": "audit_d6_anti_slop"
+  },
+  "VC-033": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-034": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-035": {
+    "dimension": "D2",
+    "mechanism": "audit_d2_completeness"
+  },
+  "VC-036": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-038": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-039": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-040": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-041": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-043": {
+    "dimension": "D6",
+    "mechanism": "test_vc109_absolute_path_in_scripts"
+  },
+  "VC-044": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-045": {
+    "dimension": "D2",
+    "mechanism": "audit_d2_completeness"
+  },
+  "VC-046": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-047": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-048": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-049": {
+    "dimension": "D7",
+    "mechanism": "test_rule_security_rejects_arbitrary_check"
+  },
+  "VC-050": {
+    "dimension": "D11",
+    "mechanism": "test_import_error_guard_does_not_pip_install"
+  },
+  "VC-051": {
+    "dimension": "D1",
+    "mechanism": "test_critical_state_write_is_atomic"
+  },
+  "VC-052": {
+    "dimension": "D1",
+    "mechanism": "D1Integrity"
+  },
+  "VC-053": {
+    "dimension": "D3",
+    "mechanism": "test_vc121_duplicate_function_names"
+  },
+  "VC-054": {
+    "dimension": "D11",
+    "mechanism": "test_vc122_no_pip_install_in_scripts"
+  },
+  "VC-055": {
+    "dimension": "D1",
+    "mechanism": "test_vc123_no_git_add_all_in_scripts"
+  },
+  "VC-056": {
+    "dimension": "D1",
+    "mechanism": "check_deprecation_log.py"
+  },
+  "VC-057": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-059": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-061": {
+    "dimension": "D11",
+    "mechanism": "test_pypi_404_is_alucinated_dependency"
+  },
+  "VC-065": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-066": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-070": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-071": {
+    "dimension": "D17",
+    "mechanism": "scripts/validate_golden_standard_catalogs.py"
+  },
+  "VC-072": {
+    "dimension": "D1",
+    "mechanism": "check_handoff_freshness"
+  },
+  "VC-073": {
+    "dimension": "D1",
+    "mechanism": "check_clean_worktree.py"
+  },
+  "VC-074": {
+    "dimension": "D15",
+    "mechanism": "D15AgentSecurity"
+  },
+  "VC-075": {
+    "dimension": "D15",
+    "mechanism": "D15AgentSecurity"
+  },
+  "VC-076": {
+    "dimension": "D15",
+    "mechanism": "D15AgentSecurity"
+  },
+  "VC-077": {
+    "dimension": "D15",
+    "mechanism": "D15AgentSecurity"
+  },
+  "VC-078": {
+    "dimension": "D15",
+    "mechanism": "D15AgentSecurity"
+  },
+  "VC-079": {
+    "dimension": "D15",
+    "mechanism": "D15AgentSecurity"
+  },
+  "VC-080": {
+    "dimension": "D15",
+    "mechanism": "D15AgentSecurity"
+  },
+  "VC-081": {
+    "dimension": "D15",
+    "mechanism": "D15AgentSecurity"
+  },
+  "VC-082": {
+    "dimension": "D15",
+    "mechanism": "D15AgentSecurity"
+  },
+  "VC-083": {
+    "dimension": "D15",
+    "mechanism": "D15AgentSecurity"
+  },
+  "VC-084": {
+    "dimension": "D1",
+    "mechanism": "test_canonical_source_first_no_sink_patch"
+  },
+  "VC-085": {
+    "dimension": "D12",
+    "mechanism": "test_doctrine_before_enforcement_resolves_refs"
+  },
+  "VT-001": {
+    "dimension": "D2",
+    "mechanism": "audit_d2_completeness"
+  },
+  "VT-002": {
+    "dimension": "D2",
+    "mechanism": "audit_d2_completeness"
+  },
+  "VT-003": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-004": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-005": {
+    "dimension": "D9",
+    "mechanism": "audit_d9_test_purity"
+  },
+  "VT-006": {
+    "dimension": "D9",
+    "mechanism": "audit_d9_test_purity"
+  },
+  "VT-007": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-008": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-009": {
+    "dimension": "D9",
+    "mechanism": "audit_d9_test_purity"
+  },
+  "VT-010": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-011": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-012": {
+    "dimension": "D9",
+    "mechanism": "audit_d9_test_purity"
+  },
+  "VT-013": {
+    "dimension": "D9",
+    "mechanism": "audit_d9_test_purity"
+  },
+  "VT-014": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-015": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-016": {
+    "dimension": "D9",
+    "mechanism": "audit_d9_test_purity"
+  },
+  "VT-017": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-018": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-019": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-020": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-021": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-022": {
+    "dimension": "D9",
+    "mechanism": "audit_d9_test_purity"
+  },
+  "VT-023": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-024": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-025": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-026": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-027": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-028": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-029": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-030": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-031": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-032": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-033": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-034": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-035": {
+    "dimension": "D9",
+    "mechanism": "audit_d9_test_purity"
+  },
+  "VT-036": {
+    "dimension": "D9",
+    "mechanism": "audit_d9_test_purity"
+  },
+  "VT-037": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-038": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-039": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-040": {
+    "dimension": "D5",
+    "mechanism": "audit_d5_angry_path"
+  },
+  "VT-041": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-042": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-043": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-044": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-045": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-046": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-047": {
+    "dimension": "D10",
+    "mechanism": "test_compress_1000_sessions_returns_structured_dict"
+  },
+  "VT-048": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-049": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-050": {
+    "dimension": "D8",
+    "mechanism": "test_non_leap_year_feb29_raises"
+  },
+  "VT-051": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-052": {
+    "dimension": "D5",
+    "mechanism": "audit_d5_angry_path"
+  },
+  "VT-053": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-054": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-055": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-056": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-057": {
+    "dimension": "D9",
+    "mechanism": "audit_d9_test_purity"
+  },
+  "VT-058": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-059": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-060": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-061": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-062": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-063": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-064": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-065": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-066": {
+    "dimension": "D8",
+    "mechanism": "test_infrastructure_checks"
+  },
+  "VT-067": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-068": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-069": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-070": {
+    "dimension": "D8",
+    "mechanism": "test_setup_validation"
+  },
+  "VT-071": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-072": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-073": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-074": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-075": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-076": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-077": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-078": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-079": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-080": {
+    "dimension": "D9",
+    "mechanism": "audit_d9_test_purity"
+  },
+  "VT-081": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-082": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-083": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-084": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-085": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-086": {
+    "dimension": "D9",
+    "mechanism": "audit_d9_test_purity"
+  },
+  "VT-087": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-088": {
+    "dimension": "D5",
+    "mechanism": "audit_d5_angry_path"
+  },
+  "VT-089": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-090": {
+    "dimension": "D2",
+    "mechanism": "audit_d2_completeness"
+  },
+  "VT-091": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-092": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-093": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-094": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-095": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-096": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-097": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-098": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-099": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-100": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-101": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-102": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-103": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-104": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-105": {
+    "dimension": "D8",
+    "mechanism": "test_audit_workflow_runs_validator_and_regenerator"
+  },
+  "VT-106": {
+    "dimension": "D8",
+    "mechanism": "test_setup_validation"
+  },
+  "VT-107": {
+    "dimension": "D8",
+    "mechanism": "test_setup_validation"
+  },
+  "VT-108": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-109": {
+    "dimension": "D8",
+    "mechanism": "test_infrastructure_checks"
+  },
+  "VT-110": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-111": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-112": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-113": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-114": {
+    "dimension": "D8",
+    "mechanism": "audit_d8_test_coverage"
+  },
+  "VT-115": {
+    "dimension": "D8",
+    "mechanism": "test_setup_validation"
+  },
+  "VT-116": {
+    "dimension": "D8",
+    "mechanism": "test_planted_def_comment_does_not_resolve"
+  }
+}

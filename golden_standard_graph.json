@@ -1195,8 +1195,8 @@
       "path": "Wiki/Detectors/vc078_placeholder.md",
       "title": "vc078_placeholder",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-17T12:15:26-06:00",
+      "promoted": "2026-06-21T07:26:08-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-027"
@@ -8350,7 +8350,7 @@
       "title": "Golden Standard Wiki",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-20T22:29:00-06:00",
+      "promoted": "2026-06-21T07:26:08-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
@@ -32248,7 +32248,7 @@
       "title": "VC-027: Permanent placeholder",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-06-21T07:26:08-06:00",
       "outgoing": [
         "Detectors/vc078_placeholder",
         "Evidence/arxiv2603_28592",
@@ -67876,7 +67876,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-20T22:29:00-06:00",
+        "promoted": "2026-06-21T07:26:08-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -83659,7 +83659,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-20T22:29:00-06:00",
+        "promoted": "2026-06-21T07:26:08-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
