@@ -6,6 +6,7 @@
 |---------|-------|---------|
 | [2026-06-22-001](sessions/2026-06-22-001.md) | Claude | V3.2 canonical structure migration (Phase 1-4): scaffold + content migration + governance absorption + SP/CD18/VC-088 catalog additions. 29 files changed. CI green. |
 | [2026-06-22-002](sessions/2026-06-22-002.md) | Claude | GS root cleanup: knowledge/ consolidation (3 files moved, 3 ghosts deleted), SP-010 added. CI green. |
+| 2026-06-22-003 | Claude | Sprint B+D: badges/→docs/badges/, generate_golden_audit.py→scripts/, JSON outputs→output/. Fixed _ROOT (.parent.parent), status_counts SP exclusion, validator SP orphan check. 3 commits, 10 tests green. |
 
 ## 2026-06-21
 

@@ -36,4 +36,4 @@
 
 ## CI status
 
-Last known: passing (pre-migration). Phase 2 P2-3 will update validator before BACKLOG.md removal.
+10/10 tests passing. Validator green. Sprint B+D complete (2026-06-22).
