@@ -31,6 +31,7 @@
 - One function = one home. No bridges. No "someone will fix this."
 - Cite entry IDs (VC-003, SP-001) when referencing rules — traceability is non-negotiable.
 - Any shortcut taken → backlog task created in the same session.
+- GS-010: YAML catalogs must be UTF-8 clean, non-empty, and parse-valid. CI rejects mojibake or truncated files via `scripts/check_catalog_integrity.py`.
 
 ---
 

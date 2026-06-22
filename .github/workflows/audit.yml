@@ -40,6 +40,9 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --upgrade pip pyyaml
 
+      - name: Check catalog integrity (UTF-8, non-empty, valid YAML)
+        run: python scripts/check_catalog_integrity.py
+
       - name: Validate catalogs and wiki coverage
         run: python scripts/validate_golden_standard_catalogs.py --check-wiki
 
