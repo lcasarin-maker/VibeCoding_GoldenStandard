@@ -23,6 +23,7 @@ This index is the canonical cognitive entrypoint for GS. Each domain page is a g
 | [[Domains/CD15|CD15]] | Observability & Evidence Telemetry | 4 | [[Principles/PR-081|PR-081]], [[Principles/PR-091|PR-091]], [[Principles/PR-098|PR-098]], [[Principles/PR-103|PR-103]] |
 | [[Domains/CD16|CD16]] | Discourse Rigor & Evidence Quality | 4 | [[Principles/PR-098|PR-098]], [[Principles/PR-099|PR-099]], [[Principles/PR-100|PR-100]], [[Principles/PR-104|PR-104]] |
 | [[Domains/CD17|CD17]] | Agent Boundary Security | 3 | [[Principles/PR-106|PR-106]], [[Principles/PR-108|PR-108]], [[Principles/PR-111|PR-111]] |
+| [[Domains/CD18|CD18]] | Multi-Agent Project Governance | 9 | [[Principles/SP-001|SP-001]], [[Principles/SP-002|SP-002]], [[Principles/SP-003|SP-003]], [[Principles/SP-004|SP-004]] +5 more |
 
 ---
 [[Principles|Principles Index]] | [[Graph|GS Graph Map]] | [[Home|Back to Home]]

@@ -101,7 +101,7 @@ git clone https://github.com/lcasarin-maker/VibeCoding_GoldenStandard.git
 
 ```bash
 # Cross-reference YAML catalogs with Wiki articles, generate audit report
-python generate_golden_audit.py
+python scripts/generate_golden_audit.py
 ```
 
 Output: `audit/sessions/golden_standard_audit_report.md` — shows the compliance map and generated status snapshot. CI also validates that the catalogs and Wiki stay in sync.
@@ -136,7 +136,7 @@ VibeCoding_GoldenStandard/
 ├── Inbox/                                 ← Proposed entries (pending review)
 ├── scripts/                               ← Validation helpers for CI and local checks
 │   └── validate_golden_standard_catalogs.py ← Catalog + wiki validator
-├── generate_golden_audit.py               ← Audit tool
+│   └── generate_golden_audit.py           ← Audit tool (moved to scripts/)
 ├── golden_standard_graph.json             ← Knowledge graph export
 └── deprecated/                            ← Historical artifacts
 ```
@@ -229,7 +229,7 @@ An entry is only merged when it is **falsifiable** or **honestly doctrinal** —
 - **Doctrinal:** if it's a behavioral/epistemic principle with no static signature, mark `doctrinal: true` explicitly. Fabricating example code for these is not allowed.
 - Choose `downstream_verification` explicitly (`required` or `none`) so `DOC_ONLY` is never read as "test exempt".
 
-The live `stubs` badge must stay at **0**, and all numbers (entries, deep %, detectors) are generated from the YAML by [`scripts/metrics.py`](scripts/metrics.py) — they can't be inflated by hand. Run `python generate_golden_audit.py` before committing; CI fails if generated artifacts, the wiki, or the badges are out of sync.
+The live `stubs` badge must stay at **0**, and all numbers (entries, deep %, detectors) are generated from the YAML by [`scripts/metrics.py`](scripts/metrics.py) — they can't be inflated by hand. Run `python scripts/generate_golden_audit.py` before committing; CI fails if generated artifacts, the wiki, or the badges are out of sync.
 
 ---
 

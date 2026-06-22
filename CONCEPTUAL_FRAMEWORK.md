@@ -190,7 +190,7 @@ VibeCoding_GoldenStandard/
 │
 ├── Inbox/                                 ← Proposed new entries (pending review)
 │
-├── generate_golden_audit.py               ← Audit script (cross-references YAML ↔ Wiki)
+│   └── generate_golden_audit.py           ← Audit script (cross-references YAML ↔ Wiki)
 │
 └── deprecated/                            ← Historical artifacts (not active knowledge)
     ├── mandates_legacy/

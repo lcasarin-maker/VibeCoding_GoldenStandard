@@ -22,7 +22,7 @@ def test_audit_workflow_runs_validator_and_regenerator() -> None:
     )
     assert any(
         step.get("name") == "Regenerate Golden Standard audit artifacts"
-        and step.get("run") == "python generate_golden_audit.py"
+        and step.get("run") == "python scripts/generate_golden_audit.py"
         for step in steps
     )
 

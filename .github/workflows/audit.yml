@@ -3,7 +3,7 @@ name: Golden Standard Audit
 on:
   pull_request:
     paths:
-      - "generate_golden_audit.py"
+      - "scripts/generate_golden_audit.py"
       - "golden_standard*.json"
       - "golden_standard_audit_report.md"
       - "golden_standard*.yaml"
@@ -15,7 +15,7 @@ on:
     branches:
       - master
     paths:
-      - "generate_golden_audit.py"
+      - "scripts/generate_golden_audit.py"
       - "golden_standard*.json"
       - "golden_standard_audit_report.md"
       - "golden_standard*.yaml"
@@ -47,7 +47,7 @@ jobs:
         run: python scripts/test_detectors.py
 
       - name: Regenerate Golden Standard audit artifacts
-        run: python generate_golden_audit.py
+        run: python scripts/generate_golden_audit.py
 
       - name: Verify generated artifacts are up to date
         run: |

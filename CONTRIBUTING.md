@@ -47,7 +47,7 @@ An entry has a `detection` recipe with a clean static signature, but no real det
 You believe a whole new domain belongs in the Golden Standard (beyond vibe coding, testing, and tokenomics).
 
 ### 5. Bug in the Audit Script
-The `generate_golden_audit.py` script has errors or misses coverage.
+The `scripts/generate_golden_audit.py` script has errors or misses coverage.
 
 ---
 

@@ -32,6 +32,7 @@
 | GS-076 | Graph layer hardening | OPEN |
 | GS-010 | Corruption guard upstream-style | OPEN |
 | GS-077 | Create scripts/audit.py for SP enforcement | OPEN (new) |
+| GS-078 | Extender graph para blast radius completo (scripts, JSON, configs) | OPEN (new) |
 
 ## CI status
 
