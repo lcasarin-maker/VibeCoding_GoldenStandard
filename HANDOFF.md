@@ -5,17 +5,15 @@
 
 ## NOW
 
-Sprint B+D complete. GS root is now immaculate per SP-010:
-- `docs/badges/` — 6 badge JSONs
-- `scripts/generate_golden_audit.py` — generator relocated
-- `output/` — 4 generated artifacts (audit.json, graph.json, metrics.json, report.md)
-- 0 JSON artifacts in root. 10 tests green. 3 commits.
+GS-078 complete. Graph now has 487 nodes (28 new file-layer nodes) + 11 dependency edges.
+Query modes live: `--blast-radius`, `--coupling`, `--diff-impact`, `--cycles`, `--coverage`.
+10 tests green. Commit a73b19f.
 
 ## NEXT
 
-1. **GS-078** — Extend graph to track scripts/JSON/configs for blast radius queries (dedicated session)
-2. **CC build order** — Migrate CC to V3.2 structure (`.agents/AGENTS.md`, `tasks/`, `audit/`, `DECISIONS.md`)
-3. **CANONICAL_STRUCTURE.md** — Move from CC to GS as the authoritative home
+1. **GS-080** — audit.py enforce SP-005 (HANDOFF+STATE date mandatory at session close)
+2. **GS-081** — Templates enforced for STATE/HANDOFF/task files
+3. **CC build order** — Migrate CC to V3.2 structure (`.agents/AGENTS.md`, `tasks/`, `audit/`, `DECISIONS.md`)
 
 ## BLOCKERS
 

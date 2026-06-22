@@ -30,7 +30,7 @@
 | GS-071 | 26 VC entries DOC_ONLY — promote or justify | IN_PROGRESS |
 | GS-075 | Generator maintainability (audit.py split) | OPEN |
 | GS-076 | Graph layer hardening | OPEN |
-| GS-078 | Graph: blast radius + semantic chains + orphan/coupling/coverage/diff-impact | OPEN |
+| GS-078 | Graph: blast radius + semantic chains + orphan/coupling/coverage/diff-impact | DONE |
 | GS-080 | audit.py enforce SP-005 (HANDOFF+STATE date mandatory at close) | OPEN |
 | GS-081 | Templates enforced para STATE/HANDOFF/task files | OPEN |
 
