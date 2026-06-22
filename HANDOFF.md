@@ -13,10 +13,9 @@ Sprint B+D complete. GS root is now immaculate per SP-010:
 
 ## NEXT
 
-1. **GS-077** — Create `scripts/audit.py` for SP-001..010 auto-enforcement
-2. **GS-078** — Extend graph to track scripts/JSON/configs for blast radius queries
-3. **CC build order** — Migrate CC to V3.2 structure (`.agents/AGENTS.md`, `tasks/`, `audit/`, `DECISIONS.md`)
-4. **CANONICAL_STRUCTURE.md** — Move from CC to GS as the authoritative home
+1. **GS-078** — Extend graph to track scripts/JSON/configs for blast radius queries (dedicated session)
+2. **CC build order** — Migrate CC to V3.2 structure (`.agents/AGENTS.md`, `tasks/`, `audit/`, `DECISIONS.md`)
+3. **CANONICAL_STRUCTURE.md** — Move from CC to GS as the authoritative home
 
 ## BLOCKERS
 
