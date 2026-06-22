@@ -1726,9 +1726,167 @@ def build_gs_graph() -> dict:
     }
 
 
+# ---------------------------------------------------------------------------
+# GS-078: File dependency layer — augments the markdown graph with script,
+# catalog, artifact, config, test, and badge nodes plus dependency edges.
+# ---------------------------------------------------------------------------
+
+_FILE_NODE_KINDS: dict[str, str] = {
+    ".py": "script",
+    ".yaml": "catalog",
+    ".json": "artifact",
+    ".toml": "config",
+    ".yml": "config",
+}
+
+
+def collect_file_sources() -> list[Path]:
+    """Non-markdown files included as file-dependency-layer nodes."""
+    sources: list[Path] = []
+    for pattern in ("scripts/*.py", "tests/*.py"):
+        sources.extend(sorted(_ROOT.glob(pattern)))
+    sources.extend(sorted(_ROOT.glob("golden_standard_*.yaml")))
+    for pattern in ("output/*.json", "docs/badges/*.json"):
+        sources.extend(sorted(_ROOT.glob(pattern)))
+    for cfg in (".github/workflows/audit.yml", "pyproject.toml"):
+        p = _ROOT / cfg
+        if p.exists():
+            sources.append(p)
+    return sources
+
+
+def file_node_id(path: Path) -> str:
+    return path.relative_to(_ROOT).as_posix()
+
+
+def classify_file_node(path: Path) -> str:
+    parent = path.parent.name
+    if parent == "badges":
+        return "badge"
+    if parent == "tests" or path.stem.startswith("test_"):
+        return "test"
+    return _FILE_NODE_KINDS.get(path.suffix, "file")
+
+
+def _resolve_local_import(module: str, file_ids: set[str]) -> str | None:
+    for prefix in ("scripts", "tests"):
+        candidate = f"{prefix}/{module}.py"
+        if candidate in file_ids:
+            return candidate
+    return None
+
+
+def _resolve_path_literal(literal: str, source_path: Path, file_ids: set[str]) -> str | None:
+    for base in (source_path.parent, _ROOT):
+        try:
+            resolved = (base / literal).resolve().relative_to(_ROOT).as_posix()
+            if resolved in file_ids:
+                return resolved
+        except ValueError:
+            pass
+    return None
+
+
+def extract_file_edges(path: Path, file_ids: set[str]) -> list[tuple[str, str]]:
+    """Return (target_node_id, relation) pairs found in file content."""
+    text = path.read_text(encoding="utf-8", errors="replace")
+    results: list[tuple[str, str]] = []
+
+    if path.suffix == ".py":
+        for m in re.finditer(r"^\s*(?:from|import)\s+([\w]+)", text, re.MULTILINE):
+            target = _resolve_local_import(m.group(1), file_ids)
+            if target:
+                results.append((target, "imports"))
+        for m in re.finditer(r'(?:Path|open)\(["\']([^"\']+)["\']\)', text):
+            target = _resolve_path_literal(m.group(1), path, file_ids)
+            if target:
+                results.append((target, "reads"))
+
+    elif path.suffix in (".yml", ".yaml") and ".github" in path.parts:
+        for m in re.finditer(r"python\s+(scripts/[\w/]+\.py)", text):
+            if m.group(1) in file_ids:
+                results.append((m.group(1), "runs"))
+
+    return results
+
+
+def augment_with_file_layer(graph: dict) -> None:
+    """Add file-dependency nodes and edges to the graph dict in-place."""
+    file_sources = collect_file_sources()
+    file_id_map: dict[str, Path] = {file_node_id(p): p for p in file_sources}
+    file_ids_set: set[str] = set(file_id_map)
+    existing_ids: set[str] = {n["id"] for n in graph["nodes"]}
+
+    new_nodes: dict[str, dict] = {}
+    for node_id, path in file_id_map.items():
+        if node_id in existing_ids:
+            continue
+        created, promoted = _git_timestamps(path)
+        new_nodes[node_id] = {
+            "id": node_id,
+            "path": node_id,
+            "title": path.name,
+            "kind": classify_file_node(path),
+            "created": created,
+            "promoted": promoted,
+            "outgoing": [],
+            "incoming": [],
+            "outgoing_edges": [],
+            "incoming_edges": [],
+        }
+
+    new_edges: list[dict] = []
+    edge_keys: set[tuple[str, str, str]] = set()
+    for node_id, path in file_id_map.items():
+        src = new_nodes.get(node_id) or next((n for n in graph["nodes"] if n["id"] == node_id), None)
+        if src is None:
+            continue
+        for target_id, relation in extract_file_edges(path, file_ids_set):
+            if node_id == target_id:
+                continue
+            key = (node_id, target_id, relation)
+            if key in edge_keys:
+                continue
+            edge_keys.add(key)
+            new_edges.append({"source": node_id, "target": target_id, "kind": "file", "relation": relation, "confidence": 1.0})
+
+    all_nodes_by_id: dict[str, dict] = {n["id"]: n for n in graph["nodes"]}
+    all_nodes_by_id.update(new_nodes)
+
+    for edge in new_edges:
+        s, t = edge["source"], edge["target"]
+        if s not in all_nodes_by_id or t not in all_nodes_by_id:
+            continue
+        sn, tn = all_nodes_by_id[s], all_nodes_by_id[t]
+        sn["outgoing"].append(t)
+        tn["incoming"].append(s)
+        sn["outgoing_edges"].append({"target": t, "kind": "file", "relation": edge["relation"], "confidence": 1.0})
+        tn["incoming_edges"].append({"source": s, "kind": "file", "relation": edge["relation"], "confidence": 1.0})
+
+    for node in new_nodes.values():
+        node["outgoing"] = sorted(set(node["outgoing"]))
+        node["incoming"] = sorted(set(node["incoming"]))
+        node["in_degree"] = len(node["incoming"])
+        node["out_degree"] = len(node["outgoing"])
+        node["degree"] = node["in_degree"] + node["out_degree"]
+        node["relation_types"] = sorted({e["relation"] for e in node["outgoing_edges"]} | {e["relation"] for e in node["incoming_edges"]})
+        node["connected_types"] = []
+        node["semantic_reach"] = 0
+        node["relation_diversity"] = len(node["relation_types"])
+        node["hub_score"] = node["degree"] + node["relation_diversity"] * 2
+
+    graph["nodes"].extend(new_nodes.values())
+    graph["edges"].extend(new_edges)
+    graph["nodes"].sort(key=lambda n: n["path"])
+    graph["edges"].sort(key=lambda e: (e["source"], e["target"], e["relation"], e["kind"]))
+    graph["node_count"] = len(graph["nodes"])
+    graph["edge_count"] = len(graph["edges"])
+
+
 def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> None:
     """Persist the graph JSON plus a Markdown summary inside the wiki."""
     graph = build_gs_graph()
+    augment_with_file_layer(graph)  # GS-078: add file dependency layer
     node_by_stem = {Path(node["path"]).stem: node for node in graph["nodes"]}
     if mapped_database:
         for node in graph["nodes"]:
