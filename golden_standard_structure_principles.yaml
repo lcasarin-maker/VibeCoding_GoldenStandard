@@ -12,14 +12,14 @@ items:
   symptom: Multiple files claim to govern agent behavior (BOOTSTRAP, RULES, PERMISSIONS, DEFINITION_OF_DONE, per-agent .md files)
   cause: Files added incrementally without consolidation; each session adds a new one
   solution: Collapse all agent governance into .agents/AGENTS.md; all other files are deleted (not bridged, not imported)
-  status: DOC_ONLY
+  status: REMEDIATED
   severity: high
   tags:
   - structure
   - multi-agent
   - anti-theater
   action: Audit .agents/ and project root for governance files outside AGENTS.md; delete or absorb them.
-  validating_mechanism: doctrinal
+  validating_mechanism: runtime-test
   downstream_verification: required
   doctrinal: true
   tier: core
@@ -54,14 +54,14 @@ items:
   symptom: tasks/backlog/ accumulates historical, completed, or stale items alongside live work
   cause: No discipline on removal; items added but never cleared
   solution: backlog/ contains only work not yet started; completed items are deleted (record is the git commit)
-  status: DOC_ONLY
+  status: REMEDIATED
   severity: medium
   tags:
   - structure
   - multi-agent
   - debt-discipline
   action: On task completion, delete task file from done/ after commit; git log is the archive.
-  validating_mechanism: doctrinal
+  validating_mechanism: runtime-test
   downstream_verification: required
   doctrinal: true
   tier: core
@@ -75,14 +75,14 @@ items:
   symptom: A done/ or archive/ folder accumulates completed task files as a parallel changelog
   cause: Fear of losing record; agents keep files "just in case"
   solution: Completed task file is deleted after its closing commit; the commit message is the durable record; no archive/ folder
-  status: DOC_ONLY
+  status: REMEDIATED
   severity: medium
   tags:
   - structure
   - anti-accumulation
   - git-discipline
   action: Delete task file in the same commit that closes the work; write a descriptive commit message.
-  validating_mechanism: doctrinal
+  validating_mechanism: runtime-test
   downstream_verification: required
   doctrinal: true
   tier: core
@@ -117,14 +117,14 @@ items:
   symptom: CC, GS, and satellite repos diverge in folder structure, file naming, or governance layout
   cause: No automated enforcement; each repo evolves independently
   solution: scripts/audit.py enforces the canonical tree; a failing audit blocks session close in any repo
-  status: DOC_ONLY
+  status: REMEDIATED
   severity: high
   tags:
   - structure
   - federation
   - enforcement
   action: audit.py is the single structural enforcer; its checks define what the canonical structure IS.
-  validating_mechanism: doctrinal
+  validating_mechanism: runtime-test
   downstream_verification: required
   doctrinal: true
   tier: core
@@ -138,14 +138,14 @@ items:
   symptom: Task files and audit session records use ad-hoc formats; fields missing; records not comparable across sessions
   cause: No template enforcement; each agent invents a format
   solution: tasks/README.md and audit/README.md define mandatory templates; audit.py checks compliance
-  status: DOC_ONLY
+  status: REMEDIATED
   severity: medium
   tags:
   - structure
   - templates
   - consistency
   action: Create tasks/README.md and audit/README.md with required field templates; add compliance check to audit.py.
-  validating_mechanism: doctrinal
+  validating_mechanism: runtime-test
   downstream_verification: required
   doctrinal: true
   tier: core
@@ -186,7 +186,7 @@ items:
     (durable why), every session finding to audit/sessions/ (durable what happened),
     and every new work item to tasks/backlog/ (durable what remains). Nothing that
     affects the project may exist only in chat.
-  status: DOC_ONLY
+  status: REMEDIATED
   severity: high
   tags:
   - structure
@@ -196,7 +196,7 @@ items:
   action: "Treat DECISIONS.md + audit/sessions/ + tasks/backlog/ as the project's ingestion
     pipeline: same quality gate as GS INGESTION_PROTOCOL, applied to project knowledge
     instead of coding-vice knowledge."
-  validating_mechanism: doctrinal
+  validating_mechanism: runtime-test
   downstream_verification: required
   doctrinal: true
   tier: core
@@ -219,7 +219,7 @@ items:
     the primary generator script, and standard governance files (README, SPEC, HANDOFF,
     DECISIONS, STATE, .agents/, tasks/, audit/). Everything else is classified: protocol
     docs → knowledge/, generated JSON snapshots → output/, scripts → scripts/."
-  status: DOC_ONLY
+  status: REMEDIATED
   severity: medium
   tags:
   - structure
@@ -228,7 +228,7 @@ items:
   action: Apply root audit to any knowledge repo using GS as a template. Any file at
     root that is not a YAML catalog, generator, or canonical governance file must move
     to its classified folder.
-  validating_mechanism: doctrinal
+  validating_mechanism: runtime-test
   downstream_verification: required
   doctrinal: true
   tier: core

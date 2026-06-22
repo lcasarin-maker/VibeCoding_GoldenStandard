@@ -11,10 +11,10 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 | Metric | Value |
 |---|---:|
 | Nodes | 459 |
-| Edges | 2507 |
+| Edges | 2505 |
 | Reciprocal pairs | 578 |
 | Average edge confidence | 0.935 |
-| Semantic density | 0.011925 |
+| Semantic density | 0.011916 |
 | Hub ratio | 1.0 |
 | Bridge ratio | 0.997821 |
 | Intentional orphans | 0 |
@@ -30,7 +30,7 @@ The graph now distinguishes link syntax from relation meaning. `kind` records ho
 | Relation | Edges |
 |---|---:|
 | `returns_to_index` | 1159 |
-| `references` | 396 |
+| `references` | 394 |
 | `catalogs` | 342 |
 | `governed_by` | 214 |
 | `thematic_bridge` | 122 |
@@ -54,17 +54,17 @@ The graph now also highlights entries that remain mainly documentary. This does 
 | ID | Title | Category | Severity | Status |
 |---|---|---|---|---|
 | `SP-002` | No material fact in chat | `Other` | `critical` | `DOC_ONLY` |
-| `SP-001` | Single governance hub | `Other` | `high` | `DOC_ONLY` |
 | `SP-005` | Session close is mandatory | `Other` | `high` | `DOC_ONLY` |
-| `SP-006` | Consistent structure across federated repos | `Other` | `high` | `DOC_ONLY` |
-| `SP-009` | Project knowledge must be canonicalized before session end | `Other` | `high` | `DOC_ONLY` |
 | `VC-060` | Context Poisoning | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-067` | Use of an obsolete or hallucinated API of a real library | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-068` | Poisoned or stale persistent memory (cross-session) | `Vibe Coding` | `high` | `DOC_ONLY` |
 | `VC-086` | No backlog entry, no work | `Vibe Coding` | `high` | `AUDITED` |
 | `VC-088` | Execution before plan (planless agent) | `Vibe Coding` | `high` | `DOC_ONLY` |
-| `SP-003` | Live debt only in backlog | `Other` | `medium` | `DOC_ONLY` |
-| `SP-004` | Resolved debt goes to git log only | `Other` | `medium` | `DOC_ONLY` |
+| `SP-008` | Agent self-certifies task completion | `Other` | `medium` | `DOC_ONLY` |
+| `VC-007` | Non-surgical scope | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-009` | Full rewrite | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-012` | Invisible debt | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-037` | Code without tests | `Vibe Coding` | `medium` | `DOC_ONLY` |
 
 ---
 
@@ -80,12 +80,12 @@ This ranking combines severity with graph centrality, semantic reach, and downst
 | `VC-060` | Context Poisoning | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
 | `VC-086` | No backlog entry, no work | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
 | `VC-088` | Execution before plan (planless agent) | `high` | `54` | deg=5, types=2, rels=3, consumer-check |
-| `SP-001` | Single governance hub | `high` | `51` | deg=4, types=2, rels=2, consumer-check |
 | `SP-005` | Session close is mandatory | `high` | `51` | deg=4, types=2, rels=2, consumer-check |
-| `SP-006` | Consistent structure across federated repos | `high` | `51` | deg=4, types=2, rels=2, consumer-check |
-| `SP-009` | Project knowledge must be canonicalized before session end | `high` | `51` | deg=4, types=2, rels=2, consumer-check |
 | `VC-069` | Retrieval (RAG) that feeds wrong context | `medium` | `49` | deg=10, types=3, rels=4, consumer-check |
 | `VC-007` | Non-surgical scope | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
+| `VC-009` | Full rewrite | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
+| `VC-037` | Code without tests | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
+| `VC-042` | Implicit permission matrix | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
 
 ---
 
@@ -137,12 +137,12 @@ Pages with the largest impact surface. If they change, review their inbound link
 |---|---|---:|---:|---|---|
 | [[Home]] | `wiki` | 451 | 13 | [[Detectors/vc003_incomprehensible_code]], [[Detectors/vc005_premature_closure]], [[Detectors/vc005_untracked_prototype]], [[Detectors/vc013_ambiguous_handoff]], [[Detectors/vc016_broken_version_parity]], [[Detectors/vc017_deadlock_without_heartbeat]] +445 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
 | [[Vices_Index]] | `wiki` | 215 | 205 | [[Home]], [[Vices/SP-001]], [[Vices/SP-002]], [[Vices/SP-003]], [[Vices/SP-004]], [[Vices/SP-005]] +209 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +199 more |
-| [[Tokenomics_Map]] | `wiki` | 256 | 21 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +250 more | [[Home]], [[Principles]], [[Principles/PR-081]], [[Principles/PR-083]], [[Principles/PR-084]], [[Principles/PR-085]] +15 more |
+| [[Tokenomics_Map]] | `wiki` | 255 | 21 | [[Home]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]], [[Tokenomics/Output_Compaction_Index]] +249 more | [[Home]], [[Principles]], [[Principles/PR-081]], [[Principles/PR-083]], [[Principles/PR-084]], [[Principles/PR-085]] +15 more |
 | [[Principles]] | `principle-index` | 116 | 115 | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +110 more | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +109 more |
 | [[Principles/PR-097]] | `principle` | 219 | 5 | [[Domains/CD01]], [[Domains/CD04]], [[Domains/README]], [[Principles]], [[Tokenomics_Map]], [[Vices/SP-001]] +213 more | [[Domains/CD01]], [[Domains/CD04]], [[Domains/README]], [[Home]], [[Principles]] |
 | [[Domains/README]] | `domain` | 134 | 54 | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +128 more | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +48 more |
 | [[Evidence/arxiv2602_00409]] | `wiki` | 117 | 11 | [[Vices/VC-015]], [[Vices/VC-037]], [[Vices/VT-001]], [[Vices/VT-002]], [[Vices/VT-003]], [[Vices/VT-004]] +111 more | [[Home]], [[Vices/VC-015]], [[Vices/VC-037]], [[Vices/VT-001]], [[Vices/VT-002]], [[Vices/VT-003]] +5 more |
-| [[Tokenomics_Index]] | `wiki` | 42 | 36 | [[Home]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]] +36 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +30 more |
+| [[Tokenomics_Index]] | `wiki` | 41 | 36 | [[Home]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]], [[Tokenomics/Output_Compaction_Index]] +35 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +30 more |
 | [[Evidence/arxiv2603_28592]] | `wiki` | 49 | 11 | [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]], [[Vices/VC-006]] +43 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +5 more |
 | [[Evidence/vexp_dev_humanlayer_ace]] | `wiki` | 33 | 11 | [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]], [[Tokenomics/TK-006]] +27 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +5 more |
 
@@ -194,7 +194,7 @@ Nodes that link to more than one page type. They are useful for navigating impac
 | Node | Type | Reached types | Relations | Outbound |
 |---|---|---|---|---:|
 | [[Home]] | `wiki` | `conceptual-framework`, `domain`, `principle`, `principle-index`, `root`, `tokenomics`, `vice`, `wiki` | `bridges`, `entrypoint`, `indexes`, `references`, `returns_to_index` | 13 |
-| [[Tokenomics_Map]] | `wiki` | `principle`, `principle-index`, `root`, `tokenomics`, `vice`, `wiki` | `bridges`, `entrypoint`, `references`, `returns_to_index` | 21 |
+| [[Tokenomics_Map]] | `wiki` | `principle`, `principle-index`, `tokenomics`, `vice`, `wiki` | `bridges`, `entrypoint`, `references`, `returns_to_index` | 21 |
 | [[Domains/README]] | `domain` | `domain`, `principle`, `principle-index`, `root`, `wiki` | `entrypoint`, `operationalizes_domain`, `references`, `returns_to_index`, `routes_to_domains` | 54 |
 | [[Principles/PR-097]] | `principle` | `domain`, `principle-index`, `vice`, `wiki` | `bridges`, `governed_by`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index` | 5 |
 | [[Principles/PR-081]] | `principle` | `domain`, `principle-index`, `tokenomics`, `wiki` | `bridges`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index`, `thematic_bridge` | 5 |

@@ -10,7 +10,7 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | **Testing & Evaluation** | 116 | 28 | 88 | 100% |
 | **Vibe Coding** | 88 | 68 | 20 | 100% |
 | **Tokenomics & Context** | 34 | 34 | 0 | 100% |
-| **Total** | 248 | 130 | 118 | 100% |
+| **Total** | 248 | 137 | 111 | 100% |
 
 ---
 

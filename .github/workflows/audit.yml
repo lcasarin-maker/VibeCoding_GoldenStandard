@@ -43,6 +43,9 @@ jobs:
       - name: Check catalog integrity (UTF-8, non-empty, valid YAML)
         run: python scripts/check_catalog_integrity.py
 
+      - name: Structural audit (SP-001/003/004/006/007/009/010)
+        run: python scripts/audit.py
+
       - name: Validate catalogs and wiki coverage
         run: python scripts/validate_golden_standard_catalogs.py --check-wiki
 

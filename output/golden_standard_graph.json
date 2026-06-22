@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-06-22",
   "node_count": 459,
-  "edge_count": 2507,
+  "edge_count": 2505,
   "nodes": [
     {
       "id": "CONCEPTUAL_FRAMEWORK",
@@ -9,7 +9,7 @@
       "title": "Golden Standard — Conceptual Framework",
       "kind": "conceptual-framework",
       "created": "2026-06-04T20:05:31-06:00",
-      "promoted": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:48:57-06:00",
       "outgoing": [],
       "incoming": [
         "Home",
@@ -84,14 +84,12 @@
       "title": "🏛️ Golden Standard — The AI Vibe Coding Knowledge Base",
       "kind": "root",
       "created": "2026-06-04T20:05:31-06:00",
-      "promoted": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:48:57-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "CONTRIBUTING",
         "Domains/README",
-        "Home",
-        "Tokenomics_Index",
-        "Tokenomics_Map"
+        "Home"
       ],
       "incoming": [
         "Home"
@@ -120,18 +118,6 @@
           "kind": "markdown",
           "relation": "references",
           "confidence": 0.9
-        },
-        {
-          "target": "Tokenomics_Index",
-          "kind": "markdown",
-          "relation": "references",
-          "confidence": 0.9
-        },
-        {
-          "target": "Tokenomics_Map",
-          "kind": "markdown",
-          "relation": "references",
-          "confidence": 0.9
         }
       ],
       "incoming_edges": [
@@ -143,8 +129,8 @@
         }
       ],
       "in_degree": 1,
-      "out_degree": 6,
-      "degree": 7,
+      "out_degree": 4,
+      "degree": 5,
       "connected_types": [
         "conceptual-framework",
         "contributing",
@@ -157,7 +143,7 @@
       ],
       "semantic_reach": 4,
       "relation_diversity": 2,
-      "hub_score": 23
+      "hub_score": 21
     },
     {
       "id": "Detectors/vc003_incomprehensible_code",
@@ -8424,7 +8410,7 @@
       "title": "Golden Standard Wiki",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:36:53-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
@@ -27834,7 +27820,6 @@
       ],
       "incoming": [
         "Home",
-        "README",
         "Tokenomics/Automation_Tooling_Index",
         "Tokenomics/Input_Retrieval_Index",
         "Tokenomics/Measurement_Telemetry_Index",
@@ -28102,12 +28087,6 @@
           "confidence": 0.95
         },
         {
-          "source": "README",
-          "kind": "markdown",
-          "relation": "references",
-          "confidence": 0.9
-        },
-        {
           "source": "Tokenomics/Automation_Tooling_Index",
           "kind": "wikilink",
           "relation": "returns_to_index",
@@ -28348,11 +28327,10 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 42,
+      "in_degree": 41,
       "out_degree": 36,
-      "degree": 78,
+      "degree": 77,
       "connected_types": [
-        "root",
         "tokenomics",
         "wiki"
       ],
@@ -28363,9 +28341,9 @@
         "references",
         "returns_to_index"
       ],
-      "semantic_reach": 3,
+      "semantic_reach": 2,
       "relation_diversity": 5,
-      "hub_score": 97
+      "hub_score": 93
     },
     {
       "id": "Tokenomics_Map",
@@ -28399,7 +28377,6 @@
       ],
       "incoming": [
         "Home",
-        "README",
         "Tokenomics/Automation_Tooling_Index",
         "Tokenomics/Input_Retrieval_Index",
         "Tokenomics/Measurement_Telemetry_Index",
@@ -28789,12 +28766,6 @@
           "kind": "wikilink",
           "relation": "entrypoint",
           "confidence": 0.95
-        },
-        {
-          "source": "README",
-          "kind": "markdown",
-          "relation": "references",
-          "confidence": 0.9
         },
         {
           "source": "Tokenomics/Automation_Tooling_Index",
@@ -30321,13 +30292,12 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 256,
+      "in_degree": 255,
       "out_degree": 21,
-      "degree": 277,
+      "degree": 276,
       "connected_types": [
         "principle",
         "principle-index",
-        "root",
         "tokenomics",
         "vice",
         "wiki"
@@ -30338,9 +30308,9 @@
         "references",
         "returns_to_index"
       ],
-      "semantic_reach": 6,
+      "semantic_reach": 5,
       "relation_diversity": 4,
-      "hub_score": 303
+      "hub_score": 299
     },
     {
       "id": "Vices/SP-001",
@@ -30397,7 +30367,7 @@
       "semantic_reach": 2,
       "relation_diversity": 2,
       "hub_score": 14,
-      "status": "DOC_ONLY",
+      "status": "REMEDIATED",
       "downstream_verification": "required",
       "severity": "high"
     },
@@ -30515,7 +30485,7 @@
       "semantic_reach": 2,
       "relation_diversity": 2,
       "hub_score": 14,
-      "status": "DOC_ONLY",
+      "status": "REMEDIATED",
       "downstream_verification": "required",
       "severity": "medium"
     },
@@ -30574,7 +30544,7 @@
       "semantic_reach": 2,
       "relation_diversity": 2,
       "hub_score": 14,
-      "status": "DOC_ONLY",
+      "status": "REMEDIATED",
       "downstream_verification": "required",
       "severity": "medium"
     },
@@ -30692,7 +30662,7 @@
       "semantic_reach": 2,
       "relation_diversity": 2,
       "hub_score": 14,
-      "status": "DOC_ONLY",
+      "status": "REMEDIATED",
       "downstream_verification": "required",
       "severity": "high"
     },
@@ -30751,7 +30721,7 @@
       "semantic_reach": 2,
       "relation_diversity": 2,
       "hub_score": 14,
-      "status": "DOC_ONLY",
+      "status": "REMEDIATED",
       "downstream_verification": "required",
       "severity": "medium"
     },
@@ -30869,7 +30839,7 @@
       "semantic_reach": 2,
       "relation_diversity": 2,
       "hub_score": 14,
-      "status": "DOC_ONLY",
+      "status": "REMEDIATED",
       "downstream_verification": "required",
       "severity": "high"
     },
@@ -30928,7 +30898,7 @@
       "semantic_reach": 2,
       "relation_diversity": 2,
       "hub_score": 14,
-      "status": "DOC_ONLY",
+      "status": "REMEDIATED",
       "downstream_verification": "required",
       "severity": "medium"
     },
@@ -56455,20 +56425,6 @@
       "confidence": 0.9
     },
     {
-      "source": "README",
-      "target": "Tokenomics_Index",
-      "kind": "markdown",
-      "relation": "references",
-      "confidence": 0.9
-    },
-    {
-      "source": "README",
-      "target": "Tokenomics_Map",
-      "kind": "markdown",
-      "relation": "references",
-      "confidence": 0.9
-    },
-    {
       "source": "Tokenomics/Automation_Tooling_Index",
       "target": "Tokenomics/TK-010",
       "kind": "wikilink",
@@ -69461,7 +69417,7 @@
   ],
   "summary": {
     "edge_kinds": {
-      "markdown": 8,
+      "markdown": 6,
       "wikilink": 2499
     },
     "relation_counts": {
@@ -69471,7 +69427,7 @@
       "governed_by": 214,
       "indexes": 114,
       "operationalizes_domain": 91,
-      "references": 396,
+      "references": 394,
       "returns_to_index": 1159,
       "routes_to_domains": 1,
       "subindex": 34,
@@ -69479,7 +69435,7 @@
     },
     "reciprocal_pairs": 578,
     "average_edge_confidence": 0.935,
-    "semantic_density": 0.011925,
+    "semantic_density": 0.011916,
     "hub_ratio": 1.0,
     "bridge_ratio": 0.997821,
     "intentional_orphans": [],
@@ -69540,7 +69496,7 @@
         "semantic_reach": 2,
         "relation_diversity": 2,
         "hub_score": 14,
-        "status": "DOC_ONLY",
+        "status": "REMEDIATED",
         "downstream_verification": "required",
         "severity": "high"
       },
@@ -69658,7 +69614,7 @@
         "semantic_reach": 2,
         "relation_diversity": 2,
         "hub_score": 14,
-        "status": "DOC_ONLY",
+        "status": "REMEDIATED",
         "downstream_verification": "required",
         "severity": "medium"
       },
@@ -69717,7 +69673,7 @@
         "semantic_reach": 2,
         "relation_diversity": 2,
         "hub_score": 14,
-        "status": "DOC_ONLY",
+        "status": "REMEDIATED",
         "downstream_verification": "required",
         "severity": "medium"
       },
@@ -69835,7 +69791,7 @@
         "semantic_reach": 2,
         "relation_diversity": 2,
         "hub_score": 14,
-        "status": "DOC_ONLY",
+        "status": "REMEDIATED",
         "downstream_verification": "required",
         "severity": "high"
       },
@@ -69894,7 +69850,7 @@
         "semantic_reach": 2,
         "relation_diversity": 2,
         "hub_score": 14,
-        "status": "DOC_ONLY",
+        "status": "REMEDIATED",
         "downstream_verification": "required",
         "severity": "medium"
       },
@@ -70012,7 +69968,7 @@
         "semantic_reach": 2,
         "relation_diversity": 2,
         "hub_score": 14,
-        "status": "DOC_ONLY",
+        "status": "REMEDIATED",
         "downstream_verification": "required",
         "severity": "high"
       },
@@ -70071,7 +70027,7 @@
         "semantic_reach": 2,
         "relation_diversity": 2,
         "hub_score": 14,
-        "status": "DOC_ONLY",
+        "status": "REMEDIATED",
         "downstream_verification": "required",
         "severity": "medium"
       }
@@ -70083,7 +70039,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-22T15:20:59-06:00",
+        "promoted": "2026-06-22T15:36:53-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -76368,7 +76324,6 @@
         ],
         "incoming": [
           "Home",
-          "README",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
           "Tokenomics/Measurement_Telemetry_Index",
@@ -76758,12 +76713,6 @@
             "kind": "wikilink",
             "relation": "entrypoint",
             "confidence": 0.95
-          },
-          {
-            "source": "README",
-            "kind": "markdown",
-            "relation": "references",
-            "confidence": 0.9
           },
           {
             "source": "Tokenomics/Automation_Tooling_Index",
@@ -78290,13 +78239,12 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 256,
+        "in_degree": 255,
         "out_degree": 21,
-        "degree": 277,
+        "degree": 276,
         "connected_types": [
           "principle",
           "principle-index",
-          "root",
           "tokenomics",
           "vice",
           "wiki"
@@ -78307,9 +78255,9 @@
           "references",
           "returns_to_index"
         ],
-        "semantic_reach": 6,
+        "semantic_reach": 5,
         "relation_diversity": 4,
-        "hub_score": 303
+        "hub_score": 299
       },
       {
         "id": "Principles",
@@ -83893,7 +83841,6 @@
         ],
         "incoming": [
           "Home",
-          "README",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
           "Tokenomics/Measurement_Telemetry_Index",
@@ -84161,12 +84108,6 @@
             "confidence": 0.95
           },
           {
-            "source": "README",
-            "kind": "markdown",
-            "relation": "references",
-            "confidence": 0.9
-          },
-          {
             "source": "Tokenomics/Automation_Tooling_Index",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -84407,11 +84348,10 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 42,
+        "in_degree": 41,
         "out_degree": 36,
-        "degree": 78,
+        "degree": 77,
         "connected_types": [
-          "root",
           "tokenomics",
           "wiki"
         ],
@@ -84422,9 +84362,9 @@
           "references",
           "returns_to_index"
         ],
-        "semantic_reach": 3,
+        "semantic_reach": 2,
         "relation_diversity": 5,
-        "hub_score": 97
+        "hub_score": 93
       },
       {
         "id": "Evidence/arxiv2603_28592",
@@ -86244,7 +86184,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-22T15:20:59-06:00",
+        "promoted": "2026-06-22T15:36:53-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -89557,7 +89497,6 @@
         ],
         "incoming": [
           "Home",
-          "README",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
           "Tokenomics/Measurement_Telemetry_Index",
@@ -89947,12 +89886,6 @@
             "kind": "wikilink",
             "relation": "entrypoint",
             "confidence": 0.95
-          },
-          {
-            "source": "README",
-            "kind": "markdown",
-            "relation": "references",
-            "confidence": 0.9
           },
           {
             "source": "Tokenomics/Automation_Tooling_Index",
@@ -91479,13 +91412,12 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 256,
+        "in_degree": 255,
         "out_degree": 21,
-        "degree": 277,
+        "degree": 276,
         "connected_types": [
           "principle",
           "principle-index",
-          "root",
           "tokenomics",
           "vice",
           "wiki"
@@ -91496,9 +91428,9 @@
           "references",
           "returns_to_index"
         ],
-        "semantic_reach": 6,
+        "semantic_reach": 5,
         "relation_diversity": 4,
-        "hub_score": 303
+        "hub_score": 299
       },
       {
         "id": "Domains/README",
