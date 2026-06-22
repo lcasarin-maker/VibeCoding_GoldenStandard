@@ -170,33 +170,49 @@ and `none` when no consumer-side test is expected.
 
 ```
 VibeCoding_GoldenStandard/
-├── README.md                              ← You are here
-├── CONCEPTUAL_FRAMEWORK.md               ← This document
+├── README.md                              ← Public entry point (thin)
+├── CONCEPTUAL_FRAMEWORK.md               ← This document (doctrine)
 ├── CONTRIBUTING.md                        ← How to contribute
-├── CODE_OF_CONDUCT.md                     ← Community standards
+├── SPEC.md                                ← Thin pointer to this document
+├── HANDOFF.md / STATE.md / DECISIONS.md  ← Session continuity files
 │
-├── golden_standard.yaml                   ← Master index
+├── golden_standard.yaml                   ← Master catalog index
 ├── golden_standard_coding_vices.yaml      ← VC-xxx catalog
 ├── golden_standard_testing_vices.yaml     ← VT-xxx catalog
 ├── golden_standard_tokenomics.yaml        ← Tokenomics principles
 ├── golden_standard_principles.yaml        ← Cross-cutting doctrine
+├── golden_standard_structure_principles.yaml ← SP-xxx structural rules
 │
-├── Wiki/
+├── .agents/
+│   └── AGENTS.md                          ← Multi-agent governance hub
+├── tasks/
+│   └── backlog/                           ← Open task files (GS-xxx)
+├── audit/
+│   ├── AUDIT_TRAIL.md                     ← Session audit log
+│   └── sessions/                          ← Per-session records
+│
+├── Wiki/                                  ← Generated Obsidian vault
 │   ├── Home.md                            ← Wiki entry point
-│   ├── Domains/                           ← Canonical domain hubs (`CDxx`)
-│   └── Vices/                             ← Individual VC/VT articles
-│       ├── VC-001.md
-│       └── ...
+│   ├── Domains/                           ← Canonical domain hubs (CDxx)
+│   ├── Vices/                             ← VC/VT/SP articles
+│   └── Graph.md                           ← Generated graph summary
 │
-├── Inbox/                                 ← Proposed new entries (pending review)
+├── scripts/                               ← Tooling
+│   ├── generate_golden_audit.py           ← Audit + Wiki generator
+│   ├── validate_golden_standard_catalogs.py
+│   ├── metrics.py
+│   └── detectors.py
 │
-│   └── generate_golden_audit.py           ← Audit script (cross-references YAML ↔ Wiki)
+├── output/                                ← Generated artifacts
+│   ├── golden_standard_audit.json
+│   ├── golden_standard_audit_report.md
+│   ├── golden_standard_graph.json
+│   └── golden_standard_metrics.json
 │
-└── deprecated/                            ← Historical artifacts (not active knowledge)
-    ├── mandates_legacy/
-    ├── knowledge_snapshots/
-    ├── wiki_phases/
-    └── planning/
+├── docs/badges/                           ← CI badge JSON files
+├── knowledge/                             ← Protocol and source docs
+├── Inbox/                                 ← Proposed entries (pending review)
+└── deprecated/                            ← Historical artifacts
 ```
 
 ---

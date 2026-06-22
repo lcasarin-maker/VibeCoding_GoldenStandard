@@ -624,19 +624,6 @@ def validate_readme_counts(errors: list[str]) -> None:
 
     readme_text = readme_path.read_text(encoding="utf-8")
 
-    # Check paragraphs counts
-    expected_vc_str = f"**{vc_count} entries** cataloged with severity"
-    expected_tv_str = f"**{tv_count} entries** with examples"
-
-    if expected_vc_str not in readme_text:
-        errors.append(
-            f"{readme_path}: missing or stale VC count ({expected_vc_str!r})."
-        )
-    if expected_tv_str not in readme_text:
-        errors.append(
-            f"{readme_path}: missing or stale VT count ({expected_tv_str!r})."
-        )
-
     # Check catalog table rows
     expected_rows = [
         f"| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | {vc_count} |",
