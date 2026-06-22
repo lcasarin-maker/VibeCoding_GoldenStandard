@@ -5,15 +5,16 @@
 
 ## NOW
 
-GS-078 complete. Graph now has 487 nodes (28 new file-layer nodes) + 11 dependency edges.
-Query modes live: `--blast-radius`, `--coupling`, `--diff-impact`, `--cycles`, `--coverage`.
-10 tests green. Commit a73b19f.
+GS-debt sprint complete (commit 29823ed). GS-071/075/076/080/081 all closed.
+- VC-012 promoted to REMEDIATED; 14 DOC_ONLY entries justified as DOC_ONLY_PERMANENT.
+- audit.py now enforces SP-005 (HANDOFF+STATE date headers); 8 SP checks total.
+- generate_golden_audit.py has --audit-only and --wiki-only flags; 12/12 tests green.
+- check_graph_connectivity() added to validator; knowledge/templates/ added.
+- Backlog is now empty (tasks/backlog/.gitkeep).
 
 ## NEXT
 
-1. **GS-080** — audit.py enforce SP-005 (HANDOFF+STATE date mandatory at session close)
-2. **GS-081** — Templates enforced for STATE/HANDOFF/task files
-3. **CC build order** — Migrate CC to V3.2 structure (`.agents/AGENTS.md`, `tasks/`, `audit/`, `DECISIONS.md`)
+1. **CC build order** — Migrate Cerberus to V3.2 structure (`.agents/AGENTS.md`, `tasks/`, `audit/`, `DECISIONS.md`)
 
 ## BLOCKERS
 

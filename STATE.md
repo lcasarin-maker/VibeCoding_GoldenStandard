@@ -7,12 +7,12 @@
 
 | Catalog | Entries | Open debt | Notes |
 |---------|---------|-----------|-------|
-| VC (coding vices) | 88 | GS-071 (26 DOC_ONLY) | VC-088 added this session |
+| VC (coding vices) | 88 | none | VC-012 REMEDIATED; 14 DOC_ONLY_PERMANENT justified |
 | VT (testing vices) | 116 | none | |
 | TK (tokenomics) | 34 | none | |
 | PR (principles) | 113 | none | |
-| SP (structure principles) | 10 | all DOC_ONLY | audit.py needed to elevate to TEST_ASSOCIATED |
-| CD (canonical domains) | 18 | none | CD18 added this session |
+| SP (structure principles) | 10 | none | 8 checks in audit.py (SP-001/003/004/005/006/007/009/010) |
+| CD (canonical domains) | 18 | none | |
 
 ## Migration status
 
@@ -25,15 +25,8 @@
 
 ## Open backlog
 
-| ID | Item | Status |
-|----|------|--------|
-| GS-071 | 26 VC entries DOC_ONLY — promote or justify | IN_PROGRESS |
-| GS-075 | Generator maintainability (audit.py split) | OPEN |
-| GS-076 | Graph layer hardening | OPEN |
-| GS-078 | Graph: blast radius + semantic chains + orphan/coupling/coverage/diff-impact | DONE |
-| GS-080 | audit.py enforce SP-005 (HANDOFF+STATE date mandatory at close) | OPEN |
-| GS-081 | Templates enforced para STATE/HANDOFF/task files | OPEN |
+Backlog empty. All GS debt closed as of 2026-06-22.
 
 ## CI status
 
-10/10 tests passing. Validator green. Sprint B+D complete (2026-06-22).
+12/12 tests passing. Validator green. Debt sprint complete (commit 29823ed, 2026-06-22).
