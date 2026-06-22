@@ -11,7 +11,7 @@
 | VT (testing vices) | 116 | none | |
 | TK (tokenomics) | 34 | none | |
 | PR (principles) | 113 | none | |
-| SP (structure principles) | 9 | all RULE_DEFINED | audit.py needed to elevate to TEST_ASSOCIATED |
+| SP (structure principles) | 10 | all DOC_ONLY | audit.py needed to elevate to TEST_ASSOCIATED |
 | CD (canonical domains) | 18 | none | CD18 added this session |
 
 ## Migration status
