@@ -1,0 +1,208 @@
+format_version: '1.0'
+catalog_name: structure_principles
+description: >
+  Rules governing multi-agent project structure. Each rule defines a structural
+  invariant whose violation creates broken bridges, ambiguous authority, or lost
+  session continuity. CANONICAL_STRUCTURE.md is the operational artifact that
+  results when all SP rules pass.
+
+items:
+- id: SP-001
+  title: Single governance hub
+  symptom: Multiple files claim to govern agent behavior (BOOTSTRAP, RULES, PERMISSIONS, DEFINITION_OF_DONE, per-agent .md files)
+  cause: Files added incrementally without consolidation; each session adds a new one
+  solution: Collapse all agent governance into .agents/AGENTS.md; all other files are deleted (not bridged, not imported)
+  status: DOC_ONLY
+  severity: high
+  tags:
+  - structure
+  - multi-agent
+  - anti-theater
+  action: Audit .agents/ and project root for governance files outside AGENTS.md; delete or absorb them.
+  validating_mechanism: doctrinal
+  downstream_verification: required
+  doctrinal: true
+  tier: core
+  catalog_source: structure_principles
+  related_cds: [CD01, CD05]
+  related_prs: [PR-085, PR-089]
+  detection: "audit.py: assert no BOOTSTRAP.md, RULES.md, PERMISSIONS.md, DEFINITION_OF_DONE.md, or [agent].md files exist outside .agents/AGENTS.md"
+
+- id: SP-002
+  title: No material fact in chat
+  symptom: Decisions, blockers, rationale, or task state exist only in chat transcript and are lost on session end
+  cause: Convenience; agent treats chat as durable storage
+  solution: Any fact affecting project state is written into project files before session closes (HANDOFF, STATE, DECISIONS, or tasks/)
+  status: DOC_ONLY
+  severity: critical
+  tags:
+  - structure
+  - multi-agent
+  - state-continuity
+  action: Enforce mandatory session-close phase; HANDOFF.md and audit/sessions/ record are required outputs of every session.
+  validating_mechanism: doctrinal
+  downstream_verification: required
+  doctrinal: true
+  tier: core
+  catalog_source: structure_principles
+  related_cds: [CD02, CD15]
+  related_prs: [PR-084, PR-103]
+  detection: "audit.py: assert audit/sessions/ contains a record dated today; assert HANDOFF.md mtime matches today"
+
+- id: SP-003
+  title: Live debt only in backlog
+  symptom: tasks/backlog/ accumulates historical, completed, or stale items alongside live work
+  cause: No discipline on removal; items added but never cleared
+  solution: backlog/ contains only work not yet started; completed items are deleted (record is the git commit)
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - structure
+  - multi-agent
+  - debt-discipline
+  action: On task completion, delete task file from done/ after commit; git log is the archive.
+  validating_mechanism: doctrinal
+  downstream_verification: required
+  doctrinal: true
+  tier: core
+  catalog_source: structure_principles
+  related_cds: [CD01, CD04]
+  related_prs: [PR-085, PR-088]
+  detection: "audit.py: assert tasks/done/ is empty (files moved there are deleted after commit)"
+
+- id: SP-004
+  title: Resolved debt goes to git log only
+  symptom: A done/ or archive/ folder accumulates completed task files as a parallel changelog
+  cause: Fear of losing record; agents keep files "just in case"
+  solution: Completed task file is deleted after its closing commit; the commit message is the durable record; no archive/ folder
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - structure
+  - anti-accumulation
+  - git-discipline
+  action: Delete task file in the same commit that closes the work; write a descriptive commit message.
+  validating_mechanism: doctrinal
+  downstream_verification: required
+  doctrinal: true
+  tier: core
+  catalog_source: structure_principles
+  related_cds: [CD01]
+  related_prs: [PR-085]
+  detection: "audit.py: assert no archive/ folder exists; assert tasks/done/ is empty"
+
+- id: SP-005
+  title: Session close is mandatory
+  symptom: Agent ends session without updating tasks/, HANDOFF.md, STATE.md, or writing an audit/sessions/ record
+  cause: Session close treated as optional; agent stops at task completion
+  solution: "Phase 4 (Close) is required: tasks moved, HANDOFF updated, STATE updated if present, session record written, AUDIT_TRAIL appended"
+  status: DOC_ONLY
+  severity: high
+  tags:
+  - structure
+  - multi-agent
+  - state-continuity
+  action: DoD checklist in AGENTS.md §4 must include all session-close steps as explicit required items.
+  validating_mechanism: doctrinal
+  downstream_verification: required
+  doctrinal: true
+  tier: core
+  catalog_source: structure_principles
+  related_cds: [CD02, CD14, CD15]
+  related_prs: [PR-084, PR-101, PR-103]
+  detection: "audit.py: assert audit/sessions/ has a record for the current session; assert HANDOFF.md was updated"
+
+- id: SP-006
+  title: Consistent structure across federated repos
+  symptom: CC, GS, and satellite repos diverge in folder structure, file naming, or governance layout
+  cause: No automated enforcement; each repo evolves independently
+  solution: scripts/audit.py enforces the canonical tree; a failing audit blocks session close in any repo
+  status: DOC_ONLY
+  severity: high
+  tags:
+  - structure
+  - federation
+  - enforcement
+  action: audit.py is the single structural enforcer; its checks define what the canonical structure IS.
+  validating_mechanism: doctrinal
+  downstream_verification: required
+  doctrinal: true
+  tier: core
+  catalog_source: structure_principles
+  related_cds: [CD14, CD01]
+  related_prs: [PR-101, PR-105]
+  detection: "audit.py: validate required folders and files exist; run across CC, GS, and registered satellites"
+
+- id: SP-007
+  title: Templates mandatory for tasks and sessions
+  symptom: Task files and audit session records use ad-hoc formats; fields missing; records not comparable across sessions
+  cause: No template enforcement; each agent invents a format
+  solution: tasks/README.md and audit/README.md define mandatory templates; audit.py checks compliance
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - structure
+  - templates
+  - consistency
+  action: Create tasks/README.md and audit/README.md with required field templates; add compliance check to audit.py.
+  validating_mechanism: doctrinal
+  downstream_verification: required
+  doctrinal: true
+  tier: core
+  catalog_source: structure_principles
+  related_cds: [CD02, CD13, CD16]
+  related_prs: [PR-084, PR-104]
+  detection: "audit.py: assert tasks/README.md and audit/README.md exist; assert session files contain required sections"
+
+- id: SP-008
+  title: Agent self-certifies task completion
+  symptom: Tasks stall in active/ waiting for human intervention; or agents declare done without meeting DoD
+  cause: Unclear authority over task completion; no explicit checklist
+  solution: Agent moves task to done/ when AGENTS.md §4 DoD checklist is fully met; review/ is used only for tasks explicitly flagged as requiring human acceptance
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - structure
+  - multi-agent
+  - authority
+  action: AGENTS.md §4 DoD must be a concrete checklist; any item not met = task stays active or moves to blocked/.
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  doctrinal: true
+  tier: specialist
+  catalog_source: structure_principles
+  related_cds: [CD02, CD07, CD16]
+  related_prs: []
+  detection: ''
+
+- id: SP-009
+  title: Project knowledge must be canonicalized before session end
+  symptom: Decisions, rationale, and session findings live only in chat or agent memory;
+    next session has no durable record and repeats the same discoveries or makes
+    contradictory decisions without knowing why the prior choice was made.
+  cause: Agents treat canonicalization as optional clean-up rather than a required gate;
+    same failure mode that GS's INGESTION_PROTOCOL exists to prevent in the knowledge base.
+  solution: Before session close, every material decision is written to DECISIONS.md
+    (durable why), every session finding to audit/sessions/ (durable what happened),
+    and every new work item to tasks/backlog/ (durable what remains). Nothing that
+    affects the project may exist only in chat.
+  status: DOC_ONLY
+  severity: high
+  tags:
+  - structure
+  - multi-agent
+  - knowledge-canonicalization
+  - state-continuity
+  action: "Treat DECISIONS.md + audit/sessions/ + tasks/backlog/ as the project's ingestion
+    pipeline: same quality gate as GS INGESTION_PROTOCOL, applied to project knowledge
+    instead of coding-vice knowledge."
+  validating_mechanism: doctrinal
+  downstream_verification: required
+  doctrinal: true
+  tier: core
+  catalog_source: structure_principles
+  related_cds: [CD02, CD13, CD15]
+  related_prs: [PR-084, PR-092, PR-096, PR-103]
+  detection: "audit.py: assert audit/sessions/ has a record for current session; assert
+    DECISIONS.md was updated if any architectural choice was made; assert tasks/backlog/
+    contains any newly discovered work items"

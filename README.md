@@ -41,7 +41,7 @@ A structured, growing library of knowledge organized into four streams and a can
 ### 🔴 Vibe Coding Vices (`VC-xxx`)
 Antipatterns specific to AI-assisted development: improvised architecture, non-reversible solutions, ghost files, hardcoded paths, invisible technical debt accumulation.
 
-**87 entries** cataloged with severity, description, detection criteria, and mitigation.
+**88 entries** cataloged with severity, description, detection criteria, and mitigation.
 
 ### 🟡 Testing Vices (`VT-xxx`)
 Ways tests become "security theater": checking file existence instead of behavior, mocks with no real-world correspondence, tests that pass despite broken user flows.
@@ -72,7 +72,7 @@ They are not tied to historical lens labels. Instead, they act as the graph-awar
 - **[Conceptual Framework](CONCEPTUAL_FRAMEWORK.md)** — Root doctrine and architectural baseline
 - **[Repository Hygiene](CONCEPTUAL_FRAMEWORK.md#6-repository-and-execution-hygiene)** — Canonical cleanup and naming doctrine
 - **[Inbox](Inbox/README.md)** — Intake process for raw findings and proposed entries
-- **[Audit Report](golden_standard_audit_report.md)** — Machine-generated coverage map
+- **[Audit Report](audit/sessions/golden_standard_audit_report.md)** — Machine-generated coverage map
 - **[Graph](Wiki/Graph.md)** — Local knowledge graph with hubs, intentional templates, orphan candidates, and impact paths
 - **[Canonical Domains](Wiki/Domains/README.md)** — Graph-aware domain taxonomy (`CDxx`) linking principles to semantic governance areas
 - **[Tokenomics Index](Wiki/Tokenomics_Index.md)** — Dedicated token-efficiency catalog
@@ -104,7 +104,7 @@ git clone https://github.com/lcasarin-maker/VibeCoding_GoldenStandard.git
 python generate_golden_audit.py
 ```
 
-Output: `golden_standard_audit_report.md` — shows the compliance map and generated status snapshot. CI also validates that the catalogs and Wiki stay in sync.
+Output: `audit/sessions/golden_standard_audit_report.md` — shows the compliance map and generated status snapshot. CI also validates that the catalogs and Wiki stay in sync.
 
 ---
 
@@ -118,7 +118,7 @@ VibeCoding_GoldenStandard/
 ├── CODE_OF_CONDUCT.md                     ← Community standards
 │
 ├── golden_standard.yaml                   ← Master index
-├── golden_standard_coding_vices.yaml      ← VC-xxx catalog (87 entries)
+├── golden_standard_coding_vices.yaml      ← VC-xxx catalog (88 entries)
 ├── golden_standard_testing_vices.yaml     ← VT-xxx catalog (116 entries)
 ├── golden_standard_tokenomics.yaml        ← Tokenomics principles
 ├── golden_standard_principles.yaml        ← Cross-cutting doctrine
@@ -161,12 +161,12 @@ The knowledge is stored in human-readable YAML files:
 
 | File | Domain | Entries |
 |---|---|---|
-| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 87 |
+| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 88 |
 | `golden_standard_testing_vices.yaml` | Testing failures | 116 |
 | `golden_standard_tokenomics.yaml` | Token efficiency | 34 |
 | `golden_standard_principles.yaml` | Principles | 113 |
 
-**Total: 237 vices + 113 principles (350 entries).** Counts here are the source of truth and are validated against the YAML; the entries badge reflects the total number of flaws (237).
+**Total: 238 vices + 113 principles (351 entries).** Counts here are the source of truth and are validated against the YAML; the entries badge reflects the total number of flaws (238).
 
 Each entry includes:
 - **ID** (e.g., `VC-042`)

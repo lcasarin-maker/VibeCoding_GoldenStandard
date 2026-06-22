@@ -217,7 +217,7 @@ Check the current max IDs in:
 
 ## Code of Conduct
 
-See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+See `.agents/AGENTS.md` §2 for agent behavior standards and community conduct.
 
 ---
 

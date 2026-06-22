@@ -419,7 +419,7 @@
       "Generic code complexity"
     ],
     "legacy_gs_lenses": ["D2", "D12"],
-    "graph_role": "Knowledge backbone of the graph: protects hub coherence by ensuring new nodes enter through normalized, deduplicated doctrine.",
+    "graph_role": "Knowledge backbone of the graph: protects hub coherence by ensuring new nodes enter through normalized, deduplicated doctrine. CD18 (Multi-Agent Project Governance) applies the same canonicalization discipline to project-level knowledge (decisions, session records, backlog items) — SP-009 is the structural mirror of this domain.",
     "principles": [
       {
         "insight_id": "PR-092",
@@ -550,6 +550,36 @@
         "project": "reference",
         "action": "Declare scope, impacts, and out-of-scope follow-ups before execution so handoff prose remains bounded and honest."
       }
+    ]
+  },
+  "CD18": {
+    "title": "Multi-Agent Project Governance",
+    "summary": "Defines the structural invariants that keep multi-agent projects continuous, authoritative, and free of broken bridges: single governance hub, mandatory session close, live-only backlog, resolved debt in git only, consistent federated structure, and explicit task-completion authority.",
+    "covers": [
+      "Single governance hub — all agent rules in one file",
+      "Mandatory session-close discipline (HANDOFF + STATE + audit/sessions)",
+      "Live-debt-only backlog; resolved debt to git log",
+      "Consistent folder structure enforced across federated repos",
+      "Template compliance for tasks and session records",
+      "Agent self-certification of task completion against DoD"
+    ],
+    "excludes": [
+      "Per-vendor agent capabilities or brand-specific tooling",
+      "Code quality vices inside files (covered by VC/VT catalogs)",
+      "Token spend and context efficiency (covered by CD11)"
+    ],
+    "legacy_gs_lenses": [],
+    "graph_role": "Structural foundation hub: highest fan-out in GS, touching CD01, CD02, CD04, CD05, CD07, CD13, CD14, CD15, CD16. CD13 (Knowledge Canonicalization) is the conceptual origin — GS's ingestion discipline inspired the session-close pattern here. CD01 is the most-loaded neighbor (4 SP rules); changes to either domain should trigger review of the other.",
+    "principles": [
+      { "insight_id": "SP-001", "project": "canonical-structure", "action": "Collapse all agent governance into .agents/AGENTS.md; delete all other governance files." },
+      { "insight_id": "SP-002", "project": "canonical-structure", "action": "Write every material fact into project files before session ends; chat is not durable storage." },
+      { "insight_id": "SP-003", "project": "canonical-structure", "action": "Keep tasks/backlog/ live-only; completed items are deleted after their closing commit." },
+      { "insight_id": "SP-004", "project": "canonical-structure", "action": "Delete task files on completion; the git commit message is the sole durable record." },
+      { "insight_id": "SP-005", "project": "canonical-structure", "action": "Session close (HANDOFF + STATE + audit/sessions record) is a required phase, not optional." },
+      { "insight_id": "SP-006", "project": "canonical-structure", "action": "audit.py enforces the canonical tree across CC, GS, and satellites; failing audit blocks session close." },
+      { "insight_id": "SP-007", "project": "canonical-structure", "action": "tasks/README.md and audit/README.md templates are mandatory; agents must use them." },
+      { "insight_id": "SP-008", "project": "canonical-structure", "action": "Agent self-certifies done against AGENTS.md §4 DoD; review/ only for explicitly flagged tasks." },
+      { "insight_id": "SP-009", "project": "canonical-structure", "action": "Canonicalize every material decision, session finding, and new work item before session ends — same gate as GS INGESTION_PROTOCOL, applied to project knowledge." }
     ]
   },
   "CD17": {

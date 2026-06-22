@@ -656,14 +656,18 @@ def validate_readme_counts(errors: list[str]) -> None:
 
 
 def validate_backlog_counts(errors: list[str]) -> None:
-    """Phase 2.2: the BACKLOG canonical-counts line must match the live YAML.
+    """V3.2 migration: BACKLOG.md replaced by tasks/backlog/.
 
-    Historical evidence rows may cite pre-renumber figures; the single line marked
-    CANONICAL-COUNTS is generated truth and must not drift from the catalogs.
+    If BACKLOG.md still exists (transition state), validate its CANONICAL-COUNTS line.
+    If absent, verify tasks/backlog/ exists as the replacement.
     """
     backlog_path = ROOT / "BACKLOG.md"
     if not backlog_path.exists():
-        errors.append(f"Missing BACKLOG: {backlog_path}")
+        tasks_backlog = ROOT / "tasks" / "backlog"
+        if not tasks_backlog.exists():
+            errors.append(
+                "Neither BACKLOG.md nor tasks/backlog/ found — one must exist."
+            )
         return
 
     def _count(filename: str, prefix: str) -> int:
@@ -822,7 +826,6 @@ def validate_wiki_topology(errors: list[str]) -> None:
         ROOT / "README.md",
         ROOT / "CONTRIBUTING.md",
         ROOT / "CONCEPTUAL_FRAMEWORK.md",
-        ROOT / "CODE_OF_CONDUCT.md",
     ]
     for relative_dir in ["Wiki", "Inbox"]:
         base_dir = ROOT / relative_dir

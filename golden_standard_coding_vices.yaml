@@ -3106,3 +3106,37 @@ items:
       interrupted runs and flipped the D1 integrity gate to REJECTED; it recurred 3 times
       because prior sessions deleted the zombies instead of fixing the writer.
   tier: core
+
+- id: VC-088
+  title: Execution before plan (planless agent)
+  symptom: Agent modifies files without a written step-by-step plan; steps are implicit in
+    chat or agent memory, not in a durable artifact; no checkpoint to validate against and
+    no signal when the task is complete.
+  cause: Optimism bias — agent trusts context memory over explicit checkpoints; planning
+    feels like overhead when the task seems obvious; multi-step tasks started as single-step.
+  solution: Before any multi-file change, create PLAN.md with numbered steps and explicit
+    acceptance criteria. Execute one step at a time. Delete PLAN.md in the closing commit —
+    its absence is proof of completion. If PLAN.md survives the session, the session is not done.
+  action: "Before touching any file in a task with more than one change: (1) create PLAN.md
+    with numbered steps and acceptance criteria; (2) execute one step at a time; (3) validate
+    each step against PLAN.md before proceeding; (4) delete PLAN.md in the closing commit
+    once all steps are done. Absence of PLAN.md after close = evidence of completion."
+  status: DOC_ONLY
+  severity: high
+  validating_mechanism: static-regex
+  downstream_verification: required
+  example_lang: markdown
+  example_bad: "# Agent modifies 4 files and runs a migration with no PLAN.md.\n# Steps
+    exist only in chat. Context reset = no recovery path."
+  example_good: "# PLAN.md before first file change:\n# Step 1: Create .agents/AGENTS.md
+    [acceptance: file parses, contains §0-§6]\n# Step 2: Migrate BACKLOG.md [acceptance:
+    BACKLOG.md deleted, tasks/backlog/ has N files]\n# Step 3: Delete PLAN.md [acceptance:
+    no PLAN.md in tree]"
+  detection: "Multi-file session with no PLAN.md at start. Secondary: PLAN.md present at
+    session close (never cleaned up). Tertiary: plan exists but steps unnumbered or lack
+    acceptance criteria."
+  tags:
+  - vibe-coding
+  - multi-agent
+  - process-discipline
+  tier: core
