@@ -66,7 +66,7 @@ def test_atomic_principles_create_semantic_edges_from_domains_and_vices() -> Non
 
 
 def test_graph_export_materializes_atomic_principle_relations() -> None:
-    graph = json.loads((ROOT / "golden_standard_graph.json").read_text(encoding="utf-8"))
+    graph = json.loads((ROOT / "output" / "golden_standard_graph.json").read_text(encoding="utf-8"))
     relations = {edge["relation"] for edge in graph["edges"]}
 
     assert "governed_by" in relations

@@ -45,8 +45,8 @@ if (parent_dir / ".protocol" / "metadata").is_dir():
     VERSION_FILE = parent_dir / "VERSION.txt"
 else:
     # Standalone mode
-    JSON_OUTPUT = _ROOT / "golden_standard_audit.json"
-    MARKDOWN_OUTPUT = _ROOT / "golden_standard_audit_report.md"
+    JSON_OUTPUT = _ROOT / "output" / "golden_standard_audit.json"
+    MARKDOWN_OUTPUT = _ROOT / "output" / "golden_standard_audit_report.md"
     VERSION_FILE = _ROOT / "VERSION.txt"
 
 WIKI_DIR = _ROOT / "Wiki"
@@ -298,8 +298,8 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 - 🔹 **[[Tokenomics/Automation_Tooling_Index|Automation and Tooling]]**: Active integrations and tooling that executes savings.
 - 📄 **[Root conceptual framework](../CONCEPTUAL_FRAMEWORK.md)**: Local GS base document for direct reading and graph navigation.
 - 📥 **[Inbox](../Inbox/README.md)**: Inbox for raw findings and new proposals.
-- 🧪 **[Audit Report](../golden_standard_audit_report.md)**: Compiled state of current coverage and mapping.
-- 🗺️ **[Graph JSON](../golden_standard_graph.json)**: Structured export for programmatic impact queries.
+- 🧪 **[Audit Report](../output/golden_standard_audit_report.md)**: Compiled state of current coverage and mapping.
+- 🗺️ **[Graph JSON](../output/golden_standard_graph.json)**: Structured export for programmatic impact queries.
 - 🏠 **[README](../README.md)**: Overview of the public repository.
 
 ---
@@ -2236,7 +2236,7 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     insight_records = load_project_insight_records()
     recommendations = get_canonical_domain_map()
 
-    total_vices = len(mapped_database)
+    total_vices = len([x for x in mapped_database.values() if x["category"] != "Other"])
     vc_count = len(
         [x for x in mapped_database.values() if x["category"] == "Vibe Coding"]
     )
@@ -2248,7 +2248,7 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     )
     pi_count = len(insights)
 
-    status_counts = Counter(x["status"] for x in mapped_database.values())
+    status_counts = Counter(x["status"] for x in mapped_database.values() if x["category"] != "Other")
 
     write_home_md(
         wiki_dir, total_vices, vc_count, tv_count, tk_count, pi_count, status_counts

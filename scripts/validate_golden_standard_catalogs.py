@@ -456,13 +456,14 @@ def validate_wiki_file_sets(errors: list[str]) -> None:
     testing_path = ROOT / str(catalogs.get("testing_vices", ""))
     tokenomics_path = ROOT / str(catalogs.get("tokenomics", ""))
 
+    sp_path = ROOT / str(catalogs.get("structure_principles", ""))
     allowed_vices: set[str] = set()
-    for catalog_path in [vices_path, testing_path]:
+    for catalog_path in [vices_path, testing_path, sp_path]:
         if catalog_path.exists():
             data = load_yaml(catalog_path)
             for item in data.get("items", []):
                 item_id = str(item.get("id", "")).strip()
-                if item_id.startswith(("VC-", "VT-")):
+                if item_id.startswith(("VC-", "VT-", "SP-")):
                     allowed_vices.add(item_id)
 
     allowed_tokenomics: set[str] = {

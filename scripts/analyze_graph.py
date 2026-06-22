@@ -171,7 +171,7 @@ def print_report(report: dict) -> None:
 def main():
     parser = argparse.ArgumentParser(description="Analyze GS knowledge graph")
     parser.add_argument("--format", choices=["text", "json"], default="text")
-    parser.add_argument("--graph", type=Path, default=Path("golden_standard_graph.json"))
+    parser.add_argument("--graph", type=Path, default=Path("output/golden_standard_graph.json"))
     args = parser.parse_args()
 
     if not args.graph.exists():

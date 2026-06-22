@@ -4,8 +4,8 @@ on:
   pull_request:
     paths:
       - "scripts/generate_golden_audit.py"
-      - "golden_standard*.json"
-      - "golden_standard_audit_report.md"
+      - "output/golden_standard*.json"
+      - "output/golden_standard_audit_report.md"
       - "golden_standard*.yaml"
       - "docs/badges/**"
       - "Wiki/**"
@@ -16,8 +16,8 @@ on:
       - master
     paths:
       - "scripts/generate_golden_audit.py"
-      - "golden_standard*.json"
-      - "golden_standard_audit_report.md"
+      - "output/golden_standard*.json"
+      - "output/golden_standard_audit_report.md"
       - "golden_standard*.yaml"
       - "docs/badges/**"
       - "Wiki/**"
@@ -52,9 +52,9 @@ jobs:
       - name: Verify generated artifacts are up to date
         run: |
           git diff --exit-code -- \
-            golden_standard_audit_report.md \
-            golden_standard_audit.json \
-            golden_standard_graph.json \
-            golden_standard_metrics.json \
+            output/golden_standard_audit_report.md \
+            output/golden_standard_audit.json \
+            output/golden_standard_graph.json \
+            output/golden_standard_metrics.json \
             docs/badges/ \
             Wiki/

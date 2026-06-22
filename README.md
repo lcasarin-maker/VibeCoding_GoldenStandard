@@ -72,7 +72,7 @@ They are not tied to historical lens labels. Instead, they act as the graph-awar
 - **[Conceptual Framework](CONCEPTUAL_FRAMEWORK.md)** — Root doctrine and architectural baseline
 - **[Repository Hygiene](CONCEPTUAL_FRAMEWORK.md#6-repository-and-execution-hygiene)** — Canonical cleanup and naming doctrine
 - **[Inbox](Inbox/README.md)** — Intake process for raw findings and proposed entries
-- **[Audit Report](audit/sessions/golden_standard_audit_report.md)** — Machine-generated coverage map
+- **[Audit Report](output/golden_standard_audit_report.md)** — Machine-generated coverage map
 - **[Graph](Wiki/Graph.md)** — Local knowledge graph with hubs, intentional templates, orphan candidates, and impact paths
 - **[Canonical Domains](Wiki/Domains/README.md)** — Graph-aware domain taxonomy (`CDxx`) linking principles to semantic governance areas
 - **[Tokenomics Index](Wiki/Tokenomics_Index.md)** — Dedicated token-efficiency catalog
@@ -104,7 +104,7 @@ git clone https://github.com/lcasarin-maker/VibeCoding_GoldenStandard.git
 python scripts/generate_golden_audit.py
 ```
 
-Output: `audit/sessions/golden_standard_audit_report.md` — shows the compliance map and generated status snapshot. CI also validates that the catalogs and Wiki stay in sync.
+Output: `output/golden_standard_audit_report.md` — shows the compliance map and generated status snapshot. CI also validates that the catalogs and Wiki stay in sync.
 
 ---
 
@@ -137,7 +137,8 @@ VibeCoding_GoldenStandard/
 ├── scripts/                               ← Validation helpers for CI and local checks
 │   └── validate_golden_standard_catalogs.py ← Catalog + wiki validator
 │   └── generate_golden_audit.py           ← Audit tool (moved to scripts/)
-├── golden_standard_graph.json             ← Knowledge graph export
+├── output/                                ← Generated artifacts (audit report, graph, metrics JSON)
+│   └── golden_standard_graph.json         ← Knowledge graph export
 └── deprecated/                            ← Historical artifacts
 ```
 

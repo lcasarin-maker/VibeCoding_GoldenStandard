@@ -109,7 +109,7 @@ def _badge(label: str, message: str, color: str) -> dict:
 
 def write_all() -> dict:
     m = compute_metrics()
-    (ROOT / "golden_standard_metrics.json").write_text(
+    (ROOT / "output" / "golden_standard_metrics.json").write_text(
         json.dumps(m, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
     BADGES.mkdir(exist_ok=True)

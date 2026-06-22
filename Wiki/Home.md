@@ -22,8 +22,8 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 - 🔹 **[[Tokenomics/Automation_Tooling_Index|Automation and Tooling]]**: Active integrations and tooling that executes savings.
 - 📄 **[Root conceptual framework](../CONCEPTUAL_FRAMEWORK.md)**: Local GS base document for direct reading and graph navigation.
 - 📥 **[Inbox](../Inbox/README.md)**: Inbox for raw findings and new proposals.
-- 🧪 **[Audit Report](../golden_standard_audit_report.md)**: Compiled state of current coverage and mapping.
-- 🗺️ **[Graph JSON](../golden_standard_graph.json)**: Structured export for programmatic impact queries.
+- 🧪 **[Audit Report](../output/golden_standard_audit_report.md)**: Compiled state of current coverage and mapping.
+- 🗺️ **[Graph JSON](../output/golden_standard_graph.json)**: Structured export for programmatic impact queries.
 - 🏠 **[README](../README.md)**: Overview of the public repository.
 
 ---
@@ -43,10 +43,10 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 
 | Reading | Entries | Meaning |
 |---|---:|---|
-| `PROPOSED` | 118 | The entry is documented or audited, but no enforcing implementation exists in the catalog flow. |
+| `PROPOSED` | 108 | The entry is documented or audited, but no enforcing implementation exists in the catalog flow. |
 | `ENFORCED_EXTERNAL` | 118 | The guard exists in a downstream enforcing project. |
 | `ENFORCED_LOCAL` | 12 | The guard or remediation is enforced in this repository. |
-| `Total` | 248 | Sum of the VC, VT, and TK entries audited by the compiler. |
+| `Total` | 238 | Sum of the VC, VT, and TK entries audited by the compiler. |
 
 ---
 

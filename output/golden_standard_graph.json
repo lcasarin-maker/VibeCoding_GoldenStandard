@@ -9,7 +9,7 @@
       "title": "Golden Standard — Conceptual Framework",
       "kind": "conceptual-framework",
       "created": "2026-06-04T20:05:31-06:00",
-      "promoted": "2026-06-22T14:27:07-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [],
       "incoming": [
         "Home",
@@ -51,7 +51,7 @@
       "title": "Contributing to the Golden Standard",
       "kind": "contributing",
       "created": "2026-06-04T20:05:31-06:00",
-      "promoted": "2026-06-22T14:27:07-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [],
       "incoming": [
         "README"
@@ -84,7 +84,7 @@
       "title": "🏛️ Golden Standard — The AI Vibe Coding Knowledge Base",
       "kind": "root",
       "created": "2026-06-04T20:05:31-06:00",
-      "promoted": "2026-06-22T15:11:53-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "CONTRIBUTING",
@@ -2961,7 +2961,7 @@
       "title": "CD13 — Knowledge Canonicalization & Ingestion",
       "kind": "domain",
       "created": "2026-06-17T10:54:00-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Domains/README",
         "Home",
@@ -3485,8 +3485,8 @@
       "path": "Wiki/Domains/CD18.md",
       "title": "CD18 — Multi-Agent Project Governance",
       "kind": "domain",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Domains/README",
         "Home"
@@ -3537,7 +3537,7 @@
       "title": "Canonical Domains Index",
       "kind": "domain",
       "created": "2026-06-17T10:54:00-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Domains/CD01",
         "Domains/CD02",
@@ -8424,7 +8424,7 @@
       "title": "Golden Standard Wiki",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-22T14:01:05-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
@@ -30347,8 +30347,8 @@
       "path": "Wiki/Vices/SP-001.md",
       "title": "SP-001: Single governance hub",
       "kind": "vice",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Home",
         "Principles/PR-097",
@@ -30406,8 +30406,8 @@
       "path": "Wiki/Vices/SP-002.md",
       "title": "SP-002: No material fact in chat",
       "kind": "vice",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Home",
         "Principles/PR-097",
@@ -30465,8 +30465,8 @@
       "path": "Wiki/Vices/SP-003.md",
       "title": "SP-003: Live debt only in backlog",
       "kind": "vice",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Home",
         "Principles/PR-097",
@@ -30524,8 +30524,8 @@
       "path": "Wiki/Vices/SP-004.md",
       "title": "SP-004: Resolved debt goes to git log only",
       "kind": "vice",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Home",
         "Principles/PR-097",
@@ -30583,8 +30583,8 @@
       "path": "Wiki/Vices/SP-005.md",
       "title": "SP-005: Session close is mandatory",
       "kind": "vice",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Home",
         "Principles/PR-097",
@@ -30642,8 +30642,8 @@
       "path": "Wiki/Vices/SP-006.md",
       "title": "SP-006: Consistent structure across federated repos",
       "kind": "vice",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Home",
         "Principles/PR-097",
@@ -30701,8 +30701,8 @@
       "path": "Wiki/Vices/SP-007.md",
       "title": "SP-007: Templates mandatory for tasks and sessions",
       "kind": "vice",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Home",
         "Principles/PR-097",
@@ -30760,8 +30760,8 @@
       "path": "Wiki/Vices/SP-008.md",
       "title": "SP-008: Agent self-certifies task completion",
       "kind": "vice",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Home",
         "Principles/PR-097",
@@ -30819,8 +30819,8 @@
       "path": "Wiki/Vices/SP-009.md",
       "title": "SP-009: Project knowledge must be canonicalized before session end",
       "kind": "vice",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Home",
         "Principles/PR-097",
@@ -30878,8 +30878,8 @@
       "path": "Wiki/Vices/SP-010.md",
       "title": "SP-010: Knowledge repo root discipline",
       "kind": "vice",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Home",
         "Principles/PR-097",
@@ -38450,7 +38450,7 @@
       "title": "VC-088: Execution before plan (planless agent)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-16T18:32:06-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Home",
         "Principles/PR-097",
@@ -47585,7 +47585,7 @@
       "title": "Engineering Vices Index",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-21T17:12:04-06:00",
+      "promoted": "2026-06-22T15:20:59-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-001",
@@ -69490,8 +69490,8 @@
         "path": "Wiki/Vices/SP-001.md",
         "title": "SP-001: Single governance hub",
         "kind": "vice",
-        "created": null,
-        "promoted": null,
+        "created": "2026-06-22T15:20:59-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Home",
           "Principles/PR-097",
@@ -69549,8 +69549,8 @@
         "path": "Wiki/Vices/SP-002.md",
         "title": "SP-002: No material fact in chat",
         "kind": "vice",
-        "created": null,
-        "promoted": null,
+        "created": "2026-06-22T15:20:59-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Home",
           "Principles/PR-097",
@@ -69608,8 +69608,8 @@
         "path": "Wiki/Vices/SP-003.md",
         "title": "SP-003: Live debt only in backlog",
         "kind": "vice",
-        "created": null,
-        "promoted": null,
+        "created": "2026-06-22T15:20:59-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Home",
           "Principles/PR-097",
@@ -69667,8 +69667,8 @@
         "path": "Wiki/Vices/SP-004.md",
         "title": "SP-004: Resolved debt goes to git log only",
         "kind": "vice",
-        "created": null,
-        "promoted": null,
+        "created": "2026-06-22T15:20:59-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Home",
           "Principles/PR-097",
@@ -69726,8 +69726,8 @@
         "path": "Wiki/Vices/SP-005.md",
         "title": "SP-005: Session close is mandatory",
         "kind": "vice",
-        "created": null,
-        "promoted": null,
+        "created": "2026-06-22T15:20:59-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Home",
           "Principles/PR-097",
@@ -69785,8 +69785,8 @@
         "path": "Wiki/Vices/SP-006.md",
         "title": "SP-006: Consistent structure across federated repos",
         "kind": "vice",
-        "created": null,
-        "promoted": null,
+        "created": "2026-06-22T15:20:59-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Home",
           "Principles/PR-097",
@@ -69844,8 +69844,8 @@
         "path": "Wiki/Vices/SP-007.md",
         "title": "SP-007: Templates mandatory for tasks and sessions",
         "kind": "vice",
-        "created": null,
-        "promoted": null,
+        "created": "2026-06-22T15:20:59-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Home",
           "Principles/PR-097",
@@ -69903,8 +69903,8 @@
         "path": "Wiki/Vices/SP-008.md",
         "title": "SP-008: Agent self-certifies task completion",
         "kind": "vice",
-        "created": null,
-        "promoted": null,
+        "created": "2026-06-22T15:20:59-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Home",
           "Principles/PR-097",
@@ -69962,8 +69962,8 @@
         "path": "Wiki/Vices/SP-009.md",
         "title": "SP-009: Project knowledge must be canonicalized before session end",
         "kind": "vice",
-        "created": null,
-        "promoted": null,
+        "created": "2026-06-22T15:20:59-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Home",
           "Principles/PR-097",
@@ -70021,8 +70021,8 @@
         "path": "Wiki/Vices/SP-010.md",
         "title": "SP-010: Knowledge repo root discipline",
         "kind": "vice",
-        "created": null,
-        "promoted": null,
+        "created": "2026-06-22T15:20:59-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Home",
           "Principles/PR-097",
@@ -70083,7 +70083,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-22T14:01:05-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -73370,7 +73370,7 @@
         "title": "Engineering Vices Index",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-21T17:12:04-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Home",
           "Vices/VC-001",
@@ -81573,7 +81573,7 @@
         "title": "Canonical Domains Index",
         "kind": "domain",
         "created": "2026-06-17T10:54:00-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Domains/CD01",
           "Domains/CD02",
@@ -86244,7 +86244,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-22T14:01:05-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -91506,7 +91506,7 @@
         "title": "Canonical Domains Index",
         "kind": "domain",
         "created": "2026-06-17T10:54:00-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-22T15:20:59-06:00",
         "outgoing": [
           "Domains/CD01",
           "Domains/CD02",
