@@ -7,7 +7,7 @@ on:
       - "golden_standard*.json"
       - "golden_standard_audit_report.md"
       - "golden_standard*.yaml"
-      - "badges/**"
+      - "docs/badges/**"
       - "Wiki/**"
       - "scripts/**"
       - ".github/workflows/audit.yml"
@@ -19,7 +19,7 @@ on:
       - "golden_standard*.json"
       - "golden_standard_audit_report.md"
       - "golden_standard*.yaml"
-      - "badges/**"
+      - "docs/badges/**"
       - "Wiki/**"
       - "scripts/**"
       - ".github/workflows/audit.yml"
@@ -56,5 +56,5 @@ jobs:
             golden_standard_audit.json \
             golden_standard_graph.json \
             golden_standard_metrics.json \
-            badges/ \
+            docs/badges/ \
             Wiki/

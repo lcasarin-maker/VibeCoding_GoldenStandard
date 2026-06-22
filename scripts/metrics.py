@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from detectors import DETECTORS  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
-BADGES = ROOT / "badges"
+BADGES = ROOT / "docs" / "badges"
 CATALOGS = (
     "golden_standard_coding_vices.yaml",
     "golden_standard_testing_vices.yaml",
