@@ -1,21 +1,20 @@
-# Knowledge Index
+# knowledge/ — Protocol & Sources
 
-This is the entry point for the Golden Standard knowledge loop.
+GS-specific governance documents for knowledge intake and consumer contracts.
+This folder holds **operational protocols**, not catalog content. The catalogs are at root.
 
-## Routes
+## Contents
 
-- [`knowledge.md`](knowledge.md) - confirmed facts and durable patterns.
-- [`hypotheses.md`](hypotheses.md) - open hypotheses and unresolved ideas.
-- [`rules.md`](rules.md) - confirmed rules and doctrine.
-- [`INGESTION_PROTOCOL.md`](../INGESTION_PROTOCOL.md) - how raw findings enter the catalog.
-- [`CONTRIBUTING.md`](../CONTRIBUTING.md) - contributor workflow and quality rules.
-- [`Wiki/`](../Wiki) - the live navigable knowledge graph.
-- [`Inbox/`](../Inbox) - raw intake and unconfirmed hypotheses.
+- [`INGESTION_PROTOCOL.md`](INGESTION_PROTOCOL.md) — quality gate: how raw findings become catalog entries
+- [`KNOWLEDGE_SOURCES.md`](KNOWLEDGE_SOURCES.md) — authorized sources and their contracts
+- [`CONSUMER_CONTRACT.md`](CONSUMER_CONTRACT.md) — boundary contract for downstream consumers of GS
 
-## Working Loop
+## How knowledge flows
 
-1. Review existing rules before starting a task.
-2. Check whether a current hypothesis can be tested with the work at hand.
-3. Capture confirmed lessons at the end of the task.
-4. Promote a hypothesis after repeated confirmation.
-5. Demote or archive a rule when new evidence contradicts it.
+```
+Inbox/   →  INGESTION_PROTOCOL.md  →  YAML catalogs (root)  →  Wiki/
+(raw)         (quality gate)            (curated)               (navigation)
+```
+
+Hypotheses live in `Inbox/`. Promoted findings go into the YAML catalogs.
+There is no intermediate holding area — if it is not in the catalog, it is not GS knowledge.

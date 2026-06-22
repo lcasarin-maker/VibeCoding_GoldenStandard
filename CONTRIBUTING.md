@@ -9,7 +9,7 @@ Thank you for helping make this knowledge base better. Every real failure you've
 Before starting new work:
 
 1. Review [`knowledge/INDEX.md`](knowledge/INDEX.md) if present, plus
-   [`INGESTION_PROTOCOL.md`](INGESTION_PROTOCOL.md), [`CONSUMER_CONTRACT.md`](CONSUMER_CONTRACT.md),
+   [`INGESTION_PROTOCOL.md`](knowledge/INGESTION_PROTOCOL.md), [`CONSUMER_CONTRACT.md`](knowledge/CONSUMER_CONTRACT.md),
    and the relevant Wiki domain pages.
 2. Apply existing rules by default.
 3. If a hypothesis can be tested with today's work, test it now.

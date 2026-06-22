@@ -3,8 +3,8 @@
 This directory is the **intake mailbox** of the knowledge base.
 Raw findings are deposited here before being curated and promoted to the catalog.
 
-> **For the full ingestion protocol, see:** [`INGESTION_PROTOCOL.md`](../INGESTION_PROTOCOL.md)  
-> **For authorized sources and their contracts, see:** [`KNOWLEDGE_SOURCES.md`](../KNOWLEDGE_SOURCES.md)
+> **For the full ingestion protocol, see:** [`INGESTION_PROTOCOL.md`](../knowledge/INGESTION_PROTOCOL.md)  
+> **For authorized sources and their contracts, see:** [`KNOWLEDGE_SOURCES.md`](../knowledge/KNOWLEDGE_SOURCES.md)
 
 ---
 
@@ -40,7 +40,7 @@ Inbox/
    ```
 4. Commit with the message: `inbox: <source> finding <slug>`
 
-The curator will review the finding and promote it to the YAML catalog + Wiki following [`INGESTION_PROTOCOL.md`](../INGESTION_PROTOCOL.md).
+The curator will review the finding and promote it to the YAML catalog + Wiki following [`INGESTION_PROTOCOL.md`](../knowledge/INGESTION_PROTOCOL.md).
 
 ### Depth Requirement (Definition of Done)
 

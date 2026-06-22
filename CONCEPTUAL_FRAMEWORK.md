@@ -213,7 +213,7 @@ Legacy materials are preserved in git history (tag `pre-reset-2026-06-20`) for t
 ## Source Ecosystem
 
 Knowledge enters the Golden Standard through **authorized sources** with defined contracts.
-See [`KNOWLEDGE_SOURCES.md`](KNOWLEDGE_SOURCES.md) for the full source registry.
+See [`KNOWLEDGE_SOURCES.md`](knowledge/KNOWLEDGE_SOURCES.md) for the full source registry.
 
 ```
 ┌─────────────────┐    Inbox/manual/      ┌──────────────────────────────────┐

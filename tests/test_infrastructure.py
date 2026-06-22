@@ -29,7 +29,7 @@ def test_audit_workflow_runs_validator_and_regenerator() -> None:
 
 def test_onboarding_knowledge_loop_is_documented() -> None:
     contributing = (ROOT / "CONTRIBUTING.md").read_text(encoding="utf-8")
-    ingestion = (ROOT / "INGESTION_PROTOCOL.md").read_text(encoding="utf-8")
+    ingestion = (ROOT / "knowledge" / "INGESTION_PROTOCOL.md").read_text(encoding="utf-8")
     index = (ROOT / "knowledge" / "INDEX.md").read_text(encoding="utf-8")
 
     assert "Apply existing rules by default" in contributing
@@ -46,6 +46,6 @@ def test_onboarding_knowledge_loop_is_documented() -> None:
     assert "work that can still be done now" in contributing
     assert "Unconfirmed observations are hypotheses" in ingestion
     assert "today's work" in ingestion
-    assert "knowledge.md" in index
-    assert "hypotheses.md" in index
-    assert "rules.md" in index
+    assert "INGESTION_PROTOCOL.md" in index
+    assert "KNOWLEDGE_SOURCES.md" in index
+    assert "CONSUMER_CONTRACT.md" in index
