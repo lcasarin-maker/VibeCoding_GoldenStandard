@@ -8,9 +8,9 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 116 | 28 | 88 | 100% |
-| **Vibe Coding** | 88 | 69 | 19 | 100% |
-| **Tokenomics & Context** | 34 | 34 | 0 | 100% |
-| **Total** | 248 | 138 | 110 | 100% |
+| **Vibe Coding** | 88 | 68 | 20 | 100% |
+| **Tokenomics & Context** | 34 | 33 | 1 | 100% |
+| **Total** | 248 | 136 | 112 | 100% |
 
 ---
 
@@ -162,7 +162,7 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `VC-019` | State Concurrency Drift (Dual-Session Drift) | **high** | **PREVENTED** | `none` | State must stay consistent across concurrent sessions: a parity check fails when the protocol fingerprint diverges between two sessions.  | `test_F6_sync_binding_no_protocol_drift` |
 | `VC-020` | Lying documentation | **medium** | **PREVENTED** | `none` | Documentation must not lie: link-integrity and count-parity validation fail when docs drift away from the generated state.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-021` | Late schema | **medium** | **PREVENTED** | `required` | Code accesses fields that are not declared in the schema or model, leading to runtime AttributeError and silent data corruption when the model changes.  | `scripts/validate_golden_standard_catalogs.py` |
-| `VC-022` | Spatial blindness | **medium** | **PREVENTED** | `required` | UI code is generated without a structured layout system, producing a fragile visual hierarchy that breaks on different screen sizes and is unmaintainable.  | `scripts/validate_golden_standard_catalogs.py` |
+| `VC-022` | Spatial blindness | **medium** | **DOC_ONLY** | `required` | UI code is generated without a structured layout system, producing a fragile visual hierarchy that breaks on different screen sizes and is unmaintainable.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-023` | Unmapped dependencies | **medium** | **PREVENTED** | `none` | Dependencies must be mapped: the graph and link validator require canonical surfaces to be linked and resolvable rather than assumed.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-024` | Blind shell manipulation | **medium** | **PREVENTED** | `required` | Static detector `vc070_blind_shell_edit` flags shell-based mutation of structured files; use a parser instead of sed/awk/grep-based edits. | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-025` | I/O without validation | **medium** | **PREVENTED** | `required` | Static detector `vc025_io_without_validation` flags external input that reaches a sink without boundary validation. | `static-regex` |
@@ -263,7 +263,7 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `TK-027` | Response without a mode | **low** | **PREVENTED** | `none` | Route work by phase - think, execute, review - so the agent knows its mode; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.  | `scripts/validate_golden_standard_catalogs.py` |
 | `TK-028` | Forgettable manual monitoring | **low** | **PREVENTED** | `none` | Make thresholds visible and automatable so the user does not manually count messages; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.  | `scripts/validate_golden_standard_catalogs.py` |
 | `TK-029` | Full-state re-reading | **medium** | **REMEDIATED** | `none` | Core memory manifests must stay under fixed line budgets so context is not saturated; a static size gate fails when a manifest exceeds its budget.  | `audit_d10_tokenomics` |
-| `TK-030` | Non-integrated external tools | **medium** | **REMEDIATED** | `none` | Every script path cited in the authority/budget docs must exist on disk; a static reference check fails on dangling citations (spectral scripts).  | `audit_d10_tokenomics` |
+| `TK-030` | Non-integrated external tools | **medium** | **DOC_ONLY** | `required` | Every script path cited in the authority/budget docs must exist on disk; a static reference check fails on dangling citations (spectral scripts).  | `audit_d10_tokenomics` |
 | `TK-031` | Promised savings not measured | **low** | **PREVENTED** | `none` | Measure token usage before and after so a reduction is not merely declared; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.  | `scripts/validate_golden_standard_catalogs.py` |
 | `TK-032` | Invisible quotas | **low** | **PREVENTED** | `none` | Plan for limits, backoff, and degradation so the session is not cut off by unbudgeted quotas; the canonical measurement-and-telemetry guidance must stay published and linked from the index, which a CI link-check verifies.  | `scripts/validate_golden_standard_catalogs.py` |
 | `TK-033` | Entropy without pruning — input governance without output governance | **low** | **PREVENTED** | `none` | Govern output as strictly as input by hunting orphans and dead artifacts as a gate, not only blocking junk on the way in; the canonical guidance must stay published and linked from the index, which a CI link-check verifies.  | `scripts/validate_golden_standard_catalogs.py` |

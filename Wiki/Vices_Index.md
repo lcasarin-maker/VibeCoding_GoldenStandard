@@ -26,7 +26,7 @@ This index classifies the Golden Standard vices into VC and VT. Tokenomics lives
 *   [[Vices/VC-019|VC-019]] — **State Concurrency Drift (Dual-Session Drift)** (PREVENTED, high, downstream:none)
 *   [[Vices/VC-020|VC-020]] — **Lying documentation** (PREVENTED, medium, downstream:none)
 *   [[Vices/VC-021|VC-021]] — **Late schema** (PREVENTED, medium, downstream:required)
-*   [[Vices/VC-022|VC-022]] — **Spatial blindness** (PREVENTED, medium, downstream:required)
+*   [[Vices/VC-022|VC-022]] — **Spatial blindness** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-023|VC-023]] — **Unmapped dependencies** (PREVENTED, medium, downstream:none)
 *   [[Vices/VC-024|VC-024]] — **Blind shell manipulation** (PREVENTED, medium, downstream:required)
 *   [[Vices/VC-025|VC-025]] — **I/O without validation** (PREVENTED, medium, downstream:required)

@@ -556,6 +556,28 @@ def vc012_invisible_debt(code: str) -> bool:
     return bool(_INVISIBLE_DEBT.search(code))
 
 
+_OPTIMISTIC_CONFIG = re.compile(
+    r"(?:DEBUG|TESTING)\s*=\s*True"
+    r"|(?:DATABASE_URL|API_KEY|SECRET_KEY|PASSWORD)\s*=\s*['\"]",
+    re.IGNORECASE,
+)
+
+
+def vc038_optimistic_config(code: str) -> bool:
+    return bool(_OPTIMISTIC_CONFIG.search(code))
+
+
+_SELF_POLLUTING = re.compile(
+    r'TemporaryDirectory\s*\(.*dir\s*='
+    r'|mkdtemp\s*\(.*dir\s*='
+    r'|tempfile\.tempdir\s*=',
+)
+
+
+def vc087_self_polluting_tooling(code: str) -> bool:
+    return bool(_SELF_POLLUTING.search(code))
+
+
 # Registry: catalog id -> detector. Keep in sync with the entries' `detector` field.
 DETECTORS = {
     "VC-005": vc005_premature_closure,
@@ -579,6 +601,8 @@ DETECTORS = {
     "VC-070": vc138_insecure_defaults,
     "VC-078": vc078_excessive_agency,
     "VC-012": vc012_invisible_debt,
+    "VC-038": vc038_optimistic_config,
+    "VC-087": vc087_self_polluting_tooling,
 
     "VT-043": vt043_unconditional_exit_zero,
     "VC-071": vc071_blind_trust_in_llm_output,

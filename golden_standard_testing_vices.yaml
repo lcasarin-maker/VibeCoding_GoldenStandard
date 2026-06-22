@@ -11,17 +11,14 @@ items:
   tags:
   - testing
   - prevented
-  action: 'A test must assert general properties, not a single hardcoded return value that the implementation can trivially
-    satisfy.
+  action: 'A test must assert general properties, not a single hardcoded return value that the implementation can trivially satisfy.
 
     '
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "# The function returns a constant to 'pass' the test; it implements nothing.\ndef total(cart):\n    return\
-    \ 42          # hardcoded so the test goes green\n\ndef test_total():\n    assert total(demo_cart) == 42\n"
-  example_good: "# The test fixes the real expected result; the function must compute it.\ndef total(cart):\n    return sum(i.price\
-    \ for i in cart.items)\n\ndef test_total():\n    assert total(Cart([Item(10), Item(32)])) == 42\n"
+  example_bad: "# The function returns a constant to 'pass' the test; it implements nothing.\ndef total(cart):\n    return 42          # hardcoded so the test goes green\n\ndef test_total():\n    assert total(demo_cart) == 42\n"
+  example_good: "# The test fixes the real expected result; the function must compute it.\ndef total(cart):\n    return sum(i.price for i in cart.items)\n\ndef test_total():\n    assert total(Cart([Item(10), Item(32)])) == 42\n"
   detection: 'AST: function under test whose body is a single return of a constant literal, with a
 
     test that asserts exactly that literal.
@@ -29,9 +26,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: core
+  test_ref: tool:ruff
 - id: VT-002
   title: Permanent stub
   symptom: A fake body passes
@@ -42,17 +39,14 @@ items:
   tags:
   - testing
   - prevented
-  action: 'A placeholder body on an active path is not an implementation: completeness analysis rejects fake bodies that pass
-    without doing the work.
+  action: 'A placeholder body on an active path is not an implementation: completeness analysis rejects fake bodies that pass without doing the work.
 
     '
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "# Permanent stub shipped to production as if it were implemented.\ndef charge(amount):\n    pass   # TODO:\
-    \ implement (6 months and counting)\n"
-  example_good: "# Real implementation; if not ready, it fails loudly, not silently.\ndef charge(amount):\n    raise NotImplementedError(\"\
-    charge() pending - do not use in prod\")\n"
+  example_bad: "# Permanent stub shipped to production as if it were implemented.\ndef charge(amount):\n    pass   # TODO: implement (6 months and counting)\n"
+  example_good: "# Real implementation; if not ready, it fails loudly, not silently.\ndef charge(amount):\n    raise NotImplementedError(\"charge() pending - do not use in prod\")\n"
   detection: 'AST: functions whose body is only ''pass''/''...''/docstring (stub) that are not
 
     marked as abstract nor raise NotImplementedError.
@@ -60,9 +54,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: core
+  test_ref: tool:ruff
 - id: VT-003
   title: Response by exact datum
   symptom: Only passes the test's input
@@ -73,8 +67,7 @@ items:
   tags:
   - testing
   - audited
-  action: 'A test must generalize beyond the one input it was written for; an assertion that only holds for a single hardcoded
-    datum proves nothing.
+  action: 'A test must generalize beyond the one input it was written for; an assertion that only holds for a single hardcoded datum proves nothing.
 
     '
   validating_mechanism: static-ast
@@ -91,9 +84,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-004
   title: Copying the expected value
   symptom: The expected value ends up copied inside the code or the fixture and stops being an independent observation
@@ -104,8 +97,7 @@ items:
   tags:
   - testing
   - audited
-  action: 'The expected value must come from an independent specification, not be copied into the production path or fixture
-    where it stops being an independent observation.
+  action: 'The expected value must come from an independent specification, not be copied into the production path or fixture where it stops being an independent observation.
 
     '
   validating_mechanism: static-ast
@@ -124,9 +116,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-005
   detector: vt005_assert_true
   title: Trivial assert
@@ -144,10 +136,8 @@ items:
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "def test_login():\n    user = login(\"a\", \"b\")\n    assert True    # trivial assert: always passes, does\
-    \ not verify the login\n"
-  example_good: "def test_login():\n    user = login(\"a\", \"b\")\n    assert user.is_authenticated and user.name == \"a\"\
-    \n"
+  example_bad: "def test_login():\n    user = login(\"a\", \"b\")\n    assert True    # trivial assert: always passes, does not verify the login\n"
+  example_good: "def test_login():\n    user = login(\"a\", \"b\")\n    assert user.is_authenticated and user.name == \"a\"\n"
   detection: 'AST TestTheaterVisitor: presence of ''assert True'' / ''assertTrue(True)'' as the test''s
 
     only assertion.
@@ -155,9 +145,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: core
+  test_ref: scripts/detectors.py::vt005_assert_true
 - id: VT-006
   detector: vt006_test_without_assert
   title: Test without assert
@@ -175,11 +165,8 @@ items:
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "# The agent generates a test that runs the code but verifies nothing.\n# Always passes (even if discount()\
-    \ returns garbage) -> security theater.\ndef test_apply_discount():\n    cart = Cart(items=[Item(price=100)])\n    cart.apply_discount(0.1)\n\
-    \    # no assert: the method runs and the test \"passes\"\n"
-  example_good: "# The test fixes an explicit oracle on the observable result.\ndef test_apply_discount():\n    cart = Cart(items=[Item(price=100)])\n\
-    \    cart.apply_discount(0.1)\n    assert cart.total() == 90  # behavior, not mere execution\n"
+  example_bad: "# The agent generates a test that runs the code but verifies nothing.\n# Always passes (even if discount() returns garbage) -> security theater.\ndef test_apply_discount():\n    cart = Cart(items=[Item(price=100)])\n    cart.apply_discount(0.1)\n    # no assert: the method runs and the test \"passes\"\n"
+  example_good: "# The test fixes an explicit oracle on the observable result.\ndef test_apply_discount():\n    cart = Cart(items=[Item(price=100)])\n    cart.apply_discount(0.1)\n    assert cart.total() == 90  # behavior, not mere execution\n"
   detection: 'AST: flag `test_*` functions whose body contains no active `assert`, or
 
     whose asserts are tautological (`assert True`, `assertEqual(x, x)`). A test without
@@ -189,9 +176,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: coding agents generate tests without assertions and without invoking the focal method at a measurable frequency;
-      excessive mocking aggravates the problem.
+    claim: coding agents generate tests without assertions and without invoking the focal method at a measurable frequency; excessive mocking aggravates the problem.
   tier: core
+  test_ref: scripts/detectors.py::vt006_test_without_assert
 - id: VT-007
   title: Presence not correctness
   symptom: The file exists
@@ -219,9 +206,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-008
   title: Message not result
   symptom: Looks for approval text
@@ -249,9 +236,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-009
   detector: vt009_tautological_assert
   title: Tautology
@@ -278,9 +265,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: core
+  test_ref: scripts/detectors.py::vt009_tautological_assert
 - id: VT-010
   title: Implementation test
   symptom: Internals change, it still passes
@@ -291,8 +278,7 @@ items:
   tags:
   - testing
   - audited
-  action: 'Test observable behavior, not internal implementation detail, so a behavior-preserving refactor keeps the test
-    meaningful.
+  action: 'Test observable behavior, not internal implementation detail, so a behavior-preserving refactor keeps the test meaningful.
 
     '
   validating_mechanism: static-ast
@@ -309,9 +295,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-011
   title: Incorrect expected value
   symptom: The test compares against an expectation that no longer matches the current specification
@@ -322,8 +308,7 @@ items:
   tags:
   - testing
   - audited
-  action: 'The expected value (oracle) must track the current specification; an assertion compared against a stale expectation
-    is invalid.
+  action: 'The expected value (oracle) must track the current specification; an assertion compared against a stale expectation is invalid.
 
     '
   validating_mechanism: static-ast
@@ -340,9 +325,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-012
   title: Coverage without asserts
   symptom: Runs without verifying
@@ -359,10 +344,8 @@ items:
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "# Calls everything to raise coverage, but asserts nothing.\ndef test_pipeline():\n    run_stage_a(); run_stage_b();\
-    \ run_stage_c()   # 100% lines, 0% verification\n"
-  example_good: "def test_pipeline():\n    out = run_stage_c(run_stage_b(run_stage_a(seed)))\n    assert out.status == \"\
-    done\" and out.rows == 3\n"
+  example_bad: "# Calls everything to raise coverage, but asserts nothing.\ndef test_pipeline():\n    run_stage_a(); run_stage_b(); run_stage_c()   # 100% lines, 0% verification\n"
+  example_good: "def test_pipeline():\n    out = run_stage_c(run_stage_b(run_stage_a(seed)))\n    assert out.status == \"done\" and out.rows == 3\n"
   detection: 'Cross coverage with assert density: files with high coverage and tests without
 
     active asserts = inflated coverage.
@@ -370,9 +353,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: core
+  test_ref: tool:ruff
 - id: VT-013
   title: Tests for percentage
   symptom: Gamified coverage
@@ -396,8 +379,7 @@ items:
     def test_b(): mod.helper()        # calls without verifying
 
     '
-  example_good: "# The goal is verified behavior, not the coverage number.\ndef test_helper_doubles():\n    assert mod.helper(2)\
-    \ == 4\n"
+  example_good: "# The goal is verified behavior, not the coverage number.\ndef test_helper_doubles():\n    assert mod.helper(2) == 4\n"
   detection: 'Detect tests whose declared purpose/commit is ''raise coverage'' and whose body
 
     lacks asserts on results.
@@ -405,9 +387,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-014
   title: Circular test
   symptom: The auditor approves itself
@@ -435,9 +417,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: core
+  test_ref: tool:ruff
 - id: VT-015
   title: Test too broad
   symptom: Does not localize the failure
@@ -448,8 +430,7 @@ items:
   tags:
   - testing
   - audited
-  action: 'A test should localize the failure it detects; an over-broad test that cannot point to the cause has little diagnostic
-    value.
+  action: 'A test should localize the failure it detects; an over-broad test that cannot point to the cause has little diagnostic value.
 
     '
   validating_mechanism: static-ast
@@ -466,9 +447,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-016
   title: Ceremonial textual assertion
   symptom: The text exists
@@ -485,8 +466,7 @@ items:
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "# Weak textual assertion: passes with almost any output.\ndef test_report():\n    r = build_report()\n   \
-    \ assert \"ok\" in str(r).lower()   # theatrical\n"
+  example_bad: "# Weak textual assertion: passes with almost any output.\ndef test_report():\n    r = build_report()\n    assert \"ok\" in str(r).lower()   # theatrical\n"
   example_good: "def test_report():\n    r = build_report()\n    assert r.total == 100 and r.errors == []\n"
   detection: 'Flag asserts that only check vague substrings (''ok'',''success'',''done'') over
 
@@ -495,9 +475,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-017
   title: Hardcoded evidence
   symptom: outcome always success
@@ -525,9 +505,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-018
   title: Fragile string matching
   symptom: The message changes the result
@@ -555,9 +535,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-019
   title: Valid error hash
   symptom: UNREADABLE looks like data
@@ -589,9 +569,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-020
   title: One hundred percent as the goal
   symptom: Tests are gamed
@@ -602,8 +582,7 @@ items:
   tags:
   - testing
   - audited
-  action: 'One hundred percent coverage is a consequence of good tests, never the goal; treating it as the target invites
-    gaming.
+  action: 'One hundred percent coverage is a consequence of good tests, never the goal; treating it as the target invites gaming.
 
     '
   validating_mechanism: static-ast
@@ -620,9 +599,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-021
   title: Regression without a sentinel
   symptom: An old error reappears
@@ -650,9 +629,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-022
   title: Green ceremony and Tautological Assertions
   symptom: Useless passing tests that do not discriminate logical breaks
@@ -669,8 +648,7 @@ items:
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "# Guaranteed 'green': a combination of tautological asserts.\ndef test_calc():\n    assert 1 == 1\n    assert\
-    \ isinstance(calc(2), int)   # does not fix the value\n"
+  example_bad: "# Guaranteed 'green': a combination of tautological asserts.\ndef test_calc():\n    assert 1 == 1\n    assert isinstance(calc(2), int)   # does not fix the value\n"
   example_good: "def test_calc():\n    assert calc(2) == 4\n"
   detection: 'AST: tests whose asserts are all tautological or type-based (isinstance) without fixing
 
@@ -679,9 +657,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-023
   title: Complacent mock
   symptom: Simulates success
@@ -709,9 +687,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-024
   title: Incomplete fake
   symptom: Omits hard cases
@@ -737,9 +715,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-025
   title: Network stub
   symptom: Stale response
@@ -767,9 +745,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-026
   title: Simplified database
   symptom: Rules differ
@@ -797,9 +775,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-027
   title: Fixed clock
   symptom: Dates always ideal
@@ -827,9 +805,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-028
   title: Controlled randomness
   symptom: Does not explore the distribution
@@ -857,9 +835,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-029
   title: Fake filesystem
   symptom: Does not test permissions or locks
@@ -887,9 +865,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-030
   title: Friendly monkey patch
   symptom: The real system is not tested
@@ -917,9 +895,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-031
   title: Command stub
   symptom: Prints "installed"
@@ -947,9 +925,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-032
   title: Partial mock scan
   symptom: Does not cover the tests
@@ -977,9 +955,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-033
   title: Wrapper as remediation
   symptom: A layer is created so the validator does not fail
@@ -1005,9 +983,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-034
   title: Approved placeholder
   symptom: The evaluator accepts an incomplete structure
@@ -1018,8 +996,7 @@ items:
   tags:
   - testing
   - audited
-  action: 'Require observable behavior before approval; an evaluator that accepts an incomplete structure rubber-stamps a
-    placeholder.
+  action: 'Require observable behavior before approval; an evaluator that accepts an incomplete structure rubber-stamps a placeholder.
 
     '
   validating_mechanism: static-ast
@@ -1036,9 +1013,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-035
   title: Permanent xfail
   symptom: Ignored failure
@@ -1055,10 +1032,8 @@ items:
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "@pytest.mark.xfail   # marked as an expected failure... forever\ndef test_refund():\n    assert refund(order)\
-    \ == 0\n"
-  example_good: "# If the bug was fixed, the xfail must drop; if it persists, it carries a date and ticket.\n@pytest.mark.xfail(reason=\"\
-    BUG-123, review 2026-07\", strict=True)\ndef test_refund():\n    assert refund(order) == 0\n"
+  example_bad: "@pytest.mark.xfail   # marked as an expected failure... forever\ndef test_refund():\n    assert refund(order) == 0\n"
+  example_good: "# If the bug was fixed, the xfail must drop; if it persists, it carries a date and ticket.\n@pytest.mark.xfail(reason=\"BUG-123, review 2026-07\", strict=True)\ndef test_refund():\n    assert refund(order) == 0\n"
   detection: 'Detect @xfail/@expectedFailure without reason+date/ticket or without strict=True
 
     (silent xpass).
@@ -1066,9 +1041,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: core
+  test_ref: tool:ruff
 - id: VT-036
   title: Permanent skip
   symptom: Does not run
@@ -1086,8 +1061,7 @@ items:
   downstream_verification: none
   example_lang: python
   example_bad: "@pytest.mark.skip   # permanently skipped, without condition or reason\ndef test_payment():\n    ...\n"
-  example_good: "@pytest.mark.skipif(no_sandbox(), reason=\"requires a payments sandbox, BUG-77\")\ndef test_payment():\n\
-    \    ...\n"
+  example_good: "@pytest.mark.skipif(no_sandbox(), reason=\"requires a payments sandbox, BUG-77\")\ndef test_payment():\n    ...\n"
   detection: 'Detect unconditional @skip without a reason or expiration date; prefer skipif with
 
     a verifiable condition.
@@ -1095,9 +1069,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: core
+  test_ref: tool:ruff
 - id: VT-037
   detector: vt037_impossible_condition
   title: Impossible condition
@@ -1124,9 +1098,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: scripts/detectors.py::vt037_impossible_condition
 - id: VT-038
   title: Order dependency
   symptom: Passes due to prior state
@@ -1154,9 +1128,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-039
   title: Temporal dependency
   symptom: The hour or day decides
@@ -1184,9 +1158,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-040
   detector: vt040_blind_except
   title: Absorbed exception
@@ -1204,10 +1178,8 @@ items:
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "def test_parse():\n    try:\n        parse(bad_input)\n    except Exception:\n        pass   # absorbs the\
-    \ failure: the test never fails\n"
-  example_good: "def test_parse():\n    with pytest.raises(ValueError):\n        parse(bad_input)   # asserts the expected\
-    \ exception\n"
+  example_bad: "def test_parse():\n    try:\n        parse(bad_input)\n    except Exception:\n        pass   # absorbs the failure: the test never fails\n"
+  example_good: "def test_parse():\n    with pytest.raises(ValueError):\n        parse(bad_input)   # asserts the expected exception\n"
   detection: 'AST: try/except blocks with a ''pass'' body inside test_* functions, which hide
 
     any exception.
@@ -1217,9 +1189,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: core
+  test_ref: scripts/detectors.py::vt040_blind_except
 - id: VT-041
   title: Ignored error output
   symptom: Signal not observed
@@ -1247,9 +1219,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-042
   title: False success log
   symptom: OK without checking
@@ -1277,9 +1249,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-043
   detector: vt043_unconditional_exit_zero
   title: Unconditional successful exit
@@ -1308,9 +1280,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: scripts/detectors.py::vt043_unconditional_exit_zero
 - id: VT-044
   title: Ignored return
   symptom: Error result not seen
@@ -1338,9 +1310,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-045
   title: Single happy path
   symptom: Only the ideal case
@@ -1368,9 +1340,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-046
   title: Magic datum
   symptom: The input avoids the bug
@@ -1398,9 +1370,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-047
   title: Small dataset
   symptom: Scale breaks it
@@ -1417,10 +1389,8 @@ items:
   validating_mechanism: runtime-test
   downstream_verification: none
   example_lang: python
-  example_bad: "# 'Evaluation' over a single example: statistical noise, not signal.\ndef test_model():\n    assert model.predict([sample])\
-    \ == [1]\n"
-  example_good: "# Representative set + agreed metric threshold.\ndef test_model_accuracy():\n    acc = evaluate(model, validation_set)\
-    \   # N>=200 examples\n    assert acc >= 0.85\n"
+  example_bad: "# 'Evaluation' over a single example: statistical noise, not signal.\ndef test_model():\n    assert model.predict([sample]) == [1]\n"
+  example_good: "# Representative set + agreed metric threshold.\ndef test_model_accuracy():\n    acc = evaluate(model, validation_set)   # N>=200 examples\n    assert acc >= 0.85\n"
   detection: 'Model/heuristic tests that assert on 1-2 fixed samples instead of an
 
     aggregate metric over a dataset.
@@ -1428,9 +1398,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:pytest
 - id: VT-048
   title: No empty/null/zero
   symptom: Common cases are missing
@@ -1458,9 +1428,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-049
   title: No special characters
   symptom: Real text breaks it
@@ -1488,9 +1458,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-050
   title: No boundary dates
   symptom: The calendar breaks it
@@ -1524,9 +1494,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:pytest
 - id: VT-051
   title: Informational CI
   symptom: Failures do not block
@@ -1556,9 +1526,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-052
   title: Ignore errors
   symptom: The pipeline ignores the failure
@@ -1586,9 +1556,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-053
   title: Tests outside the active branch
   symptom: They never protect
@@ -1616,9 +1586,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-054
   title: Optional tests
   symptom: Nobody runs them
@@ -1646,9 +1616,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-055
   title: Unattended notification
   symptom: Invisible failure
@@ -1676,9 +1646,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-056
   title: Complacent post-bug test
   symptom: Passes while broken
@@ -1706,9 +1676,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-057
   title: Skip later
   symptom: Infinite debt
@@ -1744,9 +1714,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-058
   title: Divergent feature flag
   symptom: Test differs from production
@@ -1774,9 +1744,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-059
   title: Variable alters validation
   symptom: The test disables checks
@@ -1804,9 +1774,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-060
   title: Setup cleans too much
   symptom: Unrealistic state
@@ -1834,9 +1804,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-061
   title: UI by delta
   symptom: Broken UI not reviewed
@@ -1864,9 +1834,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-062
   title: Full dead file
   symptom: Not truncated but useless
@@ -1894,9 +1864,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-063
   title: False documented interface
   symptom: Unsupported flag
@@ -1924,9 +1894,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-064
   title: Invisible broken tests
   symptom: ImportError not seen
@@ -1954,9 +1924,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-065
   title: Broken global capture
   symptom: The test breaks the runner
@@ -1984,9 +1954,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-066
   title: Orphan tests
   symptom: Files never run
@@ -2003,10 +1973,8 @@ items:
   validating_mechanism: runtime-test
   downstream_verification: none
   example_lang: python
-  example_bad: "# Test that exercises already-removed code: passes via mock, tests nothing real.\ndef test_old_engine():\n\
-    \    eng = Mock(spec=OldEngine)   # OldEngine no longer exists in src/\n    assert eng.run() is not None\n"
-  example_good: "# With no corresponding production code, the test is deleted (or rewritten over the new one).\ndef test_engine_runs():\n\
-    \    assert Engine().run().status == \"ok\"\n"
+  example_bad: "# Test that exercises already-removed code: passes via mock, tests nothing real.\ndef test_old_engine():\n    eng = Mock(spec=OldEngine)   # OldEngine no longer exists in src/\n    assert eng.run() is not None\n"
+  example_good: "# With no corresponding production code, the test is deleted (or rewritten over the new one).\ndef test_engine_runs():\n    assert Engine().run().status == \"ok\"\n"
   detection: 'Detect tests whose symbol under test (import/Mock spec) no longer exists in the
 
     production tree = orphan test.
@@ -2014,9 +1982,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:pytest
 - id: VT-067
   title: False negative from docstring
   symptom: Wrapper not detected
@@ -2044,9 +2012,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-068
   title: Backups as deprecated
   symptom: Noise contaminates the audit
@@ -2074,9 +2042,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-069
   title: Misleading name
   symptom: The loop improves nothing
@@ -2104,9 +2072,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-070
   title: Missing setup validation
   symptom: The test passes even though the real environment cannot start
@@ -2117,18 +2085,14 @@ items:
   tags:
   - testing
   - remediated
-  action: 'Validate that the real environment can start - runtime, dependencies, and minimum permissions - not just that the
-    test passes.
+  action: 'Validate that the real environment can start - runtime, dependencies, and minimum permissions - not just that the test passes.
 
     '
   validating_mechanism: runtime-test
   downstream_verification: none
   example_lang: python
-  example_bad: "# Assumes the fixture loaded fine; if empty, the test 'passes' without testing anything.\ndef test_rows():\n\
-    \    rows = load_fixture(\"data.csv\")\n    for r in rows:                 # if rows == [] the loop does not run\n   \
-    \     assert r.valid\n"
-  example_good: "def test_rows():\n    rows = load_fixture(\"data.csv\")\n    assert len(rows) == 3          # validate the\
-    \ setup before iterating\n    assert all(r.valid for r in rows)\n"
+  example_bad: "# Assumes the fixture loaded fine; if empty, the test 'passes' without testing anything.\ndef test_rows():\n    rows = load_fixture(\"data.csv\")\n    for r in rows:                 # if rows == [] the loop does not run\n        assert r.valid\n"
+  example_good: "def test_rows():\n    rows = load_fixture(\"data.csv\")\n    assert len(rows) == 3          # validate the setup before iterating\n    assert all(r.valid for r in rows)\n"
   detection: '''for ... assert'' loops inside tests without a prior non-emptiness assertion of the
 
     iterated set (assert len > 0).
@@ -2136,9 +2100,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:pytest
 - id: VT-071
   title: Non-resumable handoff
   symptom: Another actor cannot continue
@@ -2166,9 +2130,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-072
   title: Documentary rollback
   symptom: Reversibility is documented without executing it
@@ -2196,9 +2160,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-073
   title: Compatibility not evaluated
   symptom: An old flow breaks with a new change
@@ -2226,9 +2190,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-074
   title: Untested observability
   symptom: On failure there is no useful diagnostic
@@ -2256,9 +2220,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-075
   title: Incomplete Test Discovery
   symptom: Green suites that hide broken or inactive tests
@@ -2269,8 +2233,7 @@ items:
   tags:
   - testing
   - audited
-  action: 'Audit the physical correspondence between test files on disk and tests actually discovered, so a green suite cannot
-    hide inactive ones.
+  action: 'Audit the physical correspondence between test files on disk and tests actually discovered, so a green suite cannot hide inactive ones.
 
     '
   validating_mechanism: static-ast
@@ -2287,9 +2250,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-076
   title: System dependency
   symptom: Only runs in one environment
@@ -2317,9 +2280,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-077
   title: Misleading timeout
   symptom: Slowness passes
@@ -2347,9 +2310,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-078
   title: Single local machine
   symptom: Depends on installation
@@ -2377,9 +2340,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-079
   title: Unpenetrated sandbox
   symptom: Isolation is declared without attempting an escape
@@ -2407,9 +2370,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-080
   title: Physical Address Coupling
   symptom: Validation failures when migrating to secondary environments
@@ -2420,15 +2383,13 @@ items:
   tags:
   - testing
   - remediated
-  action: 'Parametrize resources via injection or logical variables so tests do not couple to a physical address and break
-    on migration.
+  action: 'Parametrize resources via injection or logical variables so tests do not couple to a physical address and break on migration.
 
     '
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "# Asserts on the physical memory id/order, not on the content.\ndef test_cache():\n    assert id(cache.get(\"\
-    k\")) == 140234567   # fragile and meaningless\n"
+  example_bad: "# Asserts on the physical memory id/order, not on the content.\ndef test_cache():\n    assert id(cache.get(\"k\")) == 140234567   # fragile and meaningless\n"
   example_good: "def test_cache():\n    assert cache.get(\"k\") == expected_value\n"
   detection: 'Asserts on id(), memory addresses, non-deterministic hash(), or non-guaranteed
 
@@ -2437,9 +2398,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-081
   title: Author tests their own implementation
   symptom: Confirms their own model
@@ -2467,9 +2428,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-082
   title: Review without tests
   symptom: Changes approved blindly
@@ -2497,9 +2458,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-083
   title: Encoded expected value
   symptom: The test compares against an answer written to pass
@@ -2527,9 +2488,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-084
   title: Hardcoded approval
   symptom: The approved state is set manually as truth
@@ -2557,9 +2518,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-085
   title: Complacent golden file
   symptom: A stale snapshot legitimizes broken output
@@ -2587,9 +2548,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-086
   title: Normalized expected failure
   symptom: An expected failure becomes permanent
@@ -2625,9 +2586,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-087
   title: Tolerated warning
   symptom: Green suite with warnings
@@ -2655,9 +2616,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-088
   title: Error tolerance
   symptom: The system accepts a known error
@@ -2674,8 +2635,7 @@ items:
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "# The test tolerates errors: any result passes.\ndef test_sync():\n    result = sync()\n    assert result\
-    \ is not None or result is None   # always true\n"
+  example_bad: "# The test tolerates errors: any result passes.\ndef test_sync():\n    result = sync()\n    assert result is not None or result is None   # always true\n"
   example_good: "def test_sync():\n    assert sync().synced_count == 10\n"
   detection: 'AST: asserts whose condition is a logical tautology (X or not X) or that accept
 
@@ -2684,9 +2644,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-089
   title: Convenience wrapper
   symptom: An adapter hides the real failure
@@ -2714,9 +2674,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-090
   title: Tested placeholder
   symptom: A placeholder satisfies the assertion
@@ -2752,9 +2712,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-091
   title: Documented domain not implemented
   symptom: The rule exists but does not run
@@ -2782,9 +2742,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-092
   title: Section as compliance
   symptom: A heading is enough
@@ -2812,9 +2772,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-093
   title: Docstrings as quality
   symptom: Comments pass
@@ -2842,9 +2802,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-094
   title: Handling by keyword
   symptom: A lexical token passes
@@ -2872,9 +2832,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-095
   title: Tests of the protocol, not the subject
   symptom: A project with no tests passes
@@ -2902,9 +2862,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-096
   title: Stale evidence
   symptom: An old artifact passes
@@ -2932,9 +2892,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-097
   title: Ceremonial chaos
   symptom: It tests an external library, not the system
@@ -2962,9 +2922,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-098
   title: Lying passed report
   symptom: It says all, runs few
@@ -2992,9 +2952,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-099
   title: Dead version constant
   symptom: Old fallback
@@ -3022,9 +2982,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-100
   title: Permissions not rigorous
   symptom: Only the permitted actor is tested
@@ -3052,9 +3012,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-101
   title: Unvalidated routing
   symptom: Tasks reach the wrong flow
@@ -3082,9 +3042,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-102
   title: Hardcoded approved list
   symptom: The validator accepts by name, not by behavior
@@ -3112,9 +3072,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-103
   title: Expected hardcoded in the evaluator
   symptom: The evaluator knows in advance what must pass
@@ -3142,9 +3102,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-104
   title: Warnings outside the score
   symptom: Warnings do not affect approval
@@ -3172,9 +3132,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-105
   title: No hook-existence test
   symptom: A pipeline with no verification that git hooks are installed and executable
@@ -3185,8 +3145,7 @@ items:
   tags:
   - testing
   - remediated
-  action: 'Parse the workflow and assert its validator and regenerator steps remain wired, so a pipeline cannot silently lose
-    its verification.
+  action: 'Parse the workflow and assert its validator and regenerator steps remain wired, so a pipeline cannot silently lose its verification.
 
     '
   validating_mechanism: runtime-test
@@ -3197,12 +3156,7 @@ items:
     # validator and regeneration steps it advertises.
 
     '
-  example_good: "def test_audit_workflow_runs_validator_and_regenerator():\n    workflow = Path(\".github/workflows/audit.yml\"\
-    )\n    assert workflow.exists()\n    data = yaml.safe_load(workflow.read_text(encoding=\"utf-8\"))\n    steps = data[\"\
-    jobs\"][\"audit\"][\"steps\"]\n    assert any(\n        step.get(\"name\") == \"Validate catalogs and wiki coverage\"\n\
-    \        and step.get(\"run\") == \"python scripts/validate_golden_standard_catalogs.py --check-wiki\"\n        for step\
-    \ in steps\n    )\n    assert any(\n        step.get(\"name\") == \"Regenerate Golden Standard audit artifacts\"\n   \
-    \     and step.get(\"run\") == \"python generate_golden_audit.py\"\n        for step in steps\n    )\n"
+  example_good: "def test_audit_workflow_runs_validator_and_regenerator():\n    workflow = Path(\".github/workflows/audit.yml\")\n    assert workflow.exists()\n    data = yaml.safe_load(workflow.read_text(encoding=\"utf-8\"))\n    steps = data[\"jobs\"][\"audit\"][\"steps\"]\n    assert any(\n        step.get(\"name\") == \"Validate catalogs and wiki coverage\"\n        and step.get(\"run\") == \"python scripts/validate_golden_standard_catalogs.py --check-wiki\"\n        for step in steps\n    )\n    assert any(\n        step.get(\"name\") == \"Regenerate Golden Standard audit artifacts\"\n        and step.get(\"run\") == \"python generate_golden_audit.py\"\n        for step in steps\n    )\n"
   detection: 'Absence of a test that parses `.github/workflows/audit.yml` and verifies the
 
     audit job still invokes the validator and regeneration steps it advertises.
@@ -3210,9 +3164,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:pytest
 - id: VT-106
   title: Unrevalidated exclusion
   symptom: The ignore list has no test verifying that each exclusion is still valid
@@ -3250,9 +3204,9 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:pytest
 - id: VT-107
   title: Stack incompleto silencioso
   symptom: The protocol fails partially without reporting which dependency is missing
@@ -3263,17 +3217,14 @@ items:
   tags:
   - testing
   - remediated
-  action: 'Validate the full active stack at startup - runtime, CLI tools, hooks, essential files, write permissions - and
-    report exactly what is missing.
+  action: 'Validate the full active stack at startup - runtime, CLI tools, hooks, essential files, write permissions - and report exactly what is missing.
 
     '
   validating_mechanism: runtime-test
   downstream_verification: none
   example_lang: python
-  example_bad: "# It swallows part of the stack: the test passes even though a stage failed silently.\ndef test_flow():\n\
-    \    try:\n        a(); b(); c()\n    except StepError:\n        pass            # 'c' may not have run and nobody knows\n"
-  example_good: "def test_flow():\n    assert a().ok\n    assert b().ok\n    assert c().ok       # each stage verified, no\
-    \ silent capture\n"
+  example_bad: "# It swallows part of the stack: the test passes even though a stage failed silently.\ndef test_flow():\n    try:\n        a(); b(); c()\n    except StepError:\n        pass            # 'c' may not have run and nobody knows\n"
+  example_good: "def test_flow():\n    assert a().ok\n    assert b().ok\n    assert c().ok       # each stage verified, no silent capture\n"
   detection: 'try/except that spans multiple steps and absorbs intermediate errors without
 
     reasserting that each step completed.
@@ -3281,22 +3232,20 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:pytest
 - id: VT-108
   title: Name disconnected from the domain
   symptom: A component named with a number or descriptor that does not reflect its current implementation
   cause: Missing semantic contract between the declared name and real behavior
-  solution: A sentinel that compares the formal declaration (name, domain count, version) against the real implementation;
-    fails if they diverge
+  solution: A sentinel that compares the formal declaration (name, domain count, version) against the real implementation; fails if they diverge
   status: AUDITED
   severity: medium
   tags:
   - testing
   - audited
-  action: 'Compare the formal declaration (name, domain count, version) against the real implementation and fail when they
-    diverge.
+  action: 'Compare the formal declaration (name, domain count, version) against the real implementation and fail when they diverge.
 
     '
   validating_mechanism: static-ast
@@ -3313,14 +3262,12 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-109
   title: Redundant Frameworks and Middleman Theater (Testing Bridge Theater)
-  symptom: Using complex test frameworks (`pytest`) for simple static/structural validations that can be resolved with a direct,
-    standalone script. It adds dependencies and duplication, and creates compatibility bridges that violate the principles
-    of simplicity and minimal coupling (KISS).
+  symptom: Using complex test frameworks (`pytest`) for simple static/structural validations that can be resolved with a direct, standalone script. It adds dependencies and duplication, and creates compatibility bridges that violate the principles of simplicity and minimal coupling (KISS).
   cause: Technical inertia of using traditional development tools instead of unifying authority in a direct, sovereign auditor.
   solution: Remove the intermediary bridge; the static auditor runs directly and natively (`exit 0` or `exit 1`).
   status: PREVENTED
@@ -3328,17 +3275,14 @@ items:
   tags:
   - testing
   - prevented
-  action: 'A simple static or structural validation should run directly and natively; wrapping it in a heavy test framework
-    is middleman theater.
+  action: 'A simple static or structural validation should run directly and natively; wrapping it in a heavy test framework is middleman theater.
 
     '
   validating_mechanism: runtime-test
   downstream_verification: none
   example_lang: python
-  example_bad: "# Framework theater: layers of mocks that test the mock, not the system.\ndef test_service():\n    svc = Mock()\n\
-    \    svc.process.return_value = \"ok\"\n    assert svc.process() == \"ok\"   # asserts against the mock itself\n"
-  example_good: "def test_service():\n    svc = RealService(repo=InMemoryRepo())\n    assert svc.process(order).state == \"\
-    ok\"   # real system\n"
+  example_bad: "# Framework theater: layers of mocks that test the mock, not the system.\ndef test_service():\n    svc = Mock()\n    svc.process.return_value = \"ok\"\n    assert svc.process() == \"ok\"   # asserts against the mock itself\n"
+  example_good: "def test_service():\n    svc = RealService(repo=InMemoryRepo())\n    assert svc.process(order).state == \"ok\"   # real system\n"
   detection: 'Detect tests where the asserted object is a Mock configured in the test itself
 
     (assert on a preprogrammed return_value).
@@ -3346,13 +3290,12 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:pytest
 - id: VT-110
   title: Hidden-Directory Fragmentation (Dot-Directory Fragmentation)
-  symptom: Scattering of governance, security, backup, or state metadata across multiple hidden folders at the repository
-    root (e.g. `.backup_old`, `.temp_meta`, `.rules_draft`), cluttering the workspace.
+  symptom: Scattering of governance, security, backup, or state metadata across multiple hidden folders at the repository root (e.g. `.backup_old`, `.temp_meta`, `.rules_draft`), cluttering the workspace.
   cause: Lack of a unified view and accumulation of historical dead naming.
   solution: Radically consolidate all metadata under a single hidden directory of centralized governance (e.g. `.protocol/`).
   status: AUDITED
@@ -3377,26 +3320,20 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-111
   title: Deferred Without Registration
-  symptom: The agent detects technical debt or a finding, verbally classifies it as "postpone / isolated sprint / deferred
-    / later", and closes the response without opening the Sprint Document (e.g., PLAN.md). The item disappears.
-  cause: A context switch between analysis mode and implementation mode disables the VC-048 trigger; the agent assumes that
-    "naming = registering".
-  solution: 'Mandatory B8 trigger: every "deferred" classification triggers immediate opening of the Debt Registry (e.g.,
-    BACKLOG.md) to register the ID + evidence, and the Sprint Document (e.g., PLAN.md) to design the implementation. No ID
-    in the Debt Registry (e.g., BACKLOG.md) = forgotten, not deferred. (Lesson: omitting the formal registration of structural
-    exclusions or technical debt in the centralized backlog leads to persistent drift and loss of quality control).'
+  symptom: The agent detects technical debt or a finding, verbally classifies it as "postpone / isolated sprint / deferred / later", and closes the response without opening the Sprint Document (e.g., PLAN.md). The item disappears.
+  cause: A context switch between analysis mode and implementation mode disables the VC-048 trigger; the agent assumes that "naming = registering".
+  solution: 'Mandatory B8 trigger: every "deferred" classification triggers immediate opening of the Debt Registry (e.g., BACKLOG.md) to register the ID + evidence, and the Sprint Document (e.g., PLAN.md) to design the implementation. No ID in the Debt Registry (e.g., BACKLOG.md) = forgotten, not deferred. (Lesson: omitting the formal registration of structural exclusions or technical debt in the centralized backlog leads to persistent drift and loss of quality control).'
   status: AUDITED
   severity: medium
   tags:
   - testing
   - audited
-  action: 'Every deferred classification must immediately open a debt-registry entry; a verbal deferral with no record loses
-    the finding.
+  action: 'Every deferred classification must immediately open a debt-registry entry; a verbal deferral with no record loses the finding.
 
     '
   validating_mechanism: static-ast
@@ -3413,23 +3350,20 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-112
   title: Ghost Dependency Drift
-  symptom: Importing and integrating packages and modules at coding time without explicitly registering their existence in
-    the dependency manifest.
+  symptom: Importing and integrating packages and modules at coding time without explicitly registering their existence in the dependency manifest.
   cause: Lack of static import-consistency checking in the pre-commit hooks.
-  solution: Design static gates (`deptry` or AST regex in Python) that compare 100% of the top-level imports against the project's
-    dependency base.
+  solution: Design static gates (`deptry` or AST regex in Python) that compare 100% of the top-level imports against the project's dependency base.
   status: AUDITED
   severity: medium
   tags:
   - testing
   - audited
-  action: 'A static gate must compare every top-level import against the dependency manifest so an unregistered dependency
-    cannot drift in.
+  action: 'A static gate must compare every top-level import against the dependency manifest so an unregistered dependency cannot drift in.
 
     '
   validating_mechanism: static-ast
@@ -3446,22 +3380,20 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-113
   title: Lack of Mutation Testing (Lack of Test Mutation Validation)
   symptom: Tests that always pass (green) regardless of what logic changes or breakages are inserted into production code.
   cause: Happy-path assertion theater and self-satisfied mocks.
-  solution: Require that at least one test suite empirically demonstrate its ability to fail (falsifiability criterion) against
-    a controlled code mutation or chaos injection.
+  solution: Require that at least one test suite empirically demonstrate its ability to fail (falsifiability criterion) against a controlled code mutation or chaos injection.
   status: AUDITED
   severity: medium
   tags:
   - testing
   - audited
-  action: 'A suite must empirically demonstrate it can fail against a controlled mutation; tests that stay green under any
-    change are not falsifiable.
+  action: 'A suite must empirically demonstrate it can fail against a controlled mutation; tests that stay green under any change are not falsifiable.
 
     '
   validating_mechanism: static-ast
@@ -3480,23 +3412,20 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-114
   title: Multi-Repository Sync Drift
-  symptom: Modifying governance or protocol files in a satellite repository in isolation without integrating them back into
-    the central core, breaking the ecosystem's operational parity.
+  symptom: Modifying governance or protocol files in a satellite repository in isolation without integrating them back into the central core, breaking the ecosystem's operational parity.
   cause: Governance based on passive physical copying without active drift validation.
-  solution: Implement an active D12 drift-detection gate in the central auditor that compares checksums and blocks if there
-    are deviations in satellites.
+  solution: Implement an active D12 drift-detection gate in the central auditor that compares checksums and blocks if there are deviations in satellites.
   status: AUDITED
   severity: medium
   tags:
   - testing
   - audited
-  action: 'A drift gate must compare checksums across satellite repositories and block when governance files diverge from
-    the central core.
+  action: 'A drift gate must compare checksums across satellite repositories and block when governance files diverge from the central core.
 
     '
   validating_mechanism: static-ast
@@ -3513,33 +3442,27 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:ruff
 - id: VT-115
   title: False Drift Positive from Line Endings (CRLF/LF Hash Mismatch)
-  symptom: The drift audit (D12) fails falsely when comparing files that are identical on disk (Windows CRLF) against Git
-    repositories or satellites (LF).
-  cause: Direct binary comparison of SHA256 hashes without prior normalization of line-ending characters, ignoring Git's automatic
-    translation policies (`core.autocrlf`).
-  solution: Mandatorily normalize every binary byte stream by decoding it and converting the `\r\n` line-ending sequence to
-    `\n` before computing the integrity- or drift-verification hash.
+  symptom: The drift audit (D12) fails falsely when comparing files that are identical on disk (Windows CRLF) against Git repositories or satellites (LF).
+  cause: Direct binary comparison of SHA256 hashes without prior normalization of line-ending characters, ignoring Git's automatic translation policies (`core.autocrlf`).
+  solution: Mandatorily normalize every binary byte stream by decoding it and converting the `\r\n` line-ending sequence to `\n` before computing the integrity- or drift-verification hash.
   status: REMEDIATED
   severity: high
   tags:
   - testing
   - remediated
-  action: 'Normalize line endings to a single form before hashing so files identical on disk do not raise a false drift positive
-    across platforms.
+  action: 'Normalize line endings to a single form before hashing so files identical on disk do not raise a false drift positive across platforms.
 
     '
   validating_mechanism: runtime-test
   downstream_verification: none
   example_lang: python
-  example_bad: "# False 'drift' positive: compares raw bytes and CRLF/LF triggers a difference.\ndef test_no_drift():\n  \
-    \  assert open(\"a.txt\",\"rb\").read() == open(\"b.txt\",\"rb\").read()\n"
-  example_good: "# Normalize line endings before comparing logical content.\ndef test_no_drift():\n    norm = lambda p: open(p,\
-    \ encoding=\"utf-8\").read().replace(\"\\r\\n\", \"\\n\")\n    assert norm(\"a.txt\") == norm(\"b.txt\")\n"
+  example_bad: "# False 'drift' positive: compares raw bytes and CRLF/LF triggers a difference.\ndef test_no_drift():\n    assert open(\"a.txt\",\"rb\").read() == open(\"b.txt\",\"rb\").read()\n"
+  example_good: "# Normalize line endings before comparing logical content.\ndef test_no_drift():\n    norm = lambda p: open(p, encoding=\"utf-8\").read().replace(\"\\r\\n\", \"\\n\")\n    assert norm(\"a.txt\") == norm(\"b.txt\")\n"
   detection: 'Byte-by-byte file comparisons that do not normalize EOL (CRLF vs LF) and produce
 
     false drift in mixed Windows/Unix environments.
@@ -3547,25 +3470,20 @@ items:
     '
   evidence:
   - source: arxiv:2602.00409
-    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked)
-      in a measurable way.
+    claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, or over-mocked) in a measurable way.
   tier: extended
+  test_ref: tool:pytest
 - id: VT-116
   title: Decoy comment satisfies a text-based validator
-  symptom: A coverage or traceability check reports a symbol as physically present when only a commented-out or string-literal
-    mention of it exists; no real function or class backs it.
-  cause: The validator resolves a symbol by scanning raw source text (a substring or regex such as `"def <name>" in source`),
-    which also matches inside comments and string literals. A planted `# def <name>` line games the check, deceiving the judge
-    with text that no code backs.
-  solution: Resolve symbols structurally through the AST so that only a real FunctionDef or ClassDef node counts. A comment
-    or string literal can no longer satisfy the validator.
+  symptom: A coverage or traceability check reports a symbol as physically present when only a commented-out or string-literal mention of it exists; no real function or class backs it.
+  cause: The validator resolves a symbol by scanning raw source text (a substring or regex such as `"def <name>" in source`), which also matches inside comments and string literals. A planted `# def <name>` line games the check, deceiving the judge with text that no code backs.
+  solution: Resolve symbols structurally through the AST so that only a real FunctionDef or ClassDef node counts. A comment or string literal can no longer satisfy the validator.
   status: PREVENTED
   severity: high
   tags:
   - testing
   - prevented
-  action: 'Resolve symbols structurally through the AST so only a real definition node counts; a commented-out or string mention
-    must not satisfy the check.
+  action: 'Resolve symbols structurally through the AST so only a real definition node counts; a commented-out or string mention must not satisfy the check.
 
     '
   validating_mechanism: runtime-test
@@ -3578,9 +3496,7 @@ items:
     assert "def audit_widget_safety" in source  # passes on the comment alone
 
     '
-  example_good: "import ast\ntree = ast.parse(source)\ncovered = any(\n    isinstance(n, (ast.FunctionDef, ast.ClassDef))\
-    \ and n.name == \"audit_widget_safety\"\n    for n in ast.walk(tree)\n)  # a comment or string literal can never satisfy\
-    \ this\n"
+  example_good: "import ast\ntree = ast.parse(source)\ncovered = any(\n    isinstance(n, (ast.FunctionDef, ast.ClassDef)) and n.name == \"audit_widget_safety\"\n    for n in ast.walk(tree)\n)  # a comment or string literal can never satisfy this\n"
   detection: 'Coverage or traceability validators that confirm a symbol''s existence with a
 
     raw-text substring or regex over source (matching inside comments and string
@@ -3591,3 +3507,4 @@ items:
 
     '
   tier: extended
+  test_ref: tool:pytest

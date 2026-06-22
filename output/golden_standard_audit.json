@@ -1125,15 +1125,15 @@
     "symptom": "Strategies exist but do not operate",
     "cause": "Phantom script",
     "solution": "Every optimization must be on the active path",
-    "status": "REMEDIATED",
+    "status": "DOC_ONLY",
     "severity": "medium",
     "tags": [
       "tokenomics",
       "remediated"
     ],
     "action": "Every script path cited in the authority/budget docs must exist on disk; a static reference check fails on dangling citations (spectral scripts).\n",
-    "validating_mechanism": "static-regex",
-    "downstream_verification": "none",
+    "validating_mechanism": "DOC_ONLY",
+    "downstream_verification": "required",
     "example_bad": "# Savings strategies exist but are not on the active path.\n",
     "example_good": "# Every optimization must be wired into the flow that runs.\n",
     "example_lang": "text",
@@ -6217,14 +6217,14 @@
     "symptom": "UI generated without an explicit layout",
     "cause": "Lack of a perceptual model",
     "solution": "Declare the visual structure before executing",
-    "status": "PREVENTED",
+    "status": "DOC_ONLY",
     "severity": "medium",
     "tags": [
       "vibe-coding",
       "prevented"
     ],
     "action": "UI code is generated without a structured layout system, producing a fragile\nvisual hierarchy that breaks on different screen sizes and is unmaintainable.\n",
-    "validating_mechanism": "static-regex",
+    "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "<!-- Inline styles everywhere; no layout system. -->\n<div style=\"position:absolute; top:10px; left:10px;\">Header</div>\n<div style=\"position:absolute; top:50px; left:10px;\">Content</div>\n",
     "example_good": "<!-- Explicit layout system (CSS Grid) defines the visual structure. -->\n<style>\n  .container { display: grid; grid-template-rows: auto 1fr; }\n</style>\n<div class=\"container\">\n  <header>Header</header>\n  <main>Content</main>\n</div>\n",
@@ -6803,7 +6803,7 @@
       }
     ],
     "doctrinal": false,
-    "detector": "",
+    "detector": "vc038_optimistic_config",
     "tier": "specialist",
     "enforcement": {
       "cerberus": {
@@ -8555,7 +8555,7 @@
       }
     ],
     "doctrinal": false,
-    "detector": "",
+    "detector": "vc087_self_polluting_tooling",
     "tier": "core"
   },
   "VC-088": {

@@ -28,6 +28,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: core
+  test_ref: tool:pytest
 - id: VC-002
   detector: vc005_untracked_prototype
   title: Prototype turned into debt
@@ -54,6 +55,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  test_ref: scripts/detectors.py::vc005_untracked_prototype
 - id: VC-003
   detector: vc003_incomprehensible_code
   title: Incomprehensible code
@@ -80,6 +82,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  test_ref: scripts/detectors.py::vc003_incomprehensible_code
 - id: VC-004
   title: Stochastic Conversational Optimism without proof
   symptom: Success declarations based solely on superficial aesthetic similarity
@@ -107,6 +110,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-005
   detector: vc005_premature_closure
   title: Premature closure
@@ -131,6 +135,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: scripts/detectors.py::vc005_premature_closure
 - id: VC-006
   title: Non-externalized plan
   symptom: Work lives in the chat
@@ -158,6 +163,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-007
   title: Non-surgical scope
   symptom: Enormous, unsafe changes
@@ -217,6 +223,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-009
   title: Full rewrite
   symptom: Prior integrity is lost
@@ -289,6 +296,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  test_ref: scripts/detectors.py::vc036_destructive_without_dryrun
 - id: VC-011
   title: Blind regeneration
   symptom: Code is replaced without diagnosis
@@ -322,6 +330,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-012
   title: Invisible debt
   symptom: Unrecorded shortcuts
@@ -349,6 +358,7 @@ items:
   tier: specialist
   notes: Promoted 2026-06-22. static-regex detector for shortcut/for-now comment patterns added to scripts/detectors.py.
   detector: vc012_invisible_debt
+  test_ref: scripts/detectors.py::vc012_invisible_debt
 - id: VC-013
   detector: vc013_ambiguous_handoff
   title: Ambiguous handoff
@@ -383,6 +393,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  test_ref: scripts/detectors.py::vc013_ambiguous_handoff
 - id: VC-014
   title: Monolithic memory
   symptom: All context is mixed together
@@ -412,6 +423,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-015
   title: Hallucinated integration
   symptom: Invented dependencies
@@ -455,6 +467,7 @@ items:
   - source: arxiv:2602.00409
     claim: AI agents generate non-existent package names (slopsquatting) in measurable ways.
   tier: specialist
+  test_ref: tool:ruff
 - id: VC-016
   detector: vc016_broken_version_parity
   title: Broken version parity
@@ -493,6 +506,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  test_ref: scripts/detectors.py::vc016_broken_version_parity
 - id: VC-017
   detector: vc017_deadlock_without_heartbeat
   title: Deadlock without a heartbeat
@@ -525,6 +539,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  test_ref: scripts/detectors.py::vc017_deadlock_without_heartbeat
 - id: VC-018
   detector: vc061_constant_stub
   title: Stub as architecture
@@ -551,6 +566,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  test_ref: scripts/detectors.py::vc061_constant_stub
 - id: VC-019
   title: State Concurrency Drift (Dual-Session Drift)
   symptom: Loss of commits and regressions from parallel overwrites
@@ -598,6 +614,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-020
   title: Lying documentation
   symptom: Declared state does not match the system
@@ -627,6 +644,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-021
   title: Late schema
   symptom: Logic precedes the data model
@@ -662,12 +680,13 @@ items:
   - source: mypy documentation
     claim: has-attr checks and typed models prevent AttributeError at runtime.
   tier: specialist
+  test_ref: tool:ruff
 - id: VC-022
   title: Spatial blindness
   symptom: UI generated without an explicit layout
   cause: Lack of a perceptual model
   solution: Declare the visual structure before executing
-  status: PREVENTED
+  status: DOC_ONLY
   severity: medium
   tags:
   - vibe-coding
@@ -677,7 +696,7 @@ items:
     visual hierarchy that breaks on different screen sizes and is unmaintainable.
 
     '
-  validating_mechanism: static-regex
+  validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: html
   example_bad: '<!-- Inline styles everywhere; no layout system. -->
@@ -697,6 +716,7 @@ items:
   - source: 'MDN Web Docs: CSS Grid Layout'
     claim: Grid and Flexbox provide explicit layout systems that replace absolute positioning.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: HTML/CSS layout check requires browser context; no static Python signature.'
 - id: VC-023
   title: Unmapped dependencies
   symptom: Refactor breaks distant pieces
@@ -728,6 +748,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-024
   detector: vc070_blind_shell_edit
   title: Blind shell manipulation
@@ -762,6 +783,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  test_ref: scripts/detectors.py::vc070_blind_shell_edit
 - id: VC-025
   detector: vc025_io_without_validation
   title: I/O without validation
@@ -798,6 +820,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category (input validation / broken authorization) for agentic applications.
   tier: specialist
+  test_ref: scripts/detectors.py::vc025_io_without_validation
 - id: VC-026
   title: Lax typing
   symptom: Impossible states circulate
@@ -825,6 +848,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: core
+  test_ref: tool:ruff
 - id: VC-027
   detector: vc078_placeholder
   title: Permanent placeholder
@@ -861,6 +885,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: scripts/detectors.py::vc078_placeholder
 - id: VC-028
   detector: vc028_core_dependent_on_unstable_parts
   title: Core dependent on unstable parts
@@ -895,6 +920,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  test_ref: scripts/detectors.py::vc028_core_dependent_on_unstable_parts
 - id: VC-029
   detector: vc029_uncritical_copy_paste
   title: Uncritical copy-paste
@@ -935,6 +961,7 @@ items:
   - source: GitClear 2025
     claim: duplicated code increased ~8x with AI assistance.
   tier: specialist
+  test_ref: scripts/detectors.py::vc029_uncritical_copy_paste
 - id: VC-030
   title: Dependencies without a gate
   symptom: Risks are added
@@ -988,6 +1015,7 @@ items:
   - source: scripts/metrics.py
     claim: imports yaml for metrics generation, so an undeclared PyYAML dependency would break the stubs gate.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-031
   title: Tolerated dead file
   symptom: Undeclared artifacts survive
@@ -1023,6 +1051,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:ruff
 - id: VC-032
   detector: vc087_blanket_filterwarnings
   title: Normalized warning
@@ -1059,6 +1088,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: scripts/detectors.py::vc087_blanket_filterwarnings
 - id: VC-033
   title: Memory not loaded
   symptom: Prior errors are repeated
@@ -1088,6 +1118,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-034
   title: Lazy file-not-found
   symptom: Non-existence is declared without searching
@@ -1117,6 +1148,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-035
   title: Partial audit called total
   symptom: Critical surfaces are omitted
@@ -1146,6 +1178,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:ruff
 - id: VC-036
   detector: vc095_hardcoded_secret
   title: Direct production access
@@ -1182,6 +1215,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category for agentic applications (unsafe execution / secret exposure).
   tier: specialist
+  test_ref: scripts/detectors.py::vc095_hardcoded_secret
 - id: VC-037
   title: Code without tests
   symptom: No detectable regression
@@ -1265,6 +1299,8 @@ items:
   - source: 'OWASP Top 10 2021: A05:2021 – Security Misconfiguration'
     claim: Hardcoded credentials and insecure defaults are a top-10 security risk.
   tier: specialist
+  detector: vc038_optimistic_config
+  test_ref: scripts/detectors.py::vc038_optimistic_config
 - id: VC-039
   title: Ignored infrastructure
   symptom: Real runtime differs
@@ -1294,6 +1330,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-040
   title: Component omission
   symptom: HTML/startup/build not audited
@@ -1323,6 +1360,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-041
   title: Phantom setup
   symptom: The system presumes the environment exists
@@ -1354,6 +1392,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-042
   title: Implicit permission matrix
   symptom: Actors execute actions outside their role
@@ -1420,6 +1459,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: scripts/detectors.py::vc109_hardcoded_path
 - id: VC-044
   title: Quota as surprise
   symptom: Operation fails due to external limits
@@ -1447,6 +1487,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-045
   title: Exclusion without prior audit
   symptom: Directory added to the ignore list without verifying its content
@@ -1486,6 +1527,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:ruff
 - id: VC-046
   title: Propagation without adoption verification
   symptom: Protocol files copied to child projects without confirming that the protocol executes
@@ -1544,6 +1586,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  test_ref: scripts/detectors.py::vc047_frozen_nomenclature
 - id: VC-048
   title: Finding without a remediation plan
   symptom: A defect detected in a session does not become an executable item in the active plan
@@ -1573,6 +1616,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-049
   detector: vc115_unsafe_eval
   title: Dynamic execution of external expressions
@@ -1603,6 +1647,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category for agentic applications (tool misuse / unsafe execution).
   tier: extended
+  test_ref: scripts/detectors.py::vc115_unsafe_eval
 - id: VC-050
   title: Automatic installation of unverified dependencies
   symptom: An `ImportError` triggers `pip install` without human review
@@ -1644,6 +1689,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category for agentic applications (tool misuse / unsafe execution).
   tier: extended
+  test_ref: tool:pytest
 - id: VC-051
   title: Non-atomic destructive write of critical state
   symptom: A crash or kill during `write_text()` leaves the state file (JSON, YAML) corrupt or empty
@@ -1671,6 +1717,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-052
   title: Zombie Compatibility Theater
   symptom: 'X is ordered to be replaced by Y. The agent creates: inheritance of X in Y, a shim that forwards to Y, a fallback `Y.exists() or X.exists()`, dual sentinels in tests, cross imports "for legacy compatibility". X never dies.'
@@ -1698,6 +1745,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: core
+  test_ref: tool:ruff
 - id: VC-053
   title: Critical Redundancies and Repetitive AI-slop Patterns
   symptom: Cumulative additive mutations that scatter the system's functionality across multiple redundant files or unnecessary wrappers instead of consolidating logic.
@@ -1731,6 +1779,7 @@ items:
   validating_mechanism: runtime-test
   downstream_verification: none
   tier: core
+  test_ref: tool:pytest
 - id: VC-054
   title: Supply-Chain Contamination via Silent Executions
   symptom: Automatic installation of arbitrary packages or dynamic imports that alter the environment without consent.
@@ -1772,6 +1821,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category for agentic applications (tool misuse / unsafe execution).
   tier: extended
+  test_ref: tool:pytest
 - id: VC-055
   title: Indiscriminate Staging of Untracked Directories (Unfiltered Git Staging)
   symptom: Automated git synchronization commands take indefinitely long, lock the disk (Google Drive virtual mounts), or try to track thousands of temporary/hidden files created by external tools.
@@ -1811,6 +1861,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-056
   title: Hasty Deprecation without Analysis (Hasty Deprecation)
   symptom: An agent moves a file to deprecated/ without reading it, without searching for active references, and without verifying whether its functionality is still useful or covered elsewhere.
@@ -1853,6 +1904,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-057
   title: Non-externalized retrospective
   symptom: The session's learning is lost when context is closed or compacted, and the next session repeats already-resolved work.
@@ -1885,6 +1937,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: extended
+  test_ref: tool:pytest
 - id: VC-058
   title: Post-execution suggestion that reopens scope
   symptom: After executing a complete instruction, new improvement suggestions appear that were not part of the initial scope and make the cycle infinite.
@@ -1951,6 +2004,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: 'prompt injection / tool misuse is the #1 risk of agentic applications.'
   tier: specialist
+  test_ref: scripts/detectors.py::vc059_prompt_injection_in_agent_loop
 - id: VC-060
   title: Context Poisoning
   symptom: 'Erroneous, hallucinated, or contradictory information enters the context and self-reinforces in following turns, degrading all subsequent responses.
@@ -2037,6 +2091,7 @@ items:
   - source: arxiv:2603.28592
     claim: hallucinated package names are an emerging supply-chain vector in AI-generated code (slopsquatting).
   tier: core
+  test_ref: scripts/detectors.py::vc061_hallucinated_dependency
 - id: VC-062
   title: Echo-Chamber Review
   symptom: 'The same model (or the same instance/context) generates the code and then ''reviews'' it, approving its own biases and errors.
@@ -2194,6 +2249,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: insecure handling of tool outputs is a recognized agentic risk.
   tier: specialist
+  test_ref: scripts/detectors.py::vc065_unhandled_tool_call_failure
 - id: VC-066
   detector: vc066_multi_agent_without_protocol
   title: Multi-agent coordination without a protocol
@@ -2229,6 +2285,7 @@ items:
   - source: arxiv:2603.28592
     claim: multi-agent coordination without a protocol introduces race conditions and loss of work.
   tier: specialist
+  test_ref: scripts/detectors.py::vc066_multi_agent_without_protocol
 - id: VC-067
   title: Use of an obsolete or hallucinated API of a real library
   symptom: 'The model calls a method, parameter, or endpoint of a library that DOES exist, but that does not exist in the pinned version (deprecated, renamed, or invented from outdated knowledge).
@@ -2404,6 +2461,7 @@ items:
   - source: PyCQA/bandit
     claim: detecta varios de estos patrones (B201 flask debug, B501 verify=False, B303 md5).
   tier: extended
+  test_ref: scripts/detectors.py::vc138_insecure_defaults
 - id: VC-071
   detector: vc071_blind_trust_in_llm_output
   title: Blind trust in LLM output (Insecure Output Handling)
@@ -2445,6 +2503,7 @@ items:
   - source: OWASP Top 10 for LLM Applications
     claim: 'LLM02: Insecure Output Handling -- the model''s output used without validation in a downstream sink.'
   tier: specialist
+  test_ref: scripts/detectors.py::vc071_blind_trust_in_llm_output
 - id: VC-072
   title: Continuity gap between agents (orphan handoff)
   symptom: The next agent re-derives the context from scratch, spends tokens, or strays from the task.
@@ -2485,6 +2544,7 @@ items:
   - source: CoderCerberus v0.5 -- multi-agent operation (Codex/Gemini/Claude)
     claim: Context loss between agent handoffs wastes tokens and causes drift; a mandatory fresh handoff prevents it.
   tier: core
+  test_ref: tool:pytest
 - id: VC-073
   title: Orphan changes evaded (evasive partial commit)
   symptom: After a commit, the working tree is left with someone else's unintegrated changes; the next agent inherits silent debt and does not know whether it is intentional or an oversight.
@@ -2525,6 +2585,7 @@ items:
   - source: CoderCerberus v0.5 -- session 2026-06-07 (Claude Opus), commit 6f632b8
     claim: An agent evaded another's previous changes in selective commits; integrating them and leaving the working tree clean avoids inherited silent debt.
   tier: core
+  test_ref: tool:pytest
 - id: VC-074
   title: Agent instruction hijack (Prompt Injection / P1-P2)
   symptom: The skill or code contains comments, base64 payloads, or directives that override the system context.
@@ -2553,6 +2614,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_prompt_injection.py
     claim: Prompt injection is a critical vector for hijacking agent behavior.
   tier: core
+  test_ref: tool:ruff
 - id: VC-075
   title: System prompt leakage (System Prompt Leakage / P6-P8)
   symptom: The skill contains instructions or calls that exfiltrate the internal directives to the user.
@@ -2581,6 +2643,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_system_prompt_leakage.py
     claim: System prompt leakage compromises the agent's governance and restrictions.
   tier: core
+  test_ref: tool:ruff
 - id: VC-076
   title: Unauthorized data exfiltration (Data Exfiltration / E1-E4)
   symptom: The code makes external network requests to send environment variables or credentials.
@@ -2609,6 +2672,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_data_exfiltration.py
     claim: The agent exfiltrates data using unauthorized network calls.
   tier: extended
+  test_ref: tool:ruff
 - id: VC-077
   title: Unjustified privilege escalation (Privilege Escalation / PE1-PE3)
   symptom: The skill runs commands with sudo/root or accesses private keys without authorization.
@@ -2637,6 +2701,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_privilege_escalation.py
     claim: Privilege escalation lets the agent act outside the sandbox.
   tier: extended
+  test_ref: tool:ruff
 - id: VC-078
   detector: vc078_excessive_agency
   title: Excessive and uncontrolled agency (Excessive Agency / EA1-EA4)
@@ -2664,6 +2729,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_excessive_agency.py
     claim: Autonomous decision-making without confirmation increases the impact of compromises.
   tier: core
+  test_ref: scripts/detectors.py::vc078_excessive_agency
 - id: VC-079
   title: Persistent memory poisoning (Memory Poisoning / MP1-MP3)
   symptom: The skill injects padding or manipulates the agent's memory state across sessions.
@@ -2692,6 +2758,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_memory_poisoning.py
     claim: Memory poisoning alters long-term behavior.
   tier: extended
+  test_ref: tool:ruff
 - id: VC-080
   title: Insecure tool call or chaining (Tool Misuse / TM1-TM3)
   symptom: Tool calls with dangerous parameters that evade validations.
@@ -2720,6 +2787,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_tool_misuse.py
     claim: Tool misuse allows injections through arguments.
   tier: extended
+  test_ref: tool:ruff
 - id: VC-081
   title: Unauthorized persistent behavior (Rogue Agent / RA1-RA2)
   symptom: The agent self-modifies or configures local persistence (cron/startup).
@@ -2748,6 +2816,7 @@ items:
   - source: NVIDIA SkillSpector static_patterns_rogue_agent.py
     claim: Persistence lets compromised agents stay active indefinitely.
   tier: extended
+  test_ref: tool:ruff
 - id: VC-082
   title: Least-privilege violation in MCP (MCP Least Privilege / LP1-LP4)
   symptom: The MCP server declares wildcard permissions or executes unregistered capabilities.
@@ -2776,6 +2845,7 @@ items:
   - source: NVIDIA SkillSpector mcp_least_privilege.py
     claim: Wildcard permissions nullify the security granularity of tool servers.
   tier: extended
+  test_ref: tool:ruff
 - id: VC-083
   title: Envenenamiento de descripciones de herramientas (MCP Tool Poisoning / TP1-TP4)
   symptom: Tool descriptions contain covert instructions or homoglyphs.
@@ -2800,6 +2870,7 @@ items:
   - source: NVIDIA SkillSpector mcp_tool_poisoning.py
     claim: Homoglyphs confuse the type system and the instruction parser.
   tier: extended
+  test_ref: tool:ruff
 - id: VC-084
   title: Canonical source first (no sink patching)
   symptom: The same truth is corrected in multiple tracked files, or a rendered output is hand-patched instead of regenerated from the canonical source.
@@ -2836,6 +2907,7 @@ items:
   - source: Golden Standard generation pipeline
     claim: Derived outputs are regenerated from catalog sources, not edited as the source of truth.
   tier: core
+  test_ref: tool:pytest
 - id: VC-085
   title: Doctrine before enforcement (source-first ordering)
   symptom: Operational sinks or cross-repo consumers are updated before the GS rule exists, forcing later backfills and making the sink behave like the source.
@@ -2872,6 +2944,7 @@ items:
   - source: Debt Registry (e.g., BACKLOG.md) cross-seam contract
     claim: GS-2 must wait for a real GS gate, and cross-layer consumers should follow the GS source rather than create a sink-first shortcut.
   tier: core
+  test_ref: tool:pytest
 - id: VC-086
   title: No backlog entry, no work
   symptom: Planning, execution, or debt accounting begins without a tracked backlog entry, so the work is effectively invisible to the planning gate.
@@ -2931,6 +3004,8 @@ items:
     claim: A test using TemporaryDirectory(dir=ROOT) leaked tmp*/empty.py into the tree on interrupted runs and flipped the D1 integrity gate to REJECTED; it recurred 3 times because prior sessions deleted the zombies instead of fixing the writer.
   tier: core
 
+  detector: vc087_self_polluting_tooling
+  test_ref: scripts/detectors.py::vc087_self_polluting_tooling
 - id: VC-088
   title: Execution before plan (planless agent)
   symptom: Agent modifies files without a written step-by-step plan; steps are implicit in chat or agent memory, not in a durable artifact; no checkpoint to validate against and no signal when the task is complete.

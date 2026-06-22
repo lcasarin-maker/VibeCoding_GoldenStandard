@@ -1883,10 +1883,77 @@ def augment_with_file_layer(graph: dict) -> None:
     graph["edge_count"] = len(graph["edges"])
 
 
+def augment_with_test_ref_edges(graph: dict) -> None:
+    """GS-082: add tested_by edges from wiki vice/tokenomics nodes to their test file nodes."""
+    import yaml as _yaml
+
+    node_by_id: dict[str, dict] = {n["id"]: n for n in graph["nodes"]}
+    # Build a quick lookup: catalog entry id (e.g. "VC-038") -> graph node id (e.g. "Vices/VC-038")
+    stem_to_node: dict[str, dict] = {
+        Path(n["path"]).stem: n
+        for n in graph["nodes"]
+        if n.get("kind") in ("vice", "tokenomics", "wiki")
+    }
+
+    edge_keys: set[tuple[str, str, str]] = {
+        (e["source"], e["target"], e["relation"]) for e in graph["edges"]
+    }
+    new_edges: list[dict] = []
+
+    for catalog in (
+        "golden_standard_coding_vices.yaml",
+        "golden_standard_testing_vices.yaml",
+        "golden_standard_tokenomics.yaml",
+    ):
+        catalog_path = _ROOT / catalog
+        if not catalog_path.exists():
+            continue
+        data = _yaml.safe_load(catalog_path.read_text(encoding="utf-8"))
+        for item in data.get("items", []):
+            ref = str(item.get("test_ref", "")).strip()
+            if not ref or "::" not in ref:
+                continue
+            file_part, _ = ref.split("::", 1)
+            eid = str(item.get("id", "")).strip()
+            src_node = stem_to_node.get(eid)
+            tgt_node = node_by_id.get(file_part)
+            if src_node is None or tgt_node is None:
+                continue
+            key = (src_node["id"], tgt_node["id"], "tested_by")
+            if key in edge_keys:
+                continue
+            edge_keys.add(key)
+            new_edges.append({
+                "source": src_node["id"],
+                "target": tgt_node["id"],
+                "kind": "file",
+                "relation": "tested_by",
+                "confidence": 1.0,
+            })
+            src_node["outgoing"].append(tgt_node["id"])
+            tgt_node["incoming"].append(src_node["id"])
+            src_node.setdefault("outgoing_edges", []).append(
+                {"target": tgt_node["id"], "kind": "file", "relation": "tested_by", "confidence": 1.0}
+            )
+            tgt_node.setdefault("incoming_edges", []).append(
+                {"source": src_node["id"], "kind": "file", "relation": "tested_by", "confidence": 1.0}
+            )
+
+    if new_edges:
+        graph["edges"].extend(new_edges)
+        for n in graph["nodes"]:
+            n["in_degree"] = len(n.get("incoming", []))
+            n["out_degree"] = len(n.get("outgoing", []))
+            n["degree"] = n["in_degree"] + n["out_degree"]
+        graph["edges"].sort(key=lambda e: (e["source"], e["target"], e["relation"], e["kind"]))
+        graph["edge_count"] = len(graph["edges"])
+
+
 def write_graph_artifacts(mapped_database: dict[str, dict] | None = None) -> None:
     """Persist the graph JSON plus a Markdown summary inside the wiki."""
     graph = build_gs_graph()
     augment_with_file_layer(graph)  # GS-078: add file dependency layer
+    augment_with_test_ref_edges(graph)  # GS-082: tested_by edges
     node_by_stem = {Path(node["path"]).stem: node for node in graph["nodes"]}
     if mapped_database:
         for node in graph["nodes"]:

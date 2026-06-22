@@ -26,8 +26,8 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 
 | Status | Entries |
 |---|---:|
-| `PREVENTED` / `REMEDIATED` | 34 |
-| `DOC_ONLY` / `AUDITED` | 0 |
+| `PREVENTED` / `REMEDIATED` | 33 |
+| `DOC_ONLY` / `AUDITED` | 1 |
 | `Total` | 34 |
 
 ---
@@ -63,7 +63,7 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 *   [[Tokenomics/TK-027|TK-027]] — **Response without a mode** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-028|TK-028]] — **Forgettable manual monitoring** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-029|TK-029]] — **Full-state re-reading** (REMEDIATED, medium, downstream:none)
-*   [[Tokenomics/TK-030|TK-030]] — **Non-integrated external tools** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-030|TK-030]] — **Non-integrated external tools** (DOC_ONLY, medium, downstream:required)
 *   [[Tokenomics/TK-031|TK-031]] — **Promised savings not measured** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-032|TK-032]] — **Invisible quotas** (PREVENTED, low, downstream:none)
 *   [[Tokenomics/TK-033|TK-033]] — **Entropy without pruning — input governance without output governance** (PREVENTED, low, downstream:none)

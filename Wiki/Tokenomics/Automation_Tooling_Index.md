@@ -9,7 +9,7 @@ Active integrations, routing, operation modes, and tooling that actually execute
 ## Entries
 
 *   [[Tokenomics/TK-010|TK-010]] — **Bloated tool schemas** (PREVENTED, low, downstream:none)
-*   [[Tokenomics/TK-030|TK-030]] — **Non-integrated external tools** (REMEDIATED, medium, downstream:none)
+*   [[Tokenomics/TK-030|TK-030]] — **Non-integrated external tools** (DOC_ONLY, medium, downstream:required)
 
 ---
 

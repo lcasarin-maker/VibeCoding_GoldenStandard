@@ -862,6 +862,33 @@ def validate_manifest(path: Path, errors: list[str], check_wiki: bool) -> None:
 
     validate_wiki_topology(errors)
     check_graph_connectivity(errors)
+    check_test_refs(errors)
+
+
+def check_test_refs(errors: list[str]) -> None:
+    """GS-082: verify that test_ref file::fn entries point to real files and functions."""
+    for catalog in (
+        "golden_standard_coding_vices.yaml",
+        "golden_standard_testing_vices.yaml",
+        "golden_standard_tokenomics.yaml",
+    ):
+        catalog_path = ROOT / catalog
+        if not catalog_path.exists():
+            continue
+        for item in load_yaml(catalog_path).get("items", []):
+            if not isinstance(item, dict):
+                continue
+            ref = str(item.get("test_ref", "")).strip()
+            if not ref or not ref.startswith("scripts/"):
+                continue
+            if "::" not in ref:
+                continue
+            file_part, fn_part = ref.split("::", 1)
+            target = ROOT / file_part
+            if not target.exists():
+                errors.append(f"test_ref: {item.get('id')}: file not found: {file_part}")
+            elif fn_part not in target.read_text(encoding="utf-8", errors="replace"):
+                errors.append(f"test_ref: {item.get('id')}: function '{fn_part}' not in {file_part}")
 
 
 _GRAPH_CONNECTED_KINDS = {"wiki", "vice", "domain", "root", "principle", "tokenomics"}
