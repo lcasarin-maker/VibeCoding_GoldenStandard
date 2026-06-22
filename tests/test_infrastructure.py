@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import subprocess
+import sys
 from pathlib import Path
 
 import yaml
@@ -49,3 +51,35 @@ def test_onboarding_knowledge_loop_is_documented() -> None:
     assert "INGESTION_PROTOCOL.md" in index
     assert "KNOWLEDGE_SOURCES.md" in index
     assert "CONSUMER_CONTRACT.md" in index
+
+
+def test_generator_audit_only_skips_wiki() -> None:
+    # --audit-only must write JSON + MD but not regenerate Wiki/Home.md
+    wiki_home = ROOT / 'Wiki' / 'Home.md'
+    mtime_before = wiki_home.stat().st_mtime if wiki_home.exists() else 0.0
+    result = subprocess.run(
+        [sys.executable, 'scripts/generate_golden_audit.py', '--audit-only'],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode == 0, result.stderr
+    assert (ROOT / 'output' / 'golden_standard_audit.json').exists()
+    mtime_after = wiki_home.stat().st_mtime if wiki_home.exists() else 0.0
+    assert mtime_after == mtime_before, 'Wiki/Home.md was touched by --audit-only'
+
+
+def test_generator_wiki_only_skips_audit_json() -> None:
+    # --wiki-only must write wiki files but not touch the audit JSON
+    audit_json = ROOT / 'output' / 'golden_standard_audit.json'
+    mtime_before = audit_json.stat().st_mtime if audit_json.exists() else 0.0
+    result = subprocess.run(
+        [sys.executable, 'scripts/generate_golden_audit.py', '--wiki-only'],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode == 0, result.stderr
+    assert (ROOT / 'Wiki' / 'Home.md').exists()
+    mtime_after = audit_json.stat().st_mtime if audit_json.exists() else 0.0
+    assert mtime_after == mtime_before, 'output/golden_standard_audit.json was touched by --wiki-only'

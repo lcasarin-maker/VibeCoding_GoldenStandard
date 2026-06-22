@@ -87,9 +87,20 @@ def check_sp007(errors: list[str]) -> None:
     if backlog_dir.exists():
         for task_file in backlog_dir.glob("*.md"):
             text = task_file.read_text(encoding="utf-8", errors="replace")
-            for field in ("id:", "title:", "status:"):
+            for field in ("id:", "title:", "status:", "priority:", "effort:"):
                 _check("SP-007", field in text,
                        f"{task_file.name}: missing frontmatter field '{field}'", errors)
+
+
+def check_sp005(errors: list[str]) -> None:
+    for fname, header in (("HANDOFF.md", "**Date:**"), ("STATE.md", "**Last updated:**")):
+        f = _ROOT / fname
+        if not f.exists():
+            errors.append(f"SP-005: {fname} missing — session-close mandatory")
+            continue
+        text = f.read_text(encoding="utf-8", errors="replace")
+        _check("SP-005", len(text.strip()) > 0, f"{fname} is empty", errors)
+        _check("SP-005", header in text, f"{fname}: missing '{header}' date header", errors)
 
 
 def check_sp009(errors: list[str]) -> None:
@@ -116,6 +127,7 @@ def main() -> int:
 
     check_sp001(errors)
     check_sp003_sp004(errors)
+    check_sp005(errors)
     check_sp006(errors)
     check_sp007(errors)
     check_sp009(errors)
@@ -127,7 +139,7 @@ def main() -> int:
         print(f"\n{len(errors)} violation(s) found.", file=sys.stderr)
         return 1
 
-    implemented = ["SP-001", "SP-003", "SP-004", "SP-006", "SP-007", "SP-009", "SP-010"]
+    implemented = ["SP-001", "SP-003", "SP-004", "SP-005", "SP-006", "SP-007", "SP-009", "SP-010"]
     print(f"audit.py OK — {len(implemented)} SP checks passed ({', '.join(implemented)})")
     return 0
 

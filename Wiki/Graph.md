@@ -10,13 +10,13 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 
 | Metric | Value |
 |---|---:|
-| Nodes | 487 |
-| Edges | 2516 |
-| Reciprocal pairs | 578 |
+| Nodes | 488 |
+| Edges | 2519 |
+| Reciprocal pairs | 579 |
 | Average edge confidence | 0.935 |
-| Semantic density | 0.011916 |
+| Semantic density | 0.011878 |
 | Hub ratio | 1.0 |
-| Bridge ratio | 0.997821 |
+| Bridge ratio | 0.997826 |
 | Intentional orphans | 0 |
 | Candidate orphans | 10 |
 | Hubs | 15 |
@@ -29,9 +29,9 @@ The graph now distinguishes link syntax from relation meaning. `kind` records ho
 
 | Relation | Edges |
 |---|---:|
-| `returns_to_index` | 1159 |
-| `references` | 394 |
-| `catalogs` | 342 |
+| `returns_to_index` | 1160 |
+| `references` | 395 |
+| `catalogs` | 343 |
 | `governed_by` | 214 |
 | `thematic_bridge` | 122 |
 | `indexes` | 114 |
@@ -49,7 +49,7 @@ The graph now also highlights entries that remain mainly documentary. This does 
 
 | Catalog | VC DOC_ONLY | VT DOC_ONLY | TK DOC_ONLY |
 |---|---:|---:|---:|
-| `DOC_ONLY` | 16 | 0 | 0 |
+| `DOC_ONLY` | 15 | 0 | 0 |
 
 | ID | Title | Category | Severity | Status |
 |---|---|---|---|---|
@@ -63,8 +63,8 @@ The graph now also highlights entries that remain mainly documentary. This does 
 | `SP-008` | Agent self-certifies task completion | `Other` | `medium` | `DOC_ONLY` |
 | `VC-007` | Non-surgical scope | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-009` | Full rewrite | `Vibe Coding` | `medium` | `DOC_ONLY` |
-| `VC-012` | Invisible debt | `Vibe Coding` | `medium` | `DOC_ONLY` |
 | `VC-037` | Code without tests | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `VC-042` | Implicit permission matrix | `Vibe Coding` | `medium` | `DOC_ONLY` |
 
 ---
 
@@ -99,7 +99,7 @@ Each entry is classified by depth: `deep` (ships bad/good examples and a detecti
 | `stub` | 0 | 0 | 0 |
 | `doctrinal` | 0 | 0 | 0 |
 
-**Local enforcement:** 31 `deep` entries have a real static detector in `scripts/detectors.py`, tested in CI against their own `example_bad`/`example_good` (`scripts/test_detectors.py`). The rest are falsifiable-in-principle (they ship a detection recipe) but without an implemented detector yet.
+**Local enforcement:** 32 `deep` entries have a real static detector in `scripts/detectors.py`, tested in CI against their own `example_bad`/`example_good` (`scripts/test_detectors.py`). The rest are falsifiable-in-principle (they ship a detection recipe) but without an implemented detector yet.
 
 ---
 
@@ -135,7 +135,7 @@ Pages with the largest impact surface. If they change, review their inbound link
 
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
-| [[Home]] | `wiki` | 451 | 13 | [[Detectors/vc003_incomprehensible_code]], [[Detectors/vc005_premature_closure]], [[Detectors/vc005_untracked_prototype]], [[Detectors/vc013_ambiguous_handoff]], [[Detectors/vc016_broken_version_parity]], [[Detectors/vc017_deadlock_without_heartbeat]] +445 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
+| [[Home]] | `wiki` | 452 | 13 | [[Detectors/vc003_incomprehensible_code]], [[Detectors/vc005_premature_closure]], [[Detectors/vc005_untracked_prototype]], [[Detectors/vc012_invisible_debt]], [[Detectors/vc013_ambiguous_handoff]], [[Detectors/vc016_broken_version_parity]] +446 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
 | [[Vices_Index]] | `wiki` | 215 | 205 | [[Home]], [[Vices/SP-001]], [[Vices/SP-002]], [[Vices/SP-003]], [[Vices/SP-004]], [[Vices/SP-005]] +209 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +199 more |
 | [[Tokenomics_Map]] | `wiki` | 255 | 21 | [[Home]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]], [[Tokenomics/Output_Compaction_Index]] +249 more | [[Home]], [[Principles]], [[Principles/PR-081]], [[Principles/PR-083]], [[Principles/PR-084]], [[Principles/PR-085]] +15 more |
 | [[Principles]] | `principle-index` | 116 | 115 | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +110 more | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +109 more |

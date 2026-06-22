@@ -11,18 +11,14 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Empirical proof is required before declaring success: closure fails when no structured evidence artifact backs
-    the claim, forcing verification over optimism.
+  action: 'Empirical proof is required before declaring success: closure fails when no structured evidence artifact backs the claim, forcing verification over optimism.
 
     '
   validating_mechanism: runtime-test
   downstream_verification: none
   example_lang: python
-  example_bad: "# Success is declared without any observable evidence.\ndef deploy():\n    do_release()\n    print(\"Deploy\
-    \ OK\")  # assertion, not verification\n"
-  example_good: "# The verdict requires evidence: the flow fails if there is no proof.\ndef deploy():\n    result = do_release()\n\
-    \    assert result.health_check().ok, \"deploy without green health-check\"\n    write_evidence(\".protocol/evidence/deploy.json\"\
-    , result.metrics())\n"
+  example_bad: "# Success is declared without any observable evidence.\ndef deploy():\n    do_release()\n    print(\"Deploy OK\")  # assertion, not verification\n"
+  example_good: "# The verdict requires evidence: the flow fails if there is no proof.\ndef deploy():\n    result = do_release()\n    assert result.health_check().ok, \"deploy without green health-check\"\n    write_evidence(\".protocol/evidence/deploy.json\", result.metrics())\n"
   detection: 'Flag as a vice any path that emits ''OK''/''success''/''done'' without an assert over
 
     observable state or an evidence artifact generated in the same execution.
@@ -47,10 +43,8 @@ items:
   validating_mechanism: static-regex
   downstream_verification: required
   example_lang: python
-  example_bad: "# \"Temporary\" prototype with no date or owner: it stays forever.\ndef quick_hack():            # TODO: temporary,\
-    \ remove\n    return cached_guess()\n"
-  example_good: "# Every prototype carries explicit, trackable expiration and owner.\ndef quick_hack():            # PROTOTYPE\
-    \ owner=luis expires=2026-07-01 ticket=BUG-12\n    return cached_guess()\n"
+  example_bad: "# \"Temporary\" prototype with no date or owner: it stays forever.\ndef quick_hack():            # TODO: temporary, remove\n    return cached_guess()\n"
+  example_good: "# Every prototype carries explicit, trackable expiration and owner.\ndef quick_hack():            # PROTOTYPE owner=luis expires=2026-07-01 ticket=BUG-12\n    return cached_guess()\n"
   detection: 'Flag TODO/FIXME/HACK/''temporary''/''prototype'' comments without a parseable owner +
 
     expiration date + ticket.
@@ -75,11 +69,8 @@ items:
   validating_mechanism: static-ast
   downstream_verification: required
   example_lang: python
-  example_bad: "# High cyclomatic-complexity function, with no docstring or mental model.\ndef proc(d):\n    r = []\n    for\
-    \ k in d:\n        if k > 0:\n            for j in d[k]:\n                if j and (j % 2 or k < 3) and not seen(j): r.append(f(j,\
-    \ k))\n    return r\n"
-  example_good: "# Decomposed into named, explainable units; low complexity.\ndef proc(d):\n    return [transform(j, k) for\
-    \ k, j in relevant_pairs(d)]\n"
+  example_bad: "# High cyclomatic-complexity function, with no docstring or mental model.\ndef proc(d):\n    r = []\n    for k in d:\n        if k > 0:\n            for j in d[k]:\n                if j and (j % 2 or k < 3) and not seen(j): r.append(f(j, k))\n    return r\n"
+  example_good: "# Decomposed into named, explainable units; low complexity.\ndef proc(d):\n    return [transform(j, k) for k, j in relevant_pairs(d)]\n"
   detection: 'Cyclomatic complexity > threshold (e.g. 10) or long functions without a docstring
 
     (radon / mccabe / ruff C901).
@@ -99,17 +90,14 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Empirical proof is required before declaring success: closure fails when no structured evidence artifact backs
-    the claim, forcing verification over optimism.
+  action: 'Empirical proof is required before declaring success: closure fails when no structured evidence artifact backs the claim, forcing verification over optimism.
 
     '
   validating_mechanism: runtime-test
   downstream_verification: none
   example_lang: python
-  example_bad: "# 'Already fixed' asserted in the chat without running anything.\n# The code ships with a triumphalist comment\
-    \ instead of a test.\ndef parse(x):\n    return int(x)  # \"fix: now handles all cases\"\n"
-  example_good: "# The fix is backed by a test that exercises the claimed case.\ndef parse(x):\n    return int(x.strip())\n\
-    \ndef test_parse_trims():\n    assert parse(\"  42 \") == 42  # evidence, not narrative\n"
+  example_bad: "# 'Already fixed' asserted in the chat without running anything.\n# The code ships with a triumphalist comment instead of a test.\ndef parse(x):\n    return int(x)  # \"fix: now handles all cases\"\n"
+  example_good: "# The fix is backed by a test that exercises the claimed case.\ndef parse(x):\n    return int(x.strip())\n\ndef test_parse_trims():\n    assert parse(\"  42 \") == 42  # evidence, not narrative\n"
   detection: 'Review heuristic: reject PRs whose only support for ''it works'' is prose
 
     (comments/commit message) without a new test covering the asserted case.
@@ -134,8 +122,7 @@ items:
   validating_mechanism: static-regex
   downstream_verification: none
   example_lang: python
-  example_bad: "def fix():\n    patch_login()        # fixes the main bug\n    # the log also reveals a secondary KeyError\
-    \ -> ignored and closed\n"
+  example_bad: "def fix():\n    patch_login()        # fixes the main bug\n    # the log also reveals a secondary KeyError -> ignored and closed\n"
   example_good: "def fix():\n    patch_login()\n    assert not scan_logs().errors   # closes the full chain of defects\n"
   detection: 'Closing a task while the logs/CI still show secondary errors revealed by the fix itself.
 
@@ -154,8 +141,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'The plan must be externalized: topology validation requires the inbox surface to be published, linked from the
-    home page, and backed by an ingestion protocol and templates.
+  action: 'The plan must be externalized: topology validation requires the inbox surface to be published, linked from the home page, and backed by an ingestion protocol and templates.
 
     '
   validating_mechanism: runtime-test
@@ -182,9 +168,7 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: text
@@ -203,6 +187,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: Commit scope judgment requires diff heuristics + human PR review. False-positive rate prohibits automation.'
 - id: VC-008
   title: State drift
   symptom: Large edits degrade coherence
@@ -213,8 +198,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Generated surfaces must track their source: regenerating audit artifacts and re-checking topology prevents home,
-    graph, and index pages from drifting away from the catalogs.
+  action: 'Generated surfaces must track their source: regenerating audit artifacts and re-checking topology prevents home, graph, and index pages from drifting away from the catalogs.
 
     '
   validating_mechanism: runtime-test
@@ -243,8 +227,7 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Full rewrite vs surgical edit: behavioral judgment vice (when a rewrite is justified). No static test
-    discriminates intent, so this stays a manual-review DOC_ONLY entry.'
+  action: 'Full rewrite vs surgical edit: behavioral judgment vice (when a rewrite is justified). No static test discriminates intent, so this stays a manual-review DOC_ONLY entry.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: text
@@ -269,6 +252,7 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: Full-rewrite detection (diff >80%) is unreliable; rewrites are sometimes correct. Human judgment required at PR review.'
 - id: VC-010
   detector: vc036_destructive_without_dryrun
   title: No dry run
@@ -315,8 +299,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Regeneration must precede validation: a fresh rebuild of the vault is forced before checks, so blind replacement
-    cannot masquerade as a finished state.
+  action: 'Regeneration must precede validation: a fresh rebuild of the vault is forced before checks, so blind replacement cannot masquerade as a finished state.
 
     '
   validating_mechanism: runtime-test
@@ -344,20 +327,17 @@ items:
   symptom: Unrecorded shortcuts
   cause: Hidden future cost
   solution: Declare technical debt
-  status: DOC_ONLY
+  status: REMEDIATED
   severity: medium
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  validating_mechanism: static-regex
   downstream_verification: required
   example_lang: python
   example_bad: "def pay(x):\n    return charge(x)   # shortcut: no idempotency or retries (unrecorded)\n"
-  example_good: "# The debt is declared explicitly in a trackable register.\ndef pay(x):\n    return charge(x)   # DEBT-21:\
-    \ missing idempotency, see TECH_DEBT.md\n"
+  example_good: "# The debt is declared explicitly in a trackable register.\ndef pay(x):\n    return charge(x)   # DEBT-21: missing idempotency, see TECH_DEBT.md\n"
   detection: 'Known shortcuts (''for now'', no validation, no retry) without a corresponding
 
     entry in a technical-debt register.
@@ -367,6 +347,8 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  notes: Promoted 2026-06-22. static-regex detector for shortcut/for-now comment patterns added to scripts/detectors.py.
+  detector: vc012_invisible_debt
 - id: VC-013
   detector: vc013_ambiguous_handoff
   title: Ambiguous handoff
@@ -411,8 +393,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Knowledge must be modular: topology validation requires separate canonical surfaces for vices, tokenomics, insights,
-    and the graph rather than one monolithic page.
+  action: 'Knowledge must be modular: topology validation requires separate canonical surfaces for vices, tokenomics, insights, and the graph rather than one monolithic page.
 
     '
   validating_mechanism: runtime-test
@@ -559,10 +540,8 @@ items:
   validating_mechanism: static-ast
   downstream_verification: required
   example_lang: python
-  example_bad: "# A temporary stub stays wired as a real production dependency.\nclass PaymentGateway:\n    def charge(self,\
-    \ amount):\n        return True        # stub: \"we'll connect it later\"\n"
-  example_good: "# The stub lives only in tests; production uses the real implementation.\nclass PaymentGateway:\n    def\
-    \ charge(self, amount):\n        return self._provider.charge(amount)\n"
+  example_bad: "# A temporary stub stays wired as a real production dependency.\nclass PaymentGateway:\n    def charge(self, amount):\n        return True        # stub: \"we'll connect it later\"\n"
+  example_good: "# The stub lives only in tests; production uses the real implementation.\nclass PaymentGateway:\n    def charge(self, amount):\n        return self._provider.charge(amount)\n"
   detection: 'Classes/functions with a trivial body (return True/None/pass) imported from production
 
     modules (not from tests/fixtures).
@@ -582,8 +561,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'State must stay consistent across concurrent sessions: a parity check fails when the protocol fingerprint diverges
-    between two sessions.
+  action: 'State must stay consistent across concurrent sessions: a parity check fails when the protocol fingerprint diverges between two sessions.
 
     '
   validating_mechanism: runtime-test
@@ -630,8 +608,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Documentation must not lie: link-integrity and count-parity validation fail when docs drift away from the generated
-    state.
+  action: 'Documentation must not lie: link-integrity and count-parity validation fail when docs drift away from the generated state.
 
     '
   validating_mechanism: runtime-test
@@ -675,8 +652,7 @@ items:
     print(user.age)  # AttributeError: ''User'' has no attribute ''age''
 
     '
-  example_good: "# Model declares all fields; access is safe.\nfrom pydantic import BaseModel\nclass User(BaseModel):\n  \
-    \  name: str\n    age: int\nuser = User(name=\"Alice\", age=30)\nprint(user.age)  # OK\n"
+  example_good: "# Model declares all fields; access is safe.\nfrom pydantic import BaseModel\nclass User(BaseModel):\n    name: str\n    age: int\nuser = User(name=\"Alice\", age=30)\nprint(user.age)  # OK\n"
   detection: 'AST + type checker: access to attributes not declared in the class/schema.
 
     Tools: mypy (attr-defined), pylint (E1101), Pydantic validation.
@@ -711,9 +687,7 @@ items:
     <div style="position:absolute; top:50px; left:10px;">Content</div>
 
     '
-  example_good: "<!-- Explicit layout system (CSS Grid) defines the visual structure. -->\n<style>\n  .container { display:\
-    \ grid; grid-template-rows: auto 1fr; }\n</style>\n<div class=\"container\">\n  <header>Header</header>\n  <main>Content</main>\n\
-    </div>\n"
+  example_good: "<!-- Explicit layout system (CSS Grid) defines the visual structure. -->\n<style>\n  .container { display: grid; grid-template-rows: auto 1fr; }\n</style>\n<div class=\"container\">\n  <header>Header</header>\n  <main>Content</main>\n</div>\n"
   detection: 'Regex: absence of a layout framework (no CSS Grid, no Flexbox, no layout class
 
     system) combined with presence of inline `style=` attributes on structural elements.
@@ -733,8 +707,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Dependencies must be mapped: the graph and link validator require canonical surfaces to be linked and resolvable
-    rather than assumed.
+  action: 'Dependencies must be mapped: the graph and link validator require canonical surfaces to be linked and resolvable rather than assumed.
 
     '
   validating_mechanism: runtime-test
@@ -777,8 +750,7 @@ items:
     '
   example_good: '# Structured operation with a real parser for the format.
 
-    python -c "import json; d=json.load(open(''config.json'')); d[''port'']=443; json.dump(d, open(''config.json'',''w''),
-    indent=2)"
+    python -c "import json; d=json.load(open(''config.json'')); d[''port'']=443; json.dump(d, open(''config.json'',''w''), indent=2)"
 
     '
   detection: 'Use of sed/awk/grep to mutate structured files (.json/.yaml/.toml/.xml) instead
@@ -836,16 +808,13 @@ items:
   tags:
   - vibe-coding
   - prevented-mechanically
-  action: 'Static AST analysis requires complete type annotations on public functions: every parameter and the return value
-    must be typed, and an unconstrained `Any` in domain positions is rejected. The checked signature is the function definition''s
-    annotation set, independent of any specific tool.
+  action: 'Static AST analysis requires complete type annotations on public functions: every parameter and the return value must be typed, and an unconstrained `Any` in domain positions is rejected. The checked signature is the function definition''s annotation set, independent of any specific tool.
 
     '
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "def handle(data):          # no types: impossible states circulate\n    return data[\"amount\"] * data[\"\
-    rate\"]\n"
+  example_bad: "def handle(data):          # no types: impossible states circulate\n    return data[\"amount\"] * data[\"rate\"]\n"
   example_good: "def handle(order: Order) -> Money:   # invariants represented in the type\n    return order.amount * order.rate\n"
   detection: 'Public functions without type annotations or with Any in domain signatures
 
@@ -976,8 +945,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Every imported dependency must be declared in the manifest: a check fails when code imports a package that the
-    dependency manifest does not list.
+  action: 'Every imported dependency must be declared in the manifest: a check fails when code imports a package that the dependency manifest does not list.
 
     '
   validating_mechanism: runtime-test
@@ -1009,8 +977,7 @@ items:
     data = yaml.safe_load("name: Cerberus")
 
     '
-  detection: 'Parse the top-level imports and compare them with the dependency manifest (requirements/lock/pyproject metadata);
-    fail when an import resolves to a package that is absent from the manifest.
+  detection: 'Parse the top-level imports and compare them with the dependency manifest (requirements/lock/pyproject metadata); fail when an import resolves to a package that is absent from the manifest.
 
     '
   evidence:
@@ -1102,8 +1069,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Memory must be loadable on entry: topology validation requires the canonical memory surfaces to be linked from
-    the home page.
+  action: 'Memory must be loadable on entry: topology validation requires the canonical memory surfaces to be linked from the home page.
 
     '
   validating_mechanism: runtime-test
@@ -1132,8 +1098,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Missing files must fail loud: broken-link validation fails when a referenced markdown or wiki target does not resolve
-    on disk.
+  action: 'Missing files must fail loud: broken-link validation fails when a referenced markdown or wiki target does not resolve on disk.
 
     '
   validating_mechanism: runtime-test
@@ -1162,8 +1127,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'An audit may only be reported as total when its mandatory phases ran: completeness analysis fails when required
-    prior-phase evidence is absent, so a partial pass cannot be called total.
+  action: 'An audit may only be reported as total when its mandatory phases ran: completeness analysis fails when required prior-phase evidence is absent, so a partial pass cannot be called total.
 
     '
   validating_mechanism: static-ast
@@ -1228,9 +1192,7 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: text
@@ -1253,6 +1215,7 @@ items:
   - source: arxiv:2602.00409
     claim: agents generate code without a test oracle in a measurable way; the absence of tests amplifies the risk.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: Missing-test detection depends on project file naming and coverage framework. Not portable as static-regex.'
 - id: VC-038
   title: Optimistic config
   symptom: Idealized environment
@@ -1312,8 +1275,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Infrastructure is a first-class surface: the audit workflow is a visible, validated file that must run both the
-    generator and the catalog validator, so infra cannot be silently ignored.
+  action: 'Infrastructure is a first-class surface: the audit workflow is a visible, validated file that must run both the generator and the catalog validator, so infra cannot be silently ignored.
 
     '
   validating_mechanism: runtime-test
@@ -1342,8 +1304,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Components must be complete: topology validation checks the canonical home, vices, tokenomics, graph, and inbox
-    surfaces, so a missing component fails the gate.
+  action: 'Components must be complete: topology validation checks the canonical home, vices, tokenomics, graph, and inbox surfaces, so a missing component fails the gate.
 
     '
   validating_mechanism: runtime-test
@@ -1372,8 +1333,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Setup must be real, not phantom: inbox topology validation requires the ingestion protocol, knowledge-sources contract,
-    and templates to exist before new findings are accepted.
+  action: 'Setup must be real, not phantom: inbox topology validation requires the ingestion protocol, knowledge-sources contract, and templates to exist before new findings are accepted.
 
     '
   validating_mechanism: runtime-test
@@ -1404,15 +1364,12 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
   example_bad: "def delete_user(actor, uid):\n    db.delete(uid)         # without verifying the actor's role/capability\n"
-  example_good: "def delete_user(actor, uid):\n    require(actor.can(\"user.delete\"))   # declared and verified capability\n\
-    \    db.delete(uid)\n"
+  example_good: "def delete_user(actor, uid):\n    require(actor.can(\"user.delete\"))   # declared and verified capability\n    db.delete(uid)\n"
   detection: 'Sensitive actions without capability/role verification, or the absence of a declared
 
     authorization matrix (capabilities, limits, and denials per role).
@@ -1422,6 +1379,7 @@ items:
   - source: OWASP Top 10 for Agents 2026
     claim: recognized risk category (input validation / broken authorization) for agentic applications.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: Sensitive-action detection requires semantic understanding of business logic; not statically checkable.'
 - id: VC-043
   detector: vc109_hardcoded_path
   title: Environmental literal path
@@ -1433,8 +1391,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Filesystem paths must be portable: a scan fails when a hardcoded absolute path (drive letter or home directory)
-    appears in scripts.
+  action: 'Filesystem paths must be portable: a scan fails when a hardcoded absolute path (drive letter or home directory) appears in scripts.
 
     '
   validating_mechanism: runtime-test
@@ -1473,8 +1430,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Quotas must be visible up front: topology validation requires the tokenomics index to expose its subindices and
-    map before the category is treated as complete.
+  action: 'Quotas must be visible up front: topology validation requires the tokenomics index to expose its subindices and map before the category is treated as complete.
 
     '
   validating_mechanism: runtime-test
@@ -1540,9 +1496,7 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs
-    as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified
-    from AUDITED/test_behavioral_compliance to DOC_ONLY.'
+  action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: bash
@@ -1563,14 +1517,13 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: Cross-project adoption verification requires live access to satellite repos. No static signature.'
 - id: VC-047
   detector: vc047_frozen_nomenclature
   title: Frozen nomenclature
-  symptom: Component name does not reflect the real scope after evolution (e.g. a component named "auditor_v1" that has been
-    expanded to cover v3 functionality but keeps its inherited name)
+  symptom: Component name does not reflect the real scope after evolution (e.g. a component named "auditor_v1" that has been expanded to cover v3 functionality but keeps its inherited name)
   cause: The name was fixed in a historical state and was not updated when expanding
-  solution: Update the name and all tests that reference it when the scope changes; or document the discrepancy explicitly
-    with a sentinel
+  solution: Update the name and all tests that reference it when the scope changes; or document the discrepancy explicitly with a sentinel
   status: PREVENTED
   severity: medium
   tags:
@@ -1580,8 +1533,7 @@ items:
   validating_mechanism: static-regex
   downstream_verification: required
   example_lang: python
-  example_bad: "# The name says v1 but it already implements v3 rules: misleads readers and tests.\nclass AuditorV1:     \
-    \      # real scope != inherited name\n    ...\n"
+  example_bad: "# The name says v1 but it already implements v3 rules: misleads readers and tests.\nclass AuditorV1:           # real scope != inherited name\n    ...\n"
   example_good: "class Auditor:             # the name reflects the current scope\n    ...\n"
   detection: 'Identifiers with embedded version tokens (xxx_v1, FooV2) whose scope no longer
 
@@ -1596,15 +1548,13 @@ items:
   title: Finding without a remediation plan
   symptom: A defect detected in a session does not become an executable item in the active plan
   cause: Informal record without an owner, evidence, or closure criterion
-  solution: Every finding must have an ID, evidence, a proposed fix, and done-criteria in the active plan before closing the
-    session
+  solution: Every finding must have an ID, evidence, a proposed fix, and done-criteria in the active plan before closing the session
   status: PREVENTED
   severity: medium
   tags:
   - vibe-coding
   - prevented
-  action: 'Findings need a remediation path: inbox topology validation enforces the ingestion path, templates, and protocol
-    docs required to act on a finding.
+  action: 'Findings need a remediation path: inbox topology validation enforces the ingestion path, templates, and protocol docs required to act on a finding.
 
     '
   validating_mechanism: runtime-test
@@ -1628,24 +1578,20 @@ items:
   title: Dynamic execution of external expressions
   symptom: The rules engine executes YAML or config strings as Python code (`eval`/`exec`)
   cause: The rules source is treated as trusted code without distinguishing data from instructions
-  solution: Replace eval with a dispatch table of explicitly registered functions; validate names at load time; reject any
-    unregistered check
+  solution: Replace eval with a dispatch table of explicitly registered functions; validate names at load time; reject any unregistered check
   status: REMEDIATED
   severity: high
   tags:
   - vibe-coding
   - remediated
-  action: 'Rules must not evaluate arbitrary expressions: dynamic execution of external strings is rejected in favor of a
-    pre-registered dispatch of safe checks, closing a remote-code-execution path.
+  action: 'Rules must not evaluate arbitrary expressions: dynamic execution of external strings is rejected in favor of a pre-registered dispatch of safe checks, closing a remote-code-execution path.
 
     '
   validating_mechanism: runtime-test
   downstream_verification: none
   example_lang: python
-  example_bad: "# Dynamic evaluation of an expression from an external source: RCE.\nrule = request.args[\"expr\"]\nif eval(rule):\
-    \          # attacker-controlled input\n    grant_access()\n"
-  example_good: "# Explicit, bounded parsing; never eval on external input.\nimport ast\nrule = request.args[\"expr\"]\nvalue\
-    \ = ast.literal_eval(rule)   # literals only, no execution\nif validate_rule(value):\n    grant_access()\n"
+  example_bad: "# Dynamic evaluation of an expression from an external source: RCE.\nrule = request.args[\"expr\"]\nif eval(rule):          # attacker-controlled input\n    grant_access()\n"
+  example_good: "# Explicit, bounded parsing; never eval on external input.\nimport ast\nrule = request.args[\"expr\"]\nvalue = ast.literal_eval(rule)   # literals only, no execution\nif validate_rule(value):\n    grant_access()\n"
   detection: 'AST: calls to eval()/exec()/compile() whose argument comes (by data flow)
 
     from external input (request, file, network, argv).
@@ -1661,15 +1607,13 @@ items:
   title: Automatic installation of unverified dependencies
   symptom: An `ImportError` triggers `pip install` without human review
   cause: The error handler delegates supply-chain decisions to the environment without control
-  solution: Forbid automatic `pip install`; report the missing dependency with manual installation guidance and stop; the
-    human decides what gets installed
+  solution: Forbid automatic `pip install`; report the missing dependency with manual installation guidance and stop; the human decides what gets installed
   status: REMEDIATED
   severity: high
   tags:
   - vibe-coding
   - remediated
-  action: 'Dependency installation must never be automatic: an import-time guard must not trigger package installation; missing
-    packages are surfaced for manual decision.
+  action: 'Dependency installation must never be automatic: an import-time guard must not trigger package installation; missing packages are surfaced for manual decision.
 
     '
   validating_mechanism: runtime-test
@@ -1704,25 +1648,20 @@ items:
   title: Non-atomic destructive write of critical state
   symptom: A crash or kill during `write_text()` leaves the state file (JSON, YAML) corrupt or empty
   cause: Write atomicity was not modeled as a requirement of the persistence subsystem
-  solution: Write to a temporary file in the same directory and rename atomically (`tmp → final`); clean up the temporary
-    if an exception occurs before the rename
+  solution: Write to a temporary file in the same directory and rename atomically (`tmp → final`); clean up the temporary if an exception occurs before the rename
   status: REMEDIATED
   severity: high
   tags:
   - vibe-coding
   - remediated
-  action: 'Writes to critical state must be atomic: state is persisted via a temp-file-plus-atomic-replace path so a crash
-    cannot leave a half-written, corrupted file.
+  action: 'Writes to critical state must be atomic: state is persisted via a temp-file-plus-atomic-replace path so a crash cannot leave a half-written, corrupted file.
 
     '
   validating_mechanism: runtime-test
   downstream_verification: none
   example_lang: python
-  example_bad: "# Non-atomic write: if the process dies midway, the critical file corrupts.\nwith open(\"state.json\", \"\
-    w\") as f:\n    json.dump(big_state, f)   # truncated and without atomic replacement\n"
-  example_good: "# Write to a temp and replace atomically (os.replace is atomic on the same FS).\nimport os, tempfile, json\n\
-    fd, tmp = tempfile.mkstemp(dir=\".\")\nwith os.fdopen(fd, \"w\") as f:\n    json.dump(big_state, f)\nos.replace(tmp, \"\
-    state.json\")\n"
+  example_bad: "# Non-atomic write: if the process dies midway, the critical file corrupts.\nwith open(\"state.json\", \"w\") as f:\n    json.dump(big_state, f)   # truncated and without atomic replacement\n"
+  example_good: "# Write to a temp and replace atomically (os.replace is atomic on the same FS).\nimport os, tempfile, json\nfd, tmp = tempfile.mkstemp(dir=\".\")\nwith os.fdopen(fd, \"w\") as f:\n    json.dump(big_state, f)\nos.replace(tmp, \"state.json\")\n"
   detection: 'Detect open(path,''w'')/direct truncation on critical state files without the
 
     write-temp + atomic os.replace/rename pattern.
@@ -1734,29 +1673,22 @@ items:
   tier: extended
 - id: VC-052
   title: Zombie Compatibility Theater
-  symptom: 'X is ordered to be replaced by Y. The agent creates: inheritance of X in Y, a shim that forwards to Y, a fallback
-    `Y.exists() or X.exists()`, dual sentinels in tests, cross imports "for legacy compatibility". X never dies.'
-  cause: The agent interprets "replace" as "add" to avoid going back to fix failures. The "do not break anything" instinct
-    generates dead code disguised as safety.
-  solution: '**Replace = Delete + Create. A single source of truth.** When a replacement is ordered: (1) the old file is DELETED
-    from the VCS, (2) the new one does not import from the old one, (3) tests point only to the new one, (4) no alternative
-    paths or dual checks exist. Any "for compatibility" in active code is a sign of an incomplete replacement.'
+  symptom: 'X is ordered to be replaced by Y. The agent creates: inheritance of X in Y, a shim that forwards to Y, a fallback `Y.exists() or X.exists()`, dual sentinels in tests, cross imports "for legacy compatibility". X never dies.'
+  cause: The agent interprets "replace" as "add" to avoid going back to fix failures. The "do not break anything" instinct generates dead code disguised as safety.
+  solution: '**Replace = Delete + Create. A single source of truth.** When a replacement is ordered: (1) the old file is DELETED from the VCS, (2) the new one does not import from the old one, (3) tests point only to the new one, (4) no alternative paths or dual checks exist. Any "for compatibility" in active code is a sign of an incomplete replacement.'
   status: PREVENTED
   severity: high
   tags:
   - vibe-coding
   - prevented
-  action: 'A replacement is a single source of truth: the superseded unit is deleted and the new one carries no inheritance,
-    shim, fallback, or dual test sentinel back to it; static analysis flags compatibility forwarders left in active code.
+  action: 'A replacement is a single source of truth: the superseded unit is deleted and the new one carries no inheritance, shim, fallback, or dual test sentinel back to it; static analysis flags compatibility forwarders left in active code.
 
     '
   validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
-  example_bad: "# Dead compat shim: no one uses it but it stays 'just in case'.\ndef legacy_api(*a, **k):\n    return new_api(*a,\
-    \ **k)   # zombie: only forwards, never called\n"
-  example_good: "# The shim is removed and the few real callers (if any) are migrated.\n# grep confirms 0 active references\
-    \ -> delete, do not keep.\ndef new_api(...):\n    ...\n"
+  example_bad: "# Dead compat shim: no one uses it but it stays 'just in case'.\ndef legacy_api(*a, **k):\n    return new_api(*a, **k)   # zombie: only forwards, never called\n"
+  example_good: "# The shim is removed and the few real callers (if any) are migrated.\n# grep confirms 0 active references -> delete, do not keep.\ndef new_api(...):\n    ...\n"
   detection: 'grep of references: functions/modules marked ''legacy''/''compat''/''deprecated'' with
 
     0 active callers in the tree = dead candidates to remove.
@@ -1768,16 +1700,11 @@ items:
   tier: core
 - id: VC-053
   title: Critical Redundancies and Repetitive AI-slop Patterns
-  symptom: Cumulative additive mutations that scatter the system's functionality across multiple redundant files or unnecessary
-    wrappers instead of consolidating logic.
+  symptom: Cumulative additive mutations that scatter the system's functionality across multiple redundant files or unnecessary wrappers instead of consolidating logic.
   cause: Generative convenience in creating new interfaces instead of restructuring the existing ones.
-  solution: Impose strict static validation that rejects the existence of unregistered wrappers or middlemen that duplicate
-    more than 30% of the core functionality.
+  solution: Impose strict static validation that rejects the existence of unregistered wrappers or middlemen that duplicate more than 30% of the core functionality.
   example_lang: python
-  example_bad: "# Instead of using the existing function, the agent creates a redundant wrapper\n# that reimplements the same\
-    \ thing \"for convenience\". The logic scatters.\ndef get_user(id): ...           # already exists\n\ndef fetch_user(id):\
-    \             # new wrapper: 90% duplicated\n    u = get_user(id)\n    return u\n\ndef retrieve_user(id):          # yet\
-    \ another, same AI-slop pattern\n    return get_user(id)\n"
+  example_bad: "# Instead of using the existing function, the agent creates a redundant wrapper\n# that reimplements the same thing \"for convenience\". The logic scatters.\ndef get_user(id): ...           # already exists\n\ndef fetch_user(id):             # new wrapper: 90% duplicated\n    u = get_user(id)\n    return u\n\ndef retrieve_user(id):          # yet another, same AI-slop pattern\n    return get_user(id)\n"
   example_good: '# A single canonical function. If behavior must vary, parameterize.
 
     def get_user(id, *, with_profile=False): ...
@@ -1798,8 +1725,7 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Top-level function names must be unique across modules: a structural comparison fails when the same definition
-    name is duplicated, surfacing redundant slop.
+  action: 'Top-level function names must be unique across modules: a structural comparison fails when the same definition name is duplicated, surfacing redundant slop.
 
     '
   validating_mechanism: runtime-test
@@ -1809,15 +1735,13 @@ items:
   title: Supply-Chain Contamination via Silent Executions
   symptom: Automatic installation of arbitrary packages or dynamic imports that alter the environment without consent.
   cause: Lack of preventive control in the pre-execution hooks.
-  solution: Physically block any command that attempts to perform package downloads or executions of URLs that are not explicitly
-    declared and approved.
+  solution: Physically block any command that attempts to perform package downloads or executions of URLs that are not explicitly declared and approved.
   status: PREVENTED
   severity: high
   tags:
   - vibe-coding
   - prevented
-  action: 'Scripts must not install packages at runtime: an automatic package install inside a script is blocked to prevent
-    silent supply-chain contamination.
+  action: 'Scripts must not install packages at runtime: an automatic package install inside a script is blocked to prevent silent supply-chain contamination.
 
     '
   validating_mechanism: runtime-test
@@ -1850,19 +1774,15 @@ items:
   tier: extended
 - id: VC-055
   title: Indiscriminate Staging of Untracked Directories (Unfiltered Git Staging)
-  symptom: Automated git synchronization commands take indefinitely long, lock the disk (Google Drive virtual mounts), or
-    try to track thousands of temporary/hidden files created by external tools.
-  cause: Use of `git add -A` or `git add .` without filtering or previously validating the working-tree state against excluded
-    directories or virtualized cloud storage.
-  solution: Prefer `git add -u` to record modifications to files under version control and require surgical explicit additions
-    for new files, ensuring that `.gitignore` is loaded before any Git subprocess invocation.
+  symptom: Automated git synchronization commands take indefinitely long, lock the disk (Google Drive virtual mounts), or try to track thousands of temporary/hidden files created by external tools.
+  cause: Use of `git add -A` or `git add .` without filtering or previously validating the working-tree state against excluded directories or virtualized cloud storage.
+  solution: Prefer `git add -u` to record modifications to files under version control and require surgical explicit additions for new files, ensuring that `.gitignore` is loaded before any Git subprocess invocation.
   status: PREVENTED
   severity: high
   tags:
   - vibe-coding
   - prevented
-  action: 'Staging must be deliberate: indiscriminate staging of all untracked files is rejected, requiring explicit human
-    intent about what enters a commit.
+  action: 'Staging must be deliberate: indiscriminate staging of all untracked files is rejected, requiring explicit human intent about what enters a commit.
 
     '
   validating_mechanism: runtime-test
@@ -1893,20 +1813,16 @@ items:
   tier: extended
 - id: VC-056
   title: Hasty Deprecation without Analysis (Hasty Deprecation)
-  symptom: An agent moves a file to deprecated/ without reading it, without searching for active references, and without verifying
-    whether its functionality is still useful or covered elsewhere.
-  cause: The agent treats deprecated/ as a recycle bin instead of an audited quarantine. The "fix the error fast" impulse
-    overrides the required analysis.
-  solution: Mandatory process before deprecating — (1) read the full file, (2) search for active references with grep, (3)
-    verify functional duplication, (4) document the decision in DEPRECATION_LOG, (5) THEN run git mv.
+  symptom: An agent moves a file to deprecated/ without reading it, without searching for active references, and without verifying whether its functionality is still useful or covered elsewhere.
+  cause: The agent treats deprecated/ as a recycle bin instead of an audited quarantine. The "fix the error fast" impulse overrides the required analysis.
+  solution: Mandatory process before deprecating — (1) read the full file, (2) search for active references with grep, (3) verify functional duplication, (4) document the decision in DEPRECATION_LOG, (5) THEN run git mv.
   status: PREVENTED
   severity: high
   tags:
   - vibe-coding
   - prevented
   - governance
-  action: 'Deprecation requires prior analysis: moving code into a deprecated area is blocked unless a justifying log entry
-    exists, and coverage of that log is verified.
+  action: 'Deprecation requires prior analysis: moving code into a deprecated area is blocked unless a justifying log entry exists, and coverage of that log is verified.
 
     '
   validating_mechanism: runtime-test
@@ -1939,19 +1855,16 @@ items:
   tier: extended
 - id: VC-057
   title: Non-externalized retrospective
-  symptom: The session's learning is lost when context is closed or compacted, and the next session repeats already-resolved
-    work.
+  symptom: The session's learning is lost when context is closed or compacted, and the next session repeats already-resolved work.
   cause: Treating the chat as durable memory instead of exporting decisions, findings, and pending items to a persistent ledger.
-  solution: Before closing a session with real work, export a structured retrospective with decisions, evidence, and pending
-    items to a stable GS artifact.
+  solution: Before closing a session with real work, export a structured retrospective with decisions, evidence, and pending items to a stable GS artifact.
   status: PREVENTED
   severity: high
   tags:
   - vibe-coding
   - prevented
   - governance
-  action: 'Lessons must be externalized before closure: regeneration plus coverage and retrospective-export checks require
-    every new lesson to reach the catalog or wiki, so closure without a structured export stays incomplete.
+  action: 'Lessons must be externalized before closure: regeneration plus coverage and retrospective-export checks require every new lesson to reach the catalog or wiki, so closure without a structured export stays incomplete.
 
     '
   validating_mechanism: runtime-test
@@ -1962,9 +1875,7 @@ items:
     # (no artifact) "we already understood the bug was the lock; the next session won''t know"
 
     '
-  example_good: "# Before closing, export the retrospective to a stable ledger in the repo.\nappend_retro(\"Wiki/Project_Insights/\"\
-    , {\n    \"decision\": \"serialize access to lock X\",\n    \"evidence\": \".protocol/evidence/race.json\",\n    \"todo\"\
-    : \"add a concurrency test\",\n})\n"
+  example_good: "# Before closing, export the retrospective to a stable ledger in the repo.\nappend_retro(\"Wiki/Project_Insights/\", {\n    \"decision\": \"serialize access to lock X\",\n    \"evidence\": \".protocol/evidence/race.json\",\n    \"todo\": \"add a concurrency test\",\n})\n"
   detection: 'Incomplete session closure if there was real work and no persistent artifact
 
     (insight, catalog entry, or retro) with decisions and pending items was generated/updated.
@@ -1976,19 +1887,16 @@ items:
   tier: extended
 - id: VC-058
   title: Post-execution suggestion that reopens scope
-  symptom: After executing a complete instruction, new improvement suggestions appear that were not part of the initial scope
-    and make the cycle infinite.
+  symptom: After executing a complete instruction, new improvement suggestions appear that were not part of the initial scope and make the cycle infinite.
   cause: Lack of explicit preflight, insufficiently closed scope, and the absence of a backlog rule before executing.
-  solution: 'Do a preflight before executing: define scope, impacts, and out-of-scope follow-ups; if a new improvement arises
-    after executing, turn it into an explicit backlog item instead of continuing to expand the turn.'
+  solution: 'Do a preflight before executing: define scope, impacts, and out-of-scope follow-ups; if a new improvement arises after executing, turn it into an explicit backlog item instead of continuing to expand the turn.'
   status: DOC_ONLY
   severity: medium
   tags:
   - vibe-coding
   - doc-only
   - governance
-  action: CONTRIBUTING.md now requires a preflight with scope, impacts and out-of-scope follow-ups before execution; post-execution
-    suggestions must be captured in backlog first.
+  action: CONTRIBUTING.md now requires a preflight with scope, impacts and out-of-scope follow-ups before execution; post-execution suggestions must be captured in backlog first.
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: text
@@ -2005,19 +1913,17 @@ items:
   - source: arxiv:2603.28592
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: Session-time behavioral check. Post-execution suggestions detectable only by agent introspection at execution time.'
 - id: VC-059
   detector: vc059_prompt_injection_in_agent_loop
   title: Prompt injection in the agent loop (Prompt Injection)
-  symptom: 'Untrusted content (issue, web, file, tool output) enters the agent''s context and alters its instructions or triggers
-    unauthorized actions.
+  symptom: 'Untrusted content (issue, web, file, tool output) enters the agent''s context and alters its instructions or triggers unauthorized actions.
 
     '
-  cause: 'Untrusted data mixed with instructions in the same channel, without a trust boundary or least privilege over the
-    tools.
+  cause: 'Untrusted data mixed with instructions in the same channel, without a trust boundary or least privilege over the tools.
 
     '
-  solution: 'Treat all external input as untrusted data; delimit it in its own channel; allowlist of actions and human confirmation
-    for sensitive operations.
+  solution: 'Treat all external input as untrusted data; delimit it in its own channel; allowlist of actions and human confirmation for sensitive operations.
 
     '
   status: PREVENTED
@@ -2037,11 +1943,8 @@ items:
     agent.run(SYSTEM + issue)           # the injection executes
 
     '
-  example_good: "# External content goes in a delimited data channel, never as an instruction.\nagent.run(system=SYSTEM,\n\
-    \          data={\"untrusted_issue\": issue},        # data, not orders\n          allowed_tools=[\"read\"], require_confirm=[\"\
-    delete\", \"push\"])\n"
-  detection: 'Content from untrusted sources (issues, web, files, tool output) concatenated into the agent''s instruction
-    channel without delimitation or an allowlist of actions. Related to PR-020 (boundary validation).
+  example_good: "# External content goes in a delimited data channel, never as an instruction.\nagent.run(system=SYSTEM,\n          data={\"untrusted_issue\": issue},        # data, not orders\n          allowed_tools=[\"read\"], require_confirm=[\"delete\", \"push\"])\n"
+  detection: 'Content from untrusted sources (issues, web, files, tool output) concatenated into the agent''s instruction channel without delimitation or an allowlist of actions. Related to PR-020 (boundary validation).
 
     '
   evidence:
@@ -2050,8 +1953,7 @@ items:
   tier: specialist
 - id: VC-060
   title: Context Poisoning
-  symptom: 'Erroneous, hallucinated, or contradictory information enters the context and self-reinforces in following turns,
-    degrading all subsequent responses.
+  symptom: 'Erroneous, hallucinated, or contradictory information enters the context and self-reinforces in following turns, degrading all subsequent responses.
 
     '
   cause: 'The context is not purged of unverified claims; noise accumulates and the model treats it as established truth.
@@ -2066,8 +1968,7 @@ items:
   - vibe-coding
   - ai-native
   - context
-  action: 'Documented; enforcement downstream. Recipe: a verification step before persisting a fact, and re-anchoring in sources
-    of truth when compacting.
+  action: 'Documented; enforcement downstream. Recipe: a verification step before persisting a fact, and re-anchoring in sources of truth when compacting.
 
     '
   validating_mechanism: DOC_ONLY
@@ -2080,29 +1981,25 @@ items:
     # 5 turns later the agent keeps building on /v2/pay
 
     '
-  example_good: "# Verify before persisting; the unconfirmed does not enter the durable context.\nif endpoint_exists(\"/v2/pay\"\
-    ):\n    ctx.append_fact(\"endpoint=/v2/pay\", source=\"openapi.json\")\n"
-  detection: 'Unverified claims that persist in the context and are cited as facts in later turns; the absence of a verification
-    step before compacting. Related to PR-036 (saturation) and PR-001 (output as hypothesis).
+  example_good: "# Verify before persisting; the unconfirmed does not enter the durable context.\nif endpoint_exists(\"/v2/pay\"):\n    ctx.append_fact(\"endpoint=/v2/pay\", source=\"openapi.json\")\n"
+  detection: 'Unverified claims that persist in the context and are cited as facts in later turns; the absence of a verification step before compacting. Related to PR-036 (saturation) and PR-001 (output as hypothesis).
 
     '
   evidence:
   - source: HumanLayer ACE
     claim: modern context engineering treats 'context poisoning' as a central failure of long sessions.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: AI-specific. Unverified context claims require semantic cross-reference with external ground truth.'
 - id: VC-061
   detector: vc061_hallucinated_dependency
   title: Hallucinated dependency (slopsquatting)
-  symptom: 'The agent imports or declares a package that does not exist in the registry (invented or near-correct name), exposing
-    it to slopsquatting: an attacker can register that name with malicious code.
+  symptom: 'The agent imports or declares a package that does not exist in the registry (invented or near-correct name), exposing it to slopsquatting: an attacker can register that name with malicious code.
 
     '
-  cause: 'The model generates plausible but nonexistent package names; no one verifies their existence or legitimacy in the
-    official registry.
+  cause: 'The model generates plausible but nonexistent package names; no one verifies their existence or legitimacy in the official registry.
 
     '
-  solution: 'Verify that each dependency exists in the official registry, assess its popularity/legitimacy, and pin the version;
-    reject names that do not resolve.
+  solution: 'Verify that each dependency exists in the official registry, assess its popularity/legitimacy, and pin the version; reject names that do not resolve.
 
     '
   status: PREVENTED
@@ -2113,8 +2010,7 @@ items:
   - security
   - supply-chain
   - prevented-mechanically
-  action: 'Declared dependencies must exist in the public registry: a lookup fails when a requirement resolves to not-found,
-    catching hallucinated (slopsquatted) packages.
+  action: 'Declared dependencies must exist in the public registry: a lookup fails when a requirement resolves to not-found, catching hallucinated (slopsquatted) packages.
 
     '
   validating_mechanism: runtime-test
@@ -2134,9 +2030,7 @@ items:
     #   a name that does not resolve on PyPI = reject, do not install
 
     '
-  detection: 'Packages imported/declared that do not resolve in the language''s official registry, or whose name is a near
-    typo of a popular package. Distinct from VC-030 (used but not declared) and PR-035 (auto-installation). Not covered by
-    traditional SCA.
+  detection: 'Packages imported/declared that do not resolve in the language''s official registry, or whose name is a near typo of a popular package. Distinct from VC-030 (used but not declared) and PR-035 (auto-installation). Not covered by traditional SCA.
 
     '
   evidence:
@@ -2145,12 +2039,10 @@ items:
   tier: core
 - id: VC-062
   title: Echo-Chamber Review
-  symptom: 'The same model (or the same instance/context) generates the code and then ''reviews'' it, approving its own biases
-    and errors.
+  symptom: 'The same model (or the same instance/context) generates the code and then ''reviews'' it, approving its own biases and errors.
 
     '
-  cause: 'Lack of an independent oracle: the reviewer shares the generator''s prior and context, so it repeats the same blind
-    spots.
+  cause: 'Lack of an independent oracle: the reviewer shares the generator''s prior and context, so it repeats the same blind spots.
 
     '
   solution: 'Independent reviewer: another model or version, or a static/human check that does not share the generation context.
@@ -2161,8 +2053,7 @@ items:
   tags:
   - vibe-coding
   - ai-native
-  action: 'Documented; enforcement downstream. Recipe: separate generator and reviewer (distinct model/version/context) or
-    add an independent static gate.
+  action: 'Documented; enforcement downstream. Recipe: separate generator and reviewer (distinct model/version/context) or add an independent static gate.
 
     '
   validating_mechanism: DOC_ONLY
@@ -2180,26 +2071,23 @@ items:
     assert static_checks(code).ok       # + static gate that does not share the prior
 
     '
-  detection: 'Same model/instance/context used to generate and to review/approve the change, without an external oracle. Extends
-    VT-081 (author tests their own implementation) to the agent case.
+  detection: 'Same model/instance/context used to generate and to review/approve the change, without an external oracle. Extends VT-081 (author tests their own implementation) to the agent case.
 
     '
   evidence:
   - source: arxiv:2603.28592
     claim: self-validation without an independent oracle lets systematic defects from the generator slip through.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: AI-specific. Echo-chamber detection requires identity verification of reviewer vs. generator; not statically checkable.'
 - id: VC-063
   title: Architectural drift in long sessions (Architecture Drift)
-  symptom: 'In long sessions the agent forgets or contradicts prior architectural decisions, reintroducing patterns it itself
-    deprecated.
+  symptom: 'In long sessions the agent forgets or contradicts prior architectural decisions, reintroducing patterns it itself deprecated.
 
     '
-  cause: 'Non-externalized decisions plus window saturation: the model does not re-anchor the active constraints as the context
-    grows.
+  cause: 'Non-externalized decisions plus window saturation: the model does not re-anchor the active constraints as the context grows.
 
     '
-  solution: 'Externalize decisions (ADR/DECISIONS.md), re-anchor after compacting, and validate every change against the decision
-    record.
+  solution: 'Externalize decisions (ADR/DECISIONS.md), re-anchor after compacting, and validate every change against the decision record.
 
     '
   status: DOC_ONLY
@@ -2208,8 +2096,7 @@ items:
   - vibe-coding
   - ai-native
   - context
-  action: 'Documented; enforcement downstream. Recipe: persistent ADR + post-compaction re-anchoring + coherence check against
-    active decisions.
+  action: 'Documented; enforcement downstream. Recipe: persistent ADR + post-compaction re-anchoring + coherence check against active decisions.
 
     '
   validating_mechanism: DOC_ONLY
@@ -2225,25 +2112,23 @@ items:
     # ADR-003: data access only via repos -> the handler with raw SQL is rejected.
 
     '
-  detection: 'Changes that contradict recorded decisions (ADR/DECISIONS.md) without justification; the frequency grows with
-    session length. Related to PR-036 and PR-024.
+  detection: 'Changes that contradict recorded decisions (ADR/DECISIONS.md) without justification; the frequency grows with session length. Related to PR-036 and PR-024.
 
     '
   evidence:
   - source: HumanLayer ACE
     claim: decision drift in long sessions is a central motive for 'Frequent Intentional Compaction'.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: Requires semantic comparison of code changes vs. DECISIONS.md. Too context-dependent for static analysis.'
 - id: VC-064
   title: Spec Ambiguity Cascade
-  symptom: 'A vague prompt produces functionally correct but semantically wrong code, which feeds later prompts and amplifies
-    the error downstream.
+  symptom: 'A vague prompt produces functionally correct but semantically wrong code, which feeds later prompts and amplifies the error downstream.
 
     '
   cause: 'Specification ambiguity unresolved before generating; the wrong interpretation propagates to each subsequent step.
 
     '
-  solution: 'Resolve the ambiguity before generating (goal, constraints, examples) and validate the interpretation at each
-    branch point.
+  solution: 'Resolve the ambiguity before generating (goal, constraints, examples) and validate the interpretation at each branch point.
 
     '
   status: DOC_ONLY
@@ -2267,23 +2152,21 @@ items:
     # The interpretation is validated before it feeds later steps.
 
     '
-  detection: 'A chain of changes derived from an ambiguous spec without an interpretation-validation point; accumulated semantic
-    divergence. Extends PR-020 (vague spec) to the cascade effect.
+  detection: 'A chain of changes derived from an ambiguous spec without an interpretation-validation point; accumulated semantic divergence. Extends PR-020 (vague spec) to the cascade effect.
 
     '
   evidence:
   - source: arxiv:2603.28592
     claim: semantic specification defects are amplified when they feed later generations.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: Spec provenance tracing requires session-time context; not inferable from file state alone.'
 - id: VC-065
   detector: vc065_unhandled_tool_call_failure
   title: Unhandled tool-call failure in the agent loop
-  symptom: 'A tool call fails (timeout, error, unexpected output) and the agent continues as if it had succeeded, or enters
-    a retry loop without backoff.
+  symptom: 'A tool call fails (timeout, error, unexpected output) and the agent continues as if it had succeeded, or enters a retry loop without backoff.
 
     '
-  cause: 'The result of each tool call is not validated; absence of error handling and of a backoff/limit policy in the agent
-    loop.
+  cause: 'The result of each tool call is not validated; absence of error handling and of a backoff/limit policy in the agent loop.
 
     '
   solution: 'Validate each tool result; apply backoff and a retry limit; degrade explicitly on persistent failure.
@@ -2303,10 +2186,8 @@ items:
     proceed(result)                          # the error is used as if it were content
 
     '
-  example_good: "result = call_tool(\"read_file\", path)\nif not result.ok:\n    result = retry_with_backoff(max=3) or degrade()\
-    \   # backoff + limit + degradation\n"
-  detection: 'Tool-call results used without verifying success; retry loops without backoff or limit. Related to PR-066 (runaway
-    loops) and VC-017 (no timeout).
+  example_good: "result = call_tool(\"read_file\", path)\nif not result.ok:\n    result = retry_with_backoff(max=3) or degrade()   # backoff + limit + degradation\n"
+  detection: 'Tool-call results used without verifying success; retry loops without backoff or limit. Related to PR-066 (runaway loops) and VC-017 (no timeout).
 
     '
   evidence:
@@ -2316,8 +2197,7 @@ items:
 - id: VC-066
   detector: vc066_multi_agent_without_protocol
   title: Multi-agent coordination without a protocol
-  symptom: 'Several agents operate on the same state/repo without a coordination protocol, producing race conditions, lost
-    handoffs, or duplicated work.
+  symptom: 'Several agents operate on the same state/repo without a coordination protocol, producing race conditions, lost handoffs, or duplicated work.
 
     '
   cause: 'Absence of per-area ownership, of locking/quarantine, and of a handoff protocol between agents.
@@ -2341,10 +2221,8 @@ items:
     agent_a.edit("config.py"); agent_b.edit("config.py")   # lost update
 
     '
-  example_good: "# Ownership + lock + structured handoff.\nwith lock(\"config.py\", owner=\"agent_a\"):\n    agent_a.edit(\"\
-    config.py\")\nhandoff(to=\"agent_b\", state=..., next=...)\n"
-  detection: 'Multiple agents writing the same state without a declared lock/ownership/handoff. Extends PR-015 (dual-session
-    drift) to N agents; see PR-040 and PR-011.
+  example_good: "# Ownership + lock + structured handoff.\nwith lock(\"config.py\", owner=\"agent_a\"):\n    agent_a.edit(\"config.py\")\nhandoff(to=\"agent_b\", state=..., next=...)\n"
+  detection: 'Multiple agents writing the same state without a declared lock/ownership/handoff. Extends PR-015 (dual-session drift) to N agents; see PR-040 and PR-011.
 
     '
   evidence:
@@ -2353,16 +2231,13 @@ items:
   tier: specialist
 - id: VC-067
   title: Use of an obsolete or hallucinated API of a real library
-  symptom: 'The model calls a method, parameter, or endpoint of a library that DOES exist, but that does not exist in the
-    pinned version (deprecated, renamed, or invented from outdated knowledge).
+  symptom: 'The model calls a method, parameter, or endpoint of a library that DOES exist, but that does not exist in the pinned version (deprecated, renamed, or invented from outdated knowledge).
 
     '
-  cause: 'The model''s knowledge is out of date with respect to the installed version; no one verifies the signature against
-    the real API.
+  cause: 'The model''s knowledge is out of date with respect to the installed version; no one verifies the signature against the real API.
 
     '
-  solution: 'Pin the version and verify each symbol against the real API (up-to-date docs, documentation MCP, or import +
-    inspection); reject calls that do not resolve.
+  solution: 'Pin the version and verify each symbol against the real API (up-to-date docs, documentation MCP, or import + inspection); reject calls that do not resolve.
 
     '
   status: DOC_ONLY
@@ -2371,8 +2246,7 @@ items:
   - vibe-coding
   - ai-native
   - dependencies
-  action: 'Documented; enforcement downstream. Distinct from VC-061 (nonexistent package): here the package exists but the
-    symbol does not. Mitigation: up-to-date docs via context7 (PR-110).
+  action: 'Documented; enforcement downstream. Distinct from VC-061 (nonexistent package): here the package exists but the symbol does not. Mitigation: up-to-date docs via context7 (PR-110).
 
     '
   validating_mechanism: DOC_ONLY
@@ -2388,29 +2262,25 @@ items:
     df = pd.concat([df, pd.DataFrame([row])], ignore_index=True)
 
     '
-  detection: 'Resolve each called symbol (method/attribute/kwarg/endpoint) against the installed version''s API; a missing
-    symbol = hallucinated or obsolete API. No self-contained detector (needs the library); see VC-061 and PR-013.
+  detection: 'Resolve each called symbol (method/attribute/kwarg/endpoint) against the installed version''s API; a missing symbol = hallucinated or obsolete API. No self-contained detector (needs the library); see VC-061 and PR-013.
 
     '
   evidence:
   - source: context7 (upstash, verified)
-    claim: it exists to give LLMs up-to-date documentation precisely because they generate calls to obsolete or nonexistent
-      APIs.
+    claim: it exists to give LLMs up-to-date documentation precisely because they generate calls to obsolete or nonexistent APIs.
   - source: arxiv:2603.28592
     claim: hallucinated APIs are among the recurring patterns of AI-generated code.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: Live symbol resolution requires installed library versions at runtime. Viable as external-tool check (mypy/pyright) but not currently integrated.'
 - id: VC-068
   title: Poisoned or stale persistent memory (cross-session)
-  symptom: 'An erroneous or obsolete fact persists in the agent''s durable memory (ledger, file, or memory MCP) and contaminates
-    future sessions, or the memory becomes desynchronized from the real state.
+  symptom: 'An erroneous or obsolete fact persists in the agent''s durable memory (ledger, file, or memory MCP) and contaminates future sessions, or the memory becomes desynchronized from the real state.
 
     '
-  cause: 'Persistent memory is written without verification, without a source, and without a date/version; it is not reconciled
-    with the source of truth when loaded.
+  cause: 'Persistent memory is written without verification, without a source, and without a date/version; it is not reconciled with the source of truth when loaded.
 
     '
-  solution: 'Write to memory only verified facts, with source and verified_at; reconcile against the real state when loading;
-    expire or invalidate the stale.
+  solution: 'Write to memory only verified facts, with source and verified_at; reconcile against the real state when loading; expire or invalidate the stale.
 
     '
   status: DOC_ONLY
@@ -2419,8 +2289,7 @@ items:
   - vibe-coding
   - ai-native
   - context
-  action: 'Documented; enforcement downstream. Extends PR-042 (context poisoning) to DURABLE memory across sessions. Mitigation:
-    memory layers like byterover / claude-context-memsearch (PR-111).
+  action: 'Documented; enforcement downstream. Extends PR-042 (context poisoning) to DURABLE memory across sessions. Mitigation: memory layers like byterover / claude-context-memsearch (PR-111).
 
     '
   validating_mechanism: DOC_ONLY
@@ -2436,25 +2305,22 @@ items:
     memory.write_fact("endpoint=/v1/pay", source="openapi.json", verified_at=today())
 
     '
-  detection: 'Persistent memory entries without source/verified_at/version, or that contradict the current repo state when
-    loaded. No self-contained detector (needs the store); see PR-042, PR-023, and PR-033.
+  detection: 'Persistent memory entries without source/verified_at/version, or that contradict the current repo state when loaded. No self-contained detector (needs the store); see PR-042, PR-023, and PR-033.
 
     '
   evidence:
   - source: byterover-cli / zilliztech claude-context (verified)
-    claim: they exist as a persistent 'memory layer' for agents; their failure mode is stale or poisoned memory that crosses
-      sessions.
+    claim: they exist as a persistent 'memory layer' for agents; their failure mode is stale or poisoned memory that crosses sessions.
   - source: OWASP Top 10 for Agents 2026
     claim: persistent memory poisoning is a recognized agentic risk.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: AI-specific. Persistent memory inspection requires session-time introspection; no static file representation.'
 - id: VC-069
   title: Retrieval (RAG) that feeds wrong context
-  symptom: 'Retrieval returns irrelevant, obsolete (stale index), or non-semantically cut fragments, and the agent builds
-    on the wrong context.
+  symptom: 'Retrieval returns irrelevant, obsolete (stale index), or non-semantically cut fragments, and the agent builds on the wrong context.
 
     '
-  cause: 'Embeddings index out of date with respect to the code, non-semantic chunking, or similarity retrieval without verifying
-    relevance.
+  cause: 'Embeddings index out of date with respect to the code, non-semantic chunking, or similarity retrieval without verifying relevance.
 
     '
   solution: 'Reindex on changes, chunk by semantic/symbol boundaries, and verify the fragment''s relevance before using it.
@@ -2466,8 +2332,7 @@ items:
   - vibe-coding
   - ai-native
   - context
-  action: 'Documented; enforcement downstream. Mitigation: symbol-level retrieval (serena) or code-search MCP (claude-context)
-    (PR-112).
+  action: 'Documented; enforcement downstream. Mitigation: symbol-level retrieval (serena) or code-search MCP (claude-context) (PR-112).
 
     '
   validating_mechanism: DOC_ONLY
@@ -2485,8 +2350,7 @@ items:
     ctx = index.search_symbol("refund", verify_relevance=True)
 
     '
-  detection: 'Retrieval index older than the code''s last commit; chunks that cross function/class boundaries; a retrieved
-    fragment used without verifying relevance. No self-contained detector (needs index/repo); see PR-047 and PR-071.
+  detection: 'Retrieval index older than the code''s last commit; chunks that cross function/class boundaries; a retrieved fragment used without verifying relevance. No self-contained detector (needs index/repo); see PR-047 and PR-071.
 
     '
   evidence:
@@ -2495,18 +2359,16 @@ items:
   - source: zilliztech/claude-context (verified)
     claim: code-search MCP so that the retrieved context is correct and up to date.
   tier: specialist
+  notes: 'DOC_ONLY_PERMANENT: AI-specific. RAG index staleness requires retrieval-system access at query time.'
 - id: VC-070
   title: Generated code insecure by default
-  symptom: 'The model generates code with insecure defaults: debug enabled, open CORS, TLS verification disabled, weak hashing,
-    or binding to all interfaces without auth.
+  symptom: 'The model generates code with insecure defaults: debug enabled, open CORS, TLS verification disabled, weak hashing, or binding to all interfaces without auth.
 
     '
-  cause: 'The model optimizes for ''make it work'' and emits the most permissive defaults; no one hardens the configuration
-    before merging.
+  cause: 'The model optimizes for ''make it work'' and emits the most permissive defaults; no one hardens the configuration before merging.
 
     '
-  solution: 'Harden the defaults; review the generated code''s security configuration against a checklist; block known insecure
-    patterns in CI.
+  solution: 'Harden the defaults; review the generated code''s security configuration against a checklist; block known insecure patterns in CI.
 
     '
   status: PREVENTED
@@ -2516,8 +2378,7 @@ items:
   - ai-native
   - security
   - prevented-mechanically
-  action: 'Generated code must be secure by default: a static-signature detector, exercised against the catalog examples,
-    flags insecure default patterns.
+  action: 'Generated code must be secure by default: a static-signature detector, exercised against the catalog examples, flags insecure default patterns.
 
     '
   validating_mechanism: static-regex
@@ -2534,8 +2395,7 @@ items:
     requests.get(url)                          # verify=True by default
 
     '
-  detection: 'Static insecure-default patterns: debug=True, verify=False, CORS origins=''*'', hashlib.md5( for passwords,
-    host=''0.0.0.0''. Statically detectable (regex/AST); complement bandit/semgrep.
+  detection: 'Static insecure-default patterns: debug=True, verify=False, CORS origins=''*'', hashlib.md5( for passwords, host=''0.0.0.0''. Statically detectable (regex/AST); complement bandit/semgrep.
 
     '
   evidence:
@@ -2547,15 +2407,13 @@ items:
 - id: VC-071
   detector: vc071_blind_trust_in_llm_output
   title: Blind trust in LLM output (Insecure Output Handling)
-  symptom: 'The model''s output (SQL, HTML, command, path, or code) is executed, rendered, or used in a sink without sanitizing,
-    assuming it is safe.
+  symptom: 'The model''s output (SQL, HTML, command, path, or code) is executed, rendered, or used in a sink without sanitizing, assuming it is safe.
 
     '
   cause: 'The LLM''s output is treated as trusted; there is no boundary between ''generated text'' and ''executed action''.
 
     '
-  solution: 'Treat the LLM''s output as UNtrusted: parameterize (SQL), escape (HTML), allowlist (commands/paths), and validate
-    against a schema before executing.
+  solution: 'Treat the LLM''s output as UNtrusted: parameterize (SQL), escape (HTML), allowlist (commands/paths), and validate against a schema before executing.
 
     '
   status: PREVENTED
@@ -2580,8 +2438,7 @@ items:
     cursor.execute("SELECT * FROM t WHERE owner = ?", (filters[''uid''],))
 
     '
-  detection: 'Model output that flows to a dangerous sink (cursor.execute with a string, os.system, eval/exec, innerHTML)
-    without sanitization. Flow-dependent -> delegates to semgrep/CodeQL (taint). See PR-020, PR-034, PR-041.
+  detection: 'Model output that flows to a dangerous sink (cursor.execute with a string, os.system, eval/exec, innerHTML) without sanitization. Flow-dependent -> delegates to semgrep/CodeQL (taint). See PR-020, PR-034, PR-041.
 
     '
   evidence:
@@ -2599,8 +2456,7 @@ items:
   - continuity
   - agent-agnostic
   - prevented-mechanically
-  action: 'Handoff continuity is mandatory: a commit with substantive changes is blocked when the handoff record was not updated
-    or is missing its required sections; an explicit token allows a conscious skip.
+  action: 'Handoff continuity is mandatory: a commit with substantive changes is blocked when the handoff record was not updated or is missing its required sections; an explicit token allows a conscious skip.
 
     '
   validating_mechanism: runtime-test
@@ -2631,21 +2487,16 @@ items:
   tier: core
 - id: VC-073
   title: Orphan changes evaded (evasive partial commit)
-  symptom: After a commit, the working tree is left with someone else's unintegrated changes; the next agent inherits silent
-    debt and does not know whether it is intentional or an oversight.
-  cause: The agent makes a selective commit (git add of only its own files) and works around the previous pending changes
-    instead of reviewing, fixing, and integrating them.
-  solution: 'Before closing the commit, the working tree must be clean: every pending change is reviewed (diff), fixed if
-    it introduces debt, and integrated into the commit; or gitignored with an explicit decision. Mechanically verified.'
+  symptom: After a commit, the working tree is left with someone else's unintegrated changes; the next agent inherits silent debt and does not know whether it is intentional or an oversight.
+  cause: The agent makes a selective commit (git add of only its own files) and works around the previous pending changes instead of reviewing, fixing, and integrating them.
+  solution: 'Before closing the commit, the working tree must be clean: every pending change is reviewed (diff), fixed if it introduces debt, and integrated into the commit; or gitignored with an explicit decision. Mechanically verified.'
   status: PREVENTED
   severity: high
   tags:
   - hygiene
   - agent-agnostic
   - prevented-mechanically
-  action: 'No orphan changes: a commit is blocked when, after staging, the working tree still holds undecided modified or
-    untracked files; idempotent writes and a canonical auto-stage whitelist neutralize artifact churn, and an explicit env
-    escape exists.
+  action: 'No orphan changes: a commit is blocked when, after staging, the working tree still holds undecided modified or untracked files; idempotent writes and a canonical auto-stage whitelist neutralize artifact churn, and an explicit env escape exists.
 
     '
   validating_mechanism: runtime-test
@@ -2672,8 +2523,7 @@ items:
     '
   evidence:
   - source: CoderCerberus v0.5 -- session 2026-06-07 (Claude Opus), commit 6f632b8
-    claim: An agent evaded another's previous changes in selective commits; integrating them and leaving the working tree
-      clean avoids inherited silent debt.
+    claim: An agent evaded another's previous changes in selective commits; integrating them and leaving the working tree clean avoids inherited silent debt.
   tier: core
 - id: VC-074
   title: Agent instruction hijack (Prompt Injection / P1-P2)
@@ -2686,8 +2536,7 @@ items:
   - security
   - agent-governance
   - prevented-mechanically
-  action: 'Agent instructions must be tamper-resistant: static analysis flags directives that attempt to override or hijack
-    the agent''s governing prompt.
+  action: 'Agent instructions must be tamper-resistant: static analysis flags directives that attempt to override or hijack the agent''s governing prompt.
 
     '
   validating_mechanism: static-ast
@@ -2715,8 +2564,7 @@ items:
   - security
   - agent-governance
   - prevented-mechanically
-  action: 'The system prompt must not leak: static analysis flags triggers that would exfiltrate or echo the governing prompt
-    into output.
+  action: 'The system prompt must not leak: static analysis flags triggers that would exfiltrate or echo the governing prompt into output.
 
     '
   validating_mechanism: static-ast
@@ -2744,8 +2592,7 @@ items:
   - security
   - agent-governance
   - prevented-mechanically
-  action: 'Data must not be exfiltrated: static analysis flags network patterns that would send protected data to unauthorized
-    destinations.
+  action: 'Data must not be exfiltrated: static analysis flags network patterns that would send protected data to unauthorized destinations.
 
     '
   validating_mechanism: static-ast
@@ -2802,8 +2649,7 @@ items:
   - security
   - agent-governance
   - prevented-mechanically
-  action: 'Agency must stay bounded: static analysis requires confirmation gates around high-impact actions, rejecting excessive
-    autonomous reach.
+  action: 'Agency must stay bounded: static analysis requires confirmation gates around high-impact actions, rejecting excessive autonomous reach.
 
     '
   validating_mechanism: static-ast
@@ -2913,8 +2759,7 @@ items:
   - security
   - agent-governance
   - prevented-mechanically
-  action: 'Tool access must follow least privilege: static analysis maps declared capabilities to the manifest and flags over-broad
-    grants.
+  action: 'Tool access must follow least privilege: static analysis maps declared capabilities to the manifest and flags over-broad grants.
 
     '
   validating_mechanism: static-ast
@@ -2942,8 +2787,7 @@ items:
   - security
   - agent-governance
   - prevented-mechanically
-  action: 'Tool descriptions must be trustworthy: static analysis scans for unicode homoglyphs and poisoned tool-description
-    content.
+  action: 'Tool descriptions must be trustworthy: static analysis scans for unicode homoglyphs and poisoned tool-description content.
 
     '
   validating_mechanism: static-ast
@@ -2958,8 +2802,7 @@ items:
   tier: extended
 - id: VC-084
   title: Canonical source first (no sink patching)
-  symptom: The same truth is corrected in multiple tracked files, or a rendered output is hand-patched instead of regenerated
-    from the canonical source.
+  symptom: The same truth is corrected in multiple tracked files, or a rendered output is hand-patched instead of regenerated from the canonical source.
   cause: The agent treats derived artifacts as edit targets instead of outputs owned by the source or generator.
   solution: Edit only the canonical source or generator, regenerate all derived artifacts, and verify sink parity before closing.
   status: AUDITED
@@ -2968,8 +2811,7 @@ items:
   - governance
   - generated-artifacts
   - source-of-truth
-  action: 'Edit the canonical source or its generator first: hand-patching a derived artifact to mask drift is rejected; derived
-    files must be regenerated from source.
+  action: 'Edit the canonical source or its generator first: hand-patching a derived artifact to mask drift is rejected; derived files must be regenerated from source.
 
     '
   validating_mechanism: runtime-test
@@ -2989,27 +2831,23 @@ items:
     status: AUDITED
 
     '
-  detection: Flags direct edits to generated wiki/report files when the source catalog or generator was not the thing that
-    changed.
+  detection: Flags direct edits to generated wiki/report files when the source catalog or generator was not the thing that changed.
   evidence:
   - source: Golden Standard generation pipeline
     claim: Derived outputs are regenerated from catalog sources, not edited as the source of truth.
   tier: core
 - id: VC-085
   title: Doctrine before enforcement (source-first ordering)
-  symptom: Operational sinks or cross-repo consumers are updated before the GS rule exists, forcing later backfills and making
-    the sink behave like the source.
+  symptom: Operational sinks or cross-repo consumers are updated before the GS rule exists, forcing later backfills and making the sink behave like the source.
   cause: The agent touches enforcement or generated outputs before the GS vice is authored and regenerated.
-  solution: Author the GS vice first, regenerate Wiki/report outputs, and only then update Cerberus consumers or enforcement
-    hooks.
+  solution: Author the GS vice first, regenerate Wiki/report outputs, and only then update Cerberus consumers or enforcement hooks.
   status: AUDITED
   severity: medium
   tags:
   - governance
   - ordering
   - cross-repo
-  action: 'Doctrine lands before enforcement: the rule must exist in the canonical knowledge base first, with downstream consumers
-    following only after regeneration proves it.
+  action: 'Doctrine lands before enforcement: the rule must exist in the canonical knowledge base first, with downstream consumers following only after regeneration proves it.
 
     '
   validating_mechanism: runtime-test
@@ -3032,13 +2870,11 @@ items:
   detection: Flags enforcement-layer edits that cite a missing or unregenerated GS rule.
   evidence:
   - source: Debt Registry (e.g., BACKLOG.md) cross-seam contract
-    claim: GS-2 must wait for a real GS gate, and cross-layer consumers should follow the GS source rather than create a sink-first
-      shortcut.
+    claim: GS-2 must wait for a real GS gate, and cross-layer consumers should follow the GS source rather than create a sink-first shortcut.
   tier: core
 - id: VC-086
   title: No backlog entry, no work
-  symptom: Planning, execution, or debt accounting begins without a tracked backlog entry, so the work is effectively invisible
-    to the planning gate.
+  symptom: Planning, execution, or debt accounting begins without a tracked backlog entry, so the work is effectively invisible to the planning gate.
   cause: The agent treats unregistered work as admissible and starts reasoning before the ledger exists.
   solution: Require a backlog entry before planning or execution; if it is not in the ledger, it does not get worked.
   status: AUDITED
@@ -3074,69 +2910,44 @@ items:
   tier: core
 - id: VC-087
   title: Self-polluting tooling (scratch written into the tracked working tree)
-  symptom: Tests, scripts, or hooks leave untracked temp, probe, or backup files inside the
-    working tree; the integrity gate flags them as zombie corruption, producing recurring
-    fake-RED or transient-GREEN gate flips that agents "fix" by deleting the files.
-  cause: Scratch is created at repo-relative locations (TemporaryDirectory(dir=<repo>),
-    mkdtemp(dir=<repo>), or probe/backup files written into tracked dirs) and/or cleanup is
-    not guaranteed when a run is interrupted, so residue survives inside the tracked tree.
-  solution: 'Scratch must live in the OS temp dir (no dir=<repo>); cleanup runs in finally
-    or a context manager; any unavoidable residue is gitignored. The full suite and tooling
-    must leave `git status --porcelain` empty.'
+  symptom: Tests, scripts, or hooks leave untracked temp, probe, or backup files inside the working tree; the integrity gate flags them as zombie corruption, producing recurring fake-RED or transient-GREEN gate flips that agents "fix" by deleting the files.
+  cause: Scratch is created at repo-relative locations (TemporaryDirectory(dir=<repo>), mkdtemp(dir=<repo>), or probe/backup files written into tracked dirs) and/or cleanup is not guaranteed when a run is interrupted, so residue survives inside the tracked tree.
+  solution: 'Scratch must live in the OS temp dir (no dir=<repo>); cleanup runs in finally or a context manager; any unavoidable residue is gitignored. The full suite and tooling must leave `git status --porcelain` empty.'
   status: PREVENTED
   severity: high
   tags:
   - hygiene
   - agent-agnostic
   - prevented-mechanically
-  action: 'No scratch in the tracked tree: a test or script that creates temp/probe/backup
-    artifacts at a repo-relative path, or whose run leaves untracked non-ignored files, is
-    rejected. Scratch goes to OS temp with guaranteed cleanup; unavoidable residue is gitignored.'
+  action: 'No scratch in the tracked tree: a test or script that creates temp/probe/backup artifacts at a repo-relative path, or whose run leaves untracked non-ignored files, is rejected. Scratch goes to OS temp with guaranteed cleanup; unavoidable residue is gitignored.'
   validating_mechanism: static-regex
   downstream_verification: none
   example_lang: python
   example_bad: 'with tempfile.TemporaryDirectory(dir=ROOT) as d: ...  # leaks tmpXXXX/ into the repo on interrupted runs'
   example_good: 'with tempfile.TemporaryDirectory() as d: ...  # scratch in OS temp, guaranteed cleanup'
-  detection: 'Source under tests/ or scripts/ contains TemporaryDirectory(dir=<repo-root>),
-    mkdtemp(dir=<repo-root>), or tempfile.tempdir set to a repo path; or running the suite
-    leaves new untracked non-ignored files. Verified by test_no_scratch_in_tree in CC.'
+  detection: 'Source under tests/ or scripts/ contains TemporaryDirectory(dir=<repo-root>), mkdtemp(dir=<repo-root>), or tempfile.tempdir set to a repo path; or running the suite leaves new untracked non-ignored files. Verified by test_no_scratch_in_tree in CC.'
   evidence:
   - source: Adversarial audit 2026-06-21 (Claude Opus), CoderCerberus
-    claim: A test using TemporaryDirectory(dir=ROOT) leaked tmp*/empty.py into the tree on
-      interrupted runs and flipped the D1 integrity gate to REJECTED; it recurred 3 times
-      because prior sessions deleted the zombies instead of fixing the writer.
+    claim: A test using TemporaryDirectory(dir=ROOT) leaked tmp*/empty.py into the tree on interrupted runs and flipped the D1 integrity gate to REJECTED; it recurred 3 times because prior sessions deleted the zombies instead of fixing the writer.
   tier: core
 
 - id: VC-088
   title: Execution before plan (planless agent)
-  symptom: Agent modifies files without a written step-by-step plan; steps are implicit in
-    chat or agent memory, not in a durable artifact; no checkpoint to validate against and
-    no signal when the task is complete.
-  cause: Optimism bias — agent trusts context memory over explicit checkpoints; planning
-    feels like overhead when the task seems obvious; multi-step tasks started as single-step.
-  solution: Before any multi-file change, create PLAN.md with numbered steps and explicit
-    acceptance criteria. Execute one step at a time. Delete PLAN.md in the closing commit —
-    its absence is proof of completion. If PLAN.md survives the session, the session is not done.
-  action: "Before touching any file in a task with more than one change: (1) create PLAN.md
-    with numbered steps and acceptance criteria; (2) execute one step at a time; (3) validate
-    each step against PLAN.md before proceeding; (4) delete PLAN.md in the closing commit
-    once all steps are done. Absence of PLAN.md after close = evidence of completion."
+  symptom: Agent modifies files without a written step-by-step plan; steps are implicit in chat or agent memory, not in a durable artifact; no checkpoint to validate against and no signal when the task is complete.
+  cause: Optimism bias — agent trusts context memory over explicit checkpoints; planning feels like overhead when the task seems obvious; multi-step tasks started as single-step.
+  solution: Before any multi-file change, create PLAN.md with numbered steps and explicit acceptance criteria. Execute one step at a time. Delete PLAN.md in the closing commit — its absence is proof of completion. If PLAN.md survives the session, the session is not done.
+  action: "Before touching any file in a task with more than one change: (1) create PLAN.md with numbered steps and acceptance criteria; (2) execute one step at a time; (3) validate each step against PLAN.md before proceeding; (4) delete PLAN.md in the closing commit once all steps are done. Absence of PLAN.md after close = evidence of completion."
   status: DOC_ONLY
   severity: high
-  validating_mechanism: static-regex
+  validating_mechanism: doctrinal
   downstream_verification: required
   example_lang: markdown
-  example_bad: "# Agent modifies 4 files and runs a migration with no PLAN.md.\n# Steps
-    exist only in chat. Context reset = no recovery path."
-  example_good: "# PLAN.md before first file change:\n# Step 1: Create .agents/AGENTS.md
-    [acceptance: file parses, contains §0-§6]\n# Step 2: Migrate BACKLOG.md [acceptance:
-    BACKLOG.md deleted, tasks/backlog/ has N files]\n# Step 3: Delete PLAN.md [acceptance:
-    no PLAN.md in tree]"
-  detection: "Multi-file session with no PLAN.md at start. Secondary: PLAN.md present at
-    session close (never cleaned up). Tertiary: plan exists but steps unnumbered or lack
-    acceptance criteria."
+  example_bad: "# Agent modifies 4 files and runs a migration with no PLAN.md.\n# Steps exist only in chat. Context reset = no recovery path."
+  example_good: "# PLAN.md before first file change:\n# Step 1: Create .agents/AGENTS.md [acceptance: file parses, contains §0-§6]\n# Step 2: Migrate BACKLOG.md [acceptance: BACKLOG.md deleted, tasks/backlog/ has N files]\n# Step 3: Delete PLAN.md [acceptance: no PLAN.md in tree]"
+  detection: "Multi-file session with no PLAN.md at start. Secondary: PLAN.md present at session close (never cleaned up). Tertiary: plan exists but steps unnumbered or lack acceptance criteria."
   tags:
   - vibe-coding
   - multi-agent
   - process-discipline
   tier: core
+  notes: 'DOC_ONLY_PERMANENT: Session-time check. PLAN.md existence at session start cannot be verified statically; audit.py checks PLAN.md structure but not session-scope context.'

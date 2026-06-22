@@ -2500,6 +2500,14 @@ def extract_catalog_items(config: dict, mapped_database: dict):
 
 
 def main():
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Generate Golden Standard audit artifacts and/or Obsidian wiki.")
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("--audit-only", action="store_true", help="Generate only JSON + markdown audit artifacts; skip wiki.")
+    group.add_argument("--wiki-only", action="store_true", help="Generate only Obsidian wiki; skip JSON + markdown artifacts.")
+    args = parser.parse_args()
+
     JSON_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
     catalogs = load_golden_standard_catalogs()
@@ -2510,9 +2518,10 @@ def main():
 
     print(f"Extracted {len(mapped_database)} flaws from Golden Standard catalogs.")
 
-    with open(JSON_OUTPUT, "w", encoding="utf-8") as f:
-        json.dump(mapped_database, f, indent=2, ensure_ascii=False)
-    print(f"Successfully generated {JSON_OUTPUT}")
+    if not args.wiki_only:
+        with open(JSON_OUTPUT, "w", encoding="utf-8") as f:
+            json.dump(mapped_database, f, indent=2, ensure_ascii=False)
+        print(f"Successfully generated {JSON_OUTPUT}")
 
     report_lines = [
         "# Golden Standard Compliance Audit Report",
@@ -2554,11 +2563,13 @@ def main():
     report_lines.extend(build_principles_section())
     report_lines.extend(build_canonical_domains_section())
 
-    MARKDOWN_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    MARKDOWN_OUTPUT.write_text("\n".join(report_lines), encoding="utf-8")
-    print(f"Successfully generated {MARKDOWN_OUTPUT}")
+    if not args.wiki_only:
+        MARKDOWN_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+        MARKDOWN_OUTPUT.write_text("\n".join(report_lines), encoding="utf-8")
+        print(f"Successfully generated {MARKDOWN_OUTPUT}")
 
-    generate_obsidian_wiki(mapped_database, WIKI_DIR)
+    if not args.audit_only:
+        generate_obsidian_wiki(mapped_database, WIKI_DIR)
 
     # Honest dynamic quality metrics + shields.io badges (Phase 5).
     sys.path.insert(0, str(_ROOT / "scripts"))

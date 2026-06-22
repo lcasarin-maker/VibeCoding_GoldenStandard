@@ -16,7 +16,7 @@ This index classifies the Golden Standard vices into VC and VT. Tokenomics lives
 *   [[Vices/VC-009|VC-009]] — **Full rewrite** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-010|VC-010]] — **No dry run** (PREVENTED, medium, downstream:required)
 *   [[Vices/VC-011|VC-011]] — **Blind regeneration** (PREVENTED, medium, downstream:none)
-*   [[Vices/VC-012|VC-012]] — **Invisible debt** (DOC_ONLY, medium, downstream:required)
+*   [[Vices/VC-012|VC-012]] — **Invisible debt** (REMEDIATED, medium, downstream:required)
 *   [[Vices/VC-013|VC-013]] — **Ambiguous handoff** (PREVENTED, medium, downstream:required)
 *   [[Vices/VC-014|VC-014]] — **Monolithic memory** (PREVENTED, medium, downstream:none)
 *   [[Vices/VC-015|VC-015]] — **Hallucinated integration** (PREVENTED, medium, downstream:required)

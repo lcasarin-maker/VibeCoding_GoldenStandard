@@ -8,9 +8,9 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 116 | 28 | 88 | 100% |
-| **Vibe Coding** | 88 | 68 | 20 | 100% |
+| **Vibe Coding** | 88 | 69 | 19 | 100% |
 | **Tokenomics & Context** | 34 | 34 | 0 | 100% |
-| **Total** | 248 | 137 | 111 | 100% |
+| **Total** | 248 | 138 | 110 | 100% |
 
 ---
 
@@ -152,7 +152,7 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `VC-009` | Full rewrite | **medium** | **DOC_ONLY** | `required` | Full rewrite vs surgical edit: behavioral judgment vice (when a rewrite is justified). No static test discriminates intent, so this stays a manual-review DOC_ONLY entry. | `DOC_ONLY` |
 | `VC-010` | No dry run | **medium** | **PREVENTED** | `required` | Static detector `vc036_destructive_without_dryrun` flags destructive operations that appear without a dry-run or simulation step in the same flow. | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-011` | Blind regeneration | **medium** | **PREVENTED** | `none` | Regeneration must precede validation: a fresh rebuild of the vault is forced before checks, so blind replacement cannot masquerade as a finished state.  | `scripts/validate_golden_standard_catalogs.py` |
-| `VC-012` | Invisible debt | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
+| `VC-012` | Invisible debt | **medium** | **REMEDIATED** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `static-regex` |
 | `VC-013` | Ambiguous handoff | **medium** | **PREVENTED** | `required` | Static detector `vc013_ambiguous_handoff` flags handoff notes that omit goal/state/evidence/blockers/next. | `static-regex` |
 | `VC-014` | Monolithic memory | **medium** | **PREVENTED** | `none` | Knowledge must be modular: topology validation requires separate canonical surfaces for vices, tokenomics, insights, and the graph rather than one monolithic page.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-015` | Hallucinated integration | **medium** | **PREVENTED** | `required` | The agent imports or references a package, API, or module that does not exist in the declared dependency manifest or in the public package registry.  | `scripts/validate_golden_standard_catalogs.py` |
@@ -228,7 +228,7 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `VC-085` | Doctrine before enforcement (source-first ordering) | **medium** | **AUDITED** | `none` | Doctrine lands before enforcement: the rule must exist in the canonical knowledge base first, with downstream consumers following only after regeneration proves it.  | `test_doctrine_before_enforcement_resolves_refs` |
 | `VC-086` | No backlog entry, no work | **high** | **AUDITED** | `required` | Require a backlog entry before planning or execution; if it is not in the ledger, it does not get worked.  | `DOC_ONLY` |
 | `VC-087` | Self-polluting tooling (scratch written into the tracked working tree) | **high** | **PREVENTED** | `none` | No scratch in the tracked tree: a test or script that creates temp/probe/backup artifacts at a repo-relative path, or whose run leaves untracked non-ignored files, is rejected. Scratch goes to OS temp with guaranteed cleanup; unavoidable residue is gitignored. | `static-regex` |
-| `VC-088` | Execution before plan (planless agent) | **high** | **DOC_ONLY** | `required` | Before touching any file in a task with more than one change: (1) create PLAN.md with numbered steps and acceptance criteria; (2) execute one step at a time; (3) validate each step against PLAN.md before proceeding; (4) delete PLAN.md in the closing commit once all steps are done. Absence of PLAN.md after close = evidence of completion. | `static-regex` |
+| `VC-088` | Execution before plan (planless agent) | **high** | **DOC_ONLY** | `required` | Before touching any file in a task with more than one change: (1) create PLAN.md with numbered steps and acceptance criteria; (2) execute one step at a time; (3) validate each step against PLAN.md before proceeding; (4) delete PLAN.md in the closing commit once all steps are done. Absence of PLAN.md after close = evidence of completion. | `doctrinal` |
 
 ### Tokenomics & Context (34 items)
 

@@ -861,6 +861,27 @@ def validate_manifest(path: Path, errors: list[str], check_wiki: bool) -> None:
             validate_vices_catalog(catalog_path, errors, check_wiki)
 
     validate_wiki_topology(errors)
+    check_graph_connectivity(errors)
+
+
+_GRAPH_CONNECTED_KINDS = {"wiki", "vice", "domain", "root", "principle", "tokenomics"}
+
+
+def check_graph_connectivity(errors: list[str]) -> None:
+    """GS-076: flag wiki-layer nodes that are truly isolated (0 in + 0 out)."""
+    graph_path = ROOT / "output" / "golden_standard_graph.json"
+    if not graph_path.exists():
+        return
+    import json
+    graph = json.loads(graph_path.read_text(encoding="utf-8"))
+    isolated = [
+        n for n in graph.get("nodes", [])
+        if n.get("kind") in _GRAPH_CONNECTED_KINDS
+        and n.get("in_degree", 0) == 0
+        and n.get("out_degree", 0) == 0
+    ]
+    for n in isolated:
+        errors.append(f"graph connectivity: {n['id']} ({n['kind']}) is fully isolated — 0 edges in or out")
 
 
 def report_migration_progress() -> str:

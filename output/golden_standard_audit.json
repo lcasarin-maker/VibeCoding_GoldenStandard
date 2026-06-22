@@ -5869,14 +5869,14 @@
     "symptom": "Unrecorded shortcuts",
     "cause": "Hidden future cost",
     "solution": "Declare technical debt",
-    "status": "DOC_ONLY",
+    "status": "REMEDIATED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "DOC_ONLY",
+    "validating_mechanism": "static-regex",
     "downstream_verification": "required",
     "example_bad": "def pay(x):\n    return charge(x)   # shortcut: no idempotency or retries (unrecorded)\n",
     "example_good": "# The debt is declared explicitly in a trackable register.\ndef pay(x):\n    return charge(x)   # DEBT-21: missing idempotency, see TECH_DEBT.md\n",
@@ -5889,7 +5889,7 @@
       }
     ],
     "doctrinal": false,
-    "detector": "",
+    "detector": "vc012_invisible_debt",
     "tier": "specialist"
   },
   "VC-013": {
@@ -8573,7 +8573,7 @@
       "process-discipline"
     ],
     "action": "Before touching any file in a task with more than one change: (1) create PLAN.md with numbered steps and acceptance criteria; (2) execute one step at a time; (3) validate each step against PLAN.md before proceeding; (4) delete PLAN.md in the closing commit once all steps are done. Absence of PLAN.md after close = evidence of completion.",
-    "validating_mechanism": "static-regex",
+    "validating_mechanism": "doctrinal",
     "downstream_verification": "required",
     "example_bad": "# Agent modifies 4 files and runs a migration with no PLAN.md.\n# Steps exist only in chat. Context reset = no recovery path.",
     "example_good": "# PLAN.md before first file change:\n# Step 1: Create .agents/AGENTS.md [acceptance: file parses, contains §0-§6]\n# Step 2: Migrate BACKLOG.md [acceptance: BACKLOG.md deleted, tasks/backlog/ has N files]\n# Step 3: Delete PLAN.md [acceptance: no PLAN.md in tree]",

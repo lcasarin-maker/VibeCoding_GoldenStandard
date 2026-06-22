@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-06-22",
-  "node_count": 487,
-  "edge_count": 2516,
+  "node_count": 488,
+  "edge_count": 2519,
   "nodes": [
     {
       "id": ".github/workflows/audit.yml",
@@ -339,6 +339,58 @@
       "incoming_edges": [
         {
           "source": "Vices/VC-002",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc012_invisible_debt",
+      "path": "Wiki/Detectors/vc012_invisible_debt.md",
+      "title": "vc012_invisible_debt",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-012"
+      ],
+      "incoming": [
+        "Vices/VC-012"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-012",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-012",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -8489,6 +8541,7 @@
         "Detectors/vc003_incomprehensible_code",
         "Detectors/vc005_premature_closure",
         "Detectors/vc005_untracked_prototype",
+        "Detectors/vc012_invisible_debt",
         "Detectors/vc013_ambiguous_handoff",
         "Detectors/vc016_broken_version_parity",
         "Detectors/vc017_deadlock_without_heartbeat",
@@ -9033,6 +9086,12 @@
         },
         {
           "source": "Detectors/vc005_untracked_prototype",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc012_invisible_debt",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
@@ -11726,9 +11785,9 @@
           "confidence": 0.85
         }
       ],
-      "in_degree": 451,
+      "in_degree": 452,
       "out_degree": 13,
-      "degree": 464,
+      "degree": 465,
       "connected_types": [
         "conceptual-framework",
         "domain",
@@ -11748,7 +11807,7 @@
       ],
       "semantic_reach": 8,
       "relation_diversity": 5,
-      "hub_score": 498
+      "hub_score": 499
     },
     {
       "id": "Principles",
@@ -31942,6 +32001,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
+        "Detectors/vc012_invisible_debt",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -31949,9 +32009,16 @@
         "Vices_Index"
       ],
       "incoming": [
+        "Detectors/vc012_invisible_debt",
         "Vices_Index"
       ],
       "outgoing_edges": [
+        {
+          "target": "Detectors/vc012_invisible_debt",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
         {
           "target": "Evidence/arxiv2603_28592",
           "kind": "wikilink",
@@ -31985,15 +32052,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Detectors/vc012_invisible_debt",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
-      "out_degree": 5,
-      "degree": 6,
+      "in_degree": 2,
+      "out_degree": 6,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -32005,8 +32078,8 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 18,
-      "status": "DOC_ONLY",
+      "hub_score": 20,
+      "status": "REMEDIATED",
       "downstream_verification": "required",
       "severity": "medium",
       "cluster": "cluster_105"
@@ -50826,7 +50899,7 @@
       "title": "golden_standard_graph.json",
       "kind": "artifact",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-22T16:18:56-06:00",
+      "promoted": "2026-06-22T16:41:25-06:00",
       "outgoing": [],
       "incoming": [
         "scripts/analyze_graph.py"
@@ -50897,7 +50970,7 @@
       "title": "analyze_graph.py",
       "kind": "script",
       "created": "2026-06-16T18:22:45-06:00",
-      "promoted": "2026-06-22T15:36:53-06:00",
+      "promoted": "2026-06-22T16:41:25-06:00",
       "outgoing": [
         "output/golden_standard_graph.json"
       ],
@@ -51048,7 +51121,7 @@
       "title": "generate_golden_audit.py",
       "kind": "script",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-22T15:36:53-06:00",
+      "promoted": "2026-06-22T16:41:25-06:00",
       "outgoing": [
         "scripts/metrics.py"
       ],
@@ -51362,6 +51435,20 @@
     {
       "source": "Detectors/vc005_untracked_prototype",
       "target": "Vices/VC-002",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc012_invisible_debt",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc012_invisible_debt",
+      "target": "Vices/VC-012",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
@@ -60783,6 +60870,14 @@
     {
       "source": "Vices/VC-011",
       "target": "Vices_Index",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-012",
+      "target": "Detectors/vc012_invisible_debt",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -70261,26 +70356,26 @@
   "summary": {
     "edge_kinds": {
       "markdown": 6,
-      "wikilink": 2499
+      "wikilink": 2502
     },
     "relation_counts": {
       "bridges": 21,
-      "catalogs": 342,
+      "catalogs": 343,
       "entrypoint": 13,
       "governed_by": 214,
       "indexes": 114,
       "operationalizes_domain": 91,
-      "references": 394,
-      "returns_to_index": 1159,
+      "references": 395,
+      "returns_to_index": 1160,
       "routes_to_domains": 1,
       "subindex": 34,
       "thematic_bridge": 122
     },
-    "reciprocal_pairs": 578,
+    "reciprocal_pairs": 579,
     "average_edge_confidence": 0.935,
-    "semantic_density": 0.011916,
+    "semantic_density": 0.011878,
     "hub_ratio": 1.0,
-    "bridge_ratio": 0.997821,
+    "bridge_ratio": 0.997826,
     "intentional_orphans": [],
     "intentional_orphan_review": [],
     "orphan_candidates": [
@@ -70902,6 +70997,7 @@
           "Detectors/vc003_incomprehensible_code",
           "Detectors/vc005_premature_closure",
           "Detectors/vc005_untracked_prototype",
+          "Detectors/vc012_invisible_debt",
           "Detectors/vc013_ambiguous_handoff",
           "Detectors/vc016_broken_version_parity",
           "Detectors/vc017_deadlock_without_heartbeat",
@@ -71446,6 +71542,12 @@
           },
           {
             "source": "Detectors/vc005_untracked_prototype",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc012_invisible_debt",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -74139,9 +74241,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 451,
+        "in_degree": 452,
         "out_degree": 13,
-        "degree": 464,
+        "degree": 465,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -74161,7 +74263,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 498
+        "hub_score": 499
       },
       {
         "id": "Vices_Index",
@@ -87047,6 +87149,7 @@
           "Detectors/vc003_incomprehensible_code",
           "Detectors/vc005_premature_closure",
           "Detectors/vc005_untracked_prototype",
+          "Detectors/vc012_invisible_debt",
           "Detectors/vc013_ambiguous_handoff",
           "Detectors/vc016_broken_version_parity",
           "Detectors/vc017_deadlock_without_heartbeat",
@@ -87591,6 +87694,12 @@
           },
           {
             "source": "Detectors/vc005_untracked_prototype",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc012_invisible_debt",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -90284,9 +90393,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 451,
+        "in_degree": 452,
         "out_degree": 13,
-        "degree": 464,
+        "degree": 465,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -90306,7 +90415,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 498
+        "hub_score": 499
       },
       {
         "id": "Tokenomics_Map",

@@ -547,6 +547,15 @@ def vc078_excessive_agency(code: str) -> bool:
     )
 
 
+_INVISIBLE_DEBT = re.compile(
+    r"#.*(for now|shortcut:|quick.?fix|hack:|workaround:)", re.IGNORECASE
+)
+
+
+def vc012_invisible_debt(code: str) -> bool:
+    return bool(_INVISIBLE_DEBT.search(code))
+
+
 # Registry: catalog id -> detector. Keep in sync with the entries' `detector` field.
 DETECTORS = {
     "VC-005": vc005_premature_closure,
@@ -569,6 +578,8 @@ DETECTORS = {
     "VC-066": vc066_multi_agent_without_protocol,
     "VC-070": vc138_insecure_defaults,
     "VC-078": vc078_excessive_agency,
+    "VC-012": vc012_invisible_debt,
+
     "VT-043": vt043_unconditional_exit_zero,
     "VC-071": vc071_blind_trust_in_llm_output,
     "VT-005": vt005_assert_true,
