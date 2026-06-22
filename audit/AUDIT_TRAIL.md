@@ -1,5 +1,11 @@
 # AUDIT TRAIL
 
+## 2026-06-22
+
+| Session | Agent | Summary |
+|---------|-------|---------|
+| [2026-06-22-001](sessions/2026-06-22-001.md) | Claude | V3.2 canonical structure migration (Phase 1-4): scaffold + content migration + governance absorption + SP/CD18/VC-088 catalog additions. 29 files changed. CI green. |
+
 ## 2026-06-21
 
 - GS-078 (B2 cerberus decouple) CLOSED on the GS side. The 219 `enforcement.cerberus.{dimension,mechanism}` blocks were lifted out of the three agnostic catalogs into `config/cerberus_enforcement.json` (mirroring the existing `config/cerberus_dimensions.json` overlay). Strip was a verified deletion-only line surgery (ruamel round-trip reflows the block scalars, so no YAML-library rewrite was used): every surviving line is byte-identical, item counts unchanged, and the only removed lines match the `enforcement:/cerberus:/dimension:/mechanism:` pattern. The generator now re-injects `enforcement.cerberus` from the overlay into the downstream `golden_standard_audit.json` and reads the overlay in `_display_mechanism`, so the consumer DB is **byte-identical to HEAD** (0 value diffs, 0 enforcement diffs) — CC consumers that read the generated DB are unaffected. Found and absorbed a latent bug: VC-027 carried a duplicate `enforcement` block (`D2/audit_d2_completeness` then `D17/validate`); `yaml.safe_load` already took the last, so the overlay correctly captured the effective `D17/validate` and the dead block is gone. `grep -c cerberus: golden_standard_*.yaml` = 0; validator + detectors green. CC-side `federated_linter` rewiring lands in the Cerberus repo.

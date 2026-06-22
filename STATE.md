@@ -18,10 +18,10 @@
 
 | Phase | Status | Remaining |
 |-------|--------|-----------|
-| Phase 1 — Scaffold | IN_PROGRESS | STATE.md, audit/, tasks/ (current step) |
-| Phase 2 — Migrate content | NOT_STARTED | AUDIT_TRAIL, BACKLOG, audit reports, ID_MIGRATION |
-| Phase 3 — Absorb governance files | NOT_STARTED | AGENT_CONSUMPTION.md, CODE_OF_CONDUCT.md |
-| Phase 4 — Verify | NOT_STARTED | SP check, CI, commit, delete PLAN.md |
+| Phase 1 — Scaffold | DONE | — |
+| Phase 2 — Migrate content | DONE | — |
+| Phase 3 — Absorb governance files | DONE | — |
+| Phase 4 — Verify + commit | DONE | — |
 
 ## Open backlog
 
