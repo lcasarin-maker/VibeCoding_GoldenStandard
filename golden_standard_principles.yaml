@@ -11,8 +11,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Generated output is accepted as correct. Root cause: Absence of rigorous validation. Remediation:
-    Treat every output as a hypothesis until validated.'
+  action: 'This principle addresses Generated output is accepted as correct. Root
+    cause: Absence of rigorous validation. Remediation: Treat every output as a hypothesis
+    until validated.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -29,8 +30,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses The system responds with unjustified confidence. Root cause: Optimization by superficial
-    similarity. Remediation: Demand explicit uncertainty and evidence.'
+  action: 'This principle addresses The system responds with unjustified confidence.
+    Root cause: Optimization by superficial similarity. Remediation: Demand explicit
+    uncertainty and evidence.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -47,8 +49,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Something works superficially. Root cause: Insufficient sampling of state. Remediation:
-    Validate flow, boundaries, and persistence.'
+  action: 'This principle addresses Something works superficially. Root cause: Insufficient
+    sampling of state. Remediation: Validate flow, boundaries, and persistence.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -65,8 +67,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Pretty UI or docs hide failures. Root cause: Visual signal substitutes for causality.
-    Remediation: Validate logic before presentation.'
+  action: 'This principle addresses Pretty UI or docs hide failures. Root cause: Visual
+    signal substitutes for causality. Remediation: Validate logic before presentation.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -83,8 +85,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Critical logic avoid read. Root cause: Delegation without comprehension. Remediation:
-    Human review of critical invariants.'
+  action: 'This principle addresses Critical logic avoid read. Root cause: Delegation
+    without comprehension. Remediation: Human review of critical invariants.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -101,8 +103,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Probable regressions are ignored. Root cause: Poorly calibrated priors. Remediation: Assume
-    failure until proven otherwise.'
+  action: 'This principle addresses Probable regressions are ignored. Root cause:
+    Poorly calibrated priors. Remediation: Assume failure until proven otherwise.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -119,8 +121,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Validation uses prior memory. Root cause: Contextual bias. Remediation: Re-validate from
-    fresh context.'
+  action: 'This principle addresses Validation uses prior memory. Root cause: Contextual
+    bias. Remediation: Re-validate from fresh context.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -137,8 +139,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses The error repeats. Root cause: Learning not persisted. Remediation: Record the pattern
-    and a guardrail.'
+  action: 'This principle addresses The error repeats. Root cause: Learning not persisted.
+    Remediation: Record the pattern and a guardrail.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -155,8 +157,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses A nonexistent interaction is declared. Root cause: Absent perceptual channel. Remediation:
-    Real human evidence.'
+  action: 'This principle addresses A nonexistent interaction is declared. Root cause:
+    Absent perceptual channel. Remediation: Real human evidence.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -173,8 +175,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Aesthetics supplant function. Root cause: Wrong metric. Remediation: Usability equals
-    behavior.'
+  action: 'This principle addresses Aesthetics supplant function. Root cause: Wrong
+    metric. Remediation: Usability equals behavior.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -191,8 +193,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Excellence is assigned without proof. Root cause: Uncalibrated scale. Remediation: Grade
-    only with evidence.'
+  action: 'This principle addresses Excellence is assigned without proof. Root cause:
+    Uncalibrated scale. Remediation: Grade only with evidence.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -209,7 +211,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Broken system marked OK. Root cause: Superficial validator. Remediation: Empirical audit.'
+  action: 'This principle addresses Broken system marked OK. Root cause: Superficial
+    validator. Remediation: Empirical audit.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -226,8 +229,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses User delegates judgment. Root cause: Misassigned authority. Remediation: Human retains
-    responsibility.'
+  action: 'This principle addresses User delegates judgment. Root cause: Misassigned
+    authority. Remediation: Human retains responsibility.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -244,8 +247,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses A copied error is patched. Root cause: Diagnosis omitted. Remediation: Reproduce, diagnose,
-    fix, verify.'
+  action: 'This principle addresses A copied error is patched. Root cause: Diagnosis
+    omitted. Remediation: Reproduce, diagnose, fix, verify.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -262,8 +265,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses The bug returns in another form. Root cause: Root cause not isolated. Remediation: Fix
-    the mechanism, not the manifestation.'
+  action: 'This principle addresses The bug returns in another form. Root cause: Root
+    cause not isolated. Remediation: Fix the mechanism, not the manifestation.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -280,8 +283,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Code is changed without a minimal case. Root cause: Lack of an initial oracle. Remediation:
-    Every bug requires prior reproduction.'
+  action: 'This principle addresses Code is changed without a minimal case. Root cause:
+    Lack of an initial oracle. Remediation: Every bug requires prior reproduction.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -298,8 +301,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses More changes, less certainty. Root cause: Local optimization of time. Remediation: Validate
-    early, build little.'
+  action: 'This principle addresses More changes, less certainty. Root cause: Local
+    optimization of time. Remediation: Validate early, build little.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -316,8 +319,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Writing is saved, debugging is paid. Root cause: Invisible deferred costs. Remediation:
-    Measure rework and reversion.'
+  action: 'This principle addresses Writing is saved, debugging is paid. Root cause:
+    Invisible deferred costs. Remediation: Measure rework and reversion.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -334,8 +337,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Work accumulates before testing. Root cause: Late feedback. Remediation: Iterate in verifiable
-    slices.'
+  action: 'This principle addresses Work accumulates before testing. Root cause: Late
+    feedback. Remediation: Iterate in verifiable slices.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -352,8 +355,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses The system guesses requirements. Root cause: Ambiguous input. Remediation: Define goal,
-    constraints, and output.'
+  action: 'This principle addresses The system guesses requirements. Root cause: Ambiguous
+    input. Remediation: Define goal, constraints, and output.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -370,8 +373,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Work continues under high uncertainty. Root cause: Decisional entropy. Remediation: Stop
-    if critical hypotheses exceed a threshold.'
+  action: 'This principle addresses Work continues under high uncertainty. Root cause:
+    Decisional entropy. Remediation: Stop if critical hypotheses exceed a threshold.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -388,8 +391,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Unrequested improvements are added. Root cause: Unstable objective function. Remediation:
-    Send side findings to the backlog.'
+  action: 'This principle addresses Unrequested improvements are added. Root cause:
+    Unstable objective function. Remediation: Send side findings to the backlog.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -406,8 +409,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Validation is abandoned. Root cause: Communicational incentive. Remediation: Do not close
-    without an exit criterion.'
+  action: 'This principle addresses Validation is abandoned. Root cause: Communicational
+    incentive. Remediation: Do not close without an exit criterion.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -424,8 +427,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses A future agent repeats discussions. Root cause: Lost causality. Remediation: Record the
-    reason, not just the result.'
+  action: 'This principle addresses A future agent repeats discussions. Root cause:
+    Lost causality. Remediation: Record the reason, not just the result.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -442,8 +445,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Already-resolved questions are re-asked. Root cause: Lack of a ledger. Remediation: Keep
-    a historical log of clarifications.'
+  action: 'This principle addresses Already-resolved questions are re-asked. Root
+    cause: Lack of a ledger. Remediation: Keep a historical log of clarifications.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -460,8 +463,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Partial success is reported. Root cause: Incomplete metric. Remediation: Mandatory evidence
-    per claim.'
+  action: 'This principle addresses Partial success is reported. Root cause: Incomplete
+    metric. Remediation: Mandatory evidence per claim.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -478,8 +481,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses System hard to change. Root cause: Accumulated complexity. Remediation: Audit the capacity
-    to change.'
+  action: 'This principle addresses System hard to change. Root cause: Accumulated
+    complexity. Remediation: Audit the capacity to change.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -496,7 +499,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Agent expands scope. Root cause: Weak control. Remediation: Scope lock.'
+  action: 'This principle addresses Agent expands scope. Root cause: Weak control.
+    Remediation: Scope lock.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -513,8 +517,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Fix-revert consumes context. Root cause: Insufficient diagnosis. Remediation: Less generation,
-    more root cause.'
+  action: 'This principle addresses Fix-revert consumes context. Root cause: Insufficient
+    diagnosis. Remediation: Less generation, more root cause.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -531,8 +535,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Each fix introduces another bug. Root cause: Causal system not understood. Remediation:
-    Separate diagnosis and correction.'
+  action: 'This principle addresses Each fix introduces another bug. Root cause: Causal
+    system not understood. Remediation: Separate diagnosis and correction.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -549,8 +553,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses No one can maintain it. Root cause: Absent responsibility. Remediation: An owner able
-    to explain and repair it.'
+  action: 'This principle addresses No one can maintain it. Root cause: Absent responsibility.
+    Remediation: An owner able to explain and repair it.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -567,8 +571,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Archived or deleted without extracting value. Root cause: Destructive pruning without
-    inventory. Remediation: Audit, extract, and validate before retiring.'
+  action: 'This principle addresses Archived or deleted without extracting value.
+    Root cause: Destructive pruning without inventory. Remediation: Audit, extract,
+    and validate before retiring.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -585,8 +590,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Memory/state differ from reality. Root cause: Multiple sources of truth. Remediation:
-    Reconcile declared state with the system.'
+  action: 'This principle addresses Memory/state differ from reality. Root cause:
+    Multiple sources of truth. Remediation: Reconcile declared state with the system.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -603,8 +608,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Agent memory equated with human docs. Root cause: Channels with different purposes. Remediation:
-    Separate operational and human documentation.'
+  action: 'This principle addresses Agent memory equated with human docs. Root cause:
+    Channels with different purposes. Remediation: Separate operational and human
+    documentation.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -621,8 +627,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses State changes without an event. Root cause: Informational noise. Remediation: Update memory
-    only on relevant events.'
+  action: 'This principle addresses State changes without an event. Root cause: Informational
+    noise. Remediation: Update memory only on relevant events.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -639,8 +645,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses The agent forgets requirements. Root cause: Finite window. Remediation: Compact and restart
-    with a checkpoint.'
+  action: 'This principle addresses The agent forgets requirements. Root cause: Finite
+    window. Remediation: Compact and restart with a checkpoint.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -657,8 +663,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Responses worsen from excess. Root cause: Semantic noise. Remediation: Keep the minimal
-    sufficient context.'
+  action: 'This principle addresses Responses worsen from excess. Root cause: Semantic
+    noise. Remediation: Keep the minimal sufficient context.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -675,8 +681,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses A change breaks recoverable state. Root cause: Absence of reversibility. Remediation:
-    Create a return point before risk.'
+  action: 'This principle addresses A change breaks recoverable state. Root cause:
+    Absence of reversibility. Remediation: Create a return point before risk.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -693,8 +699,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Several sources compete. Root cause: Distributed inconsistency. Remediation: Canonical
-    ledger.'
+  action: 'This principle addresses Several sources compete. Root cause: Distributed
+    inconsistency. Remediation: Canonical ledger.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -711,8 +717,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Actors overwrite each other''s changes. Root cause: Lack of isolation. Remediation: Separate
-    branches, spaces, or locks.'
+  action: 'This principle addresses Actors overwrite each other''s changes. Root cause:
+    Lack of isolation. Remediation: Separate branches, spaces, or locks.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -729,8 +735,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Work lands in the wrong actor or phase. Root cause: Absent task classification. Remediation:
-    Route by capability, risk, and observable state.'
+  action: 'This principle addresses Work lands in the wrong actor or phase. Root cause:
+    Absent task classification. Remediation: Route by capability, risk, and observable
+    state.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -747,8 +754,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Two histories combine, losing decisions. Root cause: Lexical union without semantics.
-    Remediation: Merge by entities, decisions, and causality.'
+  action: 'This principle addresses Two histories combine, losing decisions. Root
+    cause: Lexical union without semantics. Remediation: Merge by entities, decisions,
+    and causality.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -765,8 +773,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Unexplainable decisions. Root cause: Loss of the causal model. Remediation: Every decision
-    should have a traceable reason.'
+  action: 'This principle addresses Unexplainable decisions. Root cause: Loss of the
+    causal model. Remediation: Every decision should have a traceable reason.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -783,8 +791,8 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Policies should be explicit, not implicit: governing rules are declared in the canonical rule set rather than left
-    to convention.
+  action: 'Policies should be explicit, not implicit: governing rules are declared
+    in the canonical rule set rather than left to convention.
 
     '
   validating_mechanism: doctrinal
@@ -803,8 +811,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Rules clash at execution. Root cause: Inconsistent logical system. Remediation: Define
-    precedence before automating.'
+  action: 'This principle addresses Rules clash at execution. Root cause: Inconsistent
+    logical system. Remediation: Define precedence before automating.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -821,8 +829,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Failure propagates. Root cause: Excessive coupling. Remediation: Stable interfaces and
-    isolation.'
+  action: 'This principle addresses Failure propagates. Root cause: Excessive coupling.
+    Remediation: Stable interfaces and isolation.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -839,8 +847,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses The cut breaks semantics. Root cause: Partitioning by size. Remediation: Chunking by functional
-    boundaries.'
+  action: 'This principle addresses The cut breaks semantics. Root cause: Partitioning
+    by size. Remediation: Chunking by functional boundaries.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -857,8 +865,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Global coherence is lost. Root cause: Unmodeled dependencies. Remediation: Do not slice
-    without a structural graph.'
+  action: 'This principle addresses Global coherence is lost. Root cause: Unmodeled
+    dependencies. Remediation: Do not slice without a structural graph.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -875,8 +883,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses External API or data assumed stable. Root cause: Unmodeled external dependency. Remediation:
-    Contracts and boundary tests.'
+  action: 'This principle addresses External API or data assumed stable. Root cause:
+    Unmodeled external dependency. Remediation: Contracts and boundary tests.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -893,8 +901,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Docs and code diverge. Root cause: Decoupled evolution. Remediation: Update both or invalidate
-    the docs.'
+  action: 'This principle addresses Docs and code diverge. Root cause: Decoupled evolution.
+    Remediation: Update both or invalidate the docs.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -911,8 +919,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Prior consumers break silently. Root cause: Historical contract not modeled. Remediation:
-    Version contracts and test active legacy paths.'
+  action: 'This principle addresses Prior consumers break silently. Root cause: Historical
+    contract not modeled. Remediation: Version contracts and test active legacy paths.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -929,8 +937,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Logs exist but do not explain failures. Root cause: Signal without diagnosis. Remediation:
-    Record causal events, decisions, and boundary states.'
+  action: 'This principle addresses Logs exist but do not explain failures. Root cause:
+    Signal without diagnosis. Remediation: Record causal events, decisions, and boundary
+    states.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -947,8 +956,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses A new layer avoids touching the real fault. Root cause: Indirection as concealment. Remediation:
-    Resolve the broken contract at its source.'
+  action: 'This principle addresses A new layer avoids touching the real fault. Root
+    cause: Indirection as concealment. Remediation: Resolve the broken contract at
+    its source.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -965,8 +975,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses The failure is documented instead of fixed. Root cause: Exception turned into a stable
-    state. Remediation: Zero known errors at closure.'
+  action: 'This principle addresses The failure is documented instead of fixed. Root
+    cause: Exception turned into a stable state. Remediation: Zero known errors at
+    closure.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -983,8 +994,9 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Editing without understanding the repository. Root cause: Incomplete model of the system.
-    Remediation: Map the structure before modifying.'
+  action: 'This principle addresses Editing without understanding the repository.
+    Root cause: Incomplete model of the system. Remediation: Map the structure before
+    modifying.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1001,7 +1013,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Abuses are not sought. Root cause: Unmodeled threat. Remediation: Mandatory threat model.'
+  action: 'This principle addresses Abuses are not sought. Root cause: Unmodeled threat.
+    Remediation: Mandatory threat model.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1018,7 +1031,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Scattered controls. Root cause: Blurred boundary. Remediation: Isolate the security layer.'
+  action: 'This principle addresses Scattered controls. Root cause: Blurred boundary.
+    Remediation: Isolate the security layer.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1035,8 +1049,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Tests adapted to the result. Root cause: Confirmation bias. Remediation: Test-first or
-    simultaneous testing.'
+  action: 'This principle addresses Tests adapted to the result. Root cause: Confirmation
+    bias. Remediation: Test-first or simultaneous testing.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1053,8 +1067,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Real failures not covered. Root cause: Undersampled domain. Remediation: Test errors and
-    boundaries.'
+  action: 'This principle addresses Real failures not covered. Root cause: Undersampled
+    domain. Remediation: Test errors and boundaries.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1071,8 +1085,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Resilience not observed. Root cause: Failures not induced. Remediation: Inject controlled
-    failures.'
+  action: 'This principle addresses Resilience not observed. Root cause: Failures
+    not induced. Remediation: Inject controlled failures.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1089,8 +1103,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Performance or security not measured. Root cause: Quality reduced to function. Remediation:
-    Audit non-functional requirements.'
+  action: 'This principle addresses Performance or security not measured. Root cause:
+    Quality reduced to function. Remediation: Audit non-functional requirements.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1107,8 +1121,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Undiagnosable failure. Root cause: Insufficient observability. Remediation: Deliberate
-    instrumentation.'
+  action: 'This principle addresses Undiagnosable failure. Root cause: Insufficient
+    observability. Remediation: Deliberate instrumentation.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1125,8 +1139,8 @@ items:
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Validated without a flow. Root cause: Visual simulation. Remediation: Test observable
-    interaction.'
+  action: 'This principle addresses Validated without a flow. Root cause: Visual simulation.
+    Remediation: Test observable interaction.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1143,8 +1157,8 @@ items:
   tags:
   - vibe-coding
   - prevented
-  action: 'Security boundaries should be enforced by gates, not convention: a boundary asserted only in prose, without an
-    executable gate behind it, is not a boundary.
+  action: 'Security boundaries should be enforced by gates, not convention: a boundary
+    asserted only in prose, without an executable gate behind it, is not a boundary.
 
     '
   validating_mechanism: doctrinal
@@ -1155,23 +1169,28 @@ items:
   detection: ''
 - id: PR-065
   title: Lock Panic and Fast Syntactic Patching (Lock Panic Shortcut)
-  symptom: Facing an unexpected compilation or import failure at startup, the agent chooses to patch the symptom by creating
-    shims or duplicating old code instead of investigating and resolving the root cause in the control plane or the caller
+  symptom: Facing an unexpected compilation or import failure at startup, the agent
+    chooses to patch the symptom by creating shims or duplicating old code instead
+    of investigating and resolving the root cause in the control plane or the caller
     files.
-  cause: Prioritizing the short-term "green tests" result at every costs, sacrificing the coherence and stable architectural
-    principles of the system.
-  solution: Strictly apply Mandate S2 (Brain-First) and investigate the control-plane architecture to perform surgical root-cause
-    refactors before writing a single line of code.
+  cause: Prioritizing the short-term "green tests" result at every costs, sacrificing
+    the coherence and stable architectural principles of the system.
+  solution: Strictly apply Mandate S2 (Brain-First) and investigate the control-plane
+    architecture to perform surgical root-cause refactors before writing a single
+    line of code.
   status: DOC_ONLY
   severity: medium
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses Facing an unexpected compilation or import failure at startup, the agent chooses to patch
-    the symptom by creating shims or duplicating old code instead of investigating and resolving the root cause in the control
-    plane or the caller files.. Root cause: Prioritizing the short-term "green tests" result at every costs, sacrificing the
-    coherence and stable architectural principles of the system.. Remediation: Strictly apply Mandate S2 (Brain-First) and
-    investigate the control-plane architecture to perform surgical root-cause refactors before writing a single line of code..'
+  action: 'This principle addresses Facing an unexpected compilation or import failure
+    at startup, the agent chooses to patch the symptom by creating shims or duplicating
+    old code instead of investigating and resolving the root cause in the control
+    plane or the caller files.. Root cause: Prioritizing the short-term "green tests"
+    result at every costs, sacrificing the coherence and stable architectural principles
+    of the system.. Remediation: Strictly apply Mandate S2 (Brain-First) and investigate
+    the control-plane architecture to perform surgical root-cause refactors before
+    writing a single line of code..'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1180,20 +1199,24 @@ items:
   detection: ''
 - id: PR-066
   title: Reasoning Lock-In & AI Runaway loops (Chain-Pattern Interrupts)
-  symptom: The agent fixates on a flawed action plan, repeating the same error or tool in a closed loop without stopping.
+  symptom: The agent fixates on a flawed action plan, repeating the same error or
+    tool in a closed loop without stopping.
   cause: Absence of active metacognition and lack of structural interrupts.
-  solution: '**Chain-Pattern Interrupts (CPI).** Impose a sentinel that counts consecutive failed attempts of the same tool
-    or script. If the count exceeds the threshold of 2, physically abort execution with `exit 1` and force a structural rethink
+  solution: '**Chain-Pattern Interrupts (CPI).** Impose a sentinel that counts consecutive
+    failed attempts of the same tool or script. If the count exceeds the threshold
+    of 2, physically abort execution with `exit 1` and force a structural rethink
     of the solution.'
   status: DOC_ONLY
   severity: medium
   tags:
   - vibe-coding
   - doc-only
-  action: 'This principle addresses The agent fixates on a flawed action plan, repeating the same error or tool in a closed
-    loop without stopping.. Root cause: Absence of active metacognition and lack of structural interrupts.. Remediation: **Chain-Pattern
-    Interrupts (CPI).** Impose a sentinel that counts consecutive failed attempts of the same tool or script. If the count
-    exceeds the threshold of 2, physically abort execution with `exit 1` and force a structural rethink of the solution..'
+  action: 'This principle addresses The agent fixates on a flawed action plan, repeating
+    the same error or tool in a closed loop without stopping.. Root cause: Absence
+    of active metacognition and lack of structural interrupts.. Remediation: **Chain-Pattern
+    Interrupts (CPI).** Impose a sentinel that counts consecutive failed attempts
+    of the same tool or script. If the count exceeds the threshold of 2, physically
+    abort execution with `exit 1` and force a structural rethink of the solution..'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   doctrinal: true
@@ -1210,26 +1233,30 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'This principle addresses The same block is paid for or processed many times. Root cause: Unmodeled reuse. Remediation:
-    Separate stable context from volatile context.'
+  action: 'This principle addresses The same block is paid for or processed many times.
+    Root cause: Unmodeled reuse. Remediation: Separate stable context from volatile
+    context.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
-  example_bad: "# The same stable block is resent on every call: paid for N times.\nfor q in questions:\n    call(model, system=BIG_STABLE_DOCS\
-    \ + q)     # no cache\n"
+  example_bad: "# The same stable block is resent on every call: paid for N times.\n\
+    for q in questions:\n    call(model, system=BIG_STABLE_DOCS + q)     # no cache\n"
   example_good: '# Mark the stable prefix as cacheable: paid for once.
 
-    call(model, system=[{"text": BIG_STABLE_DOCS, "cache_control": {"type": "ephemeral"}}, q])
+    call(model, system=[{"text": BIG_STABLE_DOCS, "cache_control": {"type": "ephemeral"}},
+    q])
 
     '
-  detection: 'Repeated calls that resend the same stable prefix without prompt caching /
+  detection: 'Repeated calls that resend the same stable prefix without prompt caching
+    /
 
     cache_control.
 
     '
   evidence:
   - source: vexp.dev / HumanLayer ACE
-    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching,
+      and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
 - id: PR-068
@@ -1242,8 +1269,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'This principle addresses Small tasks load entire documents. Root cause: Non-selective retrieval. Remediation: Extract
-    only the relevant fragments.'
+  action: 'This principle addresses Small tasks load entire documents. Root cause:
+    Non-selective retrieval. Remediation: Extract only the relevant fragments.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
@@ -1261,14 +1288,16 @@ items:
     answer = call(model, ctx + "...")
 
     '
-  detection: 'Loading entire documents for localized queries instead of retrieving the
+  detection: 'Loading entire documents for localized queries instead of retrieving
+    the
 
     relevant fragments.
 
     '
   evidence:
   - source: vexp.dev / HumanLayer ACE
-    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching,
+      and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
 - id: PR-069
@@ -1281,8 +1310,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'This principle addresses Preambles, explanations, and closings add no value. Root cause: Missing output budget.
-    Remediation: Constrain output format and length.'
+  action: 'This principle addresses Preambles, explanations, and closings add no value.
+    Root cause: Missing output budget. Remediation: Constrain output format and length.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: text
@@ -1296,14 +1325,16 @@ items:
     "Respond ONLY with the JSON, no additional text."   -> ~40 tokens
 
     '
-  detection: 'Outputs with preamble/explanation/closing when the task only requires the
+  detection: 'Outputs with preamble/explanation/closing when the task only requires
+    the
 
     datum; absence of format or length constraints.
 
     '
   evidence:
   - source: vexp.dev / HumanLayer ACE
-    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching,
+      and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
 - id: PR-070
@@ -1316,25 +1347,28 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'This principle addresses Entire files saturate the prompt. Root cause: Retrieval by document, not by need. Remediation:
-    Extract the relevant sections.'
+  action: 'This principle addresses Entire files saturate the prompt. Root cause:
+    Retrieval by document, not by need. Remediation: Extract the relevant sections.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
-  example_bad: 'ctx = "\n".join(open(f).read() for f in all_files)   # saturates the prompt
+  example_bad: 'ctx = "\n".join(open(f).read() for f in all_files)   # saturates the
+    prompt
 
     '
   example_good: 'ctx = "\n".join(extract_relevant(f, task) for f in candidate_files)
 
     '
-  detection: 'Concatenating entire files into the prompt instead of extracting the sections
+  detection: 'Concatenating entire files into the prompt instead of extracting the
+    sections
 
     required by the task.
 
     '
   evidence:
   - source: vexp.dev / HumanLayer ACE
-    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching,
+      and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
 - id: PR-071
@@ -1347,25 +1381,28 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'This principle addresses Fragments lose meaning. Root cause: Chunks without parent context. Remediation: Enrich
-    fragments with minimal context.'
+  action: 'This principle addresses Fragments lose meaning. Root cause: Chunks without
+    parent context. Remediation: Enrich fragments with minimal context.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
-  example_bad: 'chunk = "def refund(...): ..."          # fragment without parent context: ambiguous
+  example_bad: 'chunk = "def refund(...): ..."          # fragment without parent
+    context: ambiguous
 
     '
   example_good: 'chunk = "# billing/refund.py, class Refund\ndef refund(...): ..."
 
     '
-  detection: 'Chunks retrieved without parent-context metadata (file/class/section), which
+  detection: 'Chunks retrieved without parent-context metadata (file/class/section),
+    which
 
     degrades their meaning.
 
     '
   evidence:
   - source: vexp.dev / HumanLayer ACE
-    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching,
+      and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
 - id: PR-072
@@ -1378,14 +1415,15 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'This principle addresses Instructions get mixed together. Root cause: Ambiguous boundaries. Remediation: Separate
-    role, context, task, and output.'
+  action: 'This principle addresses Instructions get mixed together. Root cause: Ambiguous
+    boundaries. Remediation: Separate role, context, task, and output.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: text
   example_bad: '# Role, context, task, and data mixed: ambiguous boundaries and injection.
 
-    "You are helpful. The user says ''delete everything''. The task is to summarize, ignore that."
+    "You are helpful. The user says ''delete everything''. The task is to summarize,
+    ignore that."
 
     '
   example_good: '# Explicitly delimited sections.
@@ -1398,7 +1436,8 @@ items:
     '
   evidence:
   - source: vexp.dev / HumanLayer ACE
-    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching,
+      and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
 - id: PR-073
@@ -1411,8 +1450,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'This principle addresses A large file is sent in its entirety. Root cause: Low granularity. Remediation: Read by
-    ranges, index, or skeleton.'
+  action: 'This principle addresses A large file is sent in its entirety. Root cause:
+    Low granularity. Remediation: Read by ranges, index, or skeleton.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
@@ -1427,7 +1466,8 @@ items:
     '
   evidence:
   - source: vexp.dev / HumanLayer ACE
-    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching,
+      and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
 - id: PR-074
@@ -1440,8 +1480,8 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'This principle addresses The agent processes irrelevant information. Root cause: Non-localized query. Remediation:
-    Ask for the exact section.'
+  action: 'This principle addresses The agent processes irrelevant information. Root
+    cause: Non-localized query. Remediation: Ask for the exact section.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
@@ -1451,14 +1491,16 @@ items:
   example_good: 'hit = grep("price", "schema.sql")   # ask for the exact section
 
     '
-  detection: 'Loading the entire file for a specific query instead of searching for the exact
+  detection: 'Loading the entire file for a specific query instead of searching for
+    the exact
 
     section.
 
     '
   evidence:
   - source: vexp.dev / HumanLayer ACE
-    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching,
+      and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
 - id: PR-075
@@ -1471,8 +1513,9 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'This principle addresses Long policies are repeated in prompts. Root cause: Unstructured authorization. Remediation:
-    Represent permissions as a queryable matrix.'
+  action: 'This principle addresses Long policies are repeated in prompts. Root cause:
+    Unstructured authorization. Remediation: Represent permissions as a queryable
+    matrix.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: text
@@ -1493,7 +1536,8 @@ items:
     '
   evidence:
   - source: vexp.dev / HumanLayer ACE
-    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching,
+      and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
 - id: PR-076
@@ -1506,9 +1550,9 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'This principle addresses High consumption from blind exploration of directories or large files. Root cause: Low
-    read granularity and lack of prior contextual maps. Remediation: Use semantic indexes and skeletons to direct surgical
-    queries.'
+  action: 'This principle addresses High consumption from blind exploration of directories
+    or large files. Root cause: Low read granularity and lack of prior contextual
+    maps. Remediation: Use semantic indexes and skeletons to direct surgical queries.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: bash
@@ -1529,7 +1573,8 @@ items:
     '
   evidence:
   - source: vexp.dev / HumanLayer ACE
-    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching,
+      and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
 - id: PR-077
@@ -1542,21 +1587,25 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'This principle addresses Deferrable tasks run one at a time. Root cause: Lack of grouping. Remediation: Group non-interactive
-    work.'
+  action: 'This principle addresses Deferrable tasks run one at a time. Root cause:
+    Lack of grouping. Remediation: Group non-interactive work.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
-  example_bad: "for doc in docs:            # 1000 deferrable interactive calls\n    summarize(doc)\n"
-  example_good: 'batch_submit([summarize_job(doc) for doc in docs])   # batch API, non-interactive
+  example_bad: "for doc in docs:            # 1000 deferrable interactive calls\n\
+    \    summarize(doc)\n"
+  example_good: 'batch_submit([summarize_job(doc) for doc in docs])   # batch API,
+    non-interactive
 
     '
-  detection: 'Deferrable, homogeneous tasks run one at a time instead of grouped in a batch.
+  detection: 'Deferrable, homogeneous tasks run one at a time instead of grouped in
+    a batch.
 
     '
   evidence:
   - source: vexp.dev / HumanLayer ACE
-    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching,
+      and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
 - id: PR-078
@@ -1569,15 +1618,18 @@ items:
   tags:
   - tokenomics
   - doc-only
-  action: 'This principle addresses Maximum capacity is used for everything. Root cause: Inefficient resource allocation.
-    Remediation: Choose the minimum sufficient capacity.'
+  action: 'This principle addresses Maximum capacity is used for everything. Root
+    cause: Inefficient resource allocation. Remediation: Choose the minimum sufficient
+    capacity.'
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   example_lang: python
-  example_bad: 'answer = call(OPUS, "format this date")     # maximum capacity for something trivial
+  example_bad: 'answer = call(OPUS, "format this date")     # maximum capacity for
+    something trivial
 
     '
-  example_good: 'answer = call(HAIKU, "format this date")    # minimum sufficient capacity
+  example_good: 'answer = call(HAIKU, "format this date")    # minimum sufficient
+    capacity
 
     '
   detection: 'Using the most expensive model for trivial tasks; no routing by complexity.
@@ -1585,12 +1637,13 @@ items:
     '
   evidence:
   - source: vexp.dev / HumanLayer ACE
-    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching, and compaction are the central levers.
+    claim: unstructured context consumes 3-5x more tokens; selective retrieval, caching,
+      and compaction are the central levers.
   tier: specialist
   catalog_source: tokenomics
 - id: PR-079
-  title: Deptry – reconciliation of imports against declared dependencies to detect missing, unused, transitive, misplaced
-    dev, and stdlib declared as dependencies.
+  title: Deptry – reconciliation of imports against declared dependencies to detect
+    missing, unused, transitive, misplaced dev, and stdlib declared as dependencies.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1599,9 +1652,11 @@ items:
   cause: ''
   detection: ''
 - id: PR-080
-  title: 'Diagnostic assertions – when a test fails, the message must explain the discrepancy with actionable clarity. Real
-    verified tools: pytest native assertion rewriting, pytest-clarity / pytest-icdiff for readable diffs, flake8-assertive
-    for correct assertion methods. (Corrects a prior reference to a nonexistent package — see VC-061 hallucinated dependency.)'
+  title: 'Diagnostic assertions – when a test fails, the message must explain the
+    discrepancy with actionable clarity. Real verified tools: pytest native assertion
+    rewriting, pytest-clarity / pytest-icdiff for readable diffs, flake8-assertive
+    for correct assertion methods. (Corrects a prior reference to a nonexistent package
+    — see VC-061 hallucinated dependency.)'
   doctrinal: true
   promotion_candidate: true
   catalog_source: project_insights
@@ -1611,7 +1666,8 @@ items:
   cause: ''
   detection: ''
 - id: PR-081
-  title: Tokencost – upfront token metering and USD conversion to make spend visible before executing an LLM call.
+  title: Tokencost – upfront token metering and USD conversion to make spend visible
+    before executing an LLM call.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1620,8 +1676,8 @@ items:
   cause: ''
   detection: ''
 - id: PR-082
-  title: Trivy – multi-surface scanning (images, filesystem, git, VMs, Kubernetes) for CVEs, secrets, misconfigurations, SBOM,
-    and licenses.
+  title: Trivy – multi-surface scanning (images, filesystem, git, VMs, Kubernetes)
+    for CVEs, secrets, misconfigurations, SBOM, and licenses.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1630,7 +1686,8 @@ items:
   cause: ''
   detection: ''
 - id: PR-083
-  title: Litellm – provider-agnostic gateway with routing, fallback, cost tracking, guardrails, logging, and load balancing.
+  title: Litellm – provider-agnostic gateway with routing, fallback, cost tracking,
+    guardrails, logging, and load balancing.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1639,8 +1696,8 @@ items:
   cause: ''
   detection: ''
 - id: PR-084
-  title: Governance gate between intent and execution that enforces context discipline, observability, redaction, and state
-    control.
+  title: Governance gate between intent and execution that enforces context discipline,
+    observability, redaction, and state control.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1649,10 +1706,12 @@ items:
   cause: ''
   detection: ''
 - id: PR-085
-  title: 'Output governance – a system can have INPUT governance (quality gates) but lack OUTPUT governance (orphan pruning),
-    accumulating refactor residue: backups, dead code, stale plan docs, spectral scripts, divergent learning logs, stale base-sets,
-    and IDs declared without content. Root cause: the gate validated letter (Path.exists) not currency (active route). Lesson:
-    the same gate that blocks bad code blocks the leftover junk.'
+  title: 'Output governance – a system can have INPUT governance (quality gates) but
+    lack OUTPUT governance (orphan pruning), accumulating refactor residue: backups,
+    dead code, stale plan docs, spectral scripts, divergent learning logs, stale base-sets,
+    and IDs declared without content. Root cause: the gate validated letter (Path.exists)
+    not currency (active route). Lesson: the same gate that blocks bad code blocks
+    the leftover junk.'
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1661,8 +1720,9 @@ items:
   cause: ''
   detection: ''
 - id: PR-086
-  title: Batch of predictable authorizations – group permissions, clarifications, and decisions before a long run to avoid
-    interruptions, rereads, and reactive work.
+  title: Batch of predictable authorizations – group permissions, clarifications,
+    and decisions before a long run to avoid interruptions, rereads, and reactive
+    work.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1671,8 +1731,8 @@ items:
   cause: ''
   detection: ''
 - id: PR-087
-  title: Zero debt before advancing – every warning or non-blocking finding is treated as an operational error until fixed
-    or explicitly blocked.
+  title: Zero debt before advancing – every warning or non-blocking finding is treated
+    as an operational error until fixed or explicitly blocked.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1681,8 +1741,8 @@ items:
   cause: ''
   detection: ''
 - id: PR-088
-  title: Output hygiene and clean root – historical artifacts are reference, not source of truth; when an audit closes the
-    root must be free of operational residue.
+  title: Output hygiene and clean root – historical artifacts are reference, not source
+    of truth; when an audit closes the root must be free of operational residue.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1691,8 +1751,8 @@ items:
   cause: ''
   detection: ''
 - id: PR-089
-  title: Descriptive names and simple topology – prefer scripts and modules that explain their purpose and flatten structure
-    when it reduces cognitive friction.
+  title: Descriptive names and simple topology – prefer scripts and modules that explain
+    their purpose and flatten structure when it reduces cognitive friction.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1701,8 +1761,9 @@ items:
   cause: ''
   detection: ''
 - id: PR-090
-  title: Minimal and real exclusions – whitelists, excludes, skips, xfails, stubs, mocks, and placeholders only with verifiable
-    cause; false coverage is debt, not progress.
+  title: Minimal and real exclusions – whitelists, excludes, skips, xfails, stubs,
+    mocks, and placeholders only with verifiable cause; false coverage is debt, not
+    progress.
   doctrinal: true
   promotion_candidate: true
   catalog_source: project_insights
@@ -1712,7 +1773,8 @@ items:
   cause: ''
   detection: ''
 - id: PR-091
-  title: Real-time vigilance – observe signals, costs, and deviations during execution, not only in the post-mortem.
+  title: Real-time vigilance – observe signals, costs, and deviations during execution,
+    not only in the post-mortem.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1721,8 +1783,9 @@ items:
   cause: ''
   detection: ''
 - id: PR-092
-  title: Living Golden Standard – preserve pure, agnostic knowledge kept up to date with the lessons from the project and
-    the satellites without mixing it with concrete tools.
+  title: Living Golden Standard – preserve pure, agnostic knowledge kept up to date
+    with the lessons from the project and the satellites without mixing it with concrete
+    tools.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1731,8 +1794,9 @@ items:
   cause: ''
   detection: ''
 - id: PR-093
-  title: Circularity ratchet – every new vice must break a real circular relationship and drain the baseline in batches; coverage
-    that does not reduce the circle is still theater.
+  title: Circularity ratchet – every new vice must break a real circular relationship
+    and drain the baseline in batches; coverage that does not reduce the circle is
+    still theater.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1741,8 +1805,8 @@ items:
   cause: ''
   detection: ''
 - id: PR-094
-  title: DOC_ONLY honesty – if a lesson is not falsifiable by a physical gate, it must be labeled DOC_ONLY instead of simulating
-    automatic coverage.
+  title: DOC_ONLY honesty – if a lesson is not falsifiable by a physical gate, it
+    must be labeled DOC_ONLY instead of simulating automatic coverage.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1751,8 +1815,8 @@ items:
   cause: ''
   detection: ''
 - id: PR-095
-  title: Anti many-to-one coverage – a test that claims to cover N vices at once loses discrimination; each guard must isolate
-    the failure it claims to protect against.
+  title: Anti many-to-one coverage – a test that claims to cover N vices at once loses
+    discrimination; each guard must isolate the failure it claims to protect against.
   doctrinal: true
   promotion_candidate: true
   catalog_source: project_insights
@@ -1762,8 +1826,8 @@ items:
   cause: ''
   detection: ''
 - id: PR-096
-  title: Canonical ingestion of lessons – normalize, deduplicate, and record new satellite lessons before incorporating them
-    into the central knowledge.
+  title: Canonical ingestion of lessons – normalize, deduplicate, and record new satellite
+    lessons before incorporating them into the central knowledge.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1772,8 +1836,9 @@ items:
   cause: ''
   detection: ''
 - id: PR-097
-  title: Execution and tooling hygiene – prefer simple commands, declarative edits, UTF-8, auditable evidence, and elevated
-    permissions only as an exception; temporary helpers must disappear unless they are reusable and documented.
+  title: Execution and tooling hygiene – prefer simple commands, declarative edits,
+    UTF-8, auditable evidence, and elevated permissions only as an exception; temporary
+    helpers must disappear unless they are reusable and documented.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1782,10 +1847,12 @@ items:
   cause: ''
   detection: ''
 - id: PR-098
-  title: 'Confidence Tags (Graphify pattern) – every state claim in protocol documents must carry an explicit confidence level:
-    VERIFIED (backed by terminal log or test), INFERRED (deduced from indirect evidence), ASSUMED (no evidence, reasonable
-    supposition). Claims without a tag are treated as ASSUMED. Applies especially to protocol specs, audit logs, and architectural
-    decision comments. Origin: safishamsi/graphify confidence tag system for knowledge graphs.'
+  title: 'Confidence Tags (Graphify pattern) – every state claim in protocol documents
+    must carry an explicit confidence level: VERIFIED (backed by terminal log or test),
+    INFERRED (deduced from indirect evidence), ASSUMED (no evidence, reasonable supposition).
+    Claims without a tag are treated as ASSUMED. Applies especially to protocol specs,
+    audit logs, and architectural decision comments. Origin: safishamsi/graphify confidence
+    tag system for knowledge graphs.'
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1794,10 +1861,12 @@ items:
   cause: ''
   detection: ''
 - id: PR-099
-  title: 'Semantic Wiki-Lint (Karpathy LLM Wiki pattern) – protocol documents must be audited periodically to detect: contradictions
-    between sections, references to nonexistent files, mandates mentioned in one doc but absent in another, and inconsistent
-    version claims. The Lint is not syntactic (that is handled by a syntactic catalog linter) but semantic: do two documents
-    claim incompatible things about the same state? Origin: Karpathy LLM Wiki gist, Lint operation of the agent-maintained
+  title: 'Semantic Wiki-Lint (Karpathy LLM Wiki pattern) – protocol documents must
+    be audited periodically to detect: contradictions between sections, references
+    to nonexistent files, mandates mentioned in one doc but absent in another, and
+    inconsistent version claims. The Lint is not syntactic (that is handled by a syntactic
+    catalog linter) but semantic: do two documents claim incompatible things about
+    the same state? Origin: Karpathy LLM Wiki gist, Lint operation of the agent-maintained
     wiki framework.'
   doctrinal: true
   promotion_candidate: true
@@ -1808,9 +1877,10 @@ items:
   cause: ''
   detection: ''
 - id: PR-100
-  title: 'Operational uncertainty list – every session or protocol document must declare which subsystems, routes, or claims
-    were not mechanically verified in that turn. The absence of a list equals incomplete verification. Origin: operational
-    uncertainty discipline and anti-hallucination control.'
+  title: 'Operational uncertainty list – every session or protocol document must declare
+    which subsystems, routes, or claims were not mechanically verified in that turn.
+    The absence of a list equals incomplete verification. Origin: operational uncertainty
+    discipline and anti-hallucination control.'
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1819,8 +1889,9 @@ items:
   cause: ''
   detection: ''
 - id: PR-101
-  title: 'Dual-session awareness – before touching shared sources, the agent must verify state and latest commits so as not
-    to step on concurrent work. If there are external changes, impact is analyzed before editing. Origin: multi-agent coexistence
+  title: 'Dual-session awareness – before touching shared sources, the agent must
+    verify state and latest commits so as not to step on concurrent work. If there
+    are external changes, impact is analyzed before editing. Origin: multi-agent coexistence
     discipline and serialized shared-source access.'
   doctrinal: true
   catalog_source: project_insights
@@ -1830,8 +1901,9 @@ items:
   cause: ''
   detection: ''
 - id: PR-102
-  title: 'Hub-based review – nodes with the highest fan-in or impact degree must be reviewed first when a catalog or index
-    changes. The graph is not decorative: it prioritizes risk and orders the audit. Origin: hub-first review heuristic (graph
+  title: 'Hub-based review – nodes with the highest fan-in or impact degree must be
+    reviewed first when a catalog or index changes. The graph is not decorative: it
+    prioritizes risk and orders the audit. Origin: hub-first review heuristic (graph
     fan-in prioritization).'
   doctrinal: true
   catalog_source: project_insights
@@ -1841,9 +1913,10 @@ items:
   cause: ''
   detection: ''
 - id: PR-103
-  title: 'Exportable retrospective – every session must close with a structured, parseable retrospective that is persisted
-    to a durable ledger before a context reset (COMPACT/CLEAR). Chat is not reliable memory and new knowledge must survive
-    the reset. Origin: structured-retrospective export and a durable ledger as a source of continuity.'
+  title: 'Exportable retrospective – every session must close with a structured, parseable
+    retrospective that is persisted to a durable ledger before a context reset (COMPACT/CLEAR).
+    Chat is not reliable memory and new knowledge must survive the reset. Origin:
+    structured-retrospective export and a durable ledger as a source of continuity.'
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1852,10 +1925,12 @@ items:
   cause: ''
   detection: ''
 - id: PR-104
-  title: 'Exhaustive preflight and no reopening scope post-execution – before executing any change, the agent must declare
-    scope, foreseeable impacts, out-of-scope follow-ups, and the runner/loader that would be affected if the topology changes.
-    If a new improvement emerges after executing, it is first recorded in the backlog; it is not offered as a post-execution
-    suggestion. Origin: execution hygiene and the formal separation of audits between knowledge and consumption.'
+  title: 'Exhaustive preflight and no reopening scope post-execution – before executing
+    any change, the agent must declare scope, foreseeable impacts, out-of-scope follow-ups,
+    and the runner/loader that would be affected if the topology changes. If a new
+    improvement emerges after executing, it is first recorded in the backlog; it is
+    not offered as a post-execution suggestion. Origin: execution hygiene and the
+    formal separation of audits between knowledge and consumption.'
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1864,10 +1939,11 @@ items:
   cause: ''
   detection: ''
 - id: PR-105
-  title: 'Serialization of Git operations – Git commands must be executed serially within automations and orchestrators to
-    avoid index locks, state races, and inconsistent results. When coordination or concurrent tooling exists, the safe discipline
-    is a single Git flow at a time with controlled retries, not opportunistic parallelism. Origin: global learning on race
-    conditions and .git/index.lock locking.'
+  title: 'Serialization of Git operations – Git commands must be executed serially
+    within automations and orchestrators to avoid index locks, state races, and inconsistent
+    results. When coordination or concurrent tooling exists, the safe discipline is
+    a single Git flow at a time with controlled retries, not opportunistic parallelism.
+    Origin: global learning on race conditions and .git/index.lock locking.'
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1876,8 +1952,9 @@ items:
   cause: ''
   detection: ''
 - id: PR-106
-  title: Vibe Check (PV-Bhat/vibe-check-mcp-server, verified) – metacognition MCP server that curbs agent tunnel-vision and
-    runaway loops via Chain-Pattern Interrupts; a direct implementation of the PR-066 mitigation.
+  title: Vibe Check (PV-Bhat/vibe-check-mcp-server, verified) – metacognition MCP
+    server that curbs agent tunnel-vision and runaway loops via Chain-Pattern Interrupts;
+    a direct implementation of the PR-066 mitigation.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1886,8 +1963,9 @@ items:
   cause: ''
   detection: ''
 - id: PR-107
-  title: 'vibecheck (yuvrajangadsingh/vibecheck, verified) – ESLint for AI slop: a local linter that detects code smells in
-    AI-generated code (hardcoded secrets, eval, empty catch); evidence that the catalog vices are statically detectable.'
+  title: 'vibecheck (yuvrajangadsingh/vibecheck, verified) – ESLint for AI slop: a
+    local linter that detects code smells in AI-generated code (hardcoded secrets,
+    eval, empty catch); evidence that the catalog vices are statically detectable.'
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1896,9 +1974,10 @@ items:
   cause: ''
   detection: ''
 - id: PR-108
-  title: viberails (refractionPOINT/viberails, verified) – AI Firewall that intercepts risky agent operations (Claude Code,
-    Cursor, Gemini CLI) via hooks; an enforcement layer conceptually comparable to a policy-enforcement gate (unrelated to
-    the homonym philips-software/cerberus).
+  title: viberails (refractionPOINT/viberails, verified) – AI Firewall that intercepts
+    risky agent operations (Claude Code, Cursor, Gemini CLI) via hooks; an enforcement
+    layer conceptually comparable to a policy-enforcement gate (unrelated to the homonym
+    philips-software/cerberus).
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1907,8 +1986,9 @@ items:
   cause: ''
   detection: ''
 - id: PR-109
-  title: ratelimit (tomasbasham/ratelimit, verified) – rate limiting decorator (@limits + sleep_and_retry) as a concrete control
-    against PR-031 (quota as surprise) and the tokenomics debt (TK-034).
+  title: ratelimit (tomasbasham/ratelimit, verified) – rate limiting decorator (@limits
+    + sleep_and_retry) as a concrete control against PR-031 (quota as surprise) and
+    the tokenomics debt (TK-034).
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1917,8 +1997,9 @@ items:
   cause: ''
   detection: ''
 - id: PR-110
-  title: context7 (upstash/context7, verified) -- delivers up-to-date code documentation to LLMs to avoid calls to obsolete
-    or nonexistent APIs; a direct mitigation of PR-044.
+  title: context7 (upstash/context7, verified) -- delivers up-to-date code documentation
+    to LLMs to avoid calls to obsolete or nonexistent APIs; a direct mitigation of
+    PR-044.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1927,8 +2008,9 @@ items:
   cause: ''
   detection: ''
 - id: PR-111
-  title: Persistent memory layer (byterover-cli / zilliztech claude-context-memsearch, verified) -- durable cross-session
-    memory for agents; its discipline (source, date, reconciliation) mitigates PR-045.
+  title: Persistent memory layer (byterover-cli / zilliztech claude-context-memsearch,
+    verified) -- durable cross-session memory for agents; its discipline (source,
+    date, reconciliation) mitigates PR-045.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1937,8 +2019,8 @@ items:
   cause: ''
   detection: ''
 - id: PR-112
-  title: serena (oraios/serena, verified) -- symbol-level (semantic) retrieval and editing so that recovered context is correct;
-    mitigates VC-069 against blind chunking.
+  title: serena (oraios/serena, verified) -- symbol-level (semantic) retrieval and
+    editing so that recovered context is correct; mitigates VC-069 against blind chunking.
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1947,12 +2029,14 @@ items:
   cause: ''
   detection: ''
 - id: PR-113
-  title: 'Auditing stochastic systems – when behavior depends on chance, sampling, retries, probabilistic routing, or non-deterministic
-    generation, it is not evaluated with a single run nor with an exact value. The rule is to declare the target distribution,
-    seed when applicable, sample size, acceptable thresholds, and repetition criterion; if the surface should be deterministic,
-    the randomness is eliminated rather than disguised as controlled. Claims about stability or correctness must be reproducible
-    across several runs, not just plausible in one. Origin: GS audit of stochastic systems; complements VT-028 on controlled
-    randomness.'
+  title: 'Auditing stochastic systems – when behavior depends on chance, sampling,
+    retries, probabilistic routing, or non-deterministic generation, it is not evaluated
+    with a single run nor with an exact value. The rule is to declare the target distribution,
+    seed when applicable, sample size, acceptable thresholds, and repetition criterion;
+    if the surface should be deterministic, the randomness is eliminated rather than
+    disguised as controlled. Claims about stability or correctness must be reproducible
+    across several runs, not just plausible in one. Origin: GS audit of stochastic
+    systems; complements VT-028 on controlled randomness.'
   doctrinal: true
   catalog_source: project_insights
   action: ''
@@ -1961,26 +2045,51 @@ items:
   cause: ''
   detection: ''
 - id: PR-114
-  title: 'Equivalent-effect substitution: absence of the canonical path is a constraint, not a dead end. When the standard
-    installation path for a tool is unavailable, identify the effect required and achieve it through an available alternative.
-    Origin: RTK hook unavailable on Windows; CC PreToolUse Bash matcher achieves identical enforcement. Session 2026-06-21.'
+  title: 'Equivalent-effect substitution: absence of the canonical path is a constraint,
+    not a dead end. When the standard installation path for a tool is unavailable,
+    identify the effect required and achieve it through an available alternative.
+    Origin: RTK hook unavailable on Windows; CC PreToolUse Bash matcher achieves identical
+    enforcement. Session 2026-06-21.'
   doctrinal: true
   catalog_source: project_insights
-  action: 'Before declaring a feature impossible due to installation constraints, enumerate alternative paths to the same effect.
-    Document the substitution in AUDIT_TRAIL with the original constraint and the chosen equivalent.'
-  solution: 'Identify the effect required, find an available mechanism that produces it, document the substitution explicitly.'
-  symptom: 'Tool or hook cannot be installed via canonical path — enforcement silently dropped.'
-  cause: 'Agent treats installation method as the only valid path to the effect.'
+  action: Before declaring a feature impossible due to installation constraints, enumerate
+    alternative paths to the same effect. Document the substitution in AUDIT_TRAIL
+    with the original constraint and the chosen equivalent.
+  solution: Identify the effect required, find an available mechanism that produces
+    it, document the substitution explicitly.
+  symptom: Tool or hook cannot be installed via canonical path — enforcement silently
+    dropped.
+  cause: Agent treats installation method as the only valid path to the effect.
   detection: ''
 - id: PR-115
-  title: 'External Tool Attribution: every evaluated tool must be cataloged with source URL, license, and verdict in
-    knowledge/external_tools.md before adoption or rejection. Credit to original authors is non-negotiable.
-    Origin: Session 2026-06-23.'
+  title: 'External Tool Attribution: every evaluated tool must be cataloged with source
+    URL, license, and verdict in knowledge/external_tools.md before adoption or rejection.
+    Credit to original authors is non-negotiable. Origin: Session 2026-06-23.'
   doctrinal: true
   catalog_source: project_insights
-  action: 'Before adopting or backlisting any external tool: add an entry to knowledge/external_tools.md with URL, license,
-    verdict, and origin session. Backlog tasks must reference the entry.'
-  solution: 'Maintain knowledge/external_tools.md as the single source of truth for all evaluated external tools.'
-  symptom: 'Tools evaluated in session but never formally attributed; future agents cannot verify source or license.'
-  cause: 'No catalog obligation — attribution treated as optional documentation.'
+  action: 'Before adopting or backlisting any external tool: add an entry to knowledge/external_tools.md
+    with URL, license, verdict, and origin session. Backlog tasks must reference the
+    entry.'
+  solution: Maintain knowledge/external_tools.md as the single source of truth for
+    all evaluated external tools.
+  symptom: Tools evaluated in session but never formally attributed; future agents
+    cannot verify source or license.
+  cause: No catalog obligation — attribution treated as optional documentation.
   detection: ''
+- id: PR-116
+  title: 'Audit Result Trichotomy: every audit check must produce exactly one of three
+    explicit outcomes: finding, clean, or could-not-verify (CNV). CNV is not clean
+    — a check that cannot run must never silently appear as PASS.'
+  doctrinal: true
+  catalog_source: project_insights
+  action: When implementing any audit check, define the condition under which it cannot
+    be verified and emit CNV with a reason string when that condition holds. Audit
+    frameworks must expose all three states.
+  solution: Add a third mandatory status (CNV) that surfaces when a check cannot be
+    completed. Treat CNV as neither PASS nor FAIL at the gate, but never hide it.
+  symptom: An audit framework has PASS and FAIL but no explicit CNV state; checks
+    that cannot run silently appear as PASS, giving false confidence.
+  cause: 'Binary thinking: the audit author assumes that running and finding nothing
+    is the only alternative to finding a problem.'
+  detection: Check if an audit framework has fewer than 3 explicit output states;
+    any framework with only pass/fail is missing CNV.
