@@ -460,3 +460,4 @@ These actions are the operational bridge between the principles and the canonica
 | `CD18` | Multi-Agent Project Governance | `SP-007` | canonical-structure | tasks/README.md and audit/README.md templates are mandatory; agents must use them. |
 | `CD18` | Multi-Agent Project Governance | `SP-008` | canonical-structure | Agent self-certifies done against AGENTS.md §4 DoD; review/ only for explicitly flagged tasks. |
 | `CD18` | Multi-Agent Project Governance | `SP-009` | canonical-structure | Canonicalize every material decision, session finding, and new work item before session ends — same gate as GS INGESTION_PROTOCOL, applied to project knowledge. |
+| `CD18` | Multi-Agent Project Governance | `SP-010` | canonical-structure | Apply root audit to any knowledge repo using GS as a template; classify all root files correctly. |

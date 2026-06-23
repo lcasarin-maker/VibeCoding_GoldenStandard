@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-06-22",
   "node_count": 490,
-  "edge_count": 2604,
+  "edge_count": 2605,
   "nodes": [
     {
       "id": ".github/workflows/audit.yml",
@@ -3853,7 +3853,8 @@
         "Principles/SP-006",
         "Principles/SP-007",
         "Principles/SP-008",
-        "Principles/SP-009"
+        "Principles/SP-009",
+        "Principles/SP-010"
       ],
       "incoming": [
         "Domains/README",
@@ -3934,6 +3935,12 @@
           "kind": "wikilink",
           "relation": "operationalizes_domain",
           "confidence": 0.95
+        },
+        {
+          "target": "Principles/SP-010",
+          "kind": "wikilink",
+          "relation": "operationalizes_domain",
+          "confidence": 0.95
         }
       ],
       "incoming_edges": [
@@ -4005,8 +4012,8 @@
         }
       ],
       "in_degree": 11,
-      "out_degree": 11,
-      "degree": 22,
+      "out_degree": 12,
+      "degree": 23,
       "connected_types": [
         "domain",
         "principle",
@@ -4019,7 +4026,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 3,
-      "hub_score": 37
+      "hub_score": 38
     },
     {
       "id": "Domains/README",
@@ -24360,8 +24367,8 @@
       "path": "Wiki/Principles/SP-001.md",
       "title": "SP-001 — Single governance hub",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [
         "Domains/CD01",
         "Domains/CD05",
@@ -24459,8 +24466,8 @@
       "path": "Wiki/Principles/SP-002.md",
       "title": "SP-002 — No material fact in chat",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [
         "Domains/CD02",
         "Domains/CD15",
@@ -24558,8 +24565,8 @@
       "path": "Wiki/Principles/SP-003.md",
       "title": "SP-003 — Live debt only in backlog",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [
         "Domains/CD01",
         "Domains/CD04",
@@ -24657,8 +24664,8 @@
       "path": "Wiki/Principles/SP-004.md",
       "title": "SP-004 — Resolved debt goes to git log only",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [
         "Domains/CD01",
         "Domains/CD18",
@@ -24742,8 +24749,8 @@
       "path": "Wiki/Principles/SP-005.md",
       "title": "SP-005 — Session close is mandatory",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [
         "Domains/CD02",
         "Domains/CD14",
@@ -24848,8 +24855,8 @@
       "path": "Wiki/Principles/SP-006.md",
       "title": "SP-006 — Consistent structure across federated repos",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [
         "Domains/CD01",
         "Domains/CD14",
@@ -24940,8 +24947,8 @@
       "path": "Wiki/Principles/SP-007.md",
       "title": "SP-007 — Templates mandatory for tasks and sessions",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [
         "Domains/CD02",
         "Domains/CD13",
@@ -25039,8 +25046,8 @@
       "path": "Wiki/Principles/SP-008.md",
       "title": "SP-008 — Agent self-certifies task completion",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [
         "Domains/CD02",
         "Domains/CD07",
@@ -25123,8 +25130,8 @@
       "path": "Wiki/Principles/SP-009.md",
       "title": "SP-009 — Project knowledge must be canonicalized before session end",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [
         "Domains/CD02",
         "Domains/CD13",
@@ -25236,8 +25243,8 @@
       "path": "Wiki/Principles/SP-010.md",
       "title": "SP-010 — Knowledge repo root discipline",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [
         "Domains/CD01",
         "Domains/CD18",
@@ -25246,7 +25253,9 @@
         "Principles/PR-085",
         "Principles/PR-101"
       ],
-      "incoming": [],
+      "incoming": [
+        "Domains/CD18"
+      ],
       "outgoing_edges": [
         {
           "target": "Domains/CD01",
@@ -25285,10 +25294,17 @@
           "confidence": 0.85
         }
       ],
-      "incoming_edges": [],
-      "in_degree": 0,
+      "incoming_edges": [
+        {
+          "source": "Domains/CD18",
+          "kind": "wikilink",
+          "relation": "operationalizes_domain",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
       "out_degree": 6,
-      "degree": 6,
+      "degree": 7,
       "connected_types": [
         "domain",
         "principle",
@@ -25296,12 +25312,13 @@
         "wiki"
       ],
       "relation_types": [
+        "operationalizes_domain",
         "references",
         "returns_to_index"
       ],
       "semantic_reach": 4,
-      "relation_diversity": 2,
-      "hub_score": 22,
+      "relation_diversity": 3,
+      "hub_score": 25,
       "status": "REMEDIATED",
       "downstream_verification": "required",
       "severity": "medium"
@@ -51951,7 +51968,7 @@
       "title": "golden_standard_audit.json",
       "kind": "artifact",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-22T17:48:29-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -51971,7 +51988,7 @@
       "title": "golden_standard_graph.json",
       "kind": "artifact",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-22T17:48:29-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [],
       "incoming": [
         "scripts/analyze_graph.py"
@@ -52431,7 +52448,7 @@
       "title": "generate_golden_audit.py",
       "kind": "script",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-22T17:48:29-06:00",
+      "promoted": "2026-06-22T19:21:17-06:00",
       "outgoing": [
         "scripts/metrics.py"
       ],
@@ -53886,6 +53903,13 @@
     {
       "source": "Domains/CD18",
       "target": "Principles/SP-009",
+      "kind": "wikilink",
+      "relation": "operationalizes_domain",
+      "confidence": 0.95
+    },
+    {
+      "source": "Domains/CD18",
+      "target": "Principles/SP-010",
       "kind": "wikilink",
       "relation": "operationalizes_domain",
       "confidence": 0.95
@@ -72329,7 +72353,7 @@
   "summary": {
     "edge_kinds": {
       "markdown": 6,
-      "wikilink": 2553
+      "wikilink": 2554
     },
     "relation_counts": {
       "bridges": 21,
@@ -72337,16 +72361,16 @@
       "entrypoint": 13,
       "governed_by": 204,
       "indexes": 114,
-      "operationalizes_domain": 104,
+      "operationalizes_domain": 105,
       "references": 459,
       "returns_to_index": 1142,
       "routes_to_domains": 1,
       "subindex": 34,
       "thematic_bridge": 122
     },
-    "reciprocal_pairs": 590,
+    "reciprocal_pairs": 591,
     "average_edge_confidence": 0.933,
-    "semantic_density": 0.012015,
+    "semantic_density": 0.01202,
     "hub_ratio": 1.0,
     "bridge_ratio": 0.997835,
     "intentional_orphans": [],

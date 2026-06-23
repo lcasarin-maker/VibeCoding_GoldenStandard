@@ -12,7 +12,10 @@
       "Dependency CVEs or supply-chain freshness",
       "Token spend and context cost"
     ],
-    "legacy_gs_lenses": ["D1", "D10"],
+    "legacy_gs_lenses": [
+      "D1",
+      "D10"
+    ],
     "graph_role": "High-value graph hub for active-surface discoverability: if this domain drifts, the graph loses trust in what is live versus archival.",
     "principles": [
       {
@@ -45,7 +48,9 @@
       "Runtime telemetry and post-run evidence streams",
       "Dependency freshness"
     ],
-    "legacy_gs_lenses": ["D2"],
+    "legacy_gs_lenses": [
+      "D2"
+    ],
     "graph_role": "Bridge domain between doctrine and execution flow: it keeps principles connected to durable state instead of chat memory.",
     "principles": [
       {
@@ -78,7 +83,9 @@
       "Token budgeting",
       "General discourse style independent of evidence"
     ],
-    "legacy_gs_lenses": ["D3"],
+    "legacy_gs_lenses": [
+      "D3"
+    ],
     "graph_role": "Semantic bridge between doctrine and graph readability: improves whether the graph edges and their surrounding prose are cognitively inspectable.",
     "principles": [
       {
@@ -111,7 +118,9 @@
       "Coverage adequacy",
       "Runtime drift across repos"
     ],
-    "legacy_gs_lenses": ["D10"],
+    "legacy_gs_lenses": [
+      "D10"
+    ],
     "graph_role": "Candidate-orphan pressure valve: this domain questions whether a file exists because it is alive or because nobody removed it.",
     "principles": [
       {
@@ -144,7 +153,9 @@
       "Satellite version drift",
       "Prose ambiguity"
     ],
-    "legacy_gs_lenses": ["D4"],
+    "legacy_gs_lenses": [
+      "D4"
+    ],
     "graph_role": "Primary graph-priority domain: this is where hubs stop being decorative and become audit-order signals.",
     "principles": [
       {
@@ -177,7 +188,9 @@
       "Token efficiency",
       "Coverage discrimination"
     ],
-    "legacy_gs_lenses": ["D5"],
+    "legacy_gs_lenses": [
+      "D5"
+    ],
     "graph_role": "Failure-oriented bridge node: links doctrine to what happens when the graph surfaces a real break instead of a decorative warning.",
     "principles": [
       {
@@ -210,7 +223,10 @@
       "Generic security scanning",
       "Raw coverage quantity"
     ],
-    "legacy_gs_lenses": ["D6", "D11"],
+    "legacy_gs_lenses": [
+      "D6",
+      "D11"
+    ],
     "graph_role": "Semantic hygiene hub: keeps graph links honest by forcing the repository to justify exceptions instead of normalizing theater.",
     "principles": [
       {
@@ -243,7 +259,10 @@
       "Agent jailbreak taxonomy as its own boundary class",
       "Coverage honesty"
     ],
-    "legacy_gs_lenses": ["D1", "D7"],
+    "legacy_gs_lenses": [
+      "D1",
+      "D7"
+    ],
     "graph_role": "Security-critical bridge between doctrine and live execution: domain edges here should be treated as high-consequence surfaces.",
     "principles": [
       {
@@ -276,7 +295,9 @@
       "Generic code complexity",
       "Dependency posture"
     ],
-    "legacy_gs_lenses": ["D8"],
+    "legacy_gs_lenses": [
+      "D8"
+    ],
     "graph_role": "Coverage-to-graph connector: domain edges here help determine which active graph surfaces remain unprotected.",
     "principles": [
       {
@@ -309,7 +330,10 @@
       "Dependency declarations",
       "Runtime security scanning"
     ],
-    "legacy_gs_lenses": ["D8", "D9"],
+    "legacy_gs_lenses": [
+      "D8",
+      "D9"
+    ],
     "graph_role": "Falsifiability anchor: prevents the graph from confusing the existence of a test file with the existence of real protection.",
     "principles": [
       {
@@ -342,7 +366,9 @@
       "Discourse rigor as prose quality",
       "Dependency CVEs"
     ],
-    "legacy_gs_lenses": ["D10"],
+    "legacy_gs_lenses": [
+      "D10"
+    ],
     "graph_role": "Dense graph bridge between doctrine, telemetry, and tooling: one of the main semantic intersections in GS.",
     "principles": [
       {
@@ -385,7 +411,10 @@
       "Assertion quality",
       "Session telemetry"
     ],
-    "legacy_gs_lenses": ["D1", "D11"],
+    "legacy_gs_lenses": [
+      "D1",
+      "D11"
+    ],
     "graph_role": "Supply-chain traceability hub: connects doctrine to package reality and prevents invisible third-party drift.",
     "principles": [
       {
@@ -418,7 +447,10 @@
       "Live runtime telemetry",
       "Generic code complexity"
     ],
-    "legacy_gs_lenses": ["D2", "D12"],
+    "legacy_gs_lenses": [
+      "D2",
+      "D12"
+    ],
     "graph_role": "Knowledge backbone of the graph: protects hub coherence by ensuring new nodes enter through normalized, deduplicated doctrine. CD18 (Multi-Agent Project Governance) applies the same canonicalization discipline to project-level knowledge (decisions, session records, backlog items) — SP-009 is the structural mirror of this domain.",
     "principles": [
       {
@@ -456,7 +488,9 @@
       "Generic observability signals",
       "Prose clarity"
     ],
-    "legacy_gs_lenses": ["D12"],
+    "legacy_gs_lenses": [
+      "D12"
+    ],
     "graph_role": "Cross-repo coherence bridge: without this domain, graph-connected doctrine diverges from the federated surfaces that consume it.",
     "principles": [
       {
@@ -489,7 +523,11 @@
       "General prose quality",
       "Package vulnerability posture"
     ],
-    "legacy_gs_lenses": ["D7", "D10", "D12"],
+    "legacy_gs_lenses": [
+      "D7",
+      "D10",
+      "D12"
+    ],
     "graph_role": "Graph observability hub: the domain that turns the graph from a static index into a measurable audit surface.",
     "principles": [
       {
@@ -527,7 +565,10 @@
       "Token cost control",
       "Package-level security"
     ],
-    "legacy_gs_lenses": ["D3", "D12"],
+    "legacy_gs_lenses": [
+      "D3",
+      "D12"
+    ],
     "graph_role": "Narrative integrity layer for the graph: keeps semantic links surrounded by prose that is explicit, bounded, and auditable.",
     "principles": [
       {
@@ -571,15 +612,56 @@
     "legacy_gs_lenses": [],
     "graph_role": "Structural foundation hub: highest fan-out in GS, touching CD01, CD02, CD04, CD05, CD07, CD13, CD14, CD15, CD16. CD13 (Knowledge Canonicalization) is the conceptual origin — GS's ingestion discipline inspired the session-close pattern here. CD01 is the most-loaded neighbor (4 SP rules); changes to either domain should trigger review of the other.",
     "principles": [
-      { "insight_id": "SP-001", "project": "canonical-structure", "action": "Collapse all agent governance into .agents/AGENTS.md; delete all other governance files." },
-      { "insight_id": "SP-002", "project": "canonical-structure", "action": "Write every material fact into project files before session ends; chat is not durable storage." },
-      { "insight_id": "SP-003", "project": "canonical-structure", "action": "Keep tasks/backlog/ live-only; completed items are deleted after their closing commit." },
-      { "insight_id": "SP-004", "project": "canonical-structure", "action": "Delete task files on completion; the git commit message is the sole durable record." },
-      { "insight_id": "SP-005", "project": "canonical-structure", "action": "Session close (HANDOFF + STATE + audit/sessions record) is a required phase, not optional." },
-      { "insight_id": "SP-006", "project": "canonical-structure", "action": "audit.py enforces the canonical tree across CC, GS, and satellites; failing audit blocks session close." },
-      { "insight_id": "SP-007", "project": "canonical-structure", "action": "tasks/README.md and audit/README.md templates are mandatory; agents must use them." },
-      { "insight_id": "SP-008", "project": "canonical-structure", "action": "Agent self-certifies done against AGENTS.md §4 DoD; review/ only for explicitly flagged tasks." },
-      { "insight_id": "SP-009", "project": "canonical-structure", "action": "Canonicalize every material decision, session finding, and new work item before session ends — same gate as GS INGESTION_PROTOCOL, applied to project knowledge." }
+      {
+        "insight_id": "SP-001",
+        "project": "canonical-structure",
+        "action": "Collapse all agent governance into .agents/AGENTS.md; delete all other governance files."
+      },
+      {
+        "insight_id": "SP-002",
+        "project": "canonical-structure",
+        "action": "Write every material fact into project files before session ends; chat is not durable storage."
+      },
+      {
+        "insight_id": "SP-003",
+        "project": "canonical-structure",
+        "action": "Keep tasks/backlog/ live-only; completed items are deleted after their closing commit."
+      },
+      {
+        "insight_id": "SP-004",
+        "project": "canonical-structure",
+        "action": "Delete task files on completion; the git commit message is the sole durable record."
+      },
+      {
+        "insight_id": "SP-005",
+        "project": "canonical-structure",
+        "action": "Session close (HANDOFF + STATE + audit/sessions record) is a required phase, not optional."
+      },
+      {
+        "insight_id": "SP-006",
+        "project": "canonical-structure",
+        "action": "audit.py enforces the canonical tree across CC, GS, and satellites; failing audit blocks session close."
+      },
+      {
+        "insight_id": "SP-007",
+        "project": "canonical-structure",
+        "action": "tasks/README.md and audit/README.md templates are mandatory; agents must use them."
+      },
+      {
+        "insight_id": "SP-008",
+        "project": "canonical-structure",
+        "action": "Agent self-certifies done against AGENTS.md §4 DoD; review/ only for explicitly flagged tasks."
+      },
+      {
+        "insight_id": "SP-009",
+        "project": "canonical-structure",
+        "action": "Canonicalize every material decision, session finding, and new work item before session ends — same gate as GS INGESTION_PROTOCOL, applied to project knowledge."
+      },
+      {
+        "insight_id": "SP-010",
+        "project": "canonical-structure",
+        "action": "Apply root audit to any knowledge repo using GS as a template; classify all root files correctly."
+      }
     ]
   },
   "CD17": {
@@ -595,7 +677,10 @@
       "Package CVEs",
       "Pure coverage concerns"
     ],
-    "legacy_gs_lenses": ["D7", "D12"],
+    "legacy_gs_lenses": [
+      "D7",
+      "D12"
+    ],
     "graph_role": "High-risk semantic perimeter: domain links here should be treated as trust-boundary edges, not ordinary knowledge references.",
     "principles": [
       {

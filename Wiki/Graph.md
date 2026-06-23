@@ -11,10 +11,10 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 | Metric | Value |
 |---|---:|
 | Nodes | 490 |
-| Edges | 2604 |
-| Reciprocal pairs | 590 |
+| Edges | 2605 |
+| Reciprocal pairs | 591 |
 | Average edge confidence | 0.933 |
-| Semantic density | 0.012015 |
+| Semantic density | 0.01202 |
 | Hub ratio | 1.0 |
 | Bridge ratio | 0.997835 |
 | Intentional orphans | 0 |
@@ -35,7 +35,7 @@ The graph now distinguishes link syntax from relation meaning. `kind` records ho
 | `governed_by` | 204 |
 | `thematic_bridge` | 122 |
 | `indexes` | 114 |
-| `operationalizes_domain` | 104 |
+| `operationalizes_domain` | 105 |
 | `subindex` | 34 |
 | `bridges` | 21 |
 | `entrypoint` | 13 |
