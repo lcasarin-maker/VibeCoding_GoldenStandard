@@ -47,19 +47,19 @@ Updated per PR-115 — every entry requires: source URL, license, verdict, and o
 
 ### [token-optimizer](https://github.com/alexgreensh/token-optimizer)
 - **Author/Org:** alexgreensh
-- **License:** unknown
-- **Verdict:** backlog
-- **Used in:** CC (pending install)
+- **License:** PolyForm Noncommercial 1.0.0 (non-commercial use only)
+- **Verdict:** backlog (pending manual install)
+- **Used in:** CC (pending install — git clone blocked by CC auto-mode classifier)
 - **Origin session:** 2026-06-23
-- **Rationale:** Native CC plugin (`/token-optimizer`). Audits 7 token waste signals, tracks cache preservation. Partially supersedes CACHE-001. Pending evaluation.
+- **Rationale:** Native CC skill (`/token-optimizer`). Audits 7 token waste signals, tracks cache preservation. Install: `git clone https://github.com/alexgreensh/token-optimizer.git ~/.claude/token-optimizer && ln -s ~/.claude/token-optimizer/skills/token-optimizer ~/.claude/skills/token-optimizer`
 
 ### [python-minifier](https://github.com/dflook/python-minifier)
 - **Author/Org:** dflook
 - **License:** MIT
-- **Verdict:** backlog
-- **Used in:** CC (pending evaluation)
+- **Verdict:** partially adopted (hook created, NOT wired)
+- **Used in:** CC (scripts/read_minifier_hook.py created but not wired in settings.json)
 - **Origin session:** 2026-06-23
-- **Rationale:** Compresses Python source ~50% preserving semantics. Candidate for PreToolUse Read hook to minify Python files before they enter LLM context.
+- **Rationale:** Compresses Python source ~50% preserving semantics. Hook created (EVAL-002) but NOT wired because CC's Read tool uses offset/limit by line — minified 1-line files break partial reads.
 
 ---
 
