@@ -5,12 +5,12 @@
 
 ## NOW
 
-GS-debt sprint complete (commit 29823ed). GS-071/075/076/080/081 all closed.
-- VC-012 promoted to REMEDIATED; 14 DOC_ONLY entries justified as DOC_ONLY_PERMANENT.
-- audit.py now enforces SP-005 (HANDOFF+STATE date headers); 8 SP checks total.
-- generate_golden_audit.py has --audit-only and --wiki-only flags; 12/12 tests green.
-- check_graph_connectivity() added to validator; knowledge/templates/ added.
-- Backlog is now empty (tasks/backlog/.gitkeep).
+GS-083 complete. SP wiki pages moved from Vices/ → Principles/; CD-18 now has 11 edges (was 3).
+- `generate_golden_audit.py`: new `write_atomic_sp()` function; SP excluded from vice status_counts.
+- `knowledge/CANONICAL_STRUCTURE.md` created (V3.2 FROZEN) — moved from CC.
+- `knowledge/INDEX.md` updated. CC's `CANONICAL_STRUCTURE.md` now points to GS.
+- Tokenomics: all 34 TK nodes fully wired (in_degree > 0, out_degree > 0) — no action needed.
+- Graph: SP-001..SP-010 now at `Principles/SP-*` with kind=`principle`; 34 `tested_by` edges intact.
 
 ## NEXT
 

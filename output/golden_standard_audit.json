@@ -28,6 +28,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -67,6 +69,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -106,6 +110,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -145,6 +151,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -184,6 +192,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -220,6 +230,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -259,6 +271,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -298,6 +312,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -337,6 +353,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -376,6 +394,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -415,6 +435,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -454,6 +476,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -490,6 +514,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -529,6 +555,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -568,6 +596,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -607,6 +637,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -643,6 +675,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -682,6 +716,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -721,6 +757,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -760,6 +798,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -799,6 +839,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -838,6 +880,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -877,6 +921,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -916,6 +962,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -955,6 +1003,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -994,6 +1044,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -1033,6 +1085,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -1072,6 +1126,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -1111,6 +1167,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -1147,6 +1205,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -1183,6 +1243,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -1222,6 +1284,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -1261,6 +1325,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -1300,6 +1366,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -1336,6 +1404,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D2",
@@ -1372,6 +1442,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D2",
@@ -1408,6 +1480,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -1444,6 +1518,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -1480,6 +1556,8 @@
     "doctrinal": false,
     "detector": "vt005_assert_true",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D9",
@@ -1516,6 +1594,8 @@
     "doctrinal": false,
     "detector": "vt006_test_without_assert",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D9",
@@ -1552,6 +1632,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -1588,6 +1670,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -1624,6 +1708,8 @@
     "doctrinal": false,
     "detector": "vt009_tautological_assert",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D9",
@@ -1660,6 +1746,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -1696,6 +1784,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -1732,6 +1822,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D9",
@@ -1768,6 +1860,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D9",
@@ -1804,6 +1898,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -1840,6 +1936,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -1876,6 +1974,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D9",
@@ -1912,6 +2012,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -1948,6 +2050,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -1984,6 +2088,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2020,6 +2126,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2056,6 +2164,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2092,6 +2202,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D9",
@@ -2128,6 +2240,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2164,6 +2278,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2200,6 +2316,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2236,6 +2354,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2272,6 +2392,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2308,6 +2430,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2344,6 +2468,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2380,6 +2506,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2416,6 +2544,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2452,6 +2582,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2488,6 +2620,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2524,6 +2658,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2560,6 +2696,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D9",
@@ -2596,6 +2734,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D9",
@@ -2632,6 +2772,8 @@
     "doctrinal": false,
     "detector": "vt037_impossible_condition",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2668,6 +2810,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2704,6 +2848,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2740,6 +2886,8 @@
     "doctrinal": false,
     "detector": "vt040_blind_except",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D5",
@@ -2776,6 +2924,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2812,6 +2962,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2848,6 +3000,8 @@
     "doctrinal": false,
     "detector": "vt043_unconditional_exit_zero",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2884,6 +3038,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2920,6 +3076,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2956,6 +3114,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -2992,6 +3152,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D10",
@@ -3028,6 +3190,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3064,6 +3228,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3100,6 +3266,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3136,6 +3304,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3172,6 +3342,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D5",
@@ -3208,6 +3380,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3244,6 +3418,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3280,6 +3456,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3316,6 +3494,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3352,6 +3532,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D9",
@@ -3388,6 +3570,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3424,6 +3608,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3460,6 +3646,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3496,6 +3684,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3532,6 +3722,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3568,6 +3760,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3604,6 +3798,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3640,6 +3836,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3676,6 +3874,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3712,6 +3912,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3748,6 +3950,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3784,6 +3988,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3820,6 +4026,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3856,6 +4064,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3892,6 +4102,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3928,6 +4140,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -3964,6 +4178,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4000,6 +4216,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4036,6 +4254,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4072,6 +4292,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4108,6 +4330,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4144,6 +4368,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4180,6 +4406,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D9",
@@ -4216,6 +4444,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4252,6 +4482,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4288,6 +4520,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4324,6 +4558,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4360,6 +4596,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4396,6 +4634,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D9",
@@ -4432,6 +4672,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4468,6 +4710,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D5",
@@ -4504,6 +4748,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4540,6 +4786,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D2",
@@ -4576,6 +4824,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4612,6 +4862,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4648,6 +4900,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4684,6 +4938,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4720,6 +4976,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4756,6 +5014,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4792,6 +5052,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4828,6 +5090,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4864,6 +5128,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4900,6 +5166,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4936,6 +5204,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -4972,6 +5242,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5008,6 +5280,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5044,6 +5318,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5080,6 +5356,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5116,6 +5394,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5152,6 +5432,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5188,6 +5470,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5224,6 +5508,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5260,6 +5546,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5296,6 +5584,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5332,6 +5622,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5368,6 +5660,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5404,6 +5698,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5440,6 +5736,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5471,6 +5769,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D8",
@@ -5507,6 +5807,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D5",
@@ -5543,6 +5845,8 @@
     "doctrinal": false,
     "detector": "vc005_untracked_prototype",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -5579,6 +5883,8 @@
     "doctrinal": false,
     "detector": "vc003_incomprehensible_code",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -5615,6 +5921,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D5",
@@ -5651,6 +5959,8 @@
     "doctrinal": false,
     "detector": "vc005_premature_closure",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -5687,6 +5997,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -5722,7 +6034,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-008": {
     "id": "VC-008",
@@ -5753,6 +6067,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -5788,7 +6104,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-010": {
     "id": "VC-010",
@@ -5819,6 +6137,8 @@
     "doctrinal": false,
     "detector": "vc036_destructive_without_dryrun",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -5855,6 +6175,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -5890,7 +6212,9 @@
     ],
     "doctrinal": false,
     "detector": "vc012_invisible_debt",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-013": {
     "id": "VC-013",
@@ -5920,7 +6244,9 @@
     ],
     "doctrinal": false,
     "detector": "vc013_ambiguous_handoff",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-014": {
     "id": "VC-014",
@@ -5951,6 +6277,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -5987,6 +6315,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6023,6 +6353,8 @@
     "doctrinal": false,
     "detector": "vc016_broken_version_parity",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6059,6 +6391,8 @@
     "doctrinal": false,
     "detector": "vc017_deadlock_without_heartbeat",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6095,6 +6429,8 @@
     "doctrinal": false,
     "detector": "vc061_constant_stub",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6131,6 +6467,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D12",
@@ -6167,6 +6505,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6203,6 +6543,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6239,6 +6581,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6275,6 +6619,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6311,6 +6657,8 @@
     "doctrinal": false,
     "detector": "vc070_blind_shell_edit",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6346,7 +6694,9 @@
     ],
     "doctrinal": false,
     "detector": "vc025_io_without_validation",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-026": {
     "id": "VC-026",
@@ -6377,6 +6727,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D6",
@@ -6413,6 +6765,8 @@
     "doctrinal": false,
     "detector": "vc078_placeholder",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6449,6 +6803,8 @@
     "doctrinal": false,
     "detector": "vc028_core_dependent_on_unstable_parts",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6484,7 +6840,9 @@
     ],
     "doctrinal": false,
     "detector": "vc029_uncritical_copy_paste",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-030": {
     "id": "VC-030",
@@ -6523,6 +6881,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D11",
@@ -6559,6 +6919,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D1",
@@ -6595,6 +6957,8 @@
     "doctrinal": false,
     "detector": "vc087_blanket_filterwarnings",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D6",
@@ -6631,6 +6995,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6667,6 +7033,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6703,6 +7071,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D2",
@@ -6739,6 +7109,8 @@
     "doctrinal": false,
     "detector": "vc095_hardcoded_secret",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6774,7 +7146,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-038": {
     "id": "VC-038",
@@ -6805,6 +7179,8 @@
     "doctrinal": false,
     "detector": "vc038_optimistic_config",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6841,6 +7217,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6877,6 +7255,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6913,6 +7293,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -6948,7 +7330,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-043": {
     "id": "VC-043",
@@ -6979,6 +7363,8 @@
     "doctrinal": false,
     "detector": "vc109_hardcoded_path",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D6",
@@ -7015,6 +7401,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -7051,6 +7439,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D2",
@@ -7087,6 +7477,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -7123,6 +7515,8 @@
     "doctrinal": false,
     "detector": "vc047_frozen_nomenclature",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -7159,6 +7553,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -7195,6 +7591,8 @@
     "doctrinal": false,
     "detector": "vc115_unsafe_eval",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D7",
@@ -7231,6 +7629,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D11",
@@ -7267,6 +7667,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D1",
@@ -7303,6 +7705,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D1",
@@ -7339,6 +7743,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D3",
@@ -7375,6 +7781,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D11",
@@ -7411,6 +7819,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D1",
@@ -7448,6 +7858,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D1",
@@ -7485,6 +7897,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -7521,7 +7935,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-059": {
     "id": "VC-059",
@@ -7553,6 +7969,8 @@
     "doctrinal": false,
     "detector": "vc059_prompt_injection_in_agent_loop",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -7589,7 +8007,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-061": {
     "id": "VC-061",
@@ -7623,6 +8043,8 @@
     "doctrinal": false,
     "detector": "vc061_hallucinated_dependency",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D11",
@@ -7658,7 +8080,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-063": {
     "id": "VC-063",
@@ -7689,7 +8113,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-064": {
     "id": "VC-064",
@@ -7719,7 +8145,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-065": {
     "id": "VC-065",
@@ -7750,6 +8178,8 @@
     "doctrinal": false,
     "detector": "vc065_unhandled_tool_call_failure",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -7787,6 +8217,8 @@
     "doctrinal": false,
     "detector": "vc066_multi_agent_without_protocol",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -7827,7 +8259,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-068": {
     "id": "VC-068",
@@ -7862,7 +8296,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-069": {
     "id": "VC-069",
@@ -7897,7 +8333,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-070": {
     "id": "VC-070",
@@ -7934,6 +8372,8 @@
     "doctrinal": false,
     "detector": "vc138_insecure_defaults",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -7971,6 +8411,8 @@
     "doctrinal": false,
     "detector": "vc071_blind_trust_in_llm_output",
     "tier": "specialist",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D17",
@@ -8008,6 +8450,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D1",
@@ -8045,6 +8489,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D1",
@@ -8082,6 +8528,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D15",
@@ -8119,6 +8567,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D15",
@@ -8156,6 +8606,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D15",
@@ -8193,6 +8645,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D15",
@@ -8230,6 +8684,8 @@
     "doctrinal": false,
     "detector": "vc078_excessive_agency",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D15",
@@ -8267,6 +8723,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D15",
@@ -8304,6 +8762,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D15",
@@ -8341,6 +8801,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D15",
@@ -8378,6 +8840,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D15",
@@ -8415,6 +8879,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "extended",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D15",
@@ -8452,6 +8918,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D1",
@@ -8489,6 +8957,8 @@
     "doctrinal": false,
     "detector": "",
     "tier": "core",
+    "related_cds": [],
+    "related_prs": [],
     "enforcement": {
       "cerberus": {
         "dimension": "D12",
@@ -8525,7 +8995,9 @@
     ],
     "doctrinal": false,
     "detector": "",
-    "tier": "core"
+    "tier": "core",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-087": {
     "id": "VC-087",
@@ -8556,7 +9028,9 @@
     ],
     "doctrinal": false,
     "detector": "vc087_self_polluting_tooling",
-    "tier": "core"
+    "tier": "core",
+    "related_cds": [],
+    "related_prs": []
   },
   "VC-088": {
     "id": "VC-088",
@@ -8582,12 +9056,14 @@
     "evidence": [],
     "doctrinal": false,
     "detector": "",
-    "tier": "core"
+    "tier": "core",
+    "related_cds": [],
+    "related_prs": []
   },
   "SP-001": {
     "id": "SP-001",
     "title": "Single governance hub",
-    "category": "Other",
+    "category": "Structure Principle",
     "symptom": "Multiple files claim to govern agent behavior (BOOTSTRAP, RULES, PERMISSIONS, DEFINITION_OF_DONE, per-agent .md files)",
     "cause": "Files added incrementally without consolidation; each session adds a new one",
     "solution": "Collapse all agent governance into .agents/AGENTS.md; all other files are deleted (not bridged, not imported)",
@@ -8608,12 +9084,20 @@
     "evidence": [],
     "doctrinal": true,
     "detector": "",
-    "tier": "core"
+    "tier": "core",
+    "related_cds": [
+      "CD01",
+      "CD05"
+    ],
+    "related_prs": [
+      "PR-085",
+      "PR-089"
+    ]
   },
   "SP-002": {
     "id": "SP-002",
     "title": "No material fact in chat",
-    "category": "Other",
+    "category": "Structure Principle",
     "symptom": "Decisions, blockers, rationale, or task state exist only in chat transcript and are lost on session end",
     "cause": "Convenience; agent treats chat as durable storage",
     "solution": "Any fact affecting project state is written into project files before session closes (HANDOFF, STATE, DECISIONS, or tasks/)",
@@ -8634,12 +9118,20 @@
     "evidence": [],
     "doctrinal": true,
     "detector": "",
-    "tier": "core"
+    "tier": "core",
+    "related_cds": [
+      "CD02",
+      "CD15"
+    ],
+    "related_prs": [
+      "PR-084",
+      "PR-103"
+    ]
   },
   "SP-003": {
     "id": "SP-003",
     "title": "Live debt only in backlog",
-    "category": "Other",
+    "category": "Structure Principle",
     "symptom": "tasks/backlog/ accumulates historical, completed, or stale items alongside live work",
     "cause": "No discipline on removal; items added but never cleared",
     "solution": "backlog/ contains only work not yet started; completed items are deleted (record is the git commit)",
@@ -8660,12 +9152,20 @@
     "evidence": [],
     "doctrinal": true,
     "detector": "",
-    "tier": "core"
+    "tier": "core",
+    "related_cds": [
+      "CD01",
+      "CD04"
+    ],
+    "related_prs": [
+      "PR-085",
+      "PR-088"
+    ]
   },
   "SP-004": {
     "id": "SP-004",
     "title": "Resolved debt goes to git log only",
-    "category": "Other",
+    "category": "Structure Principle",
     "symptom": "A done/ or archive/ folder accumulates completed task files as a parallel changelog",
     "cause": "Fear of losing record; agents keep files \"just in case\"",
     "solution": "Completed task file is deleted after its closing commit; the commit message is the durable record; no archive/ folder",
@@ -8686,12 +9186,18 @@
     "evidence": [],
     "doctrinal": true,
     "detector": "",
-    "tier": "core"
+    "tier": "core",
+    "related_cds": [
+      "CD01"
+    ],
+    "related_prs": [
+      "PR-085"
+    ]
   },
   "SP-005": {
     "id": "SP-005",
     "title": "Session close is mandatory",
-    "category": "Other",
+    "category": "Structure Principle",
     "symptom": "Agent ends session without updating tasks/, HANDOFF.md, STATE.md, or writing an audit/sessions/ record",
     "cause": "Session close treated as optional; agent stops at task completion",
     "solution": "Phase 4 (Close) is required: tasks moved, HANDOFF updated, STATE updated if present, session record written, AUDIT_TRAIL appended",
@@ -8712,12 +9218,22 @@
     "evidence": [],
     "doctrinal": true,
     "detector": "",
-    "tier": "core"
+    "tier": "core",
+    "related_cds": [
+      "CD02",
+      "CD14",
+      "CD15"
+    ],
+    "related_prs": [
+      "PR-084",
+      "PR-101",
+      "PR-103"
+    ]
   },
   "SP-006": {
     "id": "SP-006",
     "title": "Consistent structure across federated repos",
-    "category": "Other",
+    "category": "Structure Principle",
     "symptom": "CC, GS, and satellite repos diverge in folder structure, file naming, or governance layout",
     "cause": "No automated enforcement; each repo evolves independently",
     "solution": "scripts/audit.py enforces the canonical tree; a failing audit blocks session close in any repo",
@@ -8738,12 +9254,20 @@
     "evidence": [],
     "doctrinal": true,
     "detector": "",
-    "tier": "core"
+    "tier": "core",
+    "related_cds": [
+      "CD14",
+      "CD01"
+    ],
+    "related_prs": [
+      "PR-101",
+      "PR-105"
+    ]
   },
   "SP-007": {
     "id": "SP-007",
     "title": "Templates mandatory for tasks and sessions",
-    "category": "Other",
+    "category": "Structure Principle",
     "symptom": "Task files and audit session records use ad-hoc formats; fields missing; records not comparable across sessions",
     "cause": "No template enforcement; each agent invents a format",
     "solution": "tasks/README.md and audit/README.md define mandatory templates; audit.py checks compliance",
@@ -8764,12 +9288,21 @@
     "evidence": [],
     "doctrinal": true,
     "detector": "",
-    "tier": "core"
+    "tier": "core",
+    "related_cds": [
+      "CD02",
+      "CD13",
+      "CD16"
+    ],
+    "related_prs": [
+      "PR-084",
+      "PR-104"
+    ]
   },
   "SP-008": {
     "id": "SP-008",
     "title": "Agent self-certifies task completion",
-    "category": "Other",
+    "category": "Structure Principle",
     "symptom": "Tasks stall in active/ waiting for human intervention; or agents declare done without meeting DoD",
     "cause": "Unclear authority over task completion; no explicit checklist",
     "solution": "Agent moves task to done/ when AGENTS.md §4 DoD checklist is fully met; review/ is used only for tasks explicitly flagged as requiring human acceptance",
@@ -8790,12 +9323,18 @@
     "evidence": [],
     "doctrinal": true,
     "detector": "",
-    "tier": "specialist"
+    "tier": "specialist",
+    "related_cds": [
+      "CD02",
+      "CD07",
+      "CD16"
+    ],
+    "related_prs": []
   },
   "SP-009": {
     "id": "SP-009",
     "title": "Project knowledge must be canonicalized before session end",
-    "category": "Other",
+    "category": "Structure Principle",
     "symptom": "Decisions, rationale, and session findings live only in chat or agent memory; next session has no durable record and repeats the same discoveries or makes contradictory decisions without knowing why the prior choice was made.",
     "cause": "Agents treat canonicalization as optional clean-up rather than a required gate; same failure mode that GS's INGESTION_PROTOCOL exists to prevent in the knowledge base.",
     "solution": "Before session close, every material decision is written to DECISIONS.md (durable why), every session finding to audit/sessions/ (durable what happened), and every new work item to tasks/backlog/ (durable what remains). Nothing that affects the project may exist only in chat.",
@@ -8817,12 +9356,23 @@
     "evidence": [],
     "doctrinal": true,
     "detector": "",
-    "tier": "core"
+    "tier": "core",
+    "related_cds": [
+      "CD02",
+      "CD13",
+      "CD15"
+    ],
+    "related_prs": [
+      "PR-084",
+      "PR-092",
+      "PR-096",
+      "PR-103"
+    ]
   },
   "SP-010": {
     "id": "SP-010",
     "title": "Knowledge repo root discipline",
-    "category": "Other",
+    "category": "Structure Principle",
     "symptom": "A knowledge repository (one whose product IS the YAML catalogs) accumulates protocol docs, generated outputs, and intake machinery at root, making it indistinguishable from project scaffolding and hard for agents to navigate.",
     "cause": "Canonical structure rules are written for project repos (src/, tests/, scripts/). Knowledge repos have a different root contract — the catalogs ARE the src — but this distinction is never stated, so each session decides ad-hoc what belongs at root.",
     "solution": "In a knowledge repo, root legitimately holds: YAML catalogs (the product), the primary generator script, and standard governance files (README, SPEC, HANDOFF, DECISIONS, STATE, .agents/, tasks/, audit/). Everything else is classified: protocol docs → knowledge/, generated JSON snapshots → output/, scripts → scripts/.",
@@ -8843,6 +9393,14 @@
     "evidence": [],
     "doctrinal": true,
     "detector": "",
-    "tier": "core"
+    "tier": "core",
+    "related_cds": [
+      "CD01",
+      "CD18"
+    ],
+    "related_prs": [
+      "PR-085",
+      "PR-101"
+    ]
   }
 }

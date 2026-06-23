@@ -162,6 +162,8 @@ def catalog_entry_wikilink(entry_id: str) -> str:
     entry_id = str(entry_id).strip()
     if entry_id.startswith("TK-"):
         return f"[[Tokenomics/{entry_id}|{entry_id}]]"
+    if entry_id.startswith("SP-"):
+        return f"[[Principles/{entry_id}|{entry_id}]]"
     return f"[[Vices/{entry_id}|{entry_id}]]"
 
 
@@ -189,6 +191,8 @@ def get_flaw_category(flaw_id: str) -> str:
         return "Vibe Coding"
     if flaw_id.startswith("TK"):
         return "Tokenomics & Context"
+    if flaw_id.startswith("SP"):
+        return "Structure Principle"
     return "Other"
 
 
@@ -1046,7 +1050,7 @@ def build_depth_sections(item: dict) -> str:
 def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
     """Create individual atomic files for VC and VT entries."""
     for flaw_id, item in mapped_database.items():
-        if item["category"] == "Tokenomics & Context":
+        if item["category"] in ("Tokenomics & Context", "Structure Principle", "Other"):
             continue
         tag_list = (
             ", ".join(f"`{tag}`" for tag in item["tags"])
@@ -1140,6 +1144,68 @@ def write_atomic_vices(wiki_dir: Path, mapped_database: dict):
         (wiki_dir / "Vices" / f"{flaw_id}.md").write_text(
             flaw_content, encoding="utf-8"
         )
+
+
+def write_atomic_sp(wiki_dir: Path, mapped_database: dict) -> None:
+    """Write SP-* entries to Wiki/Principles/SP-*.md (structural rules, not vices)."""
+    principles_dir = wiki_dir / "Principles"
+    principles_dir.mkdir(parents=True, exist_ok=True)
+    for sp_id, item in sorted(mapped_database.items()):
+        if item["category"] != "Structure Principle":
+            continue
+        tag_list = ", ".join(f"`{t}`" for t in item.get("tags", [])) or "`untagged`"
+        detection = str(item.get("detection", "")).strip() or "—"
+        related_cds = item.get("related_cds") or []
+        related_prs = item.get("related_prs") or []
+        cd_lines = "\n".join(f"- [[Domains/{cd}|{cd}]]" for cd in related_cds) or "*None recorded.*"
+        pr_lines = "\n".join(f"- {principle_wikilink(pr)}" for pr in related_prs) or "*None recorded.*"
+        content = f"""# {sp_id} — {item['title']}
+
+| Field | Value |
+|---|---|
+| **ID** | `{sp_id}` |
+| **Status** | `{item['status']}` |
+| **Severity** | `{item['severity']}` |
+| **Tier** | `{item.get('tier', 'core')}` |
+| **Doctrinal** | `{'yes' if item.get('doctrinal') else 'no'}` |
+| **Tags** | {tag_list} |
+| **Downstream Verification** | `{item.get('downstream_verification', 'none')}` |
+| **Validating Mechanism** | `{item.get('validating_mechanism', '—')}` |
+
+---
+
+## Doctrine
+
+| Field | Value |
+|---|---|
+| **Symptom** | {item['symptom']} |
+| **Cause** | {item['cause']} |
+| **Solution** | {item['solution']} |
+| **Action** | {item['action']} |
+
+---
+
+## Detection
+
+{detection}
+
+---
+
+## Related Canonical Domains
+
+{cd_lines}
+
+---
+
+## Related Principles
+
+{pr_lines}
+
+---
+
+[[Principles|Principles Index]] | [[Domains/CD18|CD18: Multi-Agent Governance]] | [[Home|Back to Home]]
+"""
+        (principles_dir / f"{sp_id}.md").write_text(content, encoding="utf-8")
 
 
 def write_atomic_tokenomics(wiki_dir: Path, mapped_database: dict):
@@ -2461,7 +2527,8 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     insight_records = load_project_insight_records()
     recommendations = get_canonical_domain_map()
 
-    total_vices = len([x for x in mapped_database.values() if x["category"] != "Other"])
+    _vice_categories = {"Vibe Coding", "Testing & Evaluation", "Tokenomics & Context"}
+    total_vices = len([x for x in mapped_database.values() if x["category"] in _vice_categories])
     vc_count = len(
         [x for x in mapped_database.values() if x["category"] == "Vibe Coding"]
     )
@@ -2473,7 +2540,7 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     )
     pi_count = len(insights)
 
-    status_counts = Counter(x["status"] for x in mapped_database.values() if x["category"] != "Other")
+    status_counts = Counter(x["status"] for x in mapped_database.values() if x["category"] in _vice_categories)
 
     write_home_md(
         wiki_dir, total_vices, vc_count, tv_count, tk_count, pi_count, status_counts
@@ -2485,6 +2552,7 @@ def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     write_domains_index_md(wiki_dir, recommendations)
     write_tokenomics_map_md(wiki_dir, insights)
     write_atomic_principles(wiki_dir, insight_records, recommendations)
+    write_atomic_sp(wiki_dir, mapped_database)
     write_atomic_vices(wiki_dir, mapped_database)
     write_atomic_tokenomics(wiki_dir, mapped_database)
     write_audit_domains(wiki_dir, recommendations)
@@ -2546,6 +2614,8 @@ def extract_catalog_items(config: dict, mapped_database: dict):
             "doctrinal": bool(item.get("doctrinal", False)),
             "detector": str(item.get("detector", "")).strip(),
             "tier": str(item.get("tier", "extended")).strip(),
+            "related_cds": item.get("related_cds", []),
+            "related_prs": item.get("related_prs", []),
         }
         # Re-inject the consumer binding from config/cerberus_enforcement.json
         # (B2/GS-078): the agnostic YAML no longer carries enforcement.cerberus, so
