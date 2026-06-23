@@ -1960,3 +1960,27 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+- id: PR-114
+  title: 'Equivalent-effect substitution: absence of the canonical path is a constraint, not a dead end. When the standard
+    installation path for a tool is unavailable, identify the effect required and achieve it through an available alternative.
+    Origin: RTK hook unavailable on Windows; CC PreToolUse Bash matcher achieves identical enforcement. Session 2026-06-21.'
+  doctrinal: true
+  catalog_source: project_insights
+  action: 'Before declaring a feature impossible due to installation constraints, enumerate alternative paths to the same effect.
+    Document the substitution in AUDIT_TRAIL with the original constraint and the chosen equivalent.'
+  solution: 'Identify the effect required, find an available mechanism that produces it, document the substitution explicitly.'
+  symptom: 'Tool or hook cannot be installed via canonical path — enforcement silently dropped.'
+  cause: 'Agent treats installation method as the only valid path to the effect.'
+  detection: ''
+- id: PR-115
+  title: 'External Tool Attribution: every evaluated tool must be cataloged with source URL, license, and verdict in
+    knowledge/external_tools.md before adoption or rejection. Credit to original authors is non-negotiable.
+    Origin: Session 2026-06-23.'
+  doctrinal: true
+  catalog_source: project_insights
+  action: 'Before adopting or backlisting any external tool: add an entry to knowledge/external_tools.md with URL, license,
+    verdict, and origin session. Backlog tasks must reference the entry.'
+  solution: 'Maintain knowledge/external_tools.md as the single source of truth for all evaluated external tools.'
+  symptom: 'Tools evaluated in session but never formally attributed; future agents cannot verify source or license.'
+  cause: 'No catalog obligation — attribution treated as optional documentation.'
+  detection: ''
