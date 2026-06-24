@@ -1651,6 +1651,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-080
   title: 'Diagnostic assertions – when a test fails, the message must explain the
     discrepancy with actionable clarity. Real verified tools: pytest native assertion
@@ -1665,6 +1673,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-081
   title: Tokencost – upfront token metering and USD conversion to make spend visible
     before executing an LLM call.
@@ -1675,6 +1691,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-082
   title: Trivy – multi-surface scanning (images, filesystem, git, VMs, Kubernetes)
     for CVEs, secrets, misconfigurations, SBOM, and licenses.
@@ -1685,6 +1709,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-083
   title: Litellm – provider-agnostic gateway with routing, fallback, cost tracking,
     guardrails, logging, and load balancing.
@@ -1695,6 +1727,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-084
   title: Governance gate between intent and execution that enforces context discipline,
     observability, redaction, and state control.
@@ -1705,6 +1745,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-085
   title: 'Output governance – a system can have INPUT governance (quality gates) but
     lack OUTPUT governance (orphan pruning), accumulating refactor residue: backups,
@@ -1719,6 +1767,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-086
   title: Batch of predictable authorizations – group permissions, clarifications,
     and decisions before a long run to avoid interruptions, rereads, and reactive
@@ -1730,6 +1786,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-087
   title: Zero debt before advancing – every warning or non-blocking finding is treated
     as an operational error until fixed or explicitly blocked.
@@ -1740,6 +1804,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-088
   title: Output hygiene and clean root – historical artifacts are reference, not source
     of truth; when an audit closes the root must be free of operational residue.
@@ -1750,6 +1822,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-089
   title: Descriptive names and simple topology – prefer scripts and modules that explain
     their purpose and flatten structure when it reduces cognitive friction.
@@ -1760,6 +1840,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-090
   title: Minimal and real exclusions – whitelists, excludes, skips, xfails, stubs,
     mocks, and placeholders only with verifiable cause; false coverage is debt, not
@@ -1772,6 +1860,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-091
   title: Real-time vigilance – observe signals, costs, and deviations during execution,
     not only in the post-mortem.
@@ -1782,6 +1878,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-092
   title: Living Golden Standard – preserve pure, agnostic knowledge kept up to date
     with the lessons from the project and the satellites without mixing it with concrete
@@ -1793,6 +1897,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-093
   title: Circularity ratchet – every new vice must break a real circular relationship
     and drain the baseline in batches; coverage that does not reduce the circle is
@@ -1804,6 +1916,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-094
   title: DOC_ONLY honesty – if a lesson is not falsifiable by a physical gate, it
     must be labeled DOC_ONLY instead of simulating automatic coverage.
@@ -1814,6 +1934,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-095
   title: Anti many-to-one coverage – a test that claims to cover N vices at once loses
     discrimination; each guard must isolate the failure it claims to protect against.
@@ -1825,6 +1953,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-096
   title: Canonical ingestion of lessons – normalize, deduplicate, and record new satellite
     lessons before incorporating them into the central knowledge.
@@ -1835,6 +1971,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-097
   title: Execution and tooling hygiene – prefer simple commands, declarative edits,
     UTF-8, auditable evidence, and elevated permissions only as an exception; temporary
@@ -1846,6 +1990,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-098
   title: 'Confidence Tags (Graphify pattern) – every state claim in protocol documents
     must carry an explicit confidence level: VERIFIED (backed by terminal log or test),
@@ -1860,6 +2012,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-099
   title: 'Semantic Wiki-Lint (Karpathy LLM Wiki pattern) – protocol documents must
     be audited periodically to detect: contradictions between sections, references
@@ -1876,6 +2036,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-100
   title: 'Operational uncertainty list – every session or protocol document must declare
     which subsystems, routes, or claims were not mechanically verified in that turn.
@@ -1888,6 +2056,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-101
   title: 'Dual-session awareness – before touching shared sources, the agent must
     verify state and latest commits so as not to step on concurrent work. If there
@@ -1900,6 +2076,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-102
   title: 'Hub-based review – nodes with the highest fan-in or impact degree must be
     reviewed first when a catalog or index changes. The graph is not decorative: it
@@ -1912,6 +2096,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-103
   title: 'Exportable retrospective – every session must close with a structured, parseable
     retrospective that is persisted to a durable ledger before a context reset (COMPACT/CLEAR).
@@ -1924,6 +2116,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-104
   title: 'Exhaustive preflight and no reopening scope post-execution – before executing
     any change, the agent must declare scope, foreseeable impacts, out-of-scope follow-ups,
@@ -1938,6 +2138,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-105
   title: 'Serialization of Git operations – Git commands must be executed serially
     within automations and orchestrators to avoid index locks, state races, and inconsistent
@@ -1951,6 +2159,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-106
   title: Vibe Check (PV-Bhat/vibe-check-mcp-server, verified) – metacognition MCP
     server that curbs agent tunnel-vision and runaway loops via Chain-Pattern Interrupts;
@@ -1962,6 +2178,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-107
   title: 'vibecheck (yuvrajangadsingh/vibecheck, verified) – ESLint for AI slop: a
     local linter that detects code smells in AI-generated code (hardcoded secrets,
@@ -1973,6 +2197,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-108
   title: viberails (refractionPOINT/viberails, verified) – AI Firewall that intercepts
     risky agent operations (Claude Code, Cursor, Gemini CLI) via hooks; an enforcement
@@ -1985,6 +2217,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-109
   title: ratelimit (tomasbasham/ratelimit, verified) – rate limiting decorator (@limits
     + sleep_and_retry) as a concrete control against PR-031 (quota as surprise) and
@@ -1996,6 +2236,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-110
   title: context7 (upstash/context7, verified) -- delivers up-to-date code documentation
     to LLMs to avoid calls to obsolete or nonexistent APIs; a direct mitigation of
@@ -2007,6 +2255,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-111
   title: Persistent memory layer (byterover-cli / zilliztech claude-context-memsearch,
     verified) -- durable cross-session memory for agents; its discipline (source,
@@ -2018,6 +2274,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-112
   title: serena (oraios/serena, verified) -- symbol-level (semantic) retrieval and
     editing so that recovered context is correct; mitigates VC-069 against blind chunking.
@@ -2028,6 +2292,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-113
   title: 'Auditing stochastic systems – when behavior depends on chance, sampling,
     retries, probabilistic routing, or non-deterministic generation, it is not evaluated
@@ -2044,6 +2316,14 @@ items:
   symptom: ''
   cause: ''
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-114
   title: 'Equivalent-effect substitution: absence of the canonical path is a constraint,
     not a dead end. When the standard installation path for a tool is unavailable,
@@ -2061,6 +2341,14 @@ items:
     dropped.
   cause: Agent treats installation method as the only valid path to the effect.
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-115
   title: 'External Tool Attribution: every evaluated tool must be cataloged with source
     URL, license, and verdict in knowledge/external_tools.md before adoption or rejection.
@@ -2076,6 +2364,14 @@ items:
     cannot verify source or license.
   cause: No catalog obligation — attribution treated as optional documentation.
   detection: ''
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended
 - id: PR-116
   title: 'Audit Result Trichotomy: every audit check must produce exactly one of three
     explicit outcomes: finding, clean, or could-not-verify (CNV). CNV is not clean
@@ -2093,3 +2389,11 @@ items:
     is the only alternative to finding a problem.'
   detection: Check if an audit framework has fewer than 3 explicit output states;
     any framework with only pass/fail is missing CNV.
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - doc-only
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: extended

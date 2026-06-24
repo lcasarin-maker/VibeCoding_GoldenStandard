@@ -1534,12 +1534,58 @@ def resolve_markdown_link(
     return node_id if node_id in known_nodes else None
 
 
+_GIT_TIMESTAMPS_CACHE: dict[str, tuple[str | None, str | None]] = {}
+
+
 def _git_timestamps(path: Path) -> tuple[str | None, str | None]:
     """Return (created, promoted) ISO timestamps from git log for *path*."""
+    abs_path = path.resolve()
+    try:
+        rel_posix = abs_path.relative_to(_ROOT.resolve()).as_posix()
+    except ValueError:
+        rel_posix = str(path)
+
+    if not _GIT_TIMESTAMPS_CACHE:
+        try:
+            import subprocess
+            result = subprocess.run(
+                ["git", "log", "--name-only", "--format=%aI"],
+                capture_output=True,
+                text=True,
+                cwd=_ROOT,
+                check=True,
+            )
+            created_map = {}
+            promoted_map = {}
+            current_timestamp = None
+            for line in result.stdout.splitlines():
+                line = line.strip()
+                if not line:
+                    continue
+                if "T" in line and (line[0].isdigit() or line.startswith("-") or line.startswith("+")):
+                    current_timestamp = line
+                elif current_timestamp:
+                    norm_path = line.replace("\\", "/")
+                    if norm_path not in promoted_map:
+                        promoted_map[norm_path] = current_timestamp
+                    created_map[norm_path] = current_timestamp
+
+            for norm_path in set(created_map.keys()) | set(promoted_map.keys()):
+                _GIT_TIMESTAMPS_CACHE[norm_path] = (
+                    created_map.get(norm_path),
+                    promoted_map.get(norm_path),
+                )
+        except Exception as e:
+            import logging
+            logging.getLogger(__name__).warning(
+                "Failed to initialize git timestamps cache: %s", e
+            )
+
+    if rel_posix in _GIT_TIMESTAMPS_CACHE:
+        return _GIT_TIMESTAMPS_CACHE[rel_posix]
+
     try:
         import subprocess
-
-        # First commit (created)
         created_result = subprocess.run(
             ["git", "log", "--follow", "--format=%aI", "--", str(path)],
             capture_output=True,
@@ -1551,7 +1597,7 @@ def _git_timestamps(path: Path) -> tuple[str | None, str | None]:
             created = lines[-1] if lines else None
         else:
             created = None
-        # Last commit (promoted)
+
         promoted_result = subprocess.run(
             ["git", "log", "-1", "--format=%aI", "--", str(path)],
             capture_output=True,
@@ -1562,6 +1608,8 @@ def _git_timestamps(path: Path) -> tuple[str | None, str | None]:
             promoted = promoted_result.stdout.strip().splitlines()[0]
         else:
             promoted = None
+
+        _GIT_TIMESTAMPS_CACHE[rel_posix] = (created, promoted)
         return created, promoted
     except Exception:
         return None, None

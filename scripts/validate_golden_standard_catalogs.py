@@ -363,7 +363,6 @@ def validate_principles_catalog(
 
         item_id = str(item.get("id", "")).strip()
         title = str(item.get("title", "")).strip()
-        doctrinal = item.get("doctrinal", None)
 
         if not item_id.startswith("PR-"):
             errors.append(
@@ -374,10 +373,78 @@ def validate_principles_catalog(
         elif item_id:
             seen_ids.add(item_id)
 
-        if not title:
+        # Enforce required fields
+        required_fields = (
+            "id",
+            "title",
+            "status",
+            "severity",
+            "tags",
+            "validating_mechanism",
+            "downstream_verification",
+            "tier",
+        )
+        missing = [
+            field
+            for field in required_fields
+            if not str(item.get(field, "")).strip()
+        ]
+        if missing:
             errors.append(
-                f"{path}: {item_id or f'item {index}'} missing required field: title"
+                f"{path}: {item_id or f'item {index}'} missing required fields: {', '.join(missing)}"
             )
+
+        if item_id and not is_ascii_text(item_id):
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} must use ASCII-only technical identifiers."
+            )
+
+        status = str(item.get("status", "")).strip()
+        if status and status not in ALLOWED_STATUSES:
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} has unsupported status {status}."
+            )
+
+        severity = str(item.get("severity", "")).strip()
+        if severity and severity not in ALLOWED_SEVERITIES:
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} has unsupported severity {severity}."
+            )
+
+        tier = str(item.get("tier", "")).strip()
+        if tier and tier not in {"core", "extended", "specialist"}:
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} has unsupported tier {tier}."
+            )
+
+        downstream_verification = str(item.get("downstream_verification", "")).strip()
+        if not downstream_verification:
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} missing required field: downstream_verification"
+            )
+        elif downstream_verification not in ALLOWED_DOWNSTREAM_VERIFICATIONS:
+            errors.append(
+                f"{path}: {item_id or f'item {index}'} has unsupported downstream_verification {downstream_verification}."
+            )
+        else:
+            if status == "DOC_ONLY" and downstream_verification != "required":
+                errors.append(
+                    f"{path}: {item_id or f'item {index}'} has downstream_verification={downstream_verification} but expected required for status {status}."
+                )
+
+        tags = item.get("tags", None)
+        if tags is not None:
+            if not isinstance(tags, list) or len(tags) < 2:
+                errors.append(
+                    f"{path}: {item_id or f'item {index}'} must define at least two tags."
+                )
+            else:
+                for tag in tags:
+                    tag_text = str(tag).strip()
+                    if not tag_text:
+                        errors.append(
+                            f"{path}: {item_id or f'item {index}'} contains an empty tag value."
+                        )
 
     if check_wiki and not (ROOT / "Wiki" / "Principles.md").exists():
         errors.append(

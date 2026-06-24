@@ -57,9 +57,9 @@ python scripts/generate_golden_audit.py
 | `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 88 |
 | `golden_standard_testing_vices.yaml` | Testing failures | 116 |
 | `golden_standard_tokenomics.yaml` | Token efficiency | 34 |
-| `golden_standard_principles.yaml` | Principles | 113 |
+| `golden_standard_principles.yaml` | Principles | 116 |
 
-**Total: 238 vices + 113 principles (351 entries).** Counts are validated against the YAML by CI — they cannot drift from the source.
+**Total: 238 vices + 116 principles (354 entries).** Counts are validated against the YAML by CI — they cannot drift from the source.
 
 Each entry includes ID, title, description, severity, status, detection criteria, and mitigation. See [CONCEPTUAL_FRAMEWORK.md](CONCEPTUAL_FRAMEWORK.md) for the full status model (`DOC_ONLY` → `PREVENTED` → `REMEDIATED`).
 

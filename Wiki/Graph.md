@@ -10,13 +10,13 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 
 | Metric | Value |
 |---|---:|
-| Nodes | 490 |
-| Edges | 2605 |
-| Reciprocal pairs | 591 |
+| Nodes | 493 |
+| Edges | 2617 |
+| Reciprocal pairs | 594 |
 | Average edge confidence | 0.933 |
-| Semantic density | 0.01202 |
+| Semantic density | 0.011921 |
 | Hub ratio | 1.0 |
-| Bridge ratio | 0.997835 |
+| Bridge ratio | 0.997849 |
 | Intentional orphans | 0 |
 | Candidate orphans | 0 |
 | Hubs | 15 |
@@ -29,12 +29,12 @@ The graph now distinguishes link syntax from relation meaning. `kind` records ho
 
 | Relation | Edges |
 |---|---:|
-| `returns_to_index` | 1142 |
-| `references` | 459 |
+| `returns_to_index` | 1145 |
+| `references` | 465 |
 | `catalogs` | 345 |
 | `governed_by` | 204 |
 | `thematic_bridge` | 122 |
-| `indexes` | 114 |
+| `indexes` | 117 |
 | `operationalizes_domain` | 105 |
 | `subindex` | 34 |
 | `bridges` | 21 |
@@ -135,12 +135,12 @@ Pages with the largest impact surface. If they change, review their inbound link
 
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
-| [[Home]] | `wiki` | 454 | 13 | [[Detectors/vc003_incomprehensible_code]], [[Detectors/vc005_premature_closure]], [[Detectors/vc005_untracked_prototype]], [[Detectors/vc012_invisible_debt]], [[Detectors/vc013_ambiguous_handoff]], [[Detectors/vc016_broken_version_parity]] +448 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
+| [[Home]] | `wiki` | 457 | 13 | [[Detectors/vc003_incomprehensible_code]], [[Detectors/vc005_premature_closure]], [[Detectors/vc005_untracked_prototype]], [[Detectors/vc012_invisible_debt]], [[Detectors/vc013_ambiguous_handoff]], [[Detectors/vc016_broken_version_parity]] +451 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
 | [[Vices_Index]] | `wiki` | 205 | 205 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +199 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +199 more |
 | [[Tokenomics_Map]] | `wiki` | 245 | 21 | [[Home]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]], [[Tokenomics/Output_Compaction_Index]] +239 more | [[Home]], [[Principles]], [[Principles/PR-081]], [[Principles/PR-083]], [[Principles/PR-084]], [[Principles/PR-085]] +15 more |
-| [[Principles]] | `principle-index` | 126 | 115 | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +120 more | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +109 more |
+| [[Principles]] | `principle-index` | 129 | 118 | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +123 more | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +112 more |
 | [[Principles/PR-097]] | `principle` | 209 | 5 | [[Domains/CD01]], [[Domains/CD04]], [[Domains/README]], [[Principles]], [[Tokenomics_Map]], [[Vices/VC-001]] +203 more | [[Domains/CD01]], [[Domains/CD04]], [[Domains/README]], [[Home]], [[Principles]] |
-| [[Domains/README]] | `domain` | 134 | 58 | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +128 more | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +52 more |
+| [[Domains/README]] | `domain` | 137 | 58 | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +131 more | [[Domains/CD01]], [[Domains/CD02]], [[Domains/CD03]], [[Domains/CD04]], [[Domains/CD05]], [[Domains/CD06]] +52 more |
 | [[Evidence/arxiv2602_00409]] | `wiki` | 117 | 11 | [[Vices/VC-015]], [[Vices/VC-037]], [[Vices/VT-001]], [[Vices/VT-002]], [[Vices/VT-003]], [[Vices/VT-004]] +111 more | [[Home]], [[Vices/VC-015]], [[Vices/VC-037]], [[Vices/VT-001]], [[Vices/VT-002]], [[Vices/VT-003]] +5 more |
 | [[Tokenomics_Index]] | `wiki` | 41 | 36 | [[Home]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]], [[Tokenomics/Output_Compaction_Index]] +35 more | [[Home]], [[Tokenomics/TK-001]], [[Tokenomics/TK-002]], [[Tokenomics/TK-003]], [[Tokenomics/TK-004]], [[Tokenomics/TK-005]] +30 more |
 | [[Evidence/arxiv2603_28592]] | `wiki` | 49 | 11 | [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]], [[Vices/VC-006]] +43 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +5 more |

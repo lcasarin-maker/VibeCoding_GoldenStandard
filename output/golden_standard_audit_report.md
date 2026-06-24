@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.6 | Date: 2026-06-22 | Total Audited Items: 248**
+**Golden Standard V0.6 | Date: 2026-06-23 | Total Audited Items: 248**
 
 This document is generated automatically by `scripts/generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -388,6 +388,9 @@ These entries are preserved as project-agnostic doctrine and now consumed as fir
 | `PR-111` | Persistent memory layer (byterover-cli / zilliztech claude-context-memsearch, verified) -- durable cross-session memory for agents; its discipline (source, date, reconciliation) mitigates PR-045. |
 | `PR-112` | serena (oraios/serena, verified) -- symbol-level (semantic) retrieval and editing so that recovered context is correct; mitigates VC-069 against blind chunking. |
 | `PR-113` | Auditing stochastic systems – when behavior depends on chance, sampling, retries, probabilistic routing, or non-deterministic generation, it is not evaluated with a single run nor with an exact value. The rule is to declare the target distribution, seed when applicable, sample size, acceptable thresholds, and repetition criterion; if the surface should be deterministic, the randomness is eliminated rather than disguised as controlled. Claims about stability or correctness must be reproducible across several runs, not just plausible in one. Origin: GS audit of stochastic systems; complements VT-028 on controlled randomness. |
+| `PR-114` | Equivalent-effect substitution: absence of the canonical path is a constraint, not a dead end. When the standard installation path for a tool is unavailable, identify the effect required and achieve it through an available alternative. Origin: RTK hook unavailable on Windows; CC PreToolUse Bash matcher achieves identical enforcement. Session 2026-06-21. |
+| `PR-115` | External Tool Attribution: every evaluated tool must be cataloged with source URL, license, and verdict in knowledge/external_tools.md before adoption or rejection. Credit to original authors is non-negotiable. Origin: Session 2026-06-23. |
+| `PR-116` | Audit Result Trichotomy: every audit check must produce exactly one of three explicit outcomes: finding, clean, or could-not-verify (CNV). CNV is not clean — a check that cannot run must never silently appear as PASS. |
 
 ## Principle Recommendations by Canonical Domain
 
