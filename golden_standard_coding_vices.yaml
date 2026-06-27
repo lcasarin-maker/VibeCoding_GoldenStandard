@@ -1227,7 +1227,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
+  validating_mechanism: d8_test_coverage.py
   downstream_verification: required
   example_lang: text
   example_bad: 'src/billing/refund.py        # 0 tests
@@ -1404,7 +1404,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
+  validating_mechanism: d15_agent_security.py
   downstream_verification: required
   example_lang: python
   example_bad: "def delete_user(actor, uid):\n    db.delete(uid)         # without verifying the actor's role/capability\n"
@@ -1539,7 +1539,7 @@ items:
   - vibe-coding
   - doc-only
   action: 'Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.'
-  validating_mechanism: DOC_ONLY
+  validating_mechanism: d12_satellite_drift.py
   downstream_verification: required
   example_lang: bash
   example_bad: 'cp .protocol/* child-repo/      # copied, but no one verifies it executes
@@ -1750,7 +1750,7 @@ items:
   title: Critical Redundancies and Repetitive AI-slop Patterns
   symptom: Cumulative additive mutations that scatter the system's functionality across multiple redundant files or unnecessary wrappers instead of consolidating logic.
   cause: Generative convenience in creating new interfaces instead of restructuring the existing ones.
-  solution: Impose strict static validation that rejects the existence of unregistered wrappers or middlemen that duplicate more than 30% of the core functionality.
+  solution: Impose strict static validation that rejects the existence of unregistered wrappers or middlemen that duplicate more than 30% of the core functionality. Before adding a new function, verify the stdlib or an already-installed dependency solves it (ponytail review tag — stdlib).
   example_lang: python
   example_bad: "# Instead of using the existing function, the agent creates a redundant wrapper\n# that reimplements the same thing \"for convenience\". The logic scatters.\ndef get_user(id): ...           # already exists\n\ndef fetch_user(id):             # new wrapper: 90% duplicated\n    u = get_user(id)\n    return u\n\ndef retrieve_user(id):          # yet another, same AI-slop pattern\n    return get_user(id)\n"
   example_good: '# A single canonical function. If behavior must vary, parameterize.
@@ -1762,7 +1762,11 @@ items:
 
     existing function without added logic (trivial wrappers) or synonymous names
 
-    (`get_`/`fetch_`/`retrieve_`) over the same symbol.
+    (`get_`/`fetch_`/`retrieve_`) over the same symbol. Secondary: grep for hand-rolled
+
+    implementations of stdlib primitives (date parsing, base64, JSON merge, retry loops,
+
+    sorting, dedup) — flag with stdlib: tag and name the stdlib replacement.
 
     '
   evidence:
@@ -2025,7 +2029,7 @@ items:
   action: 'Documented; enforcement downstream. Recipe: a verification step before persisting a fact, and re-anchoring in sources of truth when compacting.
 
     '
-  validating_mechanism: DOC_ONLY
+  validating_mechanism: d15_agent_security.py
   downstream_verification: required
   example_lang: python
   example_bad: '# The agent accepts a hallucinated datum and drags it along as truth.
@@ -2154,7 +2158,7 @@ items:
   action: 'Documented; enforcement downstream. Recipe: persistent ADR + post-compaction re-anchoring + coherence check against active decisions.
 
     '
-  validating_mechanism: DOC_ONLY
+  validating_mechanism: d17_knowledge.py
   downstream_verification: required
   example_lang: text
   example_bad: '# Turn 10: ''we will use repositories, no SQL in the handlers''.
@@ -2306,7 +2310,7 @@ items:
   action: 'Documented; enforcement downstream. Distinct from VC-061 (nonexistent package): here the package exists but the symbol does not. Mitigation: up-to-date docs via context7 (PR-110).
 
     '
-  validating_mechanism: DOC_ONLY
+  validating_mechanism: d11_dependency.py
   downstream_verification: required
   example_lang: python
   example_bad: '# pandas 2.x removed DataFrame.append; the model keeps using it.
@@ -2349,7 +2353,7 @@ items:
   action: 'Documented; enforcement downstream. Extends PR-042 (context poisoning) to DURABLE memory across sessions. Mitigation: memory layers like byterover / claude-context-memsearch (PR-111).
 
     '
-  validating_mechanism: DOC_ONLY
+  validating_mechanism: d15_agent_security.py
   downstream_verification: required
   example_lang: python
   example_bad: '# A datum is persisted without verifying; 3 sessions later it still contaminates.
@@ -2875,7 +2879,7 @@ items:
   title: Canonical source first (no sink patching)
   symptom: The same truth is corrected in multiple tracked files, or a rendered output is hand-patched instead of regenerated from the canonical source.
   cause: The agent treats derived artifacts as edit targets instead of outputs owned by the source or generator.
-  solution: Edit only the canonical source or generator, regenerate all derived artifacts, and verify sink parity before closing.
+  solution: Edit only the canonical source or generator, regenerate all derived artifacts, and verify sink parity before closing. For bug fixes, grep every caller of the touched function and fix the shared function once — one guard at the source is smaller than one per caller, and patching only the reported call-site leaves sibling callers broken.
   status: AUDITED
   severity: high
   tags:
@@ -2902,7 +2906,7 @@ items:
     status: AUDITED
 
     '
-  detection: Flags direct edits to generated wiki/report files when the source catalog or generator was not the thing that changed.
+  detection: "Flags direct edits to generated wiki/report files when the source catalog or generator was not the thing that changed. Also flags bug fixes that patch only the call-site reported in the ticket while grep shows other callers of the same function remain unpatched."
   evidence:
   - source: Golden Standard generation pipeline
     claim: Derived outputs are regenerated from catalog sources, not edited as the source of truth.
@@ -2959,7 +2963,7 @@ items:
   action: 'Require a backlog entry before planning or execution; if it is not in the ledger, it does not get worked.
 
     '
-  validating_mechanism: DOC_ONLY
+  validating_mechanism: runtime-test
   downstream_verification: required
   example_lang: yaml
   example_bad: '# Work starts before the backlog records it.
@@ -3026,3 +3030,109 @@ items:
   - process-discipline
   tier: core
   notes: 'DOC_ONLY_PERMANENT: Session-time check. PLAN.md existence at session start cannot be verified statically; audit.py checks PLAN.md structure but not session-scope context.'
+
+- id: VC-089
+  title: Addition when deletion suffices
+  symptom: Agent adds new code, files, or parameters to solve a problem that removing existing code would have solved
+  cause: Generative bias — LLMs are trained to produce tokens, so addition is the default action even when the correct answer is a diff that shrinks
+  solution: Before writing any new code, ask whether removing or simplifying existing code solves the problem. Deletion is cheaper, safer, and leaves no new surface to maintain.
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - vibe-coding
+  - yagni
+  - ponytail
+  action: >
+    Run the YAGNI check before writing: (1) does this need to exist at all? (2) does removing
+    something existing solve it? Shortest working diff wins. Deletion over addition.
+    Flag any PR where net line count is positive but the root problem was an unused code path.
+  validating_mechanism: d_complexity.py
+  downstream_verification: required
+  example_lang: python
+  example_bad: |
+    # Bug: function raises on empty list. Agent adds a guard wrapper.
+    def safe_first(lst):
+        if not lst: return None
+        return first(lst)   # new function wrapping existing one
+  example_good: |
+    # Fix: the existing function already has the right shape — just call it with a default.
+    first(lst, default=None)   # stdlib/existing API; no new function needed
+  detection: >
+    Heuristic: PR adds >10 lines to fix a bug that a 1-line deletion or stdlib call would resolve.
+    Review tag: delete: — what to cut, replacement is nothing or a stdlib call.
+  evidence:
+  - source: ponytail (DietrichGebert/ponytail)
+    claim: benchmark median shows 80-94% line reduction under deletion-first discipline across 5 common tasks.
+  tier: core
+
+- id: VC-090
+  title: Premature abstraction (YAGNI interface)
+  symptom: Interface, base class, factory, or layer with exactly one implementation; config option nobody sets; parameter accepted but ignored
+  cause: Agent anticipates future requirements that were never requested; "what if we need a second one later" reasoning without evidence
+  solution: No abstractions unless explicitly requested. Inline the single implementation. Add the abstraction when the second concrete case exists, not before.
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - vibe-coding
+  - yagni
+  - ponytail
+  action: >
+    Before creating an interface, abstract class, factory, or plugin system: verify there are
+    at least 2 concrete implementations today. One implementation = inline it.
+    One config key with one value = hardcode it. One layer with one caller = delete the layer.
+  validating_mechanism: static-ast
+  downstream_verification: required
+  example_lang: python
+  example_bad: |
+    class AbstractRepository(ABC):        # yagni: one impl today
+        @abstractmethod
+        def find(self, id): ...
+
+    class PostgresRepository(AbstractRepository):
+        def find(self, id): return db.get(id)
+  example_good: |
+    def find_user(id):
+        return db.get(id)   # inline; add abstraction when second backend exists
+  detection: >
+    AST: abstract classes / Protocol types with exactly one non-abstract subclass in the repo.
+    Interfaces exported from a module with a single concrete implementation.
+    Config keys present in schema but set to a single value across all environments.
+  evidence:
+  - source: ponytail (DietrichGebert/ponytail)
+    claim: abstraction with one implementation, config nobody sets, layer with one caller — explicit yagni review tag in ponytail-review skill.
+  tier: specialist
+
+- id: VC-091
+  title: Unnecessary dependency introduction
+  symptom: A new package is installed to solve a problem already solvable by stdlib or an already-installed dependency
+  cause: Agent reaches for a familiar library without checking what is already available in the environment
+  solution: Before adding any dependency, climb the resolution ladder — stdlib first, then already-installed deps, then native platform features. Only if all fail, add a new dep.
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - vibe-coding
+  - yagni
+  - ponytail
+  - dependencies
+  action: >
+    Resolution ladder before any new dependency: (1) does stdlib cover it? (2) does an already-installed
+    package expose this? (3) does a native platform API cover it? Only after all three fail: add dep.
+    Every new dep requires explicit justification in the PR why the ladder was exhausted.
+  validating_mechanism: d_complexity.py
+  downstream_verification: required
+  example_lang: python
+  example_bad: |
+    # requirements.txt gains: python-dateutil
+    from dateutil.parser import parse
+    dt = parse("2026-06-26")   # stdlib datetime.fromisoformat exists since 3.7
+  example_good: |
+    from datetime import datetime
+    dt = datetime.fromisoformat("2026-06-26")   # stdlib, zero new deps
+  detection: >
+    Diff scan: any addition to requirements.txt / package.json / pyproject.toml.
+    For each new dep, check if stdlib or existing deps expose equivalent functionality.
+    native: tag — name the stdlib or installed replacement.
+  evidence:
+  - source: ponytail (DietrichGebert/ponytail)
+    claim: Does an already-installed dependency solve it? Use it. Rung 5 of the YAGNI ladder; new dep only at rung 7.
+  tier: specialist

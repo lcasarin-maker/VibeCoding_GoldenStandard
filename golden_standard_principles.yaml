@@ -2397,3 +2397,153 @@ items:
   validating_mechanism: DOC_ONLY
   downstream_verification: required
   tier: extended
+
+- id: PR-117
+  title: Deliberate Shortcut Disclosure — every intentional simplification must name its ceiling and its upgrade trigger
+  doctrinal: true
+  catalog_source: ponytail
+  action: >
+    When taking a deliberate shortcut (global lock, O(n²) scan, naive heuristic, single-threaded
+    assumption), mark it with a ponytail: comment naming the ceiling (what breaks first) and the
+    upgrade path (what triggers the revisit). A shortcut without a named ceiling is silent debt.
+  solution: >
+    Comment form: # ponytail: <ceiling>, <upgrade trigger>
+    Example: # ponytail: global lock, upgrade when concurrent writes exceed 1
+    Run ponytail-debt (grep ponytail:) periodically. Any ponytail: comment without a trigger
+    clause is flagged no-trigger — highest rot risk.
+  symptom: >
+    Intentional simplification (O(n²) loop, in-memory cache, hardcoded limit) with no comment
+    naming when it is safe and when it must change.
+  cause: >
+    Agent takes shortcut to ship, intends to revisit, leaves no machine-readable marker.
+    Shortcut becomes permanent because there is no ledger.
+  detection: >
+    Grep for known shortcut patterns (nested loops over large inputs, global state, hardcoded
+    limits) lacking a ponytail: comment. Also grep ponytail: markers with no trigger clause
+    (no comma after ceiling). Secondary: run ponytail-debt skill from ponytail repo.
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - ponytail
+  - debt-tracking
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  tier: core
+
+- id: PR-118
+  title: Anti-Shell Mandate — use atomic file tools; never shell write commands
+  doctrinal: true
+  catalog_source: CoderCerberus S7
+  action: >
+    All file writes must use atomic Edit/Write tools. Shell file-mutation operations
+    (write-redirect, in-place sed, PowerShell file-append cmdlets) are prohibited
+    because they bypass line-level audit, can corrupt files silently, and cannot be
+    reviewed atomically. If a write primitive is unavailable, escalate instead of
+    falling back to shell.
+  solution: >
+    Use Edit for targeted replacements under 50 lines; use Write for full file
+    creation. Never use Bash/PowerShell shell operations to write file content.
+  symptom: >
+    Agent uses shell file-mutation commands to modify files, making changes
+    unauditable and rollback-unsafe.
+  cause: >
+    Default shell familiarity; no explicit prohibition in base model behavior.
+  status: DOC_ONLY
+  severity: high
+  tags:
+  - doctrinal
+  - governance
+  - tooling
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  notes: Formalizes CC mandate S7. VC-024 covers shell-writes but not the Edit/Write protocol.
+  tier: core
+
+- id: PR-119
+  title: Pre-Success Empirical Gate — no success declaration without evidence
+  doctrinal: true
+  catalog_source: CoderCerberus S0 B7
+  action: >
+    Before declaring a task complete, verify empirically: run the test suite,
+    read the actual output, check the audit log. Declaring success without
+    terminal evidence is optimism theater. Checklist required in AUDIT_TRAIL.md
+    before each success claim.
+  solution: >
+    S0 pre-success checklist in AUDIT_TRAIL.md. B7 prohibits declaring success
+    without real logs or human confirmation. Default posture: assume failure
+    until the gate is passed.
+  symptom: >
+    Agent declares success based on code that looks correct, without running it.
+    Test output, CI, or runtime evidence is absent from the success claim.
+  cause: >
+    LLM generative bias toward positive closure; no explicit empirical gate
+    in default behavior.
+  status: DOC_ONLY
+  severity: high
+  tags:
+  - doctrinal
+  - governance
+  - anti-optimism
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  notes: Formalizes CC mandates S0 and B7. VC-001 covers optimism but not the explicit empirical gate.
+  tier: core
+
+- id: PR-120
+  title: Debt Tax Ceiling — cap code output per turn; run Simplicity Pass after
+  doctrinal: true
+  catalog_source: CoderCerberus S8
+  action: >
+    Limit net new code to 50 lines per conversation turn. After each change,
+    run a Simplicity Pass: ask what can be deleted before declaring the change
+    complete. Large-batch writes accumulate unreviewed debt faster than it
+    can be absorbed.
+  solution: >
+    Hard cap of 50 lines per turn. After each change: count lines added, run
+    Simplicity Pass, commit only what passes both checks.
+  symptom: >
+    Agent writes hundreds of lines in one turn, skips cleanup, and accumulates
+    a growing surface that cannot be reviewed or reverted atomically.
+  cause: >
+    No turn-level output constraint; generative bias toward completeness over
+    minimalism.
+  status: DOC_ONLY
+  severity: medium
+  tags:
+  - doctrinal
+  - governance
+  - simplicity
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  notes: Formalizes CC mandate S8 (Debt Tax). No prior GS PR equivalent.
+  tier: extended
+
+- id: PR-121
+  title: Escalation Protocol — stop and escalate when confidence falls below 70%
+  doctrinal: true
+  catalog_source: CoderCerberus B16
+  action: >
+    When confidence in the correct approach is below 70%, or when two valid
+    approaches collide without a clear tiebreaker, STOP and escalate to the
+    human operator. Document the conflict, the two options, and the missing
+    information needed to resolve. Do not guess.
+  solution: >
+    B16: detect confidence below 70% or approach collision. Write both options
+    to AUDIT_TRAIL.md with reasoning. Ask for human decision before proceeding.
+  symptom: >
+    Agent picks a direction arbitrarily when uncertain, producing a plausible
+    but wrong implementation that needs to be reverted later.
+  cause: >
+    LLM trained to produce a response even under uncertainty; no explicit
+    threshold for stopping.
+  status: DOC_ONLY
+  severity: high
+  tags:
+  - doctrinal
+  - governance
+  - escalation
+  validating_mechanism: DOC_ONLY
+  downstream_verification: required
+  notes: Formalizes CC mandate B16 (Escalation Path). No prior GS PR equivalent.
+  tier: specialist
