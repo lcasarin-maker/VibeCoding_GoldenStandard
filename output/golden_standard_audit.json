@@ -7132,7 +7132,7 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "d8_test_coverage.py",
+    "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "src/billing/refund.py        # 0 tests\n# refund() is changed and nothing detects the regression\n",
     "example_good": "src/billing/refund.py\ntests/billing/test_refund.py # covers the behavior before changing it\n",
@@ -7316,7 +7316,7 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "d15_agent_security.py",
+    "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "def delete_user(actor, uid):\n    db.delete(uid)         # without verifying the actor's role/capability\n",
     "example_good": "def delete_user(actor, uid):\n    require(actor.can(\"user.delete\"))   # declared and verified capability\n    db.delete(uid)\n",
@@ -7462,7 +7462,7 @@
       "doc-only"
     ],
     "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
-    "validating_mechanism": "d12_satellite_drift.py",
+    "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "cp .protocol/* child-repo/      # copied, but no one verifies it executes\n",
     "example_good": "cp .protocol/* child-repo/\n(cd child-repo && verify_adoption)   # confirms active hooks + auditor + suite; reports real %\n",
@@ -7993,7 +7993,7 @@
       "context"
     ],
     "action": "Documented; enforcement downstream. Recipe: a verification step before persisting a fact, and re-anchoring in sources of truth when compacting.\n",
-    "validating_mechanism": "d15_agent_security.py",
+    "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "# The agent accepts a hallucinated datum and drags it along as truth.\nctx.append(\"the endpoint is /v2/pay\")   # never verified; it was /v1/pay\n# 5 turns later the agent keeps building on /v2/pay\n",
     "example_good": "# Verify before persisting; the unconfirmed does not enter the durable context.\nif endpoint_exists(\"/v2/pay\"):\n    ctx.append_fact(\"endpoint=/v2/pay\", source=\"openapi.json\")\n",
@@ -8099,7 +8099,7 @@
       "context"
     ],
     "action": "Documented; enforcement downstream. Recipe: persistent ADR + post-compaction re-anchoring + coherence check against active decisions.\n",
-    "validating_mechanism": "d17_knowledge.py",
+    "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "# Turn 10: 'we will use repositories, no SQL in the handlers'.\n# Turn 80 (after compacting): the agent puts raw SQL in a handler.\n",
     "example_good": "# The decision lives in ADR-003 and is re-anchored after compacting; the change is validated against it.\n# ADR-003: data access only via repos -> the handler with raw SQL is rejected.\n",
@@ -8241,7 +8241,7 @@
       "dependencies"
     ],
     "action": "Documented; enforcement downstream. Distinct from VC-061 (nonexistent package): here the package exists but the symbol does not. Mitigation: up-to-date docs via context7 (PR-110).\n",
-    "validating_mechanism": "d11_dependency.py",
+    "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "# pandas 2.x removed DataFrame.append; the model keeps using it.\ndf = df.append(row)            # AttributeError in the installed version\n",
     "example_good": "# Verify against the real API of the pinned version and use the current replacement.\ndf = pd.concat([df, pd.DataFrame([row])], ignore_index=True)\n",
@@ -8278,7 +8278,7 @@
       "context"
     ],
     "action": "Documented; enforcement downstream. Extends PR-042 (context poisoning) to DURABLE memory across sessions. Mitigation: memory layers like byterover / claude-context-memsearch (PR-111).\n",
-    "validating_mechanism": "d15_agent_security.py",
+    "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "# A datum is persisted without verifying; 3 sessions later it still contaminates.\nmemory.write(\"endpoint = /v2/pay\")    # never verified; it was /v1/pay\n",
     "example_good": "# Only verified facts, with source and date; reconciled when loading.\nmemory.write_fact(\"endpoint=/v1/pay\", source=\"openapi.json\", verified_at=today())\n",
@@ -9075,7 +9075,7 @@
       "ponytail"
     ],
     "action": "Run the YAGNI check before writing: (1) does this need to exist at all? (2) does removing something existing solve it? Shortest working diff wins. Deletion over addition. Flag any PR where net line count is positive but the root problem was an unused code path.\n",
-    "validating_mechanism": "d_complexity.py",
+    "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "# Bug: function raises on empty list. Agent adds a guard wrapper.\ndef safe_first(lst):\n    if not lst: return None\n    return first(lst)   # new function wrapping existing one\n",
     "example_good": "# Fix: the existing function already has the right shape — just call it with a default.\nfirst(lst, default=None)   # stdlib/existing API; no new function needed\n",
@@ -9142,7 +9142,7 @@
       "dependencies"
     ],
     "action": "Resolution ladder before any new dependency: (1) does stdlib cover it? (2) does an already-installed package expose this? (3) does a native platform API cover it? Only after all three fail: add dep. Every new dep requires explicit justification in the PR why the ladder was exhausted.\n",
-    "validating_mechanism": "d_complexity.py",
+    "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "# requirements.txt gains: python-dateutil\nfrom dateutil.parser import parse\ndt = parse(\"2026-06-26\")   # stdlib datetime.fromisoformat exists since 3.7\n",
     "example_good": "from datetime import datetime\ndt = datetime.fromisoformat(\"2026-06-26\")   # stdlib, zero new deps\n",

@@ -143,7 +143,7 @@
       "title": "🏛️ Golden Standard — The AI Vibe Coding Knowledge Base",
       "kind": "root",
       "created": "2026-06-04T20:05:31-06:00",
-      "promoted": "2026-06-23T20:04:02-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "CONTRIBUTING",
@@ -8405,8 +8405,8 @@
       "path": "Wiki/Evidence/ponytail_dietrichgebertponytail.md",
       "title": "ponytail (DietrichGebert/ponytail)",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-089",
@@ -9085,7 +9085,7 @@
       "title": "Golden Standard Wiki",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-23T20:04:02-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
@@ -12477,7 +12477,7 @@
       "title": "Principles",
       "kind": "principle-index",
       "created": "2026-06-15T23:30:15-06:00",
-      "promoted": "2026-06-23T20:04:02-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/README",
         "Home",
@@ -18991,7 +18991,7 @@
       "title": "PR-079 — Deptry – reconciliation of imports against declared dependencies to detect missing, unused, transitive, misplaced dev, and stdlib declared as dependencies.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD09",
         "Domains/CD12",
@@ -19087,7 +19087,7 @@
       "title": "PR-080 — Diagnostic assertions – when a test fails, the message must explain the discrepancy with actionable clarity. Real verified tools: pytest native assertion rewriting, pytest-clarity / pytest-icdiff for readable diffs, flake8-assertive for correct assertion methods. (Corrects a prior reference to a nonexistent package — see VC-061 hallucinated dependency.)",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD03",
         "Domains/CD10",
@@ -19183,7 +19183,7 @@
       "title": "PR-081 — Tokencost – upfront token metering and USD conversion to make spend visible before executing an LLM call.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD11",
         "Domains/CD15",
@@ -19401,7 +19401,7 @@
       "title": "PR-082 — Trivy – multi-surface scanning (images, filesystem, git, VMs, Kubernetes) for CVEs, secrets, misconfigurations, SBOM, and licenses.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD08",
         "Domains/CD12",
@@ -19497,7 +19497,7 @@
       "title": "PR-083 — Litellm – provider-agnostic gateway with routing, fallback, cost tracking, guardrails, logging, and load balancing.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD05",
         "Domains/CD11",
@@ -19631,7 +19631,7 @@
       "title": "PR-084 — Governance gate between intent and execution that enforces context discipline, observability, redaction, and state control.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD02",
         "Domains/CD06",
@@ -19878,7 +19878,7 @@
       "title": "PR-085 — Output governance – a system can have INPUT governance (quality gates) but lack OUTPUT governance (orphan pruning), accumulating refactor residue: backups, dead code, stale plan docs, spectral scripts, divergent learning logs, stale base-sets, and IDs declared without content. Root cause: the gate validated letter (Path.exists) not currency (active route). Lesson: the same gate that blocks bad code blocks the leftover junk.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD01",
         "Domains/CD04",
@@ -20111,7 +20111,7 @@
       "title": "PR-086 — Batch of predictable authorizations – group permissions, clarifications, and decisions before a long run to avoid interruptions, rereads, and reactive work.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD02",
         "Domains/README",
@@ -20193,7 +20193,7 @@
       "title": "PR-087 — Zero debt before advancing – every warning or non-blocking finding is treated as an operational error until fixed or explicitly blocked.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-20T22:29:00-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD06",
         "Domains/README",
@@ -20369,7 +20369,7 @@
       "title": "PR-088 — Output hygiene and clean root – historical artifacts are reference, not source of truth; when an audit closes the root must be free of operational residue.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD01",
         "Domains/README",
@@ -20567,7 +20567,7 @@
       "title": "PR-089 — Descriptive names and simple topology – prefer scripts and modules that explain their purpose and flatten structure when it reduces cognitive friction.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD03",
         "Domains/CD05",
@@ -20671,7 +20671,7 @@
       "title": "PR-090 — Minimal and real exclusions – whitelists, excludes, skips, xfails, stubs, mocks, and placeholders only with verifiable cause; false coverage is debt, not progress.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD07",
         "Domains/README",
@@ -20777,7 +20777,7 @@
       "title": "PR-091 — Real-time vigilance – observe signals, costs, and deviations during execution, not only in the post-mortem.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD15",
         "Domains/README",
@@ -20911,7 +20911,7 @@
       "title": "PR-092 — Living Golden Standard – preserve pure, agnostic knowledge kept up to date with the lessons from the project and the satellites without mixing it with concrete tools.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD13",
         "Domains/README",
@@ -21109,7 +21109,7 @@
       "title": "PR-093 — Circularity ratchet – every new vice must break a real circular relationship and drain the baseline in batches; coverage that does not reduce the circle is still theater.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD07",
         "Domains/CD09",
@@ -21205,7 +21205,7 @@
       "title": "PR-094 — DOC_ONLY honesty – if a lesson is not falsifiable by a physical gate, it must be labeled DOC_ONLY instead of simulating automatic coverage.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD10",
         "Domains/README",
@@ -21381,7 +21381,7 @@
       "title": "PR-095 — Anti many-to-one coverage – a test that claims to cover N vices at once loses discrimination; each guard must isolate the failure it claims to protect against.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD07",
         "Domains/CD10",
@@ -21477,7 +21477,7 @@
       "title": "PR-096 — Canonical ingestion of lessons – normalize, deduplicate, and record new satellite lessons before incorporating them into the central knowledge.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD13",
         "Domains/README",
@@ -21675,7 +21675,7 @@
       "title": "PR-097 — Execution and tooling hygiene – prefer simple commands, declarative edits, UTF-8, auditable evidence, and elevated permissions only as an exception; temporary helpers must disappear unless they are reusable and documented.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD01",
         "Domains/CD04",
@@ -23230,7 +23230,7 @@
       "title": "PR-098 — Confidence Tags (Graphify pattern) – every state claim in protocol documents must carry an explicit confidence level: VERIFIED (backed by terminal log or test), INFERRED (deduced from indirect evidence), ASSUMED (no evidence, reasonable supposition). Claims without a tag are treated as ASSUMED. Applies especially to protocol specs, audit logs, and architectural decision comments. Origin: safishamsi/graphify confidence tag system for knowledge graphs.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD03",
         "Domains/CD15",
@@ -23340,7 +23340,7 @@
       "title": "PR-099 — Semantic Wiki-Lint (Karpathy LLM Wiki pattern) – protocol documents must be audited periodically to detect: contradictions between sections, references to nonexistent files, mandates mentioned in one doc but absent in another, and inconsistent version claims. The Lint is not syntactic (that is handled by a syntactic catalog linter) but semantic: do two documents claim incompatible things about the same state? Origin: Karpathy LLM Wiki gist, Lint operation of the agent-maintained wiki framework.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD13",
         "Domains/CD16",
@@ -23436,7 +23436,7 @@
       "title": "PR-100 — Operational uncertainty list – every session or protocol document must declare which subsystems, routes, or claims were not mechanically verified in that turn. The absence of a list equals incomplete verification. Origin: operational uncertainty discipline and anti-hallucination control.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD13",
         "Domains/CD16",
@@ -23532,7 +23532,7 @@
       "title": "PR-101 — Dual-session awareness – before touching shared sources, the agent must verify state and latest commits so as not to step on concurrent work. If there are external changes, impact is analyzed before editing. Origin: multi-agent coexistence discipline and serialized shared-source access.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD14",
         "Domains/README",
@@ -23636,7 +23636,7 @@
       "title": "PR-102 — Hub-based review – nodes with the highest fan-in or impact degree must be reviewed first when a catalog or index changes. The graph is not decorative: it prioritizes risk and orders the audit. Origin: hub-first review heuristic (graph fan-in prioritization).",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD05",
         "Domains/README",
@@ -23718,7 +23718,7 @@
       "title": "PR-103 — Exportable retrospective – every session must close with a structured, parseable retrospective that is persisted to a durable ledger before a context reset (COMPACT/CLEAR). Chat is not reliable memory and new knowledge must survive the reset. Origin: structured-retrospective export and a durable ledger as a source of continuity.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD14",
         "Domains/CD15",
@@ -23836,7 +23836,7 @@
       "title": "PR-104 — Exhaustive preflight and no reopening scope post-execution – before executing any change, the agent must declare scope, foreseeable impacts, out-of-scope follow-ups, and the runner/loader that would be affected if the topology changes. If a new improvement emerges after executing, it is first recorded in the backlog; it is not offered as a post-execution suggestion. Origin: execution hygiene and the formal separation of audits between knowledge and consumption.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD02",
         "Domains/CD16",
@@ -23940,7 +23940,7 @@
       "title": "PR-105 — Serialization of Git operations – Git commands must be executed serially within automations and orchestrators to avoid index locks, state races, and inconsistent results. When coordination or concurrent tooling exists, the safe discipline is a single Git flow at a time with controlled retries, not opportunistic parallelism. Origin: global learning on race conditions and .git/index.lock locking.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD14",
         "Domains/README",
@@ -24030,7 +24030,7 @@
       "title": "PR-106 — Vibe Check (PV-Bhat/vibe-check-mcp-server, verified) – metacognition MCP server that curbs agent tunnel-vision and runaway loops via Chain-Pattern Interrupts; a direct implementation of the PR-066 mitigation.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD17",
         "Domains/README",
@@ -24112,7 +24112,7 @@
       "title": "PR-107 — vibecheck (yuvrajangadsingh/vibecheck, verified) – ESLint for AI slop: a local linter that detects code smells in AI-generated code (hardcoded secrets, eval, empty catch); evidence that the catalog vices are statically detectable.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD04",
         "Domains/CD08",
@@ -24208,7 +24208,7 @@
       "title": "PR-108 — viberails (refractionPOINT/viberails, verified) – AI Firewall that intercepts risky agent operations (Claude Code, Cursor, Gemini CLI) via hooks; an enforcement layer conceptually comparable to a policy-enforcement gate (unrelated to the homonym philips-software/cerberus).",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD08",
         "Domains/CD17",
@@ -24304,7 +24304,7 @@
       "title": "PR-109 — ratelimit (tomasbasham/ratelimit, verified) – rate limiting decorator (@limits + sleep_and_retry) as a concrete control against PR-031 (quota as surprise) and the tokenomics debt (TK-034).",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD11",
         "Domains/README",
@@ -24386,7 +24386,7 @@
       "title": "PR-110 — context7 (upstash/context7, verified) -- delivers up-to-date code documentation to LLMs to avoid calls to obsolete or nonexistent APIs; a direct mitigation of PR-044.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD12",
         "Domains/README",
@@ -24468,7 +24468,7 @@
       "title": "PR-111 — Persistent memory layer (byterover-cli / zilliztech claude-context-memsearch, verified) -- durable cross-session memory for agents; its discipline (source, date, reconciliation) mitigates PR-045.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD17",
         "Domains/README",
@@ -24550,7 +24550,7 @@
       "title": "PR-112 — serena (oraios/serena, verified) -- symbol-level (semantic) retrieval and editing so that recovered context is correct; mitigates VC-069 against blind chunking.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD11",
         "Domains/README",
@@ -24625,7 +24625,7 @@
       "title": "PR-113 — Auditing stochastic systems – when behavior depends on chance, sampling, retries, probabilistic routing, or non-deterministic generation, it is not evaluated with a single run nor with an exact value. The rule is to declare the target distribution, seed when applicable, sample size, acceptable thresholds, and repetition criterion; if the surface should be deterministic, the randomness is eliminated rather than disguised as controlled. Claims about stability or correctness must be reproducible across several runs, not just plausible in one. Origin: GS audit of stochastic systems; complements VT-028 on controlled randomness.",
       "kind": "principle",
       "created": "2026-06-16T19:36:48-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD06",
         "Domains/CD09",
@@ -24721,7 +24721,7 @@
       "title": "PR-114 — Equivalent-effect substitution: absence of the canonical path is a constraint, not a dead end. When the standard installation path for a tool is unavailable, identify the effect required and achieve it through an available alternative. Origin: RTK hook unavailable on Windows; CC PreToolUse Bash matcher achieves identical enforcement. Session 2026-06-21.",
       "kind": "principle",
       "created": "2026-06-23T00:58:35-06:00",
-      "promoted": "2026-06-23T20:04:02-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/README",
         "Home",
@@ -24781,7 +24781,7 @@
       "title": "PR-115 — External Tool Attribution: every evaluated tool must be cataloged with source URL, license, and verdict in knowledge/external_tools.md before adoption or rejection. Credit to original authors is non-negotiable. Origin: Session 2026-06-23.",
       "kind": "principle",
       "created": "2026-06-23T00:58:35-06:00",
-      "promoted": "2026-06-23T20:04:02-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/README",
         "Home",
@@ -24841,7 +24841,7 @@
       "title": "PR-116 — Audit Result Trichotomy: every audit check must produce exactly one of three explicit outcomes: finding, clean, or could-not-verify (CNV). CNV is not clean — a check that cannot run must never silently appear as PASS.",
       "kind": "principle",
       "created": "2026-06-23T01:37:51-06:00",
-      "promoted": "2026-06-23T20:04:02-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/README",
         "Home",
@@ -24900,8 +24900,8 @@
       "path": "Wiki/Principles/PR-117.md",
       "title": "PR-117 — Deliberate Shortcut Disclosure — every intentional simplification must name its ceiling and its upgrade trigger",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/README",
         "Home",
@@ -24960,8 +24960,8 @@
       "path": "Wiki/Principles/PR-118.md",
       "title": "PR-118 — Anti-Shell Mandate — use atomic file tools; never shell write commands",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/README",
         "Home",
@@ -25020,8 +25020,8 @@
       "path": "Wiki/Principles/PR-119.md",
       "title": "PR-119 — Pre-Success Empirical Gate — no success declaration without evidence",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/README",
         "Home",
@@ -25080,8 +25080,8 @@
       "path": "Wiki/Principles/PR-120.md",
       "title": "PR-120 — Debt Tax Ceiling — cap code output per turn; run Simplicity Pass after",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/README",
         "Home",
@@ -25140,8 +25140,8 @@
       "path": "Wiki/Principles/PR-121.md",
       "title": "PR-121 — Escalation Protocol — stop and escalate when confidence falls below 70%",
       "kind": "principle",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/README",
         "Home",
@@ -34747,7 +34747,7 @@
       "title": "VC-023: Unmapped dependencies",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -34922,7 +34922,7 @@
       "title": "VC-025: I/O without validation",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Detectors/vc025_io_without_validation",
         "Evidence/owasp_top_10_for_agents_2026",
@@ -35027,7 +35027,7 @@
       "title": "VC-026: Lax typing",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -35104,7 +35104,7 @@
       "title": "VC-027: Permanent placeholder",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-21T07:26:08-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Detectors/vc078_placeholder",
         "Evidence/arxiv2603_28592",
@@ -35202,7 +35202,7 @@
       "title": "VC-028: Core dependent on unstable parts",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Detectors/vc028_core_dependent_on_unstable_parts",
         "Evidence/arxiv2603_28592",
@@ -35300,7 +35300,7 @@
       "title": "VC-029: Uncritical copy-paste",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Detectors/vc029_uncritical_copy_paste",
         "Evidence/gitclear_2025",
@@ -35405,7 +35405,7 @@
       "title": "VC-030: Dependencies without a gate",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/generate_golden_audit_py",
         "Evidence/scriptsmetrics_py",
@@ -35517,7 +35517,7 @@
       "title": "VC-031: Tolerated dead file",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -35594,7 +35594,7 @@
       "title": "VC-032: Normalized warning",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Detectors/vc087_blanket_filterwarnings",
         "Evidence/arxiv2603_28592",
@@ -35846,7 +35846,7 @@
       "title": "VC-035: Partial audit called total",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -36028,7 +36028,7 @@
       "title": "VC-037: Code without tests",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/arxiv2602_00409",
         "Home",
@@ -36448,7 +36448,7 @@
       "title": "VC-042: Implicit permission matrix",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/owasp_top_10_for_agents_2026",
         "Home",
@@ -36707,7 +36707,7 @@
       "title": "VC-045: Exclusion without prior audit",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -36959,7 +36959,7 @@
       "title": "VC-048: Finding without a remediation plan",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -37302,7 +37302,7 @@
       "title": "VC-052: Zombie Compatibility Theater",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -37379,7 +37379,7 @@
       "title": "VC-053: Critical Redundancies and Repetitive AI-slop Patterns",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/gitclear_2025",
         "Home",
@@ -37976,7 +37976,7 @@
       "title": "VC-060: Context Poisoning",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/humanlayer_ace",
         "Home",
@@ -38060,7 +38060,7 @@
       "title": "VC-061: Hallucinated dependency (slopsquatting)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Detectors/vc061_hallucinated_dependency",
         "Evidence/arxiv2603_28592",
@@ -38235,7 +38235,7 @@
       "title": "VC-063: Architectural drift in long sessions (Architecture Drift)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/humanlayer_ace",
         "Home",
@@ -38599,7 +38599,7 @@
       "title": "VC-067: Use of an obsolete or hallucinated API of a real library",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD12",
         "Evidence/arxiv2603_28592",
@@ -38699,7 +38699,7 @@
       "title": "VC-068: Poisoned or stale persistent memory (cross-session)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Domains/CD17",
         "Evidence/byterover-cli_zilliztech_claude-context_verified",
@@ -39557,7 +39557,7 @@
       "title": "VC-077: Unjustified privilege escalation (Privilege Escalation / PE1-PE3)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/nvidia_skillspector_static_patterns_privilege_escalation_py",
         "Home",
@@ -40082,7 +40082,7 @@
       "title": "VC-083: Envenenamiento de descripciones de herramientas (MCP Tool Poisoning / TP1-TP4)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/nvidia_skillspector_mcp_tool_poisoning_py",
         "Home",
@@ -40166,7 +40166,7 @@
       "title": "VC-084: Canonical source first (no sink patching)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/golden_standard_generation_pipeline",
         "Home",
@@ -40334,7 +40334,7 @@
       "title": "VC-086: No backlog entry, no work",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/debt_registry_e_g_backlog_md_operating_rule",
         "Home",
@@ -40593,7 +40593,7 @@
       "title": "VC-089: Addition when deletion suffices",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-16T18:32:06-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/ponytail_dietrichgebertponytail",
         "Home",
@@ -40677,7 +40677,7 @@
       "title": "VC-090: Premature abstraction (YAGNI interface)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-15T09:22:49-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/ponytail_dietrichgebertponytail",
         "Home",
@@ -40761,7 +40761,7 @@
       "title": "VC-091: Unnecessary dependency introduction",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-15T09:22:49-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/ponytail_dietrichgebertponytail",
         "Home",
@@ -49574,7 +49574,7 @@
       "title": "VT-112: Ghost Dependency Drift",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Evidence/arxiv2602_00409",
         "Home",
@@ -49952,7 +49952,7 @@
       "title": "Engineering Vices Index",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-22T17:48:29-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-001",
@@ -52956,7 +52956,7 @@
       "title": "entries.json",
       "kind": "badge",
       "created": "2026-06-22T15:11:53-06:00",
-      "promoted": "2026-06-22T15:20:59-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53136,7 +53136,7 @@
       "title": "golden_standard_audit.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53156,7 +53156,7 @@
       "title": "golden_standard_graph.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-06-23T20:04:02-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [],
       "incoming": [
         "scripts/analyze_graph.py"
@@ -53187,7 +53187,7 @@
       "title": "golden_standard_metrics.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-06-23T20:04:02-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53616,7 +53616,7 @@
       "title": "generate_golden_audit.py",
       "kind": "script",
       "created": "2026-06-22T15:20:59-06:00",
-      "promoted": "2026-06-23T20:04:02-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
         "scripts/metrics.py"
       ],
@@ -53819,7 +53819,7 @@
       "title": "validate_golden_standard_catalogs.py",
       "kind": "script",
       "created": "2026-06-04T20:49:32-06:00",
-      "promoted": "2026-06-23T20:04:02-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [],
       "incoming": [
         ".github/workflows/audit.yml"
@@ -53920,8 +53920,8 @@
       "path": "tests/test_validate_golden_standard_catalogs.py",
       "title": "test_validate_golden_standard_catalogs.py",
       "kind": "test",
-      "created": null,
-      "promoted": null,
+      "created": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -74024,7 +74024,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-23T20:04:02-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -77416,7 +77416,7 @@
         "title": "Engineering Vices Index",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-22T17:48:29-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Home",
           "Vices/VC-001",
@@ -82278,7 +82278,7 @@
         "title": "Principles",
         "kind": "principle-index",
         "created": "2026-06-15T23:30:15-06:00",
-        "promoted": "2026-06-23T20:04:02-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/README",
           "Home",
@@ -84112,7 +84112,7 @@
         "title": "PR-097 — Execution and tooling hygiene – prefer simple commands, declarative edits, UTF-8, auditable evidence, and elevated permissions only as an exception; temporary helpers must disappear unless they are reusable and documented.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD01",
           "Domains/CD04",
@@ -89392,7 +89392,7 @@
         "title": "PR-084 — Governance gate between intent and execution that enforces context discipline, observability, redaction, and state control.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD02",
           "Domains/CD06",
@@ -89639,7 +89639,7 @@
         "title": "PR-085 — Output governance – a system can have INPUT governance (quality gates) but lack OUTPUT governance (orphan pruning), accumulating refactor residue: backups, dead code, stale plan docs, spectral scripts, divergent learning logs, stale base-sets, and IDs declared without content. Root cause: the gate validated letter (Path.exists) not currency (active route). Lesson: the same gate that blocks bad code blocks the leftover junk.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD01",
           "Domains/CD04",
@@ -89872,7 +89872,7 @@
         "title": "PR-081 — Tokencost – upfront token metering and USD conversion to make spend visible before executing an LLM call.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD11",
           "Domains/CD15",
@@ -90090,7 +90090,7 @@
         "title": "PR-088 — Output hygiene and clean root – historical artifacts are reference, not source of truth; when an audit closes the root must be free of operational residue.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD01",
           "Domains/README",
@@ -90288,7 +90288,7 @@
         "title": "PR-092 — Living Golden Standard – preserve pure, agnostic knowledge kept up to date with the lessons from the project and the satellites without mixing it with concrete tools.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD13",
           "Domains/README",
@@ -90488,7 +90488,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-06-23T20:04:02-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -97234,7 +97234,7 @@
         "title": "PR-084 — Governance gate between intent and execution that enforces context discipline, observability, redaction, and state control.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD02",
           "Domains/CD06",
@@ -97481,7 +97481,7 @@
         "title": "PR-085 — Output governance – a system can have INPUT governance (quality gates) but lack OUTPUT governance (orphan pruning), accumulating refactor residue: backups, dead code, stale plan docs, spectral scripts, divergent learning logs, stale base-sets, and IDs declared without content. Root cause: the gate validated letter (Path.exists) not currency (active route). Lesson: the same gate that blocks bad code blocks the leftover junk.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD01",
           "Domains/CD04",
@@ -97714,7 +97714,7 @@
         "title": "PR-088 — Output hygiene and clean root – historical artifacts are reference, not source of truth; when an audit closes the root must be free of operational residue.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD01",
           "Domains/README",
@@ -97912,7 +97912,7 @@
         "title": "PR-092 — Living Golden Standard – preserve pure, agnostic knowledge kept up to date with the lessons from the project and the satellites without mixing it with concrete tools.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD13",
           "Domains/README",
@@ -98110,7 +98110,7 @@
         "title": "PR-096 — Canonical ingestion of lessons – normalize, deduplicate, and record new satellite lessons before incorporating them into the central knowledge.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD13",
           "Domains/README",
@@ -98308,7 +98308,7 @@
         "title": "PR-097 — Execution and tooling hygiene – prefer simple commands, declarative edits, UTF-8, auditable evidence, and elevated permissions only as an exception; temporary helpers must disappear unless they are reusable and documented.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD01",
           "Domains/CD04",
@@ -99863,7 +99863,7 @@
         "title": "PR-081 — Tokencost – upfront token metering and USD conversion to make spend visible before executing an LLM call.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD11",
           "Domains/CD15",
@@ -100081,7 +100081,7 @@
         "title": "PR-087 — Zero debt before advancing – every warning or non-blocking finding is treated as an operational error until fixed or explicitly blocked.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-20T22:29:00-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD06",
           "Domains/README",
@@ -100257,7 +100257,7 @@
         "title": "PR-094 — DOC_ONLY honesty – if a lesson is not falsifiable by a physical gate, it must be labeled DOC_ONLY instead of simulating automatic coverage.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD10",
           "Domains/README",
@@ -100564,7 +100564,7 @@
         "title": "PR-083 — Litellm – provider-agnostic gateway with routing, fallback, cost tracking, guardrails, logging, and load balancing.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD05",
           "Domains/CD11",
@@ -100698,7 +100698,7 @@
         "title": "PR-091 — Real-time vigilance – observe signals, costs, and deviations during execution, not only in the post-mortem.",
         "kind": "principle",
         "created": "2026-06-16T19:36:48-06:00",
-        "promoted": "2026-06-17T15:52:40-06:00",
+        "promoted": "2026-06-30T17:12:08-06:00",
         "outgoing": [
           "Domains/CD15",
           "Domains/README",
