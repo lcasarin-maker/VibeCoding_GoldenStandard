@@ -1,6 +1,6 @@
 # Principles
 
-The 116 principles are first-class governance rules. Some are doctrinal, some are operational, but all are treated as reusable knowledge instead of ad-hoc commentary.
+The 121 principles are first-class governance rules. Some are doctrinal, some are operational, but all are treated as reusable knowledge instead of ad-hoc commentary.
 
 ---
 
@@ -122,6 +122,11 @@ The 116 principles are first-class governance rules. Some are doctrinal, some ar
 | [[Principles/PR-114|PR-114]] | Equivalent-effect substitution: absence of the canonical path is a constraint, not a dead end. When the standard installation path for a tool is unavailable, identify the effect required and achieve it through an available alternative. Origin: RTK hook unavailable on Windows; CC PreToolUse Bash matcher achieves identical enforcement. Session 2026-06-21. | doctrinal |
 | [[Principles/PR-115|PR-115]] | External Tool Attribution: every evaluated tool must be cataloged with source URL, license, and verdict in knowledge/external_tools.md before adoption or rejection. Credit to original authors is non-negotiable. Origin: Session 2026-06-23. | doctrinal |
 | [[Principles/PR-116|PR-116]] | Audit Result Trichotomy: every audit check must produce exactly one of three explicit outcomes: finding, clean, or could-not-verify (CNV). CNV is not clean — a check that cannot run must never silently appear as PASS. | doctrinal |
+| [[Principles/PR-117|PR-117]] | Deliberate Shortcut Disclosure — every intentional simplification must name its ceiling and its upgrade trigger | doctrinal |
+| [[Principles/PR-118|PR-118]] | Anti-Shell Mandate — use atomic file tools; never shell write commands | doctrinal |
+| [[Principles/PR-119|PR-119]] | Pre-Success Empirical Gate — no success declaration without evidence | doctrinal |
+| [[Principles/PR-120|PR-120]] | Debt Tax Ceiling — cap code output per turn; run Simplicity Pass after | doctrinal |
+| [[Principles/PR-121|PR-121]] | Escalation Protocol — stop and escalate when confidence falls below 70% | doctrinal |
 
 ---
 

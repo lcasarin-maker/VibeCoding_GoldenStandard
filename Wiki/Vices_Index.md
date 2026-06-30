@@ -93,6 +93,9 @@ This index classifies the Golden Standard vices into VC and VT. Tokenomics lives
 *   [[Vices/VC-086|VC-086]] — **No backlog entry, no work** (AUDITED, high, downstream:required)
 *   [[Vices/VC-087|VC-087]] — **Self-polluting tooling (scratch written into the tracked working tree)** (PREVENTED, high, downstream:none)
 *   [[Vices/VC-088|VC-088]] — **Execution before plan (planless agent)** (DOC_ONLY, high, downstream:required)
+*   [[Vices/VC-089|VC-089]] — **Addition when deletion suffices** (DOC_ONLY, medium, downstream:required)
+*   [[Vices/VC-090|VC-090]] — **Premature abstraction (YAGNI interface)** (DOC_ONLY, medium, downstream:required)
+*   [[Vices/VC-091|VC-091]] — **Unnecessary dependency introduction** (DOC_ONLY, medium, downstream:required)
 
 ## Testing & Evaluation (TV)
 *   [[Vices/VT-001|VT-001]] — **Hardcoded return** (PREVENTED, high, downstream:none)

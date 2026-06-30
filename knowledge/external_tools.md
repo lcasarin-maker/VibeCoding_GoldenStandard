@@ -53,6 +53,46 @@ Updated per PR-115 — every entry requires: source URL, license, verdict, and o
 - **Origin session:** 2026-06-23
 - **Rationale:** Native CC skill (`/token-optimizer`). Audits 7 token waste signals, tracks cache preservation. Install: `git clone https://github.com/alexgreensh/token-optimizer.git ~/.claude/token-optimizer && ln -s ~/.claude/token-optimizer/skills/token-optimizer ~/.claude/skills/token-optimizer`
 
+### [caveman](https://github.com/JuliusBrussee/caveman)
+- **Author/Org:** JuliusBrussee
+- **License:** MIT
+- **Verdict:** adopted
+- **Used in:** both
+- **Origin session:** 2026-06-26
+- **Rationale:** Adds a compressed-response mode and a local skill/command hub for token-efficient replies while preserving technical detail. Integrated locally via `skills/caveman/caveman-compress.md`, `.claude/commands/caveman-compress.md`, and `.agents/skills/caveman-compress.md`.
+
+### [Ollama](https://github.com/ollama/ollama)
+- **Author/Org:** Ollama
+- **License:** MIT
+- **Verdict:** backlog (planned)
+- **Used in:** CC
+- **Origin session:** 2026-06-27
+- **Rationale:** Local model runtime for the new workstation; provides a clean localhost serving layer for chat and embeddings while keeping the repo off cloud dependencies.
+
+### [Open WebUI](https://github.com/open-webui/open-webui)
+- **Author/Org:** Open WebUI Inc.
+- **License:** BSD-3-Clause
+- **Verdict:** backlog (planned)
+- **Used in:** CC
+- **Origin session:** 2026-06-27
+- **Rationale:** Browser UI for local providers such as Ollama or OpenAI-compatible endpoints; useful as the human-facing surface once the workstation is provisioned.
+
+### [LM Studio](https://lmstudio.ai/)
+- **Author/Org:** Element Labs / LM Studio
+- **License:** Proprietary (free for home and work use)
+- **Verdict:** backlog (evaluated)
+- **Used in:** CC
+- **Origin session:** 2026-06-27
+- **Rationale:** Alternative local desktop/server stack with localhost APIs and OpenAI-compatible endpoints; keep as an evaluated fallback if the Ollama + Open WebUI stack is insufficient.
+
+### [semble](https://github.com/MinishLab/semble)
+- **Author/Org:** MinishLab
+- **License:** MIT
+- **Verdict:** backlog (evaluated)
+- **Used in:** CC
+- **Origin session:** 2026-06-26
+- **Rationale:** CPU-only semantic code search for agents; install and search smoke tests succeeded on Cerberus. Promising backend for D3/D8, but direct integration into the dimensions is still pending.
+
 ### [python-minifier](https://github.com/dflook/python-minifier)
 - **Author/Org:** dflook
 - **License:** MIT
@@ -60,6 +100,56 @@ Updated per PR-115 — every entry requires: source URL, license, verdict, and o
 - **Used in:** CC (scripts/read_minifier_hook.py created but not wired in settings.json)
 - **Origin session:** 2026-06-23
 - **Rationale:** Compresses Python source ~50% preserving semantics. Hook created (EVAL-002) but NOT wired because CC's Read tool uses offset/limit by line — minified 1-line files break partial reads.
+
+## MCP / Retrieval / Evaluation
+
+### [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)
+- **Author/Org:** Model Context Protocol a Series of LF Projects, LLC.
+- **License:** MIT
+- **Verdict:** adopted
+- **Used in:** CC
+- **Origin session:** 2026-06-30
+- **Rationale:** Official SDK provides the standard MCP transport and FastMCP server/runtime primitives, which removes the need for a hand-rolled JSON shim and keeps the wrapper aligned with the current protocol tooling.
+
+### [Context7](https://github.com/upstash/context7)
+- **Author/Org:** Upstash
+- **License:** MIT
+- **Verdict:** adopted
+- **Used in:** CC
+- **Origin session:** 2026-06-30
+- **Rationale:** `ctx7` successfully resolved `anthropic` to `/anthropics/anthropic-sdk-python`, `docs` returned current Anthropic SDK examples, and `ctx7 setup --mcp --claude --project --yes --stdio` wrote the project MCP configuration plus the matching Claude rule/skill. The upstream service remains managed, but the integration is now live and usable.
+
+### [Probe](https://github.com/probelabs/probe)
+- **Author/Org:** Probe Labs
+- **License:** MIT
+- **Verdict:** rejected
+- **Used in:** CC
+- **Origin session:** 2026-06-30
+- **Rationale:** `npx -y @probelabs/probe@latest` worked against `D:\AI\Cerberus`, but representative hook-search queries did not materially beat `semble`, and the result list still surfaced noisy hidden `.secrets` samples. Cerberus keeps `semble` as the default local helper.
+
+### [Serena](https://github.com/oraios/serena)
+- **Author/Org:** Oraios AI
+- **License:** MIT
+- **Verdict:** backlog
+- **Used in:** CC
+- **Origin session:** 2026-06-30
+- **Rationale:** Symbol-level retrieval/editing and MCP integration are a strong fit for future refactors, but the current Cerberus workflow still lacks a concrete adoption point beyond reference value.
+
+### [agent-learning-kit](https://github.com/future-agi/agent-learning-kit)
+- **Author/Org:** Future AGI
+- **License:** Apache-2.0
+- **Verdict:** adopted
+- **Used in:** CC
+- **Origin session:** 2026-06-30
+- **Rationale:** The repo now has a deterministic trajectory/evidence gate (`scripts/agent_learning_kit_evals.py`) that grades inspect/edit/verify runs, fails edit-without-verify trajectories, and is smoke-tested through `scripts/protocol_cli.py agent-evals`.
+
+### [Claude Context](https://github.com/zilliztech/claude-context)
+- **Author/Org:** Zilliz
+- **License:** MIT
+- **Verdict:** rejected
+- **Used in:** CC
+- **Origin session:** 2026-06-30
+- **Rationale:** `npx -y @zilliz/claude-context-mcp@latest --help` confirmed the package and its required provider/Milvus environment. Cerberus does not have an embedding-provider key or Milvus address/token configured, so no meaningful comparison against `semble` is possible in this workspace; the local helper remains the default.
 
 ---
 

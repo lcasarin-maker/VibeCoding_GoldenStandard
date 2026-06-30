@@ -31,6 +31,8 @@ def _cerberus_enforcement() -> dict:
     global _CERBERUS_ENFORCEMENT_CACHE
     if _CERBERUS_ENFORCEMENT_CACHE is None:
         path = _ROOT / "config" / "cerberus_enforcement.json"
+        if not path.exists():
+            path = _ROOT.parent / "Cerberus" / "config" / "cerberus_enforcement.json"
         _CERBERUS_ENFORCEMENT_CACHE = (
             json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
         )

@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.6 | Date: 2026-06-23 | Total Audited Items: 248**
+**Golden Standard V0.6 | Date: 2026-06-30 | Total Audited Items: 355**
 
 This document is generated automatically by `scripts/generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -8,9 +8,9 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 116 | 28 | 88 | 100% |
-| **Vibe Coding** | 88 | 68 | 20 | 100% |
+| **Vibe Coding** | 91 | 68 | 23 | 100% |
 | **Tokenomics & Context** | 34 | 33 | 1 | 100% |
-| **Total** | 248 | 136 | 112 | 100% |
+| **Total** | 355 | 136 | 219 | 100% |
 
 ---
 
@@ -137,7 +137,7 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `VT-115` | False Drift Positive from Line Endings (CRLF/LF Hash Mismatch) | **high** | **REMEDIATED** | `none` | Normalize line endings to a single form before hashing so files identical on disk do not raise a false drift positive across platforms.  | `test_setup_validation` |
 | `VT-116` | Decoy comment satisfies a text-based validator | **high** | **PREVENTED** | `none` | Resolve symbols structurally through the AST so only a real definition node counts; a commented-out or string mention must not satisfy the check.  | `test_planted_def_comment_does_not_resolve` |
 
-### Vibe Coding (88 items)
+### Vibe Coding (91 items)
 
 | ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |
 |---|---|---|---|---|---|---|
@@ -177,12 +177,12 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `VC-034` | Lazy file-not-found | **medium** | **PREVENTED** | `none` | Missing files must fail loud: broken-link validation fails when a referenced markdown or wiki target does not resolve on disk.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-035` | Partial audit called total | **medium** | **PREVENTED** | `none` | An audit may only be reported as total when its mandatory phases ran: completeness analysis fails when required prior-phase evidence is absent, so a partial pass cannot be called total.  | `audit_d2_completeness` |
 | `VC-036` | Direct production access | **medium** | **PREVENTED** | `required` | Static detector `vc095_hardcoded_secret` flags production hosts or credentials in source; keep production access out of code and validate secrets scanning before merge. | `scripts/validate_golden_standard_catalogs.py` |
-| `VC-037` | Code without tests | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
+| `VC-037` | Code without tests | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `d8_test_coverage.py` |
 | `VC-038` | Optimistic config | **medium** | **PREVENTED** | `required` | Hardcoded configuration values that assume a perfect development environment will break in production where the environment differs.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-039` | Ignored infrastructure | **medium** | **PREVENTED** | `none` | Infrastructure is a first-class surface: the audit workflow is a visible, validated file that must run both the generator and the catalog validator, so infra cannot be silently ignored.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-040` | Component omission | **medium** | **PREVENTED** | `none` | Components must be complete: topology validation checks the canonical home, vices, tokenomics, graph, and inbox surfaces, so a missing component fails the gate.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-041` | Phantom setup | **medium** | **PREVENTED** | `none` | Setup must be real, not phantom: inbox topology validation requires the ingestion protocol, knowledge-sources contract, and templates to exist before new findings are accepted.  | `scripts/validate_golden_standard_catalogs.py` |
-| `VC-042` | Implicit permission matrix | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `DOC_ONLY` |
+| `VC-042` | Implicit permission matrix | **medium** | **DOC_ONLY** | `required` | Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY. | `d15_agent_security.py` |
 | `VC-043` | Environmental literal path | **high** | **PREVENTED** | `none` | Filesystem paths must be portable: a scan fails when a hardcoded absolute path (drive letter or home directory) appears in scripts.  | `test_vc109_absolute_path_in_scripts` |
 | `VC-044` | Quota as surprise | **medium** | **PREVENTED** | `none` | Quotas must be visible up front: topology validation requires the tokenomics index to expose its subindices and map before the category is treated as complete.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-045` | Exclusion without prior audit | **medium** | **PREVENTED** | `none` | Static analysis verifies that every active exclusion rule in the ignore file is preceded by an explanatory comment justifying the exclusion in the same block; an unannotated exclusion entry is the rejected signature.  | `audit_d2_completeness` |
@@ -200,15 +200,15 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `VC-057` | Non-externalized retrospective | **high** | **PREVENTED** | `none` | Lessons must be externalized before closure: regeneration plus coverage and retrospective-export checks require every new lesson to reach the catalog or wiki, so closure without a structured export stays incomplete.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-058` | Post-execution suggestion that reopens scope | **medium** | **DOC_ONLY** | `required` | CONTRIBUTING.md now requires a preflight with scope, impacts and out-of-scope follow-ups before execution; post-execution suggestions must be captured in backlog first. | `DOC_ONLY` |
 | `VC-059` | Prompt injection in the agent loop (Prompt Injection) | **critical** | **PREVENTED** | `required` | Static detector `vc059_prompt_injection_in_agent_loop` flags instruction-channel concatenation with untrusted content. | `scripts/validate_golden_standard_catalogs.py` |
-| `VC-060` | Context Poisoning | **high** | **DOC_ONLY** | `required` | Documented; enforcement downstream. Recipe: a verification step before persisting a fact, and re-anchoring in sources of truth when compacting.  | `DOC_ONLY` |
+| `VC-060` | Context Poisoning | **high** | **DOC_ONLY** | `required` | Documented; enforcement downstream. Recipe: a verification step before persisting a fact, and re-anchoring in sources of truth when compacting.  | `d15_agent_security.py` |
 | `VC-061` | Hallucinated dependency (slopsquatting) | **high** | **PREVENTED** | `none` | Declared dependencies must exist in the public registry: a lookup fails when a requirement resolves to not-found, catching hallucinated (slopsquatted) packages.  | `test_pypi_404_is_alucinated_dependency` |
 | `VC-062` | Echo-Chamber Review | **medium** | **DOC_ONLY** | `required` | Documented; enforcement downstream. Recipe: separate generator and reviewer (distinct model/version/context) or add an independent static gate.  | `DOC_ONLY` |
-| `VC-063` | Architectural drift in long sessions (Architecture Drift) | **medium** | **DOC_ONLY** | `required` | Documented; enforcement downstream. Recipe: persistent ADR + post-compaction re-anchoring + coherence check against active decisions.  | `DOC_ONLY` |
+| `VC-063` | Architectural drift in long sessions (Architecture Drift) | **medium** | **DOC_ONLY** | `required` | Documented; enforcement downstream. Recipe: persistent ADR + post-compaction re-anchoring + coherence check against active decisions.  | `d17_knowledge.py` |
 | `VC-064` | Spec Ambiguity Cascade | **medium** | **DOC_ONLY** | `required` | Documented; enforcement downstream. Recipe: confirm the interpretation at branch points before building on it.  | `DOC_ONLY` |
 | `VC-065` | Unhandled tool-call failure in the agent loop | **high** | **PREVENTED** | `required` | Static detector `vc065_unhandled_tool_call_failure` flags tool calls whose result is consumed without verifying success. | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-066` | Multi-agent coordination without a protocol | **high** | **PREVENTED** | `required` | Static detector `vc066_multi_agent_without_protocol` flags concurrent agent edits on the same state without lock or handoff. | `scripts/validate_golden_standard_catalogs.py` |
-| `VC-067` | Use of an obsolete or hallucinated API of a real library | **high** | **DOC_ONLY** | `required` | Documented; enforcement downstream. Distinct from VC-061 (nonexistent package): here the package exists but the symbol does not. Mitigation: up-to-date docs via context7 (PR-110).  | `DOC_ONLY` |
-| `VC-068` | Poisoned or stale persistent memory (cross-session) | **high** | **DOC_ONLY** | `required` | Documented; enforcement downstream. Extends PR-042 (context poisoning) to DURABLE memory across sessions. Mitigation: memory layers like byterover / claude-context-memsearch (PR-111).  | `DOC_ONLY` |
+| `VC-067` | Use of an obsolete or hallucinated API of a real library | **high** | **DOC_ONLY** | `required` | Documented; enforcement downstream. Distinct from VC-061 (nonexistent package): here the package exists but the symbol does not. Mitigation: up-to-date docs via context7 (PR-110).  | `d11_dependency.py` |
+| `VC-068` | Poisoned or stale persistent memory (cross-session) | **high** | **DOC_ONLY** | `required` | Documented; enforcement downstream. Extends PR-042 (context poisoning) to DURABLE memory across sessions. Mitigation: memory layers like byterover / claude-context-memsearch (PR-111).  | `d15_agent_security.py` |
 | `VC-069` | Retrieval (RAG) that feeds wrong context | **medium** | **DOC_ONLY** | `required` | Documented; enforcement downstream. Mitigation: symbol-level retrieval (serena) or code-search MCP (claude-context) (PR-112).  | `DOC_ONLY` |
 | `VC-070` | Generated code insecure by default | **high** | **PREVENTED** | `none` | Generated code must be secure by default: a static-signature detector, exercised against the catalog examples, flags insecure default patterns.  | `scripts/validate_golden_standard_catalogs.py` |
 | `VC-071` | Blind trust in LLM output (Insecure Output Handling) | **high** | **PREVENTED** | `required` | Static detector `vc071_blind_trust_in_llm_output` flags model output that reaches a dangerous sink without sanitization. | `scripts/validate_golden_standard_catalogs.py` |
@@ -226,9 +226,12 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `VC-083` | Envenenamiento de descripciones de herramientas (MCP Tool Poisoning / TP1-TP4) | **high** | **PREVENTED** | `none` | Tool descriptions must be trustworthy: static analysis scans for unicode homoglyphs and poisoned tool-description content.  | `D15AgentSecurity` |
 | `VC-084` | Canonical source first (no sink patching) | **high** | **AUDITED** | `none` | Edit the canonical source or its generator first: hand-patching a derived artifact to mask drift is rejected; derived files must be regenerated from source.  | `test_canonical_source_first_no_sink_patch` |
 | `VC-085` | Doctrine before enforcement (source-first ordering) | **medium** | **AUDITED** | `none` | Doctrine lands before enforcement: the rule must exist in the canonical knowledge base first, with downstream consumers following only after regeneration proves it.  | `test_doctrine_before_enforcement_resolves_refs` |
-| `VC-086` | No backlog entry, no work | **high** | **AUDITED** | `required` | Require a backlog entry before planning or execution; if it is not in the ledger, it does not get worked.  | `DOC_ONLY` |
+| `VC-086` | No backlog entry, no work | **high** | **AUDITED** | `required` | Require a backlog entry before planning or execution; if it is not in the ledger, it does not get worked.  | `runtime-test` |
 | `VC-087` | Self-polluting tooling (scratch written into the tracked working tree) | **high** | **PREVENTED** | `none` | No scratch in the tracked tree: a test or script that creates temp/probe/backup artifacts at a repo-relative path, or whose run leaves untracked non-ignored files, is rejected. Scratch goes to OS temp with guaranteed cleanup; unavoidable residue is gitignored. | `static-regex` |
 | `VC-088` | Execution before plan (planless agent) | **high** | **DOC_ONLY** | `required` | Before touching any file in a task with more than one change: (1) create PLAN.md with numbered steps and acceptance criteria; (2) execute one step at a time; (3) validate each step against PLAN.md before proceeding; (4) delete PLAN.md in the closing commit once all steps are done. Absence of PLAN.md after close = evidence of completion. | `doctrinal` |
+| `VC-089` | Addition when deletion suffices | **medium** | **DOC_ONLY** | `required` | Run the YAGNI check before writing: (1) does this need to exist at all? (2) does removing something existing solve it? Shortest working diff wins. Deletion over addition. Flag any PR where net line count is positive but the root problem was an unused code path.  | `d_complexity.py` |
+| `VC-090` | Premature abstraction (YAGNI interface) | **medium** | **DOC_ONLY** | `required` | Before creating an interface, abstract class, factory, or plugin system: verify there are at least 2 concrete implementations today. One implementation = inline it. One config key with one value = hardcode it. One layer with one caller = delete the layer.  | `static-ast` |
+| `VC-091` | Unnecessary dependency introduction | **medium** | **DOC_ONLY** | `required` | Resolution ladder before any new dependency: (1) does stdlib cover it? (2) does an already-installed package expose this? (3) does a native platform API cover it? Only after all three fail: add dep. Every new dep requires explicit justification in the PR why the ladder was exhausted.  | `d_complexity.py` |
 
 ### Tokenomics & Context (34 items)
 
@@ -391,6 +394,11 @@ These entries are preserved as project-agnostic doctrine and now consumed as fir
 | `PR-114` | Equivalent-effect substitution: absence of the canonical path is a constraint, not a dead end. When the standard installation path for a tool is unavailable, identify the effect required and achieve it through an available alternative. Origin: RTK hook unavailable on Windows; CC PreToolUse Bash matcher achieves identical enforcement. Session 2026-06-21. |
 | `PR-115` | External Tool Attribution: every evaluated tool must be cataloged with source URL, license, and verdict in knowledge/external_tools.md before adoption or rejection. Credit to original authors is non-negotiable. Origin: Session 2026-06-23. |
 | `PR-116` | Audit Result Trichotomy: every audit check must produce exactly one of three explicit outcomes: finding, clean, or could-not-verify (CNV). CNV is not clean — a check that cannot run must never silently appear as PASS. |
+| `PR-117` | Deliberate Shortcut Disclosure — every intentional simplification must name its ceiling and its upgrade trigger |
+| `PR-118` | Anti-Shell Mandate — use atomic file tools; never shell write commands |
+| `PR-119` | Pre-Success Empirical Gate — no success declaration without evidence |
+| `PR-120` | Debt Tax Ceiling — cap code output per turn; run Simplicity Pass after |
+| `PR-121` | Escalation Protocol — stop and escalate when confidence falls below 70% |
 
 ## Principle Recommendations by Canonical Domain
 

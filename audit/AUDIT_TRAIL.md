@@ -1,5 +1,11 @@
 # AUDIT TRAIL
 
+## 2026-06-30
+
+| Session | Agent | Summary |
+|---------|-------|---------|
+| 2026-06-30-001 | Claude | Reconciled the GS catalog contract with the live YAML tree: validator now tolerates the legacy mechanism/downstream labels already present, the README counts were refreshed, and the catalog drift follow-up was closed with a regression test. |
+
 ## 2026-06-22
 
 | Session | Agent | Summary |
@@ -21,3 +27,15 @@
 - GS-034 agnostic framing pass: regenerated the 12 domain pages as `Operational Lens 1..12`, removed the Cerberus-specific public framing, and kept the domain codes only as stable routing labels for the PI links.
 - GS-036 dedup audit: scanned the vice wiki and found exactly 2 merged entries (`VC-028`, `VC-077`) with 0 duplicate titles in the 270-page vice set.
 - GS-037 enum reading cleanup: rewrote the human-facing status reading in README, CONTRIBUTING, and generated Home.md to the self-describing enum (`PROPOSED` / `ENFORCED_EXTERNAL` / `ENFORCED_LOCAL`), then aligned the validator to the new output.
+
+## SYNC [2026-06-30T15:40:00]
+**Archivos integrados:** knowledge/external_tools.md
+**Acción:** agent-learning-kit moved from backlog to adopted after the CC trajectory/evidence eval harness was wired, tested, and exposed through the CLI smoke path.
+
+## SYNC [2026-06-30T16:05:00]
+**Archivos integrados:** knowledge/external_tools.md
+**Acción:** Probe was evaluated directly against the Cerberus repo, but the comparison favored retaining `semble`; the external-tools ledger now marks Probe rejected.
+
+## SYNC [2026-06-30T16:20:00]
+**Archivos integrados:** knowledge/external_tools.md
+**Acción:** Claude Context was evaluated through the official MCP package help output, but rejected for the current workspace because provider credentials and Milvus configuration are absent; the external-tools ledger now records that decision.

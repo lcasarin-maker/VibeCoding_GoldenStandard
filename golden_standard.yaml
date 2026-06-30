@@ -5,6 +5,40 @@ catalogs:
   coding_vices: golden_standard_coding_vices.yaml
   principles: golden_standard_principles.yaml
   structure_principles: golden_standard_structure_principles.yaml
+  adversarial_vectors: golden_standard_adversarial_vectors.yaml
 description: >
   Golden Standard — Pure knowledge repository (agent-agnostic, project-agnostic).
   This repository contains the structured catalogs mapping coding/testing vices, tokenomics, and project insights.
+
+external_metric_mappings:
+  # Source: https://github.com/future-agi/agent-learning-kit (MIT, 108 stars, updated 2026-06-23)
+  # Provides executable eval metrics (local heuristic / LLM-as-judge / Turing cloud)
+  # Usage: pip install fi-evals; from fi.evals import evaluate
+  - source: agent-learning-kit
+    repo: future-agi/agent-learning-kit
+    license: MIT
+    mappings:
+      - metric: faithfulness
+        gs_dimension: D5
+        engine: local|llm (augment=True for semantic paraphrases)
+        adversarial_vector: AV-103
+      - metric: answer_relevancy
+        gs_dimension: D5
+        engine: local
+        adversarial_vector: null
+      - metric: AgentTrajectoryEval (required_tools coverage)
+        gs_dimension: D8
+        engine: local
+        adversarial_vector: AV-102
+      - metric: code_security / SQLInjectionDetector (CWE-89)
+        gs_dimension: D3
+        engine: static-analysis
+        adversarial_vector: AV-100
+      - metric: code_security / HardcodedSecretsDetector (CWE-798)
+        gs_dimension: D3
+        engine: static-analysis
+        adversarial_vector: AV-101
+      - metric: AdversarialModeEvaluator (resistance_rate / security_delta)
+        gs_dimension: D9
+        engine: local+llm
+        adversarial_vector: AV-100
