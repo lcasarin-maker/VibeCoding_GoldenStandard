@@ -19,9 +19,9 @@ WIKI_PRINCIPLES_FILE = ROOT / "Wiki" / "Principles.md"
 ALLOWED_STATUSES = {"DOC_ONLY", "AUDITED", "PREVENTED", "REMEDIATED"}
 ALLOWED_DOWNSTREAM_VERIFICATIONS = {"required", "none"}
 ALLOWED_SEVERITIES = {"critical", "high", "medium", "low"}
-# AX-020: agnostic vocabulary for validating_mechanism. The live catalogs still carry a
-# small set of legacy Cerberus-specific handles, so the validator tolerates them while the
-# catalog rows are migrated. New entries should prefer the agnostic vocabulary below.
+# AX-020: agnostic vocabulary for validating_mechanism. Some live catalogs still carry
+# legacy Cerberus-specific handles, so the validator tolerates them for compatibility.
+# New entries should prefer the agnostic vocabulary below.
 ALLOWED_MECHANISM_TYPES = {
     "static-ast",
     "static-regex",
@@ -999,9 +999,11 @@ def check_graph_connectivity(errors: list[str]) -> None:
 
 
 def report_migration_progress() -> str:
-    """AX-020: count migrated entries (carry enforcement.cerberus) vs Cerberus-coupled legacy
-    entries still pending migration (no enforcement and a non-agnostic validating_mechanism).
-    Informational only; never blocks validation."""
+    """AX-020 progress for the migratable GS catalogs.
+
+    Counts entries that already carry enforcement.cerberus against rows that still use a
+    non-agnostic validating_mechanism. Informational only; never blocks validation.
+    """
     migrated = 0
     remaining = 0
     for catalog in (

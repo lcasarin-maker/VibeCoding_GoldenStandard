@@ -7,7 +7,7 @@ import yaml
 from scripts.validate_golden_standard_catalogs import validate_vices_catalog
 
 
-def test_validator_accepts_current_legacy_contract_values(tmp_path: Path) -> None:
+def test_validator_accepts_tolerated_legacy_contract_values(tmp_path: Path) -> None:
     catalog = {
         "items": [
             {
@@ -15,11 +15,11 @@ def test_validator_accepts_current_legacy_contract_values(tmp_path: Path) -> Non
                 "title": "Legacy mechanism handle",
                 "symptom": "Needs compatibility during migration",
                 "cause": "Historic catalog metadata still references detector handles",
-                "solution": "Keep the catalog readable while the rows are migrated",
+                "solution": "Keep the catalog readable while compatibility labels remain in live content",
                 "status": "DOC_ONLY",
                 "severity": "medium",
                 "tags": ["vibe-coding", "legacy-handle"],
-                "action": "The validator must tolerate legacy mechanism labels already present in the live tree.",
+                "action": "The validator must continue tolerating legacy mechanism labels already present in live catalogs.",
                 "validating_mechanism": "d11_dependency.py",
                 "downstream_verification": "required",
                 "tier": "core",
@@ -29,11 +29,11 @@ def test_validator_accepts_current_legacy_contract_values(tmp_path: Path) -> Non
                 "title": "Legacy downstream contract",
                 "symptom": "Adversarial vector metadata still uses pre-migration labels",
                 "cause": "The catalog has not been fully normalized yet",
-                "solution": "Treat the legacy labels as tolerated until migration completes",
+                "solution": "Treat the legacy labels as tolerated for compatibility with live catalogs",
                 "status": "AUDITED",
                 "severity": "medium",
                 "tags": ["adversarial", "BFS", "k=1"],
-                "action": "Existing live catalog labels remain valid while the migration completes.",
+                "action": "Existing live catalog labels remain valid while compatibility is still required.",
                 "validating_mechanism": "manual-review",
                 "downstream_verification": "pytest",
                 "tier": "core",
