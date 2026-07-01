@@ -18,7 +18,7 @@ def test_validator_accepts_tolerated_legacy_contract_values(tmp_path: Path) -> N
                 "solution": "Keep the catalog readable while compatibility labels remain in live content",
                 "status": "DOC_ONLY",
                 "severity": "medium",
-                "tags": ["vibe-coding", "legacy-handle"],
+                "tags": ["vibe-coding", "compat-handle"],
                 "action": "The validator must continue tolerating legacy mechanism labels already present in live catalogs.",
                 "validating_mechanism": "d11_dependency.py",
                 "downstream_verification": "required",
@@ -27,7 +27,7 @@ def test_validator_accepts_tolerated_legacy_contract_values(tmp_path: Path) -> N
             {
                 "id": "AV-999",
                 "title": "Legacy downstream contract",
-                "symptom": "Adversarial vector metadata still uses pre-migration labels",
+                "symptom": "Adversarial vector metadata still uses compatibility labels",
                 "cause": "The catalog has not been fully normalized yet",
                 "solution": "Treat the legacy labels as tolerated for compatibility with live catalogs",
                 "status": "AUDITED",

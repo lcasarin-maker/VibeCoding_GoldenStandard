@@ -20,7 +20,7 @@ ALLOWED_STATUSES = {"DOC_ONLY", "AUDITED", "PREVENTED", "REMEDIATED"}
 ALLOWED_DOWNSTREAM_VERIFICATIONS = {"required", "none"}
 ALLOWED_SEVERITIES = {"critical", "high", "medium", "low"}
 # AX-020: agnostic vocabulary for validating_mechanism. Some live catalogs still carry
-# legacy Cerberus-specific handles, so the validator tolerates them for compatibility.
+# compatibility-only Cerberus handles, so the validator tolerates them where needed.
 # New entries should prefer the agnostic vocabulary below.
 ALLOWED_MECHANISM_TYPES = {
     "static-ast",
@@ -33,7 +33,7 @@ ALLOWED_MECHANISM_TYPES = {
 # Technical tags in the live catalogs can encode IDs, metrics, and algorithm names.
 # Keep them ASCII-only and token-like, but do not force lowercase slug normalization.
 TAG_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._=+\-]*$")
-LEGACY_MECHANISM_TYPES = {
+TOLERATED_MECHANISM_TYPES = {
     "d8_test_coverage.py",
     "d11_dependency.py",
     "d12_satellite_drift.py",
@@ -46,7 +46,7 @@ LEGACY_MECHANISM_TYPES = {
     "llm-judge",
     "diff-analysis",
 }
-LEGACY_DOWNSTREAM_VERIFICATIONS = {"pytest", "bandit"}
+TOLERATED_DOWNSTREAM_VERIFICATIONS = {"pytest", "bandit"}
 WIKILINK_PATTERN = re.compile(r"\[\[([^\]]+?)\]\]")
 MARKDOWN_LINK_PATTERN = re.compile(r"(?<!\!)\[[^\]]+\]\(([^)]+)\)")
 CATALOG_REQUIRED_FIELDS = (
@@ -195,13 +195,13 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
             )
         elif (
             downstream_verification not in ALLOWED_DOWNSTREAM_VERIFICATIONS
-            and downstream_verification not in LEGACY_DOWNSTREAM_VERIFICATIONS
+            and downstream_verification not in TOLERATED_DOWNSTREAM_VERIFICATIONS
         ):
             errors.append(
                 f"{path}: {item_id or f'item {index}'} has unsupported downstream_verification {downstream_verification}."
             )
         elif status == "DOC_ONLY" and downstream_verification != "required":
-            if downstream_verification not in LEGACY_DOWNSTREAM_VERIFICATIONS:
+            if downstream_verification not in TOLERATED_DOWNSTREAM_VERIFICATIONS:
                 errors.append(
                     f"{path}: {item_id or f'item {index}'} has downstream_verification={downstream_verification} but expected required for status {status}."
                 )
@@ -262,7 +262,7 @@ def validate_vices_catalog(path: Path, errors: list[str], check_wiki: bool) -> N
         # This hard error replaces the previously-tolerated legacy path.
         mechanism_type = str(item.get("validating_mechanism", "")).strip()
         if mechanism_type and mechanism_type not in ALLOWED_MECHANISM_TYPES:
-            if mechanism_type not in LEGACY_MECHANISM_TYPES:
+            if mechanism_type not in TOLERATED_MECHANISM_TYPES:
                 errors.append(
                     f"{path}: {item_id or f'item {index}'} has non-agnostic validating_mechanism "
                     f"{mechanism_type!r}; expected one of {sorted(ALLOWED_MECHANISM_TYPES)}."
@@ -998,8 +998,8 @@ def check_graph_connectivity(errors: list[str]) -> None:
         errors.append(f"graph connectivity: {n['id']} ({n['kind']}) is fully isolated — 0 edges in or out")
 
 
-def report_migration_progress() -> str:
-    """AX-020 progress for the migratable GS catalogs.
+def report_compatibility_progress() -> str:
+    """AX-020 compatibility progress for the migratable GS catalogs.
 
     Counts entries that already carry enforcement.cerberus against rows that still use a
     non-agnostic validating_mechanism. Informational only; never blocks validation.
@@ -1029,7 +1029,7 @@ def report_migration_progress() -> str:
                 migrated += 1
             elif validating_mechanism not in ALLOWED_MECHANISM_TYPES:
                 remaining += 1
-    return f"AX-020 migration: {migrated} migrated / {remaining} CC-coupled remaining"
+    return f"AX-020 compatibility: {migrated} migrated / {remaining} CC-coupled remaining"
 
 
 def parse_args() -> argparse.Namespace:
@@ -1057,7 +1057,7 @@ def main() -> int:
         return 1
 
     print("Golden Standard catalogs validated successfully.")
-    print(report_migration_progress())
+    print(report_compatibility_progress())
     if args.check_wiki:
         print("Wiki coverage verified.")
     return 0
