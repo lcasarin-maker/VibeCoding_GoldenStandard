@@ -1,8 +1,8 @@
 {
-  "total_entries": 241,
+  "total_entries": 242,
   "principles": 121,
   "depth": {
-    "deep": 241,
+    "deep": 242,
     "doctrinal": 0,
     "alias": 0,
     "stub": 0
@@ -10,7 +10,7 @@
   "deep_pct": 100,
   "ai_native": 13,
   "ai_native_pct": 5,
-  "with_evidence": 239,
+  "with_evidence": 240,
   "with_evidence_pct": 99,
   "local_detectors": 34,
   "registered_detectors": 34,

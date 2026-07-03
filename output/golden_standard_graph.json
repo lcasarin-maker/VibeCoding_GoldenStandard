@@ -1,7 +1,7 @@
 {
-  "generated_on": "2026-06-30",
-  "node_count": 507,
-  "edge_count": 2659,
+  "generated_on": "2026-07-03",
+  "node_count": 508,
+  "edge_count": 2666,
   "nodes": [
     {
       "id": ".github/workflows/audit.yml",
@@ -5465,58 +5465,6 @@
       "hub_score": 225
     },
     {
-      "id": "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
-      "path": "Wiki/Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus.md",
-      "title": "Adversarial audit 2026-06-21 (Claude Opus), CoderCerberus",
-      "kind": "wiki",
-      "created": "2026-06-21T17:12:04-06:00",
-      "promoted": "2026-06-21T17:12:04-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-087"
-      ],
-      "incoming": [
-        "Vices/VC-087"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-087",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-087",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
       "id": "Evidence/arxiv2602_00409",
       "path": "Wiki/Evidence/arxiv2602_00409.md",
       "title": "arxiv:2602.00409",
@@ -6947,18 +6895,18 @@
       "hub_score": 15
     },
     {
-      "id": "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
-      "path": "Wiki/Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude.md",
-      "title": "CoderCerberus v0.5 -- multi-agent operation (Codex/Gemini/Claude)",
+      "id": "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
+      "path": "Wiki/Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see.md",
+      "title": "CoderCerberus adversarial audit (internal, cited generically per GS/CC boundary, see Wiki/Evidence)",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
-        "Vices/VC-072"
+        "Vices/VC-087"
       ],
       "incoming": [
-        "Vices/VC-072"
+        "Vices/VC-087"
       ],
       "outgoing_edges": [
         {
@@ -6968,7 +6916,7 @@
           "confidence": 0.85
         },
         {
-          "target": "Vices/VC-072",
+          "target": "Vices/VC-087",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -6976,7 +6924,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Vices/VC-072",
+          "source": "Vices/VC-087",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -6999,17 +6947,19 @@
       "hub_score": 15
     },
     {
-      "id": "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
-      "path": "Wiki/Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8.md",
-      "title": "CoderCerberus v0.5 -- session 2026-06-07 (Claude Opus), commit 6f632b8",
+      "id": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
+      "path": "Wiki/Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s.md",
+      "title": "CoderCerberus production incident (internal, cited generically per GS/CC boundary, see Wiki/Evidence)",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
+        "Vices/VC-072",
         "Vices/VC-073"
       ],
       "incoming": [
+        "Vices/VC-072",
         "Vices/VC-073"
       ],
       "outgoing_edges": [
@@ -7020,6 +6970,12 @@
           "confidence": 0.85
         },
         {
+          "target": "Vices/VC-072",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "target": "Vices/VC-073",
           "kind": "wikilink",
           "relation": "catalogs",
@@ -7028,7 +6984,65 @@
       ],
       "incoming_edges": [
         {
+          "source": "Vices/VC-072",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VC-073",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 2,
+      "out_degree": 3,
+      "degree": 5,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 17
+    },
+    {
+      "id": "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
+      "path": "Wiki/Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev.md",
+      "title": "CoderCerberus self-audit (internal, cited generically per GS/CC boundary, see Wiki/Evidence)",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-092"
+      ],
+      "incoming": [
+        "Vices/VC-092"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-092",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-092",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -9155,12 +9169,12 @@
         "Domains/CD17",
         "Domains/CD18",
         "Domains/README",
-        "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
         "Evidence/arxiv2602_00409",
         "Evidence/arxiv2603_28592",
         "Evidence/byterover-cli_zilliztech_claude-context_verified",
-        "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
-        "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
+        "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
+        "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
+        "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
         "Evidence/context7_upstash_verified",
         "Evidence/debt_registry_e_g_backlog_md_cross-seam_contract",
         "Evidence/debt_registry_e_g_backlog_md_operating_rule",
@@ -9451,6 +9465,7 @@
         "Vices/VC-089",
         "Vices/VC-090",
         "Vices/VC-091",
+        "Vices/VC-092",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -9969,12 +9984,6 @@
           "confidence": 0.95
         },
         {
-          "source": "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
           "source": "Evidence/arxiv2602_00409",
           "kind": "wikilink",
           "relation": "references",
@@ -9993,13 +10002,19 @@
           "confidence": 0.85
         },
         {
-          "source": "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
+          "source": "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
+          "source": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
@@ -11745,6 +11760,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Vices/VC-092",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VT-001",
           "kind": "wikilink",
           "relation": "returns_to_index",
@@ -12447,9 +12468,9 @@
           "confidence": 0.85
         }
       ],
-      "in_degree": 466,
+      "in_degree": 467,
       "out_degree": 13,
-      "degree": 479,
+      "degree": 480,
       "connected_types": [
         "conceptual-framework",
         "domain",
@@ -12469,7 +12490,7 @@
       ],
       "semantic_reach": 8,
       "relation_diversity": 5,
-      "hub_score": 513
+      "hub_score": 514
     },
     {
       "id": "Principles",
@@ -21780,6 +21801,7 @@
         "Vices/VC-089",
         "Vices/VC-090",
         "Vices/VC-091",
+        "Vices/VC-092",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -22507,6 +22529,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Vices/VC-092",
+          "kind": "wikilink",
+          "relation": "governed_by",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VT-001",
           "kind": "wikilink",
           "relation": "governed_by",
@@ -23203,9 +23231,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 212,
+      "in_degree": 213,
       "out_degree": 5,
-      "degree": 217,
+      "degree": 218,
       "connected_types": [
         "domain",
         "principle-index",
@@ -23222,7 +23250,7 @@
       ],
       "semantic_reach": 4,
       "relation_diversity": 6,
-      "hub_score": 241
+      "hub_score": 242
     },
     {
       "id": "Principles/PR-098",
@@ -31012,6 +31040,7 @@
         "Vices/VC-089",
         "Vices/VC-090",
         "Vices/VC-091",
+        "Vices/VC-092",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -32051,6 +32080,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Vices/VC-092",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VT-001",
           "kind": "wikilink",
           "relation": "returns_to_index",
@@ -32747,9 +32782,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 248,
+      "in_degree": 249,
       "out_degree": 21,
-      "degree": 269,
+      "degree": 270,
       "connected_types": [
         "principle",
         "principle-index",
@@ -32765,7 +32800,7 @@
       ],
       "semantic_reach": 5,
       "relation_diversity": 4,
-      "hub_score": 292
+      "hub_score": 293
     },
     {
       "id": "Vices/VC-001",
@@ -36028,7 +36063,7 @@
       "title": "VC-037: Code without tests",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:24:04-06:00",
       "outgoing": [
         "Evidence/arxiv2602_00409",
         "Home",
@@ -36448,7 +36483,7 @@
       "title": "VC-042: Implicit permission matrix",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:24:04-06:00",
       "outgoing": [
         "Evidence/owasp_top_10_for_agents_2026",
         "Home",
@@ -37976,7 +38011,7 @@
       "title": "VC-060: Context Poisoning",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:24:04-06:00",
       "outgoing": [
         "Evidence/humanlayer_ace",
         "Home",
@@ -38235,7 +38270,7 @@
       "title": "VC-063: Architectural drift in long sessions (Architecture Drift)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:24:04-06:00",
       "outgoing": [
         "Evidence/humanlayer_ace",
         "Home",
@@ -38599,7 +38634,7 @@
       "title": "VC-067: Use of an obsolete or hallucinated API of a real library",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:24:04-06:00",
       "outgoing": [
         "Domains/CD12",
         "Evidence/arxiv2603_28592",
@@ -38699,7 +38734,7 @@
       "title": "VC-068: Poisoned or stale persistent memory (cross-session)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:24:04-06:00",
       "outgoing": [
         "Domains/CD17",
         "Evidence/byterover-cli_zilliztech_claude-context_verified",
@@ -39139,19 +39174,19 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
-        "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
+        "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
         "Home",
         "Principles/PR-097",
         "Tokenomics_Map",
         "Vices_Index"
       ],
       "incoming": [
-        "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
+        "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
+          "target": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -39183,7 +39218,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
+          "source": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -39223,19 +39258,19 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
-        "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
+        "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
         "Home",
         "Principles/PR-097",
         "Tokenomics_Map",
         "Vices_Index"
       ],
       "incoming": [
-        "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
+        "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
+          "target": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -39267,7 +39302,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
+          "source": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -40421,7 +40456,7 @@
       "promoted": "2026-06-22T17:48:29-06:00",
       "outgoing": [
         "Detectors/vc087_self_polluting_tooling",
-        "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
+        "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
         "Home",
         "Principles/PR-097",
         "Tokenomics_Map",
@@ -40430,7 +40465,7 @@
       ],
       "incoming": [
         "Detectors/vc087_self_polluting_tooling",
-        "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
+        "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -40441,7 +40476,7 @@
           "confidence": 0.95
         },
         {
-          "target": "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
+          "target": "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -40485,7 +40520,7 @@
           "confidence": 0.95
         },
         {
-          "source": "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
+          "source": "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -40593,7 +40628,7 @@
       "title": "VC-089: Addition when deletion suffices",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:24:04-06:00",
       "outgoing": [
         "Evidence/ponytail_dietrichgebertponytail",
         "Home",
@@ -40761,7 +40796,7 @@
       "title": "VC-091: Unnecessary dependency introduction",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:24:04-06:00",
       "outgoing": [
         "Evidence/ponytail_dietrichgebertponytail",
         "Home",
@@ -40838,6 +40873,90 @@
       "downstream_verification": "required",
       "severity": "medium",
       "cluster": "cluster_1"
+    },
+    {
+      "id": "Vices/VC-092",
+      "path": "Wiki/Vices/VC-092.md",
+      "title": "VC-092: Elif chain measured as deep nesting (AST-depth blind spot)",
+      "kind": "vice",
+      "created": "2026-06-04T19:49:39-06:00",
+      "promoted": "2026-06-15T09:22:49-06:00",
+      "outgoing": [
+        "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
+        "Home",
+        "Principles/PR-097",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
+        "Vices_Index"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-097",
+          "kind": "wikilink",
+          "relation": "governed_by",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics_Map",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices_Index",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "source": "Vices_Index",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 2,
+      "out_degree": 5,
+      "degree": 7,
+      "connected_types": [
+        "principle",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "governed_by",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 19,
+      "status": "PREVENTED",
+      "downstream_verification": "required",
+      "severity": "low",
+      "cluster": "cluster_5"
     },
     {
       "id": "Vices/VT-001",
@@ -50046,6 +50165,7 @@
         "Vices/VC-089",
         "Vices/VC-090",
         "Vices/VC-091",
+        "Vices/VC-092",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -50256,6 +50376,7 @@
         "Vices/VC-089",
         "Vices/VC-090",
         "Vices/VC-091",
+        "Vices/VC-092",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -50922,6 +51043,12 @@
         },
         {
           "target": "Vices/VC-091",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VC-092",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -52177,6 +52304,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Vices/VC-092",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VT-001",
           "kind": "wikilink",
           "relation": "returns_to_index",
@@ -52873,9 +53006,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 208,
-      "out_degree": 208,
-      "degree": 416,
+      "in_degree": 209,
+      "out_degree": 209,
+      "degree": 418,
       "connected_types": [
         "vice",
         "wiki"
@@ -52888,7 +53021,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 4,
-      "hub_score": 430
+      "hub_score": 432
     },
     {
       "id": "docs/badges/ai-native.json",
@@ -53036,7 +53169,7 @@
       "title": "golden_standard_coding_vices.yaml",
       "kind": "catalog",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-26T18:03:33-06:00",
+      "promoted": "2026-06-30T17:24:04-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53136,7 +53269,7 @@
       "title": "golden_standard_audit.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:24:04-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53156,7 +53289,7 @@
       "title": "golden_standard_graph.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T17:24:04-06:00",
       "outgoing": [],
       "incoming": [
         "scripts/analyze_graph.py"
@@ -53819,7 +53952,7 @@
       "title": "validate_golden_standard_catalogs.py",
       "kind": "script",
       "created": "2026-06-04T20:49:32-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T19:41:13-06:00",
       "outgoing": [],
       "incoming": [
         ".github/workflows/audit.yml"
@@ -53921,7 +54054,7 @@
       "title": "test_validate_golden_standard_catalogs.py",
       "kind": "test",
       "created": "2026-06-30T17:12:08-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-06-30T19:41:13-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -55569,20 +55702,6 @@
       "confidence": 0.95
     },
     {
-      "source": "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
-      "target": "Vices/VC-087",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
       "source": "Evidence/arxiv2602_00409",
       "target": "Home",
       "kind": "wikilink",
@@ -55751,29 +55870,50 @@
       "confidence": 0.95
     },
     {
-      "source": "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
+      "source": "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
+      "source": "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
+      "target": "Vices/VC-087",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
       "target": "Vices/VC-072",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
+      "source": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
+      "target": "Vices/VC-073",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
-      "target": "Vices/VC-073",
+      "source": "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
+      "target": "Vices/VC-092",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
@@ -66942,7 +67082,7 @@
     },
     {
       "source": "Vices/VC-072",
-      "target": "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
+      "target": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -66982,7 +67122,7 @@
     },
     {
       "source": "Vices/VC-073",
-      "target": "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
+      "target": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -67566,7 +67706,7 @@
     },
     {
       "source": "Vices/VC-087",
-      "target": "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
+      "target": "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -67763,6 +67903,46 @@
       "relation": "returns_to_index",
       "confidence": 0.95,
       "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-092",
+      "target": "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.2
+    },
+    {
+      "source": "Vices/VC-092",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.2
+    },
+    {
+      "source": "Vices/VC-092",
+      "target": "Principles/PR-097",
+      "kind": "wikilink",
+      "relation": "governed_by",
+      "confidence": 0.95,
+      "weight": 0.2
+    },
+    {
+      "source": "Vices/VC-092",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.2
+    },
+    {
+      "source": "Vices/VC-092",
+      "target": "Vices_Index",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.2
     },
     {
       "source": "Vices/VT-001",
@@ -73138,6 +73318,13 @@
     },
     {
       "source": "Vices_Index",
+      "target": "Vices/VC-092",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Vices_Index",
       "target": "Vices/VT-001",
       "kind": "wikilink",
       "relation": "catalogs",
@@ -73994,26 +74181,26 @@
   "summary": {
     "edge_kinds": {
       "markdown": 6,
-      "wikilink": 2608
+      "wikilink": 2615
     },
     "relation_counts": {
       "bridges": 21,
-      "catalogs": 351,
+      "catalogs": 353,
       "entrypoint": 13,
-      "governed_by": 207,
+      "governed_by": 208,
       "indexes": 122,
       "operationalizes_domain": 105,
       "references": 476,
-      "returns_to_index": 1162,
+      "returns_to_index": 1166,
       "routes_to_domains": 1,
       "subindex": 34,
       "thematic_bridge": 122
     },
-    "reciprocal_pairs": 605,
+    "reciprocal_pairs": 607,
     "average_edge_confidence": 0.933,
-    "semantic_density": 0.011659,
+    "semantic_density": 0.011641,
     "hub_ratio": 1.0,
-    "bridge_ratio": 0.99789,
+    "bridge_ratio": 0.997895,
     "intentional_orphans": [],
     "intentional_orphan_review": [],
     "orphan_candidates": [],
@@ -74094,12 +74281,12 @@
           "Domains/CD17",
           "Domains/CD18",
           "Domains/README",
-          "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
           "Evidence/arxiv2602_00409",
           "Evidence/arxiv2603_28592",
           "Evidence/byterover-cli_zilliztech_claude-context_verified",
-          "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
-          "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
+          "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
+          "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
+          "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
           "Evidence/context7_upstash_verified",
           "Evidence/debt_registry_e_g_backlog_md_cross-seam_contract",
           "Evidence/debt_registry_e_g_backlog_md_operating_rule",
@@ -74390,6 +74577,7 @@
           "Vices/VC-089",
           "Vices/VC-090",
           "Vices/VC-091",
+          "Vices/VC-092",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -74908,12 +75096,6 @@
             "confidence": 0.95
           },
           {
-            "source": "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
-            "kind": "wikilink",
-            "relation": "references",
-            "confidence": 0.85
-          },
-          {
             "source": "Evidence/arxiv2602_00409",
             "kind": "wikilink",
             "relation": "references",
@@ -74932,13 +75114,19 @@
             "confidence": 0.85
           },
           {
-            "source": "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
+            "source": "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
+            "source": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -76684,6 +76872,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-092",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -77386,9 +77580,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 466,
+        "in_degree": 467,
         "out_degree": 13,
-        "degree": 479,
+        "degree": 480,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -77408,7 +77602,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 513
+        "hub_score": 514
       },
       {
         "id": "Vices_Index",
@@ -77510,6 +77704,7 @@
           "Vices/VC-089",
           "Vices/VC-090",
           "Vices/VC-091",
+          "Vices/VC-092",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -77720,6 +77915,7 @@
           "Vices/VC-089",
           "Vices/VC-090",
           "Vices/VC-091",
+          "Vices/VC-092",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -78386,6 +78582,12 @@
           },
           {
             "target": "Vices/VC-091",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-092",
             "kind": "wikilink",
             "relation": "catalogs",
             "confidence": 0.95
@@ -79641,6 +79843,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-092",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -80337,9 +80545,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 208,
-        "out_degree": 208,
-        "degree": 416,
+        "in_degree": 209,
+        "out_degree": 209,
+        "degree": 418,
         "connected_types": [
           "vice",
           "wiki"
@@ -80352,7 +80560,7 @@
         ],
         "semantic_reach": 2,
         "relation_diversity": 4,
-        "hub_score": 430
+        "hub_score": 432
       },
       {
         "id": "Tokenomics_Map",
@@ -80517,6 +80725,7 @@
           "Vices/VC-089",
           "Vices/VC-090",
           "Vices/VC-091",
+          "Vices/VC-092",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -81556,6 +81765,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-092",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -82252,9 +82467,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 248,
+        "in_degree": 249,
         "out_degree": 21,
-        "degree": 269,
+        "degree": 270,
         "connected_types": [
           "principle",
           "principle-index",
@@ -82270,7 +82485,7 @@
         ],
         "semantic_reach": 5,
         "relation_diversity": 4,
-        "hub_score": 292
+        "hub_score": 293
       },
       {
         "id": "Principles",
@@ -84217,6 +84432,7 @@
           "Vices/VC-089",
           "Vices/VC-090",
           "Vices/VC-091",
+          "Vices/VC-092",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -84944,6 +85160,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-092",
+            "kind": "wikilink",
+            "relation": "governed_by",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "governed_by",
@@ -85640,9 +85862,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 212,
+        "in_degree": 213,
         "out_degree": 5,
-        "degree": 217,
+        "degree": 218,
         "connected_types": [
           "domain",
           "principle-index",
@@ -85659,7 +85881,7 @@
         ],
         "semantic_reach": 4,
         "relation_diversity": 6,
-        "hub_score": 241
+        "hub_score": 242
       },
       {
         "id": "Domains/README",
@@ -90558,12 +90780,12 @@
           "Domains/CD17",
           "Domains/CD18",
           "Domains/README",
-          "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
           "Evidence/arxiv2602_00409",
           "Evidence/arxiv2603_28592",
           "Evidence/byterover-cli_zilliztech_claude-context_verified",
-          "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
-          "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
+          "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
+          "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
+          "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
           "Evidence/context7_upstash_verified",
           "Evidence/debt_registry_e_g_backlog_md_cross-seam_contract",
           "Evidence/debt_registry_e_g_backlog_md_operating_rule",
@@ -90854,6 +91076,7 @@
           "Vices/VC-089",
           "Vices/VC-090",
           "Vices/VC-091",
+          "Vices/VC-092",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -91372,12 +91595,6 @@
             "confidence": 0.95
           },
           {
-            "source": "Evidence/adversarial_audit_2026-06-21_claude_opus_codercerberus",
-            "kind": "wikilink",
-            "relation": "references",
-            "confidence": 0.85
-          },
-          {
             "source": "Evidence/arxiv2602_00409",
             "kind": "wikilink",
             "relation": "references",
@@ -91396,13 +91613,19 @@
             "confidence": 0.85
           },
           {
-            "source": "Evidence/codercerberus_v0_5_--_multi-agent_operation_codexgeminiclaude",
+            "source": "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Evidence/codercerberus_v0_5_--_session_2026-06-07_claude_opus_commit_6f632b8",
+            "source": "Evidence/codercerberus_production_incident_internal_cited_generically_per_gscc_boundary_s",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -93148,6 +93371,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-092",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -93850,9 +94079,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 466,
+        "in_degree": 467,
         "out_degree": 13,
-        "degree": 479,
+        "degree": 480,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -93872,7 +94101,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 513
+        "hub_score": 514
       },
       {
         "id": "Tokenomics_Map",
@@ -94037,6 +94266,7 @@
           "Vices/VC-089",
           "Vices/VC-090",
           "Vices/VC-091",
+          "Vices/VC-092",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -95076,6 +95306,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-092",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -95772,9 +96008,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 248,
+        "in_degree": 249,
         "out_degree": 21,
-        "degree": 269,
+        "degree": 270,
         "connected_types": [
           "principle",
           "principle-index",
@@ -95790,7 +96026,7 @@
         ],
         "semantic_reach": 5,
         "relation_diversity": 4,
-        "hub_score": 292
+        "hub_score": 293
       },
       {
         "id": "Domains/README",
@@ -98413,6 +98649,7 @@
           "Vices/VC-089",
           "Vices/VC-090",
           "Vices/VC-091",
+          "Vices/VC-092",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -99140,6 +99377,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-092",
+            "kind": "wikilink",
+            "relation": "governed_by",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "governed_by",
@@ -99836,9 +100079,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 212,
+        "in_degree": 213,
         "out_degree": 5,
-        "degree": 217,
+        "degree": 218,
         "connected_types": [
           "domain",
           "principle-index",
@@ -99855,7 +100098,7 @@
         ],
         "semantic_reach": 4,
         "relation_diversity": 6,
-        "hub_score": 241
+        "hub_score": 242
       },
       {
         "id": "Principles/PR-081",

@@ -763,8 +763,14 @@ def validate_backlog_counts(errors: list[str]) -> None:
 
 def validate_backlog_future_only(errors: list[str]) -> None:
     """Phase 6.4: the BACKLOG is future-only — no DONE rows (closed work lives in
-    git/AUDIT_TRAIL), and deprecated/ must stay empty (history is in tag
-    pre-reset-2026-06-20)."""
+    git/AUDIT_TRAIL).
+
+    deprecated/ is intentionally NOT required to be empty (policy revised 2026-07-03,
+    GS-088/GS-087): GS adopted CC's convention of using deprecated/ as an explicit
+    quarantine for retired-but-historically-useful material, documented in
+    deprecated/README.md. It must at least carry that README so the convention is
+    self-explaining on disk, not merely asserted in this validator.
+    """
     backlog_path = ROOT / "BACKLOG.md"
     if backlog_path.exists():
         done = [
@@ -780,8 +786,10 @@ def validate_backlog_future_only(errors: list[str]) -> None:
     deprecated = ROOT / "deprecated"
     if deprecated.exists():
         files = [str(p.relative_to(ROOT)) for p in deprecated.rglob("*") if p.is_file()]
-        if files:
-            errors.append(f"deprecated/ must be empty (history is in git tag): {files}")
+        if files and not (deprecated / "README.md").exists():
+            errors.append(
+                f"deprecated/ has content but no README.md explaining the convention: {files}"
+            )
 
 
 def validate_wiki_topology(errors: list[str]) -> None:

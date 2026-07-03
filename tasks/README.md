@@ -39,4 +39,4 @@ created: YYYY-MM-DD
 [description or "none"]
 ```
 
-Next available ID: check highest GS-NNN in tasks/ + BACKLOG.md.
+Next available ID: `grep -rh "^id: GS-" tasks/ audit/ | sort -V | tail -1` (no root-level BACKLOG.md exists — fixed 2026-07-01, GS-092).

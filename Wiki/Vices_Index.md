@@ -96,6 +96,7 @@ This index classifies the Golden Standard vices into VC and VT. Tokenomics lives
 *   [[Vices/VC-089|VC-089]] — **Addition when deletion suffices** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-090|VC-090]] — **Premature abstraction (YAGNI interface)** (DOC_ONLY, medium, downstream:required)
 *   [[Vices/VC-091|VC-091]] — **Unnecessary dependency introduction** (DOC_ONLY, medium, downstream:required)
+*   [[Vices/VC-092|VC-092]] — **Elif chain measured as deep nesting (AST-depth blind spot)** (PREVENTED, low, downstream:required)
 
 ## Testing & Evaluation (TV)
 *   [[Vices/VT-001|VT-001]] — **Hardcoded return** (PREVENTED, high, downstream:none)

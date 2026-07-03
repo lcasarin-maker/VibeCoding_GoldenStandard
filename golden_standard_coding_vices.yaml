@@ -56,6 +56,16 @@ items:
     claim: recurring anti-pattern of AI-generated code, present in 80-100% of the analyzed projects.
   tier: specialist
   test_ref: scripts/detectors.py::vc005_untracked_prototype
+  rationalizations:
+  - excuse: It's just a prototype, I'll clean it up later.
+    rebuttal: 'There is no separate "later" queue: an untracked prototype has no owner,
+      no expiration, and no ticket, so "later" never arrives (that''s the vice itself,
+      not an exception to it). Add owner+expires+ticket now or it silently becomes
+      permanent debt.'
+  - excuse: It's too small to bother tracking.
+    rebuttal: Size doesn't determine whether debt compounds; the absence of an
+      expiration boundary does. A one-line hack with no exit date is exactly
+      what vc005_untracked_prototype exists to catch.
 - id: VC-003
   detector: vc003_incomprehensible_code
   title: Incomprehensible code
@@ -2545,7 +2555,7 @@ items:
 
     '
   evidence:
-  - source: CoderCerberus v0.5 -- multi-agent operation (Codex/Gemini/Claude)
+  - source: CoderCerberus production incident (internal, cited generically per GS/CC boundary, see Wiki/Evidence)
     claim: Context loss between agent handoffs wastes tokens and causes drift; a mandatory fresh handoff prevents it.
   tier: core
   test_ref: tool:pytest
@@ -2586,7 +2596,7 @@ items:
 
     '
   evidence:
-  - source: CoderCerberus v0.5 -- session 2026-06-07 (Claude Opus), commit 6f632b8
+  - source: CoderCerberus production incident (internal, cited generically per GS/CC boundary, see Wiki/Evidence)
     claim: An agent evaded another's previous changes in selective commits; integrating them and leaving the working tree clean avoids inherited silent debt.
   tier: core
   test_ref: tool:pytest
@@ -3004,7 +3014,7 @@ items:
   example_good: 'with tempfile.TemporaryDirectory() as d: ...  # scratch in OS temp, guaranteed cleanup'
   detection: 'Source under tests/ or scripts/ contains TemporaryDirectory(dir=<repo-root>), mkdtemp(dir=<repo-root>), or tempfile.tempdir set to a repo path; or running the suite leaves new untracked non-ignored files. Verified by test_no_scratch_in_tree in CC.'
   evidence:
-  - source: Adversarial audit 2026-06-21 (Claude Opus), CoderCerberus
+  - source: CoderCerberus adversarial audit (internal, cited generically per GS/CC boundary, see Wiki/Evidence)
     claim: A test using TemporaryDirectory(dir=ROOT) leaked tmp*/empty.py into the tree on interrupted runs and flipped the D1 integrity gate to REJECTED; it recurred 3 times because prior sessions deleted the zombies instead of fixing the writer.
   tier: core
 
@@ -3135,4 +3145,68 @@ items:
   evidence:
   - source: ponytail (DietrichGebert/ponytail)
     claim: Does an already-installed dependency solve it? Use it. Rung 5 of the YAGNI ladder; new dep only at rung 7.
+  tier: specialist
+- id: VC-092
+  title: Elif chain measured as deep nesting (AST-depth blind spot)
+  symptom: A flat, readable if/elif/elif/.../else dispatch is flagged by a nesting-depth
+    static check as deeply nested, even though no human reviewer would call it that.
+  cause: Python's grammar desugars an if/elif chain into nested ast.If nodes (each elif
+    is an If inside the previous one's orelse), so a naive AST-depth counter measures
+    an N-branch chain as N levels of nesting, conflating flat alternatives with genuine
+    control-flow-inside-control-flow.
+  solution: Replace the elif chain with a dispatch dict (name -> callable); same
+    behavior, ast.If nesting collapses from N to 1, and the metric now agrees with
+    what a human reader already sees.
+  status: PREVENTED
+  severity: low
+  tags:
+  - readability
+  - static-analysis
+  action: >
+    When a nesting/complexity static check fires on an if/elif chain, convert it to a
+    dispatch dict instead of silencing the check or manually nesting helper functions —
+    a mechanical, behavior-preserving fix that satisfies the metric and genuinely
+    simplifies the code.
+  validating_mechanism: static-ast
+  downstream_verification: required
+  example_lang: python
+  example_bad: |
+    def call_tool(self, name, arguments):
+        if name == "check":
+            ...
+        elif name == "sync":
+            ...
+        elif name == "hygiene":
+            ...
+        elif name == "knowledge-query":
+            ...
+        elif name == "adn-coverage":
+            ...
+        elif name == "graph-context":
+            ...
+        elif name == "test-impact":
+            ...
+        else:
+            raise KeyError(name)
+        # ast.If nesting depth = 7 (one per elif) — a nesting gate set at >4 fires here.
+  example_good: |
+    def call_tool(self, name, arguments):
+        dispatch = {
+            "check": lambda: self._capture(self.client.command_check, ...),
+            "sync": lambda: self._capture(self.client.command_sync, ...),
+            "hygiene": lambda: self._capture(self.client.command_hygiene, ...),
+        }
+        if name not in dispatch:
+            raise KeyError(name)
+        return dispatch[name]()
+        # ast.If nesting depth = 1.
+  detection: >
+    AST walk counting nested ast.If/For/While/With/Try/ExceptHandler depth; an elif
+    chain of N branches reports depth N. Detected in CoderCerberus's own
+    scripts/Full_dimensions_audit.py::_max_ast_nesting (D16 Legibility gate).
+  evidence:
+  - source: CoderCerberus self-audit (internal, cited generically per GS/CC boundary, see Wiki/Evidence)
+    claim: A 7-branch elif dispatch in an MCP tool-call handler was flagged as nesting
+      depth 7 by CC's own D16 gate; converting to a dispatch dict resolved the finding
+      with zero behavior change.
   tier: specialist

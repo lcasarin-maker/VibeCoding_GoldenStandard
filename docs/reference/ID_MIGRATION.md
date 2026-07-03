@@ -257,3 +257,20 @@ principles into a single catalog with prefix `PR-`.
 - VT (testing_vices) was already continuous (VT-001..VT-116); no migration needed.
 - Principles combine former VC-doctrinal, TK-doc-only, and PI entries under prefix PR.
 - The `golden_standard_graph.json` and `Wiki/` are regenerated from the new IDs.
+e gap: they were undocumented in this file despite being real, live catalog entries.
+
+| ID | Title |
+|---|---|
+| VC-087 | Self-polluting tooling (scratch written into the tracked working tree) |
+| VC-088 | Execution before plan (planless agent) |
+| VC-089 | Addition when deletion suffices |
+| VC-090 | Premature abstraction (YAGNI interface) |
+| VC-091 | Unnecessary dependency introduction |
+| PR-114 | Equivalent-effect substitution |
+| PR-115 | External Tool Attribution |
+| PR-116 | Audit Result Trichotomy |
+| PR-117 | Deliberate Shortcut Disclosure |
+| PR-118 | Anti-Shell Mandate |
+| PR-119 | Pre-Success Empirical Gate |
+| PR-120 | Debt Tax Ceiling |
+| PR-121 | Escalation Protocol |

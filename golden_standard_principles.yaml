@@ -2434,7 +2434,7 @@ items:
 - id: PR-118
   title: Anti-Shell Mandate — use atomic file tools; never shell write commands
   doctrinal: true
-  catalog_source: CoderCerberus S7
+  catalog_source: Internal agent-governance practice (file-mutation discipline)
   action: >
     All file writes must use atomic Edit/Write tools. Shell file-mutation operations
     (write-redirect, in-place sed, PowerShell file-append cmdlets) are prohibited
@@ -2457,13 +2457,13 @@ items:
   - tooling
   validating_mechanism: DOC_ONLY
   downstream_verification: required
-  notes: Formalizes CC mandate S7. VC-024 covers shell-writes but not the Edit/Write protocol.
+  notes: Formalizes an agent-agnostic file-mutation discipline. VC-024 covers shell-writes but not the Edit/Write protocol.
   tier: core
 
 - id: PR-119
   title: Pre-Success Empirical Gate — no success declaration without evidence
   doctrinal: true
-  catalog_source: CoderCerberus S0 B7
+  catalog_source: Internal agent-governance practice (empirical success gate)
   action: >
     Before declaring a task complete, verify empirically: run the test suite,
     read the actual output, check the audit log. Declaring success without
@@ -2487,13 +2487,13 @@ items:
   - anti-optimism
   validating_mechanism: DOC_ONLY
   downstream_verification: required
-  notes: Formalizes CC mandates S0 and B7. VC-001 covers optimism but not the explicit empirical gate.
+  notes: Formalizes an agent-agnostic empirical success gate. VC-001 covers optimism but not the explicit empirical gate.
   tier: core
 
 - id: PR-120
   title: Debt Tax Ceiling — cap code output per turn; run Simplicity Pass after
   doctrinal: true
-  catalog_source: CoderCerberus S8
+  catalog_source: Internal agent-governance practice (per-turn output ceiling)
   action: >
     Limit net new code to 50 lines per conversation turn. After each change,
     run a Simplicity Pass: ask what can be deleted before declaring the change
@@ -2516,13 +2516,13 @@ items:
   - simplicity
   validating_mechanism: DOC_ONLY
   downstream_verification: required
-  notes: Formalizes CC mandate S8 (Debt Tax). No prior GS PR equivalent.
+  notes: Formalizes an agent-agnostic per-turn output ceiling ("debt tax"). No prior GS PR equivalent.
   tier: extended
 
 - id: PR-121
   title: Escalation Protocol — stop and escalate when confidence falls below 70%
   doctrinal: true
-  catalog_source: CoderCerberus B16
+  catalog_source: Internal agent-governance practice (confidence-based escalation)
   action: >
     When confidence in the correct approach is below 70%, or when two valid
     approaches collide without a clear tiebreaker, STOP and escalate to the
@@ -2545,5 +2545,5 @@ items:
   - escalation
   validating_mechanism: DOC_ONLY
   downstream_verification: required
-  notes: Formalizes CC mandate B16 (Escalation Path). No prior GS PR equivalent.
+  notes: Formalizes an agent-agnostic confidence-based escalation threshold. No prior GS PR equivalent.
   tier: specialist

@@ -1,4 +1,4 @@
-# Adversarial audit 2026-06-21 (Claude Opus), CoderCerberus
+# CoderCerberus adversarial audit (internal, cited generically per GS/CC boundary, see Wiki/Evidence)
 
 > Citable evidence source referenced by 1 entries in the Golden Standard catalog.
 

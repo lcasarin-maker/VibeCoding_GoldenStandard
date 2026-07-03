@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.6 | Date: 2026-06-30 | Total Audited Items: 355**
+**Golden Standard V0.6 | Date: 2026-07-03 | Total Audited Items: 356**
 
 This document is generated automatically by `scripts/generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -8,9 +8,9 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 116 | 28 | 88 | 100% |
-| **Vibe Coding** | 91 | 68 | 23 | 100% |
+| **Vibe Coding** | 92 | 69 | 23 | 100% |
 | **Tokenomics & Context** | 34 | 33 | 1 | 100% |
-| **Total** | 355 | 136 | 219 | 100% |
+| **Total** | 356 | 137 | 219 | 100% |
 
 ---
 
@@ -137,7 +137,7 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `VT-115` | False Drift Positive from Line Endings (CRLF/LF Hash Mismatch) | **high** | **REMEDIATED** | `none` | Normalize line endings to a single form before hashing so files identical on disk do not raise a false drift positive across platforms.  | `test_setup_validation` |
 | `VT-116` | Decoy comment satisfies a text-based validator | **high** | **PREVENTED** | `none` | Resolve symbols structurally through the AST so only a real definition node counts; a commented-out or string mention must not satisfy the check.  | `test_planted_def_comment_does_not_resolve` |
 
-### Vibe Coding (91 items)
+### Vibe Coding (92 items)
 
 | ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |
 |---|---|---|---|---|---|---|
@@ -232,6 +232,7 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `VC-089` | Addition when deletion suffices | **medium** | **DOC_ONLY** | `required` | Run the YAGNI check before writing: (1) does this need to exist at all? (2) does removing something existing solve it? Shortest working diff wins. Deletion over addition. Flag any PR where net line count is positive but the root problem was an unused code path.  | `DOC_ONLY` |
 | `VC-090` | Premature abstraction (YAGNI interface) | **medium** | **DOC_ONLY** | `required` | Before creating an interface, abstract class, factory, or plugin system: verify there are at least 2 concrete implementations today. One implementation = inline it. One config key with one value = hardcode it. One layer with one caller = delete the layer.  | `static-ast` |
 | `VC-091` | Unnecessary dependency introduction | **medium** | **DOC_ONLY** | `required` | Resolution ladder before any new dependency: (1) does stdlib cover it? (2) does an already-installed package expose this? (3) does a native platform API cover it? Only after all three fail: add dep. Every new dep requires explicit justification in the PR why the ladder was exhausted.  | `DOC_ONLY` |
+| `VC-092` | Elif chain measured as deep nesting (AST-depth blind spot) | **low** | **PREVENTED** | `required` | When a nesting/complexity static check fires on an if/elif chain, convert it to a dispatch dict instead of silencing the check or manually nesting helper functions — a mechanical, behavior-preserving fix that satisfies the metric and genuinely simplifies the code.  | `static-ast` |
 
 ### Tokenomics & Context (34 items)
 

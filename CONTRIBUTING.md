@@ -88,7 +88,20 @@ Each entry in the YAML files follows this structure:
     - source: "arxiv:XXXX.XXXXX"
       claim: "What that source actually shows."
   # detector: vcxxx_my_check   # OPTIONAL: add to scripts/detectors.py if statically checkable
+  # rationalizations:          # OPTIONAL: excuse -> rebuttal pairs (see below)
+  #   - excuse: "The excuse an agent/dev gives to justify the vice."
+  #     rebuttal: "Why that excuse doesn't hold, ideally citing another entry/evidence."
 ```
+
+### Optional: Anti-Rationalization Table
+
+`rationalizations` is an optional list of `{excuse, rebuttal}` pairs capturing the
+specific justifications an agent or developer tends to give for committing this vice,
+paired with the concrete rebuttal. Pattern credit: [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
+(see `docs/reference/ATTRIBUTIONS.md` in Cerberus, CC-026). Use it when a vice has a
+recognizable, recurring excuse — it turns the entry into something an agent can check
+its own reasoning against, not just a static-analysis target. Not mandatory: omit it
+for vices with no characteristic excuse (e.g. purely mechanical ones).
 
 A purely behavioral/epistemic principle with no static signature uses `doctrinal: true`
 instead of the depth fields (no fabricated example code).
