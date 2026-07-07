@@ -151,6 +151,78 @@ Updated per PR-115 — every entry requires: source URL, license, verdict, and o
 - **Origin session:** 2026-06-30
 - **Rationale:** `npx -y @zilliz/claude-context-mcp@latest --help` confirmed the package and its required provider/Milvus environment. Cerberus does not have an embedding-provider key or Milvus address/token configured, so no meaningful comparison against `semble` is possible in this workspace; the local helper remains the default.
 
+### [LightRAG](https://github.com/HKUDS/LightRAG)
+- **Author/Org:** HKUDS
+- **License:** MIT
+- **Verdict:** partially adopted (pattern only)
+- **Used in:** CC
+- **Origin session:** 2026-07-04
+- **Rationale:** Evaluated for CC-033 as a possible `semantic_layer.py` upgrade. The dependency/server was rejected because it requires LLM-driven entity/relation extraction, embedding configuration, LightRAG storage backends, and usually a REST API. Its `mix` retrieval pattern was adopted in CC as a deterministic composite route that returns graph, semantic, and literal evidence together without adding LightRAG as a runtime dependency.
+
+### [Obsidian Skills](https://github.com/kepano/obsidian-skills)
+- **Author/Org:** Steph Ango / Kepano
+- **License:** MIT
+- **Verdict:** partially adopted
+- **Used in:** GS
+- **Origin session:** 2026-07-04
+- **Rationale:** Evaluated for CC-034 against the GS Wiki vault. Adopted only the `obsidian-markdown` convention layer as a GS-specific skill under `skills/obsidian-markdown/SKILL.md`; rejected `obsidian-cli`, Bases, Canvas, and Defuddle for this workflow because GS edits are file-based and validated by catalog/wiki/graph checks, not by a running Obsidian app.
+
+### [QMD](https://github.com/tobi/qmd)
+- **Author/Org:** Tobi Lutke / tobi
+- **License:** MIT
+- **Verdict:** partially adopted (pattern only)
+- **Used in:** CC
+- **Origin session:** 2026-07-04
+- **Rationale:** Evaluated for CC-035 on a temporary copy of the GS Wiki. QMD's BM25 and typed `lex:` query behavior ranked canonical ID pages strongly, but vector/hybrid mode required GGUF model embedding and did not finish an intentionally bounded local run. Cerberus adopted the exact-ID ranking lesson in `_score_record` rather than adding QMD as a runtime backend.
+
+### [Spec Kit](https://github.com/github/spec-kit)
+- **Author/Org:** GitHub
+- **License:** MIT
+- **Verdict:** rejected for current scope
+- **Used in:** none
+- **Origin session:** 2026-07-04
+- **Rationale:** Evaluated for CC-036 as an additional front-door for genuinely large new features. Its spec/plan/tasks templates add useful rigor around prioritized user stories, independent tests, constitution checks, and execution phases, but CC already has B10 `PLAN.md` plus a feature spec template, and there was no real large feature in scope to pilot. GS canonical YAML/Wiki structure was explicitly left untouched.
+
+### [GSD Core](https://github.com/open-gsd/gsd-core)
+- **Author/Org:** Open GSD
+- **License:** MIT
+- **Verdict:** rejected for current scope
+- **Used in:** none
+- **Origin session:** 2026-07-04
+- **Rationale:** Evaluated for CC-036 alongside Spec Kit. The phase loop, fresh-context discipline, `.planning/` artifacts, and explicit verification are valuable patterns for large multi-phase builds, but installing GSD Core would add a Node/slash-command workflow and generated `.planning/` surface without a live feature to measure. No GS canon files were changed.
+
+### [ruflo ADR plugin](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-adr)
+- **Author/Org:** ruvnet
+- **License:** MIT
+- **Verdict:** rejected
+- **Used in:** none
+- **Origin session:** 2026-07-04
+- **Rationale:** Evaluated narrowly for CC-037. The ADR lifecycle, relationship vocabulary, index, and compliance-review idea are useful, but the plugin's actual contract depends on `@claude-flow/cli`, AgentDB namespaces (`adr-patterns`, `adr-edges`), and ruflo skill/command infrastructure. CC keeps durable decisions in `DECISIONS.md` and session state in `HANDOFF.md`, so adding the plugin would duplicate existing logs while importing the very platform surface this task excluded.
+
+### [pxpipe](https://github.com/teamchong/pxpipe)
+- **Author/Org:** teamchong
+- **License:** MIT
+- **Verdict:** rejected
+- **Used in:** none
+- **Origin session:** 2026-07-04
+- **Rationale:** Evaluated for CC-038 only on non-critical archived handoff context via npm `pxpipe-proxy@0.8.0` installed under `%TEMP%`. Local render measurements showed large token savings, but the blind visual gist check lost exact operational details and upstream documents lossy exact-string recall with silent confabulation risk. Not adopted for code, audit findings, evidence logging, IDs, hashes, or compliance outputs.
+
+### [OpenWiki](https://github.com/langchain-ai/openwiki)
+- **Author/Org:** LangChain AI
+- **License:** MIT
+- **Verdict:** partial adoption candidate
+- **Used in:** none
+- **Origin session:** 2026-07-07
+- **Rationale:** Evaluated for CC-040. Temp install and `OPENWIKI_DEV=1 --dry-run` confirmed no credentials, no agent invocation, and no writes in dry-run mode. Tarball/runtime inspection shows useful agent-documentation generation, but also write surfaces (`openwiki/`, top-level `AGENTS.md`/`CLAUDE.md`, `~/.openwiki/.env`, SQLite checkpoint, and scheduled docs PRs). Direct unsupervised runs against CC are rejected; a contained wrapper/sandbox pilot is the candidate path.
+
+### [Agent Skills](https://github.com/addyosmani/agent-skills)
+- **Author/Org:** Addy Osmani
+- **License:** MIT
+- **Verdict:** partially adopted (pattern only)
+- **Used in:** GS
+- **Origin session:** 2026-07-07
+- **Rationale:** GS adopted the anti-rationalization table pattern as the optional `rationalizations` field in vice entries, with the field documented in `CONTRIBUTING.md` and demonstrated on VC-002. The full plugin/skill pack was not adopted; only the excuse/rebuttal schema pattern was reused with attribution.
+
 ---
 
 ## JavaScript Minifiers (evaluated, not adopted)

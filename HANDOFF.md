@@ -3,6 +3,38 @@
 
 ---
 
+## SYNC 2026-07-07 (External-tool attribution cleanup)
+
+**NOW**
+- Integrated `langchain-ai/openwiki` as a CC-side partial-adoption candidate in
+  `knowledge/external_tools.md`; direct unsupervised runs remain rejected.
+- Integrated `addyosmani/agent-skills` attribution for the already-present
+  `rationalizations` optional vice field and VC-002 example.
+- Rejected dirty `output/golden_standard_graph.json` churn after inspection:
+  changes were generated `promoted` timestamp noise, not semantic graph changes.
+
+---
+
+## SYNC 2026-07-04 (CC-034 Obsidian Markdown skill)
+
+**NOW**
+- Adopted only the useful slice of `kepano/obsidian-skills`: a GS-specific
+  `skills/obsidian-markdown/SKILL.md` for future edits under `Wiki/`.
+- Rejected `obsidian-cli`, Bases, Canvas, and Defuddle for GS's normal workflow:
+  the Wiki is edited as files and validated by catalog/wiki/graph checks, not by
+  a running Obsidian app.
+- The skill preserves GS conventions: canonical `VC/TK/PR` filenames, explicit
+  `[[path|ID]]` aliases, no manual renames of generated pages, and no new
+  frontmatter on generated catalog pages.
+
+**VERIFY**
+- `python scripts/validate_golden_standard_catalogs.py --check-wiki` -> PASS.
+- `python -m pytest -q` -> 13 passed.
+- CC-side `lint_knowledge.py --wiki-dir D:\AI\VibeCoding_GoldenStandard\Wiki --skip-yaml-validation` -> PASS.
+- CC-side `alignment_checker.py` -> exit 0, with 2 pre-existing advisory WARNs.
+
+---
+
 ## SYNC 2026-07-03 (CC/GS backlog remediation session — GS side)
 
 **NOW**
