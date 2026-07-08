@@ -1,4 +1,4 @@
-# External Tools Catalog
+﻿# External Tools Catalog
 
 Single source of truth for all external tools evaluated, adopted, or rejected in this stack.
 Updated per PR-115 — every entry requires: source URL, license, verdict, and origin session.
@@ -32,10 +32,10 @@ Updated per PR-115 — every entry requires: source URL, license, verdict, and o
 ### [headroom-ai](https://github.com/gglucass/headroom-desktop) / [headroomlabs](https://github.com/headroomlabs-ai/headroom)
 - **Author/Org:** gglucass / headroomlabs-ai
 - **License:** MIT (freemium)
-- **Verdict:** backlog (partial)
+- **Verdict:** partially adopted
 - **Used in:** CC (installed, proxy disabled)
 - **Origin session:** 2026-06-23
-- **Rationale:** Proxy invalidates Anthropic prompt cache (cache-death risk). `headroom audit-reads` and `headroom diff` adopted without proxy (HEADROOM-001, HEADROOM-002). Desktop app macOS-only.
+- **Rationale:** Proxy invalidates Anthropic prompt cache, so the proxy path remains rejected. The useful low-risk slice was retained: `headroom audit-reads` and `headroom diff` are kept as local analysis helpers without turning Headroom into the active runtime compression layer.
 
 ### [LLMLingua](https://github.com/microsoft/LLMLingua)
 - **Author/Org:** Microsoft
@@ -48,10 +48,10 @@ Updated per PR-115 — every entry requires: source URL, license, verdict, and o
 ### [token-optimizer](https://github.com/alexgreensh/token-optimizer)
 - **Author/Org:** alexgreensh
 - **License:** PolyForm Noncommercial 1.0.0 (non-commercial use only)
-- **Verdict:** backlog (pending manual install)
-- **Used in:** CC (pending install — git clone blocked by CC auto-mode classifier)
+- **Verdict:** rejected
+- **Used in:** none
 - **Origin session:** 2026-06-23
-- **Rationale:** Native CC skill (`/token-optimizer`). Audits 7 token waste signals, tracks cache preservation. Install: `git clone https://github.com/alexgreensh/token-optimizer.git ~/.claude/token-optimizer && ln -s ~/.claude/token-optimizer/skills/token-optimizer ~/.claude/skills/token-optimizer`
+- **Rationale:** CC-051 closed the bakeoff without any new adoption. The local compression baseline already won on savings and setup risk, the tool was not present in this workspace, and its non-commercial license adds friction for no measured gain.
 
 ### [caveman](https://github.com/JuliusBrussee/caveman)
 - **Author/Org:** JuliusBrussee
@@ -218,34 +218,34 @@ Updated per PR-115 — every entry requires: source URL, license, verdict, and o
 ### [SkillSpector](https://github.com/NVIDIA/SkillSpector)
 - **Author/Org:** NVIDIA
 - **License:** Apache-2.0
-- **Verdict:** backlog (custody lifecycle)
+- **Verdict:** partially adopted
 - **Used in:** CC vendor sandbox
 - **Origin session:** 2026-07-07
-- **Rationale:** Already vendored under `vendor/SkillSpector` with security scanning assets for malicious skills. CC-045 classified the missing value as lifecycle custody, not another scanner: discovered/draft/approved/rejected/quarantine states with reviewer and reason. Follow-up: `CC-046`.
+- **Rationale:** The upstream scanner remains vendored and CC-046 closed the missing custody layer with a deterministic discovered/draft/approved/rejected/quarantine registry. Cerberus kept the scanner and added governance around activation instead of adopting any broader external workflow.
 
 ### [Hermes Agent Self-Evolution](https://github.com/NousResearch/hermes-agent-self-evolution)
 - **Author/Org:** Nous Research
 - **License:** MIT
-- **Verdict:** backlog (offline evaluation only)
+- **Verdict:** rejected
 - **Used in:** none
 - **Origin session:** 2026-07-07
-- **Rationale:** Upstream describes DSPy+GEPA evolution of skills/prompts/tool descriptions from traces, producing reviewable variants with tests, size limits, semantic preservation, and PR review. CC rejects runtime self-modification; only an offline copied-sandbox spike with human review is acceptable. Follow-up: `CC-048`.
+- **Rationale:** CC-048 rejected direct adoption. The only useful lesson was the offline, reviewable optimization pattern, which Cerberus already keeps through human-reviewed diffs and no runtime self-modification.
 
 ### [Understand Anything](https://github.com/Egonex-AI/Understand-Anything)
 - **Author/Org:** Egonex-AI; originally Lum1104
 - **License:** MIT
-- **Verdict:** backlog (sandbox evaluation)
+- **Verdict:** rejected
 - **Used in:** none
 - **Origin session:** 2026-07-07
-- **Rationale:** Upstream builds interactive code/knowledge graphs for Claude Code, Codex, Cursor, Copilot, Gemini CLI, and others, writing `.understand-anything/knowledge-graph.json` and warning that first runs on large repos can consume significant tokens. CC will compare it against existing graph/CODE_MAP/semantic tooling only in a copied sandbox. Follow-up: `CC-049`.
+- **Rationale:** CC-049 rejected direct adoption after comparing it against Cerberus's internal graph, semantic routing, blast-radius analysis, and dashboard. The onboarding-graph idea was kept as an internal pattern, not as a second generated surface.
 
 ### [DebtLens](https://github.com/ColumbusLabs/DebtLens)
 - **Author/Org:** ColumbusLabs
 - **License:** MIT
-- **Verdict:** backlog (fresh governed-CI evaluation)
-- **Used in:** CC pattern already; actual tool pending
+- **Verdict:** rejected
+- **Used in:** none
 - **Origin session:** 2026-07-07
-- **Rationale:** CC-032 already adopted the baseline/growth gating pattern. Current upstream now documents Python and multi-language rule packs, CI/reporting flows, and maintainability debt detection beyond React/TypeScript, so the actual scanner deserves a new sandbox evaluation instead of relying on the older rejection. Follow-up: `CC-050`.
+- **Rationale:** CC-050 rejected direct adoption. Cerberus already has the meaningful parts of the governance pattern internally: baseline-growth ratcheting, SRP residual tracking, prewrite constraints, and the full audit gates.
 
 ### [Agent Skills](https://github.com/addyosmani/agent-skills)
 - **Author/Org:** Addy Osmani

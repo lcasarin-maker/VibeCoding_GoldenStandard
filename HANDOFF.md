@@ -1,8 +1,19 @@
-# HANDOFF — VibeCoding Golden Standard
+﻿# HANDOFF — VibeCoding Golden Standard
 **Agent:** Claude | **Date:** 2026-06-22 | **Branch:** master
 
 ---
 
+## SYNC 2026-07-08 (GS hygiene cleanup after CC-046..051 closure)
+
+**NOW**
+- Removed stale `done` cards `GS-085`, `GS-086`, and `GS-092` from `tasks/backlog/` so the live GS backlog no longer carries completed work.
+- Updated `knowledge/external_tools.md` to match the closed CC evaluations: `SkillSpector` is now partially adopted, `Hermes Agent Self-Evolution`, `Understand Anything`, `DebtLens`, and `token-optimizer` are rejected, and `headroom` is recorded as partially adopted without proxy activation.
+
+**VERIFY**
+- GS backlog now reflects only live work.
+- External-tool attributions now match the actual CC closure state rather than the pre-evaluation follow-up state.
+
+---
 ## SYNC 2026-07-07 (External-tool attribution cleanup)
 
 **NOW**

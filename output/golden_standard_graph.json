@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-07-04",
+  "generated_on": "2026-07-08",
   "node_count": 508,
   "edge_count": 2666,
   "nodes": [
@@ -9099,7 +9099,7 @@
       "title": "Golden Standard Wiki",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-07-03T13:57:15-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
@@ -26728,7 +26728,7 @@
       "title": "TK-001: Missing checkpoint",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -26841,7 +26841,7 @@
       "title": "TK-002: Chat memory as the primary source",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -26954,7 +26954,7 @@
       "title": "TK-003: Project switch without closure",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -27067,7 +27067,7 @@
       "title": "TK-004: Re-explained setup",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -27293,7 +27293,7 @@
       "title": "TK-006: Manual history merge",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -27406,7 +27406,7 @@
       "title": "TK-007: Duplicated source of truth",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -27519,7 +27519,7 @@
       "title": "TK-008: Empirical memory segregation",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -27632,7 +27632,7 @@
       "title": "TK-009: Exploration tax",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -27745,7 +27745,7 @@
       "title": "TK-010: Bloated tool schemas",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -27851,7 +27851,7 @@
       "title": "TK-011: Giant multi-objective prompt",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -28035,7 +28035,7 @@
       "title": "TK-013: Output constraint",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -28141,7 +28141,7 @@
       "title": "TK-014: Prefilling",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -28247,7 +28247,7 @@
       "title": "TK-015: Example optimization",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -28445,7 +28445,7 @@
       "title": "TK-017: Summary without density",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -28551,7 +28551,7 @@
       "title": "TK-018: Verbose audit output",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -28657,7 +28657,7 @@
       "title": "TK-019: Noisy observability",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -28763,7 +28763,7 @@
       "title": "TK-020: Lexical Compression of Diagnostics",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -28869,7 +28869,7 @@
       "title": "TK-021: Stable context caching",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -28975,7 +28975,7 @@
       "title": "TK-022: Context compaction",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -29081,7 +29081,7 @@
       "title": "TK-023: Cache cliff",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -29187,7 +29187,7 @@
       "title": "TK-024: No headroom",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -29293,7 +29293,7 @@
       "title": "TK-025: Invisible rollback cost",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -29399,7 +29399,7 @@
       "title": "TK-026: Thinking with the execution tool",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -29505,7 +29505,7 @@
       "title": "TK-027: Response without a mode",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -29611,7 +29611,7 @@
       "title": "TK-028: Forgettable manual monitoring",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -29908,7 +29908,7 @@
       "title": "TK-031: Promised savings not measured",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -30000,7 +30000,7 @@
       "title": "TK-032: Invisible quotas",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -30092,7 +30092,7 @@
       "title": "TK-033: Entropy without pruning — input governance without output governance",
       "kind": "tokenomics",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/vexp_dev_humanlayer_ace",
         "Home",
@@ -32892,7 +32892,7 @@
       "title": "VC-002: Prototype turned into debt",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:12:38-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc005_untracked_prototype",
         "Evidence/arxiv2603_28592",
@@ -32997,7 +32997,7 @@
       "title": "VC-003: Incomprehensible code",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc003_incomprehensible_code",
         "Evidence/arxiv2603_28592",
@@ -33186,7 +33186,7 @@
       "title": "VC-005: Premature closure",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc005_premature_closure",
         "Evidence/arxiv2603_28592",
@@ -33291,7 +33291,7 @@
       "title": "VC-006: Non-externalized plan",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -33459,7 +33459,7 @@
       "title": "VC-008: State drift",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -33627,7 +33627,7 @@
       "title": "VC-010: No dry run",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:12:38-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc036_destructive_without_dryrun",
         "Evidence/arxiv2603_28592",
@@ -33732,7 +33732,7 @@
       "title": "VC-011: Blind regeneration",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -34005,7 +34005,7 @@
       "title": "VC-014: Monolithic memory",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -34082,7 +34082,7 @@
       "title": "VC-015: Hallucinated integration",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2602_00409",
         "Home",
@@ -34166,7 +34166,7 @@
       "title": "VC-016: Broken version parity",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc016_broken_version_parity",
         "Evidence/arxiv2603_28592",
@@ -34264,7 +34264,7 @@
       "title": "VC-017: Deadlock without a heartbeat",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc017_deadlock_without_heartbeat",
         "Evidence/arxiv2603_28592",
@@ -34362,7 +34362,7 @@
       "title": "VC-018: Stub as architecture",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:12:38-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc061_constant_stub",
         "Evidence/arxiv2603_28592",
@@ -34537,7 +34537,7 @@
       "title": "VC-020: Lying documentation",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -34614,7 +34614,7 @@
       "title": "VC-021: Late schema",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/mypy_documentation",
         "Home",
@@ -34698,7 +34698,7 @@
       "title": "VC-022: Spatial blindness",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-22T17:48:29-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/mdn_web_docs_css_grid_layout",
         "Home",
@@ -34782,7 +34782,7 @@
       "title": "VC-023: Unmapped dependencies",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -34859,7 +34859,7 @@
       "title": "VC-024: Blind shell manipulation",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:12:38-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc070_blind_shell_edit",
         "Evidence/arxiv2603_28592",
@@ -35139,7 +35139,7 @@
       "title": "VC-027: Permanent placeholder",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc078_placeholder",
         "Evidence/arxiv2603_28592",
@@ -35237,7 +35237,7 @@
       "title": "VC-028: Core dependent on unstable parts",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc028_core_dependent_on_unstable_parts",
         "Evidence/arxiv2603_28592",
@@ -35727,7 +35727,7 @@
       "title": "VC-033: Memory not loaded",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -35804,7 +35804,7 @@
       "title": "VC-034: Lazy file-not-found",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -35958,7 +35958,7 @@
       "title": "VC-036: Direct production access",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:12:38-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc095_hardcoded_secret",
         "Evidence/owasp_top_10_for_agents_2026",
@@ -36147,7 +36147,7 @@
       "title": "VC-038: Optimistic config",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-22T17:48:29-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc038_optimistic_config",
         "Evidence/owasp_top_10_2021_a052021_security_misconfiguration",
@@ -36252,7 +36252,7 @@
       "title": "VC-039: Ignored infrastructure",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -36329,7 +36329,7 @@
       "title": "VC-040: Component omission",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -36406,7 +36406,7 @@
       "title": "VC-041: Phantom setup",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -36665,7 +36665,7 @@
       "title": "VC-044: Quota as surprise",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -36819,7 +36819,7 @@
       "title": "VC-046: Propagation without adoption verification",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -36896,7 +36896,7 @@
       "title": "VC-047: Frozen nomenclature",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc047_frozen_nomenclature",
         "Evidence/arxiv2603_28592",
@@ -36994,7 +36994,7 @@
       "title": "VC-048: Finding without a remediation plan",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -37752,7 +37752,7 @@
       "title": "VC-057: Non-externalized retrospective",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -37906,7 +37906,7 @@
       "title": "VC-059: Prompt injection in the agent loop (Prompt Injection)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc059_prompt_injection_in_agent_loop",
         "Evidence/owasp_top_10_for_agents_2026",
@@ -38431,7 +38431,7 @@
       "title": "VC-065: Unhandled tool-call failure in the agent loop",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc065_unhandled_tool_call_failure",
         "Evidence/owasp_top_10_for_agents_2026",
@@ -38536,7 +38536,7 @@
       "title": "VC-066: Multi-agent coordination without a protocol",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc066_multi_agent_without_protocol",
         "Evidence/arxiv2603_28592",
@@ -38948,7 +38948,7 @@
       "title": "VC-070: Generated code insecure by default",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T00:40:25-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc138_insecure_defaults",
         "Evidence/owasp_top_10_for_agents_2026",
@@ -39067,7 +39067,7 @@
       "title": "VC-071: Blind trust in LLM output (Insecure Output Handling)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
         "Detectors/vc071_blind_trust_in_llm_output",
         "Evidence/owasp_top_10_for_llm_applications",
@@ -53269,7 +53269,7 @@
       "title": "golden_standard_audit.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-07-03T13:57:15-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53289,7 +53289,7 @@
       "title": "golden_standard_graph.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-07-03T13:57:15-06:00",
+      "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [],
       "incoming": [
         "scripts/analyze_graph.py"
@@ -74211,7 +74211,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-07-03T13:57:15-06:00",
+        "promoted": "2026-07-04T13:43:47-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -90710,7 +90710,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-07-03T13:57:15-06:00",
+        "promoted": "2026-07-04T13:43:47-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
