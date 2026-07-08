@@ -210,10 +210,10 @@ Updated per PR-115 — every entry requires: source URL, license, verdict, and o
 ### [OpenWiki](https://github.com/langchain-ai/openwiki)
 - **Author/Org:** LangChain AI
 - **License:** MIT
-- **Verdict:** partial adoption candidate
-- **Used in:** none
+- **Verdict:** partially adopted (wrapper/pattern only)
+- **Used in:** Cerberus containment tooling
 - **Origin session:** 2026-07-07
-- **Rationale:** Evaluated for CC-040. Temp install and `OPENWIKI_DEV=1 --dry-run` confirmed no credentials, no agent invocation, and no writes in dry-run mode. Tarball/runtime inspection shows useful agent-documentation generation, but also write surfaces (`openwiki/`, top-level `AGENTS.md`/`CLAUDE.md`, `~/.openwiki/.env`, SQLite checkpoint, and scheduled docs PRs). Direct unsupervised runs against CC are rejected; a contained wrapper/sandbox pilot is the candidate path.
+- **Rationale:** Evaluated for CC-040 against `openwiki@0.0.2`. Upstream docs/package declare an MIT Node >=20 CLI that writes `openwiki/`, may mutate top-level `AGENTS.md`/`CLAUDE.md`, and stores provider credentials in `~/.openwiki/.env`. CC installed it only under `%TEMP%`, ran sandboxed `--help`, `--dry-run --init --print`, and no-key `--init --print`; the real no-key run failed before generation with zero changed files. Runtime inspection confirmed `LocalShellBackend`, `openwiki/.last-update.json`, agent-prompt mutation instructions, and provider env handling. Direct unsupervised runs against CC are rejected and now shell-audited; only the contained sandbox-report pattern is adopted via `scripts/openwiki_sandbox.py`.
 
 ### [Agent Skills](https://github.com/addyosmani/agent-skills)
 - **Author/Org:** Addy Osmani
