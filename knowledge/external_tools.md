@@ -215,6 +215,38 @@ Updated per PR-115 — every entry requires: source URL, license, verdict, and o
 - **Origin session:** 2026-07-07
 - **Rationale:** Evaluated for CC-040 against `openwiki@0.0.2`. Upstream docs/package declare an MIT Node >=20 CLI that writes `openwiki/`, may mutate top-level `AGENTS.md`/`CLAUDE.md`, and stores provider credentials in `~/.openwiki/.env`. CC installed it only under `%TEMP%`, ran sandboxed `--help`, `--dry-run --init --print`, and no-key `--init --print`; the real no-key run failed before generation with zero changed files. Runtime inspection confirmed `LocalShellBackend`, `openwiki/.last-update.json`, agent-prompt mutation instructions, and provider env handling. Direct unsupervised runs against CC are rejected and now shell-audited; only the contained sandbox-report pattern is adopted via `scripts/openwiki_sandbox.py`.
 
+### [SkillSpector](https://github.com/NVIDIA/SkillSpector)
+- **Author/Org:** NVIDIA
+- **License:** Apache-2.0
+- **Verdict:** backlog (custody lifecycle)
+- **Used in:** CC vendor sandbox
+- **Origin session:** 2026-07-07
+- **Rationale:** Already vendored under `vendor/SkillSpector` with security scanning assets for malicious skills. CC-045 classified the missing value as lifecycle custody, not another scanner: discovered/draft/approved/rejected/quarantine states with reviewer and reason. Follow-up: `CC-046`.
+
+### [Hermes Agent Self-Evolution](https://github.com/NousResearch/hermes-agent-self-evolution)
+- **Author/Org:** Nous Research
+- **License:** MIT
+- **Verdict:** backlog (offline evaluation only)
+- **Used in:** none
+- **Origin session:** 2026-07-07
+- **Rationale:** Upstream describes DSPy+GEPA evolution of skills/prompts/tool descriptions from traces, producing reviewable variants with tests, size limits, semantic preservation, and PR review. CC rejects runtime self-modification; only an offline copied-sandbox spike with human review is acceptable. Follow-up: `CC-048`.
+
+### [Understand Anything](https://github.com/Egonex-AI/Understand-Anything)
+- **Author/Org:** Egonex-AI; originally Lum1104
+- **License:** MIT
+- **Verdict:** backlog (sandbox evaluation)
+- **Used in:** none
+- **Origin session:** 2026-07-07
+- **Rationale:** Upstream builds interactive code/knowledge graphs for Claude Code, Codex, Cursor, Copilot, Gemini CLI, and others, writing `.understand-anything/knowledge-graph.json` and warning that first runs on large repos can consume significant tokens. CC will compare it against existing graph/CODE_MAP/semantic tooling only in a copied sandbox. Follow-up: `CC-049`.
+
+### [DebtLens](https://github.com/ColumbusLabs/DebtLens)
+- **Author/Org:** ColumbusLabs
+- **License:** MIT
+- **Verdict:** backlog (fresh governed-CI evaluation)
+- **Used in:** CC pattern already; actual tool pending
+- **Origin session:** 2026-07-07
+- **Rationale:** CC-032 already adopted the baseline/growth gating pattern. Current upstream now documents Python and multi-language rule packs, CI/reporting flows, and maintainability debt detection beyond React/TypeScript, so the actual scanner deserves a new sandbox evaluation instead of relying on the older rejection. Follow-up: `CC-050`.
+
 ### [Agent Skills](https://github.com/addyosmani/agent-skills)
 - **Author/Org:** Addy Osmani
 - **License:** MIT
