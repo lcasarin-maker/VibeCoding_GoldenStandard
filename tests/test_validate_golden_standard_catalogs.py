@@ -4,7 +4,10 @@ from pathlib import Path
 
 import yaml
 
-from scripts.validate_golden_standard_catalogs import validate_vices_catalog
+from scripts.validate_golden_standard_catalogs import (
+    validate_link_targets,
+    validate_vices_catalog,
+)
 
 
 def test_validator_accepts_tolerated_legacy_contract_values(tmp_path: Path) -> None:
@@ -47,3 +50,14 @@ def test_validator_accepts_tolerated_legacy_contract_values(tmp_path: Path) -> N
     validate_vices_catalog(path, errors, check_wiki=False)
 
     assert errors == []
+
+
+def test_validate_link_targets_reports_missing_source_instead_of_crashing(
+    tmp_path: Path,
+) -> None:
+    missing = tmp_path / "missing.md"
+    errors: list[str] = []
+
+    validate_link_targets(errors, [missing])
+
+    assert errors == [f"Missing markdown source during link validation: {missing}"]

@@ -3,6 +3,19 @@
 
 ---
 
+## SYNC 2026-07-09 (GS graph artifact fence)
+
+**NOW**
+- Classified `Wiki/Graph.md` and `output/golden_standard_graph.json` as generated-only GS graph artifacts, not hand-authored wiki content.
+- Added a local graph-regeneration receipt under `.protocol/metadata/` so `scripts/generate_golden_audit.py` now leaves regeneration evidence when it refreshes those surfaces.
+- Extended `scripts/audit.py` to flag dirty manual edits to those graph artifacts unless a fresh regeneration receipt matches their current bytes.
+- Updated the doctrine in `CONCEPTUAL_FRAMEWORK.md` so the official rule is explicit: regenerate via `python scripts/generate_golden_audit.py`, do not patch graph artifacts by hand.
+
+**VERIFY**
+- Focused GS tests cover receipt recording, tamper detection, and audit surfacing for manual graph edits.
+
+---
+
 ## SYNC 2026-07-08 (GS hygiene cleanup after CC-046..051 closure)
 
 **NOW**

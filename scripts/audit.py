@@ -21,6 +21,11 @@ import sys
 import yaml
 from pathlib import Path
 
+try:
+    from scripts.graph_artifact_policy import format_graph_artifact_audit_errors
+except ImportError:
+    from graph_artifact_policy import format_graph_artifact_audit_errors
+
 _ROOT = Path(__file__).resolve().parent.parent
 
 _ROGUE_GOVERNANCE = {
@@ -122,6 +127,12 @@ def check_sp010(errors: list[str]) -> None:
                    f"{f.name} is an unexpected .md at root — move to knowledge/ or docs/", errors)
 
 
+def check_generated_graph_artifacts(errors: list[str]) -> None:
+    """Flag dirty manual patches to generated GS graph artifacts."""
+
+    errors.extend(format_graph_artifact_audit_errors(_ROOT))
+
+
 def main() -> int:
     errors: list[str] = []
 
@@ -132,6 +143,7 @@ def main() -> int:
     check_sp007(errors)
     check_sp009(errors)
     check_sp010(errors)
+    check_generated_graph_artifacts(errors)
 
     if errors:
         for err in errors:

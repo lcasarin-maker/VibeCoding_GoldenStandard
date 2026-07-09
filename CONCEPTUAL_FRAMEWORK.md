@@ -106,6 +106,7 @@ To keep that graph useful instead of decorative:
 - zero-degree live nodes should be treated as suspicious unless they are intentional templates or deprecated artifacts;
 - hub pages deserve first review when a catalog changes, because they carry the largest impact surface;
 - graph exports are evidence artifacts, not just visualization output;
+- `Wiki/Graph.md` and `output/golden_standard_graph.json` are generated-only evidence artifacts; regenerate them through `scripts/generate_golden_audit.py` instead of patching them manually;
 - intentional isolation must be explicit, not accidental.
 - canonical domain pages are semantic graph hubs, not decorative indexes.
 

@@ -9100,7 +9100,13 @@
     "detector": "",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": []
+    "related_prs": [],
+    "enforcement": {
+      "cerberus": {
+        "dimension": "D16",
+        "mechanism": "test_vc092_call_tool_uses_dispatch_table"
+      }
+    }
   },
   "SP-001": {
     "id": "SP-001",

@@ -500,6 +500,9 @@ def resolve_wiki_link_target(source_path: Path, raw_target: str) -> Path | None:
 
 def validate_link_targets(errors: list[str], sources: list[Path]) -> None:
     for path in sources:
+        if not path.exists():
+            errors.append(f"Missing markdown source during link validation: {path}")
+            continue
         content = path.read_text(encoding="utf-8")
 
         for raw_target in WIKILINK_PATTERN.findall(content):

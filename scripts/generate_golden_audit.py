@@ -15,6 +15,11 @@ from datetime import date
 from pathlib import Path
 import yaml
 
+try:
+    from scripts.graph_artifact_policy import record_graph_regeneration
+except ImportError:
+    from graph_artifact_policy import record_graph_regeneration
+
 _ROOT = Path(__file__).resolve().parent.parent
 
 _CERBERUS_ENFORCEMENT_CACHE: dict | None = None
@@ -2479,6 +2484,11 @@ Nodes that link to more than one page type. They are useful for navigating impac
 [[Home|Back to Home]]
 """
     GRAPH_MARKDOWN.write_text(graph_md, encoding="utf-8")
+    record_graph_regeneration(
+        _ROOT,
+        "python scripts/generate_golden_audit.py",
+        [GRAPH_OUTPUT, GRAPH_MARKDOWN],
+    )
     print(
         f"Successfully generated Golden Standard graph at {GRAPH_OUTPUT} and {GRAPH_MARKDOWN}"
     )

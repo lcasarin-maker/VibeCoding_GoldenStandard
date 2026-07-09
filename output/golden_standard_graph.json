@@ -1,7 +1,7 @@
 {
-  "generated_on": "2026-07-08",
-  "node_count": 508,
-  "edge_count": 2666,
+  "generated_on": "2026-07-09",
+  "node_count": 510,
+  "edge_count": 2668,
   "nodes": [
     {
       "id": ".github/workflows/audit.yml",
@@ -9099,7 +9099,7 @@
       "title": "Golden Standard Wiki",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-07-04T13:43:47-06:00",
+      "promoted": "2026-07-08T08:11:31-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
@@ -53289,7 +53289,7 @@
       "title": "golden_standard_graph.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-07-04T13:43:47-06:00",
+      "promoted": "2026-07-08T08:11:31-06:00",
       "outgoing": [],
       "incoming": [
         "scripts/analyze_graph.py"
@@ -53392,11 +53392,20 @@
       "kind": "script",
       "created": "2026-06-22T16:18:56-06:00",
       "promoted": "2026-06-22T17:17:58-06:00",
-      "outgoing": [],
+      "outgoing": [
+        "scripts/graph_artifact_policy.py"
+      ],
       "incoming": [
         ".github/workflows/audit.yml"
       ],
-      "outgoing_edges": [],
+      "outgoing_edges": [
+        {
+          "target": "scripts/graph_artifact_policy.py",
+          "kind": "file",
+          "relation": "imports",
+          "confidence": 1.0
+        }
+      ],
       "incoming_edges": [
         {
           "source": ".github/workflows/audit.yml",
@@ -53406,15 +53415,16 @@
         }
       ],
       "in_degree": 1,
-      "out_degree": 0,
-      "degree": 1,
+      "out_degree": 1,
+      "degree": 2,
       "relation_types": [
+        "imports",
         "runs"
       ],
       "connected_types": [],
       "semantic_reach": 0,
-      "relation_diversity": 1,
-      "hub_score": 3
+      "relation_diversity": 2,
+      "hub_score": 6
     },
     {
       "id": "scripts/check_backlog_sync.py",
@@ -53751,6 +53761,7 @@
       "created": "2026-06-22T15:20:59-06:00",
       "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
+        "scripts/graph_artifact_policy.py",
         "scripts/metrics.py"
       ],
       "incoming": [
@@ -53758,6 +53769,12 @@
         "tests/test_graph_navigation.py"
       ],
       "outgoing_edges": [
+        {
+          "target": "scripts/graph_artifact_policy.py",
+          "kind": "file",
+          "relation": "imports",
+          "confidence": 1.0
+        },
         {
           "target": "scripts/metrics.py",
           "kind": "file",
@@ -53780,8 +53797,8 @@
         }
       ],
       "in_degree": 2,
-      "out_degree": 1,
-      "degree": 3,
+      "out_degree": 2,
+      "degree": 4,
       "relation_types": [
         "imports",
         "runs"
@@ -53789,7 +53806,45 @@
       "connected_types": [],
       "semantic_reach": 0,
       "relation_diversity": 2,
-      "hub_score": 7
+      "hub_score": 8
+    },
+    {
+      "id": "scripts/graph_artifact_policy.py",
+      "path": "scripts/graph_artifact_policy.py",
+      "title": "graph_artifact_policy.py",
+      "kind": "script",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [
+        "scripts/audit.py",
+        "scripts/generate_golden_audit.py"
+      ],
+      "outgoing_edges": [],
+      "incoming_edges": [
+        {
+          "source": "scripts/audit.py",
+          "kind": "file",
+          "relation": "imports",
+          "confidence": 1.0
+        },
+        {
+          "source": "scripts/generate_golden_audit.py",
+          "kind": "file",
+          "relation": "imports",
+          "confidence": 1.0
+        }
+      ],
+      "in_degree": 2,
+      "out_degree": 0,
+      "degree": 2,
+      "relation_types": [
+        "imports"
+      ],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 1,
+      "hub_score": 4
     },
     {
       "id": "scripts/gs_lint.py",
@@ -53976,6 +54031,26 @@
       "semantic_reach": 0,
       "relation_diversity": 1,
       "hub_score": 3
+    },
+    {
+      "id": "tests/test_graph_artifact_policy.py",
+      "path": "tests/test_graph_artifact_policy.py",
+      "title": "test_graph_artifact_policy.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
     },
     {
       "id": "tests/test_graph_navigation.py",
@@ -74143,6 +74218,20 @@
       "confidence": 1.0
     },
     {
+      "source": "scripts/audit.py",
+      "target": "scripts/graph_artifact_policy.py",
+      "kind": "file",
+      "relation": "imports",
+      "confidence": 1.0
+    },
+    {
+      "source": "scripts/generate_golden_audit.py",
+      "target": "scripts/graph_artifact_policy.py",
+      "kind": "file",
+      "relation": "imports",
+      "confidence": 1.0
+    },
+    {
       "source": "scripts/generate_golden_audit.py",
       "target": "scripts/metrics.py",
       "kind": "file",
@@ -74211,7 +74300,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-07-04T13:43:47-06:00",
+        "promoted": "2026-07-08T08:11:31-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -90710,7 +90799,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-07-04T13:43:47-06:00",
+        "promoted": "2026-07-08T08:11:31-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
