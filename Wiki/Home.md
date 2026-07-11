@@ -43,8 +43,8 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 
 | Reading | Entries | Meaning |
 |---|---:|---|
-| `PROPOSED` | 111 | The entry is documented or audited, but no enforcing implementation exists in the catalog flow. |
-| `ENFORCED_EXTERNAL` | 119 | The guard exists in a downstream enforcing project. |
+| `PROPOSED` | 109 | The entry is documented or audited, but no enforcing implementation exists in the catalog flow. |
+| `ENFORCED_EXTERNAL` | 121 | The guard exists in a downstream enforcing project. |
 | `ENFORCED_LOCAL` | 12 | The guard or remediation is enforced in this repository. |
 | `Total` | 242 | Sum of the VC, VT, and TK entries audited by the compiler. |
 

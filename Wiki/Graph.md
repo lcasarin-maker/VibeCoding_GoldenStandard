@@ -49,22 +49,22 @@ The graph now also highlights entries that remain mainly documentary. This does 
 
 | Catalog | VC DOC_ONLY | VT DOC_ONLY | TK DOC_ONLY |
 |---|---:|---:|---:|
-| `DOC_ONLY` | 18 | 0 | 1 |
+| `DOC_ONLY` | 22 | 86 | 1 |
 
 | ID | Title | Category | Severity | Status |
 |---|---|---|---|---|
 | `SP-002` | No material fact in chat | `Structure Principle` | `critical` | `DOC_ONLY` |
-| `SP-005` | Session close is mandatory | `Structure Principle` | `high` | `DOC_ONLY` |
-| `VC-060` | Context Poisoning | `Vibe Coding` | `high` | `DOC_ONLY` |
-| `VC-067` | Use of an obsolete or hallucinated API of a real library | `Vibe Coding` | `high` | `DOC_ONLY` |
-| `VC-068` | Poisoned or stale persistent memory (cross-session) | `Vibe Coding` | `high` | `DOC_ONLY` |
-| `VC-088` | Execution before plan (planless agent) | `Vibe Coding` | `high` | `DOC_ONLY` |
-| `SP-008` | Agent self-certifies task completion | `Structure Principle` | `medium` | `DOC_ONLY` |
-| `TK-030` | Non-integrated external tools | `Tokenomics & Context` | `medium` | `DOC_ONLY` |
-| `VC-007` | Non-surgical scope | `Vibe Coding` | `medium` | `DOC_ONLY` |
-| `VC-009` | Full rewrite | `Vibe Coding` | `medium` | `DOC_ONLY` |
-| `VC-022` | Spatial blindness | `Vibe Coding` | `medium` | `DOC_ONLY` |
-| `VC-037` | Code without tests | `Vibe Coding` | `medium` | `DOC_ONLY` |
+| `AV-001` | Empty collection input | `Other` | `high` | `DOC_ONLY` |
+| `AV-002` | Empty and whitespace-only string | `Other` | `high` | `DOC_ONLY` |
+| `AV-003` | Single-element collection | `Other` | `high` | `DOC_ONLY` |
+| `AV-004` | All-equal elements | `Other` | `high` | `DOC_ONLY` |
+| `AV-006` | Zero-value parameter (k=0, n=0, d=0) | `Other` | `high` | `DOC_ONLY` |
+| `AV-007` | Integer overflow and INT32 clamping | `Other` | `high` | `DOC_ONLY` |
+| `AV-010` | Duplicate values in input | `Other` | `high` | `DOC_ONLY` |
+| `AV-014` | k equals or exceeds collection size | `Other` | `high` | `DOC_ONLY` |
+| `AV-016` | Variable shadowing in nested scopes | `Other` | `high` | `DOC_ONLY` |
+| `AV-017` | All-same elements in turbulent/mountain subarray | `Other` | `high` | `DOC_ONLY` |
+| `AV-018` | Graph with no edges (isolated nodes) | `Other` | `high` | `DOC_ONLY` |
 
 ---
 
@@ -79,13 +79,13 @@ This ranking combines severity with graph centrality, semantic reach, and downst
 | `VC-068` | Poisoned or stale persistent memory (cross-session) | `high` | `64` | deg=10, types=3, rels=4, consumer-check |
 | `VC-067` | Use of an obsolete or hallucinated API of a real library | `high` | `63` | deg=9, types=3, rels=4, consumer-check |
 | `VC-060` | Context Poisoning | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
+| `VC-084` | Canonical source first (no sink patching) | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
+| `VC-086` | No backlog entry, no work | `high` | `56` | deg=7, types=2, rels=3, consumer-check |
 | `VC-088` | Execution before plan (planless agent) | `high` | `54` | deg=5, types=2, rels=3, consumer-check |
 | `VC-069` | Retrieval (RAG) that feeds wrong context | `medium` | `49` | deg=10, types=3, rels=4, consumer-check |
 | `TK-030` | Non-integrated external tools | `medium` | `48` | deg=9, types=3, rels=4, consumer-check |
 | `SP-008` | Agent self-certifies task completion | `medium` | `44` | deg=7, types=3, rels=3, consumer-check |
 | `VC-007` | Non-surgical scope | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
-| `VC-009` | Full rewrite | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
-| `VC-022` | Spatial blindness | `medium` | `41` | deg=7, types=2, rels=3, consumer-check |
 
 ---
 
@@ -109,8 +109,8 @@ GS explicitly distinguishes which entries expect downstream verification and whi
 
 | Status | VC | VT | TK |
 |---|---:|---:|---:|
-| `required` | 41 | 0 | 1 |
-| `none` | 51 | 116 | 33 |
+| `required` | 44 | 86 | 1 |
+| `none` | 48 | 30 | 33 |
 
 | ID | Title | Category | Downstream Verification |
 |---|---|---|---|

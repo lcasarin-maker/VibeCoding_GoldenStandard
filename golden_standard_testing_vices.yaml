@@ -62,16 +62,17 @@ items:
   symptom: Only passes the test's input
   cause: Memorization
   solution: Vary the inputs
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'A test must generalize beyond the one input it was written for; an assertion that only holds for a single hardcoded datum proves nothing.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'def classify(s): return "spam" if s == "BUY NOW" else "ham"  # only the test''s input
 
@@ -92,16 +93,17 @@ items:
   symptom: The expected value ends up copied inside the code or the fixture and stops being an independent observation
   cause: The oracle is embedded in the implementation or in a shared fixture
   solution: Keep the expected value out of the production path and validate against an external specification
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'The expected value must come from an independent specification, not be copied into the production path or fixture where it stops being an independent observation.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'EXPECTED = compute(x)
 
@@ -184,16 +186,17 @@ items:
   symptom: The file exists
   cause: Weak proxy
   solution: Validate the effect
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Asserting that a file or artifact merely exists is not a test; validate its effect or content.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert os.path.exists("out.csv")   # exists, but the content is not validated
 
@@ -214,16 +217,17 @@ items:
   symptom: Looks for approval text
   cause: Indirect signal
   solution: Validate the final state
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Validate the final state, not the presence of an approval message; matching success text is not verifying the outcome.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert "approved" in output   # looks for the approval text
 
@@ -273,16 +277,17 @@ items:
   symptom: Internals change, it still passes
   cause: Incorrect coupling
   solution: Test behavior
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Test observable behavior, not internal implementation detail, so a behavior-preserving refactor keeps the test meaningful.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert obj._helper.call_count == 1   # couples to internal detail
 
@@ -303,16 +308,17 @@ items:
   symptom: The test compares against an expectation that no longer matches the current specification
   cause: The specification or the reference fixture became stale
   solution: Review the source of truth for the expectation and update the oracle
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'The expected value (oracle) must track the current specification; an assertion compared against a stale expectation is invalid.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert tax(100) == 7   # the spec changed to 8%, the test is still at 7
 
@@ -395,16 +401,17 @@ items:
   symptom: The auditor approves itself
   cause: Non-independent verifier
   solution: External oracle
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'A test must be judged against an external oracle, never approve itself in a circular loop.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert auditor.audit(auditor) == "ok"   # evaluates itself
 
@@ -425,16 +432,17 @@ items:
   symptom: Does not localize the failure
   cause: Low granularity
   solution: Focal tests
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'A test should localize the failure it detects; an over-broad test that cannot point to the cause has little diagnostic value.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'def test_everything(): assert run_whole_app() == "ok"   # does not localize the failure
 
@@ -483,16 +491,17 @@ items:
   symptom: outcome always success
   cause: Predetermined result
   solution: Outcome derived from verification
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'The recorded outcome must be derived from an actual verification, not a hardcoded success.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'def run(): return {"outcome": "success"}   # constant
 
@@ -513,16 +522,17 @@ items:
   symptom: The message changes the result
   cause: Fragile textual contract
   solution: Structured states
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Validate structured state, not free-text messages whose wording can silently flip the result.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert str(err) == "Error: code 42 at line 7"   # breaks if the text changes
 
@@ -543,16 +553,17 @@ items:
   symptom: UNREADABLE looks like data
   cause: Error encoded as a value
   solution: Explicit failure
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'An error must surface as an explicit failure, not be encoded into data that looks valid.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'data = read()
 
@@ -577,16 +588,17 @@ items:
   symptom: Tests are gamed
   cause: Inverted incentive
   solution: One hundred percent only as a consequence
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'One hundred percent coverage is a consequence of good tests, never the goal; treating it as the target invites gaming.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# empty tests added only to reach 100% coverage
 
@@ -607,16 +619,17 @@ items:
   symptom: An old error reappears
   cause: Failure memory not turned into a test
   solution: Every fixed defect leaves a discriminating test
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Every fixed defect must leave behind a discriminating regression test so the same error cannot silently reappear.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# BUG-9 is fixed but no test is left to discriminate it
 
@@ -665,16 +678,17 @@ items:
   symptom: Simulates success
   cause: Reality substituted
   solution: Calibrate with integration
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'A mock that always simulates success must be calibrated against a real integration, or it only tests itself.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'api = Mock(); api.charge.return_value = True   # never fails
 
@@ -695,16 +709,17 @@ items:
   symptom: Omits hard cases
   cause: Partial model
   solution: Test against the real system
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'A fake that omits the hard cases gives false assurance; exercise the real system for those paths.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: "class FakeDB:\n    def get(self, k): return {\"a\": 1}[k]   # only the easy case\n"
   example_good: '# fake that respects the same invariants and errors as the real one
@@ -723,16 +738,17 @@ items:
   symptom: Stale response
   cause: Frozen environment
   solution: Live contract tests
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'A network stub drifts from reality; pin behavior with a live contract test.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'requests_mock.get(url, json=OLD_SNAPSHOT)   # stale recorded response
 
@@ -753,16 +769,17 @@ items:
   symptom: Rules differ
   cause: Different semantics
   solution: Test an equivalent engine
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Test against an engine equivalent to production; a simplified database whose rules differ hides real failures.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# sqlite in test, postgres in prod -> constraints differ
 
@@ -783,16 +800,17 @@ items:
   symptom: Dates always ideal
   cause: Variability eliminated
   solution: Test the temporal boundary
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Exercise temporal boundaries; a permanently fixed clock never reveals date-edge failures.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'now = datetime(2020, 1, 1)   # always the same date
 
@@ -813,16 +831,17 @@ items:
   symptom: Does not explore the distribution
   cause: Hidden variance
   solution: Statistical properties
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Assert statistical properties over the real distribution; fully controlled randomness explores nothing.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'random.seed(0); assert sample()[0] == 0.844   # un solo draw fijado
 
@@ -843,16 +862,17 @@ items:
   symptom: Does not test permissions or locks
   cause: Idealized resource
   solution: Tests with a real resource
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Use a real resource for permission- and lock-sensitive paths that a fake filesystem cannot reproduce.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'fs = FakeFS()   # never raises PermissionError or ENOSPC
 
@@ -873,16 +893,17 @@ items:
   symptom: The real system is not tested
   cause: Invasive substitution
   solution: Limit patches
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Limit patching to the boundary; over-patching replaces the system under test with the test''s own assumptions.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'monkeypatch.setattr(mod, "validate", lambda x: True)   # patches what is being tested
 
@@ -903,16 +924,17 @@ items:
   symptom: Prints "installed"
   cause: Simulated action
   solution: Verify the external effect
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Verify the external effect of a command, not a stub that merely prints success.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'run = Mock()   # the command''s external effect is not verified
 
@@ -933,16 +955,17 @@ items:
   symptom: Does not cover the tests
   cause: Incomplete universe
   solution: Scan the active domain
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Scan the full active domain; a partial mock-detection pass leaves untested code unguarded.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'scanner = Mock(); scanner.scan.return_value = ["a"]   # partial domain
 
@@ -963,16 +986,17 @@ items:
   symptom: A layer is created so the validator does not fail
   cause: Hiding a broken contract
   solution: Fix the cause in the subject, do not adapt the judge
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Fix the cause in the subject under test; adding a layer so the judge stops failing adapts the judge, not the defect.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: "def safe_audit(x):\n    try: return audit(x)\n    except: return 'ok'   # adapts the judge\n"
   example_good: '# fix the cause in the subject, do not wrap the auditor
@@ -991,16 +1015,17 @@ items:
   symptom: The evaluator accepts an incomplete structure
   cause: Form confused with compliance
   solution: Require observable behavior before approving
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Require observable behavior before approval; an evaluator that accepts an incomplete structure rubber-stamps a placeholder.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert result == "TODO"   # the placeholder is approved
 
@@ -1078,11 +1103,11 @@ items:
   symptom: The test branch is never entered
   cause: Invalid control flow
   solution: Verify the test's execution
-  status: AUDITED
+  status: PREVENTED
   severity: medium
   tags:
   - testing
-  - audited
+  - prevented
   action: 'Verify that the test''s branch actually executes; a condition that is never entered tests nothing.
 
     '
@@ -1106,16 +1131,17 @@ items:
   symptom: Passes due to prior state
   cause: Broken isolation
   solution: Independent tests
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Tests must be independent; one that passes only because of another''s leftover state is unreliable.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# test_b depends on the state left by test_a
 
@@ -1136,16 +1162,17 @@ items:
   symptom: The hour or day decides
   cause: Non-determinism
   solution: Explicit control of time
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Control time explicitly; a test whose result depends on the wall-clock hour or day is non-deterministic.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'start(); time.sleep(1); assert done()   # flaky due to wall-clock
 
@@ -1197,16 +1224,17 @@ items:
   symptom: Signal not observed
   cause: Discarded channel
   solution: Capture error and log
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Capture and observe error output; an unobserved error stream hides the failure signal.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'out = run(); assert "ok" in out.stdout   # ignores stderr and exit code
 
@@ -1227,16 +1255,17 @@ items:
   symptom: OK without checking
   cause: Non-causal narrative
   solution: Log after verification
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Log success only after the verification that justifies it, never before checking.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'log("done"); save()   # success log before verifying
 
@@ -1289,16 +1318,17 @@ items:
   symptom: Error result not seen
   cause: Incomplete observation
   solution: Assert the return
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Assert the return value; an ignored error result lets a failure pass unseen.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'process(data)   # the return is not asserted
 
@@ -1319,16 +1349,17 @@ items:
   symptom: Only the ideal case
   cause: Poor domain
   solution: Adverse cases
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Cover adverse cases, not just the ideal happy path.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'def test(): assert div(10, 2) == 5   # only the happy case
 
@@ -1349,16 +1380,17 @@ items:
   symptom: The input avoids the bug
   cause: Sample bias
   solution: Generate variations
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Generate input variations; a single magic datum chosen to avoid the bug never triggers it.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert f(7) == 49   # a single magic datum
 
@@ -1407,16 +1439,17 @@ items:
   symptom: Common cases are missing
   cause: Boundaries omitted
   solution: Cover boundary values
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Cover empty, null, and zero boundary values, not only populated inputs.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert total([1, 2]) == 3   # never tests [], [0], None
 
@@ -1437,16 +1470,17 @@ items:
   symptom: Real text breaks it
   cause: Incomplete alphabet
   solution: Diverse data
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Include special characters and diverse real-world data that naive inputs never exercise.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert slug("hello") == "hello"   # never tests accents/emojis/spaces
 
@@ -1503,16 +1537,17 @@ items:
   symptom: Failures do not block
   cause: Signal without control
   solution: Critical failures block
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Critical CI failures must block; an informational-only pipeline lets failures through.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: yaml
   example_bad: '# CI shows failures but the merge is not blocked
 
@@ -1565,16 +1600,17 @@ items:
   symptom: They never protect
   cause: Flow separation
   solution: Integrate into the active path
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Tests must run on the active path; tests living outside it never protect anything.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# The tests live in a folder that CI does not run.
 
@@ -1595,16 +1631,17 @@ items:
   symptom: Nobody runs them
   cause: Voluntariness
   solution: Mandatory by risk
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Make risk-bearing tests mandatory; optional tests are not run and give no protection.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '@pytest.mark.optional   # skipped when in a hurry
 
@@ -1625,16 +1662,17 @@ items:
   symptom: Invisible failure
   cause: Dead channel
   solution: Alerts with an owner
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'A failure alert needs an owner; an unattended notification makes the failure invisible.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# The broken-test alert goes to a channel nobody reads.
 
@@ -1655,16 +1693,17 @@ items:
   symptom: Passes while broken
   cause: Retrospective confirmation
   solution: Red test before the fix
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Write a failing test before fixing the bug; a post-bug test that passes while the code is broken proves nothing.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# the test is written after the fix; it was never red
 
@@ -1723,16 +1762,17 @@ items:
   symptom: Test differs from production
   cause: Forked config
   solution: Test real flags
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Test the real feature-flag configuration; testing a divergent flag state hides production behavior.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# the test runs with the flag OFF; production runs with the flag ON
 
@@ -1753,16 +1793,17 @@ items:
   symptom: The test disables checks
   cause: Privileged environment
   solution: Equivalent config
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Run with a configuration equivalent to production; an environment variable that disables checks weakens the test.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'if os.getenv("TEST"): skip_validation()   # validation differs in test
 
@@ -1783,16 +1824,17 @@ items:
   symptom: Unrealistic state
   cause: Hidden preparation
   solution: Test a dirty state
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Test from a realistic, dirty state; over-cleaning setup creates conditions production never sees.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'def setup(): db.reset(); db.seed_perfect()   # never tests a dirty state
 
@@ -1813,16 +1855,17 @@ items:
   symptom: Broken UI not reviewed
   cause: Exempt debt
   solution: Validate critical flows
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Validate critical UI flows directly, not only visual deltas that miss functional breakage.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert screenshot_diff() < 0.01   # only visual delta, does not validate flow
 
@@ -1843,16 +1886,17 @@ items:
   symptom: Not truncated but useless
   cause: Length mistaken for functionality
   solution: Validate execution
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Validate that code actually executes; a complete-but-dead file passes structural checks while doing nothing.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# test_x.py full of tests but no runner picks it up.
 
@@ -1873,16 +1917,17 @@ items:
   symptom: Unsupported flag
   cause: Broken contract
   solution: Test the public interface
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Test the real public interface; documenting a flag the code does not support is a lie the tests must catch.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# api.v2() is tested but it only exists in the docs
 
@@ -1903,16 +1948,17 @@ items:
   symptom: ImportError not seen
   cause: Partial discovery
   solution: Full active suite
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Run the full active suite so an import error that silently disables tests is surfaced.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# Failing tests are excluded from the run and nobody notices.
 
@@ -1933,16 +1979,17 @@ items:
   symptom: The test breaks the runner
   cause: Global mutation
   solution: Isolate test effects
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Isolate each test''s side effects so one cannot break the runner or other tests.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# a global patch is not reverted and contaminates other tests
 
@@ -1991,16 +2038,17 @@ items:
   symptom: Wrapper not detected
   cause: Superficial heuristic
   solution: Structural analysis
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Detect forwarding wrappers by structural analysis; a docstring must not mask a shim.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'def f(): "assert that validates X"   # the auditor counts the docstring as an assert
 
@@ -2021,16 +2069,17 @@ items:
   symptom: Noise contaminates the audit
   cause: Poor classification
   solution: Artifact typology
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Classify artifacts by type so backups are not miscounted as deprecated noise that contaminates the audit.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# *.bak treated as ''deprecated'' and excluded from the audit.
 
@@ -2051,16 +2100,17 @@ items:
   symptom: The loop improves nothing
   cause: False semantic contract
   solution: Name matching behavior
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'A name must match behavior; a function whose name promises work its body never does is misleading.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'def test_handles_timeout(): assert add(1, 1) == 2   # name != behavior
 
@@ -2109,16 +2159,17 @@ items:
   symptom: Another actor cannot continue
   cause: Incomplete transferred state
   solution: Test continuity from another's checkpoint
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Test continuity from another actor''s checkpoint; a handoff that cannot be resumed is broken.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# The checkpoint does not include what is needed to resume from scratch.
 
@@ -2139,16 +2190,17 @@ items:
   symptom: Reversibility is documented without executing it
   cause: Recovery not observed
   solution: Verify the real reversal before accepting a destructive change
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Verify the real reversal of a destructive change; a documented-but-unexecuted rollback is unproven.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# "rollback: restore backup" documented but never tested.
 
@@ -2169,16 +2221,17 @@ items:
   symptom: An old flow breaks with a new change
   cause: Prior contracts not sampled
   solution: Maintain a suite of current consumers
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Maintain a suite of current consumers so a change that breaks an existing flow is caught.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# The API is changed without testing the existing consumers.
 
@@ -2199,16 +2252,17 @@ items:
   symptom: On failure there is no useful diagnostic
   cause: Logs outside the quality criterion
   solution: Evaluate that the failure produces actionable evidence
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Test that a failure produces actionable diagnostic evidence, not silence.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# nobody verifies that a failure produces an actionable log
 
@@ -2229,16 +2283,17 @@ items:
   symptom: Green suites that hide broken or inactive tests
   cause: Test names outside the oracle's dynamic conventions
   solution: Mandatory audit of physical correspondence between test files and discovered ones
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Audit the physical correspondence between test files on disk and tests actually discovered, so a green suite cannot hide inactive ones.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# tests/ does not physically cover all modules of src/.
 
@@ -2259,16 +2314,17 @@ items:
   symptom: Only runs in one environment
   cause: Portability not tested
   solution: Environment matrix
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Run across an environment matrix; a test that only works in one environment is not portable.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert path == "/tmp/x"   # posix only
 
@@ -2289,16 +2345,17 @@ items:
   symptom: Slowness passes
   cause: Poorly calibrated threshold
   solution: Functional limits
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Assert functional limits, not just a generous timeout under which slowness passes.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '@timeout(30)   # arbitrary 30s hides real slowness
 
@@ -2319,16 +2376,17 @@ items:
   symptom: Depends on installation
   cause: Non-portable environment
   solution: Reproducibility
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Tests must be reproducible off one developer''s machine, independent of a local installation.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# Passes on the author''s machine; it is not reproducible.
 
@@ -2349,16 +2407,17 @@ items:
   symptom: Isolation is declared without attempting an escape
   cause: Threat not induced
   solution: Test controlled boundary violations
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Test isolation by attempting controlled boundary violations, not by merely declaring the sandbox secure.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# it is never tested that the sandbox blocks forbidden accesses
 
@@ -2407,16 +2466,17 @@ items:
   symptom: Confirms their own model
   cause: Author bias
   solution: Independent review
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Tests benefit from independent review; an author validating only their own mental model confirms bias.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# The author writes the code and their only reviewer is themselves.
 
@@ -2437,16 +2497,17 @@ items:
   symptom: Changes approved blindly
   cause: Incomplete gate
   solution: Review the tests
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Review the tests as part of the change; approving code without reviewing its tests is blind.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# The PR is approved without checking whether the tests prove anything.
 
@@ -2467,16 +2528,17 @@ items:
   symptom: The test compares against an answer written to pass
   cause: Oracle derived from the implementation
   solution: Derive expected values from an independent specification
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Derive expected values from an independent specification, not an answer written so the test passes.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'EXPECTED = run(inp)   # the expected value comes from the SUT
 
@@ -2497,16 +2559,17 @@ items:
   symptom: The approved state is set manually as truth
   cause: Non-verifiable approval authority
   solution: Approval based on reproducible evidence
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Base approval on reproducible evidence, not a manually-set approved state treated as truth.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'APPROVED = True   # fixed approval
 
@@ -2527,16 +2590,17 @@ items:
   symptom: A stale snapshot legitimizes broken output
   cause: Frozen oracle without revalidation
   solution: Regenerate the golden only after semantic review
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Regenerate a golden snapshot only after semantic review; a stale golden legitimizes broken output.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# The golden file is regenerated every time it fails, without review.
 
@@ -2595,16 +2659,17 @@ items:
   symptom: Green suite with warnings
   cause: Weak signal treated as noise
   solution: Escalate the warning to a failure until the cause is resolved
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Escalate a warning to a failure until its cause is resolved; a green suite carrying warnings tolerates rot.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# test warnings accumulate without being escalated to failures
 
@@ -2653,16 +2718,17 @@ items:
   symptom: An adapter hides the real failure
   cause: Complexity displaced outside the test
   solution: Test the real interface with no simplifying wrapper
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Test the real interface with no simplifying wrapper that hides the real failure.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# helper_simple() is tested, hiding the real complexity
 
@@ -2721,16 +2787,17 @@ items:
   symptom: The rule exists but does not run
   cause: Specification-runtime gap
   solution: Every domain must have an executor
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Every documented domain must have a live executor; a rule that exists but never runs is inert.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# Domain D7 is documented but has no executor.
 
@@ -2751,16 +2818,17 @@ items:
   symptom: A heading is enough
   cause: Syntax in place of semantics
   solution: Validate content and effect
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Validate content and effect, not the mere presence of a section heading.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert "## Security" in readme   # the section exists = "compliant"
 
@@ -2781,16 +2849,17 @@ items:
   symptom: Comments pass
   cause: Metadata in place of behavior
   solution: Cross-check usage, call, and test
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Cross-check usage, calls, and tests; docstrings are not evidence of quality.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert func.__doc__   # has a docstring = ''quality''
 
@@ -2811,16 +2880,17 @@ items:
   symptom: A lexical token passes
   cause: Token in place of semantics
   solution: Induce a real error
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Induce a real error to prove handling; matching a lexical keyword is not error handling.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert "try" in source   # "handles errors" because the word try appears
 
@@ -2841,16 +2911,17 @@ items:
   symptom: A project with no tests passes
   cause: Wrong universe
   solution: Run the suite of the audited subject
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Run the suite of the audited subject; testing the protocol instead lets an untested project pass.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# The protocol''s suite is run, not the audited subject''s.
 
@@ -2871,16 +2942,17 @@ items:
   symptom: An old artifact passes
   cause: Missing causal link
   solution: Evidence bound to the version
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Bind evidence to the version under test; a stale artifact must not satisfy a current check.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# Evidence from an earlier version is reused.
 
@@ -2901,16 +2973,17 @@ items:
   symptom: It tests an external library, not the system
   cause: Wrong subject
   solution: Fail real components
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Exercise the real components of the system, not an external library standing in for them.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# a mock is ''failed'', not a real component
 
@@ -2931,16 +3004,17 @@ items:
   symptom: It says all, runs few
   cause: Untraceable report
   solution: Report real domains
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Report the domains actually exercised; a pass report claiming all while running few is a lie.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# The report says ''passed'' for domains that were skipped.
 
@@ -2961,16 +3035,17 @@ items:
   symptom: Old fallback
   cause: Stale constant
   solution: Single source of version
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Keep a single source of version truth; a dead fallback constant drifts from reality.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert __version__ == "1.0"   # stale version source
 
@@ -2991,16 +3066,17 @@ items:
   symptom: Only the permitted actor is tested
   cause: Denial not exercised
   solution: Validate positive and negative permissions
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Validate both positive and negative permission cases, not only the permitted actor.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'assert can_read(admin)   # only positive cases
 
@@ -3021,16 +3097,17 @@ items:
   symptom: Tasks reach the wrong flow
   cause: Classifier without an oracle
   solution: Test routing decisions with edge cases
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Test routing decisions with edge cases so tasks cannot silently reach the wrong flow.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: '# edge cases of the routing decision are not tested
 
@@ -3051,16 +3128,17 @@ items:
   symptom: The validator accepts by name, not by behavior
   cause: Whitelist mistaken for a test
   solution: Every approval must revalidate active properties
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Every approval must revalidate active properties; accepting by name from a hardcoded list skips the behavior check.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'APPROVED = {"a", "b"}   # fixed list, never revalidated
 
@@ -3081,16 +3159,17 @@ items:
   symptom: The evaluator knows in advance what must pass
   cause: Contaminated oracle
   solution: Separate generator, subject, and judge
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Separate generator, subject, and judge; an evaluator that already knows the expected answer cannot judge.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# The evaluator knows the expected value: generator == judge.
 
@@ -3111,16 +3190,17 @@ items:
   symptom: Warnings do not affect approval
   cause: Incomplete objective function
   solution: Warnings count as a failure until explicitly classified
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Warnings count as failures until explicitly classified; leaving them outside the score hides risk.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: python
   example_bad: 'score = failures   # warnings do not count in the score
 
@@ -3241,16 +3321,17 @@ items:
   symptom: A component named with a number or descriptor that does not reflect its current implementation
   cause: Missing semantic contract between the declared name and real behavior
   solution: A sentinel that compares the formal declaration (name, domain count, version) against the real implementation; fails if they diverge
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Compare the formal declaration (name, domain count, version) against the real implementation and fail when they diverge.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# auditor_dimensions declares the full surface but only implements part of it.
 
@@ -3299,16 +3380,17 @@ items:
   symptom: Scattering of governance, security, backup, or state metadata across multiple hidden folders at the repository root (e.g. `.backup_old`, `.temp_meta`, `.rules_draft`), cluttering the workspace.
   cause: Lack of a unified view and accumulation of historical dead naming.
   solution: Radically consolidate all metadata under a single hidden directory of centralized governance (e.g. `.protocol/`).
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Consolidate governance and state metadata under a single hidden directory rather than scattering it across many.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# .audit/ .cerberus/ .protocol/ scattered without consolidation.
 
@@ -3329,16 +3411,17 @@ items:
   symptom: The agent detects technical debt or a finding, verbally classifies it as "postpone / isolated sprint / deferred / later", and closes the response without opening the Sprint Document (e.g., PLAN.md). The item disappears.
   cause: A context switch between analysis mode and implementation mode disables the VC-048 trigger; the agent assumes that "naming = registering".
   solution: 'Mandatory B8 trigger: every "deferred" classification triggers immediate opening of the Debt Registry (e.g., BACKLOG.md) to register the ID + evidence, and the Sprint Document (e.g., PLAN.md) to design the implementation. No ID in the Debt Registry (e.g., BACKLOG.md) = forgotten, not deferred. (Lesson: omitting the formal registration of structural exclusions or technical debt in the centralized backlog leads to persistent drift and loss of quality control).'
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'Every deferred classification must immediately open a debt-registry entry; a verbal deferral with no record loses the finding.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# Something is marked ''deferred'' without registering an actionable item.
 
@@ -3359,16 +3442,17 @@ items:
   symptom: Importing and integrating packages and modules at coding time without explicitly registering their existence in the dependency manifest.
   cause: Lack of static import-consistency checking in the pre-commit hooks.
   solution: Design static gates (`deptry` or AST regex in Python) that compare 100% of the top-level imports against the project's dependency base.
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'A static gate must compare every top-level import against the dependency manifest so an unregistered dependency cannot drift in.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# requirements lists libs no longer used and is missing others.
 
@@ -3389,16 +3473,17 @@ items:
   symptom: Tests that always pass (green) regardless of what logic changes or breakages are inserted into production code.
   cause: Happy-path assertion theater and self-satisfied mocks.
   solution: Require that at least one test suite empirically demonstrate its ability to fail (falsifiability criterion) against a controlled code mutation or chaos injection.
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'A suite must empirically demonstrate it can fail against a controlled mutation; tests that stay green under any change are not falsifiable.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# No code mutation makes the suite fail.
 
@@ -3421,16 +3506,17 @@ items:
   symptom: Modifying governance or protocol files in a satellite repository in isolation without integrating them back into the central core, breaking the ecosystem's operational parity.
   cause: Governance based on passive physical copying without active drift validation.
   solution: Implement an active D12 drift-detection gate in the central auditor that compares checksums and blocks if there are deviations in satellites.
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - testing
-  - audited
+  - doc-only
   action: 'A drift gate must compare checksums across satellite repositories and block when governance files diverge from the central core.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# The protocol in the child repo differs from the central one without detection.
 

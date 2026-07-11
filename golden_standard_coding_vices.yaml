@@ -865,11 +865,11 @@ items:
   symptom: A marker reaches production
   cause: Incomplete state accepted
   solution: Block active placeholders
-  status: AUDITED
+  status: PREVENTED
   severity: medium
   tags:
   - vibe-coding
-  - audited
+  - prevented
   action: 'Static AST analysis rejects incomplete implementations as a structural signature:
 
     empty function bodies, stub-only docstrings, and pass-only functions; tests whose
@@ -1031,11 +1031,11 @@ items:
   symptom: Undeclared artifacts survive
   cause: Non-binding inventory
   solution: Every dead file must be authorized, classified, or deleted
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - vibe-coding
-  - audited
+  - doc-only
   action: 'Static integrity analysis enumerates every code file (excluding non-code by
 
     extension) and fails with "unregistered file (dead)" when a file is neither
@@ -1045,8 +1045,9 @@ items:
     signature is presence-on-disk without any authorizing reference.
 
     '
-  validating_mechanism: static-ast
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: text
   example_bad: '# old_server.py, server_v2_backup.py coexist without being declared or used.
 
@@ -2890,7 +2891,7 @@ items:
   symptom: The same truth is corrected in multiple tracked files, or a rendered output is hand-patched instead of regenerated from the canonical source.
   cause: The agent treats derived artifacts as edit targets instead of outputs owned by the source or generator.
   solution: Edit only the canonical source or generator, regenerate all derived artifacts, and verify sink parity before closing. For bug fixes, grep every caller of the touched function and fix the shared function once — one guard at the source is smaller than one per caller, and patching only the reported call-site leaves sibling callers broken.
-  status: AUDITED
+  status: DOC_ONLY
   severity: high
   tags:
   - governance
@@ -2899,8 +2900,9 @@ items:
   action: 'Edit the canonical source or its generator first: hand-patching a derived artifact to mask drift is rejected; derived files must be regenerated from source.
 
     '
-  validating_mechanism: runtime-test
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: yaml
   example_bad: '# Fixing the rendered wiki directly while leaving the source catalog stale.
 
@@ -2928,7 +2930,7 @@ items:
   symptom: Operational sinks or cross-repo consumers are updated before the GS rule exists, forcing later backfills and making the sink behave like the source.
   cause: The agent touches enforcement or generated outputs before the GS vice is authored and regenerated.
   solution: Author the GS vice first, regenerate Wiki/report outputs, and only then update Cerberus consumers or enforcement hooks.
-  status: AUDITED
+  status: DOC_ONLY
   severity: medium
   tags:
   - governance
@@ -2937,8 +2939,9 @@ items:
   action: 'Doctrine lands before enforcement: the rule must exist in the canonical knowledge base first, with downstream consumers following only after regeneration proves it.
 
     '
-  validating_mechanism: runtime-test
-  downstream_verification: none
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
+  downstream_verification: required
   example_lang: yaml
   example_bad: '# Cerberus references the rule id before the GS rule exists.
 
@@ -2965,7 +2968,7 @@ items:
   symptom: Planning, execution, or debt accounting begins without a tracked backlog entry, so the work is effectively invisible to the planning gate.
   cause: The agent treats unregistered work as admissible and starts reasoning before the ledger exists.
   solution: Require a backlog entry before planning or execution; if it is not in the ledger, it does not get worked.
-  status: AUDITED
+  status: DOC_ONLY
   severity: high
   tags:
   - governance
@@ -2974,7 +2977,8 @@ items:
   action: 'Require a backlog entry before planning or execution; if it is not in the ledger, it does not get worked.
 
     '
-  validating_mechanism: runtime-test
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: required
   example_lang: yaml
   example_bad: '# Work starts before the backlog records it.

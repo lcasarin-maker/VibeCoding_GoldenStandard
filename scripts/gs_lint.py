@@ -176,6 +176,21 @@ def check_detector_deduplication(root: Path = GS_ROOT) -> list[str]:
     return errors
 
 
+def check_no_audited_statuses(root: Path = GS_ROOT) -> list[str]:
+    """AUDITED is transitional only; every catalog entry must resolve it."""
+    errors = []
+    for path in sorted(root.glob("golden_standard_*.yaml")):
+        try:
+            data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        except yaml.YAMLError as exc:
+            errors.append(f"[HARD] Could not parse {path.name}: {exc}")
+            continue
+        for item in data.get("items", []) or []:
+            if isinstance(item, dict) and str(item.get("status", "")).upper() == "AUDITED":
+                errors.append(f"[HARD] {item.get('id', '?')} in {path.name}: AUDITED is not a terminal status")
+    return errors
+
+
 def main() -> int:
     catalogs = load_catalogs(GS_ROOT)
     if not catalogs:
@@ -194,6 +209,7 @@ def main() -> int:
     hard_errors += check_high_audited_coverage(catalogs)
     hard_errors += check_evidence_classification(catalogs)
     hard_errors += check_detector_deduplication()
+    hard_errors += check_no_audited_statuses()
     soft_warnings += check_orphaned_references(catalogs)
     soft_warnings += check_doc_only_without_justification(catalogs)
 

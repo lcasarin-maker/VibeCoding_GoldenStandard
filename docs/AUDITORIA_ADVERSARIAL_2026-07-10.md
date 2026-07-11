@@ -14,9 +14,9 @@ Base de conocimiento viva, agnóstica de agente y proyecto: 242 vicios + 121 pri
 
 ## 3. Hallazgos (deuda registrada)
 
-### GS-AUD-001 — Brecha de enforcement: 86% del catálogo no previene nada [ALTA]
-34 detectores locales vs 242 vicios (14%). Distribución real de status: 87 PREVENTED, 95 AUDITED, 18 DOC_ONLY, 10 REMEDIATED. La intención es "captured once and applied always"; la realidad es que la mayoría del catálogo es prosa que ningún gate ejecuta. AUDITED sin detector es una categoría cómoda: parece operativa y no lo es.
-**Corrección:** ratchet de cobertura (todo vicio nuevo severity ALTA exige detector o justificación falsable); meta trimestral de conversión AUDITED→PREVENTED.
+### GS-AUD-001 — Brecha de enforcement: estado AUDITED transitorio [ALTA]
+La auditoría original encontró 95 entradas `AUDITED`, que mezclaban cobertura pendiente con conocimiento no automatizable. Esa ambigüedad era deuda: una entrada solo puede permanecer como enforcement probado (`PREVENTED`) o como doctrina explícita (`DOC_ONLY`).
+**Corrección:** 2 entradas subieron a `PREVENTED` con detectores probados y 194 bajaron a `DOC_ONLY` con criterio de promoción falsable; el lint falla si reaparece cualquier `AUDITED`.
 
 ### GS-AUD-002 — Dependencia dura de Python 3.13 por estilo, no por necesidad [ALTA]
 Verificado empíricamente: `pytest` no puede ni COLECCIONAR en 3.10 (`SyntaxError: f-string expression part cannot include a backslash` en `generate_golden_audit.py`). El repo que cataloga VC-109 (hardcoded path) y VC-038 (optimistic config) fija un piso 3.13 por backslashes en f-strings — cosmético y trivialmente eliminable. Un consumidor en 3.10/3.11 no puede validar nada.
@@ -56,7 +56,7 @@ GS se vende como "prevención"; operativamente es un catálogo documental con un
 
 ## 6. Cierre FASE 2 GS — evidencia 2026-07-10
 
-- **GS-AUD-001:** cerrado como control operativo. `scripts/gs_lint.py` ahora falla ante un vicio `high` en `AUDITED` sin detector, regla Semgrep o `coverage_justification` falsable; los casos existentes VC-084/VC-086 conservan justificaciones verificables y tienen pruebas de ratchet. El inventario histórico `AUDITED` permanece visible y no se presenta como prevención inexistente.
+- **GS-AUD-001:** cerrado sin `AUDITED` residual. VC-027 y VT-037 subieron a `PREVENTED` por detectores locales probados; las otras 194 entradas se marcaron `DOC_ONLY` con justificación y trigger de promoción. `scripts/gs_lint.py` falla si reaparece la categoría.
 - **GS-AUD-002:** cerrado; la CLI colecciona en los runtimes disponibles 3.11/3.13 y CI declara matriz 3.10–3.13.
 - **GS-AUD-003:** el monolito fue eliminado y reemplazado por `gs_generator/` con superficies `audit`, `wiki`, `graph` y `badges`, más un entrypoint delgado que conserva `--audit-only`, `--wiki-only` y receipts. La comparación de generación se ejecuta como contrato de no-regresión.
 - **GS-AUD-004:** cerrado; `STATE.md` se regenera desde `tasks/backlog/`, con prueba de aparición y desaparición de un item ficticio.

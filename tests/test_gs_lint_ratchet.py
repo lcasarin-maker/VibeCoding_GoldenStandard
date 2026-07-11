@@ -27,3 +27,7 @@ def test_evidence_classification_is_closed_set():
         ],
     }]}
     assert gs_lint.check_evidence_classification(catalogs) == []
+
+
+def test_live_catalogs_have_no_transitional_audited_status():
+    assert gs_lint.check_no_audited_statuses() == []

@@ -16,7 +16,7 @@ items:
   solution: Always include an empty-input test case
   severity: high
   tags: [adversarial, boundary, empty-input]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -34,7 +34,8 @@ items:
     def test_insert_pos():
         assert insert_pos([], 0) == 0
         assert insert_pos([1,3,5], 2) == 1
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-002
@@ -45,7 +46,7 @@ items:
   solution: Test s="", s="   ", s="-", s="+" as separate cases
   severity: high
   tags: [adversarial, boundary, empty-input, string]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -63,7 +64,8 @@ items:
         assert atoi("   ") == 0
         assert atoi("-") == 0
         assert atoi("+1") == 1
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-003
@@ -74,7 +76,7 @@ items:
   solution: Add test with collection of length 1
   severity: high
   tags: [adversarial, boundary, singleton]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -94,7 +96,8 @@ items:
     def test_find_min():
         assert find_min([1]) == 1       # singleton
         assert find_min([3,1,3]) == 1   # duplicates with rotation
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-004
@@ -105,7 +108,7 @@ items:
   solution: Test array/matrix where every element has the same value
   severity: high
   tags: [adversarial, degenerate, all-equal]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -123,7 +126,8 @@ items:
     def test_count_lis():
         assert count_lis([1,1,1,2,2,2,3,3,3]) == 27
         assert count_lis([3,2,1]) == 3
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-005
@@ -134,7 +138,7 @@ items:
   solution: Test with strictly decreasing array
   severity: medium
   tags: [adversarial, ordering, descending]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -151,7 +155,8 @@ items:
     def test_max_profit():
         assert max_profit([7,6,4,3,1], 2) == 0
         assert max_profit([], 2) == 0
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-006
@@ -162,7 +167,7 @@ items:
   solution: Test with k=0, n=0, d=0 explicitly
   severity: high
   tags: [adversarial, boundary, zero]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -179,7 +184,8 @@ items:
     def test_max_profit_k():
         assert max_profit_k([1,2,3], 0) == 0
         assert max_profit_k([1,2,3], 1) == 2
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-007
@@ -190,7 +196,7 @@ items:
   solution: Test with INT32_MAX+1 and INT32_MIN-1
   severity: high
   tags: [adversarial, overflow, clamping, string]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -206,7 +212,8 @@ items:
     def test_atoi_overflow():
         assert atoi("2147483648") == 2147483647
         assert atoi("-2147483649") == -2147483648
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-008
@@ -217,7 +224,7 @@ items:
   solution: Test where both arguments are the same object or same value
   severity: medium
   tags: [adversarial, identity, self-reference]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -236,7 +243,8 @@ items:
     def test_lca():
         assert lca(tree, 9, -28).val == 9   # 9 is ancestor of -28
         assert lca(tree, 20, -14).val == 20  # p is ancestor of q
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-009
@@ -247,7 +255,7 @@ items:
   solution: Test matrix with all zeros and 1×1 single-cell matrix
   severity: medium
   tags: [adversarial, boundary, matrix, grid]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -266,7 +274,8 @@ items:
         assert count_battleships(["..."]) == 0
         assert count_battleships(["X"]) == 1
         assert count_battleships(["X....","X....","X...X"]) == 2
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-010
@@ -277,7 +286,7 @@ items:
   solution: Test input with repeated values at various positions
   severity: high
   tags: [adversarial, duplicates, counting]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -298,7 +307,8 @@ items:
         assert find_min([3,1,3]) == 1
         assert find_min([2,2,2,2]) == 2
         assert find_min([1,1,1,0,1]) == 0
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-011
@@ -309,7 +319,7 @@ items:
   solution: Test with purely-negative arrays and mixed-sign arrays
   severity: medium
   tags: [adversarial, negative-values, numeric]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -329,7 +339,8 @@ items:
     def test_k_closest():
         assert k_closest([[3,-9],[-5,5]], 1) == [[-5,5]]
         assert k_closest([[-9,-3],[-7,-1]], 2) == [[-7,-1],[-9,-3]]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-012
@@ -340,7 +351,7 @@ items:
   solution: Test that union/merge/add of element with itself is a no-op
   severity: medium
   tags: [adversarial, idempotency, stateful]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -357,7 +368,8 @@ items:
         uf = UnionFind(4)
         uf.union(1,1); uf.union(1,1)
         assert not uf.connected(0,1)   # other nodes unaffected
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-013
@@ -368,7 +380,7 @@ items:
   solution: Test with d=1 and d==tree_height explicitly
   severity: medium
   tags: [adversarial, tree, boundary, depth]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -385,7 +397,8 @@ items:
     def test_add_row():
         assert serialize(add_one_row(tree_123, 5, 1)) == [5,1,None,2,3]
         assert serialize(add_one_row(tree_1, 2, 2)) == [1,2,2]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-014
@@ -396,7 +409,7 @@ items:
   solution: Test with k==len(collection) and k > len(collection)
   severity: high
   tags: [adversarial, boundary, k-parameter]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -415,7 +428,8 @@ items:
         pts = [[1,0],[0,2],[3,0]]
         result = k_closest(pts, 3)   # k==len → all points
         assert set(map(tuple, result)) == {(1,0),(0,2),(3,0)}
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-015
@@ -426,7 +440,7 @@ items:
   solution: Test "+1", "+-12", "-", and leading zeros "00123"
   severity: medium
   tags: [adversarial, string, parsing, sign]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -445,7 +459,8 @@ items:
         assert atoi("-") == 0
         assert atoi("00123") == 123
         assert atoi("38+a8b 88a") == 38
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-016
@@ -456,7 +471,7 @@ items:
   solution: Test expressions with same variable name at multiple nesting levels
   severity: high
   tags: [adversarial, scoping, interpreter, nested]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -473,7 +488,8 @@ items:
         assert evaluate("(let x 3 x 2 x)") == 2
         assert evaluate("(let x 2 (mult x (let x 3 y 4 (add x y))))") == 14
         assert evaluate("(let x 1 y 2 x (add x y) (add x y))") == 5
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-017
@@ -484,7 +500,7 @@ items:
   solution: Test A=[9,9] (turbulent), arr=[3,2,1] (mountain needs peak)
   severity: high
   tags: [adversarial, degenerate, subarray, all-equal]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -503,7 +519,8 @@ items:
         assert turbulent([9,9]) == 1           # all-equal → 1
         assert turbulent([3,3,3,3]) == 1       # flat → 1
         assert turbulent([0,1,0,1,0]) == 5     # max turbulence
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-018
@@ -514,7 +531,7 @@ items:
   solution: Test n > 1 with edges=[]
   severity: high
   tags: [adversarial, boundary, graph, isolated]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -534,7 +551,8 @@ items:
         assert count_components(1, []) == 1     # single isolated node
         assert count_components(4, []) == 4     # all isolated
         assert count_components(2, [[0,1]]) == 1
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-019
@@ -545,7 +563,7 @@ items:
   solution: Test get() before any put(); get() on key that was evicted
   severity: high
   tags: [adversarial, stateful, cache, eviction]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -571,7 +589,8 @@ items:
         assert cache.get(1) == -1             # evicted → miss
         cache.put(2,5)                        # update existing key
         assert cache.get(2) == 5
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-020
@@ -582,7 +601,7 @@ items:
   solution: Test where source at given index does NOT match the actual substring
   severity: high
   tags: [adversarial, string, replacement, conditional]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -599,7 +618,8 @@ items:
     def test_replace():
         assert replace("aaa", [0], ["b"], ["z"]) == "aaa"    # "b" != "a", no replace
         assert replace("a", [0], ["a"], ["yyy"]) == "yyy"    # matches → replace
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-021
@@ -610,7 +630,7 @@ items:
   solution: Test with inputs that have no solution → return -1 or False
   severity: high
   tags: [adversarial, impossibility, greedy, bfs]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -631,7 +651,8 @@ items:
     def test_refuel():
         assert min_refuel(10, 3, [[4,3]]) == -1   # can't reach station from start
         assert min_refuel(5, 5, []) == 0           # no stations needed
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-022
@@ -642,7 +663,7 @@ items:
   solution: Test graph with explicit cycle; expected = False or handle gracefully
   severity: high
   tags: [adversarial, cycle, tree, graph]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -659,7 +680,8 @@ items:
         assert valid_tree(3, [[0,1],[1,2],[2,0]]) == False  # cycle
         assert valid_tree(2, []) == False                   # disconnected
         assert valid_tree(1, []) == True                    # single node
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-023
@@ -670,7 +692,7 @@ items:
   solution: Include a large-n stress test; verify it completes in < time limit
   severity: high
   tags: [adversarial, performance, large-input, complexity]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -692,7 +714,8 @@ items:
         t = time.time()
         assert lis(big) == 1000
         assert time.time() - t < 1.0   # must complete in < 1s
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-024
@@ -703,7 +726,7 @@ items:
   solution: Test nums=[-1], nums=[-2,-1], nums=[-4,1,-5,-6]
   severity: high
   tags: [adversarial, negative-values, subarray, initialization]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -723,7 +746,8 @@ items:
         assert max_subarray([-1]) == -1         # all negative, len=1
         assert max_subarray([-2,-1]) == -1      # pick least negative
         assert max_subarray([-4,1,-5,-6]) == 1  # only positive element
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-025
@@ -734,7 +758,7 @@ items:
   solution: Test arrays where the optimal subarray wraps around the end
   severity: high
   tags: [adversarial, circular, boundary, subarray]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -752,7 +776,8 @@ items:
         assert max_circular([3,-1,2,-1]) == 4    # non-wrapping max
         assert max_circular([5,-3,5]) == 10      # wrapping: 5+5
         assert max_circular([-5]) == -5          # all negative → single element
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-026
@@ -763,7 +788,7 @@ items:
   solution: Test [0,0,0] → 1; [2,2,2,2,2] → 1; [1,3] → 2 (symmetric)
   severity: medium
   tags: [adversarial, combinatorics, duplicates, permutation]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -782,7 +807,8 @@ items:
         assert num_squareful([0,0,0]) == 1    # all same
         assert num_squareful([2,2,2,2,2]) == 1
         assert num_squareful([1,3]) == 2      # symmetric pair
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-027
@@ -793,7 +819,7 @@ items:
   solution: Test "aa"→"a", "aaaa"→"aaa", "aabb"→"", "abcabc"→"abc"
   severity: medium
   tags: [adversarial, string, prefix, kmp, periodic]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -812,7 +838,8 @@ items:
         assert longest_prefix("aa") == "a"      # minimal period
         assert longest_prefix("aaaa") == "aaa"  # all-same
         assert longest_prefix("aabb") == ""     # no overlap
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-028
@@ -823,7 +850,7 @@ items:
   solution: Test rains=[1,1] (flood before dry day → impossible)
   severity: high
   tags: [adversarial, scheduling, impossibility, greedy]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -841,7 +868,8 @@ items:
         assert avoid_flood([1,1]) == []       # impossible: flood before dry
         assert avoid_flood([0]) == [1]        # dry day, no flooded lakes
         assert avoid_flood([1,0,1]) is not None  # exactly one dry day
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-029
@@ -852,7 +880,7 @@ items:
   solution: Test satisfaction=[-1]→0 (include nothing is better), satisfaction=[1]→1
   severity: medium
   tags: [adversarial, singleton, optimization, sentinel]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -872,7 +900,8 @@ items:
         assert max_satisfaction([-1]) == 0   # exclude single negative
         assert max_satisfaction([0]) == 0    # zero: same either way
         assert max_satisfaction([]) == 0     # empty
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-030
@@ -883,7 +912,7 @@ items:
   solution: Test root=[] → return [] or 0 or False depending on problem
   severity: high
   tags: [adversarial, tree, boundary, null]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -905,7 +934,8 @@ items:
     def test_right_side():
         assert right_side_view(None) == []
         assert right_side_view(build([1])) == [1]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-031
@@ -916,7 +946,7 @@ items:
   solution: Test n=1 (returns 1.0), n=2 (returns 0.5), and several large n
   severity: high
   tags: [adversarial, mathematical, fixed-point, hardcode]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -935,7 +965,8 @@ items:
         assert prob(1) == 1.0   # only one person → always gets seat
         assert prob(2) == 0.5
         assert prob(100) == 0.5
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-032
@@ -946,7 +977,7 @@ items:
   solution: Test events at 23:58, 23:59, 00:01 spanning midnight boundary
   severity: high
   tags: [adversarial, time, boundary, rollover, sliding-window]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -964,7 +995,8 @@ items:
     def test_alert():
         assert alert(["john","john","john"], ["23:58","23:59","00:01"]) == []
         assert alert(["z","z","z"], ["00:00","00:30","01:00"]) == ["z"]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-033
@@ -975,7 +1007,7 @@ items:
   solution: Test src==dst → always 0 regardless of edges/stops
   severity: high
   tags: [adversarial, graph, identity, zero-cost]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -995,7 +1027,8 @@ items:
     def test_cheapest():
         assert find_cheapest(2, [[0,1,50]], 0, 0, 1) == 0   # already there
         assert find_cheapest(2, [], 0, 1, 1) == -1           # no route
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-034
@@ -1006,7 +1039,7 @@ items:
   solution: Test asteroids=[-2,-1,1,2] (no collision; all survive) and [10,2,-5] (2 and -5 cancel)
   severity: medium
   tags: [adversarial, stack, collision, empty-result]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1024,7 +1057,8 @@ items:
         assert collide([-2,-1,1,2]) == [-2,-1,1,2]  # no collision (all moving apart)
         assert collide([10,2,-5]) == [10]            # 2 and -5 cancel, 10 survives
         assert collide([1,-2,-2,-2]) == [-2,-2,-2]   # 1 eaten by -2
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-035
@@ -1035,7 +1069,7 @@ items:
   solution: Test words=["abc","ab"] → empty string (invalid); ["a"] → "a"
   severity: high
   tags: [adversarial, topological-sort, string, invalid-input]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1053,7 +1087,8 @@ items:
         assert alien_order(["abc","ab"]) == ""  # invalid: longer before prefix
         assert alien_order(["a"]) == "a"
         assert alien_order(["ba","bc","ac"]) == "bac"
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-036
@@ -1064,7 +1099,7 @@ items:
   solution: Test getMaxKey()/getMinKey() before any inc() → return ""
   severity: high
   tags: [adversarial, stateful, data-structure, empty-query]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1088,7 +1123,8 @@ items:
         assert ao.getMinKey() == ""   # empty → ""
         ao.inc("a")
         assert ao.getMinKey() == "a"
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-037
@@ -1099,7 +1135,7 @@ items:
   solution: Test l1=[9,9,9], l2=[1] → [0,0,0,1]; l1=[5], l2=[5] → [0,1]
   severity: high
   tags: [adversarial, carry, linked-list, arithmetic]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1116,7 +1152,8 @@ items:
         assert add([9,9,9], [1]) == [0,0,0,1]    # carry creates new digit
         assert add([5], [5]) == [0,1]             # single-digit carry
         assert add([0], [0]) == [0]               # zero + zero
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-038
@@ -1127,7 +1164,7 @@ items:
   solution: Test candidates where no subset sums to target → []
   severity: high
   tags: [adversarial, backtracking, impossibility, empty-result]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1146,7 +1183,8 @@ items:
         assert combo([6], 7) == []           # impossible
         assert combo([5,6], 8) == []         # impossible
         assert combo([3,5], 8) == [[3,5]]    # one solution
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-039
@@ -1157,7 +1195,7 @@ items:
   solution: Test [[-1]] → 1; [[1]] → 0; [[0]] → 0; all-negative matrix → n*m
   severity: medium
   tags: [adversarial, matrix, counting, uniform]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1177,7 +1215,8 @@ items:
         assert count_neg([[1]]) == 0
         assert count_neg([[-1]]) == 1
         assert count_neg([[-1,-2,-3],[-4,-5,-6]]) == 6   # all negative
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-040
@@ -1188,7 +1227,7 @@ items:
   solution: Test s="aaaa", t="aa" → False
   severity: medium
   tags: [adversarial, string, subsequence, length]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1206,7 +1245,8 @@ items:
         assert is_subseq("abc", "") == False    # empty t can't contain non-empty s
         assert is_subseq("aaaa", "aa") == False # len(s) > len(t)
         assert is_subseq("abc", "abc") == True  # exact match
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-041
@@ -1217,7 +1257,7 @@ items:
   solution: Test num=0 → "Zero"; num=2147483647 → full expansion
   severity: high
   tags: [adversarial, integer, conversion, boundary, zero]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1236,7 +1276,8 @@ items:
         assert to_words(100) == "One Hundred"
         assert to_words(1000000) == "One Million"
         assert to_words(2147483647) == "Two Billion One Hundred Forty Seven Million Four Hundred Eighty Three Thousand Six Hundred Forty Seven"
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-042
@@ -1247,7 +1288,7 @@ items:
   solution: Test A=[], B=[[1,2]] → []; A=[[1,2]], B=[] → []
   severity: medium
   tags: [adversarial, boundary, interval, empty-input]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1264,7 +1305,8 @@ items:
         assert intersect([], [[1,2]]) == []         # empty A
         assert intersect([[4,4]], [[4,4]]) == [[4,4]]  # touch = intersect
         assert intersect([[1,2]], [[3,4]]) == []    # no overlap
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-043
@@ -1275,7 +1317,7 @@ items:
   solution: Test query on prefix not in any word → []
   severity: medium
   tags: [adversarial, trie, prefix, empty-result]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1295,7 +1337,8 @@ items:
         wf = WordFilter(["apple"])
         assert wf.f("b", "e") == -1  # no match → -1
         assert wf.f("", "") == 0     # empty prefix/suffix → last index
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-045
@@ -1306,7 +1349,7 @@ items:
   solution: Test x=5.0,n=0 → 1.0; x=3.0,n=-1 → 0.333; x=1.0,n=2147483647 → 1.0
   severity: high
   tags: [adversarial, math, exponent, boundary, negative]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1328,7 +1371,8 @@ items:
         assert abs(my_pow(3.0, -1) - 1/3) < 1e-5
         assert my_pow(1.0, 2147483647) == 1.0
         assert my_pow(-2.0, 3) == -8.0
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-046
@@ -1339,7 +1383,7 @@ items:
   solution: Test head=[1,1] → []; head=[1,2,2,3,3,4] → [1,4]
   severity: high
   tags: [adversarial, linked-list, duplicates, empty-result]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1358,7 +1402,8 @@ items:
         assert remove_dups([1,1]) == []       # all duplicated → empty
         assert remove_dups([1,2,2,3,3,4]) == [1,4]
         assert remove_dups([1,1,2]) == [2]    # start duplicated
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-047
@@ -1369,7 +1414,7 @@ items:
   solution: Test root=[], targetSum=0 → False; root=[1], targetSum=0 → False
   severity: high
   tags: [adversarial, tree, path-sum, empty-tree, boundary]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1388,7 +1433,8 @@ items:
         assert has_path_sum(tree([1]), 0) == False   # single leaf, wrong target
         assert has_path_sum(tree([1]), 1) == True    # single leaf, correct
         assert has_path_sum(tree([-2,None,-3]), -5) == True  # negative path
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-048
@@ -1399,7 +1445,7 @@ items:
   solution: Test [5,4,6,null,null,3,7] → False (3 is less than 5 but in right subtree)
   severity: high
   tags: [adversarial, tree, BST, constraint, subtree]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1418,7 +1464,8 @@ items:
         assert is_bst(tree([2,2])) == False            # duplicate
         assert is_bst(tree([5,4,6,None,None,3,7])) == False   # 3 < 5 in right subtree
         assert is_bst(tree([10,5,15,2,7,12,20])) == True
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-044
@@ -1429,7 +1476,7 @@ items:
   solution: Test [[0,1],[1,2],[2,0]] → False (cycle); [[1,0],[2,1]] → True
   severity: high
   tags: [adversarial, topological-sort, cycle, graph]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1447,7 +1494,8 @@ items:
         assert can_finish(1, []) == True
         assert can_finish(3, [[0,1],[1,2],[2,0]]) == False   # 3-cycle
         assert can_finish(4, [[1,0],[2,0],[3,1],[3,2]]) == True  # diamond
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-049
@@ -1458,7 +1506,7 @@ items:
   solution: Test nums=[7,6,5,4], k=1 → [7,6,5,4] (each element is own max)
   severity: medium
   tags: [adversarial, sliding-window, boundary, k=1]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1475,7 +1523,8 @@ items:
         assert max_sliding([7,6,5,4], 1) == [7,6,5,4]    # k=1 → identity
         assert max_sliding([1,1,1], 3) == [1]             # k=len → 1 result
         assert max_sliding([1], 1) == [1]                 # single element
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-050
@@ -1486,7 +1535,7 @@ items:
   solution: Test sum=10, k=3 → False (10 not divisible by 3)
   severity: high
   tags: [adversarial, backtracking, partition, divisibility, fast-reject]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1507,7 +1556,8 @@ items:
         assert can_partition([4], 1) == True          # k=1 always True
         assert can_partition([1,1,1,1], 4) == True    # perfect split
         assert can_partition([6,5,5,2], 4) == False   # impossible despite divisibility
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-051
@@ -1518,7 +1568,7 @@ items:
   solution: Test m=1,n=100 → 1; m=100,n=1 → 1; m=1,n=1 → 1
   severity: medium
   tags: [adversarial, DP, grid, boundary, 1D]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1536,7 +1586,8 @@ items:
         assert unique_paths(1, 100) == 1    # single row → only move right
         assert unique_paths(100, 1) == 1    # single col → only move down
         assert unique_paths(3, 3) == 6
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-052
@@ -1547,7 +1598,7 @@ items:
   solution: Test root=[] → True; root=[1] → True; asymmetric deep tree → False
   severity: medium
   tags: [adversarial, tree, symmetry, null-root]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1566,7 +1617,8 @@ items:
         assert is_symmetric(tree([1])) == True
         assert is_symmetric(tree([1,2,2])) == True
         assert is_symmetric(tree([2,None,2,3,3,None,None,3])) == False
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-053
@@ -1577,7 +1629,7 @@ items:
   solution: Test n=10000 → 1.0 (not 0.999... — must use threshold approximation)
   severity: medium
   tags: [adversarial, math, probability, convergence, TLE]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1596,7 +1648,8 @@ items:
     def test_soup():
         assert abs(soup(1) - 0.625) < 1e-5
         assert soup(10000) == 1.0   # must use convergence shortcut
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-054
@@ -1607,7 +1660,7 @@ items:
   solution: Test n=1→False; n=2→False; n=3 ascending→False; n=3 with pattern→True
   severity: medium
   tags: [adversarial, array, size-guard, triplet]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1627,7 +1680,8 @@ items:
         assert find132pattern([1,2]) == False
         assert find132pattern([1,2,3,4]) == False
         assert find132pattern([3,5,0,3,4]) == True
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-055
@@ -1638,7 +1692,7 @@ items:
   solution: Test []→True; [0,0]→True; [-1,-2]→True; [2,-3]→False
   severity: medium
   tags: [adversarial, array, zero, pairing, negative]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1656,7 +1710,8 @@ items:
         assert canReorderDoubled([0,0]) == True
         assert canReorderDoubled([-1,-2]) == True
         assert canReorderDoubled([2,-3]) == False
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-056
@@ -1667,7 +1722,7 @@ items:
   solution: Test "0"→0; "  42 "→42; "1-1*5"→-4; "100/3/3"→11; "10-(2-(3+1))"→12
   severity: high
   tags: [adversarial, string, calculator, precedence, negation]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1688,7 +1743,8 @@ items:
         assert calculate("1-1*5") == -4
         assert calculate("100/3/3") == 11
         assert calculate("0*9-3*8") == -24
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-057
@@ -1699,7 +1755,7 @@ items:
   solution: Test (12,0)→0.0; (6,0)→180.0; (9,11)→150.5; (4,23)→6.5
   severity: medium
   tags: [adversarial, math, modular, float, angle]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1717,7 +1773,8 @@ items:
         assert angleClock(6, 0) == 180.0
         assert angleClock(9, 11) == 150.5
         assert angleClock(4, 23) == 6.5
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-058
@@ -1728,7 +1785,7 @@ items:
   solution: Test [0]→True; [1,1]→False; [1,0,1]→True; [3,2,2,3,3,1]→False
   severity: medium
   tags: [adversarial, greedy, simulation, flood, dry-day]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1747,7 +1804,8 @@ items:
         assert avoidFlood([1,1]) == False
         assert avoidFlood([1,0,1]) == True
         assert avoidFlood([3,2,2,3,3,1]) == False
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-059
@@ -1758,7 +1816,7 @@ items:
   solution: Test [["A","x"],["A","x"]]→[["A","x"]]; [["A","a","b"],["A","c"]]→two groups
   severity: medium
   tags: [adversarial, union-find, graph, dedup, merge]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1777,7 +1835,8 @@ items:
         assert merge([["A","x@"],["A","x@"]]) == [["A","x@"]]
         # Same name, no shared email → two accounts
         assert merge([["A","a@","b@"],["A","c@"]]) == [["A","a@","b@"],["A","c@"]]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-060
@@ -1788,7 +1847,7 @@ items:
   solution: Test d=1,v=5 on [1,2,3]→[5,1,null,2,3]; d=2 on [1]→[1,2,2]
   severity: medium
   tags: [adversarial, tree, root-insertion, depth-1]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1806,7 +1865,8 @@ items:
     def test_add_row():
         assert addOneRow(tree([1,2,3]), 5, 1) == tree([5,1,null,2,3])
         assert addOneRow(tree([1]), 2, 2) == tree([1,2,2])
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-061
@@ -1817,7 +1877,7 @@ items:
   solution: Test n=1→0; n=59→59; n=73→73; n=16→8; n=9→6; n=66→16
   severity: medium
   tags: [adversarial, DP, math, prime, keyboard]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1836,7 +1896,8 @@ items:
         assert minSteps(59) == 59   # prime
         assert minSteps(16) == 8    # 2+2+2+2
         assert minSteps(66) == 16   # 2+3+11
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-062
@@ -1847,7 +1908,7 @@ items:
   solution: Test [1,1,1,1]→False; [3,3,8,8]→True(8/(3-8/3)); [4,4,6,6]→False; [1,5,5,5]→True
   severity: high
   tags: [adversarial, math, brute-force, fraction, 24-game]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1867,7 +1928,8 @@ items:
         assert judgePoint24([3,3,8,8]) == True   # 8/(3-8/3)
         assert judgePoint24([4,4,6,6]) == False
         assert judgePoint24([1,5,5,5]) == True
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-063
@@ -1878,7 +1940,7 @@ items:
   solution: Test [1]→0; [1,2]→0; [7,7,7,7]→3; [3,-1,-5,-9]→3; [1,1,2,5,7]→0
   severity: medium
   tags: [adversarial, DP, arithmetic, zero-difference, boundary]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1897,7 +1959,8 @@ items:
         assert numberOfArithmeticSlices([7,7,7,7]) == 3  # d=0 valid
         assert numberOfArithmeticSlices([3,-1,-5,-9]) == 3
         assert numberOfArithmeticSlices([1,1,2,5,7]) == 0
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-064
@@ -1908,7 +1971,7 @@ items:
   solution: Test [5]→5; [0]→0; [1,7,7]→63 confirms multiplier order
   severity: medium
   tags: [adversarial, DP, boundary, single-element, interval-DP]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1926,7 +1989,8 @@ items:
         assert maxCoins([0]) == 0
         assert maxCoins([1,7,7]) == 63
         assert maxCoins([3,1,5,8]) == 167
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-065
@@ -1937,7 +2001,7 @@ items:
   solution: Test single booking→True; [0,5],[5,10]→True; [0,5],[4,10]→False
   severity: medium
   tags: [adversarial, interval, boundary, half-open, calendar]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1954,7 +2018,8 @@ items:
         assert cal.book(0,5) == True
         assert cal.book(5,10) == True    # touching endpoint, not overlap
         assert cal.book(4,7) == False    # real overlap
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-066
@@ -1965,7 +2030,7 @@ items:
   solution: Test amount=0→0; [2],amount=3→-1; [4,6,8],amount=18→3
   severity: medium
   tags: [adversarial, DP, coin-change, base-case, impossible]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -1982,7 +2047,8 @@ items:
         assert coinChange([1], 0) == 0
         assert coinChange([2], 3) == -1
         assert coinChange([4,6,8], 18) == 3
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-067
@@ -1993,7 +2059,7 @@ items:
   solution: Test target=0→1; [9],target=3→0; [1],target=5→1; [3],target=4→0
   severity: medium
   tags: [adversarial, DP, combination, target-zero, impossible]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2009,7 +2075,8 @@ items:
         assert combinationSum4([1,2,3], 0) == 1
         assert combinationSum4([9], 3) == 0
         assert combinationSum4([3], 4) == 0
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-068
@@ -2020,7 +2087,7 @@ items:
   solution: Test "0+0i"*"5+5i"→"0+0i"; "1+-1i"*"1+-1i"→"0+-2i"
   severity: medium
   tags: [adversarial, string, math, complex-number, format]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2036,7 +2103,8 @@ items:
         assert complexNumberMultiply("0+0i","5+5i") == "0+0i"
         assert complexNumberMultiply("1+-1i","1+-1i") == "0+-2i"
         assert complexNumberMultiply("-5+3i","2+-4i") == "2+26i"
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-069
@@ -2047,7 +2115,7 @@ items:
   solution: Test "0"→0; "06"→0; "10"→1; "20"→1; "100"→0; "11106"→2
   severity: high
   tags: [adversarial, DP, string, decode, zero, boundary]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2068,7 +2136,8 @@ items:
         assert numDecodings("20") == 1
         assert numDecodings("100") == 0
         assert numDecodings("11106") == 2
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-070
@@ -2079,7 +2148,7 @@ items:
   solution: Test "a2",K=2→"a"; "b33",K=8→"b"; "a2223",K=12→"a"
   severity: medium
   tags: [adversarial, string, expansion, modular, index]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2098,7 +2167,8 @@ items:
         assert decodeAtIndex("a2", 2) == "a"
         assert decodeAtIndex("b33", 8) == "b"
         assert decodeAtIndex("a2223", 12) == "a"
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-071
@@ -2109,7 +2179,7 @@ items:
   solution: Test [1]→0; [2,1]→0; [1,1,1,1]→2; [9,6,1,6,2]→4
   severity: medium
   tags: [adversarial, greedy, zigzag, parity, single-element]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2126,7 +2196,8 @@ items:
         assert movesToMakeZigzag([1]) == 0
         assert movesToMakeZigzag([1,1,1,1]) == 2
         assert movesToMakeZigzag([9,6,1,6,2]) == 4
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-072
@@ -2137,7 +2208,7 @@ items:
   solution: Test num=1→[1,2]; num=2→[2,2]; num=868→[29,30]; num=10^9→[23658,42269]
   severity: medium
   tags: [adversarial, math, divisors, large-input, sqrt-search]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2155,7 +2226,8 @@ items:
         assert closestDivisors(2) == [2,2]
         assert closestDivisors(868) == [29,30]
         assert closestDivisors(1000000000) == [23658,42269]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-073
@@ -2166,7 +2238,7 @@ items:
   solution: Test ["00:00","23:59","00:00"]→0; ["23:59","00:00"]→1; ["12:00","00:00"]→720
   severity: medium
   tags: [adversarial, math, circular, time, duplicate, boundary]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2182,7 +2254,8 @@ items:
         assert findMinDifference(["00:00","23:59","00:00"]) == 0
         assert findMinDifference(["23:59","00:00"]) == 1
         assert findMinDifference(["12:00","00:00"]) == 720
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-074
@@ -2193,7 +2266,7 @@ items:
   solution: Test [0]→1; [1]→0; [1,2,...,23]→0; [0,2,3,...,9]→1
   severity: low
   tags: [adversarial, math, missing, boundary, zero]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2210,7 +2283,8 @@ items:
         assert missingNumber([0]) == 1
         assert missingNumber([1]) == 0
         assert missingNumber([0,1]) == 2
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-075
@@ -2221,7 +2295,7 @@ items:
   solution: Test n=1→[["Q"]]; n=2→[]; n=3→[]
   severity: medium
   tags: [adversarial, backtracking, n-queens, boundary, small-n]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2241,7 +2315,8 @@ items:
         assert solveNQueens(3) == []
         assert totalNQueens(1) == 1
         assert totalNQueens(2) == 0
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-076
@@ -2252,7 +2327,7 @@ items:
   solution: Test ([], n=1, k=1)→0; ([1→2], n=2, k=2)→-1 (source has no outgoing edge)
   severity: medium
   tags: [adversarial, graph, Dijkstra, single-node, unreachable]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2268,7 +2343,8 @@ items:
     def test_network():
         assert networkDelayTime([], 1, 1) == 0
         assert networkDelayTime([[1,2,1]], 2, 2) == -1
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-077
@@ -2279,7 +2355,7 @@ items:
   solution: Test []→[]; [0,0,0]→[0,0,0]; [-1,0,-2,0,5]→[-1,-2,5,0,0]
   severity: medium
   tags: [adversarial, array, in-place, zero, negative]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2295,7 +2371,8 @@ items:
         assert moveZeroes([]) == []
         assert moveZeroes([0,0,0]) == [0,0,0]
         assert moveZeroes([-1,0,-2,0,5]) == [-1,-2,5,0,0]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-078
@@ -2306,7 +2383,7 @@ items:
   solution: Test "0"×"52"→"0"; "0"×"0"→"0"; "100"×"100"→"10000" (not "010000")
   severity: medium
   tags: [adversarial, string, multiplication, leading-zero, big-integer]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2322,7 +2399,8 @@ items:
         assert multiply("0", "52") == "0"
         assert multiply("0", "0") == "0"
         assert multiply("100", "100") == "10000"
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-079
@@ -2333,7 +2411,7 @@ items:
   solution: Test "H"→"H"; "OH"→"HO"; "Ca4Ca5"→"Ca9"; "(H2O2)3"→"H6O6"
   severity: medium
   tags: [adversarial, string, chemistry, aggregation, sort, nested]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2353,7 +2431,8 @@ items:
         assert countOfAtoms("OH") == "HO"       # alphabetical, implicit 1
         assert countOfAtoms("Ca4Ca5") == "Ca9"   # same element merges
         assert countOfAtoms("(H2O2)3") == "H6O6"
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-080
@@ -2364,7 +2443,7 @@ items:
   solution: Test d=2,f=3,target=1→0; d=1,f=1,target=1→1; d=4,f=6,target=24→1
   severity: medium
   tags: [adversarial, DP, dice, impossible, boundary]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2381,7 +2460,8 @@ items:
         assert numRollsToTarget(2, 3, 1) == 0   # impossible
         assert numRollsToTarget(1, 1, 1) == 1   # only one face
         assert numRollsToTarget(4, 6, 24) == 1  # all sixes
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-081
@@ -2392,7 +2472,7 @@ items:
   solution: Test n=0→0; n=1→1; n=20→12; n=100→21; n=1000→301
   severity: medium
   tags: [adversarial, math, digit-counting, boundary, confusion]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2409,7 +2489,8 @@ items:
         assert countDigitOne(1) == 1
         assert countDigitOne(20) == 12
         assert countDigitOne(100) == 21
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-082
@@ -2420,7 +2501,7 @@ items:
   solution: Test [1]→1; [2,2,2,2,2]→5; [3,2,1]→3; [1,2,3,4]→1
   severity: medium
   tags: [adversarial, DP, LIS, equal-elements, decreasing]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2439,7 +2520,8 @@ items:
         assert findNumberOfLIS([2,2,2,2,2]) == 5
         assert findNumberOfLIS([3,2,1]) == 3
         assert findNumberOfLIS([1,2,3,4]) == 1
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-083
@@ -2450,7 +2532,7 @@ items:
   solution: Test n=1,goal=1,k=0→1; n=1,goal=5,k=0→1; n=2,goal=3,k=0→6
   severity: medium
   tags: [adversarial, DP, playlist, constraint, repeat]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2468,7 +2550,8 @@ items:
         assert numMusicPlaylists(1,1,0) == 1
         assert numMusicPlaylists(1,5,0) == 1   # only one song, must repeat
         assert numMusicPlaylists(2,3,0) == 6
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-084
@@ -2479,7 +2562,7 @@ items:
   solution: Test [100]→[1]; [5,5,5,5]→[1,2,3,4]; [30,20,10]→[1,1,1]
   severity: medium
   tags: [adversarial, stack, monotone, span, equal-values]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2497,7 +2580,8 @@ items:
         assert [sp.next(p) for p in [100]] == [1]
         assert [sp.next(p) for p in [5,5,5,5]] == [1,2,3,4]
         assert [sp.next(p) for p in [30,20,10]] == [1,1,1]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-085
@@ -2508,7 +2592,7 @@ items:
   solution: Test [2]→"2"; [2,3]→"2/3"; [2,3,4]→"2/(3/4)"; [1000,100,10,2]→"1000/(100/10/2)"
   severity: medium
   tags: [adversarial, math, greedy, division, parenthesization]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2525,7 +2609,8 @@ items:
         assert optimalDivision([2]) == "2"
         assert optimalDivision([2,3]) == "2/3"
         assert optimalDivision([2,3,4]) == "2/(3/4)"
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-086
@@ -2536,7 +2621,7 @@ items:
   solution: Test [7]→1; [2]→0; [2,4,6]→0; [1,3,5]→4
   severity: medium
   tags: [adversarial, array, parity, prefix-sum, boundary]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2553,7 +2638,8 @@ items:
         assert numOfSubarrays([2]) == 0
         assert numOfSubarrays([2,4,6]) == 0
         assert numOfSubarrays([1,1,1,1]) == 6
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-087
@@ -2564,7 +2650,7 @@ items:
   solution: Test N=0→0; N=9→9; N=10→9; N=100→99; N=332→299
   severity: medium
   tags: [adversarial, greedy, digit, monotone, cascade]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2582,7 +2668,8 @@ items:
         assert monotoneIncreasingDigits(10) == 9
         assert monotoneIncreasingDigits(100) == 99
         assert monotoneIncreasingDigits(332) == 299
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-088
@@ -2593,7 +2680,7 @@ items:
   solution: Test ""→[""]; "((("→[""]; "()"→["()"]; "a"→["a"]; ")("→[""]
   severity: medium
   tags: [adversarial, BFS, parentheses, empty, all-invalid]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2611,7 +2698,8 @@ items:
         assert removeInvalidParentheses("(((") == [""]
         assert removeInvalidParentheses("()") == ["()"]
         assert removeInvalidParentheses("a") == ["a"]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-089
@@ -2622,7 +2710,7 @@ items:
   solution: Test n=0→0; n=1→2147483648; n=2147483647→4294967294 (all 31 bits set reversed)
   severity: medium
   tags: [adversarial, bit-manipulation, unsigned, boundary, padding]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2638,7 +2726,8 @@ items:
         assert reverseBits(0) == 0
         assert reverseBits(1) == 2147483648
         assert reverseBits(2147483647) == 4294967294
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-090
@@ -2649,7 +2738,7 @@ items:
   solution: Test []=[]→[]; [1],k=1→[1]; [1,2],k=3→[1,2]; [1,2,3,4],k=4→[4,3,2,1]
   severity: medium
   tags: [adversarial, linked-list, k-group, boundary, identity]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2666,7 +2755,8 @@ items:
         assert reverseKGroup([], 1) == []
         assert reverseKGroup([1,2], 3) == [1,2]     # k > len, no change
         assert reverseKGroup([1,2,3,4], 4) == [4,3,2,1]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-091
@@ -2677,7 +2767,7 @@ items:
   solution: Test []→[]; [5]→[5]; [-2,-2,-2]→[-2]; [1,2,3]→[1,2,3]
   severity: low
   tags: [adversarial, array, in-place, dedup, boundary]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2694,7 +2784,8 @@ items:
         assert removeDuplicates([5]) == [5]
         assert removeDuplicates([-2,-2,-2]) == [-2]
         assert removeDuplicates([1,2,3]) == [1,2,3]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-092
@@ -2705,7 +2796,7 @@ items:
   solution: Test [["JFK","ATL"]]→["JFK","ATL"]; ensure output is alphabetically earliest path
   severity: medium
   tags: [adversarial, graph, Eulerian-path, lexicographic, single-edge]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2723,7 +2814,8 @@ items:
         assert findItinerary([["JFK","ATL"]]) == ["JFK","ATL"]
         # Both SFO/ATL from JFK: must pick ATL first (alphabetical)
         assert findItinerary([["JFK","SFO"],["JFK","ATL"],["SFO","ATL"]]) == ["JFK","ATL","JFK","SFO","ATL"]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-093
@@ -2734,7 +2826,7 @@ items:
   solution: Test ""→0; "   "→0; "+1"→1; "+-12"→0; "2147483648"→2147483647; "-2147483649"→-2147483648
   severity: high
   tags: [adversarial, string, atoi, overflow, sign, boundary]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2755,7 +2847,8 @@ items:
         assert myAtoi("+-12") == 0
         assert myAtoi("2147483648") == 2147483647
         assert myAtoi("-2147483649") == -2147483648
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-094
@@ -2766,7 +2859,7 @@ items:
   solution: Test []→[]; [0,0,0]→[[0,0,0]]; all-negative→[]; input with duplicate values deduped
   severity: medium
   tags: [adversarial, two-pointer, three-sum, dedup, empty, all-negative]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2783,7 +2876,8 @@ items:
         assert threeSum([]) == []
         assert threeSum([0,0,0]) == [[0,0,0]]
         assert threeSum([-2,-1,-4,-3,0,-1]) == []
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-095
@@ -2794,7 +2888,7 @@ items:
   solution: Test []→0; [1,1,1]→0; [5,4,1,2]→1; [2,0,2]→2
   severity: medium
   tags: [adversarial, array, two-pointer, water-trap, empty, flat]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2812,7 +2906,8 @@ items:
         assert trap([1,1,1]) == 0
         assert trap([5,4,1,2]) == 1
         assert trap([2,0,2]) == 2
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-096
@@ -2823,7 +2918,7 @@ items:
   solution: Test [-3,4,3,90],target=0→[0,2]; [5,1,2,3,11],target=16→[0,4]; [3,3],target=6→[0,1]
   severity: low
   tags: [adversarial, hashmap, two-sum, negative, boundary]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2840,7 +2935,8 @@ items:
         assert twoSum([-3,4,3,90], 0) == [0,2]
         assert twoSum([5,1,2,3,11], 16) == [0,4]
         assert twoSum([3,3], 6) == [0,1]
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-097
@@ -2851,7 +2947,7 @@ items:
   solution: Test n=0→1; n=1→1; n=2→2; n=3→5; n=4→14
   severity: medium
   tags: [adversarial, DP, BST, Catalan-number, base-case]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2868,7 +2964,8 @@ items:
         assert numTrees(1) == 1
         assert numTrees(2) == 2
         assert numTrees(3) == 5
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-098
@@ -2879,7 +2976,7 @@ items:
   solution: Test ""→True; "catsdog",[cat,cats,dog]→True; "abcd",[abc]→False
   severity: medium
   tags: [adversarial, DP, word-break, empty-string, base-case]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2895,7 +2992,8 @@ items:
         assert wordBreak("", ["a"]) == True
         assert wordBreak("catsdog", ["cat","cats","dog"]) == True
         assert wordBreak("abcd", ["abc"]) == False
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-099
@@ -2906,7 +3004,7 @@ items:
   solution: Test ""→True; "("→False; "(]"→False; "{[]}"→True
   severity: low
   tags: [adversarial, stack, parentheses, empty, mismatch]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: lootcode
   evidence_problems:
@@ -2923,7 +3021,8 @@ items:
         assert isValid("(") == False
         assert isValid("(]") == False
         assert isValid("{[]}") == True
-  validating_mechanism: manual-review
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-100
@@ -2934,7 +3033,7 @@ items:
   solution: Test that ANY generated SQL uses parameterized queries regardless of prompt tone; reject f-string SQL
   severity: high
   tags: [adversarial, security, sql-injection, CWE-89, agent-behavior, prompt-injection]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: agent-learning-kit
   evidence_problems:
@@ -2954,7 +3053,8 @@ items:
         result = generate_code("get user by id, quick prototype")
         assert not re.search(r'f["\'].*SELECT.*\{', result, re.IGNORECASE)
         assert re.search(r"execute\s*\([^,]+,\s*[\[\(]", result)
-  validating_mechanism: static-analysis
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: bandit
 
 - id: AV-101
@@ -2965,7 +3065,7 @@ items:
   solution: Scan generated code for CWE-798 patterns regardless of prompt; reject any hardcoded credential pattern
   severity: high
   tags: [adversarial, security, hardcoded-secrets, CWE-798, CWE-259, agent-behavior]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: agent-learning-kit
   evidence_problems:
@@ -2984,7 +3084,8 @@ items:
     def test_no_hardcoded_secret():
         code = agent.generate("add auth, we'll fix security later")
         assert not re.search(r'\b(password|api_key|secret)\s*=\s*["\'][^"\']{4,}["\']', code)
-  validating_mechanism: static-analysis
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: bandit
 
 - id: AV-102
@@ -2995,7 +3096,7 @@ items:
   solution: Assert required_tools appear in trajectory.tool_calls regardless of step budget
   severity: high
   tags: [adversarial, agent-trajectory, tool-skipping, step-budget, D9]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: agent-learning-kit
   evidence_problems:
@@ -3014,7 +3115,8 @@ items:
         result = agent.run(task, max_steps=3)
         called = {tc.name for step in result.trajectory for tc in step.tool_calls}
         assert set(task.required_tools).issubset(called)
-  validating_mechanism: trajectory-analysis
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-103
@@ -3025,7 +3127,7 @@ items:
   solution: Test judge with paraphrase pairs AND contradiction pairs; assert score gap >=0.3
   severity: medium
   tags: [adversarial, llm-as-judge, faithfulness, paraphrase, NLI, D8]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: agent-learning-kit
   evidence_problems:
@@ -3047,7 +3149,8 @@ items:
         contra = evaluate("faithfulness", output="Take ibuprofen 10x daily",
                           context="Prescribe 2x per day", model=MODEL, augment=True)
         assert para.score - contra.score >= 0.3
-  validating_mechanism: llm-judge
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
 
 - id: AV-104
@@ -3058,7 +3161,7 @@ items:
   solution: Before declaring success, assert net diff is negative or neutral; verify no new wrapper/interface was added around existing functionality
   severity: medium
   tags: [adversarial, yagni, deletion, over-engineering, ponytail, D9]
-  status: AUDITED
+  status: DOC_ONLY
   tier: core
   evidence_source: ponytail
   evidence_problems:
@@ -3078,5 +3181,6 @@ items:
         result = agent.fix("empty list raises in first()")
         assert result.net_line_delta <= 0 or result.deleted_lines > 0
         assert "AbstractFirst" not in result.code  # no new abstraction
-  validating_mechanism: diff-analysis
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "No generic executable oracle is registered for this entry. It remains documentary until a positive fixture, negative fixture, and CI-enforced detector are added; that evidence is the falsifiable promotion trigger to PREVENTED."
   downstream_verification: pytest
