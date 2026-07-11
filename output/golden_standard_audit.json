@@ -5984,7 +5984,7 @@
       "vibe-coding",
       "doc-only"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
+    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from legacy review/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "# A single commit touches 47 files and 1,800 lines for a 1-feature change.\n",
@@ -6150,7 +6150,7 @@
       "vibe-coding",
       "doc-only"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
+    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from legacy review/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "static-regex",
     "downstream_verification": "required",
     "example_bad": "def pay(x):\n    return charge(x)   # shortcut: no idempotency or retries (unrecorded)\n",
@@ -7054,7 +7054,7 @@
       "vibe-coding",
       "doc-only"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
+    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from legacy review/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "src/billing/refund.py        # 0 tests\n# refund() is changed and nothing detects the regression\n",
@@ -7232,7 +7232,7 @@
       "vibe-coding",
       "doc-only"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
+    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from legacy review/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "def delete_user(actor, uid):\n    db.delete(uid)         # without verifying the actor's role/capability\n",
@@ -7378,7 +7378,7 @@
       "vibe-coding",
       "doc-only"
     ],
-    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from AUDITED/test_behavioral_compliance to DOC_ONLY.",
+    "action": "Behavioral/doctrinal vice — not statically falsifiable in a generic way. Documented in the Golden Standard catalogs as governance knowledge; no automated test can discriminate this without human semantic judgment. Sprint 3.4 triage: reclassified from legacy review/test_behavioral_compliance to DOC_ONLY.",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
     "example_bad": "cp .protocol/* child-repo/      # copied, but no one verifies it executes\n",
@@ -8816,8 +8816,8 @@
     "action": "Edit the canonical source or its generator first: hand-patching a derived artifact to mask drift is rejected; derived files must be regenerated from source.\n",
     "validating_mechanism": "DOC_ONLY",
     "downstream_verification": "required",
-    "example_bad": "# Fixing the rendered wiki directly while leaving the source catalog stale.\ntitle: \"Canonical source first (no sink patching)\"\nstatus: AUDITED\n",
-    "example_good": "# Fix the source catalog, then regenerate the derived artifacts.\ntitle: \"Canonical source first (no sink patching)\"\nstatus: AUDITED\n",
+    "example_bad": "# Fixing the rendered wiki directly while leaving the source catalog stale.\ntitle: \"Canonical source first (no sink patching)\"\nstatus: DOC_ONLY\n",
+    "example_good": "# Fix the source catalog, then regenerate the derived artifacts.\ntitle: \"Canonical source first (no sink patching)\"\nstatus: DOC_ONLY\n",
     "example_lang": "yaml",
     "detection": "Flags direct edits to generated wiki/report files when the source catalog or generator was not the thing that changed. Also flags bug fixes that patch only the call-site reported in the ticket while grep shows other callers of the same function remain unpatched.",
     "evidence": [
@@ -9011,12 +9011,13 @@
     "symptom": "Interface, base class, factory, or layer with exactly one implementation; config option nobody sets; parameter accepted but ignored",
     "cause": "Agent anticipates future requirements that were never requested; \"what if we need a second one later\" reasoning without evidence",
     "solution": "No abstractions unless explicitly requested. Inline the single implementation. Add the abstraction when the second concrete case exists, not before.",
-    "status": "DOC_ONLY",
+    "status": "PREVENTED",
     "severity": "medium",
     "tags": [
       "vibe-coding",
       "yagni",
-      "ponytail"
+      "ponytail",
+      "prevented"
     ],
     "action": "Before creating an interface, abstract class, factory, or plugin system: verify there are at least 2 concrete implementations today. One implementation = inline it. One config key with one value = hardcode it. One layer with one caller = delete the layer.\n",
     "validating_mechanism": "static-ast",
@@ -9032,7 +9033,7 @@
       }
     ],
     "doctrinal": false,
-    "detector": "",
+    "detector": "vc090_premature_abstraction",
     "tier": "specialist",
     "related_cds": [],
     "related_prs": []
@@ -9163,7 +9164,7 @@
     "example_bad": "",
     "example_good": "",
     "example_lang": "text",
-    "detection": "audit.py: assert audit/sessions/ contains a record dated today; assert HANDOFF.md mtime matches today",
+    "detection": "Human/session review: verify material facts were exported to HANDOFF.md, STATE.md, DECISIONS.md, tasks/, or audit/sessions/ before close. The generic audit gate checks structural presence, not chat history.",
     "evidence": [],
     "doctrinal": true,
     "detector": "",
@@ -9263,7 +9264,7 @@
     "example_bad": "",
     "example_good": "",
     "example_lang": "text",
-    "detection": "audit.py: assert audit/sessions/ has a record for the current session; assert HANDOFF.md was updated",
+    "detection": "Human/session-close review: verify tasks, HANDOFF.md, STATE.md, audit/sessions/, and AUDIT_TRAIL.md were updated for the session. audit.py checks only required headers and non-empty governance files.",
     "evidence": [],
     "doctrinal": true,
     "detector": "",

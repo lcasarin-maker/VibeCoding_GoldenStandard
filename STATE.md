@@ -37,4 +37,4 @@ _No backlog items currently live under `tasks/backlog/`._
 
 ## CI status
 
-27/27 tests passing on Python 3.11 and 3.13 with warnings treated as errors; CI matrix is Python 3.10–3.13. `audit.py` reports 8/8 SP checks green. Semgrep: 7 rules, 7 positive matches, 0 negative matches. `gs_lint.py` ratchet clean with zero soft warnings and zero `AUDITED` catalog entries; Wiki/Detectors has one canonical file per ID. GS-AUD-001…007 are closed in the adversarial-audit closure record.
+27/27 tests passing on Python 3.11 and 3.13 with warnings treated as errors; CI matrix is Python 3.10–3.13. `audit.py` reports 8/8 SP checks green. Semgrep: 7 rules, 7 positive matches, 0 negative matches. `gs_lint.py` ratchet clean with zero soft warnings and zero `legacy review` catalog entries; 35 local detectors are proven; Wiki/Detectors has one canonical file per ID. GS-AUD-001…007 are closed in the adversarial-audit closure record.

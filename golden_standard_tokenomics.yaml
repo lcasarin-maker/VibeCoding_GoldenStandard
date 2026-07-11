@@ -960,6 +960,7 @@ items:
 
     '
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: text
   example_bad: '# Savings strategies exist but are not on the active path.

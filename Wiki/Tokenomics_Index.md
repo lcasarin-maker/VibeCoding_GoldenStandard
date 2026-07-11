@@ -27,7 +27,7 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 | Status | Entries |
 |---|---:|
 | `PREVENTED` / `REMEDIATED` | 33 |
-| `DOC_ONLY` / `AUDITED` | 1 |
+| `DOC_ONLY` | 1 |
 | `Total` | 34 |
 
 ---

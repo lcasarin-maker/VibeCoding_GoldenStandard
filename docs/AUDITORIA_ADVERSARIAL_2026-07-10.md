@@ -14,9 +14,9 @@ Base de conocimiento viva, agnóstica de agente y proyecto: 242 vicios + 121 pri
 
 ## 3. Hallazgos (deuda registrada)
 
-### GS-AUD-001 — Brecha de enforcement: estado AUDITED transitorio [ALTA]
-La auditoría original encontró 95 entradas `AUDITED`, que mezclaban cobertura pendiente con conocimiento no automatizable. Esa ambigüedad era deuda: una entrada solo puede permanecer como enforcement probado (`PREVENTED`) o como doctrina explícita (`DOC_ONLY`).
-**Corrección:** 2 entradas subieron a `PREVENTED` con detectores probados y 194 bajaron a `DOC_ONLY` con criterio de promoción falsable; el lint falla si reaparece cualquier `AUDITED`.
+### GS-AUD-001 — Brecha de enforcement: estado legacy review transitorio [ALTA]
+La auditoría original encontró 95 entradas `legacy review`, que mezclaban cobertura pendiente con conocimiento no automatizable. Esa ambigüedad era deuda: una entrada solo puede permanecer como enforcement probado (`PREVENTED`) o como doctrina explícita (`DOC_ONLY`).
+**Corrección:** 2 entradas subieron a `PREVENTED` con detectores probados y 194 bajaron a `DOC_ONLY` con criterio de promoción falsable; el lint falla si reaparece cualquier `legacy review`.
 
 ### GS-AUD-002 — Dependencia dura de Python 3.13 por estilo, no por necesidad [ALTA]
 Verificado empíricamente: `pytest` no puede ni COLECCIONAR en 3.10 (`SyntaxError: f-string expression part cannot include a backslash` en `generate_golden_audit.py`). El repo que cataloga VC-109 (hardcoded path) y VC-038 (optimistic config) fija un piso 3.13 por backslashes en f-strings — cosmético y trivialmente eliminable. Un consumidor en 3.10/3.11 no puede validar nada.
@@ -47,7 +47,7 @@ GS se vende como "prevención"; operativamente es un catálogo documental con un
 
 ## 5. Adopciones recomendadas (de repositorios_clasificados.md)
 - **github/spec-kit** — formalizar la ruta Inbox→catálogo como spec-driven; plantillas de spec por entrada.
-- **jorisnls/vibevetted (Semgrep)** — motor real para convertir vicios AUDITED→PREVENTED sin escribir 200 detectores a mano: expresar VC/VT como reglas Semgrep donde aplique (VC-095, VC-115, VT-040 son triviales en Semgrep).
+- **jorisnls/vibevetted (Semgrep)** — motor real para convertir vicios legacy review to PREVENTED sin escribir 200 detectores a mano: expresar VC/VT como reglas Semgrep donde aplique (VC-095, VC-115, VT-040 son triviales en Semgrep).
 - **future-agi/agent-learning-kit** — ya adoptado en CC (`agent_learning_kit_evals.py`); portar rúbricas para evaluar la *efectividad* de detectores (falsos negativos), no solo su existencia.
 - **MinishLab/semble / zeroentropy probe** — contexto exacto de código para detectores AST más precisos (ya hay evidencia previa de evaluación zilliztech).
 
@@ -56,7 +56,7 @@ GS se vende como "prevención"; operativamente es un catálogo documental con un
 
 ## 6. Cierre FASE 2 GS — evidencia 2026-07-10
 
-- **GS-AUD-001:** cerrado sin `AUDITED` residual. VC-027 y VT-037 subieron a `PREVENTED` por detectores locales probados; las otras 194 entradas se marcaron `DOC_ONLY` con justificación y trigger de promoción. `scripts/gs_lint.py` falla si reaparece la categoría.
+- **GS-AUD-001:** cerrado sin `legacy review` residual. VC-027, VT-037 y VC-090 tienen detectores locales probados; las otras 194 entradas que eran `legacy review` se marcaron `DOC_ONLY` con justificación y trigger de promoción. Se retiraron 89 referencias aspiracionales a `tool:ruff`/`tool:pytest`; `scripts/gs_lint.py` falla si reaparece la categoría.
 - **GS-AUD-002:** cerrado; la CLI colecciona en los runtimes disponibles 3.11/3.13 y CI declara matriz 3.10–3.13.
 - **GS-AUD-003:** el monolito fue eliminado y reemplazado por `gs_generator/` con superficies `audit`, `wiki`, `graph` y `badges`, más un entrypoint delgado que conserva `--audit-only`, `--wiki-only` y receipts. La comparación de generación se ejecuta como contrato de no-regresión.
 - **GS-AUD-004:** cerrado; `STATE.md` se regenera desde `tasks/backlog/`, con prueba de aparición y desaparición de un item ficticio.
@@ -64,4 +64,4 @@ GS se vende como "prevención"; operativamente es un catálogo documental con un
 - **GS-AUD-006:** `Wiki/Detectors` se regenera con un archivo canónico por ID y `gs_lint.py` rechaza archivos inesperados, faltantes o duplicados.
 - **GS-AUD-007:** cerrado; `__pycache__` multi-versión fue eliminado y la higiene quedó verificada en el cierre.
 - **Paridad:** dos ejecuciones consecutivas generaron 484 artefactos byte-idénticos; evidencia en `audit/sessions/2026-07-10-gs-phase2-parity.log`.
-- **Semgrep:** siete reglas versionadas tienen fixture positivo y negativo: VC-095/VC-036, VC-115/VC-049, VC-109/VC-043, VT-040, VT-043, VT-005 y VT-009. `VT-043` pasó de `AUDITED` a `PREVENTED` únicamente después de la prueba.
+- **Semgrep:** siete reglas versionadas tienen fixture positivo y negativo: VC-095/VC-036, VC-115/VC-049, VC-109/VC-043, VT-040, VT-043, VT-005 y VT-009. `VT-043` pasó de `legacy review` a `PREVENTED` únicamente después de la prueba.

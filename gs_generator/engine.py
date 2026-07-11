@@ -285,9 +285,8 @@ def write_home_md(
     """Write Home.md main map of content page."""
     prevented_count = status_counts.get("PREVENTED", 0)
     remediated_count = status_counts.get("REMEDIATED", 0)
-    audited_count = status_counts.get("AUDITED", 0)
     doc_only_count = status_counts.get("DOC_ONLY", 0)
-    proposed_count = audited_count + doc_only_count
+    proposed_count = doc_only_count
     enforced_external_count = prevented_count
     enforced_local_count = remediated_count
     home_content = f"""# Golden Standard Wiki
@@ -335,7 +334,7 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 
 | Reading | Entries | Meaning |
 |---|---:|---|
-| `PROPOSED` | {proposed_count} | The entry is documented or audited, but no enforcing implementation exists in the catalog flow. |
+| `PROPOSED` | {proposed_count} | The entry is documented as `DOC_ONLY`, but no enforcing implementation exists in the catalog flow. |
 | `ENFORCED_EXTERNAL` | {enforced_external_count} | The guard exists in a downstream enforcing project. |
 | `ENFORCED_LOCAL` | {enforced_local_count} | The guard or remediation is enforced in this repository. |
 | `Total` | {total_vices} | Sum of the VC, VT, and TK entries audited by the compiler. |
@@ -609,7 +608,7 @@ def write_tokenomics_index_md(wiki_dir: Path, mapped_database: dict):
             x
             for x in mapped_database.values()
             if x["category"] == "Tokenomics & Context"
-            and x["status"] in ("DOC_ONLY", "AUDITED")
+            and x["status"] == "DOC_ONLY"
         ]
     )
     total_count = len(
@@ -645,7 +644,7 @@ Historically, this layer was operated under names like *headspace*, *compact*, a
 | Status | Entries |
 |---|---:|
 | `PREVENTED` / `REMEDIATED` | {prevented_count} |
-| `DOC_ONLY` / `AUDITED` | {doc_only_count} |
+| `DOC_ONLY` | {doc_only_count} |
 | `Total` | {total_count} |
 
 ---

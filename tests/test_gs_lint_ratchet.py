@@ -1,20 +1,20 @@
 from scripts import gs_lint
 
 
-def test_high_audited_without_coverage_fails_ratchet():
-    catalogs = {"synthetic.yaml": [{"id": "VC-999", "status": "AUDITED", "severity": "high"}]}
-    findings = gs_lint.check_high_audited_coverage(catalogs)
+def test_high_doc_only_without_falsifiable_justification_fails_ratchet():
+    catalogs = {"synthetic.yaml": [{"id": "VC-999", "status": "DOC_ONLY", "severity": "high"}]}
+    findings = gs_lint.check_high_doc_only_justification(catalogs)
     assert any("VC-999" in finding for finding in findings)
 
 
-def test_high_audited_with_falsifiable_justification_passes_ratchet():
+def test_high_doc_only_with_falsifiable_justification_passes_ratchet():
     catalogs = {"synthetic.yaml": [{
         "id": "VC-999",
-        "status": "AUDITED",
+        "status": "DOC_ONLY",
         "severity": "high",
-        "coverage_justification": "A reproducible test fails when the guard is removed from the source.",
+        "doc_only_justification": "Promote only after a positive fixture, negative fixture, and CI-enforced gate exist.",
     }]}
-    assert gs_lint.check_high_audited_coverage(catalogs) == []
+    assert gs_lint.check_high_doc_only_justification(catalogs) == []
 
 
 def test_evidence_classification_is_closed_set():
@@ -31,3 +31,13 @@ def test_evidence_classification_is_closed_set():
 
 def test_live_catalogs_have_no_transitional_audited_status():
     assert gs_lint.check_no_audited_statuses() == []
+
+
+def test_transitional_status_is_rejected(tmp_path):
+    catalog = tmp_path / "golden_standard_synthetic.yaml"
+    catalog.write_text(
+        "items:\n- id: VC-999\n  title: Synthetic\n  status: " + gs_lint.LEGACY_REVIEW_STATUS + "\n",
+        encoding="utf-8",
+    )
+    findings = gs_lint.check_no_audited_statuses(tmp_path)
+    assert any("VC-999" in finding for finding in findings)

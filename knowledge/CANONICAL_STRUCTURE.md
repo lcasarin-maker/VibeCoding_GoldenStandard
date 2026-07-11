@@ -56,10 +56,10 @@ project/
 | ID | Detection |
 |---|---|
 | `SP-001` | audit.py: assert no BOOTSTRAP.md, RULES.md, PERMISSIONS.md, DEFINITION_OF_DONE.md, or [agent].md files exist outside .agents/AGENTS.md |
-| `SP-002` | audit.py: assert audit/sessions/ contains a record dated today; assert HANDOFF.md mtime matches today |
+| `SP-002` | Human/session review: verify material facts were exported to HANDOFF.md, STATE.md, DECISIONS.md, tasks/, or audit/sessions/ before close. The generic audit gate checks structural presence, not chat history. |
 | `SP-003` | audit.py: assert tasks/done/ is empty (files moved there are deleted after commit) |
 | `SP-004` | audit.py: assert no archive/ folder exists; assert tasks/done/ is empty |
-| `SP-005` | audit.py: assert audit/sessions/ has a record for the current session; assert HANDOFF.md was updated |
+| `SP-005` | Human/session-close review: verify tasks, HANDOFF.md, STATE.md, audit/sessions/, and AUDIT_TRAIL.md were updated for the session. audit.py checks only required headers and non-empty governance files. |
 | `SP-006` | audit.py: validate required folders and files exist; run across CC, GS, and registered satellites |
 | `SP-007` | audit.py: assert tasks/README.md and audit/README.md exist; assert session files contain required sections |
 | `SP-008` | — |

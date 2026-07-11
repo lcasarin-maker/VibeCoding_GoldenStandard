@@ -10,13 +10,13 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 
 | Metric | Value |
 |---|---:|
-| Nodes | 513 |
-| Edges | 2668 |
-| Reciprocal pairs | 607 |
+| Nodes | 514 |
+| Edges | 2671 |
+| Reciprocal pairs | 608 |
 | Average edge confidence | 0.933 |
-| Semantic density | 0.011641 |
+| Semantic density | 0.011605 |
 | Hub ratio | 1.0 |
-| Bridge ratio | 0.997895 |
+| Bridge ratio | 0.997899 |
 | Intentional orphans | 0 |
 | Candidate orphans | 0 |
 | Hubs | 15 |
@@ -29,9 +29,9 @@ The graph now distinguishes link syntax from relation meaning. `kind` records ho
 
 | Relation | Edges |
 |---|---:|
-| `returns_to_index` | 1166 |
-| `references` | 476 |
-| `catalogs` | 353 |
+| `returns_to_index` | 1167 |
+| `references` | 477 |
+| `catalogs` | 354 |
 | `governed_by` | 208 |
 | `indexes` | 122 |
 | `thematic_bridge` | 122 |
@@ -49,7 +49,7 @@ The graph now also highlights entries that remain mainly documentary. This does 
 
 | Catalog | VC DOC_ONLY | VT DOC_ONLY | TK DOC_ONLY |
 |---|---:|---:|---:|
-| `DOC_ONLY` | 22 | 86 | 1 |
+| `DOC_ONLY` | 21 | 86 | 1 |
 
 | ID | Title | Category | Severity | Status |
 |---|---|---|---|---|
@@ -99,7 +99,7 @@ Each entry is classified by depth: `deep` (ships bad/good examples and a detecti
 | `stub` | 0 | 0 | 0 |
 | `doctrinal` | 0 | 0 | 0 |
 
-**Local enforcement:** 34 `deep` entries have a real static detector in `scripts/detectors.py`, tested in CI against their own `example_bad`/`example_good` (`scripts/test_detectors.py`). The rest are falsifiable-in-principle (they ship a detection recipe) but without an implemented detector yet.
+**Local enforcement:** 35 `deep` entries have a real static detector in `scripts/detectors.py`, tested in CI against their own `example_bad`/`example_good` (`scripts/test_detectors.py`). The rest are falsifiable-in-principle (they ship a detection recipe) but without an implemented detector yet.
 
 ---
 
@@ -135,7 +135,7 @@ Pages with the largest impact surface. If they change, review their inbound link
 
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
-| [[Home]] | `wiki` | 467 | 13 | [[Detectors/vc-002]], [[Detectors/vc-003]], [[Detectors/vc-005]], [[Detectors/vc-010]], [[Detectors/vc-012]], [[Detectors/vc-013]] +461 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
+| [[Home]] | `wiki` | 468 | 13 | [[Detectors/vc-002]], [[Detectors/vc-003]], [[Detectors/vc-005]], [[Detectors/vc-010]], [[Detectors/vc-012]], [[Detectors/vc-013]] +462 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
 | [[Vices_Index]] | `wiki` | 209 | 209 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +203 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +203 more |
 | [[Tokenomics_Map]] | `wiki` | 249 | 21 | [[Home]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]], [[Tokenomics/Output_Compaction_Index]] +243 more | [[Home]], [[Principles]], [[Principles/PR-081]], [[Principles/PR-083]], [[Principles/PR-084]], [[Principles/PR-085]] +15 more |
 | [[Principles]] | `principle-index` | 134 | 123 | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +128 more | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +117 more |

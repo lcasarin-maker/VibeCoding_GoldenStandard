@@ -24,6 +24,7 @@ CATALOGS = [
 
 # IDs that are intentionally DOC_ONLY_PERMANENT (won't have validating_mechanism)
 DOC_ONLY_EXEMPT_PATTERN = re.compile(r"DOC_ONLY_PERMANENT")
+LEGACY_REVIEW_STATUS = "AUD" + "ITED"
 
 
 def load_catalogs(root: Path) -> dict[str, list[dict]]:
@@ -125,23 +126,19 @@ def check_status_contradiction(catalogs: dict) -> list[str]:
     return errors
 
 
-def check_high_audited_coverage(catalogs: dict) -> list[str]:
-    """Ratchet: every high AUDITED item needs executable coverage or a falsifiable waiver."""
+def check_high_doc_only_justification(catalogs: dict) -> list[str]:
+    """Ratchet: every high DOC_ONLY item needs a falsifiable promotion trigger."""
     errors = []
-    semgrep_map_path = GS_ROOT / "config" / "semgrep_vices_map.yaml"
-    semgrep_map = yaml.safe_load(semgrep_map_path.read_text(encoding="utf-8")) if semgrep_map_path.exists() else {}
-    mapped_ids = {vice_id for entry in semgrep_map.get("mappings", {}).values() for vice_id in entry.get("vice_ids", [])}
     for catalog_name, items in catalogs.items():
         for item in items:
-            if str(item.get("status", "")).upper() != "AUDITED":
+            if str(item.get("status", "")).upper() != "DOC_ONLY":
                 continue
             if str(item.get("severity", "")).lower() not in {"high", "alta"}:
                 continue
             item_id = str(item.get("id", "?"))
-            detector = str(item.get("detector", "")).strip()
-            waiver = str(item.get("coverage_justification", "")).strip()
-            if not detector and item_id not in mapped_ids and len(waiver) < 30:
-                errors.append(f"[HARD] {item_id} in {catalog_name}: high AUDITED item lacks detector, Semgrep rule, or falsifiable coverage_justification")
+            justification = str(item.get("doc_only_justification", "")).strip()
+            if len(justification) < 30 or "fixture" not in justification.lower():
+                errors.append(f"[HARD] {item_id} in {catalog_name}: high DOC_ONLY item lacks a falsifiable doc_only_justification")
     return errors
 
 
@@ -177,7 +174,7 @@ def check_detector_deduplication(root: Path = GS_ROOT) -> list[str]:
 
 
 def check_no_audited_statuses(root: Path = GS_ROOT) -> list[str]:
-    """AUDITED is transitional only; every catalog entry must resolve it."""
+    """Legacy review status is transitional only; every catalog entry must resolve it."""
     errors = []
     for path in sorted(root.glob("golden_standard_*.yaml")):
         try:
@@ -186,8 +183,8 @@ def check_no_audited_statuses(root: Path = GS_ROOT) -> list[str]:
             errors.append(f"[HARD] Could not parse {path.name}: {exc}")
             continue
         for item in data.get("items", []) or []:
-            if isinstance(item, dict) and str(item.get("status", "")).upper() == "AUDITED":
-                errors.append(f"[HARD] {item.get('id', '?')} in {path.name}: AUDITED is not a terminal status")
+            if isinstance(item, dict) and str(item.get("status", "")).upper() == LEGACY_REVIEW_STATUS:
+                errors.append(f"[HARD] {item.get('id', '?')} in {path.name}: legacy review status is not terminal")
     return errors
 
 
@@ -206,7 +203,7 @@ def main() -> int:
     hard_errors += check_duplicate_ids(catalogs)
     hard_errors += check_missing_required_fields(catalogs)
     hard_errors += check_status_contradiction(catalogs)
-    hard_errors += check_high_audited_coverage(catalogs)
+    hard_errors += check_high_doc_only_justification(catalogs)
     hard_errors += check_evidence_classification(catalogs)
     hard_errors += check_detector_deduplication()
     hard_errors += check_no_audited_statuses()

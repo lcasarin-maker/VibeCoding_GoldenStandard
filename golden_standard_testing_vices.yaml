@@ -87,7 +87,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-004
   title: Copying the expected value
   symptom: The expected value ends up copied inside the code or the fixture and stops being an independent observation
@@ -120,7 +119,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-005
   detector: vt005_assert_true
   title: Trivial assert
@@ -211,7 +209,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-008
   title: Message not result
   symptom: Looks for approval text
@@ -242,7 +239,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-009
   detector: vt009_tautological_assert
   title: Tautology
@@ -302,7 +298,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-011
   title: Incorrect expected value
   symptom: The test compares against an expectation that no longer matches the current specification
@@ -333,7 +328,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-012
   title: Coverage without asserts
   symptom: Runs without verifying
@@ -426,7 +420,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: core
-  test_ref: tool:ruff
 - id: VT-015
   title: Test too broad
   symptom: Does not localize the failure
@@ -457,7 +450,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-016
   title: Ceremonial textual assertion
   symptom: The text exists
@@ -516,7 +508,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-018
   title: Fragile string matching
   symptom: The message changes the result
@@ -547,7 +538,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-019
   title: Valid error hash
   symptom: UNREADABLE looks like data
@@ -582,7 +572,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-020
   title: One hundred percent as the goal
   symptom: Tests are gamed
@@ -613,7 +602,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-021
   title: Regression without a sentinel
   symptom: An old error reappears
@@ -644,7 +632,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-022
   title: Green ceremony and Tautological Assertions
   symptom: Useless passing tests that do not discriminate logical breaks
@@ -703,7 +690,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-024
   title: Incomplete fake
   symptom: Omits hard cases
@@ -732,7 +718,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-025
   title: Network stub
   symptom: Stale response
@@ -763,7 +748,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-026
   title: Simplified database
   symptom: Rules differ
@@ -794,7 +778,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-027
   title: Fixed clock
   symptom: Dates always ideal
@@ -825,7 +808,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-028
   title: Controlled randomness
   symptom: Does not explore the distribution
@@ -856,7 +838,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-029
   title: Fake filesystem
   symptom: Does not test permissions or locks
@@ -887,7 +868,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-030
   title: Friendly monkey patch
   symptom: The real system is not tested
@@ -918,7 +898,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-031
   title: Command stub
   symptom: Prints "installed"
@@ -949,7 +928,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-032
   title: Partial mock scan
   symptom: Does not cover the tests
@@ -980,7 +958,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-033
   title: Wrapper as remediation
   symptom: A layer is created so the validator does not fail
@@ -1009,7 +986,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-034
   title: Approved placeholder
   symptom: The evaluator accepts an incomplete structure
@@ -1040,7 +1016,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-035
   title: Permanent xfail
   symptom: Ignored failure
@@ -1156,7 +1131,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-039
   title: Temporal dependency
   symptom: The hour or day decides
@@ -1187,7 +1161,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-040
   detector: vt040_blind_except
   title: Absorbed exception
@@ -1249,7 +1222,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-042
   title: False success log
   symptom: OK without checking
@@ -1280,7 +1252,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-043
   detector: vt043_unconditional_exit_zero
   title: Unconditional successful exit
@@ -1343,7 +1314,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-045
   title: Single happy path
   symptom: Only the ideal case
@@ -1374,7 +1344,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-046
   title: Magic datum
   symptom: The input avoids the bug
@@ -1405,7 +1374,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-047
   title: Small dataset
   symptom: Scale breaks it
@@ -1464,7 +1432,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-049
   title: No special characters
   symptom: Real text breaks it
@@ -1495,7 +1462,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-050
   title: No boundary dates
   symptom: The calendar breaks it
@@ -1564,7 +1530,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-052
   title: Ignore errors
   symptom: The pipeline ignores the failure
@@ -1625,7 +1590,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-054
   title: Optional tests
   symptom: Nobody runs them
@@ -1656,7 +1620,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-055
   title: Unattended notification
   symptom: Invisible failure
@@ -1687,7 +1650,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-056
   title: Complacent post-bug test
   symptom: Passes while broken
@@ -1718,7 +1680,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-057
   title: Skip later
   symptom: Infinite debt
@@ -1787,7 +1748,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-059
   title: Variable alters validation
   symptom: The test disables checks
@@ -1818,7 +1778,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-060
   title: Setup cleans too much
   symptom: Unrealistic state
@@ -1849,7 +1808,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-061
   title: UI by delta
   symptom: Broken UI not reviewed
@@ -1880,7 +1838,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-062
   title: Full dead file
   symptom: Not truncated but useless
@@ -1911,7 +1868,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-063
   title: False documented interface
   symptom: Unsupported flag
@@ -1942,7 +1898,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-064
   title: Invisible broken tests
   symptom: ImportError not seen
@@ -1973,7 +1928,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-065
   title: Broken global capture
   symptom: The test breaks the runner
@@ -2004,7 +1958,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-066
   title: Orphan tests
   symptom: Files never run
@@ -2063,7 +2016,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-068
   title: Backups as deprecated
   symptom: Noise contaminates the audit
@@ -2094,7 +2046,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-069
   title: Misleading name
   symptom: The loop improves nothing
@@ -2125,7 +2076,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-070
   title: Missing setup validation
   symptom: The test passes even though the real environment cannot start
@@ -2184,7 +2134,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-072
   title: Documentary rollback
   symptom: Reversibility is documented without executing it
@@ -2215,7 +2164,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-073
   title: Compatibility not evaluated
   symptom: An old flow breaks with a new change
@@ -2246,7 +2194,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-074
   title: Untested observability
   symptom: On failure there is no useful diagnostic
@@ -2277,7 +2224,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-075
   title: Incomplete Test Discovery
   symptom: Green suites that hide broken or inactive tests
@@ -2308,7 +2254,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-076
   title: System dependency
   symptom: Only runs in one environment
@@ -2339,7 +2284,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-077
   title: Misleading timeout
   symptom: Slowness passes
@@ -2370,7 +2314,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-078
   title: Single local machine
   symptom: Depends on installation
@@ -2401,7 +2344,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-079
   title: Unpenetrated sandbox
   symptom: Isolation is declared without attempting an escape
@@ -2432,7 +2374,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-080
   title: Physical Address Coupling
   symptom: Validation failures when migrating to secondary environments
@@ -2491,7 +2432,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-082
   title: Review without tests
   symptom: Changes approved blindly
@@ -2522,7 +2462,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-083
   title: Encoded expected value
   symptom: The test compares against an answer written to pass
@@ -2553,7 +2492,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-084
   title: Hardcoded approval
   symptom: The approved state is set manually as truth
@@ -2584,7 +2522,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-085
   title: Complacent golden file
   symptom: A stale snapshot legitimizes broken output
@@ -2615,7 +2552,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-086
   title: Normalized expected failure
   symptom: An expected failure becomes permanent
@@ -2684,7 +2620,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-088
   title: Error tolerance
   symptom: The system accepts a known error
@@ -2743,7 +2678,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-090
   title: Tested placeholder
   symptom: A placeholder satisfies the assertion
@@ -2812,7 +2746,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-092
   title: Section as compliance
   symptom: A heading is enough
@@ -2843,7 +2776,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-093
   title: Docstrings as quality
   symptom: Comments pass
@@ -2874,7 +2806,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-094
   title: Handling by keyword
   symptom: A lexical token passes
@@ -2905,7 +2836,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-095
   title: Tests of the protocol, not the subject
   symptom: A project with no tests passes
@@ -2936,7 +2866,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-096
   title: Stale evidence
   symptom: An old artifact passes
@@ -2967,7 +2896,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-097
   title: Ceremonial chaos
   symptom: It tests an external library, not the system
@@ -2998,7 +2926,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-098
   title: Lying passed report
   symptom: It says all, runs few
@@ -3029,7 +2956,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-099
   title: Dead version constant
   symptom: Old fallback
@@ -3060,7 +2986,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-100
   title: Permissions not rigorous
   symptom: Only the permitted actor is tested
@@ -3091,7 +3016,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-101
   title: Unvalidated routing
   symptom: Tasks reach the wrong flow
@@ -3122,7 +3046,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-102
   title: Hardcoded approved list
   symptom: The validator accepts by name, not by behavior
@@ -3153,7 +3076,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-103
   title: Expected hardcoded in the evaluator
   symptom: The evaluator knows in advance what must pass
@@ -3184,7 +3106,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-104
   title: Warnings outside the score
   symptom: Warnings do not affect approval
@@ -3215,7 +3136,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-105
   title: No hook-existence test
   symptom: A pipeline with no verification that git hooks are installed and executable
@@ -3346,7 +3266,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-109
   title: Redundant Frameworks and Middleman Theater (Testing Bridge Theater)
   symptom: Using complex test frameworks (`pytest`) for simple static/structural validations that can be resolved with a direct, standalone script. It adds dependencies and duplication, and creates compatibility bridges that violate the principles of simplicity and minimal coupling (KISS).
@@ -3405,7 +3324,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-111
   title: Deferred Without Registration
   symptom: The agent detects technical debt or a finding, verbally classifies it as "postpone / isolated sprint / deferred / later", and closes the response without opening the Sprint Document (e.g., PLAN.md). The item disappears.
@@ -3436,7 +3354,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-112
   title: Ghost Dependency Drift
   symptom: Importing and integrating packages and modules at coding time without explicitly registering their existence in the dependency manifest.
@@ -3467,7 +3384,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-113
   title: Lack of Mutation Testing (Lack of Test Mutation Validation)
   symptom: Tests that always pass (green) regardless of what logic changes or breakages are inserted into production code.
@@ -3500,7 +3416,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-114
   title: Multi-Repository Sync Drift
   symptom: Modifying governance or protocol files in a satellite repository in isolation without integrating them back into the central core, breaking the ecosystem's operational parity.
@@ -3531,7 +3446,6 @@ items:
   - source: arxiv:2602.00409
     claim: an empirical study confirms that agents generate tests without an oracle (no assert, tautological, over-mocked) in a measurable way.
   tier: extended
-  test_ref: tool:ruff
 - id: VT-115
   title: False Drift Positive from Line Endings (CRLF/LF Hash Mismatch)
   symptom: The drift audit (D12) fails falsely when comparing files that are identical on disk (Windows CRLF) against Git repositories or satellites (LF).

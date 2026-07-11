@@ -66,7 +66,7 @@ Each entry in the YAML files follows this structure:
     Why it happens.
   solution: |
     What to do instead.
-  status: DOC_ONLY          # DOC_ONLY | AUDITED | PREVENTED | REMEDIATED
+  status: DOC_ONLY          # DOC_ONLY | PREVENTED | REMEDIATED
   severity: medium          # critical | high | medium | low
   tags:
     - vibe-coding           # at least two normalized slugs
@@ -109,8 +109,8 @@ instead of the depth fields (no fabricated example code).
 ### Metadata Rules
 
 - `severity` is mandatory and must be one of `critical`, `high`, `medium`, or `low`.
-- `status` is the canonical stored operativity field in the catalog and must be one of `DOC_ONLY`, `AUDITED`, `PREVENTED`, or `REMEDIATED`.
-- For human reading, map the stored status to the self-describing enum tracked in issue #4: `PROPOSED` (`DOC_ONLY` / `AUDITED`), `ENFORCED_EXTERNAL` (`PREVENTED`), or `ENFORCED_LOCAL` (`REMEDIATED`).
+- `status` is the canonical stored operativity field in the catalog and must be one of `DOC_ONLY`, `PREVENTED`, or `REMEDIATED`; `legacy review` is retired and rejected.
+- For human reading, map the stored status to the self-describing enum: `PROPOSED` (`DOC_ONLY`), `ENFORCED_EXTERNAL` (`PREVENTED`), or `ENFORCED_LOCAL` (`REMEDIATED`).
 - `tags` is mandatory, must be a list of at least two normalized slugs, and should include at least one domain tag plus one lifecycle tag.
 - `downstream_verification` is mandatory metadata on VC/VT/TK catalog entries. Use `required` when the entry is documented in GS but still expects downstream verification in the consumer repo, and `none` when no consumer-side test is expected.
 - Every new VC/VT/TK issue, PR, or catalog edit must choose `downstream_verification` explicitly before merge; `DOC_ONLY` is never a shortcut for "test exempt".

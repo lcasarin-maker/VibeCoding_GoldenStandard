@@ -16,7 +16,7 @@ MANIFEST = ROOT / "golden_standard.yaml"
 WIKI_VICES_DIR = ROOT / "Wiki" / "Vices"
 WIKI_TOKENOMICS_DIR = ROOT / "Wiki" / "Tokenomics"
 WIKI_PRINCIPLES_FILE = ROOT / "Wiki" / "Principles.md"
-ALLOWED_STATUSES = {"DOC_ONLY", "AUDITED", "PREVENTED", "REMEDIATED"}
+ALLOWED_STATUSES = {"DOC_ONLY", "PREVENTED", "REMEDIATED"}
 ALLOWED_DOWNSTREAM_VERIFICATIONS = {"required", "none"}
 ALLOWED_SEVERITIES = {"critical", "high", "medium", "low"}
 # AX-020: agnostic vocabulary for validating_mechanism. Some live catalogs still carry
@@ -657,7 +657,7 @@ def validate_home_counts(errors: list[str]) -> None:
         for item in vices + tests + tokenomics
         if (status := effective_status(item))
     )
-    proposed = status_expected.get("AUDITED", 0) + status_expected.get("DOC_ONLY", 0)
+    proposed = status_expected.get("DOC_ONLY", 0)
     enforced_external = status_expected.get("PREVENTED", 0)
     enforced_local = status_expected.get("REMEDIATED", 0)
     total_row = f"| `Total` | {total_expected} |"

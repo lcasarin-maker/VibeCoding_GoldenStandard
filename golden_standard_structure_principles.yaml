@@ -41,13 +41,14 @@ items:
   - state-continuity
   action: Enforce mandatory session-close phase; HANDOFF.md and audit/sessions/ record are required outputs of every session.
   validating_mechanism: doctrinal
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: core
   catalog_source: structure_principles
   related_cds: [CD02, CD15]
   related_prs: [PR-084, PR-103]
-  detection: "audit.py: assert audit/sessions/ contains a record dated today; assert HANDOFF.md mtime matches today"
+  detection: "Human/session review: verify material facts were exported to HANDOFF.md, STATE.md, DECISIONS.md, tasks/, or audit/sessions/ before close. The generic audit gate checks structural presence, not chat history."
 
 - id: SP-003
   title: Live debt only in backlog
@@ -104,13 +105,14 @@ items:
   - state-continuity
   action: DoD checklist in AGENTS.md §4 must include all session-close steps as explicit required items.
   validating_mechanism: doctrinal
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: core
   catalog_source: structure_principles
   related_cds: [CD02, CD14, CD15]
   related_prs: [PR-084, PR-101, PR-103]
-  detection: "audit.py: assert audit/sessions/ has a record for the current session; assert HANDOFF.md was updated"
+  detection: "Human/session-close review: verify tasks, HANDOFF.md, STATE.md, audit/sessions/, and AUDIT_TRAIL.md were updated for the session. audit.py checks only required headers and non-empty governance files."
 
 - id: SP-006
   title: Consistent structure across federated repos
@@ -167,6 +169,7 @@ items:
   - authority
   action: AGENTS.md §4 DoD must be a concrete checklist; any item not met = task stays active or moves to blocked/.
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist

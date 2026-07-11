@@ -34,7 +34,7 @@ Regla S19: todo reemplazo será eliminación + creación. No se conservará `scr
 
 2.5.2. Para cada regla añadir al menos un fixture positivo y uno negativo, ejecutar Semgrep sobre ambos y guardar evidencia reproducible en la suite.
 
-2.5.3. Registrar el mapeo regla↔vicio en el catálogo y cambiar `AUDITED` a `PREVENTED` únicamente cuando la regla y sus fixtures hayan pasado; los vicios no demostrados permanecen `AUDITED` con deuda explícita.
+2.5.3. Registrar el mapeo regla↔vicio en el catálogo y cambiar un vicio a `PREVENTED` únicamente cuando la regla y sus fixtures hayan pasado; los vicios sin enforcement pasan a `DOC_ONLY` con trigger de promoción falsable.
 
 ## 2.6 — ratchet GS, evidencia y deduplicación
 
@@ -64,7 +64,7 @@ Regla S19: todo reemplazo será eliminación + creación. No se conservará `scr
 - `scripts/generate_golden_audit.py` eliminado y reemplazado por `gs_generator/` sin shim.
 - CLI exacta y receipts preservados.
 - Artefactos byte-idénticos salvo timestamps.
-- Cada regla Semgrep tiene positivo/negativo y evidencia; ningún `AUDITED` cambia sin prueba.
+- Cada regla Semgrep tiene positivo/negativo y evidencia; `legacy review` no es un estado permitido.
 - Ratchet, clasificación `primary|internal-generic|pending` y deduplicación cubiertos por lint/tests.
 - CI ejecuta pytest 3.10–3.13, `audit.py` 8/8 y Semgrep.
 - GS-AUD-001/003/005/006 actualizados con evidencia y cierre reproducible.

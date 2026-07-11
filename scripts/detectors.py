@@ -274,6 +274,49 @@ def vc003_incomprehensible_code(code: str) -> bool:
     return False
 
 
+# --- VC-090: premature abstraction with exactly one implementation ---
+def vc090_premature_abstraction(code: str) -> bool:
+    """Flag an ABC/Protocol that has exactly one concrete subclass in the snippet."""
+    tree = _parse(code)
+    if tree is None:
+        return False
+
+    abstract_names: set[str] = set()
+    classes: list[ast.ClassDef] = []
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.ClassDef):
+            continue
+        classes.append(node)
+        base_names = {
+            base.id for base in node.bases if isinstance(base, ast.Name)
+        } | {
+            base.attr for base in node.bases if isinstance(base, ast.Attribute)
+        }
+        decorators = {
+            dec.id
+            for member in node.body
+            if isinstance(member, (ast.FunctionDef, ast.AsyncFunctionDef))
+            for dec in member.decorator_list
+            if isinstance(dec, ast.Name)
+        }
+        if base_names & {"ABC", "Protocol"} or "abstractmethod" in decorators:
+            abstract_names.add(node.name)
+
+    for abstract_name in abstract_names:
+        implementations = 0
+        for node in classes:
+            base_names = {
+                base.id for base in node.bases if isinstance(base, ast.Name)
+            } | {
+                base.attr for base in node.bases if isinstance(base, ast.Attribute)
+            }
+            if abstract_name in base_names:
+                implementations += 1
+        if implementations == 1:
+            return True
+    return False
+
+
 # --- VC-013: handoff note missing the required fields ---
 _HANDOFF_MARK = re.compile(r"(?is)\b(handoff|status)\b|continue where we left off")
 _HANDOFF_FIELDS = ("goal:", "state:", "evidence:", "blockers:", "next:")
@@ -582,6 +625,7 @@ def vc087_self_polluting_tooling(code: str) -> bool:
 DETECTORS = {
     "VC-005": vc005_premature_closure,
     "VC-003": vc003_incomprehensible_code,
+    "VC-090": vc090_premature_abstraction,
     "VC-013": vc013_ambiguous_handoff,
     "VC-016": vc016_broken_version_parity,
     "VC-017": vc017_deadlock_without_heartbeat,

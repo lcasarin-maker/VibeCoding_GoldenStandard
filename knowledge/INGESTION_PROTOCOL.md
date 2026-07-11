@@ -125,7 +125,7 @@ Open the target catalog file and append the new entry in canonical format:
     Root cause or mechanism.
   solution: |
     What to do instead.
-  status: DOC_ONLY                    # DOC_ONLY | AUDITED | PREVENTED | REMEDIATED
+  status: DOC_ONLY                    # DOC_ONLY | PREVENTED | REMEDIATED
   severity: high                      # critical | high | medium | low
   tags:
     - vibe-coding                    # at least two normalized slugs

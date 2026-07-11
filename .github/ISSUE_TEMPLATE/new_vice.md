@@ -54,7 +54,7 @@ assignees: ''
 ## Catalog Status
 <!-- Proposed operativity status for the catalog entry -->
 - [ ] DOC_ONLY
-- [ ] AUDITED
+- [ ] legacy review
 - [ ] PREVENTED
 - [ ] REMEDIATED
 

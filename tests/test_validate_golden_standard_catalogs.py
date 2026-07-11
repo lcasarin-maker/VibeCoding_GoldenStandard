@@ -10,7 +10,7 @@ from scripts.validate_golden_standard_catalogs import (
 )
 
 
-def test_validator_accepts_tolerated_legacy_contract_values(tmp_path: Path) -> None:
+def test_validator_accepts_tolerated_legacy_mechanism_values(tmp_path: Path) -> None:
     catalog = {
         "items": [
             {
@@ -33,12 +33,12 @@ def test_validator_accepts_tolerated_legacy_contract_values(tmp_path: Path) -> N
                 "symptom": "Adversarial vector metadata still uses compatibility labels",
                 "cause": "The catalog has not been fully normalized yet",
                 "solution": "Treat the legacy labels as tolerated for compatibility with live catalogs",
-                "status": "AUDITED",
+                "status": "DOC_ONLY",
                 "severity": "medium",
                 "tags": ["adversarial", "BFS", "k=1"],
                 "action": "Existing live catalog labels remain valid while compatibility is still required.",
                 "validating_mechanism": "manual-review",
-                "downstream_verification": "pytest",
+                "downstream_verification": "required",
                 "tier": "core",
             },
         ]

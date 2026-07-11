@@ -15,6 +15,7 @@ items:
     cause: Absence of rigorous validation. Remediation: Treat every output as a hypothesis
     until validated.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -34,6 +35,7 @@ items:
     Root cause: Optimization by superficial similarity. Remediation: Demand explicit
     uncertainty and evidence.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -52,6 +54,7 @@ items:
   action: 'This principle addresses Something works superficially. Root cause: Insufficient
     sampling of state. Remediation: Validate flow, boundaries, and persistence.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -70,6 +73,7 @@ items:
   action: 'This principle addresses Pretty UI or docs hide failures. Root cause: Visual
     signal substitutes for causality. Remediation: Validate logic before presentation.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -88,6 +92,7 @@ items:
   action: 'This principle addresses Critical logic avoid read. Root cause: Delegation
     without comprehension. Remediation: Human review of critical invariants.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -106,6 +111,7 @@ items:
   action: 'This principle addresses Probable regressions are ignored. Root cause:
     Poorly calibrated priors. Remediation: Assume failure until proven otherwise.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -124,6 +130,7 @@ items:
   action: 'This principle addresses Validation uses prior memory. Root cause: Contextual
     bias. Remediation: Re-validate from fresh context.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -142,6 +149,7 @@ items:
   action: 'This principle addresses The error repeats. Root cause: Learning not persisted.
     Remediation: Record the pattern and a guardrail.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -160,6 +168,7 @@ items:
   action: 'This principle addresses A nonexistent interaction is declared. Root cause:
     Absent perceptual channel. Remediation: Real human evidence.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -178,6 +187,7 @@ items:
   action: 'This principle addresses Aesthetics supplant function. Root cause: Wrong
     metric. Remediation: Usability equals behavior.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -196,6 +206,7 @@ items:
   action: 'This principle addresses Excellence is assigned without proof. Root cause:
     Uncalibrated scale. Remediation: Grade only with evidence.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -214,6 +225,7 @@ items:
   action: 'This principle addresses Broken system marked OK. Root cause: Superficial
     validator. Remediation: Empirical audit.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -232,6 +244,7 @@ items:
   action: 'This principle addresses User delegates judgment. Root cause: Misassigned
     authority. Remediation: Human retains responsibility.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -250,6 +263,7 @@ items:
   action: 'This principle addresses A copied error is patched. Root cause: Diagnosis
     omitted. Remediation: Reproduce, diagnose, fix, verify.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -268,6 +282,7 @@ items:
   action: 'This principle addresses The bug returns in another form. Root cause: Root
     cause not isolated. Remediation: Fix the mechanism, not the manifestation.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -286,6 +301,7 @@ items:
   action: 'This principle addresses Code is changed without a minimal case. Root cause:
     Lack of an initial oracle. Remediation: Every bug requires prior reproduction.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -304,6 +320,7 @@ items:
   action: 'This principle addresses More changes, less certainty. Root cause: Local
     optimization of time. Remediation: Validate early, build little.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -322,6 +339,7 @@ items:
   action: 'This principle addresses Writing is saved, debugging is paid. Root cause:
     Invisible deferred costs. Remediation: Measure rework and reversion.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -340,6 +358,7 @@ items:
   action: 'This principle addresses Work accumulates before testing. Root cause: Late
     feedback. Remediation: Iterate in verifiable slices.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -358,6 +377,7 @@ items:
   action: 'This principle addresses The system guesses requirements. Root cause: Ambiguous
     input. Remediation: Define goal, constraints, and output.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -376,6 +396,7 @@ items:
   action: 'This principle addresses Work continues under high uncertainty. Root cause:
     Decisional entropy. Remediation: Stop if critical hypotheses exceed a threshold.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -394,6 +415,7 @@ items:
   action: 'This principle addresses Unrequested improvements are added. Root cause:
     Unstable objective function. Remediation: Send side findings to the backlog.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -412,6 +434,7 @@ items:
   action: 'This principle addresses Validation is abandoned. Root cause: Communicational
     incentive. Remediation: Do not close without an exit criterion.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -430,6 +453,7 @@ items:
   action: 'This principle addresses A future agent repeats discussions. Root cause:
     Lost causality. Remediation: Record the reason, not just the result.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -448,6 +472,7 @@ items:
   action: 'This principle addresses Already-resolved questions are re-asked. Root
     cause: Lack of a ledger. Remediation: Keep a historical log of clarifications.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -466,6 +491,7 @@ items:
   action: 'This principle addresses Partial success is reported. Root cause: Incomplete
     metric. Remediation: Mandatory evidence per claim.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -484,6 +510,7 @@ items:
   action: 'This principle addresses System hard to change. Root cause: Accumulated
     complexity. Remediation: Audit the capacity to change.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -502,6 +529,7 @@ items:
   action: 'This principle addresses Agent expands scope. Root cause: Weak control.
     Remediation: Scope lock.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -520,6 +548,7 @@ items:
   action: 'This principle addresses Fix-revert consumes context. Root cause: Insufficient
     diagnosis. Remediation: Less generation, more root cause.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -538,6 +567,7 @@ items:
   action: 'This principle addresses Each fix introduces another bug. Root cause: Causal
     system not understood. Remediation: Separate diagnosis and correction.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -556,6 +586,7 @@ items:
   action: 'This principle addresses No one can maintain it. Root cause: Absent responsibility.
     Remediation: An owner able to explain and repair it.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -575,6 +606,7 @@ items:
     Root cause: Destructive pruning without inventory. Remediation: Audit, extract,
     and validate before retiring.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -593,6 +625,7 @@ items:
   action: 'This principle addresses Memory/state differ from reality. Root cause:
     Multiple sources of truth. Remediation: Reconcile declared state with the system.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -612,6 +645,7 @@ items:
     Channels with different purposes. Remediation: Separate operational and human
     documentation.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -630,6 +664,7 @@ items:
   action: 'This principle addresses State changes without an event. Root cause: Informational
     noise. Remediation: Update memory only on relevant events.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -648,6 +683,7 @@ items:
   action: 'This principle addresses The agent forgets requirements. Root cause: Finite
     window. Remediation: Compact and restart with a checkpoint.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -666,6 +702,7 @@ items:
   action: 'This principle addresses Responses worsen from excess. Root cause: Semantic
     noise. Remediation: Keep the minimal sufficient context.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -684,6 +721,7 @@ items:
   action: 'This principle addresses A change breaks recoverable state. Root cause:
     Absence of reversibility. Remediation: Create a return point before risk.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -702,6 +740,7 @@ items:
   action: 'This principle addresses Several sources compete. Root cause: Distributed
     inconsistency. Remediation: Canonical ledger.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -720,6 +759,7 @@ items:
   action: 'This principle addresses Actors overwrite each other''s changes. Root cause:
     Lack of isolation. Remediation: Separate branches, spaces, or locks.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -739,6 +779,7 @@ items:
     Absent task classification. Remediation: Route by capability, risk, and observable
     state.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -758,6 +799,7 @@ items:
     cause: Lexical union without semantics. Remediation: Merge by entities, decisions,
     and causality.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -776,6 +818,7 @@ items:
   action: 'This principle addresses Unexplainable decisions. Root cause: Loss of the
     causal model. Remediation: Every decision should have a traceable reason.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -814,6 +857,7 @@ items:
   action: 'This principle addresses Rules clash at execution. Root cause: Inconsistent
     logical system. Remediation: Define precedence before automating.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -832,6 +876,7 @@ items:
   action: 'This principle addresses Failure propagates. Root cause: Excessive coupling.
     Remediation: Stable interfaces and isolation.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -850,6 +895,7 @@ items:
   action: 'This principle addresses The cut breaks semantics. Root cause: Partitioning
     by size. Remediation: Chunking by functional boundaries.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -868,6 +914,7 @@ items:
   action: 'This principle addresses Global coherence is lost. Root cause: Unmodeled
     dependencies. Remediation: Do not slice without a structural graph.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -886,6 +933,7 @@ items:
   action: 'This principle addresses External API or data assumed stable. Root cause:
     Unmodeled external dependency. Remediation: Contracts and boundary tests.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -904,6 +952,7 @@ items:
   action: 'This principle addresses Docs and code diverge. Root cause: Decoupled evolution.
     Remediation: Update both or invalidate the docs.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -922,6 +971,7 @@ items:
   action: 'This principle addresses Prior consumers break silently. Root cause: Historical
     contract not modeled. Remediation: Version contracts and test active legacy paths.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -941,6 +991,7 @@ items:
     Signal without diagnosis. Remediation: Record causal events, decisions, and boundary
     states.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -960,6 +1011,7 @@ items:
     cause: Indirection as concealment. Remediation: Resolve the broken contract at
     its source.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -979,6 +1031,7 @@ items:
     cause: Exception turned into a stable state. Remediation: Zero known errors at
     closure.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -998,6 +1051,7 @@ items:
     Root cause: Incomplete model of the system. Remediation: Map the structure before
     modifying.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -1016,6 +1070,7 @@ items:
   action: 'This principle addresses Abuses are not sought. Root cause: Unmodeled threat.
     Remediation: Mandatory threat model.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -1034,6 +1089,7 @@ items:
   action: 'This principle addresses Scattered controls. Root cause: Blurred boundary.
     Remediation: Isolate the security layer.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -1052,6 +1108,7 @@ items:
   action: 'This principle addresses Tests adapted to the result. Root cause: Confirmation
     bias. Remediation: Test-first or simultaneous testing.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -1070,6 +1127,7 @@ items:
   action: 'This principle addresses Real failures not covered. Root cause: Undersampled
     domain. Remediation: Test errors and boundaries.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -1088,6 +1146,7 @@ items:
   action: 'This principle addresses Resilience not observed. Root cause: Failures
     not induced. Remediation: Inject controlled failures.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -1106,6 +1165,7 @@ items:
   action: 'This principle addresses Performance or security not measured. Root cause:
     Quality reduced to function. Remediation: Audit non-functional requirements.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -1124,6 +1184,7 @@ items:
   action: 'This principle addresses Undiagnosable failure. Root cause: Insufficient
     observability. Remediation: Deliberate instrumentation.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -1142,6 +1203,7 @@ items:
   action: 'This principle addresses Validated without a flow. Root cause: Visual simulation.
     Remediation: Test observable interaction.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -1192,6 +1254,7 @@ items:
     the control-plane architecture to perform surgical root-cause refactors before
     writing a single line of code..'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -1218,6 +1281,7 @@ items:
     of the same tool or script. If the count exceeds the threshold of 2, physically
     abort execution with `exit 1` and force a structural rethink of the solution..'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   doctrinal: true
   tier: specialist
@@ -1237,6 +1301,7 @@ items:
     Root cause: Unmodeled reuse. Remediation: Separate stable context from volatile
     context.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: python
   example_bad: "# The same stable block is resent on every call: paid for N times.\n\
@@ -1272,6 +1337,7 @@ items:
   action: 'This principle addresses Small tasks load entire documents. Root cause:
     Non-selective retrieval. Remediation: Extract only the relevant fragments.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: python
   example_bad: '# Tiny task that loads the entire document.
@@ -1313,6 +1379,7 @@ items:
   action: 'This principle addresses Preambles, explanations, and closings add no value.
     Root cause: Missing output budget. Remediation: Constrain output format and length.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: text
   example_bad: '# Prompt with no output budget -> useless preambles and closings.
@@ -1350,6 +1417,7 @@ items:
   action: 'This principle addresses Entire files saturate the prompt. Root cause:
     Retrieval by document, not by need. Remediation: Extract the relevant sections.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: python
   example_bad: 'ctx = "\n".join(open(f).read() for f in all_files)   # saturates the
@@ -1384,6 +1452,7 @@ items:
   action: 'This principle addresses Fragments lose meaning. Root cause: Chunks without
     parent context. Remediation: Enrich fragments with minimal context.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: python
   example_bad: 'chunk = "def refund(...): ..."          # fragment without parent
@@ -1418,6 +1487,7 @@ items:
   action: 'This principle addresses Instructions get mixed together. Root cause: Ambiguous
     boundaries. Remediation: Separate role, context, task, and output.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: text
   example_bad: '# Role, context, task, and data mixed: ambiguous boundaries and injection.
@@ -1453,6 +1523,7 @@ items:
   action: 'This principle addresses A large file is sent in its entirety. Root cause:
     Low granularity. Remediation: Read by ranges, index, or skeleton.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: python
   example_bad: 'content = read_file("huge.log")                  # 2M tokens at once
@@ -1483,6 +1554,7 @@ items:
   action: 'This principle addresses The agent processes irrelevant information. Root
     cause: Non-localized query. Remediation: Ask for the exact section.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: python
   example_bad: 'whole = read_file("schema.sql")     # to find out a column name
@@ -1517,6 +1589,7 @@ items:
     Unstructured authorization. Remediation: Represent permissions as a queryable
     matrix.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: text
   example_bad: '# Permission policy narrated in prose, repeated in every prompt.
@@ -1554,6 +1627,7 @@ items:
     or large files. Root cause: Low read granularity and lack of prior contextual
     maps. Remediation: Use semantic indexes and skeletons to direct surgical queries.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: bash
   example_bad: '# Blind exploration: read the whole tree to get oriented.
@@ -1590,6 +1664,7 @@ items:
   action: 'This principle addresses Deferrable tasks run one at a time. Root cause:
     Lack of grouping. Remediation: Group non-interactive work.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: python
   example_bad: "for doc in docs:            # 1000 deferrable interactive calls\n\
@@ -1622,6 +1697,7 @@ items:
     cause: Inefficient resource allocation. Remediation: Choose the minimum sufficient
     capacity.'
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Requires project-specific or human oracle rather than a generic source rule. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   example_lang: python
   example_bad: 'answer = call(OPUS, "format this date")     # maximum capacity for
@@ -1657,6 +1733,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-080
@@ -1679,6 +1756,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-081
@@ -1697,6 +1775,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-082
@@ -1715,6 +1794,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-083
@@ -1733,6 +1813,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-084
@@ -1751,6 +1832,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-085
@@ -1773,6 +1855,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-086
@@ -1792,6 +1875,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-087
@@ -1810,6 +1894,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-088
@@ -1828,6 +1913,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-089
@@ -1846,6 +1932,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-090
@@ -1866,6 +1953,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-091
@@ -1884,6 +1972,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-092
@@ -1903,6 +1992,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-093
@@ -1922,6 +2012,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-094
@@ -1940,6 +2031,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-095
@@ -1959,6 +2051,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-096
@@ -1977,6 +2070,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-097
@@ -1996,6 +2090,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-098
@@ -2018,6 +2113,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-099
@@ -2042,6 +2138,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-100
@@ -2062,6 +2159,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-101
@@ -2082,6 +2180,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-102
@@ -2102,6 +2201,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-103
@@ -2122,6 +2222,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-104
@@ -2144,6 +2245,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-105
@@ -2165,6 +2267,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-106
@@ -2184,6 +2287,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-107
@@ -2203,6 +2307,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-108
@@ -2223,6 +2328,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-109
@@ -2242,6 +2348,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-110
@@ -2261,6 +2368,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-111
@@ -2280,6 +2388,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-112
@@ -2298,6 +2407,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-113
@@ -2322,6 +2432,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-114
@@ -2347,6 +2458,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-115
@@ -2370,6 +2482,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 - id: PR-116
@@ -2395,6 +2508,7 @@ items:
   - doctrinal
   - doc-only
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: extended
 
@@ -2428,6 +2542,7 @@ items:
   - ponytail
   - debt-tracking
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   tier: core
 
@@ -2456,6 +2571,7 @@ items:
   - governance
   - tooling
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   notes: Formalizes an agent-agnostic file-mutation discipline. VC-024 covers shell-writes but not the Edit/Write protocol.
   tier: core
@@ -2486,6 +2602,7 @@ items:
   - governance
   - anti-optimism
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   notes: Formalizes an agent-agnostic empirical success gate. VC-001 covers optimism but not the explicit empirical gate.
   tier: core
@@ -2515,6 +2632,7 @@ items:
   - governance
   - simplicity
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   notes: Formalizes an agent-agnostic per-turn output ceiling ("debt tax"). No prior GS PR equivalent.
   tier: extended
@@ -2544,6 +2662,7 @@ items:
   - governance
   - escalation
   validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate."
   downstream_verification: required
   notes: Formalizes an agent-agnostic confidence-based escalation threshold. No prior GS PR equivalent.
   tier: specialist

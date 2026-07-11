@@ -12,8 +12,8 @@
   "ai_native_pct": 5,
   "with_evidence": 236,
   "with_evidence_pct": 98,
-  "local_detectors": 34,
-  "registered_detectors": 34,
+  "local_detectors": 35,
+  "registered_detectors": 35,
   "unregistered_detector_refs": [],
   "stub": 0
 }
