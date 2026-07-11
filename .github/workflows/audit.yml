@@ -73,6 +73,9 @@ jobs:
       - name: Run Semgrep guard rules
         run: semgrep --config config/semgrep_vices.yaml --error scripts gs_generator
 
+      - name: Measure Semgrep rule effectiveness
+        run: python scripts/semgrep_effectiveness_eval.py --no-write
+
       - name: Regenerate Golden Standard audit artifacts
         run: python scripts/generate_golden_audit.py
 

@@ -10,8 +10,8 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 
 | Metric | Value |
 |---|---:|
-| Nodes | 514 |
-| Edges | 2671 |
+| Nodes | 517 |
+| Edges | 2672 |
 | Reciprocal pairs | 608 |
 | Average edge confidence | 0.933 |
 | Semantic density | 0.011605 |

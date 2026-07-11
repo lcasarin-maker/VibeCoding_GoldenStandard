@@ -40,10 +40,10 @@ Updated per PR-115 — every entry requires: source URL, license, verdict, and o
 ### [LLMLingua](https://github.com/microsoft/LLMLingua)
 - **Author/Org:** Microsoft
 - **License:** MIT
-- **Verdict:** rejected
-- **Used in:** none
-- **Origin session:** 2026-06-23
-- **Rationale:** Requires local 7B LLM model to compress prompts. Overhead exceeds savings for code-agent workflows. Designed for RAG/text, not code.
+- **Verdict:** partially adopted (optional adapter only)
+- **Used in:** CC
+- **Origin session:** 2026-07-11
+- **Rationale:** Phase 3 item 3.10 integrated an optional LLMLingua adapter into `scripts/compress_audit_trail.py` for aged AUDIT_TRAIL/HANDOFF entries, with no vendored code and no mandatory dependency. The safety gate extracts debt IDs, commit hashes, and verdicts before compression and rejects the rewrite if the compressed live summary loses any of them. When LLMLingua is absent, CC uses a deterministic local fallback so S10 archival and preservation tests remain offline and reproducible.
 
 ### [token-optimizer](https://github.com/alexgreensh/token-optimizer)
 - **Author/Org:** alexgreensh
@@ -139,9 +139,9 @@ Updated per PR-115 — every entry requires: source URL, license, verdict, and o
 - **Author/Org:** Future AGI
 - **License:** Apache-2.0
 - **Verdict:** adopted
-- **Used in:** CC
+- **Used in:** both
 - **Origin session:** 2026-06-30
-- **Rationale:** The repo now has a deterministic trajectory/evidence gate (`scripts/agent_learning_kit_evals.py`) that grades inspect/edit/verify runs, fails edit-without-verify trajectories, and is smoke-tested through `scripts/protocol_cli.py agent-evals`.
+- **Rationale:** CC has a deterministic trajectory/evidence gate (`scripts/agent_learning_kit_evals.py`) that grades inspect/edit/verify runs, fails edit-without-verify trajectories, and is smoke-tested through `scripts/protocol_cli.py agent-evals`. Phase 3 item 3.9 reused the preregistered-rubric pattern in GS for Semgrep detector effectiveness: known-vice corpus -> false-negative rate by rule -> `docs/semgrep_effectiveness_ledger.json`.
 
 ### [Claude Context](https://github.com/zilliztech/claude-context)
 - **Author/Org:** Zilliz

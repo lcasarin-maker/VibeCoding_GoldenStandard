@@ -1,0 +1,22 @@
+{
+  "name": "GS Semgrep detector effectiveness rubric",
+  "version": "1.0",
+  "committed_before_run": true,
+  "pattern_source": "agent-learning-kit preregistered rubric pattern from CC-047",
+  "metrics": [
+    {
+      "name": "false_negative_rate_by_rule",
+      "threshold": 0.0,
+      "description": "Known-positive corpus cases missed by each Semgrep rule."
+    },
+    {
+      "name": "false_positive_count",
+      "threshold": 0,
+      "description": "Findings reported on known-clean corpus cases."
+    }
+  ],
+  "gate": {
+    "max_false_negative_rate": 0.0,
+    "max_false_positive_count": 0
+  }
+}

@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-07-11",
-  "node_count": 514,
-  "edge_count": 2671,
+  "node_count": 517,
+  "edge_count": 2672,
   "nodes": [
     {
       "id": ".github/workflows/audit.yml",
@@ -15,6 +15,7 @@
         "scripts/check_catalog_integrity.py",
         "scripts/generate_golden_audit.py",
         "scripts/gs_lint.py",
+        "scripts/semgrep_effectiveness_eval.py",
         "scripts/test_detectors.py",
         "scripts/validate_golden_standard_catalogs.py"
       ],
@@ -51,6 +52,12 @@
           "confidence": 1.0
         },
         {
+          "target": "scripts/semgrep_effectiveness_eval.py",
+          "kind": "file",
+          "relation": "runs",
+          "confidence": 1.0
+        },
+        {
           "target": "scripts/generate_golden_audit.py",
           "kind": "file",
           "relation": "runs",
@@ -59,15 +66,15 @@
       ],
       "incoming_edges": [],
       "in_degree": 0,
-      "out_degree": 6,
-      "degree": 6,
+      "out_degree": 7,
+      "degree": 7,
       "relation_types": [
         "runs"
       ],
       "connected_types": [],
       "semantic_reach": 0,
       "relation_diversity": 1,
-      "hub_score": 8
+      "hub_score": 9
     },
     {
       "id": "CONCEPTUAL_FRAMEWORK",
@@ -53204,6 +53211,26 @@
       "hub_score": 0
     },
     {
+      "id": "docs/badges/semgrep-effectiveness.json",
+      "path": "docs/badges/semgrep-effectiveness.json",
+      "title": "semgrep-effectiveness.json",
+      "kind": "badge",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
+    },
+    {
       "id": "docs/badges/stubs.json",
       "path": "docs/badges/stubs.json",
       "title": "stubs.json",
@@ -54006,6 +54033,37 @@
       "hub_score": 4
     },
     {
+      "id": "scripts/semgrep_effectiveness_eval.py",
+      "path": "scripts/semgrep_effectiveness_eval.py",
+      "title": "semgrep_effectiveness_eval.py",
+      "kind": "script",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [
+        ".github/workflows/audit.yml"
+      ],
+      "outgoing_edges": [],
+      "incoming_edges": [
+        {
+          "source": ".github/workflows/audit.yml",
+          "kind": "file",
+          "relation": "runs",
+          "confidence": 1.0
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 0,
+      "degree": 1,
+      "relation_types": [
+        "runs"
+      ],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 1,
+      "hub_score": 3
+    },
+    {
       "id": "scripts/split_golden_standard_catalogs.py",
       "path": "scripts/split_golden_standard_catalogs.py",
       "title": "split_golden_standard_catalogs.py",
@@ -54247,6 +54305,26 @@
       "hub_score": 0
     },
     {
+      "id": "tests/test_semgrep_effectiveness_eval.py",
+      "path": "tests/test_semgrep_effectiveness_eval.py",
+      "title": "test_semgrep_effectiveness_eval.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
+    },
+    {
       "id": "tests/test_semgrep_rules.py",
       "path": "tests/test_semgrep_rules.py",
       "title": "test_semgrep_rules.py",
@@ -54312,6 +54390,13 @@
     {
       "source": ".github/workflows/audit.yml",
       "target": "scripts/gs_lint.py",
+      "kind": "file",
+      "relation": "runs",
+      "confidence": 1.0
+    },
+    {
+      "source": ".github/workflows/audit.yml",
+      "target": "scripts/semgrep_effectiveness_eval.py",
       "kind": "file",
       "relation": "runs",
       "confidence": 1.0

@@ -1,0 +1,61 @@
+{
+  "corpus": "tests/semgrep_effectiveness_corpus.json",
+  "generated_at": "2026-07-11T13:18:48+00:00",
+  "rubric": {
+    "committed_before_run": true,
+    "name": "GS Semgrep detector effectiveness rubric",
+    "path": "config/semgrep_effectiveness_rubric.json",
+    "version": "1.0"
+  },
+  "rules": {
+    "gs-vc-095-hardcoded-secret": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vc-109-hardcoded-path": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vc-115-unsafe-eval": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vt-005-vacuous-assert": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vt-009-tautological-assert": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vt-040-blind-except": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vt-043-unconditional-exit-zero": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    }
+  },
+  "schema_version": 1,
+  "summary": {
+    "false_positive_count": 0,
+    "max_false_negative_rate": 0.0,
+    "passed": true,
+    "rules_evaluated": 7
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "color": "brightgreen",
+  "label": "semgrep effectiveness",
+  "message": "FN 0.0%",
+  "schemaVersion": 1
+}
