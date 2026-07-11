@@ -1,6 +1,7 @@
 name: Golden Standard Audit
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - "scripts/generate_golden_audit.py"
@@ -17,6 +18,7 @@ on:
   push:
     branches:
       - master
+      - "agent/**"
     paths:
       - "scripts/generate_golden_audit.py"
       - "gs_generator/**"

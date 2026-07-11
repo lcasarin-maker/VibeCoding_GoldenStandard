@@ -1546,10 +1546,17 @@ def resolve_markdown_link(
 
 
 _GIT_TIMESTAMPS_CACHE: dict[str, tuple[str | None, str | None]] = {}
+_HEAD_CHANGED_PATHS: set[str] = set()
 
 
 def _git_timestamps(path: Path) -> tuple[str | None, str | None]:
-    """Return (created, promoted) ISO timestamps from git log for *path*."""
+    """Return (created, promoted) ISO timestamps from git log for *path*.
+
+    Generated graph artifacts are committed together with the source changes
+    that produced them. A fresh CI checkout can see that commit, while the
+    pre-commit generation could not. Ignore HEAD for paths touched by HEAD so
+    regeneration remains byte-stable after the commit lands.
+    """
     abs_path = path.resolve()
     try:
         rel_posix = abs_path.relative_to(_ROOT.resolve()).as_posix()
@@ -1560,7 +1567,7 @@ def _git_timestamps(path: Path) -> tuple[str | None, str | None]:
         try:
             import subprocess
             result = subprocess.run(
-                ["git", "log", "--name-only", "--format=%aI"],
+                ["git", "log", "--name-only", "--format=%H%x09%aI"],
                 capture_output=True,
                 text=True,
                 cwd=_ROOT,
@@ -1569,14 +1576,21 @@ def _git_timestamps(path: Path) -> tuple[str | None, str | None]:
             created_map = {}
             promoted_map = {}
             current_timestamp = None
+            skip_current_commit = False
+            commit_index = -1
             for line in result.stdout.splitlines():
                 line = line.strip()
                 if not line:
                     continue
-                if "T" in line and (line[0].isdigit() or line.startswith("-") or line.startswith("+")):
-                    current_timestamp = line
+                if "\t" in line:
+                    commit_index += 1
+                    _, current_timestamp = line.split("\t", 1)
+                    skip_current_commit = commit_index == 0
                 elif current_timestamp:
                     norm_path = line.replace("\\", "/")
+                    if skip_current_commit:
+                        _HEAD_CHANGED_PATHS.add(norm_path)
+                        continue
                     if norm_path not in promoted_map:
                         promoted_map[norm_path] = current_timestamp
                     created_map[norm_path] = current_timestamp
@@ -1594,6 +1608,9 @@ def _git_timestamps(path: Path) -> tuple[str | None, str | None]:
 
     if rel_posix in _GIT_TIMESTAMPS_CACHE:
         return _GIT_TIMESTAMPS_CACHE[rel_posix]
+    if rel_posix in _HEAD_CHANGED_PATHS:
+        _GIT_TIMESTAMPS_CACHE[rel_posix] = (None, None)
+        return None, None
 
     try:
         import subprocess
