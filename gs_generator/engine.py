@@ -1544,102 +1544,15 @@ def resolve_markdown_link(
     return node_id if node_id in known_nodes else None
 
 
-_GIT_TIMESTAMPS_CACHE: dict[str, tuple[str | None, str | None]] = {}
-_HEAD_CHANGED_PATHS: set[str] = set()
-
-
 def _git_timestamps(path: Path) -> tuple[str | None, str | None]:
-    """Return (created, promoted) ISO timestamps from git log for *path*.
+    """Return deterministic timestamp placeholders for graph nodes.
 
-    Generated graph artifacts are committed together with the source changes
-    that produced them. A fresh CI checkout can see that commit, while the
-    pre-commit generation could not. Ignore HEAD for paths touched by HEAD so
-    regeneration remains byte-stable after the commit lands.
+    Git-derived timestamps are not byte-stable across local full-history
+    checkouts and GitHub Actions shallow checkouts. Keep the fields for schema
+    compatibility, but do not encode environment-dependent history into
+    generated artifacts.
     """
-    abs_path = path.resolve()
-    try:
-        rel_posix = abs_path.relative_to(_ROOT.resolve()).as_posix()
-    except ValueError:
-        rel_posix = str(path)
-
-    if not _GIT_TIMESTAMPS_CACHE:
-        try:
-            import subprocess
-            result = subprocess.run(
-                ["git", "log", "--name-only", "--format=%H%x09%aI"],
-                capture_output=True,
-                text=True,
-                cwd=_ROOT,
-                check=True,
-            )
-            created_map = {}
-            promoted_map = {}
-            current_timestamp = None
-            skip_current_commit = False
-            commit_index = -1
-            for line in result.stdout.splitlines():
-                line = line.strip()
-                if not line:
-                    continue
-                if "\t" in line:
-                    commit_index += 1
-                    _, current_timestamp = line.split("\t", 1)
-                    skip_current_commit = commit_index == 0
-                elif current_timestamp:
-                    norm_path = line.replace("\\", "/")
-                    if skip_current_commit:
-                        _HEAD_CHANGED_PATHS.add(norm_path)
-                        continue
-                    if norm_path not in promoted_map:
-                        promoted_map[norm_path] = current_timestamp
-                    created_map[norm_path] = current_timestamp
-
-            for norm_path in set(created_map.keys()) | set(promoted_map.keys()):
-                _GIT_TIMESTAMPS_CACHE[norm_path] = (
-                    created_map.get(norm_path),
-                    promoted_map.get(norm_path),
-                )
-        except Exception as e:
-            import logging
-            logging.getLogger(__name__).warning(
-                "Failed to initialize git timestamps cache: %s", e
-            )
-
-    if rel_posix in _GIT_TIMESTAMPS_CACHE:
-        return _GIT_TIMESTAMPS_CACHE[rel_posix]
-    if rel_posix in _HEAD_CHANGED_PATHS:
-        _GIT_TIMESTAMPS_CACHE[rel_posix] = (None, None)
-        return None, None
-
-    try:
-        import subprocess
-        created_result = subprocess.run(
-            ["git", "log", "--follow", "--format=%aI", "--", str(path)],
-            capture_output=True,
-            text=True,
-            cwd=_ROOT,
-        )
-        if created_result.returncode == 0 and created_result.stdout.strip():
-            lines = created_result.stdout.strip().splitlines()
-            created = lines[-1] if lines else None
-        else:
-            created = None
-
-        promoted_result = subprocess.run(
-            ["git", "log", "-1", "--format=%aI", "--", str(path)],
-            capture_output=True,
-            text=True,
-            cwd=_ROOT,
-        )
-        if promoted_result.returncode == 0 and promoted_result.stdout.strip():
-            promoted = promoted_result.stdout.strip().splitlines()[0]
-        else:
-            promoted = None
-
-        _GIT_TIMESTAMPS_CACHE[rel_posix] = (created, promoted)
-        return created, promoted
-    except Exception:
-        return None, None
+    return None, None
 
 
 def build_gs_graph() -> dict:
