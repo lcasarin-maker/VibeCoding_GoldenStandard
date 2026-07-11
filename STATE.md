@@ -1,5 +1,5 @@
 # STATE — VibeCoding Golden Standard
-**Last updated:** 2026-07-10 (FASE 2 GS closure) | **Agent:** Codex
+**Last updated:** 2026-07-11 (GS debt closure) | **Agent:** Codex
 
 ---
 
@@ -37,4 +37,4 @@ _No backlog items currently live under `tasks/backlog/`._
 
 ## CI status
 
-23/23 tests passing on Python 3.11; CI matrix is Python 3.10–3.13. `audit.py` reports 8/8 SP checks green. Semgrep: 7 rules, 7 positive matches, 0 negative matches. `gs_lint.py` ratchet clean; Wiki/Detectors has one canonical file per ID. GS-AUD-001/003/005/006 have evidence in the phase-2 closure record.
+26/26 tests passing on Python 3.11 and 3.13; CI matrix is Python 3.10–3.13. `audit.py` reports 8/8 SP checks green. Semgrep: 7 rules, 7 positive matches, 0 negative matches. `gs_lint.py` ratchet clean; Wiki/Detectors has one canonical file per ID. GS-AUD-001…007 are closed in the adversarial-audit closure record; residual AUDITED catalog entries are tracked inventory, not open backlog debt.

@@ -52,13 +52,16 @@ GS se vende como "prevención"; operativamente es un catálogo documental con un
 - **MinishLab/semble / zeroentropy probe** — contexto exacto de código para detectores AST más precisos (ya hay evidencia previa de evaluación zilliztech).
 
 ---
-*Registrado como deuda GS-AUD-001…007. Plan de ejecución consolidado: `Aequitas_OS/PLAN_MAESTRO_CORRECCIONES_2026-07-10.md`.*
+*Registrado como deuda histórica GS-AUD-001…007. El cierre de ejecución y su evidencia están en la sección 6; no quedan items abiertos en `tasks/backlog/`.*
 
 ## 6. Cierre FASE 2 GS — evidencia 2026-07-10
 
-- **GS-AUD-001:** `scripts/gs_lint.py` ahora falla ante un vicio `high` en `AUDITED` sin detector, regla Semgrep o `coverage_justification` falsable; los casos existentes VC-084/VC-086 conservan justificaciones verificables y tienen pruebas de ratchet.
+- **GS-AUD-001:** cerrado como control operativo. `scripts/gs_lint.py` ahora falla ante un vicio `high` en `AUDITED` sin detector, regla Semgrep o `coverage_justification` falsable; los casos existentes VC-084/VC-086 conservan justificaciones verificables y tienen pruebas de ratchet. El inventario histórico `AUDITED` permanece visible y no se presenta como prevención inexistente.
+- **GS-AUD-002:** cerrado; la CLI colecciona en los runtimes disponibles 3.11/3.13 y CI declara matriz 3.10–3.13.
 - **GS-AUD-003:** el monolito fue eliminado y reemplazado por `gs_generator/` con superficies `audit`, `wiki`, `graph` y `badges`, más un entrypoint delgado que conserva `--audit-only`, `--wiki-only` y receipts. La comparación de generación se ejecuta como contrato de no-regresión.
+- **GS-AUD-004:** cerrado; `STATE.md` se regenera desde `tasks/backlog/`, con prueba de aparición y desaparición de un item ficticio.
 - **GS-AUD-005:** evidencia se clasifica determinísticamente como `primary`, `internal-generic` o `pending`; `metrics.py` y badges cuentan solo evidencia `primary`.
 - **GS-AUD-006:** `Wiki/Detectors` se regenera con un archivo canónico por ID y `gs_lint.py` rechaza archivos inesperados, faltantes o duplicados.
+- **GS-AUD-007:** cerrado; `__pycache__` multi-versión fue eliminado y la higiene quedó verificada en el cierre.
 - **Paridad:** dos ejecuciones consecutivas generaron 484 artefactos byte-idénticos; evidencia en `audit/sessions/2026-07-10-gs-phase2-parity.log`.
 - **Semgrep:** siete reglas versionadas tienen fixture positivo y negativo: VC-095/VC-036, VC-115/VC-049, VC-109/VC-043, VT-040, VT-043, VT-005 y VT-009. `VT-043` pasó de `AUDITED` a `PREVENTED` únicamente después de la prueba.
