@@ -1,0 +1,22 @@
+#!/bin/sh
+# GS pre-commit: secret scan first, then structural lint.
+set -e
+
+ROOT="$(git rev-parse --show-toplevel)"
+
+SECRET_SCAN="$ROOT/tools/secret_scan.py"
+GS_LINT="$ROOT/scripts/gs_lint.py"
+
+if [ -f "$SECRET_SCAN" ]; then
+  echo "[pre-commit] Running secret scan..."
+  python "$SECRET_SCAN"
+else
+  echo "[pre-commit] secret_scan.py not found — skipping"
+fi
+
+if [ -f "$GS_LINT" ]; then
+  echo "[pre-commit] Running gs_lint..."
+  python "$GS_LINT"
+else
+  echo "[pre-commit] gs_lint.py not found — skipping"
+fi

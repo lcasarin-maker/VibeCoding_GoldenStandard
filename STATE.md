@@ -1,5 +1,5 @@
 # STATE — VibeCoding Golden Standard
-**Last updated:** 2026-07-02 (adversarial audit re-verification) | **Agent:** Claude
+**Last updated:** 2026-07-10 (FASE 2 GS closure) | **Agent:** Codex
 
 ---
 
@@ -7,8 +7,8 @@
 
 | Catalog | Entries | Open debt | Notes |
 |---------|---------|-----------|-------|
-| VC (coding vices) | 92 | none | VC-012 REMEDIATED; DOC_ONLY entries justified via `action` field |
-| VT (testing vices) | 116 | none | |
+| VC (coding vices) | 92 | none | VC-012 REMEDIATED; VC-084/VC-086 ratchet justifications recorded |
+| VT (testing vices) | 116 | none | VT-043 PREVENTED by Semgrep rule with positive/negative fixtures |
 | TK (tokenomics) | 34 | none | |
 | PR (principles) | 121 | none | PR-118-121 added 2026-06-26; decoupled from CC-internal IDs 2026-07-01 |
 | SP (structure principles) | 10 | none | 8 checks in audit.py (SP-001/003/004/005/006/007/009/010) |
@@ -27,8 +27,14 @@ Counts verified directly against live YAML catalogs on 2026-07-02 (not carried f
 
 ## Open backlog
 
-`tasks/backlog/` has 10 items (GS-085 through GS-094) as of 2026-07-02: 6 closed (status: done, git log is the record — not yet deleted), 4 open (GS-088, GS-091, GS-093, GS-094 — see individual files for blockers). Backlog is NOT empty; always check `tasks/backlog/` directly rather than trusting this summary.
+<!-- sección generada — no editar a mano -->
+
+_Sección generada desde `tasks/backlog/` por `scripts/check_backlog_sync.py`; no editar a mano._
+
+_No backlog items currently live under `tasks/backlog/`._
+
+<!-- fin de sección generada — no editar a mano -->
 
 ## CI status
 
-13/13 tests passing (Python 3.12 venv required — `generate_golden_audit.py` uses PEP 701 f-string syntax). `audit.py` reports 8/8 SP checks green. Graph: CD18 in_degree=11, SP-001 in_degree=2 (wired). Canonical structure moved to GS.
+23/23 tests passing on Python 3.11; CI matrix is Python 3.10–3.13. `audit.py` reports 8/8 SP checks green. Semgrep: 7 rules, 7 positive matches, 0 negative matches. `gs_lint.py` ratchet clean; Wiki/Detectors has one canonical file per ID. GS-AUD-001/003/005/006 have evidence in the phase-2 closure record.

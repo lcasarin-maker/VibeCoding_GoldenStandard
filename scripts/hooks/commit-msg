@@ -1,0 +1,9 @@
+#!/bin/sh
+# GS commit-msg: regenerate STATE.md backlog from tasks/backlog/.
+set -e
+
+ROOT="$(git rev-parse --show-toplevel)"
+
+export PYTHONPATH="$ROOT/scripts:$PYTHONPATH"
+
+python "$ROOT/scripts/check_backlog_sync.py" --sync-state "$1"

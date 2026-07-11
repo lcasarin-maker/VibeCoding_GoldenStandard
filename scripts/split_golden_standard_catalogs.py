@@ -18,7 +18,7 @@ def setup_windows_utf8() -> None:
                 sys.stdout.reconfigure(encoding="utf-8", errors="ignore")
             if hasattr(sys.stderr, "reconfigure"):
                 sys.stderr.reconfigure(encoding="utf-8", errors="ignore")
-        except Exception:
+        except (AttributeError, OSError, ValueError):
             pass
 
 setup_windows_utf8()

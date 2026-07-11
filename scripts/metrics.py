@@ -14,10 +14,11 @@ from pathlib import Path
 
 import yaml
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from detectors import DETECTORS  # noqa: E402
-
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(ROOT))
+from detectors import DETECTORS  # noqa: E402
+from gs_generator.evidence import has_primary_evidence
 BADGES = ROOT / "docs" / "badges"
 CATALOGS = (
     "golden_standard_coding_vices.yaml",
@@ -53,7 +54,7 @@ def compute_metrics() -> dict:
         depth[_depth(it)] += 1
         if "ai-native" in it.get("tags", []):
             ai_native += 1
-        if it.get("evidence"):
+        if has_primary_evidence(it):
             with_evidence += 1
         ref = str(it.get("detector", "")).strip()
         if ref:

@@ -2922,6 +2922,7 @@ items:
     claim: Derived outputs are regenerated from catalog sources, not edited as the source of truth.
   tier: core
   test_ref: tool:pytest
+  coverage_justification: "Ratchet coverage is falsified by the generated-artifact parity gate: a direct sink edit without its canonical source must produce a non-empty diff and fail CI."
 - id: VC-085
   title: Doctrine before enforcement (source-first ordering)
   symptom: Operational sinks or cross-repo consumers are updated before the GS rule exists, forcing later backfills and making the sink behave like the source.
@@ -2995,6 +2996,7 @@ items:
   - source: Debt Registry (e.g., BACKLOG.md) operating rule
     claim: If it is not in this file, it does not get worked.
   tier: core
+  coverage_justification: "Ratchet coverage is falsified by the backlog-sync commit gate: a debt change without a tracked backlog/STATE update exits non-zero."
 - id: VC-087
   title: Self-polluting tooling (scratch written into the tracked working tree)
   symptom: Tests, scripts, or hooks leave untracked temp, probe, or backup files inside the working tree; the integrity gate flags them as zombie corruption, producing recurring fake-RED or transient-GREEN gate flips that agents "fix" by deleting the files.

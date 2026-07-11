@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.6 | Date: 2026-07-09 | Total Audited Items: 356**
+**Golden Standard V0.6 | Date: 2026-07-10 | Total Audited Items: 356**
 
 This document is generated automatically by `scripts/generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -7,10 +7,10 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
-| **Testing & Evaluation** | 116 | 28 | 88 | 100% |
+| **Testing & Evaluation** | 116 | 29 | 87 | 100% |
 | **Vibe Coding** | 92 | 69 | 23 | 100% |
 | **Tokenomics & Context** | 34 | 33 | 1 | 100% |
-| **Total** | 356 | 137 | 219 | 100% |
+| **Total** | 356 | 138 | 218 | 100% |
 
 ---
 
@@ -62,7 +62,7 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `VT-040` | Absorbed exception | **high** | **PREVENTED** | `none` | An exception must surface, not be absorbed; swallowing it makes the failure disappear.  | `audit_d5_angry_path` |
 | `VT-041` | Ignored error output | **medium** | **AUDITED** | `none` | Capture and observe error output; an unobserved error stream hides the failure signal.  | `audit_d8_test_coverage` |
 | `VT-042` | False success log | **medium** | **AUDITED** | `none` | Log success only after the verification that justifies it, never before checking.  | `audit_d8_test_coverage` |
-| `VT-043` | Unconditional successful exit | **medium** | **AUDITED** | `none` | The exit code must reflect the real state; an unconditional success exit produces a falsely green pipeline.  | `audit_d8_test_coverage` |
+| `VT-043` | Unconditional successful exit | **medium** | **PREVENTED** | `none` | The exit code must reflect the real state; an unconditional success exit produces a falsely green pipeline.  | `audit_d8_test_coverage` |
 | `VT-044` | Ignored return | **medium** | **AUDITED** | `none` | Assert the return value; an ignored error result lets a failure pass unseen.  | `audit_d8_test_coverage` |
 | `VT-045` | Single happy path | **medium** | **AUDITED** | `none` | Cover adverse cases, not just the ideal happy path.  | `audit_d8_test_coverage` |
 | `VT-046` | Magic datum | **medium** | **AUDITED** | `none` | Generate input variations; a single magic datum chosen to avoid the bug never triggers it.  | `audit_d8_test_coverage` |

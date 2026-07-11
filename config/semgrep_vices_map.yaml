@@ -1,0 +1,24 @@
+version: 1
+purpose: "Static Semgrep rules proven by positive and negative fixtures."
+mappings:
+  gs-vc-095-hardcoded-secret:
+    vice_ids: [VC-095, VC-036]
+    status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture
+  gs-vc-115-unsafe-eval:
+    vice_ids: [VC-115, VC-049]
+    status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture
+  gs-vc-109-hardcoded-path:
+    vice_ids: [VC-109, VC-043]
+    status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture
+  gs-vt-040-blind-except:
+    vice_ids: [VT-040]
+    status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture
+  gs-vt-043-unconditional-exit-zero:
+    vice_ids: [VT-043]
+    status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture
+  gs-vt-005-vacuous-assert:
+    vice_ids: [VT-005]
+    status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture
+  gs-vt-009-tautological-assert:
+    vice_ids: [VT-009]
+    status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture

@@ -10,7 +10,7 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 
 | Metric | Value |
 |---|---:|
-| Nodes | 510 |
+| Nodes | 513 |
 | Edges | 2668 |
 | Reciprocal pairs | 607 |
 | Average edge confidence | 0.933 |
@@ -135,7 +135,7 @@ Pages with the largest impact surface. If they change, review their inbound link
 
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
-| [[Home]] | `wiki` | 467 | 13 | [[Detectors/vc003_incomprehensible_code]], [[Detectors/vc005_premature_closure]], [[Detectors/vc005_untracked_prototype]], [[Detectors/vc012_invisible_debt]], [[Detectors/vc013_ambiguous_handoff]], [[Detectors/vc016_broken_version_parity]] +461 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
+| [[Home]] | `wiki` | 467 | 13 | [[Detectors/vc-002]], [[Detectors/vc-003]], [[Detectors/vc-005]], [[Detectors/vc-010]], [[Detectors/vc-012]], [[Detectors/vc-013]] +461 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
 | [[Vices_Index]] | `wiki` | 209 | 209 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +203 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +203 more |
 | [[Tokenomics_Map]] | `wiki` | 249 | 21 | [[Home]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]], [[Tokenomics/Output_Compaction_Index]] +243 more | [[Home]], [[Principles]], [[Principles/PR-081]], [[Principles/PR-083]], [[Principles/PR-084]], [[Principles/PR-085]] +15 more |
 | [[Principles]] | `principle-index` | 134 | 123 | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +128 more | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +117 more |

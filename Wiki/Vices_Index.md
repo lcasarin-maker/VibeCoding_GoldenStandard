@@ -141,7 +141,7 @@ This index classifies the Golden Standard vices into VC and VT. Tokenomics lives
 *   [[Vices/VT-040|VT-040]] — **Absorbed exception** (PREVENTED, high, downstream:none)
 *   [[Vices/VT-041|VT-041]] — **Ignored error output** (AUDITED, medium, downstream:none)
 *   [[Vices/VT-042|VT-042]] — **False success log** (AUDITED, medium, downstream:none)
-*   [[Vices/VT-043|VT-043]] — **Unconditional successful exit** (AUDITED, medium, downstream:none)
+*   [[Vices/VT-043|VT-043]] — **Unconditional successful exit** (PREVENTED, medium, downstream:none)
 *   [[Vices/VT-044|VT-044]] — **Ignored return** (AUDITED, medium, downstream:none)
 *   [[Vices/VT-045|VT-045]] — **Single happy path** (AUDITED, medium, downstream:none)
 *   [[Vices/VT-046|VT-046]] — **Magic datum** (AUDITED, medium, downstream:none)

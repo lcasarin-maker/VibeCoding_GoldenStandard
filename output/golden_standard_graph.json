@@ -1,6 +1,6 @@
 {
-  "generated_on": "2026-07-09",
-  "node_count": 510,
+  "generated_on": "2026-07-10",
+  "node_count": 513,
   "edge_count": 2668,
   "nodes": [
     {
@@ -14,6 +14,7 @@
         "scripts/audit.py",
         "scripts/check_catalog_integrity.py",
         "scripts/generate_golden_audit.py",
+        "scripts/gs_lint.py",
         "scripts/test_detectors.py",
         "scripts/validate_golden_standard_catalogs.py"
       ],
@@ -27,6 +28,12 @@
         },
         {
           "target": "scripts/audit.py",
+          "kind": "file",
+          "relation": "runs",
+          "confidence": 1.0
+        },
+        {
+          "target": "scripts/gs_lint.py",
           "kind": "file",
           "relation": "runs",
           "confidence": 1.0
@@ -52,15 +59,15 @@
       ],
       "incoming_edges": [],
       "in_degree": 0,
-      "out_degree": 5,
-      "degree": 5,
+      "out_degree": 6,
+      "degree": 6,
       "relation_types": [
         "runs"
       ],
       "connected_types": [],
       "semantic_reach": 0,
       "relation_diversity": 1,
-      "hub_score": 7
+      "hub_score": 8
     },
     {
       "id": "CONCEPTUAL_FRAMEWORK",
@@ -68,7 +75,7 @@
       "title": "Golden Standard — Conceptual Framework",
       "kind": "conceptual-framework",
       "created": "2026-06-04T20:05:31-06:00",
-      "promoted": "2026-06-22T15:48:57-06:00",
+      "promoted": "2026-07-09T08:14:07-06:00",
       "outgoing": [],
       "incoming": [
         "Home",
@@ -205,116 +212,12 @@
       "hub_score": 21
     },
     {
-      "id": "Detectors/vc003_incomprehensible_code",
-      "path": "Wiki/Detectors/vc003_incomprehensible_code.md",
-      "title": "vc003_incomprehensible_code",
-      "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-003"
-      ],
-      "incoming": [
-        "Vices/VC-003"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-003",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-003",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
-      "id": "Detectors/vc005_premature_closure",
-      "path": "Wiki/Detectors/vc005_premature_closure.md",
-      "title": "vc005_premature_closure",
-      "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-005"
-      ],
-      "incoming": [
-        "Vices/VC-005"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-005",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-005",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
-      "id": "Detectors/vc005_untracked_prototype",
-      "path": "Wiki/Detectors/vc005_untracked_prototype.md",
+      "id": "Detectors/vc-002",
+      "path": "Wiki/Detectors/vc-002.md",
       "title": "vc005_untracked_prototype",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VC-002"
@@ -361,18 +264,18 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc012_invisible_debt",
-      "path": "Wiki/Detectors/vc012_invisible_debt.md",
-      "title": "vc012_invisible_debt",
+      "id": "Detectors/vc-003",
+      "path": "Wiki/Detectors/vc-003.md",
+      "title": "vc003_incomprehensible_code",
       "kind": "wiki",
-      "created": "2026-06-22T17:17:58-06:00",
-      "promoted": "2026-06-22T17:17:58-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
-        "Vices/VC-012"
+        "Vices/VC-003"
       ],
       "incoming": [
-        "Vices/VC-012"
+        "Vices/VC-003"
       ],
       "outgoing_edges": [
         {
@@ -382,7 +285,7 @@
           "confidence": 0.85
         },
         {
-          "target": "Vices/VC-012",
+          "target": "Vices/VC-003",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -390,7 +293,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Vices/VC-012",
+          "source": "Vices/VC-003",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -413,18 +316,18 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc013_ambiguous_handoff",
-      "path": "Wiki/Detectors/vc013_ambiguous_handoff.md",
-      "title": "vc013_ambiguous_handoff",
+      "id": "Detectors/vc-005",
+      "path": "Wiki/Detectors/vc-005.md",
+      "title": "vc005_premature_closure",
       "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
-        "Vices/VC-013"
+        "Vices/VC-005"
       ],
       "incoming": [
-        "Vices/VC-013"
+        "Vices/VC-005"
       ],
       "outgoing_edges": [
         {
@@ -434,7 +337,7 @@
           "confidence": 0.85
         },
         {
-          "target": "Vices/VC-013",
+          "target": "Vices/VC-005",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -442,7 +345,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Vices/VC-013",
+          "source": "Vices/VC-005",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -465,272 +368,12 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc016_broken_version_parity",
-      "path": "Wiki/Detectors/vc016_broken_version_parity.md",
-      "title": "vc016_broken_version_parity",
-      "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-016"
-      ],
-      "incoming": [
-        "Vices/VC-016"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-016",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-016",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
-      "id": "Detectors/vc017_deadlock_without_heartbeat",
-      "path": "Wiki/Detectors/vc017_deadlock_without_heartbeat.md",
-      "title": "vc017_deadlock_without_heartbeat",
-      "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-017"
-      ],
-      "incoming": [
-        "Vices/VC-017"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-017",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-017",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
-      "id": "Detectors/vc025_io_without_validation",
-      "path": "Wiki/Detectors/vc025_io_without_validation.md",
-      "title": "vc025_io_without_validation",
-      "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-025"
-      ],
-      "incoming": [
-        "Vices/VC-025"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-025",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-025",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
-      "id": "Detectors/vc028_core_dependent_on_unstable_parts",
-      "path": "Wiki/Detectors/vc028_core_dependent_on_unstable_parts.md",
-      "title": "vc028_core_dependent_on_unstable_parts",
-      "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-028"
-      ],
-      "incoming": [
-        "Vices/VC-028"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-028",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-028",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
-      "id": "Detectors/vc029_uncritical_copy_paste",
-      "path": "Wiki/Detectors/vc029_uncritical_copy_paste.md",
-      "title": "vc029_uncritical_copy_paste",
-      "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-029"
-      ],
-      "incoming": [
-        "Vices/VC-029"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-029",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-029",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
-      "id": "Detectors/vc036_destructive_without_dryrun",
-      "path": "Wiki/Detectors/vc036_destructive_without_dryrun.md",
+      "id": "Detectors/vc-010",
+      "path": "Wiki/Detectors/vc-010.md",
       "title": "vc036_destructive_without_dryrun",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VC-010"
@@ -777,18 +420,18 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc038_optimistic_config",
-      "path": "Wiki/Detectors/vc038_optimistic_config.md",
-      "title": "vc038_optimistic_config",
+      "id": "Detectors/vc-012",
+      "path": "Wiki/Detectors/vc-012.md",
+      "title": "vc012_invisible_debt",
       "kind": "wiki",
-      "created": "2026-06-22T17:48:29-06:00",
-      "promoted": "2026-06-22T17:48:29-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
-        "Vices/VC-038"
+        "Vices/VC-012"
       ],
       "incoming": [
-        "Vices/VC-038"
+        "Vices/VC-012"
       ],
       "outgoing_edges": [
         {
@@ -798,7 +441,7 @@
           "confidence": 0.85
         },
         {
-          "target": "Vices/VC-038",
+          "target": "Vices/VC-012",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -806,7 +449,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Vices/VC-038",
+          "source": "Vices/VC-012",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -829,18 +472,18 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc047_frozen_nomenclature",
-      "path": "Wiki/Detectors/vc047_frozen_nomenclature.md",
-      "title": "vc047_frozen_nomenclature",
+      "id": "Detectors/vc-013",
+      "path": "Wiki/Detectors/vc-013.md",
+      "title": "vc013_ambiguous_handoff",
       "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
-        "Vices/VC-047"
+        "Vices/VC-013"
       ],
       "incoming": [
-        "Vices/VC-047"
+        "Vices/VC-013"
       ],
       "outgoing_edges": [
         {
@@ -850,7 +493,7 @@
           "confidence": 0.85
         },
         {
-          "target": "Vices/VC-047",
+          "target": "Vices/VC-013",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -858,7 +501,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Vices/VC-047",
+          "source": "Vices/VC-013",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -881,18 +524,18 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc059_prompt_injection_in_agent_loop",
-      "path": "Wiki/Detectors/vc059_prompt_injection_in_agent_loop.md",
-      "title": "vc059_prompt_injection_in_agent_loop",
+      "id": "Detectors/vc-016",
+      "path": "Wiki/Detectors/vc-016.md",
+      "title": "vc016_broken_version_parity",
       "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
-        "Vices/VC-059"
+        "Vices/VC-016"
       ],
       "incoming": [
-        "Vices/VC-059"
+        "Vices/VC-016"
       ],
       "outgoing_edges": [
         {
@@ -902,7 +545,7 @@
           "confidence": 0.85
         },
         {
-          "target": "Vices/VC-059",
+          "target": "Vices/VC-016",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -910,7 +553,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Vices/VC-059",
+          "source": "Vices/VC-016",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -933,12 +576,64 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc061_constant_stub",
-      "path": "Wiki/Detectors/vc061_constant_stub.md",
+      "id": "Detectors/vc-017",
+      "path": "Wiki/Detectors/vc-017.md",
+      "title": "vc017_deadlock_without_heartbeat",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-017"
+      ],
+      "incoming": [
+        "Vices/VC-017"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-017",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-017",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-018",
+      "path": "Wiki/Detectors/vc-018.md",
       "title": "vc061_constant_stub",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VC-018"
@@ -985,168 +680,12 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc061_hallucinated_dependency",
-      "path": "Wiki/Detectors/vc061_hallucinated_dependency.md",
-      "title": "vc061_hallucinated_dependency",
-      "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-061"
-      ],
-      "incoming": [
-        "Vices/VC-061"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-061",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-061",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
-      "id": "Detectors/vc065_unhandled_tool_call_failure",
-      "path": "Wiki/Detectors/vc065_unhandled_tool_call_failure.md",
-      "title": "vc065_unhandled_tool_call_failure",
-      "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-065"
-      ],
-      "incoming": [
-        "Vices/VC-065"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-065",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-065",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
-      "id": "Detectors/vc066_multi_agent_without_protocol",
-      "path": "Wiki/Detectors/vc066_multi_agent_without_protocol.md",
-      "title": "vc066_multi_agent_without_protocol",
-      "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-066"
-      ],
-      "incoming": [
-        "Vices/VC-066"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-066",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-066",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
-      "id": "Detectors/vc070_blind_shell_edit",
-      "path": "Wiki/Detectors/vc070_blind_shell_edit.md",
+      "id": "Detectors/vc-024",
+      "path": "Wiki/Detectors/vc-024.md",
       "title": "vc070_blind_shell_edit",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VC-024"
@@ -1193,18 +732,18 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc071_blind_trust_in_llm_output",
-      "path": "Wiki/Detectors/vc071_blind_trust_in_llm_output.md",
-      "title": "vc071_blind_trust_in_llm_output",
+      "id": "Detectors/vc-025",
+      "path": "Wiki/Detectors/vc-025.md",
+      "title": "vc025_io_without_validation",
       "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
-        "Vices/VC-071"
+        "Vices/VC-025"
       ],
       "incoming": [
-        "Vices/VC-071"
+        "Vices/VC-025"
       ],
       "outgoing_edges": [
         {
@@ -1214,7 +753,7 @@
           "confidence": 0.85
         },
         {
-          "target": "Vices/VC-071",
+          "target": "Vices/VC-025",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -1222,7 +761,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Vices/VC-071",
+          "source": "Vices/VC-025",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -1245,64 +784,12 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc078_excessive_agency",
-      "path": "Wiki/Detectors/vc078_excessive_agency.md",
-      "title": "vc078_excessive_agency",
-      "kind": "wiki",
-      "created": "2026-06-18T20:53:01-06:00",
-      "promoted": "2026-06-18T20:53:01-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-078"
-      ],
-      "incoming": [
-        "Vices/VC-078"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-078",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-078",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
-      "id": "Detectors/vc078_placeholder",
-      "path": "Wiki/Detectors/vc078_placeholder.md",
+      "id": "Detectors/vc-027",
+      "path": "Wiki/Detectors/vc-027.md",
       "title": "vc078_placeholder",
       "kind": "wiki",
-      "created": "2026-06-21T07:26:08-06:00",
-      "promoted": "2026-06-21T07:26:08-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VC-027"
@@ -1349,12 +836,116 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc087_blanket_filterwarnings",
-      "path": "Wiki/Detectors/vc087_blanket_filterwarnings.md",
+      "id": "Detectors/vc-028",
+      "path": "Wiki/Detectors/vc-028.md",
+      "title": "vc028_core_dependent_on_unstable_parts",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-028"
+      ],
+      "incoming": [
+        "Vices/VC-028"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-028",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-028",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-029",
+      "path": "Wiki/Detectors/vc-029.md",
+      "title": "vc029_uncritical_copy_paste",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-029"
+      ],
+      "incoming": [
+        "Vices/VC-029"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-029",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-029",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-032",
+      "path": "Wiki/Detectors/vc-032.md",
       "title": "vc087_blanket_filterwarnings",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VC-032"
@@ -1401,64 +992,12 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc087_self_polluting_tooling",
-      "path": "Wiki/Detectors/vc087_self_polluting_tooling.md",
-      "title": "vc087_self_polluting_tooling",
-      "kind": "wiki",
-      "created": "2026-06-22T17:48:29-06:00",
-      "promoted": "2026-06-22T17:48:29-06:00",
-      "outgoing": [
-        "Home",
-        "Vices/VC-087"
-      ],
-      "incoming": [
-        "Vices/VC-087"
-      ],
-      "outgoing_edges": [
-        {
-          "target": "Home",
-          "kind": "wikilink",
-          "relation": "references",
-          "confidence": 0.85
-        },
-        {
-          "target": "Vices/VC-087",
-          "kind": "wikilink",
-          "relation": "catalogs",
-          "confidence": 0.95
-        }
-      ],
-      "incoming_edges": [
-        {
-          "source": "Vices/VC-087",
-          "kind": "wikilink",
-          "relation": "returns_to_index",
-          "confidence": 0.95
-        }
-      ],
-      "in_degree": 1,
-      "out_degree": 2,
-      "degree": 3,
-      "connected_types": [
-        "vice",
-        "wiki"
-      ],
-      "relation_types": [
-        "catalogs",
-        "references",
-        "returns_to_index"
-      ],
-      "semantic_reach": 2,
-      "relation_diversity": 3,
-      "hub_score": 15
-    },
-    {
-      "id": "Detectors/vc095_hardcoded_secret",
-      "path": "Wiki/Detectors/vc095_hardcoded_secret.md",
+      "id": "Detectors/vc-036",
+      "path": "Wiki/Detectors/vc-036.md",
       "title": "vc095_hardcoded_secret",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VC-036"
@@ -1505,12 +1044,64 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc109_hardcoded_path",
-      "path": "Wiki/Detectors/vc109_hardcoded_path.md",
+      "id": "Detectors/vc-038",
+      "path": "Wiki/Detectors/vc-038.md",
+      "title": "vc038_optimistic_config",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-038"
+      ],
+      "incoming": [
+        "Vices/VC-038"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-038",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-038",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-043",
+      "path": "Wiki/Detectors/vc-043.md",
       "title": "vc109_hardcoded_path",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VC-043"
@@ -1557,12 +1148,64 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc115_unsafe_eval",
-      "path": "Wiki/Detectors/vc115_unsafe_eval.md",
+      "id": "Detectors/vc-047",
+      "path": "Wiki/Detectors/vc-047.md",
+      "title": "vc047_frozen_nomenclature",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-047"
+      ],
+      "incoming": [
+        "Vices/VC-047"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-047",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-047",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-049",
+      "path": "Wiki/Detectors/vc-049.md",
       "title": "vc115_unsafe_eval",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VC-049"
@@ -1609,12 +1252,220 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vc138_insecure_defaults",
-      "path": "Wiki/Detectors/vc138_insecure_defaults.md",
+      "id": "Detectors/vc-059",
+      "path": "Wiki/Detectors/vc-059.md",
+      "title": "vc059_prompt_injection_in_agent_loop",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-059"
+      ],
+      "incoming": [
+        "Vices/VC-059"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-059",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-059",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-061",
+      "path": "Wiki/Detectors/vc-061.md",
+      "title": "vc061_hallucinated_dependency",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-061"
+      ],
+      "incoming": [
+        "Vices/VC-061"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-061",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-061",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-065",
+      "path": "Wiki/Detectors/vc-065.md",
+      "title": "vc065_unhandled_tool_call_failure",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-065"
+      ],
+      "incoming": [
+        "Vices/VC-065"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-065",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-065",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-066",
+      "path": "Wiki/Detectors/vc-066.md",
+      "title": "vc066_multi_agent_without_protocol",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-066"
+      ],
+      "incoming": [
+        "Vices/VC-066"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-066",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-066",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-070",
+      "path": "Wiki/Detectors/vc-070.md",
       "title": "vc138_insecure_defaults",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VC-070"
@@ -1661,12 +1512,168 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vt005_assert_true",
-      "path": "Wiki/Detectors/vt005_assert_true.md",
+      "id": "Detectors/vc-071",
+      "path": "Wiki/Detectors/vc-071.md",
+      "title": "vc071_blind_trust_in_llm_output",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-071"
+      ],
+      "incoming": [
+        "Vices/VC-071"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-071",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-071",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-078",
+      "path": "Wiki/Detectors/vc-078.md",
+      "title": "vc078_excessive_agency",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-078"
+      ],
+      "incoming": [
+        "Vices/VC-078"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-078",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-078",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-087",
+      "path": "Wiki/Detectors/vc-087.md",
+      "title": "vc087_self_polluting_tooling",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-087"
+      ],
+      "incoming": [
+        "Vices/VC-087"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-087",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-087",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vt-005",
+      "path": "Wiki/Detectors/vt-005.md",
       "title": "vt005_assert_true",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VT-005"
@@ -1713,12 +1720,12 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vt006_test_without_assert",
-      "path": "Wiki/Detectors/vt006_test_without_assert.md",
+      "id": "Detectors/vt-006",
+      "path": "Wiki/Detectors/vt-006.md",
       "title": "vt006_test_without_assert",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VT-006"
@@ -1765,12 +1772,12 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vt009_tautological_assert",
-      "path": "Wiki/Detectors/vt009_tautological_assert.md",
+      "id": "Detectors/vt-009",
+      "path": "Wiki/Detectors/vt-009.md",
       "title": "vt009_tautological_assert",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VT-009"
@@ -1817,12 +1824,12 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vt037_impossible_condition",
-      "path": "Wiki/Detectors/vt037_impossible_condition.md",
+      "id": "Detectors/vt-037",
+      "path": "Wiki/Detectors/vt-037.md",
       "title": "vt037_impossible_condition",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VT-037"
@@ -1869,12 +1876,12 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vt040_blind_except",
-      "path": "Wiki/Detectors/vt040_blind_except.md",
+      "id": "Detectors/vt-040",
+      "path": "Wiki/Detectors/vt-040.md",
       "title": "vt040_blind_except",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VT-040"
@@ -1921,12 +1928,12 @@
       "hub_score": 15
     },
     {
-      "id": "Detectors/vt043_unconditional_exit_zero",
-      "path": "Wiki/Detectors/vt043_unconditional_exit_zero.md",
+      "id": "Detectors/vt-043",
+      "path": "Wiki/Detectors/vt-043.md",
       "title": "vt043_unconditional_exit_zero",
       "kind": "wiki",
-      "created": "2026-06-17T12:15:26-06:00",
-      "promoted": "2026-06-17T12:15:26-06:00",
+      "created": null,
+      "promoted": null,
       "outgoing": [
         "Home",
         "Vices/VT-043"
@@ -9099,7 +9106,7 @@
       "title": "Golden Standard Wiki",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-07-08T08:11:31-06:00",
+      "promoted": "2026-07-09T08:14:07-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
@@ -9116,40 +9123,40 @@
         "Vices_Index"
       ],
       "incoming": [
-        "Detectors/vc003_incomprehensible_code",
-        "Detectors/vc005_premature_closure",
-        "Detectors/vc005_untracked_prototype",
-        "Detectors/vc012_invisible_debt",
-        "Detectors/vc013_ambiguous_handoff",
-        "Detectors/vc016_broken_version_parity",
-        "Detectors/vc017_deadlock_without_heartbeat",
-        "Detectors/vc025_io_without_validation",
-        "Detectors/vc028_core_dependent_on_unstable_parts",
-        "Detectors/vc029_uncritical_copy_paste",
-        "Detectors/vc036_destructive_without_dryrun",
-        "Detectors/vc038_optimistic_config",
-        "Detectors/vc047_frozen_nomenclature",
-        "Detectors/vc059_prompt_injection_in_agent_loop",
-        "Detectors/vc061_constant_stub",
-        "Detectors/vc061_hallucinated_dependency",
-        "Detectors/vc065_unhandled_tool_call_failure",
-        "Detectors/vc066_multi_agent_without_protocol",
-        "Detectors/vc070_blind_shell_edit",
-        "Detectors/vc071_blind_trust_in_llm_output",
-        "Detectors/vc078_excessive_agency",
-        "Detectors/vc078_placeholder",
-        "Detectors/vc087_blanket_filterwarnings",
-        "Detectors/vc087_self_polluting_tooling",
-        "Detectors/vc095_hardcoded_secret",
-        "Detectors/vc109_hardcoded_path",
-        "Detectors/vc115_unsafe_eval",
-        "Detectors/vc138_insecure_defaults",
-        "Detectors/vt005_assert_true",
-        "Detectors/vt006_test_without_assert",
-        "Detectors/vt009_tautological_assert",
-        "Detectors/vt037_impossible_condition",
-        "Detectors/vt040_blind_except",
-        "Detectors/vt043_unconditional_exit_zero",
+        "Detectors/vc-002",
+        "Detectors/vc-003",
+        "Detectors/vc-005",
+        "Detectors/vc-010",
+        "Detectors/vc-012",
+        "Detectors/vc-013",
+        "Detectors/vc-016",
+        "Detectors/vc-017",
+        "Detectors/vc-018",
+        "Detectors/vc-024",
+        "Detectors/vc-025",
+        "Detectors/vc-027",
+        "Detectors/vc-028",
+        "Detectors/vc-029",
+        "Detectors/vc-032",
+        "Detectors/vc-036",
+        "Detectors/vc-038",
+        "Detectors/vc-043",
+        "Detectors/vc-047",
+        "Detectors/vc-049",
+        "Detectors/vc-059",
+        "Detectors/vc-061",
+        "Detectors/vc-065",
+        "Detectors/vc-066",
+        "Detectors/vc-070",
+        "Detectors/vc-071",
+        "Detectors/vc-078",
+        "Detectors/vc-087",
+        "Detectors/vt-005",
+        "Detectors/vt-006",
+        "Detectors/vt-009",
+        "Detectors/vt-037",
+        "Detectors/vt-040",
+        "Detectors/vt-043",
         "Domains/CD01",
         "Domains/CD02",
         "Domains/CD03",
@@ -9666,205 +9673,205 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc003_incomprehensible_code",
+          "source": "Detectors/vc-002",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc005_premature_closure",
+          "source": "Detectors/vc-003",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc005_untracked_prototype",
+          "source": "Detectors/vc-005",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc012_invisible_debt",
+          "source": "Detectors/vc-010",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc013_ambiguous_handoff",
+          "source": "Detectors/vc-012",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc016_broken_version_parity",
+          "source": "Detectors/vc-013",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc017_deadlock_without_heartbeat",
+          "source": "Detectors/vc-016",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc025_io_without_validation",
+          "source": "Detectors/vc-017",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc028_core_dependent_on_unstable_parts",
+          "source": "Detectors/vc-018",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc029_uncritical_copy_paste",
+          "source": "Detectors/vc-024",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc036_destructive_without_dryrun",
+          "source": "Detectors/vc-025",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc038_optimistic_config",
+          "source": "Detectors/vc-027",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc047_frozen_nomenclature",
+          "source": "Detectors/vc-028",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc059_prompt_injection_in_agent_loop",
+          "source": "Detectors/vc-029",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc061_constant_stub",
+          "source": "Detectors/vc-032",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc061_hallucinated_dependency",
+          "source": "Detectors/vc-036",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc065_unhandled_tool_call_failure",
+          "source": "Detectors/vc-038",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc066_multi_agent_without_protocol",
+          "source": "Detectors/vc-043",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc070_blind_shell_edit",
+          "source": "Detectors/vc-047",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc071_blind_trust_in_llm_output",
+          "source": "Detectors/vc-049",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc078_excessive_agency",
+          "source": "Detectors/vc-059",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc078_placeholder",
+          "source": "Detectors/vc-061",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc087_blanket_filterwarnings",
+          "source": "Detectors/vc-065",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc087_self_polluting_tooling",
+          "source": "Detectors/vc-066",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc095_hardcoded_secret",
+          "source": "Detectors/vc-070",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc109_hardcoded_path",
+          "source": "Detectors/vc-071",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc115_unsafe_eval",
+          "source": "Detectors/vc-078",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vc138_insecure_defaults",
+          "source": "Detectors/vc-087",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vt005_assert_true",
+          "source": "Detectors/vt-005",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vt006_test_without_assert",
+          "source": "Detectors/vt-006",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vt009_tautological_assert",
+          "source": "Detectors/vt-009",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vt037_impossible_condition",
+          "source": "Detectors/vt-037",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vt040_blind_except",
+          "source": "Detectors/vt-040",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
         },
         {
-          "source": "Detectors/vt043_unconditional_exit_zero",
+          "source": "Detectors/vt-043",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
@@ -32894,7 +32901,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc005_untracked_prototype",
+        "Detectors/vc-002",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -32903,13 +32910,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc005_untracked_prototype",
+        "Detectors/vc-002",
         "Evidence/arxiv2603_28592",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc005_untracked_prototype",
+          "target": "Detectors/vc-002",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -32953,7 +32960,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc005_untracked_prototype",
+          "source": "Detectors/vc-002",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -32999,7 +33006,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc003_incomprehensible_code",
+        "Detectors/vc-003",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -33008,13 +33015,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc003_incomprehensible_code",
+        "Detectors/vc-003",
         "Evidence/arxiv2603_28592",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc003_incomprehensible_code",
+          "target": "Detectors/vc-003",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -33058,7 +33065,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc003_incomprehensible_code",
+          "source": "Detectors/vc-003",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -33188,7 +33195,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc005_premature_closure",
+        "Detectors/vc-005",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -33197,13 +33204,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc005_premature_closure",
+        "Detectors/vc-005",
         "Evidence/arxiv2603_28592",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc005_premature_closure",
+          "target": "Detectors/vc-005",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -33247,7 +33254,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc005_premature_closure",
+          "source": "Detectors/vc-005",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -33629,7 +33636,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc036_destructive_without_dryrun",
+        "Detectors/vc-010",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -33638,13 +33645,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc036_destructive_without_dryrun",
+        "Detectors/vc-010",
         "Evidence/arxiv2603_28592",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc036_destructive_without_dryrun",
+          "target": "Detectors/vc-010",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -33688,7 +33695,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc036_destructive_without_dryrun",
+          "source": "Detectors/vc-010",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -33811,7 +33818,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-22T17:17:58-06:00",
       "outgoing": [
-        "Detectors/vc012_invisible_debt",
+        "Detectors/vc-012",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -33820,12 +33827,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc012_invisible_debt",
+        "Detectors/vc-012",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc012_invisible_debt",
+          "target": "Detectors/vc-012",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -33869,7 +33876,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc012_invisible_debt",
+          "source": "Detectors/vc-012",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -33909,7 +33916,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
-        "Detectors/vc013_ambiguous_handoff",
+        "Detectors/vc-013",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -33918,12 +33925,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc013_ambiguous_handoff",
+        "Detectors/vc-013",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc013_ambiguous_handoff",
+          "target": "Detectors/vc-013",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -33967,7 +33974,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc013_ambiguous_handoff",
+          "source": "Detectors/vc-013",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -34168,7 +34175,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc016_broken_version_parity",
+        "Detectors/vc-016",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -34177,12 +34184,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc016_broken_version_parity",
+        "Detectors/vc-016",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc016_broken_version_parity",
+          "target": "Detectors/vc-016",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -34226,7 +34233,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc016_broken_version_parity",
+          "source": "Detectors/vc-016",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -34266,7 +34273,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc017_deadlock_without_heartbeat",
+        "Detectors/vc-017",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -34275,12 +34282,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc017_deadlock_without_heartbeat",
+        "Detectors/vc-017",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc017_deadlock_without_heartbeat",
+          "target": "Detectors/vc-017",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -34324,7 +34331,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc017_deadlock_without_heartbeat",
+          "source": "Detectors/vc-017",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -34364,7 +34371,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc061_constant_stub",
+        "Detectors/vc-018",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -34373,12 +34380,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc061_constant_stub",
+        "Detectors/vc-018",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc061_constant_stub",
+          "target": "Detectors/vc-018",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -34422,7 +34429,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc061_constant_stub",
+          "source": "Detectors/vc-018",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -34861,7 +34868,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc070_blind_shell_edit",
+        "Detectors/vc-024",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -34870,12 +34877,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc070_blind_shell_edit",
+        "Detectors/vc-024",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc070_blind_shell_edit",
+          "target": "Detectors/vc-024",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -34919,7 +34926,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc070_blind_shell_edit",
+          "source": "Detectors/vc-024",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -34959,7 +34966,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
-        "Detectors/vc025_io_without_validation",
+        "Detectors/vc-025",
         "Evidence/owasp_top_10_for_agents_2026",
         "Home",
         "Principles/PR-097",
@@ -34968,13 +34975,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc025_io_without_validation",
+        "Detectors/vc-025",
         "Evidence/owasp_top_10_for_agents_2026",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc025_io_without_validation",
+          "target": "Detectors/vc-025",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -35018,7 +35025,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc025_io_without_validation",
+          "source": "Detectors/vc-025",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -35141,7 +35148,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc078_placeholder",
+        "Detectors/vc-027",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -35150,12 +35157,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc078_placeholder",
+        "Detectors/vc-027",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc078_placeholder",
+          "target": "Detectors/vc-027",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -35199,7 +35206,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc078_placeholder",
+          "source": "Detectors/vc-027",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -35239,7 +35246,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc028_core_dependent_on_unstable_parts",
+        "Detectors/vc-028",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -35248,12 +35255,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc028_core_dependent_on_unstable_parts",
+        "Detectors/vc-028",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc028_core_dependent_on_unstable_parts",
+          "target": "Detectors/vc-028",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -35297,7 +35304,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc028_core_dependent_on_unstable_parts",
+          "source": "Detectors/vc-028",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -35337,7 +35344,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
-        "Detectors/vc029_uncritical_copy_paste",
+        "Detectors/vc-029",
         "Evidence/gitclear_2025",
         "Home",
         "Principles/PR-097",
@@ -35346,13 +35353,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc029_uncritical_copy_paste",
+        "Detectors/vc-029",
         "Evidence/gitclear_2025",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc029_uncritical_copy_paste",
+          "target": "Detectors/vc-029",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -35396,7 +35403,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc029_uncritical_copy_paste",
+          "source": "Detectors/vc-029",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -35631,7 +35638,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
-        "Detectors/vc087_blanket_filterwarnings",
+        "Detectors/vc-032",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -35640,12 +35647,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc087_blanket_filterwarnings",
+        "Detectors/vc-032",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc087_blanket_filterwarnings",
+          "target": "Detectors/vc-032",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -35689,7 +35696,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc087_blanket_filterwarnings",
+          "source": "Detectors/vc-032",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -35960,7 +35967,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc095_hardcoded_secret",
+        "Detectors/vc-036",
         "Evidence/owasp_top_10_for_agents_2026",
         "Home",
         "Principles/PR-097",
@@ -35969,13 +35976,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc095_hardcoded_secret",
+        "Detectors/vc-036",
         "Evidence/owasp_top_10_for_agents_2026",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc095_hardcoded_secret",
+          "target": "Detectors/vc-036",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -36019,7 +36026,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc095_hardcoded_secret",
+          "source": "Detectors/vc-036",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -36149,7 +36156,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc038_optimistic_config",
+        "Detectors/vc-038",
         "Evidence/owasp_top_10_2021_a052021_security_misconfiguration",
         "Home",
         "Principles/PR-097",
@@ -36158,13 +36165,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc038_optimistic_config",
+        "Detectors/vc-038",
         "Evidence/owasp_top_10_2021_a052021_security_misconfiguration",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc038_optimistic_config",
+          "target": "Detectors/vc-038",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -36208,7 +36215,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc038_optimistic_config",
+          "source": "Detectors/vc-038",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -36569,7 +36576,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
-        "Detectors/vc109_hardcoded_path",
+        "Detectors/vc-043",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -36578,12 +36585,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc109_hardcoded_path",
+        "Detectors/vc-043",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc109_hardcoded_path",
+          "target": "Detectors/vc-043",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -36627,7 +36634,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc109_hardcoded_path",
+          "source": "Detectors/vc-043",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -36898,7 +36905,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc047_frozen_nomenclature",
+        "Detectors/vc-047",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -36907,12 +36914,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc047_frozen_nomenclature",
+        "Detectors/vc-047",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc047_frozen_nomenclature",
+          "target": "Detectors/vc-047",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -36956,7 +36963,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc047_frozen_nomenclature",
+          "source": "Detectors/vc-047",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -37073,7 +37080,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
-        "Detectors/vc115_unsafe_eval",
+        "Detectors/vc-049",
         "Evidence/owasp_top_10_for_agents_2026",
         "Home",
         "Principles/PR-097",
@@ -37082,13 +37089,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc115_unsafe_eval",
+        "Detectors/vc-049",
         "Evidence/owasp_top_10_for_agents_2026",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc115_unsafe_eval",
+          "target": "Detectors/vc-049",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -37132,7 +37139,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc115_unsafe_eval",
+          "source": "Detectors/vc-049",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -37908,7 +37915,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc059_prompt_injection_in_agent_loop",
+        "Detectors/vc-059",
         "Evidence/owasp_top_10_for_agents_2026",
         "Home",
         "Principles/PR-097",
@@ -37917,13 +37924,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc059_prompt_injection_in_agent_loop",
+        "Detectors/vc-059",
         "Evidence/owasp_top_10_for_agents_2026",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc059_prompt_injection_in_agent_loop",
+          "target": "Detectors/vc-059",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -37967,7 +37974,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc059_prompt_injection_in_agent_loop",
+          "source": "Detectors/vc-059",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -38097,7 +38104,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-30T17:12:08-06:00",
       "outgoing": [
-        "Detectors/vc061_hallucinated_dependency",
+        "Detectors/vc-061",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -38106,12 +38113,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc061_hallucinated_dependency",
+        "Detectors/vc-061",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc061_hallucinated_dependency",
+          "target": "Detectors/vc-061",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -38155,7 +38162,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc061_hallucinated_dependency",
+          "source": "Detectors/vc-061",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -38433,7 +38440,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc065_unhandled_tool_call_failure",
+        "Detectors/vc-065",
         "Evidence/owasp_top_10_for_agents_2026",
         "Home",
         "Principles/PR-097",
@@ -38442,13 +38449,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc065_unhandled_tool_call_failure",
+        "Detectors/vc-065",
         "Evidence/owasp_top_10_for_agents_2026",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc065_unhandled_tool_call_failure",
+          "target": "Detectors/vc-065",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -38492,7 +38499,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc065_unhandled_tool_call_failure",
+          "source": "Detectors/vc-065",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -38538,7 +38545,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc066_multi_agent_without_protocol",
+        "Detectors/vc-066",
         "Evidence/arxiv2603_28592",
         "Home",
         "Principles/PR-097",
@@ -38547,12 +38554,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc066_multi_agent_without_protocol",
+        "Detectors/vc-066",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc066_multi_agent_without_protocol",
+          "target": "Detectors/vc-066",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -38596,7 +38603,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc066_multi_agent_without_protocol",
+          "source": "Detectors/vc-066",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -38950,7 +38957,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc138_insecure_defaults",
+        "Detectors/vc-070",
         "Evidence/owasp_top_10_for_agents_2026",
         "Evidence/pycqabandit",
         "Home",
@@ -38960,14 +38967,14 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc138_insecure_defaults",
+        "Detectors/vc-070",
         "Evidence/owasp_top_10_for_agents_2026",
         "Evidence/pycqabandit",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc138_insecure_defaults",
+          "target": "Detectors/vc-070",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -39017,7 +39024,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc138_insecure_defaults",
+          "source": "Detectors/vc-070",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -39069,7 +39076,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-04T13:43:47-06:00",
       "outgoing": [
-        "Detectors/vc071_blind_trust_in_llm_output",
+        "Detectors/vc-071",
         "Evidence/owasp_top_10_for_llm_applications",
         "Home",
         "Principles/PR-097",
@@ -39078,13 +39085,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc071_blind_trust_in_llm_output",
+        "Detectors/vc-071",
         "Evidence/owasp_top_10_for_llm_applications",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc071_blind_trust_in_llm_output",
+          "target": "Detectors/vc-071",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -39128,7 +39135,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc071_blind_trust_in_llm_output",
+          "source": "Detectors/vc-071",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -39678,7 +39685,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-18T20:53:01-06:00",
       "outgoing": [
-        "Detectors/vc078_excessive_agency",
+        "Detectors/vc-078",
         "Evidence/nvidia_skillspector_static_patterns_excessive_agency_py",
         "Home",
         "Principles/PR-097",
@@ -39687,13 +39694,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc078_excessive_agency",
+        "Detectors/vc-078",
         "Evidence/nvidia_skillspector_static_patterns_excessive_agency_py",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc078_excessive_agency",
+          "target": "Detectors/vc-078",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -39737,7 +39744,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc078_excessive_agency",
+          "source": "Detectors/vc-078",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -40455,7 +40462,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-07-03T13:57:15-06:00",
       "outgoing": [
-        "Detectors/vc087_self_polluting_tooling",
+        "Detectors/vc-087",
         "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
         "Home",
         "Principles/PR-097",
@@ -40464,13 +40471,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vc087_self_polluting_tooling",
+        "Detectors/vc-087",
         "Evidence/codercerberus_adversarial_audit_internal_cited_generically_per_gscc_boundary_see",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vc087_self_polluting_tooling",
+          "target": "Detectors/vc-087",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -40514,7 +40521,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vc087_self_polluting_tooling",
+          "source": "Detectors/vc-087",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -40880,7 +40887,7 @@
       "title": "VC-092: Elif chain measured as deep nesting (AST-depth blind spot)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-07-03T13:57:15-06:00",
+      "promoted": "2026-07-09T08:14:07-06:00",
       "outgoing": [
         "Evidence/codercerberus_self-audit_internal_cited_generically_per_gscc_boundary_see_wikiev",
         "Home",
@@ -41302,7 +41309,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
-        "Detectors/vt005_assert_true",
+        "Detectors/vt-005",
         "Evidence/arxiv2602_00409",
         "Home",
         "Principles/PR-097",
@@ -41311,13 +41318,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vt005_assert_true",
+        "Detectors/vt-005",
         "Evidence/arxiv2602_00409",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vt005_assert_true",
+          "target": "Detectors/vt-005",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -41361,7 +41368,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vt005_assert_true",
+          "source": "Detectors/vt-005",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -41407,7 +41414,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
-        "Detectors/vt006_test_without_assert",
+        "Detectors/vt-006",
         "Evidence/arxiv2602_00409",
         "Home",
         "Principles/PR-097",
@@ -41416,13 +41423,13 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vt006_test_without_assert",
+        "Detectors/vt-006",
         "Evidence/arxiv2602_00409",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vt006_test_without_assert",
+          "target": "Detectors/vt-006",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -41466,7 +41473,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vt006_test_without_assert",
+          "source": "Detectors/vt-006",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -41680,7 +41687,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
-        "Detectors/vt009_tautological_assert",
+        "Detectors/vt-009",
         "Evidence/arxiv2602_00409",
         "Home",
         "Principles/PR-097",
@@ -41689,12 +41696,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vt009_tautological_assert",
+        "Detectors/vt-009",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vt009_tautological_assert",
+          "target": "Detectors/vt-009",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -41738,7 +41745,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vt009_tautological_assert",
+          "source": "Detectors/vt-009",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -43857,7 +43864,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
-        "Detectors/vt037_impossible_condition",
+        "Detectors/vt-037",
         "Evidence/arxiv2602_00409",
         "Home",
         "Principles/PR-097",
@@ -43866,12 +43873,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vt037_impossible_condition",
+        "Detectors/vt-037",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vt037_impossible_condition",
+          "target": "Detectors/vt-037",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -43915,7 +43922,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vt037_impossible_condition",
+          "source": "Detectors/vt-037",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -44109,7 +44116,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
-        "Detectors/vt040_blind_except",
+        "Detectors/vt-040",
         "Evidence/arxiv2602_00409",
         "Home",
         "Principles/PR-097",
@@ -44118,12 +44125,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vt040_blind_except",
+        "Detectors/vt-040",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vt040_blind_except",
+          "target": "Detectors/vt-040",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -44167,7 +44174,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vt040_blind_except",
+          "source": "Detectors/vt-040",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -44361,7 +44368,7 @@
       "created": "2026-06-04T19:49:39-06:00",
       "promoted": "2026-06-17T15:52:40-06:00",
       "outgoing": [
-        "Detectors/vt043_unconditional_exit_zero",
+        "Detectors/vt-043",
         "Evidence/arxiv2602_00409",
         "Home",
         "Principles/PR-097",
@@ -44370,12 +44377,12 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "Detectors/vt043_unconditional_exit_zero",
+        "Detectors/vt-043",
         "Vices_Index"
       ],
       "outgoing_edges": [
         {
-          "target": "Detectors/vt043_unconditional_exit_zero",
+          "target": "Detectors/vt-043",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -44419,7 +44426,7 @@
       ],
       "incoming_edges": [
         {
-          "source": "Detectors/vt043_unconditional_exit_zero",
+          "source": "Detectors/vt-043",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -44446,7 +44453,7 @@
       "semantic_reach": 2,
       "relation_diversity": 3,
       "hub_score": 20,
-      "status": "AUDITED",
+      "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "medium",
       "cluster": "cluster_39"
@@ -53269,7 +53276,7 @@
       "title": "golden_standard_audit.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-07-04T13:43:47-06:00",
+      "promoted": "2026-07-09T08:14:07-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53289,7 +53296,7 @@
       "title": "golden_standard_graph.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-07-08T08:11:31-06:00",
+      "promoted": "2026-07-09T08:14:07-06:00",
       "outgoing": [],
       "incoming": [
         "scripts/analyze_graph.py"
@@ -53391,7 +53398,7 @@
       "title": "audit.py",
       "kind": "script",
       "created": "2026-06-22T16:18:56-06:00",
-      "promoted": "2026-06-22T17:17:58-06:00",
+      "promoted": "2026-07-09T08:14:07-06:00",
       "outgoing": [
         "scripts/graph_artifact_policy.py"
       ],
@@ -53434,17 +53441,28 @@
       "created": "2026-06-22T14:01:05-06:00",
       "promoted": "2026-06-22T14:01:05-06:00",
       "outgoing": [],
-      "incoming": [],
+      "incoming": [
+        "tests/test_backlog_sync.py"
+      ],
       "outgoing_edges": [],
-      "incoming_edges": [],
-      "in_degree": 0,
+      "incoming_edges": [
+        {
+          "source": "tests/test_backlog_sync.py",
+          "kind": "file",
+          "relation": "imports",
+          "confidence": 1.0
+        }
+      ],
+      "in_degree": 1,
       "out_degree": 0,
-      "degree": 0,
-      "relation_types": [],
+      "degree": 1,
+      "relation_types": [
+        "imports"
+      ],
       "connected_types": [],
       "semantic_reach": 0,
-      "relation_diversity": 0,
-      "hub_score": 0
+      "relation_diversity": 1,
+      "hub_score": 3
     },
     {
       "id": "scripts/check_catalog_integrity.py",
@@ -53759,29 +53777,13 @@
       "title": "generate_golden_audit.py",
       "kind": "script",
       "created": "2026-06-22T15:20:59-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
-      "outgoing": [
-        "scripts/graph_artifact_policy.py",
-        "scripts/metrics.py"
-      ],
+      "promoted": "2026-07-09T08:14:07-06:00",
+      "outgoing": [],
       "incoming": [
         ".github/workflows/audit.yml",
         "tests/test_graph_navigation.py"
       ],
-      "outgoing_edges": [
-        {
-          "target": "scripts/graph_artifact_policy.py",
-          "kind": "file",
-          "relation": "imports",
-          "confidence": 1.0
-        },
-        {
-          "target": "scripts/metrics.py",
-          "kind": "file",
-          "relation": "imports",
-          "confidence": 1.0
-        }
-      ],
+      "outgoing_edges": [],
       "incoming_edges": [
         {
           "source": "tests/test_graph_navigation.py",
@@ -53797,8 +53799,8 @@
         }
       ],
       "in_degree": 2,
-      "out_degree": 2,
-      "degree": 4,
+      "out_degree": 0,
+      "degree": 2,
       "relation_types": [
         "imports",
         "runs"
@@ -53806,19 +53808,18 @@
       "connected_types": [],
       "semantic_reach": 0,
       "relation_diversity": 2,
-      "hub_score": 8
+      "hub_score": 6
     },
     {
       "id": "scripts/graph_artifact_policy.py",
       "path": "scripts/graph_artifact_policy.py",
       "title": "graph_artifact_policy.py",
       "kind": "script",
-      "created": null,
-      "promoted": null,
+      "created": "2026-07-09T08:14:07-06:00",
+      "promoted": "2026-07-09T08:14:07-06:00",
       "outgoing": [],
       "incoming": [
-        "scripts/audit.py",
-        "scripts/generate_golden_audit.py"
+        "scripts/audit.py"
       ],
       "outgoing_edges": [],
       "incoming_edges": [
@@ -53827,24 +53828,18 @@
           "kind": "file",
           "relation": "imports",
           "confidence": 1.0
-        },
-        {
-          "source": "scripts/generate_golden_audit.py",
-          "kind": "file",
-          "relation": "imports",
-          "confidence": 1.0
         }
       ],
-      "in_degree": 2,
+      "in_degree": 1,
       "out_degree": 0,
-      "degree": 2,
+      "degree": 1,
       "relation_types": [
         "imports"
       ],
       "connected_types": [],
       "semantic_reach": 0,
       "relation_diversity": 1,
-      "hub_score": 4
+      "hub_score": 3
     },
     {
       "id": "scripts/gs_lint.py",
@@ -53854,17 +53849,28 @@
       "created": "2026-06-29T16:42:20-06:00",
       "promoted": "2026-06-29T16:42:20-06:00",
       "outgoing": [],
-      "incoming": [],
+      "incoming": [
+        ".github/workflows/audit.yml"
+      ],
       "outgoing_edges": [],
-      "incoming_edges": [],
-      "in_degree": 0,
+      "incoming_edges": [
+        {
+          "source": ".github/workflows/audit.yml",
+          "kind": "file",
+          "relation": "runs",
+          "confidence": 1.0
+        }
+      ],
+      "in_degree": 1,
       "out_degree": 0,
-      "degree": 0,
-      "relation_types": [],
+      "degree": 1,
+      "relation_types": [
+        "runs"
+      ],
       "connected_types": [],
       "semantic_reach": 0,
-      "relation_diversity": 0,
-      "hub_score": 0
+      "relation_diversity": 1,
+      "hub_score": 3
     },
     {
       "id": "scripts/inbox_deposit.py",
@@ -53897,7 +53903,6 @@
         "scripts/detectors.py"
       ],
       "incoming": [
-        "scripts/generate_golden_audit.py",
         "scripts/test_detectors.py"
       ],
       "outgoing_edges": [
@@ -53910,28 +53915,22 @@
       ],
       "incoming_edges": [
         {
-          "source": "scripts/generate_golden_audit.py",
-          "kind": "file",
-          "relation": "imports",
-          "confidence": 1.0
-        },
-        {
           "source": "scripts/test_detectors.py",
           "kind": "file",
           "relation": "imports",
           "confidence": 1.0
         }
       ],
-      "in_degree": 2,
+      "in_degree": 1,
       "out_degree": 1,
-      "degree": 3,
+      "degree": 2,
       "relation_types": [
         "imports"
       ],
       "connected_types": [],
       "semantic_reach": 0,
       "relation_diversity": 1,
-      "hub_score": 5
+      "hub_score": 4
     },
     {
       "id": "scripts/split_golden_standard_catalogs.py",
@@ -54007,7 +54006,7 @@
       "title": "validate_golden_standard_catalogs.py",
       "kind": "script",
       "created": "2026-06-04T20:49:32-06:00",
-      "promoted": "2026-07-03T13:57:15-06:00",
+      "promoted": "2026-07-09T08:14:07-06:00",
       "outgoing": [],
       "incoming": [
         ".github/workflows/audit.yml"
@@ -54033,12 +54032,43 @@
       "hub_score": 3
     },
     {
+      "id": "tests/test_backlog_sync.py",
+      "path": "tests/test_backlog_sync.py",
+      "title": "test_backlog_sync.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "scripts/check_backlog_sync.py"
+      ],
+      "incoming": [],
+      "outgoing_edges": [
+        {
+          "target": "scripts/check_backlog_sync.py",
+          "kind": "file",
+          "relation": "imports",
+          "confidence": 1.0
+        }
+      ],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 1,
+      "degree": 1,
+      "relation_types": [
+        "imports"
+      ],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 1,
+      "hub_score": 3
+    },
+    {
       "id": "tests/test_graph_artifact_policy.py",
       "path": "tests/test_graph_artifact_policy.py",
       "title": "test_graph_artifact_policy.py",
       "kind": "test",
-      "created": null,
-      "promoted": null,
+      "created": "2026-07-09T08:14:07-06:00",
+      "promoted": "2026-07-09T08:14:07-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -54084,6 +54114,26 @@
       "hub_score": 3
     },
     {
+      "id": "tests/test_gs_lint_ratchet.py",
+      "path": "tests/test_gs_lint_ratchet.py",
+      "title": "test_gs_lint_ratchet.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
+    },
+    {
       "id": "tests/test_infrastructure.py",
       "path": "tests/test_infrastructure.py",
       "title": "test_infrastructure.py",
@@ -54124,12 +54174,32 @@
       "hub_score": 0
     },
     {
+      "id": "tests/test_semgrep_rules.py",
+      "path": "tests/test_semgrep_rules.py",
+      "title": "test_semgrep_rules.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
+    },
+    {
       "id": "tests/test_validate_golden_standard_catalogs.py",
       "path": "tests/test_validate_golden_standard_catalogs.py",
       "title": "test_validate_golden_standard_catalogs.py",
       "kind": "test",
       "created": "2026-06-30T17:12:08-06:00",
-      "promoted": "2026-06-30T19:41:13-06:00",
+      "promoted": "2026-07-09T08:14:07-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -54168,6 +54238,13 @@
     },
     {
       "source": ".github/workflows/audit.yml",
+      "target": "scripts/gs_lint.py",
+      "kind": "file",
+      "relation": "runs",
+      "confidence": 1.0
+    },
+    {
+      "source": ".github/workflows/audit.yml",
       "target": "scripts/test_detectors.py",
       "kind": "file",
       "relation": "runs",
@@ -54181,476 +54258,476 @@
       "confidence": 1.0
     },
     {
-      "source": "Detectors/vc003_incomprehensible_code",
+      "source": "Detectors/vc-002",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc003_incomprehensible_code",
-      "target": "Vices/VC-003",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
-      "source": "Detectors/vc005_premature_closure",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/vc005_premature_closure",
-      "target": "Vices/VC-005",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
-      "source": "Detectors/vc005_untracked_prototype",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/vc005_untracked_prototype",
+      "source": "Detectors/vc-002",
       "target": "Vices/VC-002",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc012_invisible_debt",
+      "source": "Detectors/vc-003",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc012_invisible_debt",
-      "target": "Vices/VC-012",
+      "source": "Detectors/vc-003",
+      "target": "Vices/VC-003",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc013_ambiguous_handoff",
+      "source": "Detectors/vc-005",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc013_ambiguous_handoff",
-      "target": "Vices/VC-013",
+      "source": "Detectors/vc-005",
+      "target": "Vices/VC-005",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc016_broken_version_parity",
+      "source": "Detectors/vc-010",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc016_broken_version_parity",
-      "target": "Vices/VC-016",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
-      "source": "Detectors/vc017_deadlock_without_heartbeat",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/vc017_deadlock_without_heartbeat",
-      "target": "Vices/VC-017",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
-      "source": "Detectors/vc025_io_without_validation",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/vc025_io_without_validation",
-      "target": "Vices/VC-025",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
-      "source": "Detectors/vc028_core_dependent_on_unstable_parts",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/vc028_core_dependent_on_unstable_parts",
-      "target": "Vices/VC-028",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
-      "source": "Detectors/vc029_uncritical_copy_paste",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/vc029_uncritical_copy_paste",
-      "target": "Vices/VC-029",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
-      "source": "Detectors/vc036_destructive_without_dryrun",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/vc036_destructive_without_dryrun",
+      "source": "Detectors/vc-010",
       "target": "Vices/VC-010",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc038_optimistic_config",
+      "source": "Detectors/vc-012",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc038_optimistic_config",
-      "target": "Vices/VC-038",
+      "source": "Detectors/vc-012",
+      "target": "Vices/VC-012",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc047_frozen_nomenclature",
+      "source": "Detectors/vc-013",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc047_frozen_nomenclature",
-      "target": "Vices/VC-047",
+      "source": "Detectors/vc-013",
+      "target": "Vices/VC-013",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc059_prompt_injection_in_agent_loop",
+      "source": "Detectors/vc-016",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc059_prompt_injection_in_agent_loop",
-      "target": "Vices/VC-059",
+      "source": "Detectors/vc-016",
+      "target": "Vices/VC-016",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc061_constant_stub",
+      "source": "Detectors/vc-017",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc061_constant_stub",
+      "source": "Detectors/vc-017",
+      "target": "Vices/VC-017",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc-018",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-018",
       "target": "Vices/VC-018",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc061_hallucinated_dependency",
+      "source": "Detectors/vc-024",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc061_hallucinated_dependency",
-      "target": "Vices/VC-061",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
-      "source": "Detectors/vc065_unhandled_tool_call_failure",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/vc065_unhandled_tool_call_failure",
-      "target": "Vices/VC-065",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
-      "source": "Detectors/vc066_multi_agent_without_protocol",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/vc066_multi_agent_without_protocol",
-      "target": "Vices/VC-066",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
-      "source": "Detectors/vc070_blind_shell_edit",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/vc070_blind_shell_edit",
+      "source": "Detectors/vc-024",
       "target": "Vices/VC-024",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc071_blind_trust_in_llm_output",
+      "source": "Detectors/vc-025",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc071_blind_trust_in_llm_output",
-      "target": "Vices/VC-071",
+      "source": "Detectors/vc-025",
+      "target": "Vices/VC-025",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc078_excessive_agency",
+      "source": "Detectors/vc-027",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc078_excessive_agency",
-      "target": "Vices/VC-078",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
-      "source": "Detectors/vc078_placeholder",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/vc078_placeholder",
+      "source": "Detectors/vc-027",
       "target": "Vices/VC-027",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc087_blanket_filterwarnings",
+      "source": "Detectors/vc-028",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc087_blanket_filterwarnings",
+      "source": "Detectors/vc-028",
+      "target": "Vices/VC-028",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc-029",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-029",
+      "target": "Vices/VC-029",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc-032",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-032",
       "target": "Vices/VC-032",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc087_self_polluting_tooling",
+      "source": "Detectors/vc-036",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc087_self_polluting_tooling",
-      "target": "Vices/VC-087",
-      "kind": "wikilink",
-      "relation": "catalogs",
-      "confidence": 0.95
-    },
-    {
-      "source": "Detectors/vc095_hardcoded_secret",
-      "target": "Home",
-      "kind": "wikilink",
-      "relation": "references",
-      "confidence": 0.85
-    },
-    {
-      "source": "Detectors/vc095_hardcoded_secret",
+      "source": "Detectors/vc-036",
       "target": "Vices/VC-036",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc109_hardcoded_path",
+      "source": "Detectors/vc-038",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc109_hardcoded_path",
+      "source": "Detectors/vc-038",
+      "target": "Vices/VC-038",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc-043",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-043",
       "target": "Vices/VC-043",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc115_unsafe_eval",
+      "source": "Detectors/vc-047",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc115_unsafe_eval",
+      "source": "Detectors/vc-047",
+      "target": "Vices/VC-047",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc-049",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-049",
       "target": "Vices/VC-049",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vc138_insecure_defaults",
+      "source": "Detectors/vc-059",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vc138_insecure_defaults",
+      "source": "Detectors/vc-059",
+      "target": "Vices/VC-059",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc-061",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-061",
+      "target": "Vices/VC-061",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc-065",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-065",
+      "target": "Vices/VC-065",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc-066",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-066",
+      "target": "Vices/VC-066",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc-070",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-070",
       "target": "Vices/VC-070",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vt005_assert_true",
+      "source": "Detectors/vc-071",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vt005_assert_true",
+      "source": "Detectors/vc-071",
+      "target": "Vices/VC-071",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc-078",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-078",
+      "target": "Vices/VC-078",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc-087",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-087",
+      "target": "Vices/VC-087",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vt-005",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vt-005",
       "target": "Vices/VT-005",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vt006_test_without_assert",
+      "source": "Detectors/vt-006",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vt006_test_without_assert",
+      "source": "Detectors/vt-006",
       "target": "Vices/VT-006",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vt009_tautological_assert",
+      "source": "Detectors/vt-009",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vt009_tautological_assert",
+      "source": "Detectors/vt-009",
       "target": "Vices/VT-009",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vt037_impossible_condition",
+      "source": "Detectors/vt-037",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vt037_impossible_condition",
+      "source": "Detectors/vt-037",
       "target": "Vices/VT-037",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vt040_blind_except",
+      "source": "Detectors/vt-040",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vt040_blind_except",
+      "source": "Detectors/vt-040",
       "target": "Vices/VT-040",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
     },
     {
-      "source": "Detectors/vt043_unconditional_exit_zero",
+      "source": "Detectors/vt-043",
       "target": "Home",
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
     },
     {
-      "source": "Detectors/vt043_unconditional_exit_zero",
+      "source": "Detectors/vt-043",
       "target": "Vices/VT-043",
       "kind": "wikilink",
       "relation": "catalogs",
@@ -63869,7 +63946,7 @@
     },
     {
       "source": "Vices/VC-002",
-      "target": "Detectors/vc005_untracked_prototype",
+      "target": "Detectors/vc-002",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -63925,7 +64002,7 @@
     },
     {
       "source": "Vices/VC-003",
-      "target": "Detectors/vc003_incomprehensible_code",
+      "target": "Detectors/vc-003",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -64021,7 +64098,7 @@
     },
     {
       "source": "Vices/VC-005",
-      "target": "Detectors/vc005_premature_closure",
+      "target": "Detectors/vc-005",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -64237,7 +64314,7 @@
     },
     {
       "source": "Vices/VC-010",
-      "target": "Detectors/vc036_destructive_without_dryrun",
+      "target": "Detectors/vc-010",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -64333,7 +64410,7 @@
     },
     {
       "source": "Vices/VC-012",
-      "target": "Detectors/vc012_invisible_debt",
+      "target": "Detectors/vc-012",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -64389,7 +64466,7 @@
     },
     {
       "source": "Vices/VC-013",
-      "target": "Detectors/vc013_ambiguous_handoff",
+      "target": "Detectors/vc-013",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -64525,7 +64602,7 @@
     },
     {
       "source": "Vices/VC-016",
-      "target": "Detectors/vc016_broken_version_parity",
+      "target": "Detectors/vc-016",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -64581,7 +64658,7 @@
     },
     {
       "source": "Vices/VC-017",
-      "target": "Detectors/vc017_deadlock_without_heartbeat",
+      "target": "Detectors/vc-017",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -64637,7 +64714,7 @@
     },
     {
       "source": "Vices/VC-018",
-      "target": "Detectors/vc061_constant_stub",
+      "target": "Detectors/vc-018",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -64893,7 +64970,7 @@
     },
     {
       "source": "Vices/VC-024",
-      "target": "Detectors/vc070_blind_shell_edit",
+      "target": "Detectors/vc-024",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -64949,7 +65026,7 @@
     },
     {
       "source": "Vices/VC-025",
-      "target": "Detectors/vc025_io_without_validation",
+      "target": "Detectors/vc-025",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -65045,7 +65122,7 @@
     },
     {
       "source": "Vices/VC-027",
-      "target": "Detectors/vc078_placeholder",
+      "target": "Detectors/vc-027",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -65101,7 +65178,7 @@
     },
     {
       "source": "Vices/VC-028",
-      "target": "Detectors/vc028_core_dependent_on_unstable_parts",
+      "target": "Detectors/vc-028",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -65157,7 +65234,7 @@
     },
     {
       "source": "Vices/VC-029",
-      "target": "Detectors/vc029_uncritical_copy_paste",
+      "target": "Detectors/vc-029",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -65309,7 +65386,7 @@
     },
     {
       "source": "Vices/VC-032",
-      "target": "Detectors/vc087_blanket_filterwarnings",
+      "target": "Detectors/vc-032",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -65485,7 +65562,7 @@
     },
     {
       "source": "Vices/VC-036",
-      "target": "Detectors/vc095_hardcoded_secret",
+      "target": "Detectors/vc-036",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -65581,7 +65658,7 @@
     },
     {
       "source": "Vices/VC-038",
-      "target": "Detectors/vc038_optimistic_config",
+      "target": "Detectors/vc-038",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -65797,7 +65874,7 @@
     },
     {
       "source": "Vices/VC-043",
-      "target": "Detectors/vc109_hardcoded_path",
+      "target": "Detectors/vc-043",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -65973,7 +66050,7 @@
     },
     {
       "source": "Vices/VC-047",
-      "target": "Detectors/vc047_frozen_nomenclature",
+      "target": "Detectors/vc-047",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -66069,7 +66146,7 @@
     },
     {
       "source": "Vices/VC-049",
-      "target": "Detectors/vc115_unsafe_eval",
+      "target": "Detectors/vc-049",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -66485,7 +66562,7 @@
     },
     {
       "source": "Vices/VC-059",
-      "target": "Detectors/vc059_prompt_injection_in_agent_loop",
+      "target": "Detectors/vc-059",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -66581,7 +66658,7 @@
     },
     {
       "source": "Vices/VC-061",
-      "target": "Detectors/vc061_hallucinated_dependency",
+      "target": "Detectors/vc-061",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -66757,7 +66834,7 @@
     },
     {
       "source": "Vices/VC-065",
-      "target": "Detectors/vc065_unhandled_tool_call_failure",
+      "target": "Detectors/vc-065",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -66813,7 +66890,7 @@
     },
     {
       "source": "Vices/VC-066",
-      "target": "Detectors/vc066_multi_agent_without_protocol",
+      "target": "Detectors/vc-066",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -67037,7 +67114,7 @@
     },
     {
       "source": "Vices/VC-070",
-      "target": "Detectors/vc138_insecure_defaults",
+      "target": "Detectors/vc-070",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -67101,7 +67178,7 @@
     },
     {
       "source": "Vices/VC-071",
-      "target": "Detectors/vc071_blind_trust_in_llm_output",
+      "target": "Detectors/vc-071",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -67397,7 +67474,7 @@
     },
     {
       "source": "Vices/VC-078",
-      "target": "Detectors/vc078_excessive_agency",
+      "target": "Detectors/vc-078",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -67773,7 +67850,7 @@
     },
     {
       "source": "Vices/VC-087",
-      "target": "Detectors/vc087_self_polluting_tooling",
+      "target": "Detectors/vc-087",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -68181,7 +68258,7 @@
     },
     {
       "source": "Vices/VT-005",
-      "target": "Detectors/vt005_assert_true",
+      "target": "Detectors/vt-005",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -68237,7 +68314,7 @@
     },
     {
       "source": "Vices/VT-006",
-      "target": "Detectors/vt006_test_without_assert",
+      "target": "Detectors/vt-006",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -68373,7 +68450,7 @@
     },
     {
       "source": "Vices/VT-009",
-      "target": "Detectors/vt009_tautological_assert",
+      "target": "Detectors/vt-009",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -69509,7 +69586,7 @@
     },
     {
       "source": "Vices/VT-037",
-      "target": "Detectors/vt037_impossible_condition",
+      "target": "Detectors/vt-037",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -69645,7 +69722,7 @@
     },
     {
       "source": "Vices/VT-040",
-      "target": "Detectors/vt040_blind_except",
+      "target": "Detectors/vt-040",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -69781,7 +69858,7 @@
     },
     {
       "source": "Vices/VT-043",
-      "target": "Detectors/vt043_unconditional_exit_zero",
+      "target": "Detectors/vt-043",
       "kind": "wikilink",
       "relation": "returns_to_index",
       "confidence": 0.95,
@@ -74225,20 +74302,6 @@
       "confidence": 1.0
     },
     {
-      "source": "scripts/generate_golden_audit.py",
-      "target": "scripts/graph_artifact_policy.py",
-      "kind": "file",
-      "relation": "imports",
-      "confidence": 1.0
-    },
-    {
-      "source": "scripts/generate_golden_audit.py",
-      "target": "scripts/metrics.py",
-      "kind": "file",
-      "relation": "imports",
-      "confidence": 1.0
-    },
-    {
       "source": "scripts/metrics.py",
       "target": "scripts/detectors.py",
       "kind": "file",
@@ -74255,6 +74318,13 @@
     {
       "source": "scripts/test_detectors.py",
       "target": "scripts/metrics.py",
+      "kind": "file",
+      "relation": "imports",
+      "confidence": 1.0
+    },
+    {
+      "source": "tests/test_backlog_sync.py",
+      "target": "scripts/check_backlog_sync.py",
       "kind": "file",
       "relation": "imports",
       "confidence": 1.0
@@ -74300,7 +74370,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-07-08T08:11:31-06:00",
+        "promoted": "2026-07-09T08:14:07-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -74317,40 +74387,40 @@
           "Vices_Index"
         ],
         "incoming": [
-          "Detectors/vc003_incomprehensible_code",
-          "Detectors/vc005_premature_closure",
-          "Detectors/vc005_untracked_prototype",
-          "Detectors/vc012_invisible_debt",
-          "Detectors/vc013_ambiguous_handoff",
-          "Detectors/vc016_broken_version_parity",
-          "Detectors/vc017_deadlock_without_heartbeat",
-          "Detectors/vc025_io_without_validation",
-          "Detectors/vc028_core_dependent_on_unstable_parts",
-          "Detectors/vc029_uncritical_copy_paste",
-          "Detectors/vc036_destructive_without_dryrun",
-          "Detectors/vc038_optimistic_config",
-          "Detectors/vc047_frozen_nomenclature",
-          "Detectors/vc059_prompt_injection_in_agent_loop",
-          "Detectors/vc061_constant_stub",
-          "Detectors/vc061_hallucinated_dependency",
-          "Detectors/vc065_unhandled_tool_call_failure",
-          "Detectors/vc066_multi_agent_without_protocol",
-          "Detectors/vc070_blind_shell_edit",
-          "Detectors/vc071_blind_trust_in_llm_output",
-          "Detectors/vc078_excessive_agency",
-          "Detectors/vc078_placeholder",
-          "Detectors/vc087_blanket_filterwarnings",
-          "Detectors/vc087_self_polluting_tooling",
-          "Detectors/vc095_hardcoded_secret",
-          "Detectors/vc109_hardcoded_path",
-          "Detectors/vc115_unsafe_eval",
-          "Detectors/vc138_insecure_defaults",
-          "Detectors/vt005_assert_true",
-          "Detectors/vt006_test_without_assert",
-          "Detectors/vt009_tautological_assert",
-          "Detectors/vt037_impossible_condition",
-          "Detectors/vt040_blind_except",
-          "Detectors/vt043_unconditional_exit_zero",
+          "Detectors/vc-002",
+          "Detectors/vc-003",
+          "Detectors/vc-005",
+          "Detectors/vc-010",
+          "Detectors/vc-012",
+          "Detectors/vc-013",
+          "Detectors/vc-016",
+          "Detectors/vc-017",
+          "Detectors/vc-018",
+          "Detectors/vc-024",
+          "Detectors/vc-025",
+          "Detectors/vc-027",
+          "Detectors/vc-028",
+          "Detectors/vc-029",
+          "Detectors/vc-032",
+          "Detectors/vc-036",
+          "Detectors/vc-038",
+          "Detectors/vc-043",
+          "Detectors/vc-047",
+          "Detectors/vc-049",
+          "Detectors/vc-059",
+          "Detectors/vc-061",
+          "Detectors/vc-065",
+          "Detectors/vc-066",
+          "Detectors/vc-070",
+          "Detectors/vc-071",
+          "Detectors/vc-078",
+          "Detectors/vc-087",
+          "Detectors/vt-005",
+          "Detectors/vt-006",
+          "Detectors/vt-009",
+          "Detectors/vt-037",
+          "Detectors/vt-040",
+          "Detectors/vt-043",
           "Domains/CD01",
           "Domains/CD02",
           "Domains/CD03",
@@ -74867,205 +74937,205 @@
         ],
         "incoming_edges": [
           {
-            "source": "Detectors/vc003_incomprehensible_code",
+            "source": "Detectors/vc-002",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc005_premature_closure",
+            "source": "Detectors/vc-003",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc005_untracked_prototype",
+            "source": "Detectors/vc-005",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc012_invisible_debt",
+            "source": "Detectors/vc-010",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc013_ambiguous_handoff",
+            "source": "Detectors/vc-012",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc016_broken_version_parity",
+            "source": "Detectors/vc-013",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc017_deadlock_without_heartbeat",
+            "source": "Detectors/vc-016",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc025_io_without_validation",
+            "source": "Detectors/vc-017",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc028_core_dependent_on_unstable_parts",
+            "source": "Detectors/vc-018",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc029_uncritical_copy_paste",
+            "source": "Detectors/vc-024",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc036_destructive_without_dryrun",
+            "source": "Detectors/vc-025",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc038_optimistic_config",
+            "source": "Detectors/vc-027",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc047_frozen_nomenclature",
+            "source": "Detectors/vc-028",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc059_prompt_injection_in_agent_loop",
+            "source": "Detectors/vc-029",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc061_constant_stub",
+            "source": "Detectors/vc-032",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc061_hallucinated_dependency",
+            "source": "Detectors/vc-036",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc065_unhandled_tool_call_failure",
+            "source": "Detectors/vc-038",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc066_multi_agent_without_protocol",
+            "source": "Detectors/vc-043",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc070_blind_shell_edit",
+            "source": "Detectors/vc-047",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc071_blind_trust_in_llm_output",
+            "source": "Detectors/vc-049",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc078_excessive_agency",
+            "source": "Detectors/vc-059",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc078_placeholder",
+            "source": "Detectors/vc-061",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc087_blanket_filterwarnings",
+            "source": "Detectors/vc-065",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc087_self_polluting_tooling",
+            "source": "Detectors/vc-066",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc095_hardcoded_secret",
+            "source": "Detectors/vc-070",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc109_hardcoded_path",
+            "source": "Detectors/vc-071",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc115_unsafe_eval",
+            "source": "Detectors/vc-078",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc138_insecure_defaults",
+            "source": "Detectors/vc-087",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vt005_assert_true",
+            "source": "Detectors/vt-005",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vt006_test_without_assert",
+            "source": "Detectors/vt-006",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vt009_tautological_assert",
+            "source": "Detectors/vt-009",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vt037_impossible_condition",
+            "source": "Detectors/vt-037",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vt040_blind_except",
+            "source": "Detectors/vt-040",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vt043_unconditional_exit_zero",
+            "source": "Detectors/vt-043",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -90799,7 +90869,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-07-08T08:11:31-06:00",
+        "promoted": "2026-07-09T08:14:07-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -90816,40 +90886,40 @@
           "Vices_Index"
         ],
         "incoming": [
-          "Detectors/vc003_incomprehensible_code",
-          "Detectors/vc005_premature_closure",
-          "Detectors/vc005_untracked_prototype",
-          "Detectors/vc012_invisible_debt",
-          "Detectors/vc013_ambiguous_handoff",
-          "Detectors/vc016_broken_version_parity",
-          "Detectors/vc017_deadlock_without_heartbeat",
-          "Detectors/vc025_io_without_validation",
-          "Detectors/vc028_core_dependent_on_unstable_parts",
-          "Detectors/vc029_uncritical_copy_paste",
-          "Detectors/vc036_destructive_without_dryrun",
-          "Detectors/vc038_optimistic_config",
-          "Detectors/vc047_frozen_nomenclature",
-          "Detectors/vc059_prompt_injection_in_agent_loop",
-          "Detectors/vc061_constant_stub",
-          "Detectors/vc061_hallucinated_dependency",
-          "Detectors/vc065_unhandled_tool_call_failure",
-          "Detectors/vc066_multi_agent_without_protocol",
-          "Detectors/vc070_blind_shell_edit",
-          "Detectors/vc071_blind_trust_in_llm_output",
-          "Detectors/vc078_excessive_agency",
-          "Detectors/vc078_placeholder",
-          "Detectors/vc087_blanket_filterwarnings",
-          "Detectors/vc087_self_polluting_tooling",
-          "Detectors/vc095_hardcoded_secret",
-          "Detectors/vc109_hardcoded_path",
-          "Detectors/vc115_unsafe_eval",
-          "Detectors/vc138_insecure_defaults",
-          "Detectors/vt005_assert_true",
-          "Detectors/vt006_test_without_assert",
-          "Detectors/vt009_tautological_assert",
-          "Detectors/vt037_impossible_condition",
-          "Detectors/vt040_blind_except",
-          "Detectors/vt043_unconditional_exit_zero",
+          "Detectors/vc-002",
+          "Detectors/vc-003",
+          "Detectors/vc-005",
+          "Detectors/vc-010",
+          "Detectors/vc-012",
+          "Detectors/vc-013",
+          "Detectors/vc-016",
+          "Detectors/vc-017",
+          "Detectors/vc-018",
+          "Detectors/vc-024",
+          "Detectors/vc-025",
+          "Detectors/vc-027",
+          "Detectors/vc-028",
+          "Detectors/vc-029",
+          "Detectors/vc-032",
+          "Detectors/vc-036",
+          "Detectors/vc-038",
+          "Detectors/vc-043",
+          "Detectors/vc-047",
+          "Detectors/vc-049",
+          "Detectors/vc-059",
+          "Detectors/vc-061",
+          "Detectors/vc-065",
+          "Detectors/vc-066",
+          "Detectors/vc-070",
+          "Detectors/vc-071",
+          "Detectors/vc-078",
+          "Detectors/vc-087",
+          "Detectors/vt-005",
+          "Detectors/vt-006",
+          "Detectors/vt-009",
+          "Detectors/vt-037",
+          "Detectors/vt-040",
+          "Detectors/vt-043",
           "Domains/CD01",
           "Domains/CD02",
           "Domains/CD03",
@@ -91366,205 +91436,205 @@
         ],
         "incoming_edges": [
           {
-            "source": "Detectors/vc003_incomprehensible_code",
+            "source": "Detectors/vc-002",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc005_premature_closure",
+            "source": "Detectors/vc-003",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc005_untracked_prototype",
+            "source": "Detectors/vc-005",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc012_invisible_debt",
+            "source": "Detectors/vc-010",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc013_ambiguous_handoff",
+            "source": "Detectors/vc-012",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc016_broken_version_parity",
+            "source": "Detectors/vc-013",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc017_deadlock_without_heartbeat",
+            "source": "Detectors/vc-016",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc025_io_without_validation",
+            "source": "Detectors/vc-017",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc028_core_dependent_on_unstable_parts",
+            "source": "Detectors/vc-018",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc029_uncritical_copy_paste",
+            "source": "Detectors/vc-024",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc036_destructive_without_dryrun",
+            "source": "Detectors/vc-025",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc038_optimistic_config",
+            "source": "Detectors/vc-027",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc047_frozen_nomenclature",
+            "source": "Detectors/vc-028",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc059_prompt_injection_in_agent_loop",
+            "source": "Detectors/vc-029",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc061_constant_stub",
+            "source": "Detectors/vc-032",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc061_hallucinated_dependency",
+            "source": "Detectors/vc-036",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc065_unhandled_tool_call_failure",
+            "source": "Detectors/vc-038",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc066_multi_agent_without_protocol",
+            "source": "Detectors/vc-043",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc070_blind_shell_edit",
+            "source": "Detectors/vc-047",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc071_blind_trust_in_llm_output",
+            "source": "Detectors/vc-049",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc078_excessive_agency",
+            "source": "Detectors/vc-059",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc078_placeholder",
+            "source": "Detectors/vc-061",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc087_blanket_filterwarnings",
+            "source": "Detectors/vc-065",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc087_self_polluting_tooling",
+            "source": "Detectors/vc-066",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc095_hardcoded_secret",
+            "source": "Detectors/vc-070",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc109_hardcoded_path",
+            "source": "Detectors/vc-071",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc115_unsafe_eval",
+            "source": "Detectors/vc-078",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vc138_insecure_defaults",
+            "source": "Detectors/vc-087",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vt005_assert_true",
+            "source": "Detectors/vt-005",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vt006_test_without_assert",
+            "source": "Detectors/vt-006",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vt009_tautological_assert",
+            "source": "Detectors/vt-009",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vt037_impossible_condition",
+            "source": "Detectors/vt-037",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vt040_blind_except",
+            "source": "Detectors/vt-040",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
           },
           {
-            "source": "Detectors/vt043_unconditional_exit_zero",
+            "source": "Detectors/vt-043",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85

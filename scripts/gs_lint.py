@@ -11,8 +11,9 @@ import re
 from pathlib import Path
 
 import yaml
-
 GS_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(GS_ROOT))
+from gs_generator.evidence import classify_source
 CATALOGS = [
     "golden_standard_coding_vices.yaml",
     "golden_standard_testing_vices.yaml",
@@ -124,6 +125,57 @@ def check_status_contradiction(catalogs: dict) -> list[str]:
     return errors
 
 
+def check_high_audited_coverage(catalogs: dict) -> list[str]:
+    """Ratchet: every high AUDITED item needs executable coverage or a falsifiable waiver."""
+    errors = []
+    semgrep_map_path = GS_ROOT / "config" / "semgrep_vices_map.yaml"
+    semgrep_map = yaml.safe_load(semgrep_map_path.read_text(encoding="utf-8")) if semgrep_map_path.exists() else {}
+    mapped_ids = {vice_id for entry in semgrep_map.get("mappings", {}).values() for vice_id in entry.get("vice_ids", [])}
+    for catalog_name, items in catalogs.items():
+        for item in items:
+            if str(item.get("status", "")).upper() != "AUDITED":
+                continue
+            if str(item.get("severity", "")).lower() not in {"high", "alta"}:
+                continue
+            item_id = str(item.get("id", "?"))
+            detector = str(item.get("detector", "")).strip()
+            waiver = str(item.get("coverage_justification", "")).strip()
+            if not detector and item_id not in mapped_ids and len(waiver) < 30:
+                errors.append(f"[HARD] {item_id} in {catalog_name}: high AUDITED item lacks detector, Semgrep rule, or falsifiable coverage_justification")
+    return errors
+
+
+def check_evidence_classification(catalogs: dict) -> list[str]:
+    errors = []
+    allowed = {"primary", "internal-generic", "pending"}
+    for catalog_name, items in catalogs.items():
+        for item in items:
+            for ref in item.get("evidence", []) or []:
+                if not isinstance(ref, dict):
+                    continue
+                classification = classify_source(ref.get("source", ""))
+                if classification not in allowed:
+                    errors.append(f"[HARD] {item.get('id', '?')} in {catalog_name}: invalid evidence classification {classification!r}")
+    return errors
+
+
+def check_detector_deduplication(root: Path = GS_ROOT) -> list[str]:
+    """Require one canonical lower-case detector file per catalog ID."""
+    directory = root / "Wiki" / "Detectors"
+    if not directory.exists():
+        return []
+    expected = {str(item.get("id", "")).lower() for items in load_catalogs(root).values() for item in items if item.get("detector")}
+    actual = {path.stem.lower() for path in directory.glob("*.md")}
+    errors = []
+    unexpected = sorted(actual - expected)
+    missing = sorted(expected - actual)
+    if unexpected:
+        errors.append(f"[HARD] Wiki/Detectors has non-canonical or duplicate IDs: {', '.join(unexpected)}")
+    if missing:
+        errors.append(f"[HARD] Wiki/Detectors missing canonical IDs: {', '.join(missing)}")
+    return errors
+
+
 def main() -> int:
     catalogs = load_catalogs(GS_ROOT)
     if not catalogs:
@@ -139,6 +191,9 @@ def main() -> int:
     hard_errors += check_duplicate_ids(catalogs)
     hard_errors += check_missing_required_fields(catalogs)
     hard_errors += check_status_contradiction(catalogs)
+    hard_errors += check_high_audited_coverage(catalogs)
+    hard_errors += check_evidence_classification(catalogs)
+    hard_errors += check_detector_deduplication()
     soft_warnings += check_orphaned_references(catalogs)
     soft_warnings += check_doc_only_without_justification(catalogs)
 

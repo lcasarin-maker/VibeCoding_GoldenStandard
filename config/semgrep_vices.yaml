@@ -1,0 +1,71 @@
+version: 1
+rules:
+  - id: gs-vc-095-hardcoded-secret
+    message: "VC-095: possible hardcoded secret or credential"
+    severity: ERROR
+    languages: [python]
+    patterns:
+      - pattern-regex: (?i)(password|passwd|secret|api[_-]?key|token)\s*=\s*["'][^"']{8,}["']
+    metadata:
+      vice_ids: [VC-095, VC-036]
+      category: vibe-coding
+  - id: gs-vc-115-unsafe-eval
+    message: "VC-115: dynamic execution is forbidden"
+    severity: ERROR
+    languages: [python]
+    patterns:
+      - pattern-either:
+          - pattern: eval(...)
+          - pattern: exec(...)
+          - pattern: compile(...)
+    metadata:
+      vice_ids: [VC-115, VC-049]
+      category: vibe-coding
+  - id: gs-vc-109-hardcoded-path
+    message: "VC-109: hardcoded absolute path"
+    severity: ERROR
+    languages: [python]
+    patterns:
+      - pattern-regex: |-
+          ["'][A-Za-z]:[\\/][^"']+["']
+    metadata:
+      vice_ids: [VC-109, VC-043]
+      category: vibe-coding
+  - id: gs-vt-040-blind-except
+    message: "VT-040: exception is silently absorbed"
+    severity: ERROR
+    languages: [python]
+    pattern: |
+      try:
+        ...
+      except Exception:
+        pass
+    metadata:
+      vice_ids: [VT-040]
+      category: testing
+  - id: gs-vt-043-unconditional-exit-zero
+    message: "VT-043: unconditional successful exit"
+    severity: ERROR
+    languages: [python]
+    pattern: sys.exit(0)
+    metadata:
+      vice_ids: [VT-043]
+      category: testing
+  - id: gs-vt-005-vacuous-assert
+    message: "VT-005: vacuous assertion"
+    severity: ERROR
+    languages: [python]
+    pattern-either:
+      - pattern: assert True
+      - pattern: self.assertTrue(True)
+    metadata:
+      vice_ids: [VT-005]
+      category: testing
+  - id: gs-vt-009-tautological-assert
+    message: "VT-009: tautological assertion"
+    severity: ERROR
+    languages: [python]
+    pattern: assert $X == $X
+    metadata:
+      vice_ids: [VT-009]
+      category: testing

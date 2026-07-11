@@ -1,0 +1,5 @@
+FASE 2 GS artifact parity
+Command: python scripts/generate_golden_audit.py (run twice)
+Result: PARITY OK: 484 artifact files byte-identical across repeated generation.
+Scope: Wiki/, output/, docs/badges/, knowledge/CANONICAL_STRUCTURE.md
+Allowed difference: timestamps only; observed byte diff: none.

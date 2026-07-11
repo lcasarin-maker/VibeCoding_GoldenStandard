@@ -15,6 +15,7 @@ def test_audit_workflow_runs_validator_and_regenerator() -> None:
 
     data = yaml.safe_load(workflow.read_text(encoding="utf-8"))
     steps = data["jobs"]["audit"]["steps"]
+    matrix_versions = data["jobs"]["audit"]["strategy"]["matrix"]["python-version"]
 
     assert any(
         step.get("name") == "Validate catalogs and wiki coverage"
@@ -22,11 +23,24 @@ def test_audit_workflow_runs_validator_and_regenerator() -> None:
         == "python scripts/validate_golden_standard_catalogs.py --check-wiki"
         for step in steps
     )
+    assert matrix_versions == ["3.10", "3.11", "3.12", "3.13"]
+    assert any(step.get("name") == "Run pytest suite" and step.get("run") == "pytest" for step in steps)
+    assert any(step.get("name") == "Run Semgrep guard rules" for step in steps)
     assert any(
         step.get("name") == "Regenerate Golden Standard audit artifacts"
         and step.get("run") == "python scripts/generate_golden_audit.py"
         for step in steps
     )
+
+
+def test_versioned_hooks_include_secret_scan_and_backlog_sync() -> None:
+    pre_commit = (ROOT / "scripts" / "hooks" / "pre-commit").read_text(encoding="utf-8")
+    commit_msg = (ROOT / "scripts" / "hooks" / "commit-msg").read_text(encoding="utf-8")
+
+    assert "tools/secret_scan.py" in pre_commit
+    assert "scripts/gs_lint.py" in pre_commit
+    assert "check_backlog_sync.py" in commit_msg
+    assert "--sync-state" in commit_msg
 
 
 def test_onboarding_knowledge_loop_is_documented() -> None:
