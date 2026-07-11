@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-07-11",
-  "node_count": 517,
-  "edge_count": 2672,
+  "node_count": 518,
+  "edge_count": 2755,
   "nodes": [
     {
       "id": ".github/workflows/audit.yml",
@@ -85,11 +85,18 @@
       "promoted": null,
       "outgoing": [],
       "incoming": [
+        "Graph",
         "Home",
         "README"
       ],
       "outgoing_edges": [],
       "incoming_edges": [
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
         {
           "source": "Home",
           "kind": "markdown",
@@ -103,9 +110,9 @@
           "confidence": 0.9
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 0,
-      "degree": 2,
+      "degree": 3,
       "connected_types": [
         "root",
         "wiki"
@@ -116,7 +123,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 2,
-      "hub_score": 12
+      "hub_score": 13
     },
     {
       "id": "CONTRIBUTING",
@@ -162,9 +169,11 @@
         "CONCEPTUAL_FRAMEWORK",
         "CONTRIBUTING",
         "Domains/README",
+        "Graph",
         "Home"
       ],
       "incoming": [
+        "Graph",
         "Home"
       ],
       "outgoing_edges": [
@@ -187,6 +196,12 @@
           "confidence": 0.9
         },
         {
+          "target": "Graph",
+          "kind": "markdown",
+          "relation": "references",
+          "confidence": 0.9
+        },
+        {
           "target": "Home",
           "kind": "markdown",
           "relation": "references",
@@ -195,15 +210,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Home",
           "kind": "markdown",
           "relation": "entrypoint",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
-      "out_degree": 4,
-      "degree": 5,
+      "in_degree": 2,
+      "out_degree": 5,
+      "degree": 7,
       "connected_types": [
         "conceptual-framework",
         "contributing",
@@ -216,7 +237,7 @@
       ],
       "semantic_reach": 4,
       "relation_diversity": 2,
-      "hub_score": 21
+      "hub_score": 23
     },
     {
       "id": "Detectors/vc-002",
@@ -230,6 +251,7 @@
         "Vices/VC-002"
       ],
       "incoming": [
+        "Graph",
         "Vices/VC-002"
       ],
       "outgoing_edges": [
@@ -248,15 +270,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Vices/VC-002",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 2,
-      "degree": 3,
+      "degree": 4,
       "connected_types": [
         "vice",
         "wiki"
@@ -268,7 +296,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 15
+      "hub_score": 16
     },
     {
       "id": "Detectors/vc-003",
@@ -282,6 +310,7 @@
         "Vices/VC-003"
       ],
       "incoming": [
+        "Graph",
         "Vices/VC-003"
       ],
       "outgoing_edges": [
@@ -300,15 +329,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Vices/VC-003",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 2,
-      "degree": 3,
+      "degree": 4,
       "connected_types": [
         "vice",
         "wiki"
@@ -320,7 +355,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 15
+      "hub_score": 16
     },
     {
       "id": "Detectors/vc-005",
@@ -334,6 +369,7 @@
         "Vices/VC-005"
       ],
       "incoming": [
+        "Graph",
         "Vices/VC-005"
       ],
       "outgoing_edges": [
@@ -352,15 +388,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Vices/VC-005",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 2,
-      "degree": 3,
+      "degree": 4,
       "connected_types": [
         "vice",
         "wiki"
@@ -372,7 +414,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 15
+      "hub_score": 16
     },
     {
       "id": "Detectors/vc-010",
@@ -386,6 +428,7 @@
         "Vices/VC-010"
       ],
       "incoming": [
+        "Graph",
         "Vices/VC-010"
       ],
       "outgoing_edges": [
@@ -404,15 +447,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Vices/VC-010",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 2,
-      "degree": 3,
+      "degree": 4,
       "connected_types": [
         "vice",
         "wiki"
@@ -424,7 +473,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 15
+      "hub_score": 16
     },
     {
       "id": "Detectors/vc-012",
@@ -438,6 +487,7 @@
         "Vices/VC-012"
       ],
       "incoming": [
+        "Graph",
         "Vices/VC-012"
       ],
       "outgoing_edges": [
@@ -456,15 +506,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Vices/VC-012",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 2,
-      "degree": 3,
+      "degree": 4,
       "connected_types": [
         "vice",
         "wiki"
@@ -476,7 +532,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 15
+      "hub_score": 16
     },
     {
       "id": "Detectors/vc-013",
@@ -490,6 +546,7 @@
         "Vices/VC-013"
       ],
       "incoming": [
+        "Graph",
         "Vices/VC-013"
       ],
       "outgoing_edges": [
@@ -508,15 +565,21 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Vices/VC-013",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 2,
-      "degree": 3,
+      "degree": 4,
       "connected_types": [
         "vice",
         "wiki"
@@ -528,7 +591,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 15
+      "hub_score": 16
     },
     {
       "id": "Detectors/vc-016",
@@ -2047,6 +2110,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-085",
         "Principles/PR-088",
@@ -2054,6 +2118,7 @@
       ],
       "incoming": [
         "Domains/README",
+        "Graph",
         "Principles/PR-085",
         "Principles/PR-088",
         "Principles/PR-097",
@@ -2069,6 +2134,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -2101,6 +2172,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
         },
         {
           "source": "Principles/PR-085",
@@ -2151,22 +2228,23 @@
           "confidence": 0.9
         }
       ],
-      "in_degree": 9,
-      "out_degree": 5,
-      "degree": 14,
+      "in_degree": 10,
+      "out_degree": 6,
+      "degree": 16,
       "connected_types": [
         "domain",
         "principle",
         "wiki"
       ],
       "relation_types": [
+        "catalogs",
         "operationalizes_domain",
         "references",
         "returns_to_index"
       ],
       "semantic_reach": 3,
-      "relation_diversity": 3,
-      "hub_score": 29
+      "relation_diversity": 4,
+      "hub_score": 33
     },
     {
       "id": "Domains/CD02",
@@ -2177,6 +2255,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-084",
         "Principles/PR-086",
@@ -2184,6 +2263,7 @@
       ],
       "incoming": [
         "Domains/README",
+        "Graph",
         "Principles/PR-084",
         "Principles/PR-086",
         "Principles/PR-104",
@@ -2199,6 +2279,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -2231,6 +2317,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
         },
         {
           "source": "Principles/PR-084",
@@ -2281,22 +2373,23 @@
           "confidence": 0.9
         }
       ],
-      "in_degree": 9,
-      "out_degree": 5,
-      "degree": 14,
+      "in_degree": 10,
+      "out_degree": 6,
+      "degree": 16,
       "connected_types": [
         "domain",
         "principle",
         "wiki"
       ],
       "relation_types": [
+        "catalogs",
         "operationalizes_domain",
         "references",
         "returns_to_index"
       ],
       "semantic_reach": 3,
-      "relation_diversity": 3,
-      "hub_score": 29
+      "relation_diversity": 4,
+      "hub_score": 33
     },
     {
       "id": "Domains/CD03",
@@ -2307,6 +2400,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-080",
         "Principles/PR-089",
@@ -2314,6 +2408,7 @@
       ],
       "incoming": [
         "Domains/README",
+        "Graph",
         "Principles/PR-080",
         "Principles/PR-089",
         "Principles/PR-098"
@@ -2324,6 +2419,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -2358,6 +2459,12 @@
           "confidence": 0.85
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Principles/PR-080",
           "kind": "wikilink",
           "relation": "references",
@@ -2376,22 +2483,23 @@
           "confidence": 0.9
         }
       ],
-      "in_degree": 4,
-      "out_degree": 5,
-      "degree": 9,
+      "in_degree": 5,
+      "out_degree": 6,
+      "degree": 11,
       "connected_types": [
         "domain",
         "principle",
         "wiki"
       ],
       "relation_types": [
+        "catalogs",
         "operationalizes_domain",
         "references",
         "returns_to_index"
       ],
       "semantic_reach": 3,
-      "relation_diversity": 3,
-      "hub_score": 24
+      "relation_diversity": 4,
+      "hub_score": 28
     },
     {
       "id": "Domains/CD04",
@@ -2402,6 +2510,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-085",
         "Principles/PR-097",
@@ -2409,6 +2518,7 @@
       ],
       "incoming": [
         "Domains/README",
+        "Graph",
         "Principles/PR-085",
         "Principles/PR-097",
         "Principles/PR-107",
@@ -2420,6 +2530,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -2454,6 +2570,12 @@
           "confidence": 0.85
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Principles/PR-085",
           "kind": "wikilink",
           "relation": "references",
@@ -2478,22 +2600,23 @@
           "confidence": 0.9
         }
       ],
-      "in_degree": 5,
-      "out_degree": 5,
-      "degree": 10,
+      "in_degree": 6,
+      "out_degree": 6,
+      "degree": 12,
       "connected_types": [
         "domain",
         "principle",
         "wiki"
       ],
       "relation_types": [
+        "catalogs",
         "operationalizes_domain",
         "references",
         "returns_to_index"
       ],
       "semantic_reach": 3,
-      "relation_diversity": 3,
-      "hub_score": 25
+      "relation_diversity": 4,
+      "hub_score": 29
     },
     {
       "id": "Domains/CD05",
@@ -2504,6 +2627,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-083",
         "Principles/PR-089",
@@ -2511,6 +2635,7 @@
       ],
       "incoming": [
         "Domains/README",
+        "Graph",
         "Principles/PR-083",
         "Principles/PR-089",
         "Principles/PR-102",
@@ -2522,6 +2647,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -2556,6 +2687,12 @@
           "confidence": 0.85
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Principles/PR-083",
           "kind": "wikilink",
           "relation": "references",
@@ -2580,22 +2717,23 @@
           "confidence": 0.9
         }
       ],
-      "in_degree": 5,
-      "out_degree": 5,
-      "degree": 10,
+      "in_degree": 6,
+      "out_degree": 6,
+      "degree": 12,
       "connected_types": [
         "domain",
         "principle",
         "wiki"
       ],
       "relation_types": [
+        "catalogs",
         "operationalizes_domain",
         "references",
         "returns_to_index"
       ],
       "semantic_reach": 3,
-      "relation_diversity": 3,
-      "hub_score": 25
+      "relation_diversity": 4,
+      "hub_score": 29
     },
     {
       "id": "Domains/CD06",
@@ -2606,6 +2744,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-084",
         "Principles/PR-087",
@@ -2613,6 +2752,7 @@
       ],
       "incoming": [
         "Domains/README",
+        "Graph",
         "Principles/PR-084",
         "Principles/PR-087",
         "Principles/PR-113"
@@ -2623,6 +2763,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -2657,6 +2803,12 @@
           "confidence": 0.85
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Principles/PR-084",
           "kind": "wikilink",
           "relation": "references",
@@ -2675,22 +2827,23 @@
           "confidence": 0.9
         }
       ],
-      "in_degree": 4,
-      "out_degree": 5,
-      "degree": 9,
+      "in_degree": 5,
+      "out_degree": 6,
+      "degree": 11,
       "connected_types": [
         "domain",
         "principle",
         "wiki"
       ],
       "relation_types": [
+        "catalogs",
         "operationalizes_domain",
         "references",
         "returns_to_index"
       ],
       "semantic_reach": 3,
-      "relation_diversity": 3,
-      "hub_score": 24
+      "relation_diversity": 4,
+      "hub_score": 28
     },
     {
       "id": "Domains/CD07",
@@ -2701,6 +2854,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-090",
         "Principles/PR-093",
@@ -2719,6 +2873,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -2778,8 +2938,8 @@
         }
       ],
       "in_degree": 5,
-      "out_degree": 5,
-      "degree": 10,
+      "out_degree": 6,
+      "degree": 11,
       "connected_types": [
         "domain",
         "principle",
@@ -2792,7 +2952,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 3,
-      "hub_score": 25
+      "hub_score": 26
     },
     {
       "id": "Domains/CD08",
@@ -2803,6 +2963,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-082",
         "Principles/PR-107",
@@ -2820,6 +2981,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -2873,8 +3040,8 @@
         }
       ],
       "in_degree": 4,
-      "out_degree": 5,
-      "degree": 9,
+      "out_degree": 6,
+      "degree": 10,
       "connected_types": [
         "domain",
         "principle",
@@ -2887,7 +3054,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 3,
-      "hub_score": 24
+      "hub_score": 25
     },
     {
       "id": "Domains/CD09",
@@ -2898,6 +3065,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-079",
         "Principles/PR-093",
@@ -2915,6 +3083,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -2968,8 +3142,8 @@
         }
       ],
       "in_degree": 4,
-      "out_degree": 5,
-      "degree": 9,
+      "out_degree": 6,
+      "degree": 10,
       "connected_types": [
         "domain",
         "principle",
@@ -2982,7 +3156,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 3,
-      "hub_score": 24
+      "hub_score": 25
     },
     {
       "id": "Domains/CD10",
@@ -2993,6 +3167,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-080",
         "Principles/PR-094",
@@ -3010,6 +3185,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -3063,8 +3244,8 @@
         }
       ],
       "in_degree": 4,
-      "out_degree": 5,
-      "degree": 9,
+      "out_degree": 6,
+      "degree": 10,
       "connected_types": [
         "domain",
         "principle",
@@ -3077,7 +3258,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 3,
-      "hub_score": 24
+      "hub_score": 25
     },
     {
       "id": "Domains/CD11",
@@ -3088,6 +3269,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-081",
         "Principles/PR-083",
@@ -3097,6 +3279,7 @@
       ],
       "incoming": [
         "Domains/README",
+        "Graph",
         "Principles/PR-081",
         "Principles/PR-083",
         "Principles/PR-085",
@@ -3110,6 +3293,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -3156,6 +3345,12 @@
           "confidence": 0.85
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Principles/PR-081",
           "kind": "wikilink",
           "relation": "references",
@@ -3192,9 +3387,9 @@
           "confidence": 0.85
         }
       ],
-      "in_degree": 7,
-      "out_degree": 7,
-      "degree": 14,
+      "in_degree": 8,
+      "out_degree": 8,
+      "degree": 16,
       "connected_types": [
         "domain",
         "principle",
@@ -3202,13 +3397,14 @@
         "wiki"
       ],
       "relation_types": [
+        "catalogs",
         "operationalizes_domain",
         "references",
         "returns_to_index"
       ],
       "semantic_reach": 4,
-      "relation_diversity": 3,
-      "hub_score": 32
+      "relation_diversity": 4,
+      "hub_score": 36
     },
     {
       "id": "Domains/CD12",
@@ -3219,6 +3415,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-079",
         "Principles/PR-082",
@@ -3237,6 +3434,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -3296,8 +3499,8 @@
         }
       ],
       "in_degree": 5,
-      "out_degree": 5,
-      "degree": 10,
+      "out_degree": 6,
+      "degree": 11,
       "connected_types": [
         "domain",
         "principle",
@@ -3311,7 +3514,7 @@
       ],
       "semantic_reach": 4,
       "relation_diversity": 3,
-      "hub_score": 28
+      "hub_score": 29
     },
     {
       "id": "Domains/CD13",
@@ -3322,6 +3525,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-092",
         "Principles/PR-096",
@@ -3343,6 +3547,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -3420,8 +3630,8 @@
         }
       ],
       "in_degree": 7,
-      "out_degree": 6,
-      "degree": 13,
+      "out_degree": 7,
+      "degree": 14,
       "connected_types": [
         "domain",
         "principle",
@@ -3434,7 +3644,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 3,
-      "hub_score": 28
+      "hub_score": 29
     },
     {
       "id": "Domains/CD14",
@@ -3445,6 +3655,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-101",
         "Principles/PR-103",
@@ -3464,6 +3675,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -3529,8 +3746,8 @@
         }
       ],
       "in_degree": 6,
-      "out_degree": 5,
-      "degree": 11,
+      "out_degree": 6,
+      "degree": 12,
       "connected_types": [
         "domain",
         "principle",
@@ -3543,7 +3760,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 3,
-      "hub_score": 26
+      "hub_score": 27
     },
     {
       "id": "Domains/CD15",
@@ -3554,6 +3771,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-081",
         "Principles/PR-091",
@@ -3576,6 +3794,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -3659,8 +3883,8 @@
         }
       ],
       "in_degree": 8,
-      "out_degree": 6,
-      "degree": 14,
+      "out_degree": 7,
+      "degree": 15,
       "connected_types": [
         "domain",
         "principle",
@@ -3673,7 +3897,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 3,
-      "hub_score": 29
+      "hub_score": 30
     },
     {
       "id": "Domains/CD16",
@@ -3684,6 +3908,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-098",
         "Principles/PR-099",
@@ -3705,6 +3930,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -3782,8 +4013,8 @@
         }
       ],
       "in_degree": 7,
-      "out_degree": 6,
-      "degree": 13,
+      "out_degree": 7,
+      "degree": 14,
       "connected_types": [
         "domain",
         "principle",
@@ -3796,7 +4027,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 3,
-      "hub_score": 28
+      "hub_score": 29
     },
     {
       "id": "Domains/CD17",
@@ -3807,6 +4038,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-106",
         "Principles/PR-108",
@@ -3825,6 +4057,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -3884,8 +4122,8 @@
         }
       ],
       "in_degree": 5,
-      "out_degree": 5,
-      "degree": 10,
+      "out_degree": 6,
+      "degree": 11,
       "connected_types": [
         "domain",
         "principle",
@@ -3899,7 +4137,7 @@
       ],
       "semantic_reach": 4,
       "relation_diversity": 3,
-      "hub_score": 28
+      "hub_score": 29
     },
     {
       "id": "Domains/CD18",
@@ -3910,6 +4148,7 @@
       "promoted": null,
       "outgoing": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/SP-001",
         "Principles/SP-002",
@@ -3941,6 +4180,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -4078,8 +4323,8 @@
         }
       ],
       "in_degree": 11,
-      "out_degree": 12,
-      "degree": 23,
+      "out_degree": 13,
+      "degree": 24,
       "connected_types": [
         "domain",
         "principle",
@@ -4092,7 +4337,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 3,
-      "hub_score": 38
+      "hub_score": 39
     },
     {
       "id": "Domains/README",
@@ -4120,6 +4365,7 @@
         "Domains/CD16",
         "Domains/CD17",
         "Domains/CD18",
+        "Graph",
         "Home",
         "Principles",
         "Principles/PR-079",
@@ -4180,6 +4426,7 @@
         "Domains/CD16",
         "Domains/CD17",
         "Domains/CD18",
+        "Graph",
         "Home",
         "Principles",
         "Principles/PR-001",
@@ -4413,6 +4660,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "target": "Graph",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
         },
         {
           "target": "Home",
@@ -4763,6 +5016,12 @@
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
         },
         {
           "source": "Home",
@@ -5509,9 +5768,9 @@
           "confidence": 0.9
         }
       ],
-      "in_degree": 142,
-      "out_degree": 58,
-      "degree": 200,
+      "in_degree": 143,
+      "out_degree": 59,
+      "degree": 202,
       "connected_types": [
         "domain",
         "principle",
@@ -5520,6 +5779,7 @@
         "wiki"
       ],
       "relation_types": [
+        "catalogs",
         "entrypoint",
         "operationalizes_domain",
         "references",
@@ -5527,8 +5787,8 @@
         "routes_to_domains"
       ],
       "semantic_reach": 5,
-      "relation_diversity": 5,
-      "hub_score": 225
+      "relation_diversity": 6,
+      "hub_score": 229
     },
     {
       "id": "Evidence/arxiv2602_00409",
@@ -5551,6 +5811,7 @@
         "Vices/VT-008"
       ],
       "incoming": [
+        "Graph",
         "Vices/VC-015",
         "Vices/VC-037",
         "Vices/VT-001",
@@ -5738,6 +5999,12 @@
         }
       ],
       "incoming_edges": [
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
         {
           "source": "Vices/VC-015",
           "kind": "wikilink",
@@ -6441,9 +6708,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 117,
+      "in_degree": 118,
       "out_degree": 11,
-      "degree": 128,
+      "degree": 129,
       "connected_types": [
         "vice",
         "wiki"
@@ -6455,7 +6722,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 140
+      "hub_score": 141
     },
     {
       "id": "Evidence/arxiv2603_28592",
@@ -6478,6 +6745,7 @@
         "Vices/VC-010"
       ],
       "incoming": [
+        "Graph",
         "Vices/VC-001",
         "Vices/VC-002",
         "Vices/VC-003",
@@ -6597,6 +6865,12 @@
         }
       ],
       "incoming_edges": [
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
         {
           "source": "Vices/VC-001",
           "kind": "wikilink",
@@ -6892,9 +7166,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 49,
+      "in_degree": 50,
       "out_degree": 11,
-      "degree": 60,
+      "degree": 61,
       "connected_types": [
         "vice",
         "wiki"
@@ -6906,7 +7180,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 72
+      "hub_score": 73
     },
     {
       "id": "Evidence/byterover-cli_zilliztech_claude-context_verified",
@@ -8789,6 +9063,7 @@
         "Tokenomics/TK-010"
       ],
       "incoming": [
+        "Graph",
         "Tokenomics/TK-001",
         "Tokenomics/TK-002",
         "Tokenomics/TK-003",
@@ -8892,6 +9167,12 @@
         }
       ],
       "incoming_edges": [
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
         {
           "source": "Tokenomics/TK-001",
           "kind": "wikilink",
@@ -9091,9 +9372,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 33,
+      "in_degree": 34,
       "out_degree": 11,
-      "degree": 44,
+      "degree": 45,
       "connected_types": [
         "tokenomics",
         "wiki"
@@ -9105,7 +9386,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 56
+      "hub_score": 57
     },
     {
       "id": "Evidence/zilliztechclaude-context_verified",
@@ -9160,6 +9441,625 @@
       "hub_score": 15
     },
     {
+      "id": "Graph",
+      "path": "Wiki/Graph.md",
+      "title": "GS Graph",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "CONCEPTUAL_FRAMEWORK",
+        "Detectors/vc-002",
+        "Detectors/vc-003",
+        "Detectors/vc-005",
+        "Detectors/vc-010",
+        "Detectors/vc-012",
+        "Detectors/vc-013",
+        "Domains/CD01",
+        "Domains/CD02",
+        "Domains/CD03",
+        "Domains/CD04",
+        "Domains/CD05",
+        "Domains/CD06",
+        "Domains/CD11",
+        "Domains/README",
+        "Evidence/arxiv2602_00409",
+        "Evidence/arxiv2603_28592",
+        "Evidence/vexp_dev_humanlayer_ace",
+        "Home",
+        "Principles",
+        "Principles/PR-001",
+        "Principles/PR-002",
+        "Principles/PR-003",
+        "Principles/PR-004",
+        "Principles/PR-081",
+        "Principles/PR-083",
+        "Principles/PR-084",
+        "Principles/PR-085",
+        "Principles/PR-087",
+        "Principles/PR-088",
+        "Principles/PR-091",
+        "Principles/PR-092",
+        "Principles/PR-094",
+        "Principles/PR-096",
+        "Principles/PR-097",
+        "README",
+        "Tokenomics/Automation_Tooling_Index",
+        "Tokenomics/Input_Retrieval_Index",
+        "Tokenomics/Measurement_Telemetry_Index",
+        "Tokenomics/Memory_Headroom_Index",
+        "Tokenomics/Output_Compaction_Index",
+        "Tokenomics/TK-001",
+        "Tokenomics/TK-002",
+        "Tokenomics/TK-003",
+        "Tokenomics/TK-004",
+        "Tokenomics/TK-005",
+        "Tokenomics/TK-006",
+        "Tokenomics_Index",
+        "Tokenomics_Map",
+        "Vices/VC-001",
+        "Vices/VC-002",
+        "Vices/VC-003",
+        "Vices/VC-004",
+        "Vices/VC-005",
+        "Vices/VC-006",
+        "Vices/VC-015",
+        "Vices/VC-037",
+        "Vices/VT-001",
+        "Vices/VT-002",
+        "Vices/VT-003",
+        "Vices/VT-004",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Domains/CD01",
+        "Domains/CD02",
+        "Domains/CD03",
+        "Domains/CD04",
+        "Domains/CD05",
+        "Domains/CD06",
+        "Domains/CD07",
+        "Domains/CD08",
+        "Domains/CD09",
+        "Domains/CD10",
+        "Domains/CD11",
+        "Domains/CD12",
+        "Domains/CD13",
+        "Domains/CD14",
+        "Domains/CD15",
+        "Domains/CD16",
+        "Domains/CD17",
+        "Domains/CD18",
+        "Domains/README",
+        "Home",
+        "README"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "CONCEPTUAL_FRAMEWORK",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Detectors/vc-002",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Detectors/vc-003",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Detectors/vc-005",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Detectors/vc-010",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Detectors/vc-012",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Detectors/vc-013",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Domains/CD01",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Domains/CD02",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Domains/CD03",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Domains/CD04",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Domains/CD05",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Domains/CD06",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Domains/CD11",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Domains/README",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Evidence/arxiv2602_00409",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Evidence/arxiv2603_28592",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Evidence/vexp_dev_humanlayer_ace",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Principles",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-001",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-002",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-003",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-004",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-081",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-083",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-084",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-085",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-087",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-088",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-091",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-092",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-094",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-096",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-097",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "README",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Tokenomics/Automation_Tooling_Index",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics/Input_Retrieval_Index",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics/Measurement_Telemetry_Index",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics/Memory_Headroom_Index",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics/Output_Compaction_Index",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics/TK-001",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics/TK-002",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics/TK-003",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics/TK-004",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics/TK-005",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics/TK-006",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics_Index",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Tokenomics_Map",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-001",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VC-002",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VC-003",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VC-004",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VC-005",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VC-006",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VC-015",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VC-037",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VT-001",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VT-002",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VT-003",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VT-004",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices_Index",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Domains/CD01",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD02",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD03",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD04",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD05",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD06",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD07",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD08",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD09",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD10",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD11",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD12",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD13",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD14",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD15",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD16",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD17",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/CD18",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Domains/README",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "source": "Home",
+          "kind": "wikilink",
+          "relation": "entrypoint",
+          "confidence": 0.95
+        },
+        {
+          "source": "README",
+          "kind": "markdown",
+          "relation": "references",
+          "confidence": 0.9
+        }
+      ],
+      "in_degree": 21,
+      "out_degree": 62,
+      "degree": 83,
+      "connected_types": [
+        "conceptual-framework",
+        "domain",
+        "principle",
+        "principle-index",
+        "root",
+        "tokenomics",
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "entrypoint",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 8,
+      "relation_diversity": 4,
+      "hub_score": 115
+    },
+    {
       "id": "Home",
       "path": "Wiki/Home.md",
       "title": "Golden Standard Wiki",
@@ -9169,6 +10069,7 @@
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
+        "Graph",
         "Principles",
         "README",
         "Tokenomics/Automation_Tooling_Index",
@@ -9272,6 +10173,7 @@
         "Evidence/vexp_dev",
         "Evidence/vexp_dev_humanlayer_ace",
         "Evidence/zilliztechclaude-context_verified",
+        "Graph",
         "Principles",
         "Principles/PR-001",
         "Principles/PR-002",
@@ -9660,6 +10562,12 @@
         },
         {
           "target": "Domains/README",
+          "kind": "wikilink",
+          "relation": "entrypoint",
+          "confidence": 0.95
+        },
+        {
+          "target": "Graph",
           "kind": "wikilink",
           "relation": "entrypoint",
           "confidence": 0.95
@@ -10268,6 +11176,12 @@
         },
         {
           "source": "Evidence/zilliztechclaude-context_verified",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Graph",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
@@ -12541,9 +13455,9 @@
           "confidence": 0.85
         }
       ],
-      "in_degree": 468,
-      "out_degree": 13,
-      "degree": 481,
+      "in_degree": 469,
+      "out_degree": 14,
+      "degree": 483,
       "connected_types": [
         "conceptual-framework",
         "domain",
@@ -12563,7 +13477,7 @@
       ],
       "semantic_reach": 8,
       "relation_diversity": 5,
-      "hub_score": 515
+      "hub_score": 517
     },
     {
       "id": "Principles",
@@ -12699,6 +13613,7 @@
       ],
       "incoming": [
         "Domains/README",
+        "Graph",
         "Home",
         "Principles/PR-001",
         "Principles/PR-002",
@@ -13581,6 +14496,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Home",
           "kind": "wikilink",
           "relation": "entrypoint",
@@ -14379,9 +15300,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 134,
+      "in_degree": 135,
       "out_degree": 123,
-      "degree": 257,
+      "degree": 258,
       "connected_types": [
         "domain",
         "principle",
@@ -14389,6 +15310,7 @@
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "entrypoint",
         "indexes",
         "operationalizes_domain",
@@ -14396,8 +15318,8 @@
         "routes_to_domains"
       ],
       "semantic_reach": 3,
-      "relation_diversity": 6,
-      "hub_score": 278
+      "relation_diversity": 7,
+      "hub_score": 281
     },
     {
       "id": "Principles/PR-001",
@@ -14412,6 +15334,7 @@
         "Principles"
       ],
       "incoming": [
+        "Graph",
         "Principles"
       ],
       "outgoing_edges": [
@@ -14436,28 +15359,35 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Principles",
           "kind": "wikilink",
           "relation": "indexes",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 3,
-      "degree": 4,
+      "degree": 5,
       "connected_types": [
         "domain",
         "principle-index",
         "wiki"
       ],
       "relation_types": [
+        "catalogs",
         "indexes",
         "references",
         "returns_to_index"
       ],
       "semantic_reach": 3,
-      "relation_diversity": 3,
-      "hub_score": 19
+      "relation_diversity": 4,
+      "hub_score": 22
     },
     {
       "id": "Principles/PR-002",
@@ -14472,6 +15402,7 @@
         "Principles"
       ],
       "incoming": [
+        "Graph",
         "Principles"
       ],
       "outgoing_edges": [
@@ -14496,28 +15427,35 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Principles",
           "kind": "wikilink",
           "relation": "indexes",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 3,
-      "degree": 4,
+      "degree": 5,
       "connected_types": [
         "domain",
         "principle-index",
         "wiki"
       ],
       "relation_types": [
+        "catalogs",
         "indexes",
         "references",
         "returns_to_index"
       ],
       "semantic_reach": 3,
-      "relation_diversity": 3,
-      "hub_score": 19
+      "relation_diversity": 4,
+      "hub_score": 22
     },
     {
       "id": "Principles/PR-003",
@@ -14532,6 +15470,7 @@
         "Principles"
       ],
       "incoming": [
+        "Graph",
         "Principles"
       ],
       "outgoing_edges": [
@@ -14556,28 +15495,35 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Principles",
           "kind": "wikilink",
           "relation": "indexes",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 3,
-      "degree": 4,
+      "degree": 5,
       "connected_types": [
         "domain",
         "principle-index",
         "wiki"
       ],
       "relation_types": [
+        "catalogs",
         "indexes",
         "references",
         "returns_to_index"
       ],
       "semantic_reach": 3,
-      "relation_diversity": 3,
-      "hub_score": 19
+      "relation_diversity": 4,
+      "hub_score": 22
     },
     {
       "id": "Principles/PR-004",
@@ -14592,6 +15538,7 @@
         "Principles"
       ],
       "incoming": [
+        "Graph",
         "Principles"
       ],
       "outgoing_edges": [
@@ -14616,28 +15563,35 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Principles",
           "kind": "wikilink",
           "relation": "indexes",
           "confidence": 0.95
         }
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 3,
-      "degree": 4,
+      "degree": 5,
       "connected_types": [
         "domain",
         "principle-index",
         "wiki"
       ],
       "relation_types": [
+        "catalogs",
         "indexes",
         "references",
         "returns_to_index"
       ],
       "semantic_reach": 3,
-      "relation_diversity": 3,
-      "hub_score": 19
+      "relation_diversity": 4,
+      "hub_score": 22
     },
     {
       "id": "Principles/PR-005",
@@ -19289,6 +20243,7 @@
         "Domains/CD11",
         "Domains/CD15",
         "Domains/README",
+        "Graph",
         "Principles",
         "Tokenomics/TK-009",
         "Tokenomics/TK-013",
@@ -19357,6 +20312,12 @@
           "source": "Domains/README",
           "kind": "wikilink",
           "relation": "operationalizes_domain",
+          "confidence": 0.95
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
           "confidence": 0.95
         },
         {
@@ -19468,9 +20429,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 21,
+      "in_degree": 22,
       "out_degree": 5,
-      "degree": 26,
+      "degree": 27,
       "connected_types": [
         "domain",
         "principle-index",
@@ -19479,6 +20440,7 @@
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "indexes",
         "operationalizes_domain",
         "references",
@@ -19486,8 +20448,8 @@
         "thematic_bridge"
       ],
       "semantic_reach": 4,
-      "relation_diversity": 6,
-      "hub_score": 50
+      "relation_diversity": 7,
+      "hub_score": 53
     },
     {
       "id": "Principles/PR-082",
@@ -19603,6 +20565,7 @@
         "Domains/CD05",
         "Domains/CD11",
         "Domains/README",
+        "Graph",
         "Principles",
         "Tokenomics/TK-010",
         "Tokenomics/TK-011",
@@ -19662,6 +20625,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Principles",
           "kind": "wikilink",
           "relation": "indexes",
@@ -19698,9 +20667,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 9,
+      "in_degree": 10,
       "out_degree": 5,
-      "degree": 14,
+      "degree": 15,
       "connected_types": [
         "domain",
         "principle-index",
@@ -19709,6 +20678,7 @@
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "indexes",
         "operationalizes_domain",
         "references",
@@ -19716,8 +20686,8 @@
         "thematic_bridge"
       ],
       "semantic_reach": 4,
-      "relation_diversity": 6,
-      "hub_score": 38
+      "relation_diversity": 7,
+      "hub_score": 41
     },
     {
       "id": "Principles/PR-084",
@@ -19737,6 +20707,7 @@
         "Domains/CD02",
         "Domains/CD06",
         "Domains/README",
+        "Graph",
         "Principles",
         "Principles/SP-002",
         "Principles/SP-005",
@@ -19809,6 +20780,12 @@
           "source": "Domains/README",
           "kind": "wikilink",
           "relation": "operationalizes_domain",
+          "confidence": 0.95
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
           "confidence": 0.95
         },
         {
@@ -19944,9 +20921,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 25,
+      "in_degree": 26,
       "out_degree": 5,
-      "degree": 30,
+      "degree": 31,
       "connected_types": [
         "domain",
         "principle",
@@ -19956,6 +20933,7 @@
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "indexes",
         "operationalizes_domain",
         "references",
@@ -19963,8 +20941,8 @@
         "thematic_bridge"
       ],
       "semantic_reach": 5,
-      "relation_diversity": 6,
-      "hub_score": 57
+      "relation_diversity": 7,
+      "hub_score": 60
     },
     {
       "id": "Principles/PR-085",
@@ -19986,6 +20964,7 @@
         "Domains/CD04",
         "Domains/CD11",
         "Domains/README",
+        "Graph",
         "Principles",
         "Principles/SP-001",
         "Principles/SP-003",
@@ -20066,6 +21045,12 @@
           "source": "Domains/README",
           "kind": "wikilink",
           "relation": "operationalizes_domain",
+          "confidence": 0.95
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
           "confidence": 0.95
         },
         {
@@ -20177,9 +21162,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 22,
+      "in_degree": 23,
       "out_degree": 6,
-      "degree": 28,
+      "degree": 29,
       "connected_types": [
         "domain",
         "principle",
@@ -20189,6 +21174,7 @@
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "indexes",
         "operationalizes_domain",
         "references",
@@ -20196,8 +21182,8 @@
         "thematic_bridge"
       ],
       "semantic_reach": 5,
-      "relation_diversity": 6,
-      "hub_score": 55
+      "relation_diversity": 7,
+      "hub_score": 58
     },
     {
       "id": "Principles/PR-086",
@@ -20297,6 +21283,7 @@
       "incoming": [
         "Domains/CD06",
         "Domains/README",
+        "Graph",
         "Principles",
         "Tokenomics/TK-009",
         "Tokenomics/TK-013",
@@ -20349,6 +21336,12 @@
           "source": "Domains/README",
           "kind": "wikilink",
           "relation": "operationalizes_domain",
+          "confidence": 0.95
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
           "confidence": 0.95
         },
         {
@@ -20436,9 +21429,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 16,
+      "in_degree": 17,
       "out_degree": 4,
-      "degree": 20,
+      "degree": 21,
       "connected_types": [
         "domain",
         "principle-index",
@@ -20447,6 +21440,7 @@
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "indexes",
         "operationalizes_domain",
         "references",
@@ -20454,8 +21448,8 @@
         "thematic_bridge"
       ],
       "semantic_reach": 4,
-      "relation_diversity": 6,
-      "hub_score": 44
+      "relation_diversity": 7,
+      "hub_score": 47
     },
     {
       "id": "Principles/PR-088",
@@ -20473,6 +21467,7 @@
       "incoming": [
         "Domains/CD01",
         "Domains/README",
+        "Graph",
         "Principles",
         "Principles/SP-003",
         "Tokenomics/TK-001",
@@ -20528,6 +21523,12 @@
           "source": "Domains/README",
           "kind": "wikilink",
           "relation": "operationalizes_domain",
+          "confidence": 0.95
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
           "confidence": 0.95
         },
         {
@@ -20633,9 +21634,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 19,
+      "in_degree": 20,
       "out_degree": 4,
-      "degree": 23,
+      "degree": 24,
       "connected_types": [
         "domain",
         "principle",
@@ -20645,6 +21646,7 @@
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "indexes",
         "operationalizes_domain",
         "references",
@@ -20652,8 +21654,8 @@
         "thematic_bridge"
       ],
       "semantic_reach": 5,
-      "relation_diversity": 6,
-      "hub_score": 50
+      "relation_diversity": 7,
+      "hub_score": 53
     },
     {
       "id": "Principles/PR-089",
@@ -20881,6 +21883,7 @@
       "incoming": [
         "Domains/CD15",
         "Domains/README",
+        "Graph",
         "Principles",
         "Tokenomics/TK-010",
         "Tokenomics/TK-016",
@@ -20927,6 +21930,12 @@
           "source": "Domains/README",
           "kind": "wikilink",
           "relation": "operationalizes_domain",
+          "confidence": 0.95
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
           "confidence": 0.95
         },
         {
@@ -20978,9 +21987,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 10,
+      "in_degree": 11,
       "out_degree": 4,
-      "degree": 14,
+      "degree": 15,
       "connected_types": [
         "domain",
         "principle-index",
@@ -20989,6 +21998,7 @@
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "indexes",
         "operationalizes_domain",
         "references",
@@ -20996,8 +22006,8 @@
         "thematic_bridge"
       ],
       "semantic_reach": 4,
-      "relation_diversity": 6,
-      "hub_score": 38
+      "relation_diversity": 7,
+      "hub_score": 41
     },
     {
       "id": "Principles/PR-092",
@@ -21015,6 +22025,7 @@
       "incoming": [
         "Domains/CD13",
         "Domains/README",
+        "Graph",
         "Principles",
         "Principles/SP-009",
         "Tokenomics/TK-001",
@@ -21070,6 +22081,12 @@
           "source": "Domains/README",
           "kind": "wikilink",
           "relation": "operationalizes_domain",
+          "confidence": 0.95
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
           "confidence": 0.95
         },
         {
@@ -21175,9 +22192,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 19,
+      "in_degree": 20,
       "out_degree": 4,
-      "degree": 23,
+      "degree": 24,
       "connected_types": [
         "domain",
         "principle",
@@ -21187,6 +22204,7 @@
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "indexes",
         "operationalizes_domain",
         "references",
@@ -21194,8 +22212,8 @@
         "thematic_bridge"
       ],
       "semantic_reach": 5,
-      "relation_diversity": 6,
-      "hub_score": 50
+      "relation_diversity": 7,
+      "hub_score": 53
     },
     {
       "id": "Principles/PR-093",
@@ -21309,6 +22327,7 @@
       "incoming": [
         "Domains/CD10",
         "Domains/README",
+        "Graph",
         "Principles",
         "Tokenomics/TK-009",
         "Tokenomics/TK-013",
@@ -21361,6 +22380,12 @@
           "source": "Domains/README",
           "kind": "wikilink",
           "relation": "operationalizes_domain",
+          "confidence": 0.95
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
           "confidence": 0.95
         },
         {
@@ -21448,9 +22473,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 16,
+      "in_degree": 17,
       "out_degree": 4,
-      "degree": 20,
+      "degree": 21,
       "connected_types": [
         "domain",
         "principle-index",
@@ -21459,6 +22484,7 @@
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "indexes",
         "operationalizes_domain",
         "references",
@@ -21466,8 +22492,8 @@
         "thematic_bridge"
       ],
       "semantic_reach": 4,
-      "relation_diversity": 6,
-      "hub_score": 44
+      "relation_diversity": 7,
+      "hub_score": 47
     },
     {
       "id": "Principles/PR-095",
@@ -21581,6 +22607,7 @@
       "incoming": [
         "Domains/CD13",
         "Domains/README",
+        "Graph",
         "Principles",
         "Principles/SP-009",
         "Tokenomics/TK-001",
@@ -21636,6 +22663,12 @@
           "source": "Domains/README",
           "kind": "wikilink",
           "relation": "operationalizes_domain",
+          "confidence": 0.95
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
           "confidence": 0.95
         },
         {
@@ -21741,9 +22774,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 19,
+      "in_degree": 20,
       "out_degree": 4,
-      "degree": 23,
+      "degree": 24,
       "connected_types": [
         "domain",
         "principle",
@@ -21753,6 +22786,7 @@
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "indexes",
         "operationalizes_domain",
         "references",
@@ -21760,8 +22794,8 @@
         "thematic_bridge"
       ],
       "semantic_reach": 5,
-      "relation_diversity": 6,
-      "hub_score": 50
+      "relation_diversity": 7,
+      "hub_score": 53
     },
     {
       "id": "Principles/PR-097",
@@ -21781,6 +22815,7 @@
         "Domains/CD01",
         "Domains/CD04",
         "Domains/README",
+        "Graph",
         "Principles",
         "Tokenomics_Map",
         "Vices/VC-001",
@@ -22041,6 +23076,12 @@
           "source": "Domains/README",
           "kind": "wikilink",
           "relation": "operationalizes_domain",
+          "confidence": 0.95
+        },
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
           "confidence": 0.95
         },
         {
@@ -23304,9 +24345,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 213,
+      "in_degree": 214,
       "out_degree": 5,
-      "degree": 218,
+      "degree": 219,
       "connected_types": [
         "domain",
         "principle-index",
@@ -23315,6 +24356,7 @@
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "governed_by",
         "indexes",
         "operationalizes_domain",
@@ -23322,8 +24364,8 @@
         "returns_to_index"
       ],
       "semantic_reach": 4,
-      "relation_diversity": 6,
-      "hub_score": 242
+      "relation_diversity": 7,
+      "hub_score": 245
     },
     {
       "id": "Principles/PR-098",
@@ -26271,6 +27313,7 @@
         "Tokenomics_Map"
       ],
       "incoming": [
+        "Graph",
         "Home",
         "Tokenomics_Map"
       ],
@@ -26302,6 +27345,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Home",
           "kind": "wikilink",
           "relation": "entrypoint",
@@ -26314,22 +27363,23 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 4,
-      "degree": 6,
+      "degree": 7,
       "connected_types": [
         "tokenomics",
         "wiki"
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "entrypoint",
         "returns_to_index",
         "subindex"
       ],
       "semantic_reach": 2,
-      "relation_diversity": 4,
-      "hub_score": 20
+      "relation_diversity": 5,
+      "hub_score": 23
     },
     {
       "id": "Tokenomics/Input_Retrieval_Index",
@@ -26345,6 +27395,7 @@
         "Tokenomics_Map"
       ],
       "incoming": [
+        "Graph",
         "Home",
         "Tokenomics_Map"
       ],
@@ -26376,6 +27427,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Home",
           "kind": "wikilink",
           "relation": "entrypoint",
@@ -26388,22 +27445,23 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 4,
-      "degree": 6,
+      "degree": 7,
       "connected_types": [
         "tokenomics",
         "wiki"
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "entrypoint",
         "returns_to_index",
         "subindex"
       ],
       "semantic_reach": 2,
-      "relation_diversity": 4,
-      "hub_score": 20
+      "relation_diversity": 5,
+      "hub_score": 23
     },
     {
       "id": "Tokenomics/Measurement_Telemetry_Index",
@@ -26421,6 +27479,7 @@
         "Tokenomics_Map"
       ],
       "incoming": [
+        "Graph",
         "Home",
         "Tokenomics_Map"
       ],
@@ -26464,6 +27523,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Home",
           "kind": "wikilink",
           "relation": "entrypoint",
@@ -26476,22 +27541,23 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 6,
-      "degree": 8,
+      "degree": 9,
       "connected_types": [
         "tokenomics",
         "wiki"
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "entrypoint",
         "returns_to_index",
         "subindex"
       ],
       "semantic_reach": 2,
-      "relation_diversity": 4,
-      "hub_score": 22
+      "relation_diversity": 5,
+      "hub_score": 25
     },
     {
       "id": "Tokenomics/Memory_Headroom_Index",
@@ -26519,6 +27585,7 @@
         "Tokenomics_Map"
       ],
       "incoming": [
+        "Graph",
         "Home",
         "Tokenomics_Map"
       ],
@@ -26622,6 +27689,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Home",
           "kind": "wikilink",
           "relation": "entrypoint",
@@ -26634,22 +27707,23 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 16,
-      "degree": 18,
+      "degree": 19,
       "connected_types": [
         "tokenomics",
         "wiki"
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "entrypoint",
         "returns_to_index",
         "subindex"
       ],
       "semantic_reach": 2,
-      "relation_diversity": 4,
-      "hub_score": 32
+      "relation_diversity": 5,
+      "hub_score": 35
     },
     {
       "id": "Tokenomics/Output_Compaction_Index",
@@ -26675,6 +27749,7 @@
         "Tokenomics_Map"
       ],
       "incoming": [
+        "Graph",
         "Home",
         "Tokenomics_Map"
       ],
@@ -26766,6 +27841,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Home",
           "kind": "wikilink",
           "relation": "entrypoint",
@@ -26778,22 +27859,23 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 14,
-      "degree": 16,
+      "degree": 17,
       "connected_types": [
         "tokenomics",
         "wiki"
       ],
       "relation_types": [
         "bridges",
+        "catalogs",
         "entrypoint",
         "returns_to_index",
         "subindex"
       ],
       "semantic_reach": 2,
-      "relation_diversity": 4,
-      "hub_score": 30
+      "relation_diversity": 5,
+      "hub_score": 33
     },
     {
       "id": "Tokenomics/TK-001",
@@ -26814,6 +27896,7 @@
       ],
       "incoming": [
         "Evidence/vexp_dev_humanlayer_ace",
+        "Graph",
         "Tokenomics/Memory_Headroom_Index",
         "Tokenomics_Index"
       ],
@@ -26875,6 +27958,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Tokenomics/Memory_Headroom_Index",
           "kind": "wikilink",
           "relation": "subindex",
@@ -26887,9 +27976,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 8,
-      "degree": 11,
+      "degree": 12,
       "connected_types": [
         "principle",
         "tokenomics",
@@ -26903,7 +27992,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 4,
-      "hub_score": 28,
+      "hub_score": 29,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "low"
@@ -26927,6 +28016,7 @@
       ],
       "incoming": [
         "Evidence/vexp_dev_humanlayer_ace",
+        "Graph",
         "Tokenomics/Memory_Headroom_Index",
         "Tokenomics_Index"
       ],
@@ -26988,6 +28078,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Tokenomics/Memory_Headroom_Index",
           "kind": "wikilink",
           "relation": "subindex",
@@ -27000,9 +28096,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 8,
-      "degree": 11,
+      "degree": 12,
       "connected_types": [
         "principle",
         "tokenomics",
@@ -27016,7 +28112,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 4,
-      "hub_score": 28,
+      "hub_score": 29,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "low"
@@ -27040,6 +28136,7 @@
       ],
       "incoming": [
         "Evidence/vexp_dev_humanlayer_ace",
+        "Graph",
         "Tokenomics/Memory_Headroom_Index",
         "Tokenomics_Index"
       ],
@@ -27101,6 +28198,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Tokenomics/Memory_Headroom_Index",
           "kind": "wikilink",
           "relation": "subindex",
@@ -27113,9 +28216,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 8,
-      "degree": 11,
+      "degree": 12,
       "connected_types": [
         "principle",
         "tokenomics",
@@ -27129,7 +28232,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 4,
-      "hub_score": 28,
+      "hub_score": 29,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "low"
@@ -27153,6 +28256,7 @@
       ],
       "incoming": [
         "Evidence/vexp_dev_humanlayer_ace",
+        "Graph",
         "Tokenomics/Memory_Headroom_Index",
         "Tokenomics_Index"
       ],
@@ -27214,6 +28318,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Tokenomics/Memory_Headroom_Index",
           "kind": "wikilink",
           "relation": "subindex",
@@ -27226,9 +28336,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 8,
-      "degree": 11,
+      "degree": 12,
       "connected_types": [
         "principle",
         "tokenomics",
@@ -27242,7 +28352,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 4,
-      "hub_score": 28,
+      "hub_score": 29,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "low"
@@ -27266,6 +28376,7 @@
       ],
       "incoming": [
         "Evidence/vexp_dev_humanlayer_ace",
+        "Graph",
         "Tokenomics/Memory_Headroom_Index",
         "Tokenomics_Index"
       ],
@@ -27327,6 +28438,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Tokenomics/Memory_Headroom_Index",
           "kind": "wikilink",
           "relation": "subindex",
@@ -27339,9 +28456,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 8,
-      "degree": 11,
+      "degree": 12,
       "connected_types": [
         "principle",
         "tokenomics",
@@ -27355,7 +28472,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 4,
-      "hub_score": 28,
+      "hub_score": 29,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "medium"
@@ -27379,6 +28496,7 @@
       ],
       "incoming": [
         "Evidence/vexp_dev_humanlayer_ace",
+        "Graph",
         "Tokenomics/Memory_Headroom_Index",
         "Tokenomics_Index"
       ],
@@ -27440,6 +28558,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Tokenomics/Memory_Headroom_Index",
           "kind": "wikilink",
           "relation": "subindex",
@@ -27452,9 +28576,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 8,
-      "degree": 11,
+      "degree": 12,
       "connected_types": [
         "principle",
         "tokenomics",
@@ -27468,7 +28592,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 4,
-      "hub_score": 28,
+      "hub_score": 29,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "low"
@@ -30424,6 +31548,7 @@
         "Tokenomics_Map"
       ],
       "incoming": [
+        "Graph",
         "Home",
         "Tokenomics/Automation_Tooling_Index",
         "Tokenomics/Input_Retrieval_Index",
@@ -30686,6 +31811,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Home",
           "kind": "wikilink",
           "relation": "entrypoint",
@@ -30932,9 +32063,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 41,
+      "in_degree": 42,
       "out_degree": 36,
-      "degree": 77,
+      "degree": 78,
       "connected_types": [
         "tokenomics",
         "wiki"
@@ -30948,7 +32079,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 5,
-      "hub_score": 93
+      "hub_score": 94
     },
     {
       "id": "Tokenomics_Map",
@@ -30981,6 +32112,7 @@
         "Vices/VC-056"
       ],
       "incoming": [
+        "Graph",
         "Home",
         "Tokenomics/Automation_Tooling_Index",
         "Tokenomics/Input_Retrieval_Index",
@@ -31360,6 +32492,12 @@
         }
       ],
       "incoming_edges": [
+        {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
         {
           "source": "Home",
           "kind": "wikilink",
@@ -32855,9 +33993,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 249,
+      "in_degree": 250,
       "out_degree": 21,
-      "degree": 270,
+      "degree": 271,
       "connected_types": [
         "principle",
         "principle-index",
@@ -32873,7 +34011,7 @@
       ],
       "semantic_reach": 5,
       "relation_diversity": 4,
-      "hub_score": 293
+      "hub_score": 294
     },
     {
       "id": "Vices/VC-001",
@@ -32891,6 +34029,7 @@
       ],
       "incoming": [
         "Evidence/arxiv2603_28592",
+        "Graph",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -32933,15 +34072,21 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -32953,7 +34098,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
+      "hub_score": 20,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "high",
@@ -32978,6 +34123,7 @@
       "incoming": [
         "Detectors/vc-002",
         "Evidence/arxiv2603_28592",
+        "Graph",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -33038,15 +34184,21 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 7,
-      "degree": 10,
+      "degree": 11,
       "connected_types": [
         "principle",
         "wiki"
@@ -33058,7 +34210,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 21,
+      "hub_score": 22,
       "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "medium",
@@ -33083,6 +34235,7 @@
       "incoming": [
         "Detectors/vc-003",
         "Evidence/arxiv2603_28592",
+        "Graph",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -33143,15 +34296,21 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 7,
-      "degree": 10,
+      "degree": 11,
       "connected_types": [
         "principle",
         "wiki"
@@ -33163,7 +34322,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 21,
+      "hub_score": 22,
       "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "medium",
@@ -33185,6 +34344,7 @@
       ],
       "incoming": [
         "Evidence/arxiv2603_28592",
+        "Graph",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -33227,15 +34387,21 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -33247,7 +34413,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
+      "hub_score": 20,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "high",
@@ -33272,6 +34438,7 @@
       "incoming": [
         "Detectors/vc-005",
         "Evidence/arxiv2603_28592",
+        "Graph",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -33332,15 +34499,21 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 3,
+      "in_degree": 4,
       "out_degree": 7,
-      "degree": 10,
+      "degree": 11,
       "connected_types": [
         "principle",
         "wiki"
@@ -33352,7 +34525,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 21,
+      "hub_score": 22,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "medium",
@@ -33374,6 +34547,7 @@
       ],
       "incoming": [
         "Evidence/arxiv2603_28592",
+        "Graph",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -33416,15 +34590,21 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -33436,7 +34616,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
+      "hub_score": 20,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "medium",
@@ -34165,6 +35345,7 @@
       ],
       "incoming": [
         "Evidence/arxiv2602_00409",
+        "Graph",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -34207,15 +35388,21 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -34227,7 +35414,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
+      "hub_score": 20,
       "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "medium",
@@ -36146,6 +37333,7 @@
       ],
       "incoming": [
         "Evidence/arxiv2602_00409",
+        "Graph",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -36188,15 +37376,21 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -36208,7 +37402,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
+      "hub_score": 20,
       "status": "DOC_ONLY",
       "downstream_verification": "required",
       "severity": "medium",
@@ -41061,6 +42255,7 @@
       ],
       "incoming": [
         "Evidence/arxiv2602_00409",
+        "Graph",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -41103,15 +42298,21 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -41123,7 +42324,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
+      "hub_score": 20,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "high",
@@ -41145,6 +42346,7 @@
       ],
       "incoming": [
         "Evidence/arxiv2602_00409",
+        "Graph",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -41187,15 +42389,21 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -41207,7 +42415,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
+      "hub_score": 20,
       "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "high",
@@ -41229,6 +42437,7 @@
       ],
       "incoming": [
         "Evidence/arxiv2602_00409",
+        "Graph",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -41271,15 +42480,21 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -41291,7 +42506,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
+      "hub_score": 20,
       "status": "DOC_ONLY",
       "downstream_verification": "required",
       "severity": "medium",
@@ -41313,6 +42528,7 @@
       ],
       "incoming": [
         "Evidence/arxiv2602_00409",
+        "Graph",
         "Vices_Index"
       ],
       "outgoing_edges": [
@@ -41355,15 +42571,21 @@
           "confidence": 0.95
         },
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices_Index",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
         }
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
-      "degree": 7,
+      "degree": 8,
       "connected_types": [
         "principle",
         "wiki"
@@ -41375,7 +42597,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 3,
-      "hub_score": 19,
+      "hub_score": 20,
       "status": "DOC_ONLY",
       "downstream_verification": "required",
       "severity": "medium",
@@ -50371,6 +51593,7 @@
         "Vices/VT-116"
       ],
       "incoming": [
+        "Graph",
         "Home",
         "Vices/VC-001",
         "Vices/VC-002",
@@ -51839,6 +53062,12 @@
       ],
       "incoming_edges": [
         {
+          "source": "Graph",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Home",
           "kind": "wikilink",
           "relation": "entrypoint",
@@ -53093,9 +54322,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 209,
+      "in_degree": 210,
       "out_degree": 209,
-      "degree": 418,
+      "degree": 419,
       "connected_types": [
         "vice",
         "wiki"
@@ -53108,7 +54337,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 4,
-      "hub_score": 432
+      "hub_score": 433
     },
     {
       "id": "docs/badges/ai-native.json",
@@ -54914,6 +56143,13 @@
     },
     {
       "source": "Domains/CD01",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
+    },
+    {
+      "source": "Domains/CD01",
       "target": "Home",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -54946,6 +56182,13 @@
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
+    },
+    {
+      "source": "Domains/CD02",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
     },
     {
       "source": "Domains/CD02",
@@ -54984,6 +56227,13 @@
     },
     {
       "source": "Domains/CD03",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
+    },
+    {
+      "source": "Domains/CD03",
       "target": "Home",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -55016,6 +56266,13 @@
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
+    },
+    {
+      "source": "Domains/CD04",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
     },
     {
       "source": "Domains/CD04",
@@ -55054,6 +56311,13 @@
     },
     {
       "source": "Domains/CD05",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
+    },
+    {
+      "source": "Domains/CD05",
       "target": "Home",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -55086,6 +56350,13 @@
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
+    },
+    {
+      "source": "Domains/CD06",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
     },
     {
       "source": "Domains/CD06",
@@ -55124,6 +56395,13 @@
     },
     {
       "source": "Domains/CD07",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
+    },
+    {
+      "source": "Domains/CD07",
       "target": "Home",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -55156,6 +56434,13 @@
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
+    },
+    {
+      "source": "Domains/CD08",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
     },
     {
       "source": "Domains/CD08",
@@ -55194,6 +56479,13 @@
     },
     {
       "source": "Domains/CD09",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
+    },
+    {
+      "source": "Domains/CD09",
       "target": "Home",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -55229,6 +56521,13 @@
     },
     {
       "source": "Domains/CD10",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
+    },
+    {
+      "source": "Domains/CD10",
       "target": "Home",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -55261,6 +56560,13 @@
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
+    },
+    {
+      "source": "Domains/CD11",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
     },
     {
       "source": "Domains/CD11",
@@ -55313,6 +56619,13 @@
     },
     {
       "source": "Domains/CD12",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
+    },
+    {
+      "source": "Domains/CD12",
       "target": "Home",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -55345,6 +56658,13 @@
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
+    },
+    {
+      "source": "Domains/CD13",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
     },
     {
       "source": "Domains/CD13",
@@ -55390,6 +56710,13 @@
     },
     {
       "source": "Domains/CD14",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
+    },
+    {
+      "source": "Domains/CD14",
       "target": "Home",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -55422,6 +56749,13 @@
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
+    },
+    {
+      "source": "Domains/CD15",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
     },
     {
       "source": "Domains/CD15",
@@ -55467,6 +56801,13 @@
     },
     {
       "source": "Domains/CD16",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
+    },
+    {
+      "source": "Domains/CD16",
       "target": "Home",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -55509,6 +56850,13 @@
     },
     {
       "source": "Domains/CD17",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
+    },
+    {
+      "source": "Domains/CD17",
       "target": "Home",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -55541,6 +56889,13 @@
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
+    },
+    {
+      "source": "Domains/CD18",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
     },
     {
       "source": "Domains/CD18",
@@ -55744,6 +57099,13 @@
       "kind": "wikilink",
       "relation": "references",
       "confidence": 0.85
+    },
+    {
+      "source": "Domains/README",
+      "target": "Graph",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
     },
     {
       "source": "Domains/README",
@@ -56817,6 +58179,440 @@
       "confidence": 0.95
     },
     {
+      "source": "Graph",
+      "target": "CONCEPTUAL_FRAMEWORK",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Detectors/vc-002",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Detectors/vc-003",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Detectors/vc-005",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Detectors/vc-010",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Detectors/vc-012",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Detectors/vc-013",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Domains/CD01",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Domains/CD02",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Domains/CD03",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Domains/CD04",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Domains/CD05",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Domains/CD06",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Domains/CD11",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Domains/README",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Evidence/arxiv2602_00409",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Evidence/arxiv2603_28592",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Evidence/vexp_dev_humanlayer_ace",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Principles",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-001",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-002",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-003",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-004",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-081",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-083",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-084",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-085",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-087",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-088",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-091",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-092",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-094",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-096",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Principles/PR-097",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "README",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics/Automation_Tooling_Index",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics/Input_Retrieval_Index",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics/Measurement_Telemetry_Index",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics/Memory_Headroom_Index",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics/Output_Compaction_Index",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics/TK-001",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics/TK-002",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics/TK-003",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics/TK-004",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics/TK-005",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics/TK-006",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics_Index",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Graph",
+      "target": "Vices/VC-001",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Vices/VC-002",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Vices/VC-003",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Vices/VC-004",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Vices/VC-005",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Vices/VC-006",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Vices/VC-015",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Vices/VC-037",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Vices/VT-001",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Vices/VT-002",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Vices/VT-003",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Vices/VT-004",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Graph",
+      "target": "Vices_Index",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
       "source": "Home",
       "target": "CONCEPTUAL_FRAMEWORK",
       "kind": "markdown",
@@ -56826,6 +58622,13 @@
     {
       "source": "Home",
       "target": "Domains/README",
+      "kind": "wikilink",
+      "relation": "entrypoint",
+      "confidence": 0.95
+    },
+    {
+      "source": "Home",
+      "target": "Graph",
       "kind": "wikilink",
       "relation": "entrypoint",
       "confidence": 0.95
@@ -61294,6 +63097,13 @@
     {
       "source": "README",
       "target": "Domains/README",
+      "kind": "markdown",
+      "relation": "references",
+      "confidence": 0.9
+    },
+    {
+      "source": "README",
+      "target": "Graph",
       "kind": "markdown",
       "relation": "references",
       "confidence": 0.9
@@ -74519,27 +76329,27 @@
   ],
   "summary": {
     "edge_kinds": {
-      "markdown": 6,
-      "wikilink": 2618
+      "markdown": 7,
+      "wikilink": 2700
     },
     "relation_counts": {
       "bridges": 21,
-      "catalogs": 354,
-      "entrypoint": 13,
+      "catalogs": 401,
+      "entrypoint": 14,
       "governed_by": 208,
       "indexes": 122,
       "operationalizes_domain": 105,
-      "references": 477,
-      "returns_to_index": 1167,
+      "references": 493,
+      "returns_to_index": 1186,
       "routes_to_domains": 1,
       "subindex": 34,
       "thematic_bridge": 122
     },
-    "reciprocal_pairs": 608,
+    "reciprocal_pairs": 618,
     "average_edge_confidence": 0.933,
-    "semantic_density": 0.011605,
+    "semantic_density": 0.011922,
     "hub_ratio": 1.0,
-    "bridge_ratio": 0.997899,
+    "bridge_ratio": 0.997904,
     "intentional_orphans": [],
     "intentional_orphan_review": [],
     "orphan_candidates": [],
@@ -74554,6 +76364,7 @@
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
+          "Graph",
           "Principles",
           "README",
           "Tokenomics/Automation_Tooling_Index",
@@ -74657,6 +76468,7 @@
           "Evidence/vexp_dev",
           "Evidence/vexp_dev_humanlayer_ace",
           "Evidence/zilliztechclaude-context_verified",
+          "Graph",
           "Principles",
           "Principles/PR-001",
           "Principles/PR-002",
@@ -75045,6 +76857,12 @@
           },
           {
             "target": "Domains/README",
+            "kind": "wikilink",
+            "relation": "entrypoint",
+            "confidence": 0.95
+          },
+          {
+            "target": "Graph",
             "kind": "wikilink",
             "relation": "entrypoint",
             "confidence": 0.95
@@ -75653,6 +77471,12 @@
           },
           {
             "source": "Evidence/zilliztechclaude-context_verified",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Graph",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -77926,9 +79750,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 468,
-        "out_degree": 13,
-        "degree": 481,
+        "in_degree": 469,
+        "out_degree": 14,
+        "degree": 483,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -77948,7 +79772,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 515
+        "hub_score": 517
       },
       {
         "id": "Vices_Index",
@@ -78169,6 +79993,7 @@
           "Vices/VT-116"
         ],
         "incoming": [
+          "Graph",
           "Home",
           "Vices/VC-001",
           "Vices/VC-002",
@@ -79637,6 +81462,12 @@
         ],
         "incoming_edges": [
           {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
             "source": "Home",
             "kind": "wikilink",
             "relation": "entrypoint",
@@ -80891,9 +82722,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 209,
+        "in_degree": 210,
         "out_degree": 209,
-        "degree": 418,
+        "degree": 419,
         "connected_types": [
           "vice",
           "wiki"
@@ -80906,7 +82737,7 @@
         ],
         "semantic_reach": 2,
         "relation_diversity": 4,
-        "hub_score": 432
+        "hub_score": 433
       },
       {
         "id": "Tokenomics_Map",
@@ -80939,6 +82770,7 @@
           "Vices/VC-056"
         ],
         "incoming": [
+          "Graph",
           "Home",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
@@ -81318,6 +83150,12 @@
           }
         ],
         "incoming_edges": [
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
           {
             "source": "Home",
             "kind": "wikilink",
@@ -82813,9 +84651,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 249,
+        "in_degree": 250,
         "out_degree": 21,
-        "degree": 270,
+        "degree": 271,
         "connected_types": [
           "principle",
           "principle-index",
@@ -82831,7 +84669,7 @@
         ],
         "semantic_reach": 5,
         "relation_diversity": 4,
-        "hub_score": 293
+        "hub_score": 294
       },
       {
         "id": "Principles",
@@ -82967,6 +84805,7 @@
         ],
         "incoming": [
           "Domains/README",
+          "Graph",
           "Home",
           "Principles/PR-001",
           "Principles/PR-002",
@@ -83849,6 +85688,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
             "source": "Home",
             "kind": "wikilink",
             "relation": "entrypoint",
@@ -84647,9 +86492,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 134,
+        "in_degree": 135,
         "out_degree": 123,
-        "degree": 257,
+        "degree": 258,
         "connected_types": [
           "domain",
           "principle",
@@ -84657,6 +86502,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "entrypoint",
           "indexes",
           "operationalizes_domain",
@@ -84664,8 +86510,8 @@
           "routes_to_domains"
         ],
         "semantic_reach": 3,
-        "relation_diversity": 6,
-        "hub_score": 278
+        "relation_diversity": 7,
+        "hub_score": 281
       },
       {
         "id": "Principles/PR-097",
@@ -84685,6 +86531,7 @@
           "Domains/CD01",
           "Domains/CD04",
           "Domains/README",
+          "Graph",
           "Principles",
           "Tokenomics_Map",
           "Vices/VC-001",
@@ -84945,6 +86792,12 @@
             "source": "Domains/README",
             "kind": "wikilink",
             "relation": "operationalizes_domain",
+            "confidence": 0.95
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
             "confidence": 0.95
           },
           {
@@ -86208,9 +88061,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 213,
+        "in_degree": 214,
         "out_degree": 5,
-        "degree": 218,
+        "degree": 219,
         "connected_types": [
           "domain",
           "principle-index",
@@ -86219,6 +88072,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "governed_by",
           "indexes",
           "operationalizes_domain",
@@ -86226,8 +88080,8 @@
           "returns_to_index"
         ],
         "semantic_reach": 4,
-        "relation_diversity": 6,
-        "hub_score": 242
+        "relation_diversity": 7,
+        "hub_score": 245
       },
       {
         "id": "Domains/README",
@@ -86255,6 +88109,7 @@
           "Domains/CD16",
           "Domains/CD17",
           "Domains/CD18",
+          "Graph",
           "Home",
           "Principles",
           "Principles/PR-079",
@@ -86315,6 +88170,7 @@
           "Domains/CD16",
           "Domains/CD17",
           "Domains/CD18",
+          "Graph",
           "Home",
           "Principles",
           "Principles/PR-001",
@@ -86548,6 +88404,12 @@
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
+          },
+          {
+            "target": "Graph",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
           },
           {
             "target": "Home",
@@ -86898,6 +88760,12 @@
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
           },
           {
             "source": "Home",
@@ -87644,9 +89512,9 @@
             "confidence": 0.9
           }
         ],
-        "in_degree": 142,
-        "out_degree": 58,
-        "degree": 200,
+        "in_degree": 143,
+        "out_degree": 59,
+        "degree": 202,
         "connected_types": [
           "domain",
           "principle",
@@ -87655,6 +89523,7 @@
           "wiki"
         ],
         "relation_types": [
+          "catalogs",
           "entrypoint",
           "operationalizes_domain",
           "references",
@@ -87662,8 +89531,8 @@
           "routes_to_domains"
         ],
         "semantic_reach": 5,
-        "relation_diversity": 5,
-        "hub_score": 225
+        "relation_diversity": 6,
+        "hub_score": 229
       },
       {
         "id": "Evidence/arxiv2602_00409",
@@ -87686,6 +89555,7 @@
           "Vices/VT-008"
         ],
         "incoming": [
+          "Graph",
           "Vices/VC-015",
           "Vices/VC-037",
           "Vices/VT-001",
@@ -87873,6 +89743,12 @@
           }
         ],
         "incoming_edges": [
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
           {
             "source": "Vices/VC-015",
             "kind": "wikilink",
@@ -88576,9 +90452,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 117,
+        "in_degree": 118,
         "out_degree": 11,
-        "degree": 128,
+        "degree": 129,
         "connected_types": [
           "vice",
           "wiki"
@@ -88590,7 +90466,626 @@
         ],
         "semantic_reach": 2,
         "relation_diversity": 3,
-        "hub_score": 140
+        "hub_score": 141
+      },
+      {
+        "id": "Graph",
+        "path": "Wiki/Graph.md",
+        "title": "GS Graph",
+        "kind": "wiki",
+        "created": null,
+        "promoted": null,
+        "outgoing": [
+          "CONCEPTUAL_FRAMEWORK",
+          "Detectors/vc-002",
+          "Detectors/vc-003",
+          "Detectors/vc-005",
+          "Detectors/vc-010",
+          "Detectors/vc-012",
+          "Detectors/vc-013",
+          "Domains/CD01",
+          "Domains/CD02",
+          "Domains/CD03",
+          "Domains/CD04",
+          "Domains/CD05",
+          "Domains/CD06",
+          "Domains/CD11",
+          "Domains/README",
+          "Evidence/arxiv2602_00409",
+          "Evidence/arxiv2603_28592",
+          "Evidence/vexp_dev_humanlayer_ace",
+          "Home",
+          "Principles",
+          "Principles/PR-001",
+          "Principles/PR-002",
+          "Principles/PR-003",
+          "Principles/PR-004",
+          "Principles/PR-081",
+          "Principles/PR-083",
+          "Principles/PR-084",
+          "Principles/PR-085",
+          "Principles/PR-087",
+          "Principles/PR-088",
+          "Principles/PR-091",
+          "Principles/PR-092",
+          "Principles/PR-094",
+          "Principles/PR-096",
+          "Principles/PR-097",
+          "README",
+          "Tokenomics/Automation_Tooling_Index",
+          "Tokenomics/Input_Retrieval_Index",
+          "Tokenomics/Measurement_Telemetry_Index",
+          "Tokenomics/Memory_Headroom_Index",
+          "Tokenomics/Output_Compaction_Index",
+          "Tokenomics/TK-001",
+          "Tokenomics/TK-002",
+          "Tokenomics/TK-003",
+          "Tokenomics/TK-004",
+          "Tokenomics/TK-005",
+          "Tokenomics/TK-006",
+          "Tokenomics_Index",
+          "Tokenomics_Map",
+          "Vices/VC-001",
+          "Vices/VC-002",
+          "Vices/VC-003",
+          "Vices/VC-004",
+          "Vices/VC-005",
+          "Vices/VC-006",
+          "Vices/VC-015",
+          "Vices/VC-037",
+          "Vices/VT-001",
+          "Vices/VT-002",
+          "Vices/VT-003",
+          "Vices/VT-004",
+          "Vices_Index"
+        ],
+        "incoming": [
+          "Domains/CD01",
+          "Domains/CD02",
+          "Domains/CD03",
+          "Domains/CD04",
+          "Domains/CD05",
+          "Domains/CD06",
+          "Domains/CD07",
+          "Domains/CD08",
+          "Domains/CD09",
+          "Domains/CD10",
+          "Domains/CD11",
+          "Domains/CD12",
+          "Domains/CD13",
+          "Domains/CD14",
+          "Domains/CD15",
+          "Domains/CD16",
+          "Domains/CD17",
+          "Domains/CD18",
+          "Domains/README",
+          "Home",
+          "README"
+        ],
+        "outgoing_edges": [
+          {
+            "target": "CONCEPTUAL_FRAMEWORK",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Detectors/vc-002",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Detectors/vc-003",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Detectors/vc-005",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Detectors/vc-010",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Detectors/vc-012",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Detectors/vc-013",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Domains/CD01",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/CD02",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/CD03",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/CD04",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/CD05",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/CD06",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/CD11",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/README",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Evidence/arxiv2602_00409",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Evidence/arxiv2603_28592",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Evidence/vexp_dev_humanlayer_ace",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Home",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Principles",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-001",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-002",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-003",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-004",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-081",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-083",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-084",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-085",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-087",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-088",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-091",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-092",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-094",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-096",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-097",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "README",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Tokenomics/Automation_Tooling_Index",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/Input_Retrieval_Index",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/Measurement_Telemetry_Index",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/Memory_Headroom_Index",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/Output_Compaction_Index",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/TK-001",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/TK-002",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/TK-003",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/TK-004",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/TK-005",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/TK-006",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics_Index",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Tokenomics_Map",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Vices/VC-001",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-002",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-003",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-004",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-005",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-006",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-015",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-037",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VT-001",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VT-002",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VT-003",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VT-004",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices_Index",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          }
+        ],
+        "incoming_edges": [
+          {
+            "source": "Domains/CD01",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD02",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD03",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD04",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD05",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD06",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD07",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD08",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD09",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD10",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD11",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD12",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD13",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD14",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD15",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD16",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD17",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD18",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/README",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Home",
+            "kind": "wikilink",
+            "relation": "entrypoint",
+            "confidence": 0.95
+          },
+          {
+            "source": "README",
+            "kind": "markdown",
+            "relation": "references",
+            "confidence": 0.9
+          }
+        ],
+        "in_degree": 21,
+        "out_degree": 62,
+        "degree": 83,
+        "connected_types": [
+          "conceptual-framework",
+          "domain",
+          "principle",
+          "principle-index",
+          "root",
+          "tokenomics",
+          "vice",
+          "wiki"
+        ],
+        "relation_types": [
+          "catalogs",
+          "entrypoint",
+          "references",
+          "returns_to_index"
+        ],
+        "semantic_reach": 8,
+        "relation_diversity": 4,
+        "hub_score": 115
       },
       {
         "id": "Tokenomics_Index",
@@ -88638,6 +91133,7 @@
           "Tokenomics_Map"
         ],
         "incoming": [
+          "Graph",
           "Home",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
@@ -88900,6 +91396,12 @@
         ],
         "incoming_edges": [
           {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
             "source": "Home",
             "kind": "wikilink",
             "relation": "entrypoint",
@@ -89146,9 +91648,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 41,
+        "in_degree": 42,
         "out_degree": 36,
-        "degree": 77,
+        "degree": 78,
         "connected_types": [
           "tokenomics",
           "wiki"
@@ -89162,7 +91664,7 @@
         ],
         "semantic_reach": 2,
         "relation_diversity": 5,
-        "hub_score": 93
+        "hub_score": 94
       },
       {
         "id": "Evidence/arxiv2603_28592",
@@ -89185,6 +91687,7 @@
           "Vices/VC-010"
         ],
         "incoming": [
+          "Graph",
           "Vices/VC-001",
           "Vices/VC-002",
           "Vices/VC-003",
@@ -89304,6 +91807,12 @@
           }
         ],
         "incoming_edges": [
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
           {
             "source": "Vices/VC-001",
             "kind": "wikilink",
@@ -89599,9 +92108,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 49,
+        "in_degree": 50,
         "out_degree": 11,
-        "degree": 60,
+        "degree": 61,
         "connected_types": [
           "vice",
           "wiki"
@@ -89613,7 +92122,7 @@
         ],
         "semantic_reach": 2,
         "relation_diversity": 3,
-        "hub_score": 72
+        "hub_score": 73
       },
       {
         "id": "Evidence/vexp_dev_humanlayer_ace",
@@ -89636,6 +92145,7 @@
           "Tokenomics/TK-010"
         ],
         "incoming": [
+          "Graph",
           "Tokenomics/TK-001",
           "Tokenomics/TK-002",
           "Tokenomics/TK-003",
@@ -89739,6 +92249,12 @@
           }
         ],
         "incoming_edges": [
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
           {
             "source": "Tokenomics/TK-001",
             "kind": "wikilink",
@@ -89938,9 +92454,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 33,
+        "in_degree": 34,
         "out_degree": 11,
-        "degree": 44,
+        "degree": 45,
         "connected_types": [
           "tokenomics",
           "wiki"
@@ -89952,7 +92468,7 @@
         ],
         "semantic_reach": 2,
         "relation_diversity": 3,
-        "hub_score": 56
+        "hub_score": 57
       },
       {
         "id": "Principles/PR-084",
@@ -89972,6 +92488,7 @@
           "Domains/CD02",
           "Domains/CD06",
           "Domains/README",
+          "Graph",
           "Principles",
           "Principles/SP-002",
           "Principles/SP-005",
@@ -90044,6 +92561,12 @@
             "source": "Domains/README",
             "kind": "wikilink",
             "relation": "operationalizes_domain",
+            "confidence": 0.95
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
             "confidence": 0.95
           },
           {
@@ -90179,9 +92702,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 25,
+        "in_degree": 26,
         "out_degree": 5,
-        "degree": 30,
+        "degree": 31,
         "connected_types": [
           "domain",
           "principle",
@@ -90191,6 +92714,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -90198,8 +92722,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 5,
-        "relation_diversity": 6,
-        "hub_score": 57
+        "relation_diversity": 7,
+        "hub_score": 60
       },
       {
         "id": "Principles/PR-085",
@@ -90221,6 +92745,7 @@
           "Domains/CD04",
           "Domains/CD11",
           "Domains/README",
+          "Graph",
           "Principles",
           "Principles/SP-001",
           "Principles/SP-003",
@@ -90301,6 +92826,12 @@
             "source": "Domains/README",
             "kind": "wikilink",
             "relation": "operationalizes_domain",
+            "confidence": 0.95
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
             "confidence": 0.95
           },
           {
@@ -90412,9 +92943,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 22,
+        "in_degree": 23,
         "out_degree": 6,
-        "degree": 28,
+        "degree": 29,
         "connected_types": [
           "domain",
           "principle",
@@ -90424,6 +92955,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -90431,8 +92963,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 5,
-        "relation_diversity": 6,
-        "hub_score": 55
+        "relation_diversity": 7,
+        "hub_score": 58
       },
       {
         "id": "Principles/PR-081",
@@ -90452,6 +92984,7 @@
           "Domains/CD11",
           "Domains/CD15",
           "Domains/README",
+          "Graph",
           "Principles",
           "Tokenomics/TK-009",
           "Tokenomics/TK-013",
@@ -90520,6 +93053,12 @@
             "source": "Domains/README",
             "kind": "wikilink",
             "relation": "operationalizes_domain",
+            "confidence": 0.95
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
             "confidence": 0.95
           },
           {
@@ -90631,9 +93170,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 21,
+        "in_degree": 22,
         "out_degree": 5,
-        "degree": 26,
+        "degree": 27,
         "connected_types": [
           "domain",
           "principle-index",
@@ -90642,6 +93181,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -90649,8 +93189,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 4,
-        "relation_diversity": 6,
-        "hub_score": 50
+        "relation_diversity": 7,
+        "hub_score": 53
       },
       {
         "id": "Principles/PR-088",
@@ -90668,6 +93208,7 @@
         "incoming": [
           "Domains/CD01",
           "Domains/README",
+          "Graph",
           "Principles",
           "Principles/SP-003",
           "Tokenomics/TK-001",
@@ -90723,6 +93264,12 @@
             "source": "Domains/README",
             "kind": "wikilink",
             "relation": "operationalizes_domain",
+            "confidence": 0.95
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
             "confidence": 0.95
           },
           {
@@ -90828,9 +93375,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 19,
+        "in_degree": 20,
         "out_degree": 4,
-        "degree": 23,
+        "degree": 24,
         "connected_types": [
           "domain",
           "principle",
@@ -90840,6 +93387,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -90847,206 +93395,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 5,
-        "relation_diversity": 6,
-        "hub_score": 50
-      },
-      {
-        "id": "Principles/PR-092",
-        "path": "Wiki/Principles/PR-092.md",
-        "title": "PR-092 — Living Golden Standard – preserve pure, agnostic knowledge kept up to date with the lessons from the project and the satellites without mixing it with concrete tools.",
-        "kind": "principle",
-        "created": null,
-        "promoted": null,
-        "outgoing": [
-          "Domains/CD13",
-          "Domains/README",
-          "Home",
-          "Principles"
-        ],
-        "incoming": [
-          "Domains/CD13",
-          "Domains/README",
-          "Principles",
-          "Principles/SP-009",
-          "Tokenomics/TK-001",
-          "Tokenomics/TK-002",
-          "Tokenomics/TK-003",
-          "Tokenomics/TK-004",
-          "Tokenomics/TK-005",
-          "Tokenomics/TK-006",
-          "Tokenomics/TK-007",
-          "Tokenomics/TK-008",
-          "Tokenomics/TK-021",
-          "Tokenomics/TK-022",
-          "Tokenomics/TK-023",
-          "Tokenomics/TK-024",
-          "Tokenomics/TK-025",
-          "Tokenomics/TK-029",
-          "Tokenomics_Map"
-        ],
-        "outgoing_edges": [
-          {
-            "target": "Domains/CD13",
-            "kind": "wikilink",
-            "relation": "references",
-            "confidence": 0.9
-          },
-          {
-            "target": "Domains/README",
-            "kind": "wikilink",
-            "relation": "references",
-            "confidence": 0.9
-          },
-          {
-            "target": "Home",
-            "kind": "wikilink",
-            "relation": "references",
-            "confidence": 0.85
-          },
-          {
-            "target": "Principles",
-            "kind": "wikilink",
-            "relation": "returns_to_index",
-            "confidence": 0.95
-          }
-        ],
-        "incoming_edges": [
-          {
-            "source": "Domains/CD13",
-            "kind": "wikilink",
-            "relation": "operationalizes_domain",
-            "confidence": 0.95
-          },
-          {
-            "source": "Domains/README",
-            "kind": "wikilink",
-            "relation": "operationalizes_domain",
-            "confidence": 0.95
-          },
-          {
-            "source": "Principles",
-            "kind": "wikilink",
-            "relation": "indexes",
-            "confidence": 0.95
-          },
-          {
-            "source": "Principles/SP-009",
-            "kind": "wikilink",
-            "relation": "references",
-            "confidence": 0.85
-          },
-          {
-            "source": "Tokenomics/TK-001",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-002",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-003",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-004",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-005",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-006",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-007",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-008",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-021",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-022",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-023",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-024",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-025",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-029",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics_Map",
-            "kind": "wikilink",
-            "relation": "bridges",
-            "confidence": 0.95
-          }
-        ],
-        "in_degree": 19,
-        "out_degree": 4,
-        "degree": 23,
-        "connected_types": [
-          "domain",
-          "principle",
-          "principle-index",
-          "tokenomics",
-          "wiki"
-        ],
-        "relation_types": [
-          "bridges",
-          "indexes",
-          "operationalizes_domain",
-          "references",
-          "returns_to_index",
-          "thematic_bridge"
-        ],
-        "semantic_reach": 5,
-        "relation_diversity": 6,
-        "hub_score": 50
+        "relation_diversity": 7,
+        "hub_score": 53
       }
     ],
     "bridges": [
@@ -91060,6 +93410,7 @@
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
+          "Graph",
           "Principles",
           "README",
           "Tokenomics/Automation_Tooling_Index",
@@ -91163,6 +93514,7 @@
           "Evidence/vexp_dev",
           "Evidence/vexp_dev_humanlayer_ace",
           "Evidence/zilliztechclaude-context_verified",
+          "Graph",
           "Principles",
           "Principles/PR-001",
           "Principles/PR-002",
@@ -91551,6 +93903,12 @@
           },
           {
             "target": "Domains/README",
+            "kind": "wikilink",
+            "relation": "entrypoint",
+            "confidence": 0.95
+          },
+          {
+            "target": "Graph",
             "kind": "wikilink",
             "relation": "entrypoint",
             "confidence": 0.95
@@ -92159,6 +94517,12 @@
           },
           {
             "source": "Evidence/zilliztechclaude-context_verified",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Graph",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -94432,9 +96796,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 468,
-        "out_degree": 13,
-        "degree": 481,
+        "in_degree": 469,
+        "out_degree": 14,
+        "degree": 483,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -94454,7 +96818,626 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 515
+        "hub_score": 517
+      },
+      {
+        "id": "Graph",
+        "path": "Wiki/Graph.md",
+        "title": "GS Graph",
+        "kind": "wiki",
+        "created": null,
+        "promoted": null,
+        "outgoing": [
+          "CONCEPTUAL_FRAMEWORK",
+          "Detectors/vc-002",
+          "Detectors/vc-003",
+          "Detectors/vc-005",
+          "Detectors/vc-010",
+          "Detectors/vc-012",
+          "Detectors/vc-013",
+          "Domains/CD01",
+          "Domains/CD02",
+          "Domains/CD03",
+          "Domains/CD04",
+          "Domains/CD05",
+          "Domains/CD06",
+          "Domains/CD11",
+          "Domains/README",
+          "Evidence/arxiv2602_00409",
+          "Evidence/arxiv2603_28592",
+          "Evidence/vexp_dev_humanlayer_ace",
+          "Home",
+          "Principles",
+          "Principles/PR-001",
+          "Principles/PR-002",
+          "Principles/PR-003",
+          "Principles/PR-004",
+          "Principles/PR-081",
+          "Principles/PR-083",
+          "Principles/PR-084",
+          "Principles/PR-085",
+          "Principles/PR-087",
+          "Principles/PR-088",
+          "Principles/PR-091",
+          "Principles/PR-092",
+          "Principles/PR-094",
+          "Principles/PR-096",
+          "Principles/PR-097",
+          "README",
+          "Tokenomics/Automation_Tooling_Index",
+          "Tokenomics/Input_Retrieval_Index",
+          "Tokenomics/Measurement_Telemetry_Index",
+          "Tokenomics/Memory_Headroom_Index",
+          "Tokenomics/Output_Compaction_Index",
+          "Tokenomics/TK-001",
+          "Tokenomics/TK-002",
+          "Tokenomics/TK-003",
+          "Tokenomics/TK-004",
+          "Tokenomics/TK-005",
+          "Tokenomics/TK-006",
+          "Tokenomics_Index",
+          "Tokenomics_Map",
+          "Vices/VC-001",
+          "Vices/VC-002",
+          "Vices/VC-003",
+          "Vices/VC-004",
+          "Vices/VC-005",
+          "Vices/VC-006",
+          "Vices/VC-015",
+          "Vices/VC-037",
+          "Vices/VT-001",
+          "Vices/VT-002",
+          "Vices/VT-003",
+          "Vices/VT-004",
+          "Vices_Index"
+        ],
+        "incoming": [
+          "Domains/CD01",
+          "Domains/CD02",
+          "Domains/CD03",
+          "Domains/CD04",
+          "Domains/CD05",
+          "Domains/CD06",
+          "Domains/CD07",
+          "Domains/CD08",
+          "Domains/CD09",
+          "Domains/CD10",
+          "Domains/CD11",
+          "Domains/CD12",
+          "Domains/CD13",
+          "Domains/CD14",
+          "Domains/CD15",
+          "Domains/CD16",
+          "Domains/CD17",
+          "Domains/CD18",
+          "Domains/README",
+          "Home",
+          "README"
+        ],
+        "outgoing_edges": [
+          {
+            "target": "CONCEPTUAL_FRAMEWORK",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Detectors/vc-002",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Detectors/vc-003",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Detectors/vc-005",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Detectors/vc-010",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Detectors/vc-012",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Detectors/vc-013",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Domains/CD01",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/CD02",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/CD03",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/CD04",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/CD05",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/CD06",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/CD11",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Domains/README",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Evidence/arxiv2602_00409",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Evidence/arxiv2603_28592",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Evidence/vexp_dev_humanlayer_ace",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Home",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Principles",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-001",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-002",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-003",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-004",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-081",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-083",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-084",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-085",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-087",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-088",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-091",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-092",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-094",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-096",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-097",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "README",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Tokenomics/Automation_Tooling_Index",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/Input_Retrieval_Index",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/Measurement_Telemetry_Index",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/Memory_Headroom_Index",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/Output_Compaction_Index",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/TK-001",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/TK-002",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/TK-003",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/TK-004",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/TK-005",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics/TK-006",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Tokenomics_Index",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Tokenomics_Map",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "target": "Vices/VC-001",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-002",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-003",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-004",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-005",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-006",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-015",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-037",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VT-001",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VT-002",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VT-003",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VT-004",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices_Index",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          }
+        ],
+        "incoming_edges": [
+          {
+            "source": "Domains/CD01",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD02",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD03",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD04",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD05",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD06",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD07",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD08",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD09",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD10",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD11",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD12",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD13",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD14",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD15",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD16",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD17",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/CD18",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Domains/README",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
+            "source": "Home",
+            "kind": "wikilink",
+            "relation": "entrypoint",
+            "confidence": 0.95
+          },
+          {
+            "source": "README",
+            "kind": "markdown",
+            "relation": "references",
+            "confidence": 0.9
+          }
+        ],
+        "in_degree": 21,
+        "out_degree": 62,
+        "degree": 83,
+        "connected_types": [
+          "conceptual-framework",
+          "domain",
+          "principle",
+          "principle-index",
+          "root",
+          "tokenomics",
+          "vice",
+          "wiki"
+        ],
+        "relation_types": [
+          "catalogs",
+          "entrypoint",
+          "references",
+          "returns_to_index"
+        ],
+        "semantic_reach": 8,
+        "relation_diversity": 4,
+        "hub_score": 115
       },
       {
         "id": "Tokenomics_Map",
@@ -94487,6 +97470,7 @@
           "Vices/VC-056"
         ],
         "incoming": [
+          "Graph",
           "Home",
           "Tokenomics/Automation_Tooling_Index",
           "Tokenomics/Input_Retrieval_Index",
@@ -94866,6 +97850,12 @@
           }
         ],
         "incoming_edges": [
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
           {
             "source": "Home",
             "kind": "wikilink",
@@ -96361,9 +99351,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 249,
+        "in_degree": 250,
         "out_degree": 21,
-        "degree": 270,
+        "degree": 271,
         "connected_types": [
           "principle",
           "principle-index",
@@ -96379,7 +99369,7 @@
         ],
         "semantic_reach": 5,
         "relation_diversity": 4,
-        "hub_score": 293
+        "hub_score": 294
       },
       {
         "id": "Domains/README",
@@ -96407,6 +99397,7 @@
           "Domains/CD16",
           "Domains/CD17",
           "Domains/CD18",
+          "Graph",
           "Home",
           "Principles",
           "Principles/PR-079",
@@ -96467,6 +99458,7 @@
           "Domains/CD16",
           "Domains/CD17",
           "Domains/CD18",
+          "Graph",
           "Home",
           "Principles",
           "Principles/PR-001",
@@ -96700,6 +99692,12 @@
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
+          },
+          {
+            "target": "Graph",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
           },
           {
             "target": "Home",
@@ -97050,6 +100048,12 @@
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
           },
           {
             "source": "Home",
@@ -97796,9 +100800,9 @@
             "confidence": 0.9
           }
         ],
-        "in_degree": 142,
-        "out_degree": 58,
-        "degree": 200,
+        "in_degree": 143,
+        "out_degree": 59,
+        "degree": 202,
         "connected_types": [
           "domain",
           "principle",
@@ -97807,6 +100811,7 @@
           "wiki"
         ],
         "relation_types": [
+          "catalogs",
           "entrypoint",
           "operationalizes_domain",
           "references",
@@ -97814,8 +100819,8 @@
           "routes_to_domains"
         ],
         "semantic_reach": 5,
-        "relation_diversity": 5,
-        "hub_score": 225
+        "relation_diversity": 6,
+        "hub_score": 229
       },
       {
         "id": "Principles/PR-084",
@@ -97835,6 +100840,7 @@
           "Domains/CD02",
           "Domains/CD06",
           "Domains/README",
+          "Graph",
           "Principles",
           "Principles/SP-002",
           "Principles/SP-005",
@@ -97907,6 +100913,12 @@
             "source": "Domains/README",
             "kind": "wikilink",
             "relation": "operationalizes_domain",
+            "confidence": 0.95
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
             "confidence": 0.95
           },
           {
@@ -98042,9 +101054,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 25,
+        "in_degree": 26,
         "out_degree": 5,
-        "degree": 30,
+        "degree": 31,
         "connected_types": [
           "domain",
           "principle",
@@ -98054,6 +101066,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -98061,8 +101074,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 5,
-        "relation_diversity": 6,
-        "hub_score": 57
+        "relation_diversity": 7,
+        "hub_score": 60
       },
       {
         "id": "Principles/PR-085",
@@ -98084,6 +101097,7 @@
           "Domains/CD04",
           "Domains/CD11",
           "Domains/README",
+          "Graph",
           "Principles",
           "Principles/SP-001",
           "Principles/SP-003",
@@ -98164,6 +101178,12 @@
             "source": "Domains/README",
             "kind": "wikilink",
             "relation": "operationalizes_domain",
+            "confidence": 0.95
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
             "confidence": 0.95
           },
           {
@@ -98275,9 +101295,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 22,
+        "in_degree": 23,
         "out_degree": 6,
-        "degree": 28,
+        "degree": 29,
         "connected_types": [
           "domain",
           "principle",
@@ -98287,6 +101307,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -98294,8 +101315,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 5,
-        "relation_diversity": 6,
-        "hub_score": 55
+        "relation_diversity": 7,
+        "hub_score": 58
       },
       {
         "id": "Principles/PR-088",
@@ -98313,6 +101334,7 @@
         "incoming": [
           "Domains/CD01",
           "Domains/README",
+          "Graph",
           "Principles",
           "Principles/SP-003",
           "Tokenomics/TK-001",
@@ -98368,6 +101390,12 @@
             "source": "Domains/README",
             "kind": "wikilink",
             "relation": "operationalizes_domain",
+            "confidence": 0.95
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
             "confidence": 0.95
           },
           {
@@ -98473,9 +101501,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 19,
+        "in_degree": 20,
         "out_degree": 4,
-        "degree": 23,
+        "degree": 24,
         "connected_types": [
           "domain",
           "principle",
@@ -98485,6 +101513,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -98492,8 +101521,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 5,
-        "relation_diversity": 6,
-        "hub_score": 50
+        "relation_diversity": 7,
+        "hub_score": 53
       },
       {
         "id": "Principles/PR-092",
@@ -98511,6 +101540,7 @@
         "incoming": [
           "Domains/CD13",
           "Domains/README",
+          "Graph",
           "Principles",
           "Principles/SP-009",
           "Tokenomics/TK-001",
@@ -98566,6 +101596,12 @@
             "source": "Domains/README",
             "kind": "wikilink",
             "relation": "operationalizes_domain",
+            "confidence": 0.95
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
             "confidence": 0.95
           },
           {
@@ -98671,9 +101707,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 19,
+        "in_degree": 20,
         "out_degree": 4,
-        "degree": 23,
+        "degree": 24,
         "connected_types": [
           "domain",
           "principle",
@@ -98683,6 +101719,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -98690,8 +101727,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 5,
-        "relation_diversity": 6,
-        "hub_score": 50
+        "relation_diversity": 7,
+        "hub_score": 53
       },
       {
         "id": "Principles/PR-096",
@@ -98709,6 +101746,7 @@
         "incoming": [
           "Domains/CD13",
           "Domains/README",
+          "Graph",
           "Principles",
           "Principles/SP-009",
           "Tokenomics/TK-001",
@@ -98764,6 +101802,12 @@
             "source": "Domains/README",
             "kind": "wikilink",
             "relation": "operationalizes_domain",
+            "confidence": 0.95
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
             "confidence": 0.95
           },
           {
@@ -98869,9 +101913,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 19,
+        "in_degree": 20,
         "out_degree": 4,
-        "degree": 23,
+        "degree": 24,
         "connected_types": [
           "domain",
           "principle",
@@ -98881,6 +101925,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -98888,8 +101933,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 5,
-        "relation_diversity": 6,
-        "hub_score": 50
+        "relation_diversity": 7,
+        "hub_score": 53
       },
       {
         "id": "Principles/PR-097",
@@ -98909,6 +101954,7 @@
           "Domains/CD01",
           "Domains/CD04",
           "Domains/README",
+          "Graph",
           "Principles",
           "Tokenomics_Map",
           "Vices/VC-001",
@@ -99169,6 +102215,12 @@
             "source": "Domains/README",
             "kind": "wikilink",
             "relation": "operationalizes_domain",
+            "confidence": 0.95
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
             "confidence": 0.95
           },
           {
@@ -100432,9 +103484,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 213,
+        "in_degree": 214,
         "out_degree": 5,
-        "degree": 218,
+        "degree": 219,
         "connected_types": [
           "domain",
           "principle-index",
@@ -100443,6 +103495,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "governed_by",
           "indexes",
           "operationalizes_domain",
@@ -100450,8 +103503,8 @@
           "returns_to_index"
         ],
         "semantic_reach": 4,
-        "relation_diversity": 6,
-        "hub_score": 242
+        "relation_diversity": 7,
+        "hub_score": 245
       },
       {
         "id": "Principles/PR-081",
@@ -100471,6 +103524,7 @@
           "Domains/CD11",
           "Domains/CD15",
           "Domains/README",
+          "Graph",
           "Principles",
           "Tokenomics/TK-009",
           "Tokenomics/TK-013",
@@ -100539,6 +103593,12 @@
             "source": "Domains/README",
             "kind": "wikilink",
             "relation": "operationalizes_domain",
+            "confidence": 0.95
+          },
+          {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
             "confidence": 0.95
           },
           {
@@ -100650,9 +103710,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 21,
+        "in_degree": 22,
         "out_degree": 5,
-        "degree": 26,
+        "degree": 27,
         "connected_types": [
           "domain",
           "principle-index",
@@ -100661,6 +103721,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -100668,8 +103729,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 4,
-        "relation_diversity": 6,
-        "hub_score": 50
+        "relation_diversity": 7,
+        "hub_score": 53
       },
       {
         "id": "Principles/PR-087",
@@ -100687,6 +103748,7 @@
         "incoming": [
           "Domains/CD06",
           "Domains/README",
+          "Graph",
           "Principles",
           "Tokenomics/TK-009",
           "Tokenomics/TK-013",
@@ -100742,6 +103804,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
             "source": "Principles",
             "kind": "wikilink",
             "relation": "indexes",
@@ -100826,9 +103894,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 16,
+        "in_degree": 17,
         "out_degree": 4,
-        "degree": 20,
+        "degree": 21,
         "connected_types": [
           "domain",
           "principle-index",
@@ -100837,6 +103905,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -100844,8 +103913,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 4,
-        "relation_diversity": 6,
-        "hub_score": 44
+        "relation_diversity": 7,
+        "hub_score": 47
       },
       {
         "id": "Principles/PR-094",
@@ -100863,6 +103932,7 @@
         "incoming": [
           "Domains/CD10",
           "Domains/README",
+          "Graph",
           "Principles",
           "Tokenomics/TK-009",
           "Tokenomics/TK-013",
@@ -100918,6 +103988,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
             "source": "Principles",
             "kind": "wikilink",
             "relation": "indexes",
@@ -101002,9 +104078,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 16,
+        "in_degree": 17,
         "out_degree": 4,
-        "degree": 20,
+        "degree": 21,
         "connected_types": [
           "domain",
           "principle-index",
@@ -101013,6 +104089,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -101020,8 +104097,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 4,
-        "relation_diversity": 6,
-        "hub_score": 44
+        "relation_diversity": 7,
+        "hub_score": 47
       },
       {
         "id": "Domains/CD11",
@@ -101032,6 +104109,7 @@
         "promoted": null,
         "outgoing": [
           "Domains/README",
+          "Graph",
           "Home",
           "Principles/PR-081",
           "Principles/PR-083",
@@ -101041,6 +104119,7 @@
         ],
         "incoming": [
           "Domains/README",
+          "Graph",
           "Principles/PR-081",
           "Principles/PR-083",
           "Principles/PR-085",
@@ -101054,6 +104133,12 @@
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
+          },
+          {
+            "target": "Graph",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
           },
           {
             "target": "Home",
@@ -101100,6 +104185,12 @@
             "confidence": 0.85
           },
           {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
             "source": "Principles/PR-081",
             "kind": "wikilink",
             "relation": "references",
@@ -101136,9 +104227,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 7,
-        "out_degree": 7,
-        "degree": 14,
+        "in_degree": 8,
+        "out_degree": 8,
+        "degree": 16,
         "connected_types": [
           "domain",
           "principle",
@@ -101146,13 +104237,14 @@
           "wiki"
         ],
         "relation_types": [
+          "catalogs",
           "operationalizes_domain",
           "references",
           "returns_to_index"
         ],
         "semantic_reach": 4,
-        "relation_diversity": 3,
-        "hub_score": 32
+        "relation_diversity": 4,
+        "hub_score": 36
       },
       {
         "id": "Principles/PR-083",
@@ -101172,6 +104264,7 @@
           "Domains/CD05",
           "Domains/CD11",
           "Domains/README",
+          "Graph",
           "Principles",
           "Tokenomics/TK-010",
           "Tokenomics/TK-011",
@@ -101231,6 +104324,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Graph",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
             "source": "Principles",
             "kind": "wikilink",
             "relation": "indexes",
@@ -101267,143 +104366,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 9,
-        "out_degree": 5,
-        "degree": 14,
-        "connected_types": [
-          "domain",
-          "principle-index",
-          "tokenomics",
-          "wiki"
-        ],
-        "relation_types": [
-          "bridges",
-          "indexes",
-          "operationalizes_domain",
-          "references",
-          "returns_to_index",
-          "thematic_bridge"
-        ],
-        "semantic_reach": 4,
-        "relation_diversity": 6,
-        "hub_score": 38
-      },
-      {
-        "id": "Principles/PR-091",
-        "path": "Wiki/Principles/PR-091.md",
-        "title": "PR-091 — Real-time vigilance – observe signals, costs, and deviations during execution, not only in the post-mortem.",
-        "kind": "principle",
-        "created": null,
-        "promoted": null,
-        "outgoing": [
-          "Domains/CD15",
-          "Domains/README",
-          "Home",
-          "Principles"
-        ],
-        "incoming": [
-          "Domains/CD15",
-          "Domains/README",
-          "Principles",
-          "Tokenomics/TK-010",
-          "Tokenomics/TK-016",
-          "Tokenomics/TK-028",
-          "Tokenomics/TK-030",
-          "Tokenomics/TK-031",
-          "Tokenomics/TK-032",
-          "Tokenomics_Map"
-        ],
-        "outgoing_edges": [
-          {
-            "target": "Domains/CD15",
-            "kind": "wikilink",
-            "relation": "references",
-            "confidence": 0.9
-          },
-          {
-            "target": "Domains/README",
-            "kind": "wikilink",
-            "relation": "references",
-            "confidence": 0.9
-          },
-          {
-            "target": "Home",
-            "kind": "wikilink",
-            "relation": "references",
-            "confidence": 0.85
-          },
-          {
-            "target": "Principles",
-            "kind": "wikilink",
-            "relation": "returns_to_index",
-            "confidence": 0.95
-          }
-        ],
-        "incoming_edges": [
-          {
-            "source": "Domains/CD15",
-            "kind": "wikilink",
-            "relation": "operationalizes_domain",
-            "confidence": 0.95
-          },
-          {
-            "source": "Domains/README",
-            "kind": "wikilink",
-            "relation": "operationalizes_domain",
-            "confidence": 0.95
-          },
-          {
-            "source": "Principles",
-            "kind": "wikilink",
-            "relation": "indexes",
-            "confidence": 0.95
-          },
-          {
-            "source": "Tokenomics/TK-010",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-016",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-028",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-030",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-031",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics/TK-032",
-            "kind": "wikilink",
-            "relation": "thematic_bridge",
-            "confidence": 0.9
-          },
-          {
-            "source": "Tokenomics_Map",
-            "kind": "wikilink",
-            "relation": "bridges",
-            "confidence": 0.95
-          }
-        ],
         "in_degree": 10,
-        "out_degree": 4,
-        "degree": 14,
+        "out_degree": 5,
+        "degree": 15,
         "connected_types": [
           "domain",
           "principle-index",
@@ -101412,6 +104377,7 @@
         ],
         "relation_types": [
           "bridges",
+          "catalogs",
           "indexes",
           "operationalizes_domain",
           "references",
@@ -101419,8 +104385,8 @@
           "thematic_bridge"
         ],
         "semantic_reach": 4,
-        "relation_diversity": 6,
-        "hub_score": 38
+        "relation_diversity": 7,
+        "hub_score": 41
       }
     ]
   }
