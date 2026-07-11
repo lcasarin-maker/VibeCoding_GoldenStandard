@@ -203,7 +203,8 @@ def main() -> int:
         print(e)
 
     if soft_warnings:
-        print(f"\n{len(soft_warnings)} soft warning(s) — non-blocking")
+        print(f"\n{len(soft_warnings)} warning(s) — LINT FAILED")
+        return 1
     if hard_errors:
         print(f"\n{len(hard_errors)} hard error(s) — LINT FAILED")
         return 1

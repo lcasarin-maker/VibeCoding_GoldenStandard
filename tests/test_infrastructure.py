@@ -24,7 +24,7 @@ def test_audit_workflow_runs_validator_and_regenerator() -> None:
         for step in steps
     )
     assert matrix_versions == ["3.10", "3.11", "3.12", "3.13"]
-    assert any(step.get("name") == "Run pytest suite" and step.get("run") == "pytest" for step in steps)
+    assert any(step.get("name") == "Run pytest suite" and step.get("run") == "pytest -W error" for step in steps)
     assert any(step.get("name") == "Run Semgrep guard rules" for step in steps)
     assert any(
         step.get("name") == "Regenerate Golden Standard audit artifacts"

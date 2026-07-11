@@ -1267,7 +1267,7 @@ items:
   action: 'The exit code must reflect the real state; an unconditional success exit produces a falsely green pipeline.
 
     '
-  validating_mechanism: semgrep:gs-vt-043-unconditional-exit-zero
+  validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
   example_bad: 'run_checks(); sys.exit(0)   # exit 0 no matter what

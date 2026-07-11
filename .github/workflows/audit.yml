@@ -63,7 +63,7 @@ jobs:
         run: python scripts/validate_golden_standard_catalogs.py --check-wiki
 
       - name: Run pytest suite
-        run: pytest
+        run: pytest -W error
 
       - name: Prove local detectors fire on example_bad and not example_good
         run: python scripts/test_detectors.py
