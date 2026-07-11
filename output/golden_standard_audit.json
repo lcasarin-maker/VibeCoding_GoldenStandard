@@ -31,10 +31,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "check_handoff_freshness"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -72,10 +68,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "check_handoff_freshness"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -113,10 +105,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "check_handoff_freshness"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -154,10 +142,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "setup_validate.py"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -193,13 +177,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "test_tk005_status_md_has_required_sections"
-      }
-    }
+    "related_prs": []
   },
   "TK-006": {
     "id": "TK-006",
@@ -233,10 +211,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "resolve_audit_trail_conflicts.py"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -274,10 +248,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D2",
-        "mechanism": "D2Completeness"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -315,10 +285,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "compress_memory_context.py"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -356,10 +322,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "build_map"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -469,13 +431,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "test_tk018_external_backlog_exists"
-      }
-    }
+    "related_prs": []
   },
   "TK-013": {
     "id": "TK-013",
@@ -509,10 +465,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "OutputCompressor"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -622,13 +574,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "audit_d10_tokenomics"
-      }
-    }
+    "related_prs": []
   },
   "TK-017": {
     "id": "TK-017",
@@ -662,10 +608,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "check_handoff_freshness"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -703,10 +645,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "_print_audit_results"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -744,10 +682,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "compress_audit_trail"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -785,10 +719,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "OutputCompressor"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -863,10 +793,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "manage_tokens.py"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -904,10 +830,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "TokenOptimizer"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -945,10 +867,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "track_tokens.py"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -1097,10 +1015,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "track_tokens.py"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -1136,13 +1050,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "audit_d10_tokenomics"
-      }
-    }
+    "related_prs": []
   },
   "TK-030": {
     "id": "TK-030",
@@ -1174,13 +1082,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "audit_d10_tokenomics"
-      }
-    }
+    "related_prs": []
   },
   "TK-031": {
     "id": "TK-031",
@@ -1251,10 +1153,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "resolve_deadlocks.py"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -1292,10 +1190,6 @@
     "related_cds": [],
     "related_prs": [],
     "enforcement": {
-      "cerberus": {
-        "dimension": "D3",
-        "mechanism": "D3DeadCode"
-      },
       "golden_standard": {
         "mechanism": "catalog/wiki link check"
       }
@@ -1331,13 +1225,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "_check_and_flag_compact"
-      }
-    }
+    "related_prs": []
   },
   "VT-001": {
     "id": "VT-001",
@@ -1369,13 +1257,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D2",
-        "mechanism": "audit_d2_completeness"
-      }
-    }
+    "related_prs": []
   },
   "VT-002": {
     "id": "VT-002",
@@ -1407,13 +1289,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D2",
-        "mechanism": "audit_d2_completeness"
-      }
-    }
+    "related_prs": []
   },
   "VT-003": {
     "id": "VT-003",
@@ -1445,13 +1321,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-004": {
     "id": "VT-004",
@@ -1483,13 +1353,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-005": {
     "id": "VT-005",
@@ -1521,13 +1385,7 @@
     "detector": "vt005_assert_true",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D9",
-        "mechanism": "audit_d9_test_purity"
-      }
-    }
+    "related_prs": []
   },
   "VT-006": {
     "id": "VT-006",
@@ -1559,13 +1417,7 @@
     "detector": "vt006_test_without_assert",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D9",
-        "mechanism": "audit_d9_test_purity"
-      }
-    }
+    "related_prs": []
   },
   "VT-007": {
     "id": "VT-007",
@@ -1597,13 +1449,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-008": {
     "id": "VT-008",
@@ -1635,13 +1481,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-009": {
     "id": "VT-009",
@@ -1673,13 +1513,7 @@
     "detector": "vt009_tautological_assert",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D9",
-        "mechanism": "audit_d9_test_purity"
-      }
-    }
+    "related_prs": []
   },
   "VT-010": {
     "id": "VT-010",
@@ -1711,13 +1545,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-011": {
     "id": "VT-011",
@@ -1749,13 +1577,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-012": {
     "id": "VT-012",
@@ -1787,13 +1609,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D9",
-        "mechanism": "audit_d9_test_purity"
-      }
-    }
+    "related_prs": []
   },
   "VT-013": {
     "id": "VT-013",
@@ -1825,13 +1641,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D9",
-        "mechanism": "audit_d9_test_purity"
-      }
-    }
+    "related_prs": []
   },
   "VT-014": {
     "id": "VT-014",
@@ -1863,13 +1673,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-015": {
     "id": "VT-015",
@@ -1901,13 +1705,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-016": {
     "id": "VT-016",
@@ -1939,13 +1737,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D9",
-        "mechanism": "audit_d9_test_purity"
-      }
-    }
+    "related_prs": []
   },
   "VT-017": {
     "id": "VT-017",
@@ -1977,13 +1769,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-018": {
     "id": "VT-018",
@@ -2015,13 +1801,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-019": {
     "id": "VT-019",
@@ -2053,13 +1833,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-020": {
     "id": "VT-020",
@@ -2091,13 +1865,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-021": {
     "id": "VT-021",
@@ -2129,13 +1897,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-022": {
     "id": "VT-022",
@@ -2167,13 +1929,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D9",
-        "mechanism": "audit_d9_test_purity"
-      }
-    }
+    "related_prs": []
   },
   "VT-023": {
     "id": "VT-023",
@@ -2205,13 +1961,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-024": {
     "id": "VT-024",
@@ -2243,13 +1993,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-025": {
     "id": "VT-025",
@@ -2281,13 +2025,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-026": {
     "id": "VT-026",
@@ -2319,13 +2057,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-027": {
     "id": "VT-027",
@@ -2357,13 +2089,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-028": {
     "id": "VT-028",
@@ -2395,13 +2121,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-029": {
     "id": "VT-029",
@@ -2433,13 +2153,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-030": {
     "id": "VT-030",
@@ -2471,13 +2185,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-031": {
     "id": "VT-031",
@@ -2509,13 +2217,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-032": {
     "id": "VT-032",
@@ -2547,13 +2249,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-033": {
     "id": "VT-033",
@@ -2585,13 +2281,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-034": {
     "id": "VT-034",
@@ -2623,13 +2313,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-035": {
     "id": "VT-035",
@@ -2661,13 +2345,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D9",
-        "mechanism": "audit_d9_test_purity"
-      }
-    }
+    "related_prs": []
   },
   "VT-036": {
     "id": "VT-036",
@@ -2699,13 +2377,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D9",
-        "mechanism": "audit_d9_test_purity"
-      }
-    }
+    "related_prs": []
   },
   "VT-037": {
     "id": "VT-037",
@@ -2737,13 +2409,7 @@
     "detector": "vt037_impossible_condition",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-038": {
     "id": "VT-038",
@@ -2775,13 +2441,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-039": {
     "id": "VT-039",
@@ -2813,13 +2473,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-040": {
     "id": "VT-040",
@@ -2851,13 +2505,7 @@
     "detector": "vt040_blind_except",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D5",
-        "mechanism": "audit_d5_angry_path"
-      }
-    }
+    "related_prs": []
   },
   "VT-041": {
     "id": "VT-041",
@@ -2889,13 +2537,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-042": {
     "id": "VT-042",
@@ -2927,13 +2569,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-043": {
     "id": "VT-043",
@@ -2966,13 +2602,7 @@
     "detector": "vt043_unconditional_exit_zero",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-044": {
     "id": "VT-044",
@@ -3004,13 +2634,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-045": {
     "id": "VT-045",
@@ -3042,13 +2666,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-046": {
     "id": "VT-046",
@@ -3080,13 +2698,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-047": {
     "id": "VT-047",
@@ -3118,13 +2730,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "test_compress_1000_sessions_returns_structured_dict"
-      }
-    }
+    "related_prs": []
   },
   "VT-048": {
     "id": "VT-048",
@@ -3156,13 +2762,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-049": {
     "id": "VT-049",
@@ -3194,13 +2794,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-050": {
     "id": "VT-050",
@@ -3232,13 +2826,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "test_non_leap_year_feb29_raises"
-      }
-    }
+    "related_prs": []
   },
   "VT-051": {
     "id": "VT-051",
@@ -3270,13 +2858,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-052": {
     "id": "VT-052",
@@ -3308,13 +2890,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D5",
-        "mechanism": "audit_d5_angry_path"
-      }
-    }
+    "related_prs": []
   },
   "VT-053": {
     "id": "VT-053",
@@ -3346,13 +2922,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-054": {
     "id": "VT-054",
@@ -3384,13 +2954,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-055": {
     "id": "VT-055",
@@ -3422,13 +2986,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-056": {
     "id": "VT-056",
@@ -3460,13 +3018,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-057": {
     "id": "VT-057",
@@ -3498,13 +3050,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D9",
-        "mechanism": "audit_d9_test_purity"
-      }
-    }
+    "related_prs": []
   },
   "VT-058": {
     "id": "VT-058",
@@ -3536,13 +3082,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-059": {
     "id": "VT-059",
@@ -3574,13 +3114,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-060": {
     "id": "VT-060",
@@ -3612,13 +3146,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-061": {
     "id": "VT-061",
@@ -3650,13 +3178,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-062": {
     "id": "VT-062",
@@ -3688,13 +3210,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-063": {
     "id": "VT-063",
@@ -3726,13 +3242,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-064": {
     "id": "VT-064",
@@ -3764,13 +3274,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-065": {
     "id": "VT-065",
@@ -3802,13 +3306,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-066": {
     "id": "VT-066",
@@ -3840,13 +3338,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "test_infrastructure_checks"
-      }
-    }
+    "related_prs": []
   },
   "VT-067": {
     "id": "VT-067",
@@ -3878,13 +3370,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-068": {
     "id": "VT-068",
@@ -3916,13 +3402,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-069": {
     "id": "VT-069",
@@ -3954,13 +3434,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-070": {
     "id": "VT-070",
@@ -3992,13 +3466,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "test_setup_validation"
-      }
-    }
+    "related_prs": []
   },
   "VT-071": {
     "id": "VT-071",
@@ -4030,13 +3498,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-072": {
     "id": "VT-072",
@@ -4068,13 +3530,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-073": {
     "id": "VT-073",
@@ -4106,13 +3562,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-074": {
     "id": "VT-074",
@@ -4144,13 +3594,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-075": {
     "id": "VT-075",
@@ -4182,13 +3626,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-076": {
     "id": "VT-076",
@@ -4220,13 +3658,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-077": {
     "id": "VT-077",
@@ -4258,13 +3690,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-078": {
     "id": "VT-078",
@@ -4296,13 +3722,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-079": {
     "id": "VT-079",
@@ -4334,13 +3754,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-080": {
     "id": "VT-080",
@@ -4372,13 +3786,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D9",
-        "mechanism": "audit_d9_test_purity"
-      }
-    }
+    "related_prs": []
   },
   "VT-081": {
     "id": "VT-081",
@@ -4410,13 +3818,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-082": {
     "id": "VT-082",
@@ -4448,13 +3850,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-083": {
     "id": "VT-083",
@@ -4486,13 +3882,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-084": {
     "id": "VT-084",
@@ -4524,13 +3914,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-085": {
     "id": "VT-085",
@@ -4562,13 +3946,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-086": {
     "id": "VT-086",
@@ -4600,13 +3978,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D9",
-        "mechanism": "audit_d9_test_purity"
-      }
-    }
+    "related_prs": []
   },
   "VT-087": {
     "id": "VT-087",
@@ -4638,13 +4010,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-088": {
     "id": "VT-088",
@@ -4676,13 +4042,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D5",
-        "mechanism": "audit_d5_angry_path"
-      }
-    }
+    "related_prs": []
   },
   "VT-089": {
     "id": "VT-089",
@@ -4714,13 +4074,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-090": {
     "id": "VT-090",
@@ -4752,13 +4106,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D2",
-        "mechanism": "audit_d2_completeness"
-      }
-    }
+    "related_prs": []
   },
   "VT-091": {
     "id": "VT-091",
@@ -4790,13 +4138,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-092": {
     "id": "VT-092",
@@ -4828,13 +4170,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-093": {
     "id": "VT-093",
@@ -4866,13 +4202,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-094": {
     "id": "VT-094",
@@ -4904,13 +4234,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-095": {
     "id": "VT-095",
@@ -4942,13 +4266,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-096": {
     "id": "VT-096",
@@ -4980,13 +4298,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-097": {
     "id": "VT-097",
@@ -5018,13 +4330,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-098": {
     "id": "VT-098",
@@ -5056,13 +4362,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-099": {
     "id": "VT-099",
@@ -5094,13 +4394,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-100": {
     "id": "VT-100",
@@ -5132,13 +4426,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-101": {
     "id": "VT-101",
@@ -5170,13 +4458,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-102": {
     "id": "VT-102",
@@ -5208,13 +4490,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-103": {
     "id": "VT-103",
@@ -5246,13 +4522,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-104": {
     "id": "VT-104",
@@ -5284,13 +4554,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-105": {
     "id": "VT-105",
@@ -5322,13 +4586,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "test_audit_workflow_runs_validator_and_regenerator"
-      }
-    }
+    "related_prs": []
   },
   "VT-106": {
     "id": "VT-106",
@@ -5360,13 +4618,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "test_setup_validation"
-      }
-    }
+    "related_prs": []
   },
   "VT-107": {
     "id": "VT-107",
@@ -5398,13 +4650,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "test_setup_validation"
-      }
-    }
+    "related_prs": []
   },
   "VT-108": {
     "id": "VT-108",
@@ -5436,13 +4682,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-109": {
     "id": "VT-109",
@@ -5474,13 +4714,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "test_infrastructure_checks"
-      }
-    }
+    "related_prs": []
   },
   "VT-110": {
     "id": "VT-110",
@@ -5512,13 +4746,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-111": {
     "id": "VT-111",
@@ -5550,13 +4778,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-112": {
     "id": "VT-112",
@@ -5588,13 +4810,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-113": {
     "id": "VT-113",
@@ -5626,13 +4842,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-114": {
     "id": "VT-114",
@@ -5664,13 +4874,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "audit_d8_test_coverage"
-      }
-    }
+    "related_prs": []
   },
   "VT-115": {
     "id": "VT-115",
@@ -5702,13 +4906,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "test_setup_validation"
-      }
-    }
+    "related_prs": []
   },
   "VT-116": {
     "id": "VT-116",
@@ -5735,13 +4933,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D8",
-        "mechanism": "test_planted_def_comment_does_not_resolve"
-      }
-    }
+    "related_prs": []
   },
   "VC-001": {
     "id": "VC-001",
@@ -5773,13 +4965,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D5",
-        "mechanism": "test_B7_evidence_files_are_valid_json"
-      }
-    }
+    "related_prs": []
   },
   "VC-002": {
     "id": "VC-002",
@@ -5811,13 +4997,7 @@
     "detector": "vc005_untracked_prototype",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_untracked_prototype"
-      }
-    }
+    "related_prs": []
   },
   "VC-003": {
     "id": "VC-003",
@@ -5849,13 +5029,7 @@
     "detector": "vc003_incomprehensible_code",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_incomprehensible_code"
-      }
-    }
+    "related_prs": []
   },
   "VC-004": {
     "id": "VC-004",
@@ -5887,13 +5061,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D5",
-        "mechanism": "test_B7_evidence_files_are_valid_json"
-      }
-    }
+    "related_prs": []
   },
   "VC-005": {
     "id": "VC-005",
@@ -5925,13 +5093,7 @@
     "detector": "vc005_premature_closure",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_premature_closure"
-      }
-    }
+    "related_prs": []
   },
   "VC-006": {
     "id": "VC-006",
@@ -5963,13 +5125,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D2",
-        "mechanism": "D2Completeness"
-      }
-    }
+    "related_prs": []
   },
   "VC-007": {
     "id": "VC-007",
@@ -6097,13 +5253,7 @@
     "detector": "vc036_destructive_without_dryrun",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_destructive_without_dryrun"
-      }
-    }
+    "related_prs": []
   },
   "VC-011": {
     "id": "VC-011",
@@ -6263,13 +5413,7 @@
     "detector": "",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D11",
-        "mechanism": "check_imports.py"
-      }
-    }
+    "related_prs": []
   },
   "VC-016": {
     "id": "VC-016",
@@ -6301,13 +5445,7 @@
     "detector": "vc016_broken_version_parity",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_broken_version_parity"
-      }
-    }
+    "related_prs": []
   },
   "VC-017": {
     "id": "VC-017",
@@ -6339,13 +5477,7 @@
     "detector": "vc017_deadlock_without_heartbeat",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_deadlock_without_heartbeat"
-      }
-    }
+    "related_prs": []
   },
   "VC-018": {
     "id": "VC-018",
@@ -6377,13 +5509,7 @@
     "detector": "vc061_constant_stub",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_constant_stub"
-      }
-    }
+    "related_prs": []
   },
   "VC-019": {
     "id": "VC-019",
@@ -6415,13 +5541,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D12",
-        "mechanism": "test_F6_sync_binding_no_protocol_drift"
-      }
-    }
+    "related_prs": []
   },
   "VC-020": {
     "id": "VC-020",
@@ -6485,13 +5605,7 @@
     "detector": "",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_late_schema_access"
-      }
-    }
+    "related_prs": []
   },
   "VC-022": {
     "id": "VC-022",
@@ -6555,13 +5669,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D11",
-        "mechanism": "blast_radius.py"
-      }
-    }
+    "related_prs": []
   },
   "VC-024": {
     "id": "VC-024",
@@ -6593,13 +5701,7 @@
     "detector": "vc070_blind_shell_edit",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_blind_shell_edit"
-      }
-    }
+    "related_prs": []
   },
   "VC-025": {
     "id": "VC-025",
@@ -6663,13 +5765,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "audit_d6_anti_slop"
-      }
-    }
+    "related_prs": []
   },
   "VC-027": {
     "id": "VC-027",
@@ -6701,13 +5797,7 @@
     "detector": "vc078_placeholder",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_placeholder"
-      }
-    }
+    "related_prs": []
   },
   "VC-028": {
     "id": "VC-028",
@@ -6739,13 +5829,7 @@
     "detector": "vc028_core_dependent_on_unstable_parts",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_core_dependent_on_unstable_parts"
-      }
-    }
+    "related_prs": []
   },
   "VC-029": {
     "id": "VC-029",
@@ -6817,13 +5901,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D11",
-        "mechanism": "test_vc082_ghost_import_detected"
-      }
-    }
+    "related_prs": []
   },
   "VC-031": {
     "id": "VC-031",
@@ -6855,13 +5933,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D1",
-        "mechanism": "D1Integrity"
-      }
-    }
+    "related_prs": []
   },
   "VC-032": {
     "id": "VC-032",
@@ -6893,13 +5965,7 @@
     "detector": "vc087_blanket_filterwarnings",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "audit_d6_anti_slop"
-      }
-    }
+    "related_prs": []
   },
   "VC-033": {
     "id": "VC-033",
@@ -6995,13 +6061,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D2",
-        "mechanism": "audit_d2_completeness"
-      }
-    }
+    "related_prs": []
   },
   "VC-036": {
     "id": "VC-036",
@@ -7033,13 +6093,7 @@
     "detector": "vc095_hardcoded_secret",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_hardcoded_secret"
-      }
-    }
+    "related_prs": []
   },
   "VC-037": {
     "id": "VC-037",
@@ -7103,13 +6157,7 @@
     "detector": "vc038_optimistic_config",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_optimistic_config"
-      }
-    }
+    "related_prs": []
   },
   "VC-039": {
     "id": "VC-039",
@@ -7141,13 +6189,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "local_llm_workstation_check.py"
-      }
-    }
+    "related_prs": []
   },
   "VC-040": {
     "id": "VC-040",
@@ -7211,13 +6253,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "setup_validate.py"
-      }
-    }
+    "related_prs": []
   },
   "VC-042": {
     "id": "VC-042",
@@ -7281,13 +6317,7 @@
     "detector": "vc109_hardcoded_path",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "test_vc109_absolute_path_in_scripts"
-      }
-    }
+    "related_prs": []
   },
   "VC-044": {
     "id": "VC-044",
@@ -7319,13 +6349,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D5",
-        "mechanism": "resolve_deadlocks.py"
-      }
-    }
+    "related_prs": []
   },
   "VC-045": {
     "id": "VC-045",
@@ -7357,13 +6381,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D2",
-        "mechanism": "audit_d2_completeness"
-      }
-    }
+    "related_prs": []
   },
   "VC-046": {
     "id": "VC-046",
@@ -7427,13 +6445,7 @@
     "detector": "vc047_frozen_nomenclature",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_frozen_nomenclature"
-      }
-    }
+    "related_prs": []
   },
   "VC-048": {
     "id": "VC-048",
@@ -7465,13 +6477,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D2",
-        "mechanism": "_write_warn_task"
-      }
-    }
+    "related_prs": []
   },
   "VC-049": {
     "id": "VC-049",
@@ -7503,13 +6509,7 @@
     "detector": "vc115_unsafe_eval",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D7",
-        "mechanism": "test_rule_security_rejects_arbitrary_check"
-      }
-    }
+    "related_prs": []
   },
   "VC-050": {
     "id": "VC-050",
@@ -7541,13 +6541,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D11",
-        "mechanism": "test_import_error_guard_does_not_pip_install"
-      }
-    }
+    "related_prs": []
   },
   "VC-051": {
     "id": "VC-051",
@@ -7579,13 +6573,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D1",
-        "mechanism": "test_critical_state_write_is_atomic"
-      }
-    }
+    "related_prs": []
   },
   "VC-052": {
     "id": "VC-052",
@@ -7617,13 +6605,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D1",
-        "mechanism": "D1Integrity"
-      }
-    }
+    "related_prs": []
   },
   "VC-053": {
     "id": "VC-053",
@@ -7655,13 +6637,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D3",
-        "mechanism": "test_vc121_duplicate_function_names"
-      }
-    }
+    "related_prs": []
   },
   "VC-054": {
     "id": "VC-054",
@@ -7693,13 +6669,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D11",
-        "mechanism": "test_vc122_no_pip_install_in_scripts"
-      }
-    }
+    "related_prs": []
   },
   "VC-055": {
     "id": "VC-055",
@@ -7731,13 +6701,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D1",
-        "mechanism": "test_vc123_no_git_add_all_in_scripts"
-      }
-    }
+    "related_prs": []
   },
   "VC-056": {
     "id": "VC-056",
@@ -7770,13 +6734,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D1",
-        "mechanism": "check_deprecation_log.py"
-      }
-    }
+    "related_prs": []
   },
   "VC-057": {
     "id": "VC-057",
@@ -7809,13 +6767,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D10",
-        "mechanism": "check_handoff_freshness"
-      }
-    }
+    "related_prs": []
   },
   "VC-058": {
     "id": "VC-058",
@@ -7881,13 +6833,7 @@
     "detector": "vc059_prompt_injection_in_agent_loop",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_prompt_injection_in_agent_loop"
-      }
-    }
+    "related_prs": []
   },
   "VC-060": {
     "id": "VC-060",
@@ -7955,13 +6901,7 @@
     "detector": "vc061_hallucinated_dependency",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D11",
-        "mechanism": "test_pypi_404_is_alucinated_dependency"
-      }
-    }
+    "related_prs": []
   },
   "VC-062": {
     "id": "VC-062",
@@ -8090,13 +7030,7 @@
     "detector": "vc065_unhandled_tool_call_failure",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_unhandled_tool_call_failure"
-      }
-    }
+    "related_prs": []
   },
   "VC-066": {
     "id": "VC-066",
@@ -8129,13 +7063,7 @@
     "detector": "vc066_multi_agent_without_protocol",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_multi_agent_without_protocol"
-      }
-    }
+    "related_prs": []
   },
   "VC-067": {
     "id": "VC-067",
@@ -8284,13 +7212,7 @@
     "detector": "vc138_insecure_defaults",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_insecure_defaults"
-      }
-    }
+    "related_prs": []
   },
   "VC-071": {
     "id": "VC-071",
@@ -8323,13 +7245,7 @@
     "detector": "vc071_blind_trust_in_llm_output",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D6",
-        "mechanism": "_detect_blind_trust_in_llm_output"
-      }
-    }
+    "related_prs": []
   },
   "VC-072": {
     "id": "VC-072",
@@ -8362,13 +7278,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D1",
-        "mechanism": "check_handoff_freshness"
-      }
-    }
+    "related_prs": []
   },
   "VC-073": {
     "id": "VC-073",
@@ -8401,13 +7311,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D1",
-        "mechanism": "check_clean_worktree.py"
-      }
-    }
+    "related_prs": []
   },
   "VC-074": {
     "id": "VC-074",
@@ -8440,13 +7344,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D15",
-        "mechanism": "D15AgentSecurity"
-      }
-    }
+    "related_prs": []
   },
   "VC-075": {
     "id": "VC-075",
@@ -8479,13 +7377,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D15",
-        "mechanism": "D15AgentSecurity"
-      }
-    }
+    "related_prs": []
   },
   "VC-076": {
     "id": "VC-076",
@@ -8518,13 +7410,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D15",
-        "mechanism": "D15AgentSecurity"
-      }
-    }
+    "related_prs": []
   },
   "VC-077": {
     "id": "VC-077",
@@ -8557,13 +7443,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D15",
-        "mechanism": "D15AgentSecurity"
-      }
-    }
+    "related_prs": []
   },
   "VC-078": {
     "id": "VC-078",
@@ -8596,13 +7476,7 @@
     "detector": "vc078_excessive_agency",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D15",
-        "mechanism": "D15AgentSecurity"
-      }
-    }
+    "related_prs": []
   },
   "VC-079": {
     "id": "VC-079",
@@ -8635,13 +7509,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D15",
-        "mechanism": "D15AgentSecurity"
-      }
-    }
+    "related_prs": []
   },
   "VC-080": {
     "id": "VC-080",
@@ -8674,13 +7542,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D15",
-        "mechanism": "D15AgentSecurity"
-      }
-    }
+    "related_prs": []
   },
   "VC-081": {
     "id": "VC-081",
@@ -8713,13 +7575,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D15",
-        "mechanism": "D15AgentSecurity"
-      }
-    }
+    "related_prs": []
   },
   "VC-082": {
     "id": "VC-082",
@@ -8752,13 +7608,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D15",
-        "mechanism": "D15AgentSecurity"
-      }
-    }
+    "related_prs": []
   },
   "VC-083": {
     "id": "VC-083",
@@ -8791,13 +7641,7 @@
     "detector": "",
     "tier": "extended",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D15",
-        "mechanism": "D15AgentSecurity"
-      }
-    }
+    "related_prs": []
   },
   "VC-084": {
     "id": "VC-084",
@@ -8830,13 +7674,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D1",
-        "mechanism": "test_canonical_source_first_no_sink_patch"
-      }
-    }
+    "related_prs": []
   },
   "VC-085": {
     "id": "VC-085",
@@ -8869,13 +7707,7 @@
     "detector": "",
     "tier": "core",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D12",
-        "mechanism": "test_doctrine_before_enforcement_resolves_refs"
-      }
-    }
+    "related_prs": []
   },
   "VC-086": {
     "id": "VC-086",
@@ -9102,13 +7934,7 @@
     "detector": "",
     "tier": "specialist",
     "related_cds": [],
-    "related_prs": [],
-    "enforcement": {
-      "cerberus": {
-        "dimension": "D16",
-        "mechanism": "test_vc092_call_tool_uses_dispatch_table"
-      }
-    }
+    "related_prs": []
   },
   "SP-001": {
     "id": "SP-001",

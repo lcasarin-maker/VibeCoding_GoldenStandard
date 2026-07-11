@@ -30,14 +30,13 @@ def _cerberus_enforcement() -> dict:
 
     B2/GS-078: the binding was lifted out of the agnostic catalogs into
     config/cerberus_enforcement.json so the YAML stays consumer-neutral. The
-    generator re-injects it into the downstream audit JSON so consumers that
-    read the generated DB keep resolving their concrete mechanism unchanged.
+    generator only reads the repo-local overlay. Falling back to a sibling
+    checkout makes generated artifacts depend on the developer's workstation
+    layout and diverge in CI.
     """
     global _CERBERUS_ENFORCEMENT_CACHE
     if _CERBERUS_ENFORCEMENT_CACHE is None:
         path = _ROOT / "config" / "cerberus_enforcement.json"
-        if not path.exists():
-            path = _ROOT.parent / "Cerberus" / "config" / "cerberus_enforcement.json"
         _CERBERUS_ENFORCEMENT_CACHE = (
             json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
         )

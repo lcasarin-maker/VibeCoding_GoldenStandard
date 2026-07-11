@@ -117,7 +117,7 @@
       "title": "Contributing to the Golden Standard",
       "kind": "contributing",
       "created": "2026-06-04T20:05:31-06:00",
-      "promoted": "2026-07-03T13:57:15-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [
         "README"
@@ -1672,8 +1672,8 @@
       "path": "Wiki/Detectors/vc-090.md",
       "title": "vc090_premature_abstraction",
       "kind": "wiki",
-      "created": null,
-      "promoted": null,
+      "created": "2026-07-11T01:57:46-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-090"
@@ -9158,7 +9158,7 @@
       "title": "Golden Standard Wiki",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-07-11T00:52:16-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
@@ -25394,7 +25394,7 @@
       "title": "SP-002 — No material fact in chat",
       "kind": "principle",
       "created": "2026-06-22T19:21:17-06:00",
-      "promoted": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "Domains/CD02",
         "Domains/CD15",
@@ -25677,7 +25677,7 @@
       "title": "SP-005 — Session close is mandatory",
       "kind": "principle",
       "created": "2026-06-22T19:21:17-06:00",
-      "promoted": "2026-06-22T19:21:17-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "Domains/CD02",
         "Domains/CD14",
@@ -30377,7 +30377,7 @@
       "title": "Tokenomics Index",
       "kind": "wiki",
       "created": "2026-06-05T12:50:31-06:00",
-      "promoted": "2026-06-22T17:48:29-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "Home",
         "Tokenomics/TK-001",
@@ -33441,7 +33441,7 @@
       "title": "VC-007: Non-surgical scope",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-17T15:52:40-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -33875,7 +33875,7 @@
       "title": "VC-012: Invisible debt",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-07-10T21:56:49-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "Detectors/vc-012",
         "Evidence/arxiv2603_28592",
@@ -36129,7 +36129,7 @@
       "title": "VC-037: Code without tests",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:24:04-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "Evidence/arxiv2602_00409",
         "Home",
@@ -36549,7 +36549,7 @@
       "title": "VC-042: Implicit permission matrix",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:24:04-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "Evidence/owasp_top_10_for_agents_2026",
         "Home",
@@ -36885,7 +36885,7 @@
       "title": "VC-046: Propagation without adoption verification",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-07-04T13:43:47-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "Evidence/arxiv2603_28592",
         "Home",
@@ -40267,7 +40267,7 @@
       "title": "VC-084: Canonical source first (no sink patching)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-07-11T00:52:16-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "Evidence/golden_standard_generation_pipeline",
         "Home",
@@ -40778,7 +40778,7 @@
       "title": "VC-090: Premature abstraction (YAGNI interface)",
       "kind": "vice",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-30T17:12:08-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "Detectors/vc-090",
         "Evidence/ponytail_dietrichgebertponytail",
@@ -50151,7 +50151,7 @@
       "title": "Engineering Vices Index",
       "kind": "wiki",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-07-11T00:52:16-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [
         "Home",
         "Vices/VC-001",
@@ -53149,7 +53149,7 @@
       "title": "detectors.json",
       "kind": "badge",
       "created": "2026-06-22T15:11:53-06:00",
-      "promoted": "2026-06-22T17:48:29-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53249,7 +53249,7 @@
       "title": "golden_standard_coding_vices.yaml",
       "kind": "catalog",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-07-11T00:52:16-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53269,7 +53269,7 @@
       "title": "golden_standard_principles.yaml",
       "kind": "catalog",
       "created": "2026-06-16T18:32:06-06:00",
-      "promoted": "2026-07-03T13:57:15-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53289,7 +53289,7 @@
       "title": "golden_standard_structure_principles.yaml",
       "kind": "catalog",
       "created": "2026-06-22T14:01:05-06:00",
-      "promoted": "2026-07-03T13:57:15-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53309,7 +53309,7 @@
       "title": "golden_standard_testing_vices.yaml",
       "kind": "catalog",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-07-11T00:52:16-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53329,7 +53329,7 @@
       "title": "golden_standard_tokenomics.yaml",
       "kind": "catalog",
       "created": "2026-06-04T19:49:39-06:00",
-      "promoted": "2026-06-22T17:48:29-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53349,7 +53349,7 @@
       "title": "golden_standard_audit.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-07-11T00:52:16-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53369,7 +53369,7 @@
       "title": "golden_standard_graph.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-07-11T00:52:16-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [
         "scripts/analyze_graph.py"
@@ -53400,7 +53400,7 @@
       "title": "golden_standard_metrics.json",
       "kind": "artifact",
       "created": "2026-06-22T15:36:53-06:00",
-      "promoted": "2026-07-10T21:56:49-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -53574,7 +53574,7 @@
       "title": "detectors.py",
       "kind": "script",
       "created": "2026-06-05T15:19:41-06:00",
-      "promoted": "2026-06-22T17:48:29-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [
         "scripts/metrics.py",
@@ -53920,7 +53920,7 @@
       "title": "gs_lint.py",
       "kind": "script",
       "created": "2026-06-29T16:42:20-06:00",
-      "promoted": "2026-07-11T00:52:16-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [
         ".github/workflows/audit.yml"
@@ -54079,7 +54079,7 @@
       "title": "validate_golden_standard_catalogs.py",
       "kind": "script",
       "created": "2026-06-04T20:49:32-06:00",
-      "promoted": "2026-07-09T08:14:07-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [
         ".github/workflows/audit.yml"
@@ -54192,7 +54192,7 @@
       "title": "test_gs_lint_ratchet.py",
       "kind": "test",
       "created": "2026-07-10T21:56:49-06:00",
-      "promoted": "2026-07-11T00:52:16-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -54272,7 +54272,7 @@
       "title": "test_validate_golden_standard_catalogs.py",
       "kind": "test",
       "created": "2026-06-30T17:12:08-06:00",
-      "promoted": "2026-07-09T08:14:07-06:00",
+      "promoted": "2026-07-11T01:57:46-06:00",
       "outgoing": [],
       "incoming": [],
       "outgoing_edges": [],
@@ -74465,7 +74465,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-07-11T00:52:16-06:00",
+        "promoted": "2026-07-11T01:57:46-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
@@ -77871,7 +77871,7 @@
         "title": "Engineering Vices Index",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-07-11T00:52:16-06:00",
+        "promoted": "2026-07-11T01:57:46-06:00",
         "outgoing": [
           "Home",
           "Vices/VC-001",
@@ -88513,7 +88513,7 @@
         "title": "Tokenomics Index",
         "kind": "wiki",
         "created": "2026-06-05T12:50:31-06:00",
-        "promoted": "2026-06-22T17:48:29-06:00",
+        "promoted": "2026-07-11T01:57:46-06:00",
         "outgoing": [
           "Home",
           "Tokenomics/TK-001",
@@ -90971,7 +90971,7 @@
         "title": "Golden Standard Wiki",
         "kind": "wiki",
         "created": "2026-06-04T19:49:39-06:00",
-        "promoted": "2026-07-11T00:52:16-06:00",
+        "promoted": "2026-07-11T01:57:46-06:00",
         "outgoing": [
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
