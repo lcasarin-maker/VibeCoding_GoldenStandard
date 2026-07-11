@@ -1,5 +1,5 @@
 #!/bin/sh
-# GS pre-commit: secret scan first, then structural lint.
+# GS pre-commit: gitleaks first, internal secret scan second, then structural lint.
 set -e
 
 ROOT="$(git rev-parse --show-toplevel)"
@@ -7,8 +7,17 @@ ROOT="$(git rev-parse --show-toplevel)"
 SECRET_SCAN="$ROOT/tools/secret_scan.py"
 GS_LINT="$ROOT/scripts/gs_lint.py"
 
+if command -v gitleaks >/dev/null 2>&1; then
+  echo "[pre-commit] Running gitleaks on staged content..."
+  gitleaks protect --staged --redact --verbose
+else
+  echo "[pre-commit] gitleaks not found — install gitleaks before committing" >&2
+  echo "[pre-commit] https://github.com/gitleaks/gitleaks#installing" >&2
+  exit 1
+fi
+
 if [ -f "$SECRET_SCAN" ]; then
-  echo "[pre-commit] Running secret scan..."
+  echo "[pre-commit] Running internal secret scan..."
   python "$SECRET_SCAN"
 else
   echo "[pre-commit] secret_scan.py not found — skipping"

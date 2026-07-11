@@ -37,6 +37,8 @@ def test_versioned_hooks_include_secret_scan_and_backlog_sync() -> None:
     pre_commit = (ROOT / "scripts" / "hooks" / "pre-commit").read_text(encoding="utf-8")
     commit_msg = (ROOT / "scripts" / "hooks" / "commit-msg").read_text(encoding="utf-8")
 
+    assert "gitleaks protect --staged" in pre_commit
+    assert "gitleaks not found" in pre_commit
     assert "tools/secret_scan.py" in pre_commit
     assert "scripts/gs_lint.py" in pre_commit
     assert "check_backlog_sync.py" in commit_msg
