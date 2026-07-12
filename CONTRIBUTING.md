@@ -28,6 +28,17 @@ At the end of work:
 
 ---
 
+## Local Runtime
+
+- Python of record is `3.10+`; on Windows, prefer the launcher form so the matrix stays explicit.
+- Typical verification flow:
+  - `py -3.10 -m pip install pytest pyyaml`
+  - `py -3.10 -m pytest -W error`
+  - `py -3.13 -m pytest -W error`
+- On this workstation, `py -3.10` is available again as Python `3.10.11`, so the 3.10 leg no longer needs a reinstall before running the suite.
+
+---
+
 ## Types of Contributions
 
 ### 1. New Vice Entry (most common)

@@ -12,7 +12,12 @@
         "gs-vt-040-blind-except",
         "gs-vt-043-unconditional-exit-zero",
         "gs-vt-005-vacuous-assert",
-        "gs-vt-009-tautological-assert"
+        "gs-vt-009-tautological-assert",
+        "gs-vc-036-destructive-without-dryrun",
+        "gs-vc-038-optimistic-config",
+        "gs-vc-025-io-without-validation",
+        "gs-vc-017-deadlock-without-heartbeat",
+        "gs-vt-006-test-without-assert"
       ]
     },
     {

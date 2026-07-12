@@ -1,6 +1,6 @@
 {
   "corpus": "tests/semgrep_effectiveness_corpus.json",
-  "generated_at": "2026-07-11T13:18:48+00:00",
+  "generated_at": "2026-07-12T01:08:05+00:00",
   "rubric": {
     "committed_before_run": true,
     "name": "GS Semgrep detector effectiveness rubric",
@@ -8,6 +8,30 @@
     "version": "1.0"
   },
   "rules": {
+    "gs-vc-017-deadlock-without-heartbeat": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vc-025-io-without-validation": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vc-036-destructive-without-dryrun": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vc-038-optimistic-config": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
     "gs-vc-095-hardcoded-secret": {
       "detected_cases": 1,
       "false_negative_rate": 0.0,
@@ -27,6 +51,12 @@
       "known_positive_cases": 1
     },
     "gs-vt-005-vacuous-assert": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vt-006-test-without-assert": {
       "detected_cases": 1,
       "false_negative_rate": 0.0,
       "false_negatives": [],
@@ -56,6 +86,6 @@
     "false_positive_count": 0,
     "max_false_negative_rate": 0.0,
     "passed": true,
-    "rules_evaluated": 7
+    "rules_evaluated": 12
   }
 }

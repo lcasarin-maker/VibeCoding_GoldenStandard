@@ -52,7 +52,7 @@ def test_effectiveness_passes_when_all_known_vices_fire():
     }
     report = evaluate_effectiveness(cases, findings, load_rubric())
     assert report["summary"] == {
-        "rules_evaluated": 7,
+        "rules_evaluated": 12,
         "false_positive_count": 0,
         "max_false_negative_rate": 0.0,
         "passed": True,

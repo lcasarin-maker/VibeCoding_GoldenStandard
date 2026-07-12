@@ -22,3 +22,18 @@ mappings:
   gs-vt-009-tautological-assert:
     vice_ids: [VT-009]
     status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture
+  gs-vc-036-destructive-without-dryrun:
+    vice_ids: [VC-036]
+    status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture
+  gs-vc-038-optimistic-config:
+    vice_ids: [VC-038]
+    status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture
+  gs-vc-025-io-without-validation:
+    vice_ids: [VC-025]
+    status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture
+  gs-vc-017-deadlock-without-heartbeat:
+    vice_ids: [VC-017]
+    status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture
+  gs-vt-006-test-without-assert:
+    vice_ids: [VT-006]
+    status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture

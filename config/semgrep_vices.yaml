@@ -69,3 +69,88 @@ rules:
     metadata:
       vice_ids: [VT-009]
       category: testing
+  - id: gs-vc-036-destructive-without-dryrun
+    message: "VC-036: destructive command lacks dry-run or simulation"
+    severity: ERROR
+    languages: [python]
+    patterns:
+      - pattern-regex: (?i)(rm\s+-rf\b|git\s+reset\s+--hard\b|\bDROP\s+(?:TABLE|DATABASE)\b|\bTRUNCATE\b)
+      - pattern-not-regex: (?i)(--dry-run\b|-print\b|\bEXPLAIN\b|\becho\b)
+    metadata:
+      vice_ids: [VC-036]
+      category: vibe-coding
+  - id: gs-vc-038-optimistic-config
+    message: "VC-038: optimistic config hardcodes environment-sensitive values"
+    severity: ERROR
+    languages: [python]
+    patterns:
+      - pattern-either:
+          - pattern: DEBUG = True
+          - pattern: TESTING = True
+          - pattern-regex: (?i)(DATABASE_URL|API_KEY|SECRET_KEY|PASSWORD)\s*=\s*['\"][^'\"]+['\"]
+    metadata:
+      vice_ids: [VC-038]
+      category: vibe-coding
+  - id: gs-vc-025-io-without-validation
+    message: "VC-025: external input reaches a sink without validation"
+    severity: ERROR
+    languages: [python]
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: request.args[$KEY]
+          - pattern: request.files[$KEY]
+          - pattern: request.form[$KEY]
+          - pattern: request.json[$KEY]
+          - pattern: sys.argv[$IDX]
+          - pattern: input(...)
+    pattern-sinks:
+      - pattern-either:
+          - pattern: $DB.execute(...)
+          - pattern: exec(...)
+          - pattern: system(...)
+          - pattern: popen(...)
+          - pattern: subprocess.run(...)
+          - pattern: subprocess.call(...)
+          - pattern: subprocess.Popen(...)
+    pattern-sanitizers:
+      - pattern-either:
+          - pattern: validate_int(...)
+          - pattern: safe_int(...)
+          - pattern: schema.load(...)
+          - pattern: parameterize(...)
+          - pattern: escape(...)
+    metadata:
+      vice_ids: [VC-025]
+      category: vibe-coding
+  - id: gs-vc-017-deadlock-without-heartbeat
+    message: "VC-017: blocking call lacks timeout or heartbeat"
+    severity: ERROR
+    languages: [python]
+    pattern-regex: (?m)\b\w+\.\s*join\s*\(\s*\)
+    metadata:
+      vice_ids: [VC-017]
+      category: vibe-coding
+  - id: gs-vt-006-test-without-assert
+    message: "VT-006: test function has no oracle"
+    severity: ERROR
+    languages: [python]
+    patterns:
+      - pattern: |
+          def $FUNC(...):
+            ...
+      - metavariable-regex:
+          metavariable: $FUNC
+          regex: ^test_
+      - pattern-not-inside: |
+          def $FUNC(...):
+            ...
+            assert ...
+      - pattern-not-inside: |
+          def $FUNC(...):
+            ...
+            with pytest.raises(...):
+              ...
+    metadata:
+      vice_ids: [VT-006]
+      category: testing
