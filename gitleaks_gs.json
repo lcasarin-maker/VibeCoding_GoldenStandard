@@ -1,0 +1,22 @@
+[
+ {
+  "RuleID": "generic-api-key",
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 26,
+  "EndLine": 26,
+  "StartColumn": 37,
+  "EndColumn": 88,
+  "Match": "gs-vc-095-hardcoded-secret\", \"gs-vc-115-unsafe-eval\"",
+  "Secret": "gs-vc-115-unsafe-eval",
+  "File": "D:/AI/VibeCoding_GoldenStandard/tests/test_semgrep_effectiveness_eval.py",
+  "SymlinkFile": "",
+  "Commit": "",
+  "Entropy": 3.5351746,
+  "Author": "",
+  "Email": "",
+  "Date": "",
+  "Message": "",
+  "Tags": [],
+  "Fingerprint": "D:/AI/VibeCoding_GoldenStandard/tests/test_semgrep_effectiveness_eval.py:generic-api-key:26"
+ }
+]

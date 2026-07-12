@@ -1,0 +1,11 @@
+# .gitleaks.toml — Golden Standard (allowlist de falsos positivos verificados 2026-07-12)
+[extend]
+useDefault = true
+
+[allowlist]
+description = "FPs verificados: fixtures de reglas y eval de efectividad"
+paths = [
+  '''tests/.*''',
+  '''audit/sessions/.*semgrep.*''',
+  '''gitleaks_.*\.json''',
+]
