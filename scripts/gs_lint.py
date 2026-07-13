@@ -20,6 +20,7 @@ CATALOGS = [
     "golden_standard_tokenomics.yaml",
     "golden_standard_principles.yaml",
     "golden_standard_structure_principles.yaml",
+    "golden_standard_adversarial_vectors.yaml",
 ]
 
 # IDs that are intentionally DOC_ONLY_PERMANENT (won't have validating_mechanism)

@@ -1,6 +1,10 @@
 # PLAN.md — FASE 2 GS / Correcciones adversariales 2026-07-10
 
-Este plan ejecuta la parte GS de `Aequitas_OS/PLAN_MAESTRO_CORRECCIONES_2026-07-10.md`, con contexto en `docs/AUDITORIA_ADVERSARIAL_2026-07-10.md`.
+Este plan ejecuta la parte GS de la auditoría adversarial 2026-07-10, con
+contexto en `docs/AUDITORIA_ADVERSARIAL_2026-07-10.md`. El plan maestro
+original de Aequitas_OS (`PLAN_MAESTRO_CORRECCIONES_2026-07-10.md`) fue
+consolidado y eliminado por redundante; su contenido vigente vive en
+`Aequitas_OS/BACKLOG_MAESTRO_v3.md`.
 
 ## B10 — aprobación requerida
 

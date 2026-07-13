@@ -97,7 +97,9 @@ until it is confirmed 3+ times or otherwise supported by strong evidence.
 | Vibe Coding Vice | `VC` | `golden_standard_coding_vices.yaml` | AI-assisted dev antipatterns |
 | Testing Vice | `VT` | `golden_standard_testing_vices.yaml` | Test quality failures |
 | Tokenomics | `TK` | `golden_standard_tokenomics.yaml` | AI token usage inefficiencies |
-| Project Insight | `PI` | `golden_standard_project_insights.yaml` | Cross-cutting lessons |
+| Principle | `PR` | `golden_standard_principles.yaml` | Cross-cutting doctrine/lessons |
+| Structure Principle | `SP` | `golden_standard_structure_principles.yaml` | Architectural/structural doctrine |
+| Adversarial Vector | `AV` | `golden_standard_adversarial_vectors.yaml` | Attack/failure-injection scenarios |
 
 ### Assign the Next Sequential ID
 
