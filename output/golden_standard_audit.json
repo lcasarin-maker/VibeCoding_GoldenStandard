@@ -7964,6 +7964,41 @@
     "related_cds": [],
     "related_prs": []
   },
+  "VC-094": {
+    "id": "VC-094",
+    "title": "BOM in config file silently kills the first key",
+    "category": "Vibe Coding",
+    "symptom": "A config file (.env, .yaml, .yml, .json, .toml, .ini) that worked stops loading EXACTLY its first variable after being moved, re-saved, or copied. No error, no warning: the parser reads the first key with a leading BOM character glued to it, so it matches nothing and the loader silently falls back to an empty default.",
+    "cause": "A UTF-8 BOM (EF BB BF) at the start of the file, invisible in any editor, introduced by Windows tools saving as \"UTF-8\" (Notepad, PowerShell 5.1's default Set-Content -Encoding UTF8). The system assumes the config file is what it appears to be; the failure surfaces far from its origin (an empty value at runtime, not a parse error).",
+    "solution": "Reject a leading BOM in configuration files at write/commit time, and make critical loaders (secrets, credentials) fail loudly if an expected first key is missing after load -- defense in depth against this whole failure class.",
+    "status": "PREVENTED",
+    "severity": "high",
+    "tags": [
+      "vibe-coding",
+      "prevented",
+      "configuration",
+      "encoding",
+      "silent-failure"
+    ],
+    "action": "Static check on configuration files: the first 3 bytes must not be EF BB BF (UTF-8 BOM). When writing configs from PowerShell, use New-Object Text.UTF8Encoding($false) or Set-Content -Encoding utf8NoBOM (PS7), never the PS5.1 default \"UTF8\".",
+    "validating_mechanism": "static-ast",
+    "downstream_verification": "none",
+    "example_bad": "﻿AEQUITAS_SECRET_KEY=abc123\nAEQUITAS_ALGORITHM=HS256\n",
+    "example_good": "AEQUITAS_SECRET_KEY=abc123\nAEQUITAS_ALGORITHM=HS256\n",
+    "example_lang": "text",
+    "detection": "Read the first 3 bytes of the file; EF BB BF (decoded as a leading U+FEFF in the text form) means the file has a BOM. Applies to .env/.yaml/.yml/.json/.toml/.ini and any line-oriented config format.",
+    "evidence": [
+      {
+        "source": "Aequitas OS secrets migration to D:\\AI\\.secrets, Fase 0.3 (internal, cited generically per GS/CC boundary, see Wiki/Evidence)",
+        "claim": "Moving backend/.env introduced a BOM (via a Windows save path); Settings().SECRET_KEY loaded as empty with zero errors or warnings, and the rest of the variables loaded fine, which made the misdiagnosis look like an alias/path bug instead of an encoding one."
+      }
+    ],
+    "doctrinal": false,
+    "detector": "vc094_bom_in_config",
+    "tier": "extended",
+    "related_cds": [],
+    "related_prs": []
+  },
   "SP-001": {
     "id": "SP-001",
     "title": "Single governance hub",

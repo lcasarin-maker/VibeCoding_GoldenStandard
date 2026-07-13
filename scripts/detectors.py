@@ -633,6 +633,11 @@ def vc087_self_polluting_tooling(code: str) -> bool:
 
 
 # Registry: catalog id -> detector. Keep in sync with the entries' `detector` field.
+# --- VC-094: UTF-8 BOM at the start of a config file (Inbox 2026-07-12) ---
+def vc094_bom_in_config(code: str) -> bool:
+    return code.startswith("\ufeff")
+
+
 DETECTORS = {
     "VC-005": vc005_premature_closure,
     "VC-003": vc003_incomprehensible_code,
@@ -674,4 +679,5 @@ DETECTORS = {
     "VC-024": vc070_blind_shell_edit,
     "VC-027": vc078_placeholder,
     "VC-093": vc093_unjustified_nosemgrep,
+    "VC-094": vc094_bom_in_config,
 }

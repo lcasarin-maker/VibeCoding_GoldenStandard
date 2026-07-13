@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.6 | Date: 2026-07-13 | Total Audited Items: 357**
+**Golden Standard V0.6 | Date: 2026-07-13 | Total Audited Items: 358**
 
 This document is generated automatically by `scripts/generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -8,9 +8,9 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | Category | Audited Items | Prevented / Remediated | Audited / Not Applicable | Clean Status |
 |---|---|---|---|---|
 | **Testing & Evaluation** | 116 | 30 | 86 | 100% |
-| **Vibe Coding** | 93 | 72 | 21 | 100% |
+| **Vibe Coding** | 94 | 73 | 21 | 100% |
 | **Tokenomics & Context** | 34 | 33 | 1 | 100% |
-| **Total** | 357 | 142 | 215 | 100% |
+| **Total** | 358 | 143 | 215 | 100% |
 
 ---
 
@@ -137,7 +137,7 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `VT-115` | False Drift Positive from Line Endings (CRLF/LF Hash Mismatch) | **high** | **REMEDIATED** | `none` | Normalize line endings to a single form before hashing so files identical on disk do not raise a false drift positive across platforms.  | `runtime-test` |
 | `VT-116` | Decoy comment satisfies a text-based validator | **high** | **PREVENTED** | `none` | Resolve symbols structurally through the AST so only a real definition node counts; a commented-out or string mention must not satisfy the check.  | `runtime-test` |
 
-### Vibe Coding (93 items)
+### Vibe Coding (94 items)
 
 | ID | Flaw Title | Severity | Status | Downstream Verification | Action Taken / Prevention Method | Validating Test / Guard |
 |---|---|---|---|---|---|---|
@@ -234,6 +234,7 @@ This document is generated automatically by `scripts/generate_golden_audit.py` t
 | `VC-091` | Unnecessary dependency introduction | **medium** | **DOC_ONLY** | `required` | Resolution ladder before any new dependency: (1) does stdlib cover it? (2) does an already-installed package expose this? (3) does a native platform API cover it? Only after all three fail: add dep. Every new dep requires explicit justification in the PR why the ladder was exhausted.  | `DOC_ONLY` |
 | `VC-092` | Elif chain measured as deep nesting (AST-depth blind spot) | **low** | **PREVENTED** | `required` | When a nesting/complexity static check fires on an if/elif chain, convert it to a dispatch dict instead of silencing the check or manually nesting helper functions — a mechanical, behavior-preserving fix that satisfies the metric and genuinely simplifies the code.  | `static-ast` |
 | `VC-093` | Unjustified Semgrep suppression (bare # nosemgrep) | **medium** | **PREVENTED** | `none` | Static source analysis flags a `# nosemgrep`/`# nosemgrep: rule-id` comment with nothing after it; the allowed pattern requires trailing justification text (e.g. `# nosemgrep: rule-id -- reason`). | `static-ast` |
+| `VC-094` | BOM in config file silently kills the first key | **high** | **PREVENTED** | `none` | Static check on configuration files: the first 3 bytes must not be EF BB BF (UTF-8 BOM). When writing configs from PowerShell, use New-Object Text.UTF8Encoding($false) or Set-Content -Encoding utf8NoBOM (PS7), never the PS5.1 default "UTF8". | `static-ast` |
 
 ### Tokenomics & Context (34 items)
 

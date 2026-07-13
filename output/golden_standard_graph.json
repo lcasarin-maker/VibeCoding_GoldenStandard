@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-07-13",
-  "node_count": 521,
-  "edge_count": 2680,
+  "node_count": 524,
+  "edge_count": 2691,
   "nodes": [
     {
       "id": ".github/workflows/audit.yml",
@@ -1757,6 +1757,58 @@
       "incoming_edges": [
         {
           "source": "Vices/VC-093",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-094",
+      "path": "Wiki/Detectors/vc-094.md",
+      "title": "vc094_bom_in_config",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-094"
+      ],
+      "incoming": [
+        "Vices/VC-094"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-094",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-094",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -5583,6 +5635,58 @@
       "hub_score": 225
     },
     {
+      "id": "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
+      "path": "Wiki/Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically.md",
+      "title": "Aequitas OS secrets migration to D:\\AI\\.secrets, Fase 0.3 (internal, cited generically per GS/CC boundary, see Wiki/Evidence)",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-094"
+      ],
+      "incoming": [
+        "Vices/VC-094"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-094",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-094",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
       "id": "Evidence/arxiv2602_00409",
       "path": "Wiki/Evidence/arxiv2602_00409.md",
       "title": "arxiv:2602.00409",
@@ -9264,6 +9368,7 @@
         "Detectors/vc-087",
         "Detectors/vc-090",
         "Detectors/vc-093",
+        "Detectors/vc-094",
         "Detectors/vt-005",
         "Detectors/vt-006",
         "Detectors/vt-009",
@@ -9289,6 +9394,7 @@
         "Domains/CD17",
         "Domains/CD18",
         "Domains/README",
+        "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
         "Evidence/arxiv2602_00409",
         "Evidence/arxiv2603_28592",
         "Evidence/byterover-cli_zilliztech_claude-context_verified",
@@ -9587,6 +9693,7 @@
         "Vices/VC-091",
         "Vices/VC-092",
         "Vices/VC-093",
+        "Vices/VC-094",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -9967,6 +10074,12 @@
           "confidence": 0.85
         },
         {
+          "source": "Detectors/vc-094",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Detectors/vt-005",
           "kind": "wikilink",
           "relation": "references",
@@ -10115,6 +10228,12 @@
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
+        },
+        {
+          "source": "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
         },
         {
           "source": "Evidence/arxiv2602_00409",
@@ -11905,6 +12024,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Vices/VC-094",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VT-001",
           "kind": "wikilink",
           "relation": "returns_to_index",
@@ -12607,9 +12732,9 @@
           "confidence": 0.85
         }
       ],
-      "in_degree": 470,
+      "in_degree": 473,
       "out_degree": 13,
-      "degree": 483,
+      "degree": 486,
       "connected_types": [
         "conceptual-framework",
         "domain",
@@ -12629,7 +12754,7 @@
       ],
       "semantic_reach": 8,
       "relation_diversity": 5,
-      "hub_score": 517
+      "hub_score": 520
     },
     {
       "id": "Principles",
@@ -21942,6 +22067,7 @@
         "Vices/VC-091",
         "Vices/VC-092",
         "Vices/VC-093",
+        "Vices/VC-094",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -22681,6 +22807,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Vices/VC-094",
+          "kind": "wikilink",
+          "relation": "governed_by",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VT-001",
           "kind": "wikilink",
           "relation": "governed_by",
@@ -23377,9 +23509,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 214,
+      "in_degree": 215,
       "out_degree": 5,
-      "degree": 219,
+      "degree": 220,
       "connected_types": [
         "domain",
         "principle-index",
@@ -23396,7 +23528,7 @@
       ],
       "semantic_reach": 4,
       "relation_diversity": 6,
-      "hub_score": 243
+      "hub_score": 244
     },
     {
       "id": "Principles/PR-098",
@@ -31188,6 +31320,7 @@
         "Vices/VC-091",
         "Vices/VC-092",
         "Vices/VC-093",
+        "Vices/VC-094",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -32239,6 +32372,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Vices/VC-094",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VT-001",
           "kind": "wikilink",
           "relation": "returns_to_index",
@@ -32935,9 +33074,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 250,
+      "in_degree": 251,
       "out_degree": 21,
-      "degree": 271,
+      "degree": 272,
       "connected_types": [
         "principle",
         "principle-index",
@@ -32953,7 +33092,7 @@
       ],
       "semantic_reach": 5,
       "relation_diversity": 4,
-      "hub_score": 294
+      "hub_score": 295
     },
     {
       "id": "Vices/VC-001",
@@ -41208,6 +41347,104 @@
       "downstream_verification": "none",
       "severity": "medium",
       "cluster": "cluster_5"
+    },
+    {
+      "id": "Vices/VC-094",
+      "path": "Wiki/Vices/VC-094.md",
+      "title": "VC-094: BOM in config file silently kills the first key",
+      "kind": "vice",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Detectors/vc-094",
+        "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
+        "Home",
+        "Principles/PR-097",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Detectors/vc-094",
+        "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
+        "Vices_Index"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Detectors/vc-094",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "target": "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-097",
+          "kind": "wikilink",
+          "relation": "governed_by",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics_Map",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices_Index",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Detectors/vc-094",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "source": "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "source": "Vices_Index",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 3,
+      "out_degree": 6,
+      "degree": 9,
+      "connected_types": [
+        "principle",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "governed_by",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 21,
+      "status": "PREVENTED",
+      "downstream_verification": "none",
+      "severity": "high",
+      "cluster": "cluster_1"
     },
     {
       "id": "Vices/VT-001",
@@ -50418,6 +50655,7 @@
         "Vices/VC-091",
         "Vices/VC-092",
         "Vices/VC-093",
+        "Vices/VC-094",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -50630,6 +50868,7 @@
         "Vices/VC-091",
         "Vices/VC-092",
         "Vices/VC-093",
+        "Vices/VC-094",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -51308,6 +51547,12 @@
         },
         {
           "target": "Vices/VC-093",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VC-094",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -52575,6 +52820,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Vices/VC-094",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VT-001",
           "kind": "wikilink",
           "relation": "returns_to_index",
@@ -53271,9 +53522,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 210,
-      "out_degree": 210,
-      "degree": 420,
+      "in_degree": 211,
+      "out_degree": 211,
+      "degree": 422,
       "connected_types": [
         "vice",
         "wiki"
@@ -53286,7 +53537,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 4,
-      "hub_score": 434
+      "hub_score": 436
     },
     {
       "id": "docs/badges/ai-native.json",
@@ -55054,6 +55305,20 @@
       "confidence": 0.95
     },
     {
+      "source": "Detectors/vc-094",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-094",
+      "target": "Vices/VC-094",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
       "source": "Detectors/vt-005",
       "target": "Home",
       "kind": "wikilink",
@@ -56255,6 +56520,20 @@
       "target": "Principles/SP-004",
       "kind": "wikilink",
       "relation": "operationalizes_domain",
+      "confidence": 0.95
+    },
+    {
+      "source": "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
+      "target": "Vices/VC-094",
+      "kind": "wikilink",
+      "relation": "catalogs",
       "confidence": 0.95
     },
     {
@@ -68549,6 +68828,54 @@
       "weight": 0.5
     },
     {
+      "source": "Vices/VC-094",
+      "target": "Detectors/vc-094",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.8
+    },
+    {
+      "source": "Vices/VC-094",
+      "target": "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.8
+    },
+    {
+      "source": "Vices/VC-094",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.8
+    },
+    {
+      "source": "Vices/VC-094",
+      "target": "Principles/PR-097",
+      "kind": "wikilink",
+      "relation": "governed_by",
+      "confidence": 0.95,
+      "weight": 0.8
+    },
+    {
+      "source": "Vices/VC-094",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.8
+    },
+    {
+      "source": "Vices/VC-094",
+      "target": "Vices_Index",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.8
+    },
+    {
       "source": "Vices/VT-001",
       "target": "Evidence/arxiv2602_00409",
       "kind": "wikilink",
@@ -73936,6 +74263,13 @@
     },
     {
       "source": "Vices_Index",
+      "target": "Vices/VC-094",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Vices_Index",
       "target": "Vices/VT-001",
       "kind": "wikilink",
       "relation": "catalogs",
@@ -74799,26 +75133,26 @@
   "summary": {
     "edge_kinds": {
       "markdown": 6,
-      "wikilink": 2626
+      "wikilink": 2637
     },
     "relation_counts": {
       "bridges": 21,
-      "catalogs": 356,
+      "catalogs": 359,
       "entrypoint": 13,
-      "governed_by": 209,
+      "governed_by": 210,
       "indexes": 122,
       "operationalizes_domain": 105,
-      "references": 478,
-      "returns_to_index": 1171,
+      "references": 480,
+      "returns_to_index": 1176,
       "routes_to_domains": 1,
       "subindex": 34,
       "thematic_bridge": 122
     },
-    "reciprocal_pairs": 610,
+    "reciprocal_pairs": 613,
     "average_edge_confidence": 0.933,
-    "semantic_density": 0.011544,
+    "semantic_density": 0.011448,
     "hub_ratio": 1.0,
-    "bridge_ratio": 0.997908,
+    "bridge_ratio": 0.997921,
     "intentional_orphans": [],
     "intentional_orphan_review": [],
     "orphan_candidates": [],
@@ -74876,6 +75210,7 @@
           "Detectors/vc-087",
           "Detectors/vc-090",
           "Detectors/vc-093",
+          "Detectors/vc-094",
           "Detectors/vt-005",
           "Detectors/vt-006",
           "Detectors/vt-009",
@@ -74901,6 +75236,7 @@
           "Domains/CD17",
           "Domains/CD18",
           "Domains/README",
+          "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
           "Evidence/arxiv2602_00409",
           "Evidence/arxiv2603_28592",
           "Evidence/byterover-cli_zilliztech_claude-context_verified",
@@ -75199,6 +75535,7 @@
           "Vices/VC-091",
           "Vices/VC-092",
           "Vices/VC-093",
+          "Vices/VC-094",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -75579,6 +75916,12 @@
             "confidence": 0.85
           },
           {
+            "source": "Detectors/vc-094",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
             "source": "Detectors/vt-005",
             "kind": "wikilink",
             "relation": "references",
@@ -75727,6 +76070,12 @@
             "kind": "wikilink",
             "relation": "returns_to_index",
             "confidence": 0.95
+          },
+          {
+            "source": "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
           },
           {
             "source": "Evidence/arxiv2602_00409",
@@ -77517,6 +77866,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-094",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -78219,9 +78574,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 470,
+        "in_degree": 473,
         "out_degree": 13,
-        "degree": 483,
+        "degree": 486,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -78241,7 +78596,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 517
+        "hub_score": 520
       },
       {
         "id": "Vices_Index",
@@ -78345,6 +78700,7 @@
           "Vices/VC-091",
           "Vices/VC-092",
           "Vices/VC-093",
+          "Vices/VC-094",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -78557,6 +78913,7 @@
           "Vices/VC-091",
           "Vices/VC-092",
           "Vices/VC-093",
+          "Vices/VC-094",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -79235,6 +79592,12 @@
           },
           {
             "target": "Vices/VC-093",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-094",
             "kind": "wikilink",
             "relation": "catalogs",
             "confidence": 0.95
@@ -80502,6 +80865,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-094",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -81198,9 +81567,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 210,
-        "out_degree": 210,
-        "degree": 420,
+        "in_degree": 211,
+        "out_degree": 211,
+        "degree": 422,
         "connected_types": [
           "vice",
           "wiki"
@@ -81213,7 +81582,7 @@
         ],
         "semantic_reach": 2,
         "relation_diversity": 4,
-        "hub_score": 434
+        "hub_score": 436
       },
       {
         "id": "Tokenomics_Map",
@@ -81380,6 +81749,7 @@
           "Vices/VC-091",
           "Vices/VC-092",
           "Vices/VC-093",
+          "Vices/VC-094",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -82431,6 +82801,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-094",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -83127,9 +83503,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 250,
+        "in_degree": 251,
         "out_degree": 21,
-        "degree": 271,
+        "degree": 272,
         "connected_types": [
           "principle",
           "principle-index",
@@ -83145,7 +83521,7 @@
         ],
         "semantic_reach": 5,
         "relation_diversity": 4,
-        "hub_score": 294
+        "hub_score": 295
       },
       {
         "id": "Principles",
@@ -85094,6 +85470,7 @@
           "Vices/VC-091",
           "Vices/VC-092",
           "Vices/VC-093",
+          "Vices/VC-094",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -85833,6 +86210,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-094",
+            "kind": "wikilink",
+            "relation": "governed_by",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "governed_by",
@@ -86529,9 +86912,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 214,
+        "in_degree": 215,
         "out_degree": 5,
-        "degree": 219,
+        "degree": 220,
         "connected_types": [
           "domain",
           "principle-index",
@@ -86548,7 +86931,7 @@
         ],
         "semantic_reach": 4,
         "relation_diversity": 6,
-        "hub_score": 243
+        "hub_score": 244
       },
       {
         "id": "Domains/README",
@@ -91424,6 +91807,7 @@
           "Detectors/vc-087",
           "Detectors/vc-090",
           "Detectors/vc-093",
+          "Detectors/vc-094",
           "Detectors/vt-005",
           "Detectors/vt-006",
           "Detectors/vt-009",
@@ -91449,6 +91833,7 @@
           "Domains/CD17",
           "Domains/CD18",
           "Domains/README",
+          "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
           "Evidence/arxiv2602_00409",
           "Evidence/arxiv2603_28592",
           "Evidence/byterover-cli_zilliztech_claude-context_verified",
@@ -91747,6 +92132,7 @@
           "Vices/VC-091",
           "Vices/VC-092",
           "Vices/VC-093",
+          "Vices/VC-094",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -92127,6 +92513,12 @@
             "confidence": 0.85
           },
           {
+            "source": "Detectors/vc-094",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
             "source": "Detectors/vt-005",
             "kind": "wikilink",
             "relation": "references",
@@ -92275,6 +92667,12 @@
             "kind": "wikilink",
             "relation": "returns_to_index",
             "confidence": 0.95
+          },
+          {
+            "source": "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
           },
           {
             "source": "Evidence/arxiv2602_00409",
@@ -94065,6 +94463,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-094",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -94767,9 +95171,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 470,
+        "in_degree": 473,
         "out_degree": 13,
-        "degree": 483,
+        "degree": 486,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -94789,7 +95193,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 517
+        "hub_score": 520
       },
       {
         "id": "Tokenomics_Map",
@@ -94956,6 +95360,7 @@
           "Vices/VC-091",
           "Vices/VC-092",
           "Vices/VC-093",
+          "Vices/VC-094",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -96007,6 +96412,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-094",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -96703,9 +97114,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 250,
+        "in_degree": 251,
         "out_degree": 21,
-        "degree": 271,
+        "degree": 272,
         "connected_types": [
           "principle",
           "principle-index",
@@ -96721,7 +97132,7 @@
         ],
         "semantic_reach": 5,
         "relation_diversity": 4,
-        "hub_score": 294
+        "hub_score": 295
       },
       {
         "id": "Domains/README",
@@ -99346,6 +99757,7 @@
           "Vices/VC-091",
           "Vices/VC-092",
           "Vices/VC-093",
+          "Vices/VC-094",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -100085,6 +100497,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-094",
+            "kind": "wikilink",
+            "relation": "governed_by",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "governed_by",
@@ -100781,9 +101199,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 214,
+        "in_degree": 215,
         "out_degree": 5,
-        "degree": 219,
+        "degree": 220,
         "connected_types": [
           "domain",
           "principle-index",
@@ -100800,7 +101218,7 @@
         ],
         "semantic_reach": 4,
         "relation_diversity": 6,
-        "hub_score": 243
+        "hub_score": 244
       },
       {
         "id": "Principles/PR-081",

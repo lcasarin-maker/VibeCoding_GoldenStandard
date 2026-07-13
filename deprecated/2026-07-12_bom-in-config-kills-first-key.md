@@ -62,3 +62,9 @@ como sexto detector barato, y en el pipeline rule-first de GS-RAC-001).
 3. Los loaders críticos (secretos) deberían validar que las claves esperadas
    existan tras la carga y FALLAR ruidosamente si la primera clave del archivo
    no aparece (defensa en profundidad contra esta clase completa).
+
+## Resolution
+Promoted to: VC-094 (golden_standard_coding_vices.yaml)
+Wiki article: Wiki/Vices/VC-094.md
+Date promoted: 2026-07-13
+Curator: Claude (Sonnet 5), sesion autonoma nocturna
