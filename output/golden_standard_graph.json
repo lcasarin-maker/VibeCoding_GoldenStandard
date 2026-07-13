@@ -1,6 +1,6 @@
 {
   "generated_on": "2026-07-13",
-  "node_count": 518,
+  "node_count": 519,
   "edge_count": 2672,
   "nodes": [
     {
@@ -54268,6 +54268,26 @@
       "id": "tests/test_gs_lint_ratchet.py",
       "path": "tests/test_gs_lint_ratchet.py",
       "title": "test_gs_lint_ratchet.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
+    },
+    {
+      "id": "tests/test_gs_query.py",
+      "path": "tests/test_gs_query.py",
+      "title": "test_gs_query.py",
       "kind": "test",
       "created": null,
       "promoted": null,

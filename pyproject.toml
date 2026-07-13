@@ -11,4 +11,7 @@ description = "Agnostic Golden Standard: rules, vices, and governance knowledge.
 requires-python = ">=3.10"
 
 [tool.pytest.ini_options]
-pythonpath = ["scripts"]
+pythonpath = ["scripts", "."]
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.0"]
