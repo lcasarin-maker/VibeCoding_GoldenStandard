@@ -7,7 +7,7 @@
 
 | Catalog | Entries | Open debt | Notes |
 |---------|---------|-----------|-------|
-| VC (coding vices) | 92 | none | VC-012 REMEDIATED; VC-084/VC-086 ratchet justifications recorded |
+| VC (coding vices) | 93 | none | VC-012 REMEDIATED; VC-084/VC-086 ratchet justifications recorded; VC-093 added 2026-07-13 (unjustified nosemgrep suppression, GS-05) |
 | VT (testing vices) | 116 | none | VT-043 PREVENTED by Semgrep rule with positive/negative fixtures |
 | TK (tokenomics) | 34 | none | |
 | PR (principles) | 121 | none | PR-118-121 added 2026-06-26; decoupled from CC-internal IDs 2026-07-01 |

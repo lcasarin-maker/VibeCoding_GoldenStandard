@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-07-13",
-  "node_count": 519,
-  "edge_count": 2672,
+  "node_count": 521,
+  "edge_count": 2680,
   "nodes": [
     {
       "id": ".github/workflows/audit.yml",
@@ -1705,6 +1705,58 @@
       "incoming_edges": [
         {
           "source": "Vices/VC-090",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "degree": 3,
+      "connected_types": [
+        "vice",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 15
+    },
+    {
+      "id": "Detectors/vc-093",
+      "path": "Wiki/Detectors/vc-093.md",
+      "title": "vc093_unjustified_nosemgrep",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Home",
+        "Vices/VC-093"
+      ],
+      "incoming": [
+        "Vices/VC-093"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Vices/VC-093",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Vices/VC-093",
           "kind": "wikilink",
           "relation": "returns_to_index",
           "confidence": 0.95
@@ -9211,6 +9263,7 @@
         "Detectors/vc-078",
         "Detectors/vc-087",
         "Detectors/vc-090",
+        "Detectors/vc-093",
         "Detectors/vt-005",
         "Detectors/vt-006",
         "Detectors/vt-009",
@@ -9533,6 +9586,7 @@
         "Vices/VC-090",
         "Vices/VC-091",
         "Vices/VC-092",
+        "Vices/VC-093",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -9902,6 +9956,12 @@
         },
         {
           "source": "Detectors/vc-090",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "source": "Detectors/vc-093",
           "kind": "wikilink",
           "relation": "references",
           "confidence": 0.85
@@ -11839,6 +11899,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Vices/VC-093",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VT-001",
           "kind": "wikilink",
           "relation": "returns_to_index",
@@ -12541,9 +12607,9 @@
           "confidence": 0.85
         }
       ],
-      "in_degree": 468,
+      "in_degree": 470,
       "out_degree": 13,
-      "degree": 481,
+      "degree": 483,
       "connected_types": [
         "conceptual-framework",
         "domain",
@@ -12563,7 +12629,7 @@
       ],
       "semantic_reach": 8,
       "relation_diversity": 5,
-      "hub_score": 515
+      "hub_score": 517
     },
     {
       "id": "Principles",
@@ -21875,6 +21941,7 @@
         "Vices/VC-090",
         "Vices/VC-091",
         "Vices/VC-092",
+        "Vices/VC-093",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -22608,6 +22675,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Vices/VC-093",
+          "kind": "wikilink",
+          "relation": "governed_by",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VT-001",
           "kind": "wikilink",
           "relation": "governed_by",
@@ -23304,9 +23377,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 213,
+      "in_degree": 214,
       "out_degree": 5,
-      "degree": 218,
+      "degree": 219,
       "connected_types": [
         "domain",
         "principle-index",
@@ -23323,7 +23396,7 @@
       ],
       "semantic_reach": 4,
       "relation_diversity": 6,
-      "hub_score": 242
+      "hub_score": 243
     },
     {
       "id": "Principles/PR-098",
@@ -31114,6 +31187,7 @@
         "Vices/VC-090",
         "Vices/VC-091",
         "Vices/VC-092",
+        "Vices/VC-093",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -32159,6 +32233,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Vices/VC-093",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VT-001",
           "kind": "wikilink",
           "relation": "returns_to_index",
@@ -32855,9 +32935,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 249,
+      "in_degree": 250,
       "out_degree": 21,
-      "degree": 270,
+      "degree": 271,
       "connected_types": [
         "principle",
         "principle-index",
@@ -32873,7 +32953,7 @@
       ],
       "semantic_reach": 5,
       "relation_diversity": 4,
-      "hub_score": 293
+      "hub_score": 294
     },
     {
       "id": "Vices/VC-001",
@@ -41043,6 +41123,90 @@
       "status": "PREVENTED",
       "downstream_verification": "required",
       "severity": "low",
+      "cluster": "cluster_5"
+    },
+    {
+      "id": "Vices/VC-093",
+      "path": "Wiki/Vices/VC-093.md",
+      "title": "VC-093: Unjustified Semgrep suppression (bare # nosemgrep)",
+      "kind": "vice",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Detectors/vc-093",
+        "Home",
+        "Principles/PR-097",
+        "Tokenomics_Map",
+        "Vices_Index"
+      ],
+      "incoming": [
+        "Detectors/vc-093",
+        "Vices_Index"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Detectors/vc-093",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-097",
+          "kind": "wikilink",
+          "relation": "governed_by",
+          "confidence": 0.95
+        },
+        {
+          "target": "Tokenomics_Map",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices_Index",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Detectors/vc-093",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "source": "Vices_Index",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 2,
+      "out_degree": 5,
+      "degree": 7,
+      "connected_types": [
+        "principle",
+        "wiki"
+      ],
+      "relation_types": [
+        "catalogs",
+        "governed_by",
+        "returns_to_index"
+      ],
+      "semantic_reach": 2,
+      "relation_diversity": 3,
+      "hub_score": 19,
+      "status": "PREVENTED",
+      "downstream_verification": "none",
+      "severity": "medium",
       "cluster": "cluster_5"
     },
     {
@@ -50253,6 +50417,7 @@
         "Vices/VC-090",
         "Vices/VC-091",
         "Vices/VC-092",
+        "Vices/VC-093",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -50464,6 +50629,7 @@
         "Vices/VC-090",
         "Vices/VC-091",
         "Vices/VC-092",
+        "Vices/VC-093",
         "Vices/VT-001",
         "Vices/VT-002",
         "Vices/VT-003",
@@ -51136,6 +51302,12 @@
         },
         {
           "target": "Vices/VC-092",
+          "kind": "wikilink",
+          "relation": "catalogs",
+          "confidence": 0.95
+        },
+        {
+          "target": "Vices/VC-093",
           "kind": "wikilink",
           "relation": "catalogs",
           "confidence": 0.95
@@ -52397,6 +52569,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Vices/VC-093",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
           "source": "Vices/VT-001",
           "kind": "wikilink",
           "relation": "returns_to_index",
@@ -53093,9 +53271,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 209,
-      "out_degree": 209,
-      "degree": 418,
+      "in_degree": 210,
+      "out_degree": 210,
+      "degree": 420,
       "connected_types": [
         "vice",
         "wiki"
@@ -53108,7 +53286,7 @@
       ],
       "semantic_reach": 2,
       "relation_diversity": 4,
-      "hub_score": 432
+      "hub_score": 434
     },
     {
       "id": "docs/badges/ai-native.json",
@@ -54857,6 +55035,20 @@
     {
       "source": "Detectors/vc-090",
       "target": "Vices/VC-090",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Detectors/vc-093",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Detectors/vc-093",
+      "target": "Vices/VC-093",
       "kind": "wikilink",
       "relation": "catalogs",
       "confidence": 0.95
@@ -68317,6 +68509,46 @@
       "weight": 0.2
     },
     {
+      "source": "Vices/VC-093",
+      "target": "Detectors/vc-093",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-093",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-093",
+      "target": "Principles/PR-097",
+      "kind": "wikilink",
+      "relation": "governed_by",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-093",
+      "target": "Tokenomics_Map",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
+      "source": "Vices/VC-093",
+      "target": "Vices_Index",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95,
+      "weight": 0.5
+    },
+    {
       "source": "Vices/VT-001",
       "target": "Evidence/arxiv2602_00409",
       "kind": "wikilink",
@@ -73697,6 +73929,13 @@
     },
     {
       "source": "Vices_Index",
+      "target": "Vices/VC-093",
+      "kind": "wikilink",
+      "relation": "catalogs",
+      "confidence": 0.95
+    },
+    {
+      "source": "Vices_Index",
       "target": "Vices/VT-001",
       "kind": "wikilink",
       "relation": "catalogs",
@@ -74560,26 +74799,26 @@
   "summary": {
     "edge_kinds": {
       "markdown": 6,
-      "wikilink": 2618
+      "wikilink": 2626
     },
     "relation_counts": {
       "bridges": 21,
-      "catalogs": 354,
+      "catalogs": 356,
       "entrypoint": 13,
-      "governed_by": 208,
+      "governed_by": 209,
       "indexes": 122,
       "operationalizes_domain": 105,
-      "references": 477,
-      "returns_to_index": 1167,
+      "references": 478,
+      "returns_to_index": 1171,
       "routes_to_domains": 1,
       "subindex": 34,
       "thematic_bridge": 122
     },
-    "reciprocal_pairs": 608,
+    "reciprocal_pairs": 610,
     "average_edge_confidence": 0.933,
-    "semantic_density": 0.011605,
+    "semantic_density": 0.011544,
     "hub_ratio": 1.0,
-    "bridge_ratio": 0.997899,
+    "bridge_ratio": 0.997908,
     "intentional_orphans": [],
     "intentional_orphan_review": [],
     "orphan_candidates": [],
@@ -74636,6 +74875,7 @@
           "Detectors/vc-078",
           "Detectors/vc-087",
           "Detectors/vc-090",
+          "Detectors/vc-093",
           "Detectors/vt-005",
           "Detectors/vt-006",
           "Detectors/vt-009",
@@ -74958,6 +75198,7 @@
           "Vices/VC-090",
           "Vices/VC-091",
           "Vices/VC-092",
+          "Vices/VC-093",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -75327,6 +75568,12 @@
           },
           {
             "source": "Detectors/vc-090",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc-093",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -77264,6 +77511,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-093",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -77966,9 +78219,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 468,
+        "in_degree": 470,
         "out_degree": 13,
-        "degree": 481,
+        "degree": 483,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -77988,7 +78241,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 515
+        "hub_score": 517
       },
       {
         "id": "Vices_Index",
@@ -78091,6 +78344,7 @@
           "Vices/VC-090",
           "Vices/VC-091",
           "Vices/VC-092",
+          "Vices/VC-093",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -78302,6 +78556,7 @@
           "Vices/VC-090",
           "Vices/VC-091",
           "Vices/VC-092",
+          "Vices/VC-093",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -78974,6 +79229,12 @@
           },
           {
             "target": "Vices/VC-092",
+            "kind": "wikilink",
+            "relation": "catalogs",
+            "confidence": 0.95
+          },
+          {
+            "target": "Vices/VC-093",
             "kind": "wikilink",
             "relation": "catalogs",
             "confidence": 0.95
@@ -80235,6 +80496,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-093",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -80931,9 +81198,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 209,
-        "out_degree": 209,
-        "degree": 418,
+        "in_degree": 210,
+        "out_degree": 210,
+        "degree": 420,
         "connected_types": [
           "vice",
           "wiki"
@@ -80946,7 +81213,7 @@
         ],
         "semantic_reach": 2,
         "relation_diversity": 4,
-        "hub_score": 432
+        "hub_score": 434
       },
       {
         "id": "Tokenomics_Map",
@@ -81112,6 +81379,7 @@
           "Vices/VC-090",
           "Vices/VC-091",
           "Vices/VC-092",
+          "Vices/VC-093",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -82157,6 +82425,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-093",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -82853,9 +83127,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 249,
+        "in_degree": 250,
         "out_degree": 21,
-        "degree": 270,
+        "degree": 271,
         "connected_types": [
           "principle",
           "principle-index",
@@ -82871,7 +83145,7 @@
         ],
         "semantic_reach": 5,
         "relation_diversity": 4,
-        "hub_score": 293
+        "hub_score": 294
       },
       {
         "id": "Principles",
@@ -84819,6 +85093,7 @@
           "Vices/VC-090",
           "Vices/VC-091",
           "Vices/VC-092",
+          "Vices/VC-093",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -85552,6 +85827,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-093",
+            "kind": "wikilink",
+            "relation": "governed_by",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "governed_by",
@@ -86248,9 +86529,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 213,
+        "in_degree": 214,
         "out_degree": 5,
-        "degree": 218,
+        "degree": 219,
         "connected_types": [
           "domain",
           "principle-index",
@@ -86267,7 +86548,7 @@
         ],
         "semantic_reach": 4,
         "relation_diversity": 6,
-        "hub_score": 242
+        "hub_score": 243
       },
       {
         "id": "Domains/README",
@@ -91142,6 +91423,7 @@
           "Detectors/vc-078",
           "Detectors/vc-087",
           "Detectors/vc-090",
+          "Detectors/vc-093",
           "Detectors/vt-005",
           "Detectors/vt-006",
           "Detectors/vt-009",
@@ -91464,6 +91746,7 @@
           "Vices/VC-090",
           "Vices/VC-091",
           "Vices/VC-092",
+          "Vices/VC-093",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -91833,6 +92116,12 @@
           },
           {
             "source": "Detectors/vc-090",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
+            "source": "Detectors/vc-093",
             "kind": "wikilink",
             "relation": "references",
             "confidence": 0.85
@@ -93770,6 +94059,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-093",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -94472,9 +94767,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 468,
+        "in_degree": 470,
         "out_degree": 13,
-        "degree": 481,
+        "degree": 483,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -94494,7 +94789,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 515
+        "hub_score": 517
       },
       {
         "id": "Tokenomics_Map",
@@ -94660,6 +94955,7 @@
           "Vices/VC-090",
           "Vices/VC-091",
           "Vices/VC-092",
+          "Vices/VC-093",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -95705,6 +96001,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-093",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -96401,9 +96703,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 249,
+        "in_degree": 250,
         "out_degree": 21,
-        "degree": 270,
+        "degree": 271,
         "connected_types": [
           "principle",
           "principle-index",
@@ -96419,7 +96721,7 @@
         ],
         "semantic_reach": 5,
         "relation_diversity": 4,
-        "hub_score": 293
+        "hub_score": 294
       },
       {
         "id": "Domains/README",
@@ -99043,6 +99345,7 @@
           "Vices/VC-090",
           "Vices/VC-091",
           "Vices/VC-092",
+          "Vices/VC-093",
           "Vices/VT-001",
           "Vices/VT-002",
           "Vices/VT-003",
@@ -99776,6 +100079,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Vices/VC-093",
+            "kind": "wikilink",
+            "relation": "governed_by",
+            "confidence": 0.95
+          },
+          {
             "source": "Vices/VT-001",
             "kind": "wikilink",
             "relation": "governed_by",
@@ -100472,9 +100781,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 213,
+        "in_degree": 214,
         "out_degree": 5,
-        "degree": 218,
+        "degree": 219,
         "connected_types": [
           "domain",
           "principle-index",
@@ -100491,7 +100800,7 @@
         ],
         "semantic_reach": 4,
         "relation_diversity": 6,
-        "hub_score": 242
+        "hub_score": 243
       },
       {
         "id": "Principles/PR-081",

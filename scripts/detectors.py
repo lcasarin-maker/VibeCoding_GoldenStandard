@@ -536,6 +536,17 @@ def vc087_blanket_filterwarnings(code: str) -> bool:
     return bool(_BLANKET_WARN.search(code))
 
 
+# --- VC-093: bare "# nosemgrep" suppression with no trailing justification ---
+_NOSEMGREP = re.compile(r"#\s*nosemgrep\b(?::\s*[\w.-]+)?(.*)$", re.MULTILINE)
+
+
+def vc093_unjustified_nosemgrep(code: str) -> bool:
+    for m in _NOSEMGREP.finditer(code):
+        if not m.group(1).strip():
+            return True
+    return False
+
+
 # --- VC-109: hardcoded absolute machine path in a string literal ---
 _ABS_PATH = re.compile(r"""['"]([A-Za-z]:[\\/]|/(Users|home)/)""")
 
@@ -662,4 +673,5 @@ DETECTORS = {
     "VC-018": vc061_constant_stub,
     "VC-024": vc070_blind_shell_edit,
     "VC-027": vc078_placeholder,
+    "VC-093": vc093_unjustified_nosemgrep,
 }

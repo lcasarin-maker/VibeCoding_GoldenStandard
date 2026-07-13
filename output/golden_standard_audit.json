@@ -7936,6 +7936,34 @@
     "related_cds": [],
     "related_prs": []
   },
+  "VC-093": {
+    "id": "VC-093",
+    "title": "Unjustified Semgrep suppression (bare # nosemgrep)",
+    "category": "Vibe Coding",
+    "symptom": "A line is excluded from a Semgrep rule via `# nosemgrep` or `# nosemgrep: rule-id` with no explanation of why the finding is safe to ignore at that specific call site.",
+    "cause": "Semgrep flags a real pattern in code the author believes is safe (test fixture, trusted constant, already-validated input); suppressing is faster than adding a comment, and nothing enforces one.",
+    "solution": "Every `# nosemgrep` suppression must carry a written justification on the same line explaining why THIS specific instance is safe, not just that the rule is noisy in general.",
+    "status": "PREVENTED",
+    "severity": "medium",
+    "tags": [
+      "vibe-coding",
+      "prevented",
+      "semgrep"
+    ],
+    "action": "Static source analysis flags a `# nosemgrep`/`# nosemgrep: rule-id` comment with nothing after it; the allowed pattern requires trailing justification text (e.g. `# nosemgrep: rule-id -- reason`).",
+    "validating_mechanism": "static-ast",
+    "downstream_verification": "none",
+    "example_bad": "x = eval(user_input)  # nosemgrep: python.lang.security.audit.eval-detected\n",
+    "example_good": "x = eval(TRUSTED_CONFIG_LITERAL)  # nosemgrep: python.lang.security.audit.eval-detected -- TRUSTED_CONFIG_LITERAL is a hardcoded module constant, never user input\n",
+    "example_lang": "python",
+    "detection": "Regex over source text matching `# nosemgrep` or `# nosemgrep: rule-id`, requiring non-whitespace text after the pragma on the same line.",
+    "evidence": [],
+    "doctrinal": false,
+    "detector": "vc093_unjustified_nosemgrep",
+    "tier": "extended",
+    "related_cds": [],
+    "related_prs": []
+  },
   "SP-001": {
     "id": "SP-001",
     "title": "Single governance hub",
