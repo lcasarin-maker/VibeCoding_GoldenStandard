@@ -1,6 +1,6 @@
 {
   "generated_on": "2026-07-13",
-  "node_count": 524,
+  "node_count": 525,
   "edge_count": 2691,
   "nodes": [
     {
@@ -54641,6 +54641,26 @@
       "semantic_reach": 0,
       "relation_diversity": 1,
       "hub_score": 3
+    },
+    {
+      "id": "tests/test_cerberus_consumer_contract.py",
+      "path": "tests/test_cerberus_consumer_contract.py",
+      "title": "test_cerberus_consumer_contract.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
     },
     {
       "id": "tests/test_graph_artifact_policy.py",
