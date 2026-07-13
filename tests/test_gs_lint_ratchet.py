@@ -41,3 +41,36 @@ def test_transitional_status_is_rejected(tmp_path):
     )
     findings = gs_lint.check_no_audited_statuses(tmp_path)
     assert any("VC-999" in finding for finding in findings)
+
+
+def test_static_mechanism_without_fixtures_fails_gate():
+    catalogs = {
+        "synthetic.yaml": [
+            {"id": "VC-999", "validating_mechanism": "static-ast", "example_bad": "", "example_good": ""},
+        ]
+    }
+    findings = gs_lint.check_code_mechanism_requires_fixtures(catalogs)
+    assert any("VC-999" in finding for finding in findings)
+
+
+def test_static_mechanism_with_fixtures_passes_gate():
+    catalogs = {
+        "synthetic.yaml": [
+            {
+                "id": "VC-999",
+                "validating_mechanism": "static-regex",
+                "example_bad": "eval(x)  # nosemgrep",
+                "example_good": "eval(x)  # nosemgrep: id -- reason",
+            },
+        ]
+    }
+    assert gs_lint.check_code_mechanism_requires_fixtures(catalogs) == []
+
+
+def test_doctrinal_mechanism_is_exempt_from_fixture_gate():
+    catalogs = {
+        "synthetic.yaml": [
+            {"id": "PR-999", "validating_mechanism": "doctrinal", "example_bad": "", "example_good": ""},
+        ]
+    }
+    assert gs_lint.check_code_mechanism_requires_fixtures(catalogs) == []

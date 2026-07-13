@@ -111,6 +111,28 @@ def check_doc_only_without_justification(catalogs: dict) -> list[str]:
     return warnings
 
 
+def check_code_mechanism_requires_fixtures(catalogs: dict) -> list[str]:
+    """GS-04: rule-first gate. Una entrada con validating_mechanism static-ast
+    o static-regex es una promesa de deteccion ejecutable -- sin
+    example_bad/example_good no hay como probar que discrimina de verdad
+    (ver scripts/test_detectors.py). Entradas doctrinal/DOC_ONLY/runtime-test
+    quedan fuera: se verifican por otro mecanismo (doctrina o un check en
+    vivo contra el propio repo), no por un par de fixtures de codigo."""
+    errors = []
+    CODE_MECHANISMS = {"static-ast", "static-regex"}
+    for catalog_name, items in catalogs.items():
+        for item in items:
+            if item.get("validating_mechanism") not in CODE_MECHANISMS:
+                continue
+            if not item.get("example_bad") or not item.get("example_good"):
+                errors.append(
+                    f"[HARD] {item.get('id', '?')} in {catalog_name}: "
+                    f"validating_mechanism={item.get('validating_mechanism')!r} "
+                    "requiere example_bad y example_good (GS-04 rule-first gate)"
+                )
+    return errors
+
+
 def check_status_contradiction(catalogs: dict) -> list[str]:
     """PREVENTED items with no validating_mechanism are a contradiction."""
     errors = []
@@ -203,6 +225,7 @@ def main() -> int:
     hard_errors += check_duplicate_ids(catalogs)
     hard_errors += check_missing_required_fields(catalogs)
     hard_errors += check_status_contradiction(catalogs)
+    hard_errors += check_code_mechanism_requires_fixtures(catalogs)
     hard_errors += check_high_doc_only_justification(catalogs)
     hard_errors += check_evidence_classification(catalogs)
     hard_errors += check_detector_deduplication()
