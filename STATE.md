@@ -7,14 +7,15 @@
 
 | Catalog | Entries | Open debt | Notes |
 |---------|---------|-----------|-------|
-| VC (coding vices) | 93 | none | VC-012 REMEDIATED; VC-084/VC-086 ratchet justifications recorded; VC-093 added 2026-07-13 (unjustified nosemgrep suppression, GS-05) |
+| VC (coding vices) | 94 | none | VC-012 REMEDIATED; VC-084/VC-086 ratchet justifications recorded; VC-093/VC-094 added 2026-07-13 (unjustified nosemgrep suppression GS-05; BOM-in-config Semgrep rule) |
 | VT (testing vices) | 116 | none | VT-043 PREVENTED by Semgrep rule with positive/negative fixtures |
 | TK (tokenomics) | 34 | none | |
 | PR (principles) | 121 | none | PR-118-121 added 2026-06-26; decoupled from CC-internal IDs 2026-07-01 |
 | SP (structure principles) | 10 | none | 8 checks in audit.py (SP-001/003/004/005/006/007/009/010) |
+| AV (adversarial vectors) | 104 | G-01 open | All 104 entries are `status: DOC_ONLY` with an identical boilerplate `doc_only_justification` (passes gs_lint.py's shallow len/substring check, not a real per-entry falseability classification) — see PLAN_MIGRACION_ATOM.md §6 G-01 |
 | CD (canonical domains) | 18 | none | |
 
-Counts verified directly against live YAML catalogs on 2026-07-02 (not carried forward from a prior snapshot). See `tasks/backlog/` for current open items — do not assume "backlog empty" without checking that folder first.
+Counts verified directly against live YAML catalogs on 2026-07-14 (`grep -cE '^- id:' *.yaml`; not carried forward from a prior snapshot — the 2026-07-02 VC=93 count was stale, corrected to 94, and AV was missing from this table entirely). See `tasks/backlog/` for current open items — do not assume "backlog empty" without checking that folder first.
 
 ## Migration status
 

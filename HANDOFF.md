@@ -1,5 +1,35 @@
 ﻿# HANDOFF — VibeCoding Golden Standard
-**Agent:** Claude | **Date:** 2026-06-22 | **Branch:** master
+**Agent:** Claude | **Date:** 2026-07-14 | **Branch:** master
+
+---
+
+## SYNC 2026-07-14 (catch-up + audit correction — external, from Aequitas_OS session)
+
+**NOW**
+- This file was stale since 2026-06-22 despite real commits landing after it: `be42d41`
+  (gs_lint.py now includes all 6 catalogs — was silently skipping the 104 AV entries),
+  `eec26fe` (GS-06 consumer contract test), `d3acac3` (GS-04 rule-first gate), `18e772a`
+  (GS-05 nosemgrep suppression governance), `a75728e` (GS-03/GS-MCP-001 gs_query CLI + MCP
+  server). None of those had a HANDOFF entry; recorded here after the fact.
+- Audited and corrected a false positive: `scripts/generate_golden_audit.py`'s docstring
+  described itself as a "compatibility surface... for the former module," which reads like
+  the exact shim pattern S19 forbids. Verified via `git log --follow` this file was never
+  `git rm`'d and recreated — it was progressively thinned in place as logic moved into
+  `gs_generator/`. There is no duplicate/dead logic today (56 lines, pure delegation); it's
+  the stable public CLI entrypoint that CI (`audit.yml`), README, and multiple tests
+  (`from scripts import generate_golden_audit`) depend on directly — deleting it would break
+  production, not fix debt. Fixed the misleading docstring instead of the file's existence.
+- Corrected stale catalog counts: `README.md`'s "242 vices + 121 principles (363 entries),
+  validated against the YAML by CI — they cannot drift" was false (no such CI check exists
+  anywhere in the repo, confirmed by grep). Real live count via
+  `grep -cE '^- id:' *.yaml`: 479 entries (VC=94, VT=116, TK=34, PR=121, SP=10, AV=104).
+  `STATE.md` also had VC=93 (should be 94, self-contradicted by its own VC-093 note) and was
+  missing an AV row entirely.
+
+**VERIFY**
+- `PATH="$(pwd)/.venv/bin:$PATH" .venv/bin/python -m pytest -q` → 44 passed (fresh `.venv`,
+  Python 3.13, `pytest`+`pyyaml`+`semgrep` installed for this audit — none were present
+  before).
 
 ---
 

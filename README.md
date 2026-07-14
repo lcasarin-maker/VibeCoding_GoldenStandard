@@ -54,12 +54,17 @@ python scripts/generate_golden_audit.py
 
 | File | Domain | Entries |
 |---|---|---|
-| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 92 |
+| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | 94 |
 | `golden_standard_testing_vices.yaml` | Testing failures | 116 |
 | `golden_standard_tokenomics.yaml` | Token efficiency | 34 |
 | `golden_standard_principles.yaml` | Principles | 121 |
+| `golden_standard_structure_principles.yaml` | Structure principles | 10 |
+| `golden_standard_adversarial_vectors.yaml` | Adversarial vectors | 104 |
 
-**Total: 242 vices + 121 principles (363 entries).** Counts are validated against the YAML by CI — they cannot drift from the source.
+**Total: 479 entries** (counts as of 2026-07-14, `grep -cE '^- id:'` per file). No CI check currently
+enforces this table against the live YAML — the previous "363 entries, validated by CI, cannot drift"
+claim was false (audited 2026-07-14: no such check exists anywhere in the repo). Treat this table as a
+manually updated snapshot, not a guarantee, until G-03/a real count-check lands.
 
 Each entry includes ID, title, description, severity, status, detection criteria, and mitigation. See [CONCEPTUAL_FRAMEWORK.md](CONCEPTUAL_FRAMEWORK.md) for the full status model (`DOC_ONLY` → `PREVENTED` → `REMEDIATED`).
 

@@ -23,7 +23,13 @@ from gs_generator.engine import (
 
 
 def write_graph_artifacts(mapped_database=None):
-    """Compatibility surface for tests and callers of the former module."""
+    """Delegates to gs_generator.engine.write_graph_artifacts, temporarily
+    applying this module's own globals (_ROOT, GRAPH_OUTPUT, GRAPH_MARKDOWN,
+    augment_with_file_layer, augment_with_test_ref_edges, build_gs_graph) so
+    callers/tests that monkeypatch attributes on THIS module (the public,
+    documented CLI entrypoint) see those overrides take effect where the
+    real work happens. gs_generator is the only engine implementation --
+    there is nothing else this delegates around."""
     original = {
         "_ROOT": _engine._ROOT,
         "GRAPH_OUTPUT": _engine.GRAPH_OUTPUT,
