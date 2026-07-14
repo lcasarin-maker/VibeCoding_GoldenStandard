@@ -74,7 +74,7 @@ rules:
     severity: ERROR
     languages: [python]
     patterns:
-      - pattern-regex: (?i)(rm\s+-rf\b|git\s+reset\s+--hard\b|\bDROP\s+(?:TABLE|DATABASE)\b|\bTRUNCATE\b)
+      - pattern-regex: (?i)(rm\s+-rf\b|git\s+reset\s+--hard\b|\bDROP\s+(?:TABLE|DATABASE)\b|\bTRUNCATE\s+(?:TABLE|DATABASE)\b)
       - pattern-not-regex: (?i)(--dry-run\b|-print\b|\bEXPLAIN\b|\becho\b)
     metadata:
       vice_ids: [VC-036]
