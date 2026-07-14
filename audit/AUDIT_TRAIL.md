@@ -5,6 +5,7 @@
 | Session | Agent | Summary |
 |---------|-------|---------|
 | 2026-07-14-001 | Claude (external, Aequitas_OS session) | Debt audit found and fixed: (1) false S19-shim flag on `scripts/generate_golden_audit.py` — corrected the misleading docstring, file itself is a legitimate CLI entrypoint with no duplicate logic, deleting it would have broken CI/README/tests; (2) stale catalog counts in `README.md` (363→479 entries, removed the false "validated by CI, cannot drift" claim) and `STATE.md` (VC 93→94, added missing AV=104 row); (3) `HANDOFF.md` was stale since 2026-06-22 despite 5 real commits (GS-03/04/05/06, GS-MCP-001) landing after it — backfilled. Full suite verified green (44 passed) after a fresh `.venv` + pytest/pyyaml/semgrep install (none were present before this audit). |
+| [2026-07-14-002](sessions/2026-07-14-002.md) | Codex | Closed G-02/G-03: 17 Semgrep rules with full positive/negative and effectiveness coverage; strict catalog SemVer and executable Cerberus consumer contract wired into CI. Full GS gate green (53 passed). |
 
 ## 2026-06-30
 

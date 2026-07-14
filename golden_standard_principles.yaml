@@ -1,4 +1,4 @@
-format_version: '3.0'
+format_version: '3.0.0'
 catalog_name: principles
 items:
 - id: PR-001

@@ -1,6 +1,6 @@
 {
   "generated_on": "2026-07-14",
-  "node_count": 525,
+  "node_count": 527,
   "edge_count": 2691,
   "nodes": [
     {
@@ -37541,7 +37541,7 @@
       "semantic_reach": 2,
       "relation_diversity": 3,
       "hub_score": 19,
-      "status": "REMEDIATED",
+      "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "high",
       "cluster": "cluster_73"
@@ -37618,7 +37618,7 @@
       "semantic_reach": 2,
       "relation_diversity": 3,
       "hub_score": 18,
-      "status": "REMEDIATED",
+      "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "high",
       "cluster": "cluster_132"
@@ -47783,7 +47783,7 @@
       "semantic_reach": 2,
       "relation_diversity": 3,
       "hub_score": 18,
-      "status": "REMEDIATED",
+      "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "high",
       "cluster": "cluster_71"
@@ -49785,7 +49785,7 @@
       "semantic_reach": 2,
       "relation_diversity": 3,
       "hub_score": 18,
-      "status": "REMEDIATED",
+      "status": "PREVENTED",
       "downstream_verification": "none",
       "severity": "high",
       "cluster": "cluster_91"
@@ -54045,6 +54045,26 @@
       "hub_score": 3
     },
     {
+      "id": "scripts/classify_falsifiability.py",
+      "path": "scripts/classify_falsifiability.py",
+      "title": "classify_falsifiability.py",
+      "kind": "script",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
+    },
+    {
       "id": "scripts/detectors.py",
       "path": "scripts/detectors.py",
       "title": "detectors.py",
@@ -54641,6 +54661,26 @@
       "semantic_reach": 0,
       "relation_diversity": 1,
       "hub_score": 3
+    },
+    {
+      "id": "tests/test_catalog_semver_contract.py",
+      "path": "tests/test_catalog_semver_contract.py",
+      "title": "test_catalog_semver_contract.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
     },
     {
       "id": "tests/test_cerberus_consumer_contract.py",

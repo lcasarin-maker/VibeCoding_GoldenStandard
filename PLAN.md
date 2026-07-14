@@ -74,3 +74,15 @@ Regla S19: todo reemplazo será eliminación + creación. No se conservará `scr
 - GS-AUD-001/003/005/006 actualizados con evidencia y cierre reproducible.
 
 El estado operativo vive en `STATE.md`, `HANDOFF.md`, `audit/AUDIT_TRAIL.md` y `tasks/backlog/`.
+
+## G-02/G-03/E-01 - cierre 2026-07-14
+
+1. Añadir cinco reglas ERROR: VC-094, VC-050, VC-051, VT-080 y VT-106.
+2. Exigir fixture positivo y negativo independiente por regla y promover solo tras verde.
+3. Fijar el esquema consumido en una fixture versionada y validar SemVer por catálogo.
+4. Ampliar CI para ejecutar explícitamente el contrato consumidor.
+5. Consumir el ledger runtime del ecosistema como evidencia, sin mezclarlo con el corpus.
+6. Cerrar con `gs_lint.py`, validadores, Semgrep, pytest y artefactos regenerados.
+
+Angry path: una regla puede matchear su fixture por otra línea, un cambio minor puede
+romper campos requeridos, o el ledger puede confundir `triggered` con `blocked`.

@@ -60,7 +60,8 @@ Standard by this contract, which the consumer and this document MUST keep in syn
   `../VibeCoding_GoldenStandard`. There is no in-repo copy of the catalogs.
 - **Manifest.** A directory is a valid Golden Standard root only if it contains
   `golden_standard.yaml`. That manifest lists the catalog files the consumer reads
-  (`coding_vices`, `testing_vices`, `tokenomics`, `principles`).
+  (`coding_vices`, `testing_vices`, `tokenomics`, `principles`,
+  `structure_principles`, `adversarial_vectors`).
 - **Degraded mode (required).** When no valid root is found, the consumer MUST
   degrade, not crash. `golden_standard_available()` returns `False`; the knowledge
   domain (D17) emits `GS not found — SKIPPED` (a non-blocking WARN), and the
@@ -182,13 +183,26 @@ Inbox/templates/cerberus_finding.md
 
 ---
 
-## Versioning
+## Versioning — contract v1.0.0
 
-The contract version is implicit in the Golden Standard repository.
-When breaking changes to the contract are needed, they are announced via:
-1. A new section in this document with a version header
-2. A GitHub Issue tagged `contract-change`
-3. A minimum 30-day notice period before enforcement
+The executable reference is
+`tests/fixtures/cerberus_consumer_contract.yaml`; GS CI runs
+`tests/test_catalog_semver_contract.py` against the same manifest/catalog shape
+that `protocol_engine/knowledge_loader.py` consumes. Versions are strict
+`MAJOR.MINOR.PATCH` SemVer, never floats or abbreviated `MAJOR.MINOR` values.
+
+- Manifest `MAJOR`: breaking path-resolution or manifest-shape change.
+- Manifest `MINOR`: backward-compatible catalog surface addition.
+- Manifest `PATCH`: clarification with no consumer-visible shape change.
+- Catalog `MAJOR`: removal/rename/type change of a required top-level or item field.
+- Catalog `MINOR`: additive optional field or backward-compatible entry shape.
+- Catalog `PATCH`: content-only correction preserving the schema.
+
+The v1 consumer accepts manifest `>=2.1.0,<3.0.0`, catalog major `3`, and the
+required fields declared by the fixture. A breaking change requires a new
+consumer-contract major and fixture update before the catalog major is bumped.
+It must also be announced through a `contract-change` issue with 30 days'
+notice before enforcement.
 
 ---
 
@@ -202,6 +216,5 @@ When breaking changes to the contract are needed, they are announced via:
 
 ---
 
-*Last updated: 2026-06-19*  
+*Last updated: 2026-07-14*
 *This contract is binding on both projects.*
-

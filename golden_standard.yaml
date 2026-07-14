@@ -1,4 +1,4 @@
-format_version: 2.1
+format_version: 2.1.0
 catalogs:
   tokenomics: golden_standard_tokenomics.yaml
   testing_vices: golden_standard_testing_vices.yaml

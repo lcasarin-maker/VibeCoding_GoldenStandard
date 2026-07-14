@@ -63,4 +63,4 @@ def test_format_version_is_well_formed_for_drift_detection():
     gate mecanico que se pueda inventar sin el criterio de ambos repos."""
     manifest = _load_manifest()
     version = str(manifest.get("format_version", ""))
-    assert re.fullmatch(r"\d+\.\d+", version), f"format_version {version!r} no tiene forma MAJOR.MINOR"
+    assert re.fullmatch(r"\d+\.\d+\.\d+", version), f"format_version {version!r} no tiene forma MAJOR.MINOR.PATCH"

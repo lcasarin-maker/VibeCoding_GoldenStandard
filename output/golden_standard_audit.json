@@ -3763,11 +3763,11 @@
     "symptom": "Validation failures when migrating to secondary environments",
     "cause": "Use of absolute storage paths from the origin machine",
     "solution": "Dynamically parametrize resources via injection or logical variables",
-    "status": "REMEDIATED",
+    "status": "PREVENTED",
     "severity": "high",
     "tags": [
       "testing",
-      "remediated"
+      "prevented"
     ],
     "action": "Parametrize resources via injection or logical variables so tests do not couple to a physical address and break on migration.\n",
     "validating_mechanism": "static-ast",
@@ -4595,14 +4595,14 @@
     "symptom": "The ignore list has no test verifying that each exclusion is still valid",
     "cause": "Silent drift: what was ignored may stop being harmless; nobody detects it",
     "solution": "A periodic test that checks each hard_excludes item is in the approved, documented set",
-    "status": "REMEDIATED",
+    "status": "PREVENTED",
     "severity": "high",
     "tags": [
       "testing",
-      "remediated"
+      "prevented"
     ],
     "action": "Periodically revalidate each exclusion so the ignore list cannot accumulate stale, unjustified entries.\n",
-    "validating_mechanism": "runtime-test",
+    "validating_mechanism": "static-regex",
     "downstream_verification": "none",
     "example_bad": "# A coverage exclusion nobody revalidates: hides untested code forever.\n[coverage:run]\nomit = src/payments/*   # added 'temporarily' 8 months ago\n",
     "example_good": "# Each exclusion carries a reason and is reviewed; payments MUST be covered.\n[coverage:run]\nomit = src/generated/*  # only auto-generated code, justified\n",
@@ -6518,14 +6518,14 @@
     "symptom": "An `ImportError` triggers `pip install` without human review",
     "cause": "The error handler delegates supply-chain decisions to the environment without control",
     "solution": "Forbid automatic `pip install`; report the missing dependency with manual installation guidance and stop; the human decides what gets installed",
-    "status": "REMEDIATED",
+    "status": "PREVENTED",
     "severity": "high",
     "tags": [
       "vibe-coding",
-      "remediated"
+      "prevented"
     ],
     "action": "Dependency installation must never be automatic: an import-time guard must not trigger package installation; missing packages are surfaced for manual decision.\n",
-    "validating_mechanism": "runtime-test",
+    "validating_mechanism": "static-regex",
     "downstream_verification": "none",
     "example_bad": "# Runtime dependency installation, without pinning or verifying.\nimport os\nos.system(\"pip install some-pkg\")   # arbitrary version, unaudited code\nimport some_pkg\n",
     "example_good": "# Dependency declared and pinned in the manifest; zero runtime installation.\n# pyproject.toml: dependencies = [\"some-pkg==1.4.2\"]\nimport some_pkg\n",
@@ -6550,14 +6550,14 @@
     "symptom": "A crash or kill during `write_text()` leaves the state file (JSON, YAML) corrupt or empty",
     "cause": "Write atomicity was not modeled as a requirement of the persistence subsystem",
     "solution": "Write to a temporary file in the same directory and rename atomically (`tmp → final`); clean up the temporary if an exception occurs before the rename",
-    "status": "REMEDIATED",
+    "status": "PREVENTED",
     "severity": "high",
     "tags": [
       "vibe-coding",
-      "remediated"
+      "prevented"
     ],
     "action": "Writes to critical state must be atomic: state is persisted via a temp-file-plus-atomic-replace path so a crash cannot leave a half-written, corrupted file.\n",
-    "validating_mechanism": "runtime-test",
+    "validating_mechanism": "static-ast",
     "downstream_verification": "none",
     "example_bad": "# Non-atomic write: if the process dies midway, the critical file corrupts.\nwith open(\"state.json\", \"w\") as f:\n    json.dump(big_state, f)   # truncated and without atomic replacement\n",
     "example_good": "# Write to a temp and replace atomically (os.replace is atomic on the same FS).\nimport os, tempfile, json\nfd, tmp = tempfile.mkstemp(dir=\".\")\nwith os.fdopen(fd, \"w\") as f:\n    json.dump(big_state, f)\nos.replace(tmp, \"state.json\")\n",
@@ -7981,7 +7981,7 @@
       "silent-failure"
     ],
     "action": "Static check on configuration files: the first 3 bytes must not be EF BB BF (UTF-8 BOM). When writing configs from PowerShell, use New-Object Text.UTF8Encoding($false) or Set-Content -Encoding utf8NoBOM (PS7), never the PS5.1 default \"UTF8\".",
-    "validating_mechanism": "static-ast",
+    "validating_mechanism": "static-regex",
     "downstream_verification": "none",
     "example_bad": "﻿AEQUITAS_SECRET_KEY=abc123\nAEQUITAS_ALGORITHM=HS256\n",
     "example_good": "AEQUITAS_SECRET_KEY=abc123\nAEQUITAS_ALGORITHM=HS256\n",

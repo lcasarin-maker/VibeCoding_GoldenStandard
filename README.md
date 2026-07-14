@@ -61,10 +61,9 @@ python scripts/generate_golden_audit.py
 | `golden_standard_structure_principles.yaml` | Structure principles | 10 |
 | `golden_standard_adversarial_vectors.yaml` | Adversarial vectors | 104 |
 
-**Total: 479 entries** (counts as of 2026-07-14, `grep -cE '^- id:'` per file). No CI check currently
-enforces this table against the live YAML — the previous "363 entries, validated by CI, cannot drift"
-claim was false (audited 2026-07-14: no such check exists anywhere in the repo). Treat this table as a
-manually updated snapshot, not a guarantee, until G-03/a real count-check lands.
+**Total: 479 entries.** CI recalculates all six table rows and this total from the
+live YAML through `validate_golden_standard_catalogs.py`; catalog shape and strict
+SemVer compatibility are separately fixed by the G-03 consumer-contract tests.
 
 Each entry includes ID, title, description, severity, status, detection criteria, and mitigation. See [CONCEPTUAL_FRAMEWORK.md](CONCEPTUAL_FRAMEWORK.md) for the full status model (`DOC_ONLY` → `PREVENTED` → `REMEDIATED`).
 

@@ -14,6 +14,8 @@ on:
       - "docs/badges/**"
       - "Wiki/**"
       - "scripts/**"
+      - "tests/**"
+      - "knowledge/CONSUMER_CONTRACT.md"
       - ".github/workflows/audit.yml"
   push:
     branches:
@@ -30,6 +32,8 @@ on:
       - "docs/badges/**"
       - "Wiki/**"
       - "scripts/**"
+      - "tests/**"
+      - "knowledge/CONSUMER_CONTRACT.md"
       - ".github/workflows/audit.yml"
 
 jobs:

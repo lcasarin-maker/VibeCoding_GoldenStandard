@@ -1,4 +1,4 @@
-format_version: '3.0'
+format_version: '3.0.0'
 catalog_name: structure_principles
 description: >
   Rules governing multi-agent project structure. Each rule defines a structural

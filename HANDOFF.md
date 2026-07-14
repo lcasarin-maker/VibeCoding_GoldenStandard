@@ -3,6 +3,28 @@
 
 ---
 
+## SYNC 2026-07-14 (G-02 + G-03 closed)
+
+**NOW**
+- G-02 added five Semgrep guards (17 total) for BOM configuration, runtime
+  package installation, non-atomic state writes, physical-address assertions,
+  and unjustified coverage exclusions. Every new rule has a discriminating
+  positive/negative fixture and participates in the effectiveness corpus.
+- G-03 made all manifest/catalog versions strict SemVer, added the versioned
+  Cerberus consumer fixture and compatibility tests, documented bump semantics,
+  and made tests/contract changes trigger the CI workflow. README count
+  validation now covers all six catalogs instead of only the four older rows.
+
+**VERIFY**
+- `python scripts/gs_lint.py`, integrity/audit/catalog/wiki/detector validators,
+  Semgrep, effectiveness evaluation and `pytest -W error` are green; 53 passed,
+  17 rules evaluated, zero false positives and zero false negatives.
+
+**BLOCKERS**
+- None for G-02/G-03.
+
+---
+
 ## SYNC 2026-07-14 (catch-up + audit correction — external, from Aequitas_OS session)
 
 **NOW**

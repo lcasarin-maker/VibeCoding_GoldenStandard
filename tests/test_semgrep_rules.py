@@ -4,6 +4,7 @@ import json
 import shutil
 import subprocess
 from pathlib import Path
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,3 +50,27 @@ def test_semgrep_rules_fire_on_positive_fixture():
 
 def test_semgrep_rules_do_not_fire_on_negative_fixture():
     assert _run_semgrep("negative.py")["results"] == []
+
+
+NEW_RULE_FIXTURES = {
+    "gs-vc-094-bom-in-config": ("positive_bom.yaml", "negative_bom.yaml"),
+    "gs-vc-050-runtime-dependency-install": ("positive_runtime_install.py", "negative_runtime_install.py"),
+    "gs-vc-051-non-atomic-state-write": ("positive_non_atomic_state.py", "negative_non_atomic_state.py"),
+    "gs-vt-080-physical-address-assert": ("positive_physical_address.py", "negative_physical_address.py"),
+    "gs-vt-106-unjustified-coverage-exclusion": ("positive_coverage.ini", "negative_coverage.ini"),
+}
+
+
+@pytest.mark.parametrize("rule_id,fixtures", NEW_RULE_FIXTURES.items())
+def test_each_new_rule_has_positive_and_negative_fixture(rule_id, fixtures):
+    positive, negative = fixtures
+    positive_ids = {
+        item["check_id"].split(".")[-1]
+        for item in _run_semgrep(positive)["results"]
+    }
+    negative_ids = {
+        item["check_id"].split(".")[-1]
+        for item in _run_semgrep(negative)["results"]
+    }
+    assert positive_ids == {rule_id}
+    assert rule_id not in negative_ids

@@ -37,3 +37,18 @@ mappings:
   gs-vt-006-test-without-assert:
     vice_ids: [VT-006]
     status_evidence: tests/test_semgrep_rules.py::test_semgrep_rules_fire_on_positive_fixture
+  gs-vc-094-bom-in-config:
+    vice_ids: [VC-094]
+    status_evidence: tests/test_semgrep_rules.py::test_each_new_rule_has_positive_and_negative_fixture
+  gs-vc-050-runtime-dependency-install:
+    vice_ids: [VC-050]
+    status_evidence: tests/test_semgrep_rules.py::test_each_new_rule_has_positive_and_negative_fixture
+  gs-vc-051-non-atomic-state-write:
+    vice_ids: [VC-051]
+    status_evidence: tests/test_semgrep_rules.py::test_each_new_rule_has_positive_and_negative_fixture
+  gs-vt-080-physical-address-assert:
+    vice_ids: [VT-080]
+    status_evidence: tests/test_semgrep_rules.py::test_each_new_rule_has_positive_and_negative_fixture
+  gs-vt-106-unjustified-coverage-exclusion:
+    vice_ids: [VT-106]
+    status_evidence: tests/test_semgrep_rules.py::test_each_new_rule_has_positive_and_negative_fixture

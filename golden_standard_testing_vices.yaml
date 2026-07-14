@@ -1,4 +1,4 @@
-format_version: 3.0
+format_version: 3.0.0
 catalog_name: testing_vices
 items:
 - id: VT-001
@@ -2379,11 +2379,11 @@ items:
   symptom: Validation failures when migrating to secondary environments
   cause: Use of absolute storage paths from the origin machine
   solution: Dynamically parametrize resources via injection or logical variables
-  status: REMEDIATED
+  status: PREVENTED
   severity: high
   tags:
   - testing
-  - remediated
+  - prevented
   action: 'Parametrize resources via injection or logical variables so tests do not couple to a physical address and break on migration.
 
     '
@@ -3173,15 +3173,15 @@ items:
   symptom: The ignore list has no test verifying that each exclusion is still valid
   cause: 'Silent drift: what was ignored may stop being harmless; nobody detects it'
   solution: A periodic test that checks each hard_excludes item is in the approved, documented set
-  status: REMEDIATED
+  status: PREVENTED
   severity: high
   tags:
   - testing
-  - remediated
+  - prevented
   action: 'Periodically revalidate each exclusion so the ignore list cannot accumulate stale, unjustified entries.
 
     '
-  validating_mechanism: runtime-test
+  validating_mechanism: static-regex
   downstream_verification: none
   example_lang: ini
   example_bad: '# A coverage exclusion nobody revalidates: hides untested code forever.

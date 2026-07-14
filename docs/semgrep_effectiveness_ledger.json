@@ -1,6 +1,6 @@
 {
   "corpus": "tests/semgrep_effectiveness_corpus.json",
-  "generated_at": "2026-07-12T01:08:05+00:00",
+  "generated_at": "2026-07-14T20:41:44+00:00",
   "rubric": {
     "committed_before_run": true,
     "name": "GS Semgrep detector effectiveness rubric",
@@ -27,6 +27,24 @@
       "known_positive_cases": 1
     },
     "gs-vc-038-optimistic-config": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vc-050-runtime-dependency-install": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vc-051-non-atomic-state-write": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vc-094-bom-in-config": {
       "detected_cases": 1,
       "false_negative_rate": 0.0,
       "false_negatives": [],
@@ -79,6 +97,18 @@
       "false_negative_rate": 0.0,
       "false_negatives": [],
       "known_positive_cases": 1
+    },
+    "gs-vt-080-physical-address-assert": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
+    },
+    "gs-vt-106-unjustified-coverage-exclusion": {
+      "detected_cases": 1,
+      "false_negative_rate": 0.0,
+      "false_negatives": [],
+      "known_positive_cases": 1
     }
   },
   "schema_version": 1,
@@ -86,6 +116,6 @@
     "false_positive_count": 0,
     "max_false_negative_rate": 0.0,
     "passed": true,
-    "rules_evaluated": 12
+    "rules_evaluated": 17
   }
 }

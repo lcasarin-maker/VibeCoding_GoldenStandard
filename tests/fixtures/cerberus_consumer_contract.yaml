@@ -1,0 +1,16 @@
+contract_version: 1.0.0
+consumer: CoderCerberus
+manifest_semver:
+  minimum: 2.1.0
+  maximum_exclusive: 3.0.0
+catalog_schema:
+  supported_major: 3
+  required_top_level: [format_version, items]
+  required_item_fields: [id, title, status]
+required_catalogs:
+  - tokenomics
+  - testing_vices
+  - coding_vices
+  - principles
+  - structure_principles
+  - adversarial_vectors

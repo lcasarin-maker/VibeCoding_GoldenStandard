@@ -711,6 +711,22 @@ def validate_readme_counts(errors: list[str]) -> None:
             if str(item.get("id", "")).startswith("PR-")
         ]
     )
+    data = load_yaml(ROOT / "golden_standard_structure_principles.yaml")
+    sp_count = len(
+        [
+            item
+            for item in data.get("items", [])
+            if str(item.get("id", "")).startswith("SP-")
+        ]
+    )
+    data = load_yaml(ROOT / "golden_standard_adversarial_vectors.yaml")
+    av_count = len(
+        [
+            item
+            for item in data.get("items", [])
+            if str(item.get("id", "")).startswith("AV-")
+        ]
+    )
 
     readme_text = readme_path.read_text(encoding="utf-8")
 
@@ -720,13 +736,15 @@ def validate_readme_counts(errors: list[str]) -> None:
         f"| `golden_standard_testing_vices.yaml` | Testing failures | {tv_count} |",
         f"| `golden_standard_tokenomics.yaml` | Token efficiency | {tk_count} |",
         f"| `golden_standard_principles.yaml` | Principles | {pr_count} |",
+        f"| `golden_standard_structure_principles.yaml` | Structure principles | {sp_count} |",
+        f"| `golden_standard_adversarial_vectors.yaml` | Adversarial vectors | {av_count} |",
     ]
     for row in expected_rows:
         if row not in readme_text:
             errors.append(f"{readme_path}: missing or stale table row ({row!r}).")
 
     # Check total line
-    expected_total = f"**Total: {vc_count + tv_count + tk_count} vices + {pr_count} principles ({vc_count + tv_count + tk_count + pr_count} entries).**"
+    expected_total = f"**Total: {vc_count + tv_count + tk_count + pr_count + sp_count + av_count} entries.**"
     if expected_total not in readme_text:
         errors.append(
             f"{readme_path}: missing or stale total line ({expected_total!r})."

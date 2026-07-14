@@ -154,3 +154,55 @@ rules:
     metadata:
       vice_ids: [VT-006]
       category: testing
+  - id: gs-vc-094-bom-in-config
+    message: "VC-094: UTF-8 BOM makes the first configuration key unsafe"
+    severity: ERROR
+    languages: [generic]
+    paths:
+      include: ["*.env", "*.yaml", "*.yml", "*.json", "*.toml", "*.ini"]
+    pattern-regex: '^\x{FEFF}'
+    metadata:
+      vice_ids: [VC-094]
+      category: vibe-coding
+  - id: gs-vc-050-runtime-dependency-install
+    message: "VC-050: application code installs dependencies at runtime"
+    severity: ERROR
+    languages: [python]
+    pattern-regex: '(?i)(?:os\.system|subprocess\.(?:run|call|Popen))\s*\([^\n]*(?:pip|npm|pnpm|yarn)\s+(?:install|add)\b'
+    metadata:
+      vice_ids: [VC-050]
+      category: vibe-coding
+  - id: gs-vc-051-non-atomic-state-write
+    message: "VC-051: critical state is truncated without an atomic replace"
+    severity: ERROR
+    languages: [python]
+    patterns:
+      - pattern: open($PATH, "w")
+      - metavariable-regex:
+          metavariable: $PATH
+          regex: '(?i)"[^"]+\.(?:json|ya?ml|db|sqlite3?)"'
+    metadata:
+      vice_ids: [VC-051]
+      category: vibe-coding
+  - id: gs-vt-080-physical-address-assert
+    message: "VT-080: assertion depends on identity, address, or unstable hash"
+    severity: ERROR
+    languages: [python]
+    pattern-either:
+      - pattern: assert id($X) == $Y
+      - pattern: assert $Y == id($X)
+      - pattern: assert hash($X) == $Y
+      - pattern: assert $Y == hash($X)
+    metadata:
+      vice_ids: [VT-080]
+      category: testing
+  - id: gs-vt-106-unjustified-coverage-exclusion
+    message: "VT-106: coverage exclusion lacks an inline reason or review marker"
+    severity: ERROR
+    languages: [generic]
+    paths:
+      include: [".coveragerc", "*coverage*.ini", "pyproject.toml"]
+    pattern-regex: '(?mi)^\s*(?:omit|exclude_lines)\s*=(?![^\n]*(?:reason|justification|reviewed(?:_at)?))'
+    metadata:
+      vice_ids: [VT-106]
+      category: testing

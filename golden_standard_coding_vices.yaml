@@ -1,4 +1,4 @@
-format_version: 3.0
+format_version: 3.0.0
 catalog_name: coding_vices
 items:
 - id: VC-001
@@ -1669,15 +1669,15 @@ items:
   symptom: An `ImportError` triggers `pip install` without human review
   cause: The error handler delegates supply-chain decisions to the environment without control
   solution: Forbid automatic `pip install`; report the missing dependency with manual installation guidance and stop; the human decides what gets installed
-  status: REMEDIATED
+  status: PREVENTED
   severity: high
   tags:
   - vibe-coding
-  - remediated
+  - prevented
   action: 'Dependency installation must never be automatic: an import-time guard must not trigger package installation; missing packages are surfaced for manual decision.
 
     '
-  validating_mechanism: runtime-test
+  validating_mechanism: static-regex
   downstream_verification: none
   example_lang: python
   example_bad: '# Runtime dependency installation, without pinning or verifying.
@@ -1711,15 +1711,15 @@ items:
   symptom: A crash or kill during `write_text()` leaves the state file (JSON, YAML) corrupt or empty
   cause: Write atomicity was not modeled as a requirement of the persistence subsystem
   solution: Write to a temporary file in the same directory and rename atomically (`tmp → final`); clean up the temporary if an exception occurs before the rename
-  status: REMEDIATED
+  status: PREVENTED
   severity: high
   tags:
   - vibe-coding
-  - remediated
+  - prevented
   action: 'Writes to critical state must be atomic: state is persisted via a temp-file-plus-atomic-replace path so a crash cannot leave a half-written, corrupted file.
 
     '
-  validating_mechanism: runtime-test
+  validating_mechanism: static-ast
   downstream_verification: none
   example_lang: python
   example_bad: "# Non-atomic write: if the process dies midway, the critical file corrupts.\nwith open(\"state.json\", \"w\") as f:\n    json.dump(big_state, f)   # truncated and without atomic replacement\n"
@@ -3292,7 +3292,7 @@ items:
   action: 'Static check on configuration files: the first 3 bytes must not be EF BB
     BF (UTF-8 BOM). When writing configs from PowerShell, use New-Object Text.UTF8Encoding($false)
     or Set-Content -Encoding utf8NoBOM (PS7), never the PS5.1 default "UTF8".'
-  validating_mechanism: static-ast
+  validating_mechanism: static-regex
   downstream_verification: none
   detector: vc094_bom_in_config
   example_lang: text

@@ -24,6 +24,56 @@
       "id": "known-clean-negative",
       "fixture": "tests/semgrep_fixtures/negative.py",
       "known_positive_rules": []
+    },
+    {
+      "id": "bom-positive",
+      "fixture": "tests/semgrep_fixtures/positive_bom.yaml",
+      "known_positive_rules": ["gs-vc-094-bom-in-config"]
+    },
+    {
+      "id": "bom-negative",
+      "fixture": "tests/semgrep_fixtures/negative_bom.yaml",
+      "known_positive_rules": []
+    },
+    {
+      "id": "runtime-install-positive",
+      "fixture": "tests/semgrep_fixtures/positive_runtime_install.py",
+      "known_positive_rules": ["gs-vc-050-runtime-dependency-install"]
+    },
+    {
+      "id": "runtime-install-negative",
+      "fixture": "tests/semgrep_fixtures/negative_runtime_install.py",
+      "known_positive_rules": []
+    },
+    {
+      "id": "non-atomic-state-positive",
+      "fixture": "tests/semgrep_fixtures/positive_non_atomic_state.py",
+      "known_positive_rules": ["gs-vc-051-non-atomic-state-write"]
+    },
+    {
+      "id": "non-atomic-state-negative",
+      "fixture": "tests/semgrep_fixtures/negative_non_atomic_state.py",
+      "known_positive_rules": []
+    },
+    {
+      "id": "physical-address-positive",
+      "fixture": "tests/semgrep_fixtures/positive_physical_address.py",
+      "known_positive_rules": ["gs-vt-080-physical-address-assert"]
+    },
+    {
+      "id": "physical-address-negative",
+      "fixture": "tests/semgrep_fixtures/negative_physical_address.py",
+      "known_positive_rules": []
+    },
+    {
+      "id": "coverage-exclusion-positive",
+      "fixture": "tests/semgrep_fixtures/positive_coverage.ini",
+      "known_positive_rules": ["gs-vt-106-unjustified-coverage-exclusion"]
+    },
+    {
+      "id": "coverage-exclusion-negative",
+      "fixture": "tests/semgrep_fixtures/negative_coverage.ini",
+      "known_positive_rules": []
     }
   ]
 }
