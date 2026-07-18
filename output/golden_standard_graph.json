@@ -1,6 +1,6 @@
 {
   "generated_on": "2026-07-18",
-  "node_count": 527,
+  "node_count": 529,
   "edge_count": 2691,
   "nodes": [
     {
@@ -54442,6 +54442,26 @@
       "hub_score": 3
     },
     {
+      "id": "scripts/gs_lint_backlog.py",
+      "path": "scripts/gs_lint_backlog.py",
+      "title": "gs_lint_backlog.py",
+      "kind": "script",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
+    },
+    {
       "id": "scripts/inbox_deposit.py",
       "path": "scripts/inbox_deposit.py",
       "title": "inbox_deposit.py",
@@ -54752,6 +54772,26 @@
       "semantic_reach": 0,
       "relation_diversity": 1,
       "hub_score": 3
+    },
+    {
+      "id": "tests/test_gs_lint_backlog.py",
+      "path": "tests/test_gs_lint_backlog.py",
+      "title": "test_gs_lint_backlog.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
     },
     {
       "id": "tests/test_gs_lint_ratchet.py",
