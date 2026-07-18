@@ -14,6 +14,7 @@ import yaml
 GS_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(GS_ROOT))
 from gs_generator.evidence import classify_source
+from scripts.gs_lint_backlog import prune_resolved_warn_tasks, write_warn_tasks
 CATALOGS = [
     "golden_standard_coding_vices.yaml",
     "golden_standard_testing_vices.yaml",
@@ -238,6 +239,19 @@ def main() -> int:
         print(w)
     for e in hard_errors:
         print(e)
+
+    # CC-018b-style backlog capture: a soft_warning that only scrolls past in
+    # console output is a warning nobody durably owns. Every gs_lint.py run
+    # files new soft_warnings into tasks/backlog/WARN-gslint-*.md and prunes
+    # (deletes) any such task whose finding no longer reproduces -- ported
+    # from Cerberus's dimensions._warn_tasks (same gap, found and fixed there
+    # first, then found here too since GS never even had the write half).
+    from datetime import date as _date
+
+    created = write_warn_tasks(GS_ROOT, soft_warnings, _date.today().isoformat())
+    pruned = prune_resolved_warn_tasks(GS_ROOT, soft_warnings)
+    if created or pruned:
+        print(f"\n[BACKLOG] {created} warning(s) filed, {pruned} resolved task(s) pruned.")
 
     if soft_warnings:
         print(f"\n{len(soft_warnings)} warning(s) — LINT FAILED")
