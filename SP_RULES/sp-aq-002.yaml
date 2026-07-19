@@ -1,0 +1,7 @@
+id: SP-AQ-002
+name: Direct mutation of input dicts/lists in service methods
+linked_vice: VC-062
+severity: warning
+pattern: |
+  (self\.\w+.*(?:\.append|\.extend|\.pop|\.clear)|\[.*\]\s*=\s*)
+rationale: Service methods should return modified copies, not mutate input state.

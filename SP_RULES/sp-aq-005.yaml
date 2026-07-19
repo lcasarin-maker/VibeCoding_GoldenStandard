@@ -1,0 +1,7 @@
+id: SP-AQ-005
+name: Public methods without docstrings
+linked_vice: PR-041
+severity: warning
+pattern: |
+  (def\s+(?!_)\w+\s*\([^)]*\)\s*:\s*\n\s+(?!"""|\x27\x27\x27))
+rationale: Public API must be self-documenting. Use docstrings.

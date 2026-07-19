@@ -1,0 +1,16 @@
+# SP-AQ-001: Mutable default arguments in task schemas
+id: SP-AQ-001
+name: Mutable default arguments in task schemas
+linked_vice: VC-057
+severity: error
+autofix: true
+pattern: |
+  (def\s+\w+\s*\([^)]*,\s*\w+\s*=\s*(\[\]|{}|set\(\))\))
+rationale: |
+  Mutable default arguments are evaluated once at function definition time,
+  causing side-effects when the default is modified.
+fix: |
+  Replace mutable default with None, then initialize inside function.
+  Before: def task(default=[])
+  After: def task(default=None):
+         if default is None: default = []

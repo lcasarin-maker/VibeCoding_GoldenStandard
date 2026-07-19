@@ -1,0 +1,7 @@
+id: SP-AQ-004
+name: Circular imports in models
+linked_vice: VC-038
+severity: error
+pattern: circular_import
+requires_ast_analysis: true
+rationale: Circular imports break module initialization order.

@@ -1,0 +1,7 @@
+id: SP-AQ-003
+name: Hardcoded database connection strings
+linked_vice: VC-085
+severity: error
+pattern: |
+  (postgresql://|mysql://|mongodb://)[A-Za-z0-9@:/.-]+
+rationale: Hardcoded connections are security violations. Use environment variables.
