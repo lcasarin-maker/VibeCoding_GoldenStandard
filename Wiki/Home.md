@@ -10,6 +10,7 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 - 📘 **[[Principles|Principles Index]]**: First-class doctrinal rules, each kept as a linked principle instead of duplicated prose.
 - 🧭 **[[Domains/README|Canonical Domains Index]]**: The canonical GS domain taxonomy, with graph-aware navigation from doctrine to enforcement surfaces.
 - 🕸️ **[[Graph|GS Graph Map]]**: Hubs, intentional orphans, candidate orphans, and local vault impact.
+- 🧪 **[[Falsifiability_Report|Falsifiability Report]]**: Falsifiability classification of the adversarial vectors (AV) catalog by evidence class (runtime-test/static-regex/llm-judge/manual-audit).
 - 📘 **[Golden Standard Conceptual Framework](../CONCEPTUAL_FRAMEWORK.md)**: Epistemological doctrine, levels, and design foundations.
 - 🧼 **[Repository Hygiene Chapter](../CONCEPTUAL_FRAMEWORK.md#6-Repository-and-Execution-Hygiene)**: Canonical standard for cleanup, naming, clean root, and organization evidence.
 - ⚠️ **[[Vices/VC-056|Hasty deprecation]]**: Mirror vice that avoids moving to `deprecated/` without analysis.
