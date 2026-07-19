@@ -36,7 +36,7 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 | Vibe Coding | `VC-xxx` | 94 | [[Vices_Index|Open index]] |
 | Testing & Evaluation | `VT-xxx` | 116 | [[Vices_Index|Open index]] |
 | Tokenomics | `TK-xxx` | 34 | [[Tokenomics_Index|Open index]] |
-| Principles | `PR-xxx` | 121 | [[Principles|Open index]] |
+| Principles | `PR-xxx` | 122 | [[Principles|Open index]] |
 
 ---
 

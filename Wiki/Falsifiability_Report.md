@@ -111,7 +111,7 @@ This report classifies all catalog entries into 5 distinct falsifiability classe
 | AV-091 | Remove-duplicates-sorted-array — empty array → []; all-same → [one]; negative values work | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
 | AV-092 | Reconstruct-itinerary — single flight [A→B]; must use all tickets; sort by lexicographic order | `manual-audit` | Falsifiable under manual-audit: requires human code review / peer verification. |
 | AV-093 | String-to-integer-atoi — empty string → 0; spaces-only → 0; leading "+" valid; "+-" → 0; INT overflow clamp | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
-| AV-094 | Three-sum — empty array → []; no solution → []; [0,0,0] → [[0,0,0]]; deduplicate triplets | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
+| AV-094 | Three-sum — empty array → []; no solution → []; `[0,0,0]` → `[[0,0,0]]`; deduplicate triplets | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
 | AV-095 | Trapping-rain-water — empty → 0; flat → 0; strictly decreasing → 0 (water flows off right) | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
 | AV-096 | Two-sum — target=0 with negatives; pair at ends; large values; duplicate values | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
 | AV-097 | Unique-BSTs — n=0→1 (empty tree is valid); n=1→1; Catalan number sequence | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |

@@ -69,33 +69,82 @@ def test_onboarding_knowledge_loop_is_documented() -> None:
     assert "CONSUMER_CONTRACT.md" in index
 
 
-def test_generator_audit_only_skips_wiki() -> None:
-    # --audit-only must write JSON + MD but not regenerate Wiki/Home.md
-    wiki_home = ROOT / 'Wiki' / 'Home.md'
-    mtime_before = wiki_home.stat().st_mtime if wiki_home.exists() else 0.0
-    result = subprocess.run(
-        [sys.executable, 'scripts/generate_golden_audit.py', '--audit-only'],
-        cwd=ROOT,
+def _sandbox_repo(tmp_path):
+    """Copy the repo into a sandbox so the compiler never mutates the live tree.
+
+    Args:
+        tmp_path: pytest-provided temporary directory.
+
+    Returns:
+        Path of the sandbox repo root.
+    """
+    import shutil
+
+    sandbox = tmp_path / 'repo'
+    shutil.copytree(
+        ROOT,
+        sandbox,
+        ignore=shutil.ignore_patterns(
+            '.git', '.venv', '__pycache__', 'node_modules', '.pytest_cache'
+        ),
+    )
+    return sandbox
+
+
+def _run_generator(sandbox, flag):
+    """Run the vault compiler inside the sandbox via GS_GENERATOR_ROOT.
+
+    Args:
+        sandbox: sandbox repo root.
+        flag: generator CLI flag (--audit-only / --wiki-only).
+
+    Returns:
+        CompletedProcess of the generator run.
+    """
+    import os
+
+    env = dict(os.environ, GS_GENERATOR_ROOT=str(sandbox))
+    return subprocess.run(
+        [sys.executable, str(sandbox / 'scripts' / 'generate_golden_audit.py'), flag],
+        cwd=sandbox,
+        env=env,
         capture_output=True,
         text=True,
     )
+
+
+def test_generator_audit_only_skips_wiki(tmp_path) -> None:
+    # --audit-only must write JSON + MD but not regenerate Wiki/Home.md
+    sandbox = _sandbox_repo(tmp_path)
+    wiki_home = sandbox / 'Wiki' / 'Home.md'
+    mtime_before = wiki_home.stat().st_mtime if wiki_home.exists() else 0.0
+    result = _run_generator(sandbox, '--audit-only')
     assert result.returncode == 0, result.stderr
-    assert (ROOT / 'output' / 'golden_standard_audit.json').exists()
+    assert (sandbox / 'output' / 'golden_standard_audit.json').exists()
     mtime_after = wiki_home.stat().st_mtime if wiki_home.exists() else 0.0
     assert mtime_after == mtime_before, 'Wiki/Home.md was touched by --audit-only'
 
 
-def test_generator_wiki_only_skips_audit_json() -> None:
+def test_generator_wiki_only_skips_audit_json(tmp_path) -> None:
     # --wiki-only must write wiki files but not touch the audit JSON
-    audit_json = ROOT / 'output' / 'golden_standard_audit.json'
+    sandbox = _sandbox_repo(tmp_path)
+    audit_json = sandbox / 'output' / 'golden_standard_audit.json'
     mtime_before = audit_json.stat().st_mtime if audit_json.exists() else 0.0
-    result = subprocess.run(
-        [sys.executable, 'scripts/generate_golden_audit.py', '--wiki-only'],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-    )
+    result = _run_generator(sandbox, '--wiki-only')
     assert result.returncode == 0, result.stderr
-    assert (ROOT / 'Wiki' / 'Home.md').exists()
+    assert (sandbox / 'Wiki' / 'Home.md').exists()
     mtime_after = audit_json.stat().st_mtime if audit_json.exists() else 0.0
     assert mtime_after == mtime_before, 'output/golden_standard_audit.json was touched by --wiki-only'
+
+
+def test_generator_never_mutates_live_tree(tmp_path) -> None:
+    # Meta-guard: running the compiler in a sandbox leaves the repo intact.
+    marker = ROOT / 'Wiki' / 'Falsifiability_Report.md'
+    existed = marker.exists()
+    content = marker.read_bytes() if existed else None
+    sandbox = _sandbox_repo(tmp_path)
+    result = _run_generator(sandbox, '--wiki-only')
+    assert result.returncode == 0, result.stderr
+    assert marker.exists() == existed, 'compiler run touched the live Wiki'
+    if existed:
+        assert marker.read_bytes() == content

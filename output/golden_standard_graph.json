@@ -1,7 +1,7 @@
 {
-  "generated_on": "2026-07-18",
-  "node_count": 530,
-  "edge_count": 2691,
+  "generated_on": "2026-07-19",
+  "node_count": 537,
+  "edge_count": 2698,
   "nodes": [
     {
       "id": ".github/workflows/audit.yml",
@@ -4407,6 +4407,7 @@
         "Principles/PR-119",
         "Principles/PR-120",
         "Principles/PR-121",
+        "Principles/PR-122",
         "README"
       ],
       "outgoing_edges": [
@@ -5607,15 +5608,21 @@
           "confidence": 0.9
         },
         {
+          "source": "Principles/PR-122",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.9
+        },
+        {
           "source": "README",
           "kind": "markdown",
           "relation": "references",
           "confidence": 0.9
         }
       ],
-      "in_degree": 142,
+      "in_degree": 143,
       "out_degree": 58,
-      "degree": 200,
+      "degree": 201,
       "connected_types": [
         "domain",
         "principle",
@@ -5632,7 +5639,7 @@
       ],
       "semantic_reach": 5,
       "relation_diversity": 5,
-      "hub_score": 225
+      "hub_score": 226
     },
     {
       "id": "Evidence/aequitas_os_secrets_migration_to_dai_secrets_fase_0_3_internal_cited_generically",
@@ -9553,6 +9560,7 @@
         "Principles/PR-119",
         "Principles/PR-120",
         "Principles/PR-121",
+        "Principles/PR-122",
         "Principles/SP-001",
         "Principles/SP-002",
         "Principles/SP-003",
@@ -11184,6 +11192,12 @@
           "confidence": 0.85
         },
         {
+          "source": "Principles/PR-122",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
           "source": "Principles/SP-001",
           "kind": "wikilink",
           "relation": "references",
@@ -12732,9 +12746,9 @@
           "confidence": 0.85
         }
       ],
-      "in_degree": 473,
+      "in_degree": 474,
       "out_degree": 13,
-      "degree": 486,
+      "degree": 487,
       "connected_types": [
         "conceptual-framework",
         "domain",
@@ -12754,7 +12768,7 @@
       ],
       "semantic_reach": 8,
       "relation_diversity": 5,
-      "hub_score": 520
+      "hub_score": 521
     },
     {
       "id": "Principles",
@@ -12886,7 +12900,8 @@
         "Principles/PR-118",
         "Principles/PR-119",
         "Principles/PR-120",
-        "Principles/PR-121"
+        "Principles/PR-121",
+        "Principles/PR-122"
       ],
       "incoming": [
         "Domains/README",
@@ -13012,6 +13027,7 @@
         "Principles/PR-119",
         "Principles/PR-120",
         "Principles/PR-121",
+        "Principles/PR-122",
         "Principles/SP-001",
         "Principles/SP-002",
         "Principles/SP-003",
@@ -13762,6 +13778,12 @@
           "kind": "wikilink",
           "relation": "indexes",
           "confidence": 0.95
+        },
+        {
+          "target": "Principles/PR-122",
+          "kind": "wikilink",
+          "relation": "indexes",
+          "confidence": 0.95
         }
       ],
       "incoming_edges": [
@@ -14504,6 +14526,12 @@
           "confidence": 0.95
         },
         {
+          "source": "Principles/PR-122",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        },
+        {
           "source": "Principles/SP-001",
           "kind": "wikilink",
           "relation": "returns_to_index",
@@ -14570,9 +14598,9 @@
           "confidence": 0.95
         }
       ],
-      "in_degree": 134,
-      "out_degree": 123,
-      "degree": 257,
+      "in_degree": 135,
+      "out_degree": 124,
+      "degree": 259,
       "connected_types": [
         "domain",
         "principle",
@@ -14588,7 +14616,7 @@
       ],
       "semantic_reach": 3,
       "relation_diversity": 6,
-      "hub_score": 278
+      "hub_score": 280
     },
     {
       "id": "Principles/PR-001",
@@ -25445,6 +25473,66 @@
       "id": "Principles/PR-121",
       "path": "Wiki/Principles/PR-121.md",
       "title": "PR-121 — Escalation Protocol — stop and escalate when confidence falls below 70%",
+      "kind": "principle",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "Domains/README",
+        "Home",
+        "Principles"
+      ],
+      "incoming": [
+        "Principles"
+      ],
+      "outgoing_edges": [
+        {
+          "target": "Domains/README",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.9
+        },
+        {
+          "target": "Home",
+          "kind": "wikilink",
+          "relation": "references",
+          "confidence": 0.85
+        },
+        {
+          "target": "Principles",
+          "kind": "wikilink",
+          "relation": "returns_to_index",
+          "confidence": 0.95
+        }
+      ],
+      "incoming_edges": [
+        {
+          "source": "Principles",
+          "kind": "wikilink",
+          "relation": "indexes",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 3,
+      "degree": 4,
+      "connected_types": [
+        "domain",
+        "principle-index",
+        "wiki"
+      ],
+      "relation_types": [
+        "indexes",
+        "references",
+        "returns_to_index"
+      ],
+      "semantic_reach": 3,
+      "relation_diversity": 3,
+      "hub_score": 19
+    },
+    {
+      "id": "Principles/PR-122",
+      "path": "Wiki/Principles/PR-122.md",
+      "title": "PR-122 — Canonical Correction — 100% fixes only, no pragmatic substitutes",
       "kind": "principle",
       "created": null,
       "promoted": null,
@@ -53911,6 +53999,37 @@
       "hub_score": 0
     },
     {
+      "id": "scripts/aequitas_lint.py",
+      "path": "scripts/aequitas_lint.py",
+      "title": "aequitas_lint.py",
+      "kind": "script",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [
+        "tests/test_gs11_sp_linting.py"
+      ],
+      "outgoing_edges": [],
+      "incoming_edges": [
+        {
+          "source": "tests/test_gs11_sp_linting.py",
+          "kind": "file",
+          "relation": "imports",
+          "confidence": 1.0
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 0,
+      "degree": 1,
+      "relation_types": [
+        "imports"
+      ],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 1,
+      "hub_score": 3
+    },
+    {
       "id": "scripts/analyze_graph.py",
       "path": "scripts/analyze_graph.py",
       "title": "analyze_graph.py",
@@ -54063,6 +54182,37 @@
       "semantic_reach": 0,
       "relation_diversity": 0,
       "hub_score": 0
+    },
+    {
+      "id": "scripts/conformity_report_cli.py",
+      "path": "scripts/conformity_report_cli.py",
+      "title": "conformity_report_cli.py",
+      "kind": "script",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "scripts/generate_conformity_report.py"
+      ],
+      "incoming": [],
+      "outgoing_edges": [
+        {
+          "target": "scripts/generate_conformity_report.py",
+          "kind": "file",
+          "relation": "imports",
+          "confidence": 1.0
+        }
+      ],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 1,
+      "degree": 1,
+      "relation_types": [
+        "imports"
+      ],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 1,
+      "hub_score": 3
     },
     {
       "id": "scripts/detectors.py",
@@ -54341,6 +54491,44 @@
       "hub_score": 4
     },
     {
+      "id": "scripts/generate_conformity_report.py",
+      "path": "scripts/generate_conformity_report.py",
+      "title": "generate_conformity_report.py",
+      "kind": "script",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [
+        "scripts/conformity_report_cli.py",
+        "tests/test_gs13_conformity.py"
+      ],
+      "outgoing_edges": [],
+      "incoming_edges": [
+        {
+          "source": "scripts/conformity_report_cli.py",
+          "kind": "file",
+          "relation": "imports",
+          "confidence": 1.0
+        },
+        {
+          "source": "tests/test_gs13_conformity.py",
+          "kind": "file",
+          "relation": "imports",
+          "confidence": 1.0
+        }
+      ],
+      "in_degree": 2,
+      "out_degree": 0,
+      "degree": 2,
+      "relation_types": [
+        "imports"
+      ],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 1,
+      "hub_score": 4
+    },
+    {
       "id": "scripts/generate_golden_audit.py",
       "path": "scripts/generate_golden_audit.py",
       "title": "generate_golden_audit.py",
@@ -54465,6 +54653,26 @@
       "id": "scripts/inbox_deposit.py",
       "path": "scripts/inbox_deposit.py",
       "title": "inbox_deposit.py",
+      "kind": "script",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
+    },
+    {
+      "id": "scripts/lint_wiki.py",
+      "path": "scripts/lint_wiki.py",
+      "title": "lint_wiki.py",
       "kind": "script",
       "created": null,
       "promoted": null,
@@ -54756,6 +54964,68 @@
       "outgoing_edges": [
         {
           "target": "scripts/generate_golden_audit.py",
+          "kind": "file",
+          "relation": "imports",
+          "confidence": 1.0
+        }
+      ],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 1,
+      "degree": 1,
+      "relation_types": [
+        "imports"
+      ],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 1,
+      "hub_score": 3
+    },
+    {
+      "id": "tests/test_gs11_sp_linting.py",
+      "path": "tests/test_gs11_sp_linting.py",
+      "title": "test_gs11_sp_linting.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "scripts/aequitas_lint.py"
+      ],
+      "incoming": [],
+      "outgoing_edges": [
+        {
+          "target": "scripts/aequitas_lint.py",
+          "kind": "file",
+          "relation": "imports",
+          "confidence": 1.0
+        }
+      ],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 1,
+      "degree": 1,
+      "relation_types": [
+        "imports"
+      ],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 1,
+      "hub_score": 3
+    },
+    {
+      "id": "tests/test_gs13_conformity.py",
+      "path": "tests/test_gs13_conformity.py",
+      "title": "test_gs13_conformity.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [
+        "scripts/generate_conformity_report.py"
+      ],
+      "incoming": [],
+      "outgoing_edges": [
+        {
+          "target": "scripts/generate_conformity_report.py",
           "kind": "file",
           "relation": "imports",
           "confidence": 1.0
@@ -58400,6 +58670,13 @@
       "confidence": 0.95
     },
     {
+      "source": "Principles",
+      "target": "Principles/PR-122",
+      "kind": "wikilink",
+      "relation": "indexes",
+      "confidence": 0.95
+    },
+    {
       "source": "Principles/PR-001",
       "target": "Domains/README",
       "kind": "wikilink",
@@ -61327,6 +61604,27 @@
     },
     {
       "source": "Principles/PR-121",
+      "target": "Principles",
+      "kind": "wikilink",
+      "relation": "returns_to_index",
+      "confidence": 0.95
+    },
+    {
+      "source": "Principles/PR-122",
+      "target": "Domains/README",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.9
+    },
+    {
+      "source": "Principles/PR-122",
+      "target": "Home",
+      "kind": "wikilink",
+      "relation": "references",
+      "confidence": 0.85
+    },
+    {
+      "source": "Principles/PR-122",
       "target": "Principles",
       "kind": "wikilink",
       "relation": "returns_to_index",
@@ -75215,6 +75513,13 @@
       "confidence": 1.0
     },
     {
+      "source": "scripts/conformity_report_cli.py",
+      "target": "scripts/generate_conformity_report.py",
+      "kind": "file",
+      "relation": "imports",
+      "confidence": 1.0
+    },
+    {
       "source": "scripts/metrics.py",
       "target": "scripts/detectors.py",
       "kind": "file",
@@ -75248,31 +75553,45 @@
       "kind": "file",
       "relation": "imports",
       "confidence": 1.0
+    },
+    {
+      "source": "tests/test_gs11_sp_linting.py",
+      "target": "scripts/aequitas_lint.py",
+      "kind": "file",
+      "relation": "imports",
+      "confidence": 1.0
+    },
+    {
+      "source": "tests/test_gs13_conformity.py",
+      "target": "scripts/generate_conformity_report.py",
+      "kind": "file",
+      "relation": "imports",
+      "confidence": 1.0
     }
   ],
   "summary": {
     "edge_kinds": {
       "markdown": 6,
-      "wikilink": 2637
+      "wikilink": 2641
     },
     "relation_counts": {
       "bridges": 21,
       "catalogs": 359,
       "entrypoint": 13,
       "governed_by": 210,
-      "indexes": 122,
+      "indexes": 123,
       "operationalizes_domain": 105,
-      "references": 480,
-      "returns_to_index": 1176,
+      "references": 482,
+      "returns_to_index": 1177,
       "routes_to_domains": 1,
       "subindex": 34,
       "thematic_bridge": 122
     },
-    "reciprocal_pairs": 613,
+    "reciprocal_pairs": 614,
     "average_edge_confidence": 0.933,
-    "semantic_density": 0.011448,
+    "semantic_density": 0.011417,
     "hub_ratio": 1.0,
-    "bridge_ratio": 0.997921,
+    "bridge_ratio": 0.997925,
     "intentional_orphans": [],
     "intentional_orphan_review": [],
     "orphan_candidates": [],
@@ -75515,6 +75834,7 @@
           "Principles/PR-119",
           "Principles/PR-120",
           "Principles/PR-121",
+          "Principles/PR-122",
           "Principles/SP-001",
           "Principles/SP-002",
           "Principles/SP-003",
@@ -77146,6 +77466,12 @@
             "confidence": 0.85
           },
           {
+            "source": "Principles/PR-122",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
             "source": "Principles/SP-001",
             "kind": "wikilink",
             "relation": "references",
@@ -78694,9 +79020,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 473,
+        "in_degree": 474,
         "out_degree": 13,
-        "degree": 486,
+        "degree": 487,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -78716,7 +79042,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 520
+        "hub_score": 521
       },
       {
         "id": "Vices_Index",
@@ -83773,7 +84099,8 @@
           "Principles/PR-118",
           "Principles/PR-119",
           "Principles/PR-120",
-          "Principles/PR-121"
+          "Principles/PR-121",
+          "Principles/PR-122"
         ],
         "incoming": [
           "Domains/README",
@@ -83899,6 +84226,7 @@
           "Principles/PR-119",
           "Principles/PR-120",
           "Principles/PR-121",
+          "Principles/PR-122",
           "Principles/SP-001",
           "Principles/SP-002",
           "Principles/SP-003",
@@ -84649,6 +84977,12 @@
             "kind": "wikilink",
             "relation": "indexes",
             "confidence": 0.95
+          },
+          {
+            "target": "Principles/PR-122",
+            "kind": "wikilink",
+            "relation": "indexes",
+            "confidence": 0.95
           }
         ],
         "incoming_edges": [
@@ -85391,6 +85725,12 @@
             "confidence": 0.95
           },
           {
+            "source": "Principles/PR-122",
+            "kind": "wikilink",
+            "relation": "returns_to_index",
+            "confidence": 0.95
+          },
+          {
             "source": "Principles/SP-001",
             "kind": "wikilink",
             "relation": "returns_to_index",
@@ -85457,9 +85797,9 @@
             "confidence": 0.95
           }
         ],
-        "in_degree": 134,
-        "out_degree": 123,
-        "degree": 257,
+        "in_degree": 135,
+        "out_degree": 124,
+        "degree": 259,
         "connected_types": [
           "domain",
           "principle",
@@ -85475,7 +85815,7 @@
         ],
         "semantic_reach": 3,
         "relation_diversity": 6,
-        "hub_score": 278
+        "hub_score": 280
       },
       {
         "id": "Principles/PR-097",
@@ -87262,6 +87602,7 @@
           "Principles/PR-119",
           "Principles/PR-120",
           "Principles/PR-121",
+          "Principles/PR-122",
           "README"
         ],
         "outgoing_edges": [
@@ -88462,15 +88803,21 @@
             "confidence": 0.9
           },
           {
+            "source": "Principles/PR-122",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.9
+          },
+          {
             "source": "README",
             "kind": "markdown",
             "relation": "references",
             "confidence": 0.9
           }
         ],
-        "in_degree": 142,
+        "in_degree": 143,
         "out_degree": 58,
-        "degree": 200,
+        "degree": 201,
         "connected_types": [
           "domain",
           "principle",
@@ -88487,7 +88834,7 @@
         ],
         "semantic_reach": 5,
         "relation_diversity": 5,
-        "hub_score": 225
+        "hub_score": 226
       },
       {
         "id": "Evidence/arxiv2602_00409",
@@ -92112,6 +92459,7 @@
           "Principles/PR-119",
           "Principles/PR-120",
           "Principles/PR-121",
+          "Principles/PR-122",
           "Principles/SP-001",
           "Principles/SP-002",
           "Principles/SP-003",
@@ -93743,6 +94091,12 @@
             "confidence": 0.85
           },
           {
+            "source": "Principles/PR-122",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.85
+          },
+          {
             "source": "Principles/SP-001",
             "kind": "wikilink",
             "relation": "references",
@@ -95291,9 +95645,9 @@
             "confidence": 0.85
           }
         ],
-        "in_degree": 473,
+        "in_degree": 474,
         "out_degree": 13,
-        "degree": 486,
+        "degree": 487,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -95313,7 +95667,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 520
+        "hub_score": 521
       },
       {
         "id": "Tokenomics_Map",
@@ -97463,6 +97817,7 @@
           "Principles/PR-119",
           "Principles/PR-120",
           "Principles/PR-121",
+          "Principles/PR-122",
           "README"
         ],
         "outgoing_edges": [
@@ -98663,15 +99018,21 @@
             "confidence": 0.9
           },
           {
+            "source": "Principles/PR-122",
+            "kind": "wikilink",
+            "relation": "references",
+            "confidence": 0.9
+          },
+          {
             "source": "README",
             "kind": "markdown",
             "relation": "references",
             "confidence": 0.9
           }
         ],
-        "in_degree": 142,
+        "in_degree": 143,
         "out_degree": 58,
-        "degree": 200,
+        "degree": 201,
         "connected_types": [
           "domain",
           "principle",
@@ -98688,7 +99049,7 @@
         ],
         "semantic_reach": 5,
         "relation_diversity": 5,
-        "hub_score": 225
+        "hub_score": 226
       },
       {
         "id": "Principles/PR-084",

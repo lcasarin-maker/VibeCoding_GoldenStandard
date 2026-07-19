@@ -2,17 +2,17 @@
 """
 GS-13: Generate Golden Standard Conformity Reports
 
-Tracks enforcement coverage of Golden Standard vices, testing vices, and principles
-across satellite repositories. Provides weekly conformity reports showing adoption
-and alignment metrics.
+Tracks enforcement coverage of Golden Standard vices, testing vices, and
+principles. Every figure is derived from the catalogs' own fields
+(``status``, ``validating_mechanism``, ``test_ref``, ``doc_only_justification``)
+and from enforcement infrastructure actually present on disk — nothing is
+assumed or hardcoded.
 
 Design: GS-13_CONFORMIDAD_DISEÑO_2026-07-19.md
 """
 
 import json
-import subprocess
 import sys
-from collections import defaultdict
 from dataclasses import dataclass, asdict
 from datetime import datetime
 from pathlib import Path
@@ -20,177 +20,221 @@ from typing import Dict, List, Optional
 
 import yaml
 
+# Mechanisms that run without a human in the loop.
+AUTOMATED_MECHANISMS = {"runtime-test", "static-ast", "static-regex"}
+
+CATALOG_FILES = {
+    "VC": "golden_standard_coding_vices.yaml",
+    "TV": "golden_standard_testing_vices.yaml",
+    "PR": "golden_standard_principles.yaml",
+}
+
 
 @dataclass
 class ConformityMetrics:
-    """Conformity report metrics."""
-    enforcement_coverage: float  # % of vices with active enforcement
-    doctrine_alignment: float  # % of vices considered aligned
-    automated_checks: int  # Number of automated enforcement points
-    manual_reviews: int  # Number of manual enforcement points
+    """Conformity report metrics (all derived, none assumed)."""
+    enforcement_coverage: float  # % of items with status PREVENTED/REMEDIATED
+    doctrine_alignment: float  # % enforced or DOC_ONLY with justification
+    automated_checks: int  # items whose mechanism is automated
+    manual_reviews: int  # items requiring human judgment (DOC_ONLY)
     total_vices: int
     enforced_vices: int
-    partial_vices: int
-    proposed_only_vices: int
+    partial_vices: int  # REMEDIATED: fixed with evidence, not yet prevented
+    proposed_only_vices: int  # DOC_ONLY
     audit_date: str
     satellite_name: str
 
 
 @dataclass
 class ViceStatus:
-    """Status of a single vice enforcement."""
+    """Status of a single catalog item, read from the catalog itself."""
     vice_id: str
     vice_type: str  # VC, TV, PR
     name: str
-    status: str  # ENFORCED, PARTIAL, PROPOSED
+    status: str  # ENFORCED, REMEDIATED, DOC_ONLY
     enforcing_rules: List[str]
     coverage: float
     evidence: Optional[str] = None
 
 
 class ConformityReportGenerator:
-    """Generate Golden Standard conformity reports for satellites."""
+    """Generate Golden Standard conformity reports.
 
-    def __init__(self, gs_path: Path, satellite_name: Optional[str] = None):
+    Example:
+        gen = ConformityReportGenerator(Path("."), satellite_name="Aequitas_OS")
+        markdown = gen.generate_report(Path("out/conformity.md"))
+    """
+
+    def __init__(
+        self,
+        gs_path: Path,
+        satellite_name: Optional[str] = None,
+        satellite_path: Optional[Path] = None,
+    ):
         """
         Initialize report generator.
 
         Args:
-            gs_path: Path to Golden Standard repo root
-            satellite_name: Name of satellite repo (for context)
+            gs_path: Path to Golden Standard repo root.
+            satellite_name: Name of satellite repo (context label).
+            satellite_path: Optional path to the satellite working tree; when
+                given, its enforcement hooks are inspected too.
         """
         self.gs_path = Path(gs_path)
         self.satellite_name = satellite_name or "Unknown"
+        self.satellite_path = Path(satellite_path) if satellite_path else None
         self.audit_date = datetime.now().isoformat()
 
-        # Load GS catalogs
-        self.vices = self._load_vices()
-        self.principles = self._load_principles()
-        self.testing_vices = self._load_testing_vices()
+        self.catalogs: Dict[str, Dict[str, dict]] = {
+            prefix: self._load_catalog(filename)
+            for prefix, filename in CATALOG_FILES.items()
+        }
 
-    def _load_vices(self) -> Dict[str, dict]:
-        """Load coding vices from YAML."""
-        vices_file = self.gs_path / "golden_standard_coding_vices.yaml"
-        if not vices_file.exists():
-            return {}
-        with open(vices_file) as f:
-            return yaml.safe_load(f).get("coding_vices", {})
+    # Backwards-compatible views used by callers/tests.
+    @property
+    def vices(self) -> Dict[str, dict]:
+        """Coding vices catalog keyed by id."""
+        return self.catalogs["VC"]
 
-    def _load_principles(self) -> Dict[str, dict]:
-        """Load principles from YAML."""
-        principles_file = self.gs_path / "golden_standard_principles.yaml"
-        if not principles_file.exists():
-            return {}
-        with open(principles_file) as f:
-            return yaml.safe_load(f).get("principles", {})
+    @property
+    def testing_vices(self) -> Dict[str, dict]:
+        """Testing vices catalog keyed by id."""
+        return self.catalogs["TV"]
 
-    def _load_testing_vices(self) -> Dict[str, dict]:
-        """Load testing vices from YAML."""
-        testing_file = self.gs_path / "golden_standard_testing_vices.yaml"
-        if not testing_file.exists():
-            return {}
-        with open(testing_file) as f:
-            return yaml.safe_load(f).get("testing_vices", {})
+    @property
+    def principles(self) -> Dict[str, dict]:
+        """Principles catalog keyed by id."""
+        return self.catalogs["PR"]
+
+    def _load_catalog(self, filename: str) -> Dict[str, dict]:
+        """Load a v3 catalog (``items:`` list) into an id-keyed dict.
+
+        Raises:
+            FileNotFoundError / ValueError: a missing or malformed catalog is
+            a hard error — reporting conformity over an empty catalog would
+            silently fake 100% figures.
+        """
+        path = self.gs_path / filename
+        if not path.exists():
+            raise FileNotFoundError(f"Catalog not found: {path}")
+        with open(path, encoding="utf-8") as f:
+            data = yaml.safe_load(f)
+        items = data.get("items")
+        if not isinstance(items, list) or not items:
+            raise ValueError(f"Catalog {filename} has no 'items' list")
+        return {item["id"]: item for item in items}
 
     def _collect_active_enforcers(self) -> Dict[str, List[str]]:
+        """Enforcement mechanisms actually present on disk.
+
+        Returns:
+            Mapping of category -> list of detected enforcers.
         """
-        Collect active enforcement mechanisms.
+        enforcers: Dict[str, List[str]] = {}
 
-        Returns mapping of vice_id -> list of active enforcers
-        """
-        enforcers = defaultdict(list)
+        def add(category: str, name: str) -> None:
+            enforcers.setdefault(category, []).append(name)
 
-        # Check for aequitas-lint.py (SP rules)
-        lint_script = self.gs_path / ".." / "Aequitas_OS" / "scripts" / "aequitas-lint.py"
-        if lint_script.exists():
-            enforcers["SP-RULES"].append("aequitas-lint.py")
+        # GS repo tooling
+        for script, category in (
+            ("scripts/gs_lint.py", "LINT"),
+            ("scripts/aequitas_lint.py", "SP-RULES"),
+            ("scripts/lint_wiki.py", "WIKI"),
+        ):
+            if (self.gs_path / script).exists():
+                add(category, script)
+        if (self.gs_path / "config" / "semgrep_vices.yaml").exists():
+            add("SEMGREP", "config/semgrep_vices.yaml")
+        hook = self.gs_path / ".git" / "hooks" / "pre-commit"
+        if hook.exists():
+            add("PRE-COMMIT", "pre-commit (GoldenStandard)")
 
-        # Check for pre-commit hooks
-        pre_commit = self.gs_path / ".." / "Aequitas_OS" / ".git" / "hooks" / "pre-commit"
-        if pre_commit.exists():
-            enforcers["PRE-COMMIT"].append("pre-commit (Aequitas)")
-
-        # Check for CI workflows
+        # CI workflows
         ci_dir = self.gs_path / ".github" / "workflows"
         if ci_dir.exists():
-            for wf in ci_dir.glob("*.yaml"):
-                content = wf.read_text()
-                if "pytest" in content:
-                    enforcers["TESTING"].append(f"{wf.name} (pytest)")
-                if "pylint" in content:
-                    enforcers["LINT"].append(f"{wf.name} (pylint)")
-                if "mypy" in content:
-                    enforcers["TYPE-CHECK"].append(f"{wf.name} (mypy)")
+            for wf in sorted(ci_dir.glob("*.y*ml")):
+                content = wf.read_text(encoding="utf-8", errors="replace")
+                for needle, category in (
+                    ("pytest", "TESTING"),
+                    ("pylint", "LINT"),
+                    ("mypy", "TYPE-CHECK"),
+                    ("semgrep", "SEMGREP"),
+                ):
+                    if needle in content:
+                        add(category, f"{wf.name} ({needle})")
 
-        return dict(enforcers)
+        # Satellite tooling, only if a real path was provided.
+        if self.satellite_path and self.satellite_path.exists():
+            sat_hook = self.satellite_path / ".git" / "hooks" / "pre-commit"
+            if sat_hook.exists():
+                add("PRE-COMMIT", f"pre-commit ({self.satellite_name})")
+            for lint in sorted((self.satellite_path / "scripts").glob("*lint*.py")) if (self.satellite_path / "scripts").exists() else []:
+                add("SP-RULES", f"{self.satellite_name}/scripts/{lint.name}")
+
+        return enforcers
+
+    def _item_status(self, item: dict, vice_type: str) -> ViceStatus:
+        """Translate one catalog item into a ViceStatus, no assumptions.
+
+        Args:
+            item: raw catalog entry.
+            vice_type: VC, TV or PR.
+
+        Returns:
+            ViceStatus derived from the item's own status/mechanism fields.
+        """
+        raw_status = item.get("status", "DOC_ONLY")
+        mechanism = str(item.get("validating_mechanism", "DOC_ONLY"))
+        test_ref = item.get("test_ref") or ""
+        rules = [r for r in (mechanism, test_ref) if r and r != "DOC_ONLY"]
+
+        if raw_status == "PREVENTED":
+            status, coverage = "ENFORCED", 1.0
+        elif raw_status == "REMEDIATED":
+            status, coverage = "REMEDIATED", 0.5
+        else:
+            status, coverage = "DOC_ONLY", 0.0
+
+        return ViceStatus(
+            vice_id=item["id"],
+            vice_type=vice_type,
+            name=item.get("title", "Unknown"),
+            status=status,
+            enforcing_rules=rules,
+            coverage=coverage,
+            evidence=item.get("evidence") or item.get("detection") or None,
+        )
 
     def _calculate_vice_status(self) -> Dict[str, ViceStatus]:
-        """Calculate enforcement status for each vice."""
-        status_map = {}
-        enforcers = self._collect_active_enforcers()
-
-        # Code vices (VC-*)
-        for vice_id, vice_data in self.vices.items():
-            enforcing_rules = vice_data.get("enforced_by", [])
-            active = any(e in str(enforcers) for e in enforcing_rules)
-
-            status = ViceStatus(
-                vice_id=vice_id,
-                vice_type="VC",
-                name=vice_data.get("name", "Unknown"),
-                status="ENFORCED" if active else "PROPOSED",
-                enforcing_rules=enforcing_rules,
-                coverage=1.0 if active else 0.0,
-                evidence=vice_data.get("example_violation", None),
-            )
-            status_map[vice_id] = status
-
-        # Testing vices (TV-*)
-        for vice_id, vice_data in self.testing_vices.items():
-            enforcing_rules = vice_data.get("enforced_by", [])
-            active = "TESTING" in enforcers or "pytest" in str(enforcing_rules)
-
-            status = ViceStatus(
-                vice_id=vice_id,
-                vice_type="TV",
-                name=vice_data.get("name", "Unknown"),
-                status="ENFORCED" if active else "PROPOSED",
-                enforcing_rules=enforcing_rules,
-                coverage=1.0 if active else 0.0,
-            )
-            status_map[vice_id] = status
-
-        # Principles (PR-*)
-        for principle_id, principle_data in self.principles.items():
-            status = ViceStatus(
-                vice_id=principle_id,
-                vice_type="PR",
-                name=principle_data.get("name", "Unknown"),
-                status="ENFORCED",  # Assume principles are aspirational
-                enforcing_rules=principle_data.get("enforcement_mechanisms", []),
-                coverage=0.8,  # Placeholder
-            )
-            status_map[principle_id] = status
-
+        """Calculate enforcement status for every catalog item."""
+        status_map: Dict[str, ViceStatus] = {}
+        for vice_type, catalog in self.catalogs.items():
+            for item in catalog.values():
+                status = self._item_status(item, vice_type)
+                status_map[status.vice_id] = status
         return status_map
 
     def _calculate_metrics(self, vice_status: Dict[str, ViceStatus]) -> ConformityMetrics:
-        """Calculate conformity metrics."""
+        """Calculate conformity metrics from per-item statuses."""
         total = len(vice_status)
         enforced = sum(1 for v in vice_status.values() if v.status == "ENFORCED")
-        partial = sum(1 for v in vice_status.values() if v.status == "PARTIAL")
+        partial = sum(1 for v in vice_status.values() if v.status == "REMEDIATED")
         proposed = total - enforced - partial
 
-        # Automated = enforcers that run without human intervention
-        # Manual = PR reviews, code inspection
-        automated = sum(1 for v in vice_status.values() if v.status == "ENFORCED")
-        manual = partial
+        automated = 0
+        aligned = 0
+        for v in vice_status.values():
+            item = self.catalogs[v.vice_type].get(v.vice_id, {})
+            if str(item.get("validating_mechanism")) in AUTOMATED_MECHANISMS:
+                automated += 1
+            if v.status in ("ENFORCED", "REMEDIATED") or item.get("doc_only_justification"):
+                aligned += 1
 
         return ConformityMetrics(
-            enforcement_coverage=float(enforced / total * 100) if total > 0 else 0,
-            doctrine_alignment=float(enforced / total * 100) if total > 0 else 0,
+            enforcement_coverage=(enforced / total * 100) if total else 0,
+            doctrine_alignment=(aligned / total * 100) if total else 0,
             automated_checks=automated,
-            manual_reviews=manual,
+            manual_reviews=proposed,
             total_vices=total,
             enforced_vices=enforced,
             partial_vices=partial,
@@ -204,88 +248,60 @@ class ConformityReportGenerator:
         Generate conformity report as markdown.
 
         Args:
-            output_path: Optional path to write report to file
+            output_path: Optional path to write report to file.
 
         Returns:
-            Markdown report as string
+            Markdown report as string.
         """
         vice_status = self._calculate_vice_status()
         metrics = self._calculate_metrics(vice_status)
+        date_str = datetime.fromisoformat(self.audit_date).strftime("%Y-%m-%d")
 
-        # Build markdown report
-        lines = []
+        lines: List[str] = []
         lines.append("# Golden Standard Conformity Report")
         lines.append("")
         lines.append(f"**Satellite:** {self.satellite_name}")
-        lines.append(f"**Report Date:** {datetime.fromisoformat(self.audit_date).strftime('%Y-%m-%d')}")
-        lines.append(f"**Report Version:** 1.0")
+        lines.append(f"**Report Date:** {date_str}")
+        lines.append("**Report Version:** 2.0")
         lines.append("")
         lines.append("---")
         lines.append("")
 
-        # Executive Summary
         lines.append("## Executive Summary")
         lines.append("")
         lines.append("| Metric | Value | Target |")
         lines.append("|---|---|---|")
         lines.append(f"| **Enforcement Coverage** | {metrics.enforcement_coverage:.0f}% | 90% |")
         lines.append(f"| **Doctrine Alignment** | {metrics.doctrine_alignment:.0f}% | 95% |")
-        lines.append(
-            f"| **Automated Checks** | {metrics.automated_checks}/{metrics.total_vices} | 100% |"
-        )
-        lines.append(f"| **Manual Reviews** | {metrics.manual_reviews} | Ongoing |")
+        lines.append(f"| **Automated Checks** | {metrics.automated_checks}/{metrics.total_vices} | 100% |")
+        lines.append(f"| **Items Needing Human Judgment (DOC_ONLY)** | {metrics.manual_reviews} | Ongoing |")
         lines.append("")
 
-        # Vice Enforcement
-        lines.append("## 1. Vice Enforcement (VC-*)")
-        lines.append("")
-        lines.append("| Vice ID | Name | Status | Coverage | Notes |")
-        lines.append("|---|---|---|---|---|")
-
-        vc_statuses = [v for v in vice_status.values() if v.vice_type == "VC"]
-        for status in sorted(vc_statuses, key=lambda x: x.vice_id):
-            status_icon = "[OK]" if status.status == "ENFORCED" else "[PARTIAL]" if status.status == "PARTIAL" else "[TODO]"
-            coverage = f"{status.coverage * 100:.0f}%" if status.coverage else "N/A"
-            rules = ", ".join(status.enforcing_rules[:2])
-            if len(status.enforcing_rules) > 2:
-                rules += f", +{len(status.enforcing_rules) - 2} more"
+        def emit_section(title: str, vice_type: str) -> None:
+            lines.append(f"## {title}")
+            lines.append("")
+            statuses = [v for v in vice_status.values() if v.vice_type == vice_type]
+            enforced_n = sum(1 for v in statuses if v.status == "ENFORCED")
             lines.append(
-                f"| {status.vice_id} | {status.name} | {status_icon} {status.status} | {coverage} | {rules} |"
+                f"**{enforced_n}/{len(statuses)} enforced.** "
+                "Only non-enforced items are listed (the gap is the actionable part)."
             )
+            lines.append("")
+            gaps = [v for v in statuses if v.status != "ENFORCED"]
+            if gaps:
+                lines.append("| ID | Name | Status | Mechanism |")
+                lines.append("|---|---|---|---|")
+                for v in sorted(gaps, key=lambda x: x.vice_id):
+                    rules = ", ".join(v.enforcing_rules) or "—"
+                    lines.append(f"| {v.vice_id} | {v.name} | {v.status} | {rules} |")
+            else:
+                lines.append("All items enforced.")
+            lines.append("")
 
-        lines.append("")
-        lines.append("### Summary")
-        lines.append(f"- **Fully Enforced:** {metrics.enforced_vices}/{metrics.total_vices} ({metrics.enforcement_coverage:.0f}%)")
-        lines.append(f"- **Partially Enforced:** {metrics.partial_vices}/{metrics.total_vices}")
-        lines.append(f"- **Proposed Only:** {metrics.proposed_only_vices}/{metrics.total_vices}")
-        lines.append("")
+        emit_section("1. Coding Vices (VC-*)", "VC")
+        emit_section("2. Testing Vices (TV-*)", "TV")
+        emit_section("3. Principles (PR-*)", "PR")
 
-        # Testing Vices
-        lines.append("## 2. Testing Vices (TV-*)")
-        lines.append("")
-        tv_statuses = [v for v in vice_status.values() if v.vice_type == "TV"]
-        if tv_statuses:
-            lines.append("| Vice ID | Name | Status | Coverage |")
-            lines.append("|---|---|---|---|")
-            for status in sorted(tv_statuses, key=lambda x: x.vice_id):
-                status_icon = "[OK]" if status.status == "ENFORCED" else "[PARTIAL]"
-                coverage = f"{status.coverage * 100:.0f}%"
-                lines.append(f"| {status.vice_id} | {status.name} | {status_icon} | {coverage} |")
-        lines.append("")
-
-        # Principles
-        lines.append("## 3. Principles (PR-*)")
-        lines.append("")
-        pr_statuses = [v for v in vice_status.values() if v.vice_type == "PR"]
-        if pr_statuses:
-            lines.append("| Principle ID | Name | Alignment |")
-            lines.append("|---|---|---|")
-            for status in sorted(pr_statuses, key=lambda x: x.vice_id):
-                alignment = f"{status.coverage * 100:.0f}%"
-                lines.append(f"| {status.vice_id} | {status.name} | {alignment} |")
-        lines.append("")
-
-        # Active Enforcers
         lines.append("## 4. Active Enforcement Mechanisms")
         lines.append("")
         enforcers = self._collect_active_enforcers()
@@ -299,53 +315,57 @@ class ConformityReportGenerator:
             lines.append("No active enforcement mechanisms detected.")
             lines.append("")
 
-        # Recommendations
         lines.append("## 5. Recommendations")
         lines.append("")
-        if metrics.enforcement_coverage < 80:
+        doc_only_with_gap = [
+            v for v in vice_status.values()
+            if v.status == "DOC_ONLY"
+            and not self.catalogs[v.vice_type][v.vice_id].get("doc_only_justification")
+        ]
+        if metrics.enforcement_coverage < 90:
             lines.append("### HIGH PRIORITY")
-            lines.append("1. **Increase Enforcement Coverage**")
-            lines.append(f"   - Current: {metrics.enforcement_coverage:.0f}% (Target: 90%)")
-            lines.append("   - Implement linters for uncovered vices")
-            lines.append("   - Add pre-commit hooks for automated checks")
+            lines.append(
+                f"1. **Enforcement coverage is {metrics.enforcement_coverage:.0f}%** "
+                f"(target 90%): {metrics.proposed_only_vices} items are DOC_ONLY. "
+                "Promote the ones with feasible oracles to static-ast/static-regex/runtime-test."
+            )
             lines.append("")
-        lines.append("### MEDIUM PRIORITY")
-        lines.append("2. **Improve Testing Vice Coverage**")
-        lines.append("   - Add integration test scenarios")
-        lines.append("   - Increase branch coverage target")
-        lines.append("")
-        lines.append("3. **Document Conformity Process**")
-        lines.append("   - Create adoption guide for satellites")
-        lines.append("   - Track enforcement metrics weekly")
-        lines.append("")
+        if doc_only_with_gap:
+            lines.append(
+                f"2. **{len(doc_only_with_gap)} DOC_ONLY items lack doc_only_justification** "
+                "— each needs either a justification or a mechanical detector: "
+                + ", ".join(v.vice_id for v in doc_only_with_gap[:10])
+                + (" …" if len(doc_only_with_gap) > 10 else "")
+            )
+            lines.append("")
+        if metrics.partial_vices:
+            lines.append(
+                f"3. **{metrics.partial_vices} REMEDIATED items** were fixed but have no "
+                "preventive mechanism; add regression detectors to reach PREVENTED."
+            )
+            lines.append("")
 
-        # Audit Trail
         lines.append("## 6. Conformity Audit Trail")
         lines.append("")
         lines.append("| Date | Change | Justification |")
         lines.append("|---|---|---|")
-        lines.append(
-            f"| {datetime.fromisoformat(self.audit_date).strftime('%Y-%m-%d')} | Initial conformity report | Establish baseline |"
-        )
+        lines.append(f"| {date_str} | Conformity report generated from catalog data | Weekly conformity tracking |")
         lines.append("")
-
-        # Footer
         lines.append("---")
         lines.append("")
-        lines.append(f"**Generated by:** `scripts/generate_conformity_report.py`")
+        lines.append("**Generated by:** `scripts/generate_conformity_report.py`")
         lines.append(f"**Last updated:** {datetime.fromisoformat(self.audit_date).strftime('%Y-%m-%d %H:%M:%S')}")
 
         markdown = "\n".join(lines)
 
-        # Write to file if path provided
         if output_path:
             output_path.parent.mkdir(parents=True, exist_ok=True)
-            output_path.write_text(markdown)
+            output_path.write_text(markdown, encoding="utf-8")
 
         return markdown
 
     def generate_json(self, output_path: Optional[Path] = None) -> str:
-        """Generate conformity report as JSON."""
+        """Generate conformity report as JSON. Returns the JSON string."""
         vice_status = self._calculate_vice_status()
         metrics = self._calculate_metrics(vice_status)
 
@@ -354,41 +374,39 @@ class ConformityReportGenerator:
             "vices": [asdict(v) for v in vice_status.values()],
         }
 
-        json_str = json.dumps(data, indent=2)
+        json_str = json.dumps(data, indent=2, ensure_ascii=False)
 
         if output_path:
             output_path.parent.mkdir(parents=True, exist_ok=True)
-            output_path.write_text(json_str)
+            output_path.write_text(json_str, encoding="utf-8")
 
         return json_str
 
 
 def main():
-    """CLI entry point."""
+    """CLI entry point. Returns process exit code."""
     import argparse
 
     parser = argparse.ArgumentParser(description="Generate Golden Standard conformity report")
     parser.add_argument("--gs-path", type=Path, default=Path.cwd(), help="Path to GS repo")
     parser.add_argument("--satellite", type=str, default="Aequitas_OS", help="Satellite name")
+    parser.add_argument("--satellite-path", type=Path, default=None, help="Path to satellite repo (optional)")
     parser.add_argument("--output", type=Path, help="Output markdown file")
     parser.add_argument("--json", type=Path, help="Output JSON file")
 
     args = parser.parse_args()
 
-    generator = ConformityReportGenerator(args.gs_path, args.satellite)
+    generator = ConformityReportGenerator(args.gs_path, args.satellite, args.satellite_path)
 
-    # Generate markdown
     if args.output:
-        markdown = generator.generate_report(args.output)
-        print(f"✅ Report written to {args.output}")
+        generator.generate_report(args.output)
+        print(f"Report written to {args.output}")
     else:
-        markdown = generator.generate_report()
-        print(markdown)
+        print(generator.generate_report())
 
-    # Generate JSON
     if args.json:
-        json_data = generator.generate_json(args.json)
-        print(f"✅ JSON written to {args.json}")
+        generator.generate_json(args.json)
+        print(f"JSON written to {args.json}")
 
     return 0
 

@@ -1,6 +1,6 @@
 # Principles
 
-The 121 principles are first-class governance rules. Some are doctrinal, some are operational, but all are treated as reusable knowledge instead of ad-hoc commentary.
+The 122 principles are first-class governance rules. Some are doctrinal, some are operational, but all are treated as reusable knowledge instead of ad-hoc commentary.
 
 ---
 
@@ -127,6 +127,7 @@ The 121 principles are first-class governance rules. Some are doctrinal, some ar
 | [[Principles/PR-119|PR-119]] | Pre-Success Empirical Gate — no success declaration without evidence | doctrinal |
 | [[Principles/PR-120|PR-120]] | Debt Tax Ceiling — cap code output per turn; run Simplicity Pass after | doctrinal |
 | [[Principles/PR-121|PR-121]] | Escalation Protocol — stop and escalate when confidence falls below 70% | doctrinal |
+| [[Principles/PR-122|PR-122]] | Canonical Correction — 100% fixes only, no pragmatic substitutes | doctrinal |
 
 ---
 

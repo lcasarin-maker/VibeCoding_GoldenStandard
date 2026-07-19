@@ -7,6 +7,7 @@ and auto-generates a fully cross-linked Obsidian Markdown Wiki vault.
 """
 
 import json
+import os
 import re
 import shutil
 import sys
@@ -20,7 +21,9 @@ try:
 except ImportError:
     from graph_artifact_policy import record_graph_regeneration
 
-_ROOT = Path(__file__).resolve().parent.parent
+# GS_GENERATOR_ROOT lets tests and tooling run the compiler against a
+# sandbox tree instead of the live repo (tests must never mutate the repo).
+_ROOT = Path(os.environ.get("GS_GENERATOR_ROOT") or Path(__file__).resolve().parent.parent)
 
 _CERBERUS_ENFORCEMENT_CACHE: dict | None = None
 

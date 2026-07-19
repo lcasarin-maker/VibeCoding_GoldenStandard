@@ -1,5 +1,5 @@
 # Golden Standard Compliance Audit Report
-**Golden Standard V0.6 | Date: 2026-07-18 | Total Audited Items: 358**
+**Golden Standard V0.6 | Date: 2026-07-19 | Total Audited Items: 358**
 
 This document is generated automatically by `scripts/generate_golden_audit.py` to map every Golden Standard point to its specific mitigation action and validating test in the GS tooling ecosystem.
 
@@ -402,6 +402,7 @@ These entries are preserved as project-agnostic doctrine and now consumed as fir
 | `PR-119` | Pre-Success Empirical Gate — no success declaration without evidence |
 | `PR-120` | Debt Tax Ceiling — cap code output per turn; run Simplicity Pass after |
 | `PR-121` | Escalation Protocol — stop and escalate when confidence falls below 70% |
+| `PR-122` | Canonical Correction — 100% fixes only, no pragmatic substitutes |
 
 ## Principle Recommendations by Canonical Domain
 

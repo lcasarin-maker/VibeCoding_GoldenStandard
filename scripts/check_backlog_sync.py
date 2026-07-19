@@ -214,19 +214,21 @@ def check_backlog_sync(staged: list[str], state_text: str, msg: str) -> tuple[bo
     if not debt_changes:
         return True, "sin cambios en archivos de deuda"
 
-    if not any(Path(f).name == "STATE.md" for f in staged):
-        return (
-            False,
-            f"STATE.md no actualizado en este commit ({len(debt_changes)} archivos de deuda modificados)",
-        )
-
+    # Lo que importa es que STATE.md refleje tasks/backlog/, no que aparezca
+    # en el commit: si ya está sincronizado no hay nada que stagear y exigirlo
+    # producía un bloqueo perpetuo (archivo sin diff no se puede stagear).
     current_section = extract_backlog_section(state_text)
     if current_section is None:
         return False, f"{_STATE.name} no contiene la sección generada del backlog"
 
     generated_section = render_backlog_section(_BACKLOG_DIR, _ROOT).rstrip()
     if current_section.rstrip() != generated_section:
-        return False, f"{_STATE.name} backlog desincronizado con tasks/backlog/"
+        return (
+            False,
+            f"{_STATE.name} backlog desincronizado con tasks/backlog/ "
+            f"({len(debt_changes)} archivos de deuda modificados); corre "
+            "check_backlog_sync.py --sync-state y stagea STATE.md",
+        )
 
     return True, "backlog sincronizado"
 

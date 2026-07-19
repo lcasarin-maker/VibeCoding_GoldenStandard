@@ -5,7 +5,7 @@ linked_vice: VC-057
 severity: error
 autofix: true
 pattern: |
-  (def\s+\w+\s*\([^)]*,\s*\w+\s*=\s*(\[\]|{}|set\(\))\))
+  (def\s+\w+\s*\([^)]*?\b\w+\s*=\s*(\[\]|\{\}|set\(\)))
 rationale: |
   Mutable default arguments are evaluated once at function definition time,
   causing side-effects when the default is modified.
