@@ -1,4 +1,4 @@
-format_version: 3.0
+format_version: '3.0.0'
 catalog_name: adversarial_vectors
 description: 'Adversarial input patterns extracted from 691 lootcode hidden test cases
   (sampling: 20 problems x avg 10 hidden cases). Each vector maps to a concrete failure
