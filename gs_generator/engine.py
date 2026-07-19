@@ -59,6 +59,7 @@ else:
     VERSION_FILE = _ROOT / "VERSION.txt"
 
 WIKI_DIR = _ROOT / "Wiki"
+MANUAL_NOTES_DIRNAME = ".manual_notes"
 GRAPH_OUTPUT = JSON_OUTPUT.with_name("golden_standard_graph.json")
 GRAPH_MARKDOWN = WIKI_DIR / "Graph.md"
 CONCEPTUAL_FRAMEWORK_SRC = _ROOT / "CONCEPTUAL_FRAMEWORK.md"
@@ -271,8 +272,55 @@ def clean_wiki_directory(path: Path):
         return
 
     for item in path.iterdir():
+        if item.name in {MANUAL_NOTES_DIRNAME, "Falsifiability_Report.md"}:
+            continue
         clean_single_item(item)
     path.mkdir(parents=True, exist_ok=True)
+
+
+def write_manual_notes_roster(wiki_dir: Path):
+    """Write the explicit roster for notes that survive compilation verbatim."""
+    manual_dir = wiki_dir / MANUAL_NOTES_DIRNAME
+    entries_dir = manual_dir / "entries"
+    entries_dir.mkdir(parents=True, exist_ok=True)
+
+    entry_files = sorted(p.name for p in entries_dir.glob("*.md"))
+    entry_lines = (
+        "\n".join(
+            f"- `{MANUAL_NOTES_DIRNAME}/entries/{name}`" for name in entry_files
+        )
+        if entry_files
+        else "- *No manual entry files yet.*"
+    )
+
+    roster = f"""# Manual Notes Roster
+
+This roster lists the wiki surfaces that are intentionally preserved across compiles.
+The compiler skips the `.manual_notes` directory so these notes remain verbatim.
+
+---
+
+| Surface | Why it is preserved |
+|---|---|
+| `Wiki/Home.md` footer | The navigation footer is maintained by hand and kept visible in the generated home page. |
+| `Wiki/Falsifiability_Report.md` | Manual-audit classifications and narrative context are preserved as an editorial surface. |
+| `Wiki/.manual_notes/entries/*.md` | Manual DRI notes and session annotations stay intact between compiles. |
+
+---
+
+## Current manual entry files
+
+{entry_lines}
+
+---
+
+## Usage
+
+- Add a new manual note under `Wiki/.manual_notes/entries/`.
+- Re-run the compiler; files under `.manual_notes` remain untouched.
+- Keep the roster updated when Luis adds or removes preserved surfaces.
+"""
+    (manual_dir / "ROSTER.md").write_text(roster, encoding="utf-8")
 
 
 def write_home_md(
@@ -302,6 +350,8 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 - 📂 **[[Vices_Index|Engineering Vices Index]]**: Central catalog of code and test anomalies (`VC`, `TV`).
 - 📘 **[[Principles|Principles Index]]**: First-class doctrinal rules, each kept as a linked principle instead of duplicated prose.
 - 🧭 **[[Domains/README|Canonical Domains Index]]**: The canonical GS domain taxonomy, with graph-aware navigation from doctrine to enforcement surfaces.
+- 🗂️ **[[.manual_notes/ROSTER|Manual Notes Roster]]**: Preserved manual surfaces and session notes that survive recompilation.
+- 🧪 **[[Falsifiability_Report|Falsifiability Report]]**: Falsifiability classification of the adversarial vectors (AV) catalog by evidence class (runtime-test/static-regex/llm-judge/manual-audit).
 - 🕸️ **[[Graph|GS Graph Map]]**: Hubs, intentional orphans, candidate orphans, and local vault impact.
 - 📘 **[Golden Standard Conceptual Framework](../CONCEPTUAL_FRAMEWORK.md)**: Epistemological doctrine, levels, and design foundations.
 - 🧼 **[Repository Hygiene Chapter](../CONCEPTUAL_FRAMEWORK.md#6-Repository-and-Execution-Hygiene)**: Canonical standard for cleanup, naming, clean root, and organization evidence.
@@ -2506,6 +2556,7 @@ def write_detector_pages(wiki_dir: Path, mapped_database: dict):
 def generate_obsidian_wiki(mapped_database: dict, wiki_dir: Path):
     """Generate a structured, cross-linked Obsidian vault from Compiled Golden Standard data."""
     clean_wiki_directory(wiki_dir)
+    write_manual_notes_roster(wiki_dir)
 
     for folder in ["Domains", "Vices", "Tokenomics"]:
         (wiki_dir / folder).mkdir(parents=True, exist_ok=True)

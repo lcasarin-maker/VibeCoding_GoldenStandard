@@ -10,13 +10,13 @@ This graph combines Obsidian links, relative Markdown links, and explicit ID men
 
 | Metric | Value |
 |---|---:|
-| Nodes | 537 |
-| Edges | 2698 |
+| Nodes | 540 |
+| Edges | 2700 |
 | Reciprocal pairs | 614 |
 | Average edge confidence | 0.933 |
-| Semantic density | 0.011417 |
+| Semantic density | 0.011332 |
 | Hub ratio | 1.0 |
-| Bridge ratio | 0.997925 |
+| Bridge ratio | 0.993802 |
 | Intentional orphans | 0 |
 | Candidate orphans | 0 |
 | Hubs | 15 |
@@ -38,7 +38,7 @@ The graph now distinguishes link syntax from relation meaning. `kind` records ho
 | `operationalizes_domain` | 105 |
 | `subindex` | 34 |
 | `bridges` | 21 |
-| `entrypoint` | 13 |
+| `entrypoint` | 15 |
 | `routes_to_domains` | 1 |
 
 ---
@@ -135,7 +135,7 @@ Pages with the largest impact surface. If they change, review their inbound link
 
 | Node | Type | In | Out | Inbound | Outbound |
 |---|---|---:|---:|---|---|
-| [[Home]] | `wiki` | 474 | 13 | [[Detectors/vc-002]], [[Detectors/vc-003]], [[Detectors/vc-005]], [[Detectors/vc-010]], [[Detectors/vc-012]], [[Detectors/vc-013]] +468 more | [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Principles]], [[README]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]] +7 more |
+| [[Home]] | `wiki` | 474 | 15 | [[Detectors/vc-002]], [[Detectors/vc-003]], [[Detectors/vc-005]], [[Detectors/vc-010]], [[Detectors/vc-012]], [[Detectors/vc-013]] +468 more | [[.manual_notes/ROSTER]], [[CONCEPTUAL_FRAMEWORK]], [[Domains/README]], [[Falsifiability_Report]], [[Principles]], [[README]] +9 more |
 | [[Vices_Index]] | `wiki` | 211 | 211 | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +205 more | [[Home]], [[Vices/VC-001]], [[Vices/VC-002]], [[Vices/VC-003]], [[Vices/VC-004]], [[Vices/VC-005]] +205 more |
 | [[Tokenomics_Map]] | `wiki` | 251 | 21 | [[Home]], [[Tokenomics/Automation_Tooling_Index]], [[Tokenomics/Input_Retrieval_Index]], [[Tokenomics/Measurement_Telemetry_Index]], [[Tokenomics/Memory_Headroom_Index]], [[Tokenomics/Output_Compaction_Index]] +245 more | [[Home]], [[Principles]], [[Principles/PR-081]], [[Principles/PR-083]], [[Principles/PR-084]], [[Principles/PR-085]] +15 more |
 | [[Principles]] | `principle-index` | 135 | 124 | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +129 more | [[Domains/README]], [[Home]], [[Principles/PR-001]], [[Principles/PR-002]], [[Principles/PR-003]], [[Principles/PR-004]] +118 more |
@@ -184,7 +184,7 @@ Nodes that link to more than one page type. They are useful for navigating impac
 
 | Node | Type | Reached types | Relations | Outbound |
 |---|---|---|---|---:|
-| [[Home]] | `wiki` | `conceptual-framework`, `domain`, `principle`, `principle-index`, `root`, `tokenomics`, `vice`, `wiki` | `bridges`, `entrypoint`, `indexes`, `references`, `returns_to_index` | 13 |
+| [[Home]] | `wiki` | `conceptual-framework`, `domain`, `principle`, `principle-index`, `root`, `tokenomics`, `vice`, `wiki` | `bridges`, `entrypoint`, `indexes`, `references`, `returns_to_index` | 15 |
 | [[Tokenomics_Map]] | `wiki` | `principle`, `principle-index`, `tokenomics`, `vice`, `wiki` | `bridges`, `entrypoint`, `references`, `returns_to_index` | 21 |
 | [[Domains/README]] | `domain` | `domain`, `principle`, `principle-index`, `root`, `wiki` | `entrypoint`, `operationalizes_domain`, `references`, `returns_to_index`, `routes_to_domains` | 58 |
 | [[Principles/PR-084]] | `principle` | `domain`, `principle`, `principle-index`, `tokenomics`, `wiki` | `bridges`, `indexes`, `operationalizes_domain`, `references`, `returns_to_index`, `thematic_bridge` | 5 |

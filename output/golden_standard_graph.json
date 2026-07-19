@@ -1,7 +1,7 @@
 {
   "generated_on": "2026-07-19",
-  "node_count": 537,
-  "edge_count": 2698,
+  "node_count": 540,
+  "edge_count": 2700,
   "nodes": [
     {
       "id": ".github/workflows/audit.yml",
@@ -217,6 +217,39 @@
       "semantic_reach": 4,
       "relation_diversity": 2,
       "hub_score": 21
+    },
+    {
+      "id": ".manual_notes/ROSTER",
+      "path": "Wiki/.manual_notes/ROSTER.md",
+      "title": "Manual Notes Roster",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [
+        "Home"
+      ],
+      "outgoing_edges": [],
+      "incoming_edges": [
+        {
+          "source": "Home",
+          "kind": "wikilink",
+          "relation": "entrypoint",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 0,
+      "degree": 1,
+      "connected_types": [
+        "wiki"
+      ],
+      "relation_types": [
+        "entrypoint"
+      ],
+      "semantic_reach": 1,
+      "relation_diversity": 1,
+      "hub_score": 6
     },
     {
       "id": "Detectors/vc-002",
@@ -9323,6 +9356,39 @@
       "hub_score": 15
     },
     {
+      "id": "Falsifiability_Report",
+      "path": "Wiki/Falsifiability_Report.md",
+      "title": "Falsifiability Report — Golden Standard Catalog",
+      "kind": "wiki",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [
+        "Home"
+      ],
+      "outgoing_edges": [],
+      "incoming_edges": [
+        {
+          "source": "Home",
+          "kind": "wikilink",
+          "relation": "entrypoint",
+          "confidence": 0.95
+        }
+      ],
+      "in_degree": 1,
+      "out_degree": 0,
+      "degree": 1,
+      "connected_types": [
+        "wiki"
+      ],
+      "relation_types": [
+        "entrypoint"
+      ],
+      "semantic_reach": 1,
+      "relation_diversity": 1,
+      "hub_score": 6
+    },
+    {
       "id": "Home",
       "path": "Wiki/Home.md",
       "title": "Golden Standard Wiki",
@@ -9330,8 +9396,10 @@
       "created": null,
       "promoted": null,
       "outgoing": [
+        ".manual_notes/ROSTER",
         "CONCEPTUAL_FRAMEWORK",
         "Domains/README",
+        "Falsifiability_Report",
         "Principles",
         "README",
         "Tokenomics/Automation_Tooling_Index",
@@ -9822,6 +9890,12 @@
       ],
       "outgoing_edges": [
         {
+          "target": ".manual_notes/ROSTER",
+          "kind": "wikilink",
+          "relation": "entrypoint",
+          "confidence": 0.95
+        },
+        {
           "target": "CONCEPTUAL_FRAMEWORK",
           "kind": "markdown",
           "relation": "entrypoint",
@@ -9829,6 +9903,12 @@
         },
         {
           "target": "Domains/README",
+          "kind": "wikilink",
+          "relation": "entrypoint",
+          "confidence": 0.95
+        },
+        {
+          "target": "Falsifiability_Report",
           "kind": "wikilink",
           "relation": "entrypoint",
           "confidence": 0.95
@@ -12747,8 +12827,8 @@
         }
       ],
       "in_degree": 474,
-      "out_degree": 13,
-      "degree": 487,
+      "out_degree": 15,
+      "degree": 489,
       "connected_types": [
         "conceptual-framework",
         "domain",
@@ -12768,7 +12848,7 @@
       ],
       "semantic_reach": 8,
       "relation_diversity": 5,
-      "hub_score": 521
+      "hub_score": 523
     },
     {
       "id": "Principles",
@@ -55044,6 +55124,26 @@
       "hub_score": 3
     },
     {
+      "id": "tests/test_gs14_manual_notes.py",
+      "path": "tests/test_gs14_manual_notes.py",
+      "title": "test_gs14_manual_notes.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
+    },
+    {
       "id": "tests/test_gs_lint_backlog.py",
       "path": "tests/test_gs_lint_backlog.py",
       "title": "test_gs_lint_backlog.py",
@@ -57719,6 +57819,13 @@
     },
     {
       "source": "Home",
+      "target": ".manual_notes/ROSTER",
+      "kind": "wikilink",
+      "relation": "entrypoint",
+      "confidence": 0.95
+    },
+    {
+      "source": "Home",
       "target": "CONCEPTUAL_FRAMEWORK",
       "kind": "markdown",
       "relation": "entrypoint",
@@ -57727,6 +57834,13 @@
     {
       "source": "Home",
       "target": "Domains/README",
+      "kind": "wikilink",
+      "relation": "entrypoint",
+      "confidence": 0.95
+    },
+    {
+      "source": "Home",
+      "target": "Falsifiability_Report",
       "kind": "wikilink",
       "relation": "entrypoint",
       "confidence": 0.95
@@ -75572,12 +75686,12 @@
   "summary": {
     "edge_kinds": {
       "markdown": 6,
-      "wikilink": 2641
+      "wikilink": 2643
     },
     "relation_counts": {
       "bridges": 21,
       "catalogs": 359,
-      "entrypoint": 13,
+      "entrypoint": 15,
       "governed_by": 210,
       "indexes": 123,
       "operationalizes_domain": 105,
@@ -75589,9 +75703,9 @@
     },
     "reciprocal_pairs": 614,
     "average_edge_confidence": 0.933,
-    "semantic_density": 0.011417,
+    "semantic_density": 0.011332,
     "hub_ratio": 1.0,
-    "bridge_ratio": 0.997925,
+    "bridge_ratio": 0.993802,
     "intentional_orphans": [],
     "intentional_orphan_review": [],
     "orphan_candidates": [],
@@ -75604,8 +75718,10 @@
         "created": null,
         "promoted": null,
         "outgoing": [
+          ".manual_notes/ROSTER",
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
+          "Falsifiability_Report",
           "Principles",
           "README",
           "Tokenomics/Automation_Tooling_Index",
@@ -76096,6 +76212,12 @@
         ],
         "outgoing_edges": [
           {
+            "target": ".manual_notes/ROSTER",
+            "kind": "wikilink",
+            "relation": "entrypoint",
+            "confidence": 0.95
+          },
+          {
             "target": "CONCEPTUAL_FRAMEWORK",
             "kind": "markdown",
             "relation": "entrypoint",
@@ -76103,6 +76225,12 @@
           },
           {
             "target": "Domains/README",
+            "kind": "wikilink",
+            "relation": "entrypoint",
+            "confidence": 0.95
+          },
+          {
+            "target": "Falsifiability_Report",
             "kind": "wikilink",
             "relation": "entrypoint",
             "confidence": 0.95
@@ -79021,8 +79149,8 @@
           }
         ],
         "in_degree": 474,
-        "out_degree": 13,
-        "degree": 487,
+        "out_degree": 15,
+        "degree": 489,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -79042,7 +79170,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 521
+        "hub_score": 523
       },
       {
         "id": "Vices_Index",
@@ -92229,8 +92357,10 @@
         "created": null,
         "promoted": null,
         "outgoing": [
+          ".manual_notes/ROSTER",
           "CONCEPTUAL_FRAMEWORK",
           "Domains/README",
+          "Falsifiability_Report",
           "Principles",
           "README",
           "Tokenomics/Automation_Tooling_Index",
@@ -92721,6 +92851,12 @@
         ],
         "outgoing_edges": [
           {
+            "target": ".manual_notes/ROSTER",
+            "kind": "wikilink",
+            "relation": "entrypoint",
+            "confidence": 0.95
+          },
+          {
             "target": "CONCEPTUAL_FRAMEWORK",
             "kind": "markdown",
             "relation": "entrypoint",
@@ -92728,6 +92864,12 @@
           },
           {
             "target": "Domains/README",
+            "kind": "wikilink",
+            "relation": "entrypoint",
+            "confidence": 0.95
+          },
+          {
+            "target": "Falsifiability_Report",
             "kind": "wikilink",
             "relation": "entrypoint",
             "confidence": 0.95
@@ -95646,8 +95788,8 @@
           }
         ],
         "in_degree": 474,
-        "out_degree": 13,
-        "degree": 487,
+        "out_degree": 15,
+        "degree": 489,
         "connected_types": [
           "conceptual-framework",
           "domain",
@@ -95667,7 +95809,7 @@
         ],
         "semantic_reach": 8,
         "relation_diversity": 5,
-        "hub_score": 521
+        "hub_score": 523
       },
       {
         "id": "Tokenomics_Map",
