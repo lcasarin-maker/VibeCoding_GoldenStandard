@@ -6,9 +6,9 @@ This report classifies all catalog entries into 5 distinct falsifiability classe
 
 | Falsifiability Class | Entry Count | Percentage | Description |
 | --- | --- | --- | --- |
-| `static-regex` | 47 | 9.8% | Simple pattern matching of source code (e.g. banned functions, regex rules). |
+| `static-regex` | 50 | 10.4% | Simple pattern matching of source code (e.g. banned functions, regex rules). |
 | `static-ast` | 47 | 9.8% | Abstract Syntax Tree parsing (e.g. complexity, function structures). |
-| `runtime-test` | 190 | 39.7% | Behavioral test runs (e.g. boundary testing, exception validation). |
+| `runtime-test` | 187 | 39.0% | Behavioral test runs (e.g. boundary testing, exception validation). |
 | `llm-judge` | 21 | 4.4% | Semantic output validation (e.g. faithfulness, hallucinations). |
 | `manual-audit` | 174 | 36.3% | Human review and peer verification (e.g. design alignment, workflow context). |
 
@@ -111,7 +111,7 @@ This report classifies all catalog entries into 5 distinct falsifiability classe
 | AV-091 | Remove-duplicates-sorted-array — empty array → []; all-same → [one]; negative values work | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
 | AV-092 | Reconstruct-itinerary — single flight [A→B]; must use all tickets; sort by lexicographic order | `manual-audit` | Falsifiable under manual-audit: requires human code review / peer verification. |
 | AV-093 | String-to-integer-atoi — empty string → 0; spaces-only → 0; leading "+" valid; "+-" → 0; INT overflow clamp | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
-| AV-094 | Three-sum — empty array → []; no solution → []; [0,0,0] → \[\[0,0,0\]\]; deduplicate triplets | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
+| AV-094 | Three-sum — empty array → []; no solution → []; [0,0,0] → [[0,0,0]]; deduplicate triplets | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
 | AV-095 | Trapping-rain-water — empty → 0; flat → 0; strictly decreasing → 0 (water flows off right) | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
 | AV-096 | Two-sum — target=0 with negatives; pair at ends; large values; duplicate values | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
 | AV-097 | Unique-BSTs — n=0→1 (empty tree is valid); n=1→1; Catalan number sequence | `runtime-test` | Falsifiable under runtime-test: requires boundary testing with empty/extreme values. |
@@ -336,8 +336,8 @@ This report classifies all catalog entries into 5 distinct falsifiability classe
 | VC-047 | Frozen nomenclature | `static-regex` | Falsifiable via static regex matching against source code patterns. |
 | VC-048 | Finding without a remediation plan | `runtime-test` | Falsifiable under pytest suite by simulating the failure state. |
 | VC-049 | Dynamic execution of external expressions | `runtime-test` | Falsifiable under pytest suite by simulating the failure state. |
-| VC-050 | Automatic installation of unverified dependencies | `runtime-test` | Falsifiable under pytest suite by simulating the failure state. |
-| VC-051 | Non-atomic destructive write of critical state | `runtime-test` | Falsifiable under pytest suite by simulating the failure state. |
+| VC-050 | Automatic installation of unverified dependencies | `static-regex` | Falsifiable via static regex matching against source code patterns. |
+| VC-051 | Non-atomic destructive write of critical state | `static-ast` | Falsifiable via AST complexity and structure parsing. |
 | VC-052 | Zombie Compatibility Theater | `static-ast` | Falsifiable via AST complexity and structure parsing. |
 | VC-053 | Critical Redundancies and Repetitive AI-slop Patterns | `runtime-test` | Falsifiable under pytest suite by simulating the failure state. |
 | VC-054 | Supply-Chain Contamination via Silent Executions | `runtime-test` | Falsifiable under pytest suite by simulating the failure state. |
@@ -380,7 +380,7 @@ This report classifies all catalog entries into 5 distinct falsifiability classe
 | VC-091 | Unnecessary dependency introduction | `manual-audit` | Falsifiable under manual-audit: requires human code review / peer verification. |
 | VC-092 | Elif chain measured as deep nesting (AST-depth blind spot) | `static-ast` | Falsifiable via AST complexity and structure parsing. |
 | VC-093 | Unjustified Semgrep suppression (bare # nosemgrep) | `static-ast` | Falsifiable via AST complexity and structure parsing. |
-| VC-094 | BOM in config file silently kills the first key | `static-ast` | Falsifiable via AST complexity and structure parsing. |
+| VC-094 | BOM in config file silently kills the first key | `static-regex` | Falsifiable via static regex matching against source code patterns. |
 | VT-001 | Hardcoded return | `static-ast` | Falsifiable via AST complexity and structure parsing. |
 | VT-002 | Permanent stub | `static-ast` | Falsifiable via AST complexity and structure parsing. |
 | VT-003 | Response by exact datum | `manual-audit` | Falsifiable under manual-audit: requires human code review / peer verification. |
@@ -486,7 +486,7 @@ This report classifies all catalog entries into 5 distinct falsifiability classe
 | VT-103 | Expected hardcoded in the evaluator | `static-regex` | Falsifiable under static-regex: requires pattern matching detector to flag prohibited occurrences. |
 | VT-104 | Warnings outside the score | `manual-audit` | Falsifiable under manual-audit: requires human code review / peer verification. |
 | VT-105 | No hook-existence test | `runtime-test` | Falsifiable under pytest suite by simulating the failure state. |
-| VT-106 | Unrevalidated exclusion | `runtime-test` | Falsifiable under pytest suite by simulating the failure state. |
+| VT-106 | Unrevalidated exclusion | `static-regex` | Falsifiable via static regex matching against source code patterns. |
 | VT-107 | Stack incompleto silencioso | `runtime-test` | Falsifiable under pytest suite by simulating the failure state. |
 | VT-108 | Name disconnected from the domain | `manual-audit` | Falsifiable under manual-audit: requires human code review / peer verification. |
 | VT-109 | Redundant Frameworks and Middleman Theater (Testing Bridge Theater) | `runtime-test` | Falsifiable under pytest suite by simulating the failure state. |

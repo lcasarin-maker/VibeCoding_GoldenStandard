@@ -1,6 +1,6 @@
 {
   "generated_on": "2026-07-18",
-  "node_count": 529,
+  "node_count": 530,
   "edge_count": 2691,
   "nodes": [
     {
@@ -54917,6 +54917,26 @@
       "id": "tests/test_validate_golden_standard_catalogs.py",
       "path": "tests/test_validate_golden_standard_catalogs.py",
       "title": "test_validate_golden_standard_catalogs.py",
+      "kind": "test",
+      "created": null,
+      "promoted": null,
+      "outgoing": [],
+      "incoming": [],
+      "outgoing_edges": [],
+      "incoming_edges": [],
+      "in_degree": 0,
+      "out_degree": 0,
+      "degree": 0,
+      "relation_types": [],
+      "connected_types": [],
+      "semantic_reach": 0,
+      "relation_diversity": 0,
+      "hub_score": 0
+    },
+    {
+      "id": "tests/test_validator_freshness.py",
+      "path": "tests/test_validator_freshness.py",
+      "title": "test_validator_freshness.py",
       "kind": "test",
       "created": null,
       "promoted": null,
