@@ -2666,3 +2666,47 @@ items:
   downstream_verification: required
   notes: Formalizes an agent-agnostic confidence-based escalation threshold. No prior GS PR equivalent.
   tier: specialist
+- id: PR-122
+  title: Canonical Correction — 100% fixes only, no pragmatic substitutes
+  doctrinal: true
+  catalog_source: Operator mandate (Luis Casarin, 2026-07-19) — transversal rule for all agents and repos
+  action: >
+    Every fix, implementation, and closure MUST be the complete, canonical,
+    maintainable solution conforming to the defined architecture. Agents are
+    FORBIDDEN from proposing or implementing the pragmatic, easy, provisional
+    or workaround-based option: temporary bridges, shims, bypasses, pass
+    bodies, silent exceptions, artificial approvals (inflated baselines,
+    weakened tests, relaxed thresholds), stubs, placeholders, permanent mocks
+    outside tests, improper fallbacks that hide failures, or deferred debt
+    presented as a solution. If the correct solution is expensive, state the
+    cost — do not offer a shortcut as an alternative.
+  solution: >
+    Closure criterion: complete, canonical, maintainable, architecture-conformant.
+    "It works and lets us continue" is NOT a closure criterion. Debt priority
+    order: (1) architectural/structural/design problems; (2) work that
+    accelerates or orders later work (gate tooling, diagnostics); (3) remaining
+    technical/documentation/operational debt. Applies as the criterion for
+    audit, prioritization, implementation, review, and closure in all repos.
+  symptom: >
+    Agents offer the easiest option that avoids real work; provisional fixes
+    accumulate as structural problems; the operator makes bad decisions based
+    on pragmatic suggestions combined with limited technical knowledge.
+  cause: >
+    LLM optimization toward fast task completion and perceived helpfulness;
+    pragmatic options minimize immediate friction while preserving defects.
+  status: DOC_ONLY
+  severity: critical
+  tags:
+  - doctrinal
+  - governance
+  - anti-workaround
+  - canonical-correction
+  validating_mechanism: DOC_ONLY
+  doc_only_justification: "Semantic or governance claim requiring contextual/session judgment; no generic repository oracle can distinguish it. Promotion requires a concrete positive fixture, negative fixture, and CI-enforced gate. Partial mechanical coverage exists via Cerberus S19/S27 shim detection and D2 completeness checks."
+  downstream_verification: required
+  notes: >
+    Operator-mandated dogmatic rule. Mirrored operationally as Cerberus
+    MANDATE S27 (PROTOCOL_SYSTEM.md) and in workspace-level agent instructions
+    (D:\AI\CLAUDE.md). Supersedes any agent default of offering "Option A
+    (quick) vs Option B (correct)" framings.
+  tier: core
