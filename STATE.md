@@ -1,5 +1,5 @@
 # STATE — VibeCoding Golden Standard
-**Last updated:** 2026-07-11 (remote CI green / Semgrep effectiveness gate) | **Agent:** Codex
+**Last updated:** 2026-07-19 (contract freshness gate added; falsifiability report linked; remote CI green / Semgrep effectiveness gate) | **Agent:** Codex
 
 ---
 
@@ -12,7 +12,7 @@
 | TK (tokenomics) | 34 | none | |
 | PR (principles) | 121 | none | PR-118-121 added 2026-06-26; decoupled from CC-internal IDs 2026-07-01 |
 | SP (structure principles) | 10 | none | 8 checks in audit.py (SP-001/003/004/005/006/007/009/010) |
-| AV (adversarial vectors) | 104 | G-01 cerrado 2026-07-18 | Los 104 entries siguen `status: DOC_ONLY`, pero `doc_only_justification` ya no es boilerplate: texto especifico por entrada derivado de sus propios campos (title/symptom/cause/evidence_problems), usando las mismas 5 clases de falsifiability de scripts/classify_falsifiability.py (runtime-test/static-regex/llm-judge/manual-audit) pero ya no colisionando (antes 5 frases identicas repetidas entre los 104; ahora 104 valores unicos, verificado por script). Ver PLAN_MIGRACION_ATOM.md (Aequitas_OS) §6 G-01 para la narrativa completa. |
+| AV (adversarial vectors) | 104 | G-01 open | All 104 entries are `status: DOC_ONLY` with an identical boilerplate `doc_only_justification` (passes gs_lint.py's shallow len/substring check, not a real per-entry falseability classification) — see PLAN_MIGRACION_ATOM.md §6 G-01 |
 | CD (canonical domains) | 18 | none | |
 
 Counts verified directly against live YAML catalogs on 2026-07-14 (`grep -cE '^- id:' *.yaml`; not carried forward from a prior snapshot — the 2026-07-02 VC=93 count was stale, corrected to 94, and AV was missing from this table entirely). See `tasks/backlog/` for current open items — do not assume "backlog empty" without checking that folder first.
@@ -38,4 +38,4 @@ _No backlog items currently live under `tasks/backlog/`._
 
 ## CI status
 
-53/53 tests passing locally with warnings treated as errors; remote CI matrix runs on Python 3.10, 3.11, 3.12, and 3.13. `audit.py` reports 8/8 SP checks green. Semgrep: 17 rules, each with positive/negative fixtures; the preregistered effectiveness gate covers all 17 and reports 0.0% max false-negative rate and 0 false positives. G-03 fixes strict SemVer (`MAJOR.MINOR.PATCH`) and the Cerberus consumer range/shape as an executable fixture in CI. `gs_lint.py` ratchet clean with zero soft warnings and zero `legacy review` catalog entries; 37 local detectors are proven; Wiki/Detectors has one canonical file per ID. GS-AUD-001…007 are closed in the adversarial-audit closure record.
+31/31 tests passing locally with warnings treated as errors; remote CI matrix runs on Python 3.10, 3.11, 3.12, and 3.13. `audit.py` reports 8/8 SP checks green. Semgrep: 12 rules, 12 positive matches, 0 negative matches, plus the preregistered effectiveness gate reports 0.0% max false-negative rate and 0 false positives over the known-vice corpus. `gs_lint.py` ratchet clean with zero soft warnings and zero `legacy review` catalog entries; 35 local detectors are proven; Wiki/Detectors has one canonical file per ID. GS-AUD-001…007 are closed in the adversarial-audit closure record. Contract freshness now uses a machine-readable boundary contract so validator surfaces cannot drift silently, and the falsifiability report is now linked from the wiki hub.

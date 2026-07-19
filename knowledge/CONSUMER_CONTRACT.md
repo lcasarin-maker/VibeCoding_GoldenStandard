@@ -9,6 +9,8 @@
 >
 > Both projects are independent. This contract is a boundary document, not a second source of truth.
 > For the consumer's internal doctrine, `D:\AI\Cerberus\00 audit\00_CONSTITUCION_CERBERUS.md` wins.
+>
+> The machine-readable companion is [`CONSUMER_CONTRACT.yaml`](CONSUMER_CONTRACT.yaml); automation and freshness checks read that sidecar rather than parsing this prose contract.
 
 ---
 

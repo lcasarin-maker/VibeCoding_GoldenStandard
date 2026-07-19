@@ -679,72 +679,30 @@ def validate_readme_counts(errors: list[str]) -> None:
         errors.append(f"Missing README: {readme_path}")
         return
 
-    data = load_yaml(ROOT / "golden_standard_coding_vices.yaml")
-    vc_count = len(
-        [
-            item
-            for item in data.get("items", [])
-            if str(item.get("id", "")).startswith("VC-")
-        ]
-    )
-    data = load_yaml(ROOT / "golden_standard_testing_vices.yaml")
-    tv_count = len(
-        [
-            item
-            for item in data.get("items", [])
-            if str(item.get("id", "")).startswith("VT-")
-        ]
-    )
-    data = load_yaml(ROOT / "golden_standard_tokenomics.yaml")
-    tk_count = len(
-        [
-            item
-            for item in data.get("items", [])
-            if str(item.get("id", "")).startswith("TK-")
-        ]
-    )
-    data = load_yaml(ROOT / "golden_standard_principles.yaml")
-    pr_count = len(
-        [
-            item
-            for item in data.get("items", [])
-            if str(item.get("id", "")).startswith("PR-")
-        ]
-    )
-    data = load_yaml(ROOT / "golden_standard_structure_principles.yaml")
-    sp_count = len(
-        [
-            item
-            for item in data.get("items", [])
-            if str(item.get("id", "")).startswith("SP-")
-        ]
-    )
-    data = load_yaml(ROOT / "golden_standard_adversarial_vectors.yaml")
-    av_count = len(
-        [
-            item
-            for item in data.get("items", [])
-            if str(item.get("id", "")).startswith("AV-")
-        ]
-    )
-
     readme_text = readme_path.read_text(encoding="utf-8")
+    catalogs = load_yaml(MANIFEST).get("catalogs", {})
+    catalog_rows = {
+        "coding_vices": "Vibe coding antipatterns",
+        "testing_vices": "Testing failures",
+        "tokenomics": "Token efficiency",
+        "principles": "Principles",
+        "structure_principles": "Structure principles",
+        "adversarial_vectors": "Adversarial vectors",
+    }
 
-    # Check catalog table rows
-    expected_rows = [
-        f"| `golden_standard_coding_vices.yaml` | Vibe coding antipatterns | {vc_count} |",
-        f"| `golden_standard_testing_vices.yaml` | Testing failures | {tv_count} |",
-        f"| `golden_standard_tokenomics.yaml` | Token efficiency | {tk_count} |",
-        f"| `golden_standard_principles.yaml` | Principles | {pr_count} |",
-        f"| `golden_standard_structure_principles.yaml` | Structure principles | {sp_count} |",
-        f"| `golden_standard_adversarial_vectors.yaml` | Adversarial vectors | {av_count} |",
-    ]
-    for row in expected_rows:
-        if row not in readme_text:
-            errors.append(f"{readme_path}: missing or stale table row ({row!r}).")
+    total_expected = 0
+    for catalog_name, label in catalog_rows.items():
+        catalog_path = ROOT / str(catalogs.get(catalog_name, ""))
+        if not catalog_path.exists():
+            continue
+        data = load_yaml(catalog_path)
+        count = len(data.get("items", []))
+        total_expected += count
+        expected_row = f"| `{catalog_path.name}` | {label} | {count} |"
+        if expected_row not in readme_text:
+            errors.append(f"{readme_path}: missing or stale table row ({expected_row!r}).")
 
-    # Check total line
-    expected_total = f"**Total: {vc_count + tv_count + tk_count + pr_count + sp_count + av_count} entries.**"
+    expected_total = f"**Total: {total_expected} entries.**"
     if expected_total not in readme_text:
         errors.append(
             f"{readme_path}: missing or stale total line ({expected_total!r})."

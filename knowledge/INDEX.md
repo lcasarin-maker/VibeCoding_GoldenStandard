@@ -9,6 +9,8 @@ This folder holds **operational protocols**, not catalog content. The catalogs a
 - [`INGESTION_PROTOCOL.md`](INGESTION_PROTOCOL.md) — quality gate: how raw findings become catalog entries
 - [`KNOWLEDGE_SOURCES.md`](KNOWLEDGE_SOURCES.md) — authorized sources and their contracts
 - [`CONSUMER_CONTRACT.md`](CONSUMER_CONTRACT.md) — boundary contract for downstream consumers of GS
+- [`CONSUMER_CONTRACT.yaml`](CONSUMER_CONTRACT.yaml) — machine-readable companion contract for validator freshness and boundary surfaces
+- [`Wiki/Falsifiability_Report.md`](../Wiki/Falsifiability_Report.md) — generated falsifiability coverage report for adversarial vectors
 
 ## How knowledge flows
 

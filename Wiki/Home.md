@@ -12,6 +12,7 @@ Welcome to the Obsidian vault of the **Golden Standard** (GS). This knowledge ba
 - 🕸️ **[[Graph|GS Graph Map]]**: Hubs, intentional orphans, candidate orphans, and local vault impact.
 - 📘 **[Golden Standard Conceptual Framework](../CONCEPTUAL_FRAMEWORK.md)**: Epistemological doctrine, levels, and design foundations.
 - 🧼 **[Repository Hygiene Chapter](../CONCEPTUAL_FRAMEWORK.md#6-Repository-and-Execution-Hygiene)**: Canonical standard for cleanup, naming, clean root, and organization evidence.
+- 📎 **[[Falsifiability_Report|Falsifiability Report]]**: Current coverage map for adversarial vectors and detector-driven falsifiability review.
 - ⚠️ **[[Vices/VC-056|Hasty deprecation]]**: Mirror vice that avoids moving to `deprecated/` without analysis.
 - 💠 **[[Tokenomics_Index|Tokenomics Index]]**: Separate catalog of efficiency, headroom, and context management (`TK`).
 - 🗺️ **[[Tokenomics_Map|Tokenomics Map]]**: Bridge between the `TK` lens and the principles that shape efficient context use.

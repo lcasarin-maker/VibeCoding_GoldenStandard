@@ -1,0 +1,28 @@
+version: 1
+contract_name: gs_validator_freshness
+purpose: Machine-readable contract for GS boundary and validator freshness.
+scan_prefixes:
+  - scripts/
+  - tests/
+  - Wiki/
+  - knowledge/
+scan_files:
+  - README.md
+  - CONCEPTUAL_FRAMEWORK.md
+banned_tokens:
+  - iTax
+  - Cuenza
+  - Litigare
+  - ControlProcesal
+  - Iudicialis_ControlProcesal
+  - ControlProcesal_POE_v28
+  - poe_normare_itax_handoff_v1
+validator_surfaces:
+  - scripts/validate_golden_standard_catalogs.py
+  - tests/test_validate_golden_standard_catalogs.py
+  - tests/test_validator_freshness.py
+  - README.md
+  - Wiki/Falsifiability_Report.md
+exception_files:
+  - knowledge/CONSUMER_CONTRACT.yaml
+  - knowledge/CONSUMER_CONTRACT.md
