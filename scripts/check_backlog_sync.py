@@ -42,8 +42,11 @@ _DEBT_FILES = {
 logger = logging.getLogger("check_backlog_sync")
 
 
-def _staged_files() -> list[str]:
-    """Return staged file paths from `git diff --cached`."""
+def _staged_files() -> list[str] | None:
+    """Return staged file paths from `git diff --cached`.
+
+    Returns None when the staging area cannot be inspected safely.
+    """
     try:
         out = subprocess.run(
             ["git", "diff", "--cached", "--name-only"],
@@ -54,7 +57,7 @@ def _staged_files() -> list[str]:
         ).stdout
     except (OSError, subprocess.CalledProcessError) as exc:
         logger.warning("git diff --cached failed: %s", exc)
-        return []
+        return None
     return [ln.strip() for ln in out.splitlines() if ln.strip()]
 
 
@@ -278,7 +281,14 @@ def main() -> int:
                 )
                 return 1
         state_text = _read_state_text()
-        ok, reason = check_backlog_sync(_staged_files(), state_text, args.message_file or "")
+        staged = _staged_files()
+        if staged is None:
+            print(
+                "❌ [BACKLOG VC-073] no se pudo inspeccionar el staging de forma segura.",
+                file=sys.stderr,
+            )
+            return 1
+        ok, reason = check_backlog_sync(staged, state_text, args.message_file or "")
         if ok:
             print(f"✅ [BACKLOG VC-073] {reason}", file=sys.stderr)
             return 0
@@ -290,7 +300,14 @@ def main() -> int:
         return 1
 
     state_text = _read_state_text()
-    ok, reason = check_backlog_sync(_staged_files(), state_text, args.message_file or "")
+    staged = _staged_files()
+    if staged is None:
+        print(
+            "❌ [BACKLOG VC-073] no se pudo inspeccionar el staging de forma segura.",
+            file=sys.stderr,
+        )
+        return 1
+    ok, reason = check_backlog_sync(staged, state_text, args.message_file or "")
     if ok:
         print(f"✅ [BACKLOG VC-073] {reason}", file=sys.stderr)
         return 0

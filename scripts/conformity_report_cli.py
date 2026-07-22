@@ -12,7 +12,7 @@ import io
 from pathlib import Path
 
 # Force UTF-8 output on Windows
-if sys.platform == "win32":
+if sys.platform == "win32" and "pytest" not in sys.modules:
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8")
 
@@ -92,8 +92,11 @@ def main():
 
         return 0
 
-    except Exception as e:
-        print(f"❌ Error generating report: {e}", file=sys.stderr)
+    except (FileNotFoundError, OSError, RuntimeError, TypeError, ValueError) as e:
+        print(
+            f"❌ Error generating report: {type(e).__name__}: {e}",
+            file=sys.stderr,
+        )
         return 1
 
 

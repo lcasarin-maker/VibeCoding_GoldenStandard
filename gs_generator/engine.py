@@ -2867,9 +2867,6 @@ def main():
 if __name__ == "__main__":
     try:
         main()
-    except Exception:
-        import traceback
-
-        print("Error compiling audit report:", file=sys.stderr)
-        traceback.print_exc(file=sys.stderr)
+    except (FileNotFoundError, OSError, RuntimeError, TypeError, ValueError) as exc:
+        print(f"Error compiling audit report: {type(exc).__name__}: {exc}", file=sys.stderr)
         sys.exit(1)

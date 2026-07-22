@@ -58,8 +58,8 @@ def main() -> int:
         logger.error("GS source not found: %s", exc)
         print(f"[ERROR] Golden Standard no encontrado: {exc}")
         return 1
-    except Exception as exc:
-        logger.error("Error inesperado al cargar GS: %s", exc, exc_info=True)
+    except (OSError, UnicodeError, ValueError) as exc:
+        logger.error("Error al cargar GS: %s", exc)
         print(f"[ERROR] Fallo inesperado: {exc}")
         return 1
     try:
@@ -106,7 +106,7 @@ def main() -> int:
             if not content.strip():
                 raise ValueError(f"Fragmento generado vacío: {filename}")
             (GOLDEN_ROOT / filename).write_text(content, encoding="utf-8")
-    except (FileNotFoundError, KeyError, ValueError) as exc:
+    except (FileNotFoundError, KeyError, OSError, TypeError, ValueError) as exc:
         logger.error("Error al procesar catálogos GS: %s", exc)
         print(f"[ERROR] Fallo al procesar catálogos: {exc}")
         return 1

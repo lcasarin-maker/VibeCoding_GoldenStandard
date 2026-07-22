@@ -6,7 +6,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from gs_generator.cli import main
+from gs_generator.cli import main as generate_main
 from gs_generator import engine as _engine
 from gs_generator.engine import (
     GRAPH_MARKDOWN,
@@ -51,12 +51,14 @@ def write_graph_artifacts(mapped_database=None):
             setattr(_engine, name, value)
 
 
-if __name__ == "__main__":
+def main(argv: list[str] | None = None) -> int:
+    """Run the GS generator CLI with a narrower, diagnostic-friendly error gate."""
     try:
-        raise SystemExit(main())
-    except Exception:
-        import traceback
+        return generate_main(argv)
+    except (FileNotFoundError, OSError, RuntimeError, TypeError, ValueError) as exc:
+        print(f"Error compiling audit report: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return 1
 
-        print("Error compiling audit report:", file=sys.stderr)
-        traceback.print_exc(file=sys.stderr)
-        raise SystemExit(1)
+
+if __name__ == "__main__":
+    raise SystemExit(main())
