@@ -1,5 +1,19 @@
 ﻿# HANDOFF — VibeCoding Golden Standard
-**Agent:** Claude | **Date:** 2026-07-14 | **Branch:** master
+**Agent:** Claude | **Date:** 2026-07-23 | **Branch:** master
+
+---
+
+## SYNC 2026-07-23 (G4 + GS-TAX-001 re-registered)
+
+**NOW**
+- Auditoría de historia git (pedida por Luis) encontró dos ítems de `BACKLOG.md` borrados sin evidencia real de resolución el 2026-07-20: `G4` (corpus de regresión de incidentes, nunca implementado en ningún commit) y `GS-TAX-001` (verificación formal de cobertura Falsifiability, cerrado dos veces el mismo día sin correr el chequeo formal que su propio criterio de cierre exige — solo "88 passed" genérico como justificación).
+- Ambos re-registrados en `BACKLOG.md` con el detalle de la verificación 2026-07-23.
+
+**VERIFY**
+- `Wiki/Falsifiability_Report.md` existe con 479 entradas clasificadas (`scripts/classify_falsifiability.py`), pero el conteo no concilia obviamente con la cifra original citada en GS-TAX-001 ("363→320+") — pendiente de reconciliación formal.
+
+**BLOCKERS**
+- Ninguno para el registro; G4/GS-TAX-001 en sí mismos son deuda abierta sin bloqueo externo.
 
 ---
 
